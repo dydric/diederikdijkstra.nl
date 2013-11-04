@@ -1,0 +1,695 @@
+//	TITELS
+
+	h1, h2, h3, h4, h5{
+		font-family: $titel;
+		line-height: $titlelineheight;
+		font-weight: bold;
+		color: $donkerdergrijs;
+		margin-bottom: .2em;
+		a{
+			text-decoration: none;
+		}
+	}
+
+	h1{	
+		@include font-size(24);
+		margin-bottom: $margin-bottom;
+		@include mq($smalltablet, false) {
+			@include font-size(32);
+		}
+		@include mq($desktop, true) {
+			@include font-size(36);
+		}
+	}
+
+	h2{
+		@include font-size(18);
+		@include mq($smalltablet, false) {
+			@include font-size(22);
+		}
+		@include mq($desktop, true) {
+			@include font-size(24);
+		}
+	}
+	
+	h3{
+		@include font-size(16);
+		@include mq($smalltablet, false) {
+			@include font-size(20);
+		}
+		@include mq($desktop, true) {
+			@include font-size(22);
+		}
+	}
+	
+	h4{
+		@include font-size(14);
+		@include mq($smalltablet, false) {
+			@include font-size(16);
+		}
+		@include mq($desktop, true) {
+			@include font-size(18);
+		}
+	}
+	
+	h5{
+		@include font-size(14);
+		@include mq($smalltablet, false) {
+			@include font-size(16);
+		}
+		@include mq($desktop, true) {
+			@include font-size(18);
+		}
+	}
+
+//	PARAGRAAF
+
+	p{
+		margin: 0 0 $margin-bottom;
+		&.inleiding{
+			@include font-size(14);
+			line-height: $lineheight;
+			color: $donkergrijs;
+			@include mq($smalltablet, false){
+				@include font-size(16);
+			}
+			@include mq($tablet, true){
+				@include font-size(18);
+			}
+		}
+	}
+
+	sub{ font-size: 80%; position: relative; top: 3px; }
+	sup{ font-size: 80%; position: relative; top: -3px;}
+
+//	OPSOMMINGEN
+
+	.opsomming{
+		margin: 0 0 $margin-bottom 24px;
+		li{
+			color: lighten($textcolor, 25);
+			span{
+				color: $textcolor;
+			}
+		}
+		&.articles, &.calendar{
+			list-style: none;
+			margin: 0 0 $margin-bottom;
+			border-top: 1px solid $lichtergrijs;
+			line-height: $altlineheight;
+			li{
+				border-bottom: 1px solid $lichtergrijs;
+				a{
+					display: block; padding: 5px 0;
+					text-decoration: none;
+					span.titel{
+						color: $accent;
+						display: block;
+						margin-bottom: 5px;
+					}
+					span.date, span.location{
+						display: block;
+						color: $grijs;
+						@include font-size(12);
+					}
+					&:hover span.titel{
+						color: $hoveraccent;
+					}
+				}
+			}
+		}
+	}
+
+//	LINKS
+
+	a{
+		color: $accent;
+		&:hover{
+			color: $hoveraccent;
+		}
+	}
+
+	a.zoekWoord{
+		text-decoration: none;
+		background: $info;
+		padding: 3px;
+	}
+
+	// BUTTON
+	
+	a.btn, button{
+		position: relative; top: $margin-bottom / 2;
+		background: $accent; display: inline-block;
+		margin-bottom: $margin-bottom;
+		color: $wit;
+		padding: 5px 10px;
+		@include font-size(14);
+		font-family: $titel;
+		line-height: $altlineheight;
+		font-weight: bold;
+		text-decoration: none;
+		white-space: nowrap;
+		@include rounded(4px);
+		@include transition(all, .2, ease);
+		&:hover{
+			background: $hoveraccent;
+		}
+		@include mq($smalltablet, true) {
+			@include font-size(18);
+			padding: 8px 10px;
+		}
+		
+		
+		// TWITTER, FACEBOOK, LINKEDIN BUTTONS
+		&.twitter, &.facebook, &.linkedin{
+			top: 0;
+			color: $wit;
+		}
+		&.twitter{
+			background: $twitter;
+			&:hover{
+				background: darken($twitter, 10);
+			}
+		}
+		&.facebook{
+			background: $facebook;
+			&:hover{
+				background: darken($facebook, 10);
+			}
+		}
+		&.linkedin{
+			background: $linkedin;
+			&:hover{
+				background: darken($linkedin, 10);
+			}
+		}
+	}
+
+//	AFBEELDINGEN
+
+	figure{
+		margin: 0 auto $margin-bottom;
+		max-width: 100%;
+		clear: both;
+		
+		@include mq($smalltablet, true) {
+			&.left{
+				float: left;
+				display: inline;
+				clear: none;
+				max-width: 49%;
+				margin: 0 2% $margin-bottom 0;
+			}
+			&.right{
+				float: right;
+				display: inline;
+				clear: none;
+				max-width: 49%;
+				margin: 0 0 $margin-bottom 2%;
+			}
+			&.noMargin{
+				margin: 0 0 $margin-bottom;
+			}
+		}
+		
+		img{
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+		
+		figcaption{
+			display: block; margin: 6px auto 0;
+			text-align: center;
+			@include font-size(12);
+			line-height: $lineheight;
+			color: lighten($textcolor, 25);
+		}
+	}
+
+//	YOUTUBE
+
+	.video{
+		float: left; display: block; clear: left;
+		width: 100%;
+		margin: 0 0 $margin-bottom;
+		
+		.videoWrapper{
+			position: relative; overflow: hidden;
+			width: 100%; height: 0;
+			margin: 0 auto; padding: 0 0 56.25%; /* 16/9 ratio*/ 
+		
+			iframe, object, embed{
+				position: absolute; top: 0; left: 0;
+				width: 100% !important; height: 100% !important;
+			}
+		}
+	}
+
+//	ARTIKELEN
+
+	.info{
+		position: relative; top: - $margin-bottom / 2;
+		margin-bottom: $margin-bottom / 2;
+		color: $grijs;
+		@include font-size(12);
+		line-height: $lineheight;
+		span{
+			display: block;
+			span{
+				display: none;
+			}
+		}
+		@include mq($smalltablet, true){
+			@include font-size(14);
+			span span{
+				display: inline;
+			}
+		}
+	}
+
+	article{
+		margin-bottom: $margin-bottom / 2;
+		display: block; 
+		border-bottom: 1px solid $lichtergrijs;
+		padding-bottom: $margin-bottom / 2;
+		clear: both;
+		&.first{
+			border-top: 1px solid $lichtergrijs;
+			padding-top: $margin-bottom / 2;
+		}
+		&.last{
+			margin-bottom: $margin-bottom;
+		}
+		@include mq($smalltablet, true) {
+			margin-bottom: $margin-bottom;
+			padding-bottom: 20px;
+			&.first{
+				padding-top: 20px;
+			}
+		}
+		&.image{
+			position: relative;
+			.imgurl{
+				display: block;
+				text-align: center;
+				margin-bottom: $margin-bottom / 2;
+				img{
+					display: block;
+					width: 100%;
+					max-width: 300px;
+					margin: 0 auto;
+				}
+			}
+			@include mq($mobile, false){
+				padding-left: 180px; min-height: 110px;
+				.imgurl{
+					position: absolute; left: 0; top: 0;
+					max-width: auto; width: 160px; margin: 0;
+					img{
+						width: 160px; max-width: auto;
+					}
+				}
+				&.first .imgurl{
+					top: 20px;
+				}
+			}
+			
+			@include mq($smalltablet, true) {
+				padding-left: 220px; min-height: 140px;
+				.imgurl{
+					position: absolute; left: 0; top: 0;
+					width: 200px; max-width: auto; margin: 0;
+					img{
+						width: 200px; max-width: auto;
+					}
+				}
+				&.first .imgurl{
+					top: 20px;
+				}
+			}
+		}
+		
+		&.agenda{
+			padding-left: 60px !important; min-height: 60px !important;
+			position: relative;
+			.imgurl, .placeholder{
+				position: absolute; left: 0; top: 0;
+				max-width: auto; width: 50px !important; margin: 0;
+				
+				img{
+					display: block;
+					width: 50px !important;
+					margin: 0 auto;
+				}
+			}
+			.placeholder{
+				font-size: 30px;
+				padding: 8px 0 12px;
+				height: 30px !important;
+			}
+			&.first .imgurl, &.first .placeholder{
+				top: $margin-bottom / 2;
+				@include mq($smalltablet, true){
+					top: $margin-bottom;
+				}
+			}
+			.placeholder{
+				background: $lichtergrijs;
+				height: 50px;
+				text-align: center;
+				color: $wit;
+				font-weight: bold;
+			}
+		}
+		
+		h3{
+			margin-bottom: .2em;
+		}
+		p{
+			margin: 0;
+		}
+		.info{
+			top: 0;
+		}
+	}
+
+	// PAGING
+	
+	ul.paging{
+		float: right; display: inline;
+		margin: 0 0 $margin-bottom;
+		li{
+			float: left;
+			display: inline;
+			a, span{
+				display: block; padding: 0 3px 2px; margin: 0 2px 2px 0;
+				text-decoration: none; font-weight: normal
+			}
+			a:hover{
+				text-decoration: underline;
+			}
+			span{
+				color: $grijs;
+			}
+			&.current a{
+				padding: 0 8px 2px;
+				color: $wit; background: $accent;
+				cursor: default;
+				text-decoration: none;
+			}
+			&.jump{
+				font-weight: normal;
+				color: $grijs; padding: 0 3px; 
+			}
+			&.previous, &.next{
+				display: none;
+				@include mq($smalltablet, true){
+					display: inline;
+					aside &{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+//	TABELLEN
+
+	table{
+		margin-bottom: $margin-bottom;
+		width: 100%;
+		text-align: left;
+		color: $donkergrijs;
+
+		tr{
+			td, th{
+				padding: 3px 5px;
+				border: 1px solid $lichtgrijs;
+				@include font-size(11);
+				line-height: $altlineheight;
+				font-weight: normal;
+				text-align: left;
+				@include mq($smalltablet, true){
+					padding: 5px;
+					@include font-size(13);
+				}
+			}
+
+			th, td.first{
+				background-color: darken($lichtergrijs, 3) !important;
+				font-weight: bold;
+				color: darken($donkergrijs, 10%);
+			}
+
+			&.odd td, td.even{
+				background-color: lighten($lichtergrijs, 3);
+			}
+		}
+	}
+
+//	FORMULIER
+
+	input[type="radio"] {    vertical-align: text-bottom; }
+	input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+
+	#content form{
+		float: left; display: inline; clear: both;
+	}
+	
+	form{
+		margin: 0; padding: 0;
+		clear: both;
+		width: 100%;
+	}
+
+	.formulier {
+		clear: both;
+		margin-bottom: $margin-bottom; 
+		overflow: hidden;
+		background: lighten($lichtergrijs, 5);
+		border: 1px solid $lichtergrijs;
+		padding: 10px;
+	
+		.clearfix {
+			margin-bottom: $margin-bottom / 2; zoom: 1;
+			&:before, &:after {
+				display: table;
+				content: "";
+				zoom: 1;
+			}
+			&:after {
+				clear: both;
+			}
+		}
+
+		label{
+			float: left; display: inline;
+			width: 100%; padding-top: 0; margin-bottom: 3px;
+			line-height: $altlineheight;
+			font-family: $font;
+			color: $donkerdergrijs;
+			text-align: left;
+			//@include font-size(13);
+
+			.required{
+				@include font-size(18);
+				color: $error;
+			}
+		}
+		
+		.input{
+			clear: left;
+			margin-left: 0;
+			
+			.inputs-list {
+				margin: 0 0 5px;
+				width: 100%;
+				li{
+					display: block;
+					padding: 0;
+					width: 100%;
+				}
+				label {
+					display: block;
+					float: none;
+					width: auto;
+					padding: 0 !important;
+					margin-left: 20px;
+					line-height: 18px;
+					text-align: left !important;
+					white-space: normal;
+					width: 92% !important;
+				}
+				&:first-child{
+					padding-top: 6px;
+				}
+				input[type=radio], input[type=checkbox] {
+					margin-bottom: 0;
+					margin-left: -20px;
+					float: left;
+				}
+			}
+		}
+		
+		input, select, textarea{
+			display: inline-block;
+			@include font-size();
+			font-family: $font;
+			font-weight: normal;
+			line-height: normal;
+			width: 97%; height: 18px; padding: 4px 1%;
+			color: $donkergrijs; border: 1px solid $lichtgrijs;
+			@include rounded(3px);
+		}
+	
+		input, textarea{
+			@include transition(all, .2, linear);
+			@include box-shadow(inset 0 1px 3px rgba(0,0,0,.1));
+			&:focus {
+				outline: 0;
+				border-color: lighten($grijs, 10%);
+				@include box-shadow(0 0 8px rgba(0,0,0,.2));
+			}
+			&.mini{width: 50px !important;}
+			&.small{ width: 80px !important;}
+			&.placeholder{
+				color: $grijs;
+				font-weight: normal;
+			}
+		}
+	
+		textarea {
+			height: auto; overflow-y: auto;
+			resize: vertical;
+			width: 97%;
+			height: 140px; max-height: 400px;
+		}
+	
+		select{
+			height: 27px;
+			*height: auto;
+			line-height: 27px;
+			*margin-top: 4px;
+			padding: initial; width: 100%;
+			&.mini{width: 60px !important;}
+			&.small{width: 90px !important;}
+			&:focus{
+				@include box-shadow(none);
+				outline: 1px dotted $donkergrijs;
+			}
+		}
+	
+		input{
+			&[type=checkbox], &[type=radio]{
+				cursor: pointer;
+				width: auto !important; height: auto !important;
+				padding: 0; margin: 3px 0;
+				*margin-top: 0;
+				line-height: normal;
+				border: none;
+			}
+			.ie9 &[type=checkbox]{
+				position: relative; top: -1px;
+			}
+	
+			&[type=file]{
+				background-color: $wit;
+				padding: initial;
+				border: initial;
+				line-height: initial;
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				box-shadow: none;
+				&:focus{
+					@include box-shadow(none);
+					outline: 1px dotted $donkergrijs;
+				}
+			}
+		}
+	
+		button{
+			top: 5px;
+			cursor: pointer;
+			border: 0; outline: 0;
+			//background: $oranje;
+			margin: 0;
+			-webkit-font-smoothing: antialiased;
+		}
+	
+		//ERROR
+		.clearfix.error{
+			label, input, textarea{
+				color: $error;
+			}
+			input, textarea, select {
+				border-color: $error;
+				&:focus{
+					@include box-shadow(0 0 6px lighten($error,25%));
+				}
+			}
+		}
+		
+		@include mq($smalltablet, false) {
+			label{
+				@include font-size(14);
+			}
+			#content &{
+				label{
+					padding-top: 6px;
+					margin-bottom: 0;
+					width: 30%;
+					text-align: right;
+				}
+				.input{
+					clear: none;
+					margin-left: 32%;
+				}
+				
+				input{
+					width: 70%;
+				}
+				select{
+					width: 72%;
+				}
+				textarea{
+					height: 200px; width: 90%;
+				}
+				button{
+					margin-left: 32%;
+				}
+			}
+		}
+		
+		.lt_ie9 #content &{
+			label{
+				padding-top: 6px;
+				margin-bottom: 0;
+				width: 30%;
+				text-align: right;
+			}
+			.input{
+				clear: none;
+				margin-left: 32%;
+			}
+			
+			input{
+				width: 70%;
+			}
+			select{
+				width: 72%;
+			}
+			textarea{
+				height: 200px; width: 90%;
+			}
+			button{
+				margin-left: 32%;
+			}
+		}
+	}
+
+	:-moz-placeholder {color: $grijs;}
+	::-moz-placeholder {color: $grijs;}
+	::-webkit-input-placeholder {color: $grijs;}
+	
+	
