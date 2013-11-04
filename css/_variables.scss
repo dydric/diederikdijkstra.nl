@@ -2,8 +2,8 @@
 
 //	SPRITE
 
-	//$sprites 				: sprite-map("sprites/buttons/*.png", $spacing: 10px);
-	//$sprites2x 			: sprite-map("sprites-retina/buttons/*.png", $spacing: 20px);
+	$sprites 				: sprite-map("sprites/buttons/*.png", $spacing: 10px);
+	$sprites2x 				: sprite-map("sprites-retina/buttons/*.png", $spacing: 20px);
 
 //	SFEER
 
@@ -19,6 +19,7 @@
 	$smalltablet			: 600;  //KLEINE TABLETS
 	$tablet					: 768;  //IPAD
 	$desktop				: 1024; //DESKTOP
+	$widescreen 			: 1280; //WIDESCREEN
 
 //	AFMETINGEN
 	
