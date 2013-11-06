@@ -102,16 +102,19 @@
 			}
 		}
 		
-		.social__link--twitter a:hover{color: #2290bf;}
-		.social__link--facebook a:hover{color: #3b5998;}
-		.social__link--tumblr a:hover{color: #2c4762;}
+		.social__link--twitter a:hover  {color: #2290bf;}
+		.social__link--facebook a:hover {color: #3b5998;}
+		.social__link--tumblr a:hover   {color: #2c4762;}
+		.social__link--strava a:hover   {color: #fc4c02;}
+		.social__link--github a:hover   {color: #cacaca;}
+		.social__link--spotify a:hover  {color: #b4d612;}
 
 	ul.posts{
 		clear: both;
 		margin: 0; padding: 0;
 		border-top: 1px solid $lichtgrijs;
-		background: yellow;
 		list-style: none;
+		display: none;
 		li{
 			border-bottom: 1px solid $lichtgrijs;
 			a{
