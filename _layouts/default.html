@@ -1,18 +1,12 @@
 {% include header.html %}
+<body class="default">
 
 <header class="header">
-	<a href="/" class="logo">logo</a>
-	<h1>Diederik</h1>
-	<ul>
-		<li><a href="http://twitter.com" target="_blank">Twitter</a></li>
-		<li><a href="http://www.facebook.com/dydric" target="_blank">Facebook</a></li>
-		<li><a href="http://dydric.tumblr.com" target="_blank">Tumblr</a></li>
-		<li><a href="http://www.strava.com/athletes/dydric" target="_blank">Strava</a></li>
-		<li><a href="http://github.com/dydric" target="_blank">Github </a></li>
-		<li><a href="http://open.spotify.com/user/dydric" target="_blank">Spotify</a></li>
-	</ul>
+	<a href="/" class="header__logo">logo</a>
+	<h1 class="header__title">Diederik</h1>
 	<p><em>'Heit'</em> van Elin en Fedde, ervaren front-end developer gespecialiseerd in CSS3 en HTML5. Momenteel werkzaam bij TRES.</p>
-<header>
+	{% include social.html %}
+</header>
 
 {{ content }}
 

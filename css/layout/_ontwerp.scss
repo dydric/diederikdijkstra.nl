@@ -1,93 +1,121 @@
 	html {
-		font-size : 62.5%; //LATEN STAAN - NIET AANPASSEN
+		font-size : 62.5%;
 		height: 100%; overflow-y: scroll;
 		-webkit-font-smoothing: antialiased;
 		-webkit-overflow-scrolling : touch;
 		-webkit-tap-highlight-color : rgba(0,0,0,0.1);
 		-webkit-text-size-adjust : 100%;
 		-ms-text-size-adjust : 100%;
+		background: $wit;
+		min-height: 100%;
 	}
-	
+
 	body{
 		color: $textcolor;
 		background-color: $bodycolor;
 		font-family: $font;
 		line-height: $lineheight;
-		@include font-size(13);
-		@include mq($smalltablet, false) {
-			@include font-size(14);
+		@include font-size(16);
+		height: 100%;
+		@include mq($tablet, false) {
+			@include font-size(18);
 		}
-		@include mq($tablet, true) {
-			@include font-size(15);
+		@include mq($desktop, false) {
+			@include font-size(20);
+		}
+		@include mq($widescreen, true) {
+			@include font-size(24);
 		}
 	}
 
-//	RAAMWERKEN
+//	HEADER
 
-	#site{
+	.header{
+		float: left; display: block;
+		text-align: center;
+		margin: 0; padding: 0;
 		width: 100%;
-		max-width: 1020px;
-		margin: 0 auto;
-		.lt_ie9 &{
-			width: 1020px;
-			
+		.default &{
+			min-height: 100%;
 		}
 	}
 	
-	.container{
-		display: block; clear: both;
-		margin: $margin-bottom $gutter;
-		
-		#content{
-			width: 100%;
-			max-width: 725px;
-			min-width: 300px - ($gutter * 2);
-			margin: 0 auto $margin-bottom;
+		.header__logo{
+			//position: absolute; left: 50%; top: 20px;
+			display: inline-block;
+			height: 60px; width: 60px;
+			text-indent: -9999px;
+			margin: 2em auto 3em auto;
+			@include opacity(10);
+			@include retina-sprite(logo);
 		}
 		
-		aside{
-			width: 100%;
-			max-width: 400px;
-			margin: 0 auto $margin-bottom;
-		}
-		
-		@include mq($mobile, false){
-			#content{
-				max-width: 400px;
+		.header__title{
+			font-family: $titel;
+			line-height: 0.8;
+			font-weight: normal;
+			color: $donkerdergrijs;
+			@include font-size(80);
+			margin-bottom: .2em;
+			text-transform: uppercase;
+			letter-spacing: 0;
+			clear: both;
+			@include mq($smalltablet, false) {
+				@include font-size(100);
+			}
+			@include mq($tablet, false) {
+				@include font-size(120);
+			}
+			@include mq($desktop, false) {
+				@include font-size(140);
+			}
+			@include mq($widescreen, true) {
+				@include font-size(160);
 			}
 		}
 		
-		@include mq($smalltablet, false){
-			#content{
-				max-width: 725px;
+		.header p{
+			max-width: 24em;
+			margin: 0 auto 1em;
+		}
+
+		.header__social{
+			list-style: none;
+			margin-bottom: 2em;
+			li{	
+				display: inline-block;
+				margin: 0 .2em;
+				a{
+					@include font-size(14);
+					color: $lichtgrijs;
+					text-decoration: none;
+					@include mq($tablet, false) {
+						@include font-size(16);
+					}
+					@include mq($desktop, false) {
+						@include font-size(18);
+					}
+					@include mq($widescreen, true) {
+						@include font-size(20);
+					}
+				}
 			}
 		}
 		
-		@include mq($tablet, true){
-			#content{
-				float: left;
-				width: 65%;
-				margin: 0 0 $margin-bottom;
-			}
-			aside{
-				float: right;
-				width: 32%;
-				margin: 0 0 $margin-bottom;
-			}
-		}
-		.lt_ie9 &{
-			#content{
-				max-width: inherit;
+		.social__link--twitter a:hover{color: #2290bf;}
+		.social__link--facebook a:hover{color: #3b5998;}
+		.social__link--tumblr a:hover{color: #2c4762;}
+
+	ul.posts{
+		clear: both;
+		margin: 0; padding: 0;
+		border-top: 1px solid $lichtgrijs;
+		background: yellow;
+		list-style: none;
+		li{
+			border-bottom: 1px solid $lichtgrijs;
+			a{
+				color: $grijs;
 			}
 		}
 	}
-	
-	nav{
-		margin-bottom: $margin-bottom;
-	}
-	
-	footer{
-		clear:both;
-	}
-	
-	

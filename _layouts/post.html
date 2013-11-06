@@ -1,9 +1,10 @@
 {% include header.html %}
+<body class="post">
 
 <header class="header">
-	<a href="/" class="logo">logo</a>
+	<a href="/" class="header__logo">logo</a>
+	{% if page.image %}<img src="{{ page.image }}" />{% endif %}
 	<h1 class="header__title">{{page.title}}</h1>
-	<img src="{{ page.image }}" />
 </header>
 
 {{ content }}
