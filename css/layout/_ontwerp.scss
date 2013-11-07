@@ -14,7 +14,7 @@
 		color: $textcolor;
 		font-family: $font;
 		line-height: $lineheight;
-		@include font-size(14);
+		@include font-size(16);
 		//height: 100%;
 		@include mq($smalltablet, false) {
 			@include font-size(18);
@@ -105,7 +105,7 @@
 						@include font-size(16);
 					}
 					@include mq($desktop, false) {
-						@include font-size(18);
+						@include font-size(18);3
 					}
 					@include mq($widescreen, true) {
 						@include font-size(20);
@@ -140,8 +140,14 @@
 .main{
 	clear: both;
 	max-width: 1200px;
-	margin: 3em;
+	margin: 3em 1em;
 	padding-bottom: 3em;
+	@include mq($mobile, false){
+		margin: 3em 2em;
+	}
+	@include mq($table, false){
+		margin: 3em;
+	}
 	@include mq($widescreen, true){
 		margin: 3em auto;
 	}
@@ -158,7 +164,7 @@ p, ul, ol, table, figure, pre{
 }
 
 p.intro{
-	@include font-size(16);
+	@include font-size(18);
 	@include mq($smalltablet, false) {
 		@include font-size(20);
 	}
