@@ -42,6 +42,7 @@
 			height: 60px; width: 60px;
 			text-indent: -9999px;
 			margin: 2em auto 3em auto;
+			border-bottom: 0 !important;
 			@include opacity(10);
 			@include retina-sprite(logo);
 		}
