@@ -141,9 +141,12 @@
 .main{
 	clear: both;
 	max-width: 1200px;
-	margin: 3em 2em;
+	margin: 3em 1.5em;
 	padding-bottom: 3em;
-	@include mq($tablet, false){
+	@include mq($mobile, false){
+		margin: 3em 2em;
+	}
+	@include mq($smalltablet, false){
 		margin: 3em;
 	}
 	@include mq($widescreen, true){
@@ -153,9 +156,6 @@
 
 p, ul, ol, table, figure, pre{
 	margin: 0 auto 1em;
-	@include mq($smalltablet, false){
-		max-width: 500px;
-	}
 	@include mq($tablet, true){
 		max-width: 600px;
 	}
