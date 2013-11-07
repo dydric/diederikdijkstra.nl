@@ -1,30 +1,3 @@
-//	TITELS
-
-	h1, h2, h3, h4, h5{
-		font-family: $titel;
-		line-height: $titlelineheight;
-		font-weight: bold;
-		color: $donkerdergrijs;
-		margin-bottom: .2em;
-		a{
-			text-decoration: none;
-		}
-	}
-
-	h1{	
-		@include font-size(24);
-		margin-bottom: 0;
-		text-transform: uppercase;
-		line-height: 1;
-		letter-spacing: 0.05em;
-		@include mq($smalltablet, false) {
-			@include font-size(32);
-		}
-		@include mq($desktop, true) {
-			@include font-size(84);
-		}
-	}
-
 	sub{ font-size: 80%; position: relative; top: 3px; }
 	sup{ font-size: 80%; position: relative; top: -3px;}
 

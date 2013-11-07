@@ -163,7 +163,8 @@ p, ul, ol, table, figure, pre{
 	}
 }
 
-p.intro{
+.main > p:first-child{
+	color: darken($textcolor, 10);
 	@include font-size(18);
 	@include mq($smalltablet, false) {
 		@include font-size(20);
