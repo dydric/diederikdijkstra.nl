@@ -154,7 +154,7 @@
 p, ul, ol, table, figure, pre{
 	margin: 0 auto 1em;
 	@include mq($mobile, false){
-		max-width: 480px;
+		max-width: 400px;
 	}
 	@include mq($smalltablet, true){
 		max-width: 600px;
