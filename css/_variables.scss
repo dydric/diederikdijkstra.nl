@@ -10,8 +10,8 @@
 	$bodycolor 				: #f8f8f8;
 	$textcolor 				: rgb(71,63,63);
 	
-	$accent					: #047199;
-	$hoveraccent			: #F96731;
+	$accent					: #bca474;
+	$hoveraccent			: darken($accent, 15);
 
 //	BREAKPOINTS (MOBILE FIRST)
 
@@ -35,10 +35,6 @@
 	$lichtgrijs 			: lighten($zwart, 75%);
 	$lichtergrijs 			: lighten($zwart, 92%);
 	$wit 					: rgb(255,255,255);
-
-	$twitter				: #35ccff;
-	$facebook				: #03539e;
-	$linkedin				: #217bc1;
 
 	$error					: #E41B13; //ROOD
 	$ok						: #7AB317; //GROEN
