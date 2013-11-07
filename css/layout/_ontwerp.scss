@@ -42,7 +42,6 @@
 			height: 60px; width: 60px;
 			text-indent: -9999px;
 			margin: 2em auto 3em auto;
-			border-bottom: 0;
 			@include opacity(10);
 			@include retina-sprite(logo);
 		}
@@ -175,7 +174,7 @@ p, ul, ol, table, figure, pre{
 	}
 }
 
-a{
+.main > a{
 	color: $accent;
 	text-decoration: none;
 	border-bottom: 1px solid $accent;
