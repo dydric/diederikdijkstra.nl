@@ -14,7 +14,7 @@
 		color: $textcolor;
 		font-family: $font;
 		line-height: $lineheight;
-		@include font-size(14);
+		@include font-size(16);
 		//height: 100%;
 		@include mq($smalltablet, false) {
 			@include font-size(18);
@@ -164,7 +164,7 @@ p, ul, ol, table, figure, pre{
 }
 
 p.intro{
-	@include font-size(16);
+	@include font-size(18);
 	@include mq($smalltablet, false) {
 		@include font-size(20);
 	}
