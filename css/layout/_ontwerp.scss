@@ -149,6 +149,9 @@
 				color: $grijs;
 				border-bottom: 0;
 				padding: .3em;
+				&:hover, &:active{
+					color: $accent;
+				}
 			}
 		}
 	}
