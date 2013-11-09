@@ -54,11 +54,10 @@
 			font-weight: normal;
 			color: $donkerdergrijs;
 			@include font-size(80);
-			margin-bottom: .2em;
 			text-transform: uppercase;
 			letter-spacing: 0;
 			clear: both;
-			margin: 0 1.5em 1em;
+			margin: 0 10px .2em;
 			text-align: center;
 			.post &{
 				@include font-size(48);
