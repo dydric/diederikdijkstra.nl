@@ -47,13 +47,7 @@
 			@include retina-sprite(logo);
 		}
 		
-		.header__title, .header p{
-			margin: 0 1.5em 1em;
-			@include mq($mobile, true){
-				margin: 0 auto 1em;
-			}
-		}
-		
+
 		.header__title{
 			font-family: $titel;
 			line-height: 0.8;
@@ -64,6 +58,8 @@
 			text-transform: uppercase;
 			letter-spacing: 0;
 			clear: both;
+			margin: 0 1.5em 1em;
+			text-align: center;
 			.post &{
 				@include font-size(48);
 			}
@@ -93,11 +89,19 @@
 			}
 		}
 
+		.header p{
+			text-align: center;
+			margin: 0 1.5em 1em;
+			@include mq($mobile, true){
+				margin: 0 auto 1em;
+			}
+		}
+
 		.header__social{
 			list-style: none;
 			margin-bottom: 2em;
 			width: 200px;
-			@include mq($smalltablet, true){
+			@include mq($mobile, true){
 				width: auto;
 			}
 			li{	
