@@ -19,4 +19,4 @@ relative_permalinks: true
 permalink:     /:categories/:title
 paginate_path: 'page:num'
 
-markdown:      rdiscount
+markdown:      redcarpet

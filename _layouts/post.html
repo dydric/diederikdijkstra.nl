@@ -5,7 +5,7 @@
 	<a href="/" class="header__logo">logo</a>
 	{% if page.image %}<img src="{{ page.image }}" />{% endif %}
 	<h1 class="header__title">{{page.title}}</h1>
-	{% include date.html %}
+	<span class="header__date">{% include date.html %}</span>
 </header>
 
 <main class="main">

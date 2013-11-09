@@ -47,6 +47,13 @@
 			@include retina-sprite(logo);
 		}
 		
+		.header__title, .header p{
+			margin: 0 1.5em 1em;
+			@include mq($mobile, true){
+				margin: 0 auto 1em;
+			}
+		}
+		
 		.header__title{
 			font-family: $titel;
 			line-height: 0.8;
@@ -85,15 +92,14 @@
 				}
 			}
 		}
-		
-		.header p{
-			max-width: 24em;
-			margin: 0 auto 1em;
-		}
 
 		.header__social{
 			list-style: none;
 			margin-bottom: 2em;
+			width: 200px;
+			@include mq($smalltablet, true){
+				width: auto;
+			}
 			li{	
 				display: inline-block;
 				margin: 0 .2em;
@@ -124,14 +130,25 @@
 
 	ul.posts{
 		clear: both;
-		margin: 0; padding: 0;
-		border-top: 1px solid $lichtgrijs;
+		margin: .5em 1.5em 1em; padding: 0;
+		border-top: 1px solid $lichtergrijs;
 		list-style: none;
-		display: none;
+		@include mq($mobile, false){
+			margin: .5em auto 1em;
+			max-width: 400px;
+		}
+		@include mq($smalltablet, true){
+			max-width: 600px;
+			margin: .5em auto 1em;
+		}
 		li{
-			border-bottom: 1px solid $lichtgrijs;
+			border-bottom: 1px solid $lichtergrijs;
+			text-align: center;
 			a{
+				display: block;
 				color: $grijs;
+				border-bottom: 0;
+				padding: .3em;
 			}
 		}
 	}
@@ -151,7 +168,7 @@
 	}
 }
 
-p, ul, ol, table, figure, pre{
+h2, h3, h4, h5, h6, p, ul, ol, table, figure, pre{
 	margin: 0 auto 1em;
 	@include mq($mobile, false){
 		max-width: 400px;
@@ -179,5 +196,66 @@ a{
 	&:hover, &:active{
 		color: $hoveraccent;
 		border-bottom: 1px solid $accent;
+	}
+}
+
+h2, h3, h4, h5, h6{
+	font-family: $titel;
+	line-height: 0.8;
+	font-weight: normal;
+	color: $donkerdergrijs;
+	margin-bottom: .2em;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	clear: both;
+	.default &{
+		text-align: center;
+	}
+}
+
+h2{
+	@include font-size(32);
+	@include mq($smalltablet, false) {
+		@include font-size(40);
+	}
+	@include mq($tablet, false) {
+		@include font-size(48);
+	}
+	@include mq($desktop, false) {
+		@include font-size(64);
+	}
+	@include mq($widescreen, true) {
+		@include font-size(76);
+	}
+}
+h3{
+	@include font-size(28);
+	@include mq($smalltablet, false) {
+		@include font-size(36);
+	}
+	@include mq($tablet, false) {
+		@include font-size(40);
+	}
+	@include mq($desktop, false) {
+		@include font-size(48);
+	}
+	@include mq($widescreen, true) {
+		@include font-size(64);
+	}
+}
+
+h4{
+	@include font-size(24);
+	@include mq($smalltablet, false) {
+		@include font-size(32);
+	}
+	@include mq($tablet, false) {
+		@include font-size(36);
+	}
+	@include mq($desktop, false) {
+		@include font-size(40);
+	}
+	@include mq($widescreen, true) {
+		@include font-size(48);
 	}
 }
