@@ -5,7 +5,7 @@ title: Hello world
 
 Na veel WordPress en Tumblr versies op dit domein vond ik het wel weer eens tijd voor wat anders. Ik ben op zoek gegaan naar andere, nieuwe mogelijkheden (lees CMS-en) om m'n website mee te bouwen en te beheren. Uiteindelijk heb ik gekozen voor [Jekyll](http://jekyllrb.com). Hiermee kan ik alle bestanden ’gewoon’ in dropbox beheren en gemakkelijk hosten op github.
 
-Er is op zich niks mis met WordPress, maar ik ben er eigenlijk (voor eigen projecten) wel wat op uitgekeken. Voor m'n eigen site ben ik dan ook al een paar jaar geleden over gestapt naar tumblr. Het steeds maar weer moeten updaten begon me te irriteren, het gebruik van plug-ins vind ik niet optimaal en ook de snelheid liet me nogal eens in de steek. 
+Er is op zich niks mis met WordPress, maar ik ben er eigenlijk wel wat op uitgekeken. Voor m'n eigen site ben ik dan ook al een paar jaar geleden over gestapt naar tumblr. Het steeds maar weer moeten updaten begon me te irriteren, het gebruik van plug-ins vind ik niet optimaal en ook de snelheid liet me nogal eens in de steek. 
 
 Tumblr vind ik echt een fantastisch platform. Ik gebruik het dagelijks (vooral de app) en mag graag eigen thema's maken. Dit blijf ik ook doen en ben van plan (ooit een keer) een eigen thema 'Utforska' te lanceren. Ik heb er toch voor gekozen om naar een ander platform op zoek te gaan en vanaf nu is mijn tumblr-site dan ook (weer) terug te vinden op [dydric.tumblr.com](http://dydric.tumblr.com).
 
