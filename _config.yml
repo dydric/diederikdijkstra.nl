@@ -1,3 +1,14 @@
+name: DiederikDijkstra.nl
+markdown: redcarpet
+
+future:      true
+## show_drafts: nil
+limit_posts: 0
+pygments: true
+
+permalink:     /:categories/:title
+paginate_path: 'page:num'
+
 source:      .
 destination: ./_site
 plugins:     ./_plugins
@@ -5,18 +16,3 @@ layouts:     ./_layouts
 include:     ['.htaccess']
 exclude:     ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
 keep_files:  ['.git','.svn']
-gems:        []
-timezone:    nil
-encoding:    nil
-
-future:      true
-show_drafts: nil
-limit_posts: 0
-pygments:    true
-
-relative_permalinks: true
-
-permalink:     /:categories/:title
-paginate_path: 'page:num'
-
-markdown:      redcarpet
