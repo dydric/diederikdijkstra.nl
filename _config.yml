@@ -1,4 +1,8 @@
-name: DiederikDijkstra.nl
+title:         DiederikDijkstra.nl
+name:          Diederik Dijkstra
+description:   Describe your website here.
+email:         diederikdijkstra@me.com
+
 markdown: redcarpet
 
 future:      true
@@ -13,6 +17,7 @@ source:      .
 destination: ./_site
 plugins:     ./_plugins
 layouts:     ./_layouts
+
 include:     ['.htaccess']
 exclude:     ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
 keep_files:  ['.git','.svn']
