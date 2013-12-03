@@ -14,9 +14,9 @@
 	
 	<title>{% if page.title %} {{ page.title }} | {% endif %}Diederik Dijkstra</title>
 	
-	<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-
+	<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 	<link rel="stylesheet" href="/css/style.css">
+	{% if page.style %}<link rel="stylesheet" href="/css/custom/{{ page.style }}">{% endif %}
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="/js/script.min.js"></script>

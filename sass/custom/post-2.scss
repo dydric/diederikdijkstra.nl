@@ -1,0 +1,34 @@
+//  COMPASS
+	@import "compass";
+	@import "utilities/retina-sprites";
+	
+	@import "mixins";
+	@import "variables";
+
+//	STYLING
+
+body{
+	background: #f8f8f8;
+	//color: #f8f8f8;
+}
+
+.header__title{
+	color: $wit;
+}
+
+.main{
+	h2, h3, h4{
+		//color: yellow;
+	}
+	a{
+		color: red;
+		border-bottom: 1px solid $accent;
+			&:hover, &:active{
+				color: red;
+				border-bottom: 1px solid red;
+			}
+	}
+}
+
+	
+

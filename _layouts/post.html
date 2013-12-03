@@ -14,9 +14,9 @@
 
 {% if page.previous %}
 	{% if page.previous.designs == nil %}
-	<a href="{{ page.previous.url }}" id="readMore">
-		<span class="{{ page.previous.bgcolour }}">Vorige bericht</span>
-		<h2>{{ page.previous.title }}</h2>
+	<a href="{{ page.previous.url }}" class="previous__link">
+		<span>Vorige bericht</span>
+		<h3>{{ page.previous.title }}</h3>
 	</a>
 	{% endif %}
 {% endif %}
