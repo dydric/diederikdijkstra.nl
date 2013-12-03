@@ -181,7 +181,13 @@
 	}
 }
 
-h2, h3, h4, h5, h6, p, ul, ol, table, figure, pre{
+.spotify{
+	width: 100%;
+	height: 80px;
+	display: block;
+}
+
+h2, h3, h4, h5, h6, p, ul, ol, table, figure, pre, iframe{
 	margin: 0 auto 1em;
 	@include mq($mobile, false){
 		max-width: 400px;
@@ -191,8 +197,14 @@ h2, h3, h4, h5, h6, p, ul, ol, table, figure, pre{
 	}
 }
 
+
+
+
+sub{ font-size: 80%; position: relative; top: 3px; }
+sup{ font-size: 80%; position: relative; top: -3px;}
+
 .main > p:first-child{
-	color: darken($textcolor, 10);
+	//color: darken($textcolor, 10);
 	@include font-size(18);
 	@include mq($smalltablet, false) {
 		@include font-size(20);
@@ -224,40 +236,14 @@ h2, h3, h4, h5, h6{
 	.default &{
 		text-align: center;
 	}
+	.main &{
+		padding-top: .5em;
+	}
 }
+
+
 
 h2{
-	@include font-size(32);
-	@include mq($smalltablet, false) {
-		@include font-size(40);
-	}
-	@include mq($tablet, false) {
-		@include font-size(48);
-	}
-	@include mq($desktop, false) {
-		@include font-size(64);
-	}
-	@include mq($widescreen, true) {
-		@include font-size(76);
-	}
-}
-h3{
-	@include font-size(28);
-	@include mq($smalltablet, false) {
-		@include font-size(36);
-	}
-	@include mq($tablet, false) {
-		@include font-size(40);
-	}
-	@include mq($desktop, false) {
-		@include font-size(48);
-	}
-	@include mq($widescreen, true) {
-		@include font-size(64);
-	}
-}
-
-h4{
 	@include font-size(24);
 	@include mq($smalltablet, false) {
 		@include font-size(32);
@@ -270,5 +256,38 @@ h4{
 	}
 	@include mq($widescreen, true) {
 		@include font-size(48);
+	}
+}
+
+h3{
+	@include font-size(20);
+	@include mq($smalltablet, false) {
+		@include font-size(24);
+	}
+	@include mq($tablet, false) {
+		@include font-size(28);
+	}
+	@include mq($desktop, false) {
+		@include font-size(32);
+	}
+	@include mq($widescreen, true) {
+		@include font-size(36);
+	}
+}
+
+
+.previous__link{
+	display: block;
+	background: $wit;
+	border-bottom: 0;
+	text-align: center;
+	padding: 1em 0;
+	&:hover, &:active{
+		border-bottom: 0;
+	}
+	span{
+		font-size: 80%;
+		display: block;
+		margin-bottom: .5em;
 	}
 }
