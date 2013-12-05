@@ -11,14 +11,15 @@
 	<main class="main">
 		{{ content }}
 	</main>
-
-{% if page.previous %}
-	{% if page.previous.designs == nil %}
-	<a href="{{ page.previous.url }}" class="previous__link">
-		<span>Vorige bericht</span>
-		<h3>{{ page.previous.title }}</h3>
-	</a>
+	{% if page.previous %}
+		{% if page.previous.designs == nil %}
+		<div class="previous">
+			<a href="{{ page.previous.url }}" class="previous__link">
+				<span>Vorige bericht</span>
+				{{ page.previous.title }}
+			</a>
+		</div>
+		{% endif %}
 	{% endif %}
-{% endif %}
 
 {% include footer.html %}

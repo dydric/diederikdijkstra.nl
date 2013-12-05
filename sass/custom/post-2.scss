@@ -5,30 +5,43 @@
 	@import "mixins";
 	@import "variables";
 
+//	VARIABLES
+
+	$bodycolor 		: #033649;
+	$textcolor 		: #E8DDCB;
+	$headercolor 	: #CDB380;
+	$titlecolor 	: #F4F4F2;
+
 //	STYLING
 
-body{
-	background: #f8f8f8;
-	//color: #f8f8f8;
-}
-
-.header__title{
-	color: $wit;
-}
-
-.main{
-	h2, h3, h4{
-		//color: yellow;
+	body{
+		color: $textcolor;
+		background-color: $bodycolor;
 	}
-	a{
-		color: red;
-		border-bottom: 1px solid $accent;
-			&:hover, &:active{
-				color: red;
-				border-bottom: 1px solid red;
-			}
+
+	.header__title{
+		color: $headercolor;
 	}
-}
+
+	h2, h3, h4, h5, h6{
+		color: $titlecolor;
+	}
+
+	.header__title{
+		color: $headercolor;
+	}
+
+	.main{
+
+		a{
+			color: red;
+			border-bottom: 1px solid $accent;
+				&:hover, &:active{
+					color: red;
+					border-bottom: 1px solid red;
+				}
+		}
+	}
 
 	
 

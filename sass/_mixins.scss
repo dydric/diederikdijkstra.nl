@@ -44,6 +44,48 @@
 		white-space : nowrap;
 	}
 
+	// Base-font-size
+	@mixin base-font-size($size: 16){
+		@include font-size(round($size));
+		@include mq($smalltablet, false) {
+			@include font-size(round($size + 2));
+		}
+		@include mq($tablet, true) {
+			@include font-size(round($size + 4));
+		}
+	}
+
+	// Header-font-size
+	@mixin header-font-size($size: 80){
+		@include font-size(round($size));
+		@include mq($smalltablet, false) {
+			@include font-size(round($size * 1.25));
+		}
+		@include mq($tablet, false) {
+			@include font-size(round($size * 1.75));
+		}
+		@include mq($desktop, true) {
+			@include font-size(round($size * 2));
+		}
+	}
+
+	// Title-font-size
+	@mixin title-font-size($size: 24){
+		@include font-size(round($size));
+		@include mq($smalltablet, false) {
+			@include font-size(round($size * 1.25));
+		}
+		@include mq($tablet, false) {
+			@include font-size(round($size * 1.5));
+		}
+		@include mq($desktop, true) {
+			@include font-size(round($size * 1.75));
+		}
+	}
+
+
+
+
 	// Opacity
 	@mixin opacity($value: 80) {
 		zoom: 1;  filter: alpha(opacity=$value);

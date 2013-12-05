@@ -5,11 +5,27 @@
 	$sprites 				: sprite-map("sprites/buttons/*.png", $spacing: 10px);
 	$sprites2x 				: sprite-map("sprites-retina/buttons/*.png", $spacing: 20px);
 
+//	STANDAARD KLEUREN
+
+	$zwart					: rgb(0,0,0);
+	$donkerdergrijs 		: lighten($zwart, 10%);
+	$donkergrijs 			: lighten($zwart, 25%);
+	$grijs 					: lighten($zwart, 50%);
+	$lichtgrijs 			: lighten($zwart, 75%);
+	$lichtergrijs 			: lighten($zwart, 92%);
+	$wit 					: rgb(255,255,255);
+
+	$error					: #E41B13; //ROOD
+	$ok						: #7AB317; //GROEN
+	$info					: #FFF2AF; //BOTERGEEL
+
 //	SFEER
 
 	$bodycolor 				: #f8f8f8;
 	$textcolor 				: rgb(71,63,63);
-	
+	$titlecolor 			: lighten($zwart, 25%);
+	$headercolor 			: lighten($zwart, 10%);
+
 	$accent					: #bca474;
 	$hoveraccent			: darken($accent, 15);
 
@@ -26,25 +42,11 @@
 	$gutter					: 20px; //TUSSENRUIMTE
 	$margin-bottom			: 20px; //MARGIN TUSSEN LAYOUTMODELLEN
 
-//	STANDAARD KLEUREN
 
-	$zwart					: rgb(0,0,0);
-	$donkerdergrijs 		: lighten($zwart, 10%);
-	$donkergrijs 			: lighten($zwart, 25%);
-	$grijs 					: lighten($zwart, 50%);
-	$lichtgrijs 			: lighten($zwart, 75%);
-	$lichtergrijs 			: lighten($zwart, 92%);
-	$wit 					: rgb(255,255,255);
-
-	$error					: #E41B13; //ROOD
-	$ok						: #7AB317; //GROEN
-	$info					: #FFF2AF; //BOTERGEEL
 
 //	TYPOGRAFIE
 
 	$lineheight				: 1.5;
-	$altlineheight			: 1.1em; //WORDT OA GEBRUIKT VOOR ONDERSCHRIFT, TABELLEN, BUTTONS, OPSOMMINGEN
-	$titlelineheight		: 1.2em; //WORDT GEBRUIKT VOOR TITELS
 
 	$font					: "ff-tisa-web-pro",serif;
 	$titel					: "league-gothic",sans-serif;
