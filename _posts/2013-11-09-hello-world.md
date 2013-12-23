@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello world
+style: post-1
 --- 
 
 Na veel WordPress en Tumblr versies op dit domein vond ik het wel weer eens tijd voor wat anders. Ik ben op zoek gegaan naar andere, nieuwe mogelijkheden (lees CMS-en) om m'n website mee te bouwen en te beheren. Uiteindelijk heb ik gekozen voor [Jekyll](http://jekyllrb.com). Hiermee kan ik alle bestanden ’gewoon’ in dropbox beheren en gemakkelijk hosten op github.
