@@ -1,15 +1,17 @@
 {% include header.html %}
-<body class="default">
+<body class="index">
 
-<header class="header">
-	<a href="/" class="header__logo">logo</a>
-	<h1 class="header__title">Diederik</h1>
-	<p><em>'Heit'</em> van Elin en Fedde, ervaren front-end developer gespecialiseerd in CSS3 en HTML5. Momenteel werkzaam bij <a href="http://www.tres.nl">TRES</a>.</p>
-	{% include social.html %}
-</header>
+	<div class="default">
+		
+		<header class="header">
+			<a href="/" class="header__logo">logo</a>
+			<h1 class="header__title">Diederik</h1>
+			<p><em>'Heit'</em> van Elin en Fedde, ervaren front-end developer gespecialiseerd in CSS3 en HTML5. Momenteel werkzaam bij <a href="http://www.tres.nl">TRES</a>.</p>
+			{% include social.html %}
+		</header>
 
-<main class="main">
-{{ content }}
-</main>
+		{{ content }}
+
+	</div>
 
 {% include footer.html %}

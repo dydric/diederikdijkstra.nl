@@ -15,14 +15,16 @@
 	</main>
 
 	{% if page.previous %}
-		{% if page.previous.designs == nil %}<section class="previous">
-			<a href="{{ page.previous.url }}" class="previous__link">
-				<span class="previous__title">{{ page.previous.title }}</span>
-				<ul class="previous__meta">
-					<li>{% assign month = page.previous.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}{{ page.previous.date | date: '%e' }} {{ month }} {{ page.previous.date | date: '%Y' }}</li>
-				</ul>
-			</a>
-		</section>{% endif %}
+		{% if page.previous.designs == nil %}<ul class="posts">
+			<li class="post">
+				<a href="{{ page.previous.url }}" class="post__link {{ page.previous.style }}">
+					<span class="post__link__title">{{ page.previous.title }}</span>
+					<ul class="post__link__meta">
+						<li>{% assign month = page.previous.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}{{ page.previous.date | date: '%e' }} {{ month }} {{ page.previous.date | date: '%Y' }}</li>
+					</ul>
+				</a>
+			</li>
+		</ul>{% endif %}
 	{% endif %}
 
 {% include footer.html %}
