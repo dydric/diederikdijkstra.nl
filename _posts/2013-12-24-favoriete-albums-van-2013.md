@@ -12,13 +12,13 @@ Tegenwoordig gaat het een 'klein' beetje anders. M'n collectie vinyl heb ik vijf
 
 <iframe src="https://embed.spotify.com/?uri=spotify:album:7sN6lCgPf1rbZYmA3edMKv" class="spotify" frameborder="0" allowtransparency="true"></iframe>
 
-Het zomeralbum van 2013. Misschien is het allemaal een beetje van hetzelfde en ontbreken er echte hoogtepunten. Het album luistert gewoon super lekker weg, vooral op een zwoele zomeravond. "First Fires", "Cirrus" en "Heaven For The Sinner" met zang van Erykah Badu zijn voor mij de toptracks.
+Voor mij het zomeralbum van 2013. Misschien is het allemaal een beetje van hetzelfde. Het album luistert super lekker weg, vooral op zwoele zomeravonden. "First Fires", "Cirrus" en "Heaven For The Sinner" met zang van Erykah Badu zijn voor mij de toptracks.
 
 ## 2. Darkside - Psychic
 
 <iframe src="https://embed.spotify.com/?uri=spotify:album:7jqNrm1l4wSxNYSjgK7tmF" class="spotify" frameborder="0" allowtransparency="true"></iframe>
 
-Nicolas Jaar is mede verantwoordelijk voor deze prachtig duistere plaat die vol staat met warme electro nummers. Mijn favorieten zijn toch wel "Freak, Go Home" waarbij je langzaam wordt meegezogen, "Paper Trails" met een vleugje Pink Floyd en de 11 minuut durende openingstrack "Golden Arrow".
+Nicolas Jaar is mede verantwoordelijk voor deze mooie duistere plaat die vol staat met warme electro nummers. Mijn favorieten zijn toch wel "Freak, Go Home" waarbij je langzaam wordt meegezogen, "Paper Trails" met een vleugje Pink Floyd en de 11 minuut durende openingstrack "Golden Arrow".
 
 ## 3. Daughter - If You Leave
 
