@@ -23,11 +23,28 @@ module.exports = function(grunt) {
         compass: {
             dist: {
                 options: {
-                    config: 'config.rb'
+                    sassDir: "sass",
+                    cssDir: "css",
+                    imagesDir: "img",
+                    javascriptsDir: "js",
+                    fontsDir: "fonts",
+                    outputStyle: "compressed",
+                    relativeAssets: true
                 }
             }
         },
  
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: "img/"
+                }]
+            }
+        },
+
         watch: {
             sass: {
                 files: 'sass/**/*.scss',
@@ -41,7 +58,7 @@ module.exports = function(grunt) {
  
         browser_sync: {
             files: {
-                src : ['_site/css/*.css']
+                src : ['_site/css/*.css', '_site/css/custom/*.css']
             },
             options: {
                 watchTask: true,
