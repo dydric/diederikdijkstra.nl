@@ -1,7 +1,9 @@
 _drafts/
 _site/
 sass/
+prototype/
+node_modules/
 .DS_Store
 .sass-cache
 codekit-config.json
-prototype/
+
