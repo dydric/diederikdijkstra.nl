@@ -8,18 +8,6 @@ module.exports = function(grunt) {
             }
         },
  
-        // sass: {
-        //     dist: {
-        //         options: {
-        //             outputStyle: 'compressed'
-        //         },
-        //         files: {
-        //             'css/style.css': 'sass/style.scss',
-        //             'css/custom.*css': 'sass/custom.*.scss'
-        //         }
-        //     }
-        // },
- 
         compass: {
             dist: {
                 options: {
@@ -44,7 +32,7 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
+ 
         watch: {
             sass: {
                 files: 'sass/**/*.scss',
