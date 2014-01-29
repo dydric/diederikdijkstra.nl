@@ -39,14 +39,14 @@ module.exports = function(grunt) {
                 tasks: ['compass']
             },
             jekyll: {
-                files: ['_layouts/*.html', '_includes/*.md', 'css/style.css', 'css/custom/*.css'],
+                files: ['_layouts/*.html', '_includes/*.md', 'css/style.css', 'css/custom/*.css', '_posts/*.md'],
                 tasks: ['jekyll']
             }
         },
  
         browser_sync: {
             files: {
-                src : ['_site/css/*.css', '_site/css/custom/*.css']
+                src : ['_site/css/*.css', '_site/css/custom/*.css', '_posts/*.md']
             },
             options: {
                 watchTask: true,
