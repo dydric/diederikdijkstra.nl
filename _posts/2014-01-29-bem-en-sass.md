@@ -28,7 +28,7 @@ Sass *(Syntactically Awesome Stylesheets)* is een precompressor waarmee je css b
 
 Met BEM gebruik je alleen classes en kun je ze zo definiëren dat ze altijd direct aan te roepen zijn in je css. Voor uitgebreide uitleg is het artikel [MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) van [@CSSWizardy](http://twitter.com/csswizardy) een must-read.
 
-**Wat is het probleem nu eigenlijk?**<br>
+**Wat is nu eigenlijk het probleem?**<br>
 Bovenstaand voorbeeld van de `ul` zou je in je .scss-bestand op de volgende manier schrijven:
 
 {% highlight scss %}
@@ -48,7 +48,7 @@ Dit is niet optimaal en ook de output van de css laat veel te wensen over. Je wi
 {% endhighlight %}
 
 ## Sass 3.3
-In Sass 3.3 is dit probleem opgelost. Door het toevoegen van `@at-root` kun je de schrijfwijze gebruiken die je gewend bent in in je .scss-bestanden. Upgraden van Sass doe je in de terminal:
+In Sass 3.3 is dit probleem opgelost. Door het toevoegen van `@at-root` kun je de schrijfwijze gebruiken die je gewend bent in je .scss-bestanden. Upgraden van Sass doe je in de terminal:
 
     gem install sass --pre 
 
@@ -81,7 +81,7 @@ Mooi, maar nog niet ideaal. Je wilt eigenlijk geen extra regels typen, dus ben i
 
 {% endhighlight %}
 
-Dit werkte op zich prima, maar je moest nog te veel code typen. Na enig nadenken en prutsen kwam ik uiteindelijk tot een oplossing die heel veel leek op die van [Una Kravets](http://blog.unakravets.com/post/64113156740/sass-3-3-at-root-bem). Deze was echter nog beknopter (en dus beter) en gebruik ik nu veelvuldig:
+Dit werkte op zich prima, maar je moest nog te veel code typen. Na enig nadenken en prutsen kwam ik uiteindelijk tot een oplossing die heel veel lijkt op die van [Una Kravets](http://blog.unakravets.com/post/64113156740/sass-3-3-at-root-bem). Deze is echter nog beknopter (en dus beter) en gebruik ik tegenwoordig veelvuldig:
 
 {% highlight scss %}
 // __elements
@@ -106,6 +106,6 @@ Dit werkte op zich prima, maar je moest nog te veel code typen. Na enig nadenken
 }
 {% endhighlight %}
 
-Hiermee is de css precies zoals gewenst en hoef je niet de hele class-naam over te typen. Een perfecte manier!? 
+Hiermee is de css precies zoals gewenst en hoef je niet de hele class-naam over te typen. Een perfecte manier?! 
 
-Gebruik je ook BEM in combinatie met Sass dan ben ik erg benieuwd naar jouw bevindingen.
+Gebruik je ook BEM in combinatie met Sass, dan ben ik erg benieuwd naar jouw bevindingen.
