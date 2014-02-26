@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BEM en SASS
+title: BEM in SASS3.3
 style: post-3
 ---
 
