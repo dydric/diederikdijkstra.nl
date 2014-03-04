@@ -1,8 +1,24 @@
 ---
 layout: post
-title: BEM in SASS 3.3
+title: BEM in SASS 3.3 (update)
 style: post-3
 ---
+
+<div class="update">
+<h2>UPDATE</h2>
+<p>Er is een update van Sass (3.3.orc3) waarbij het mogelijk is om BEM op de volgende manier te gebruiken:</p>
+
+{% highlight scss %}
+.block {
+    &__element {
+    }
+    &--modifier {
+    }
+}
+{% endhighlight %}
+
+<p>Kijk voor meer info op: <a href="http://alwaystwisted.com/post.php?s=2014-02-27-even-easier-bem-ing-with-sass-33">http://alwaystwisted.com/post.php?s=2014-02-27-even-easier-bem-ing-with-sass-33</a></p>
+</div>
 
 Iedere front-end developer gebruikt tegenwoordig wel Sass (of Less) voor het schrijven van zijn CSS. Ik kan niet meer zonder. De methode BEM voor het benoemen van CSS classes is voor velen -denk ik- minder bekend. Ik gebruik het veel tegenwoordig. De combinatie van BEM en Sass is vooral ideaal wanneer je met meerdere developers aan grote complexe websites werkt.
 
