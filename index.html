@@ -2,15 +2,4 @@
 layout: default
 ---
 
-<ul class="posts">
-	{% for post in site.posts %}
-	<li class="post">
-		<a href="{{ post.url }}" class="post__link{% if post.style %} {{ post.style }}{% endif %}">
-			<span class="post__link__title">{{ post.title }}</span>
-			<ul class="post__link__meta">
-				<li class="post__link__meta__item">{% assign month = post.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}{{ post.date | date: '%e' }} {{ month }} {{ post.date | date: '%Y' }}</li>
-			</ul>
-		</a>
-	</li>
-	{% endfor %}
-</ul>
+

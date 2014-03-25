@@ -3,12 +3,15 @@ title: 404 - Pagina niet gevonden
 ---
 
 {% include header.html %}
-<body class="default">
+<body class="index">
+	<div class="instagram"></div>
 
-<header class="header">
-	<a href="/" class="header__logo">logo</a>
-	<h1 class="header__title">404</h1>
-	<p>Pagina niet gevonden</p>
-</header>
+	<div class="header">
+		{% include logo.html %}
+		<div class="header__content">
+			<h1 class="header__title">404</h1>
+			<p>Pagina niet gevonden</p>
+		</div>
+	</div>
 
 {% include footer.html %}

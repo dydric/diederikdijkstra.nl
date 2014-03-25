@@ -1,20 +1,19 @@
 {% include header.html %}
 <body class="post">
-	
-	<header class="header">
-		<a href="/" class="header__logo">logo</a>
-		{% if page.image %}<img src="{{ page.image }}" />{% endif %}
-		<h1 class="header__title">{{page.title}}</h1>
-		<ul class="header__meta">
-			<li>{% include date.html %}</li>
-		</ul>
-	</header>
 
-	<main class="main">
+	{% include logo.html %}
+
+	<main class="content">
+		<div class="content__header">
+			<h1 class="title">{{page.title}}</h1>
+			<ul class="meta">
+				<li>{% include date.html %}</li>
+			</ul>
+		</div>
 		{{ content }}
 	</main>
 
-	{% if page.previous %}
+<!--	{% if page.previous %}
 		{% if page.previous.designs == nil %}<ul class="posts">
 			<li class="post">
 				<a href="{{ page.previous.url }}" class="post__link {{ page.previous.style }}">
@@ -25,6 +24,6 @@
 				</a>
 			</li>
 		</ul>{% endif %}
-	{% endif %}
+	{% endif %}-->
 
 {% include footer.html %}
