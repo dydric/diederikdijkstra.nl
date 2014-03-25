@@ -40,6 +40,18 @@ $(function(){
 		e.preventDefault();
 	});
 
+	$(".light").click(function(e) {
+		$('body').toggleClass("light-on ");
+		//$('body').removeClass("light-off");
+		if ($('body').hasClass('light-on')) {
+			$('body').removeClass("complete");
+			$('body').removeClass("light-off");
+		} else {
+			$('body').addClass("light-off");
+		}
+		e.preventDefault();
+	});
+
 	$('.instagram').on('willLoadInstagram', willLoadInstagram);
 	$('.instagram').on('didLoadInstagram', didLoadInstagram);
 	$('.instagram').instagram({
@@ -62,6 +74,7 @@ $(function(){
 */
 		$('.header').css("height", $(window).height());
 		$('.default').css("min-height", $(window).height());
+		//$('.header__content').css("min-height", $(window).height());
 		$('.header').css("min-height", $('.header__content').outerHeight(true));
 
 	}).trigger("resize");
