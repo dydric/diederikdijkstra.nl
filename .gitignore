@@ -1,11 +1,10 @@
 _drafts/
 _site/
 sass/
-js/source
+js/source/
 psd/
 prototype/
 node_modules/
 .DS_Store
 .sass-cache
 codekit-config.json
-

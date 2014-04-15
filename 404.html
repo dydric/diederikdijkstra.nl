@@ -3,15 +3,36 @@ title: 404 - Pagina niet gevonden
 ---
 
 {% include header.html %}
-<body class="index">
-	<div class="instagram"></div>
 
-	<div class="header">
-		{% include logo.html %}
-		<div class="header__content">
-			<h1 class="header__title">404</h1>
-			<p>Pagina niet gevonden</p>
+<header class="header">
+		<h1 class="title title--h1">Diederik</h1>
+		{% include social.html %}
+	</header>
+
+	<aside class="slider">
+		<div class="carousel">
+			<div class="carousel__item carousel__item--first">
+				<div class="carousel__item__text">
+					<h2><span>Fedde z'n eerste verjaardag</span></h2>
+				</div>
+			</div>
+			<div class="carousel__item carousel__item--second">
+				<div class="carousel__item__text">
+					<h2><span>Groot liefhebber van wielrennen</span></h2>
+				</div>
+			</div>
 		</div>
-	</div>
+	</aside>
+	
+	<main class="main">
+		<section class="intro">
+			<p>'Heit' van Elin en Fedde, ervaren front-end developer gespecialiseerd in CSS3 en HTML5. Momenteel werkzaam bij TRES.</p>
+		</section>
+		<div class="feeds">
+			<section class="instagram" id="instagram"></section>
+			<section class="tweets" id="tweets"></section>
+			<section class="lastfm" id="lastfm"></section>
+		</div>
+	</main>
 
 {% include footer.html %}
