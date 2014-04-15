@@ -1,86 +1,93 @@
-if (/*@cc_on!@*/false && document.documentMode === 10) {
-	document.documentElement.className+=' ie10';
-}
+twitterFetcher.fetch('354251581652336640', 'tweets', 6, true, true, false);
 
-var mobile = (/iphone|ipod|android|blackberry|mini|windowssce|palm/i.test(navigator.userAgent.toLowerCase()));
-var isiPad = navigator.userAgent.match(/iPad/i) !== null;
+$(function(){
 
-function createPhotoElement(photo) {
-	var innerHtml = $('<img>')
-		.addClass('instagram__image')
-		.attr('src', photo.images.low_resolution.url);
-	return $('<li>')
-		.addClass('instagram__item')
-		.attr('id', photo.id)
-		.append(innerHtml);
-}
-
-function willLoadInstagram() {
-	$("body").addClass("start");
-}
-
-function didLoadInstagram(event, response) {
-	var that = this;
-	$.each(response.data, function(i, photo) {
-		$(that).append(createPhotoElement(photo));
-	});
-	$(that).find('.instagram__item').wrapAll("<ul class='instagram__list'></ul>");
-
-	$(that).imagesLoaded( function() {
-		$('body').addClass('complete');
-	});
-}
-
-$(function(){ 
-
-	setTimeout(function(){ $("body").addClass("start"); }, 2000);
-
-	$(".header__link").click(function(e) {
-		$('body').scrollTo('.default', 400);
+	$(".toggle-menu").click(function(e) {
+		$("body").toggleClass("show-social");
+		$(this).toggleClass("active");
 		e.preventDefault();
 	});
 
-	$(".light").click(function(e) {
-		$('body').toggleClass("light-on ");
-		//$('body').removeClass("light-off");
-		if ($('body').hasClass('light-on')) {
-			$('body').removeClass("complete");
-			$('body').removeClass("light-off");
-		} else {
-			$('body').addClass("light-off");
-		}
-		e.preventDefault();
-	});
-
-	$('.instagram').on('willLoadInstagram', willLoadInstagram);
+//	INSTAGRAM
+	//$('.instagram').on('willLoadInstagram', willLoadInstagram);
 	$('.instagram').on('didLoadInstagram', didLoadInstagram);
 	$('.instagram').instagram({
-		userId: 43506,
+		userId:      43506,
 		accessToken: '43506.641afef.c6e98b8b3c524d669a742ad8a8387e79',
-		clientId: '641afef0e84241348544153eb29093e2',
-		count: 32
+		clientId:    '641afef0e84241348544153eb29093e2',
+		count:       6
+	});
+
+//	LAST.FM 
+	$('.lastfm').lfm({
+		APIkey:   'b81d7780087dd93aab8297803dda33c8',
+		User:     'dydric',
+		Behavior: 'click',
+		limit:    8,
+		period:   '12month'
+	});
+
+//	OWL-CAROUSEL
+	$(".carousel").owlCarousel({
+		navigation:            false,
+		responsiveBaseWidth:   '.header',
+		slideSpeed:            300,
+		paginationSpeed:       400,
+		singleItem:            true,
+		lazyLoad:              true,
+		responsiveRefreshRate: 10,
+		//autoPlay:            5000,
+		beforeInit : function(elem){
+			random(elem);
+		},
+		afterAction: function(el){
+			this.$owlItems.removeClass('active')
+			this.$owlItems.eq(this.currentItem).addClass('active')
+		}
+	});
+
+});
+
+$(window).load(function(){
+
+	$('.tweet__list .tweet__list__item:odd').addClass('tweet__list__item--even');
+	$('.tweet__list .tweet__list__item:even').addClass('tweet__list__item--odd'); 
+
+	// ADD TITLES TO FEEDS
+	// if ($('.tweets').find('.tweet__list').length){
+	// 	$(this).prepend("<h2 class='title title--h2 title--tweets'>(Re)Tweets</h2>");
+	// }
+	// if ($('.lastfm').find('.album').length){
+	// 	$(this).prepend("<h2 class='title title--h2 title--lastfm'>TopAlbums</h2>");
+	// }
+
+	//INSTAGRAMTITEL ZIT IN DIDLOADINSTAGRAM FUNCTIE
+	$('.tweets').prepend("<h2 class='title title--h2 title--tweets'>(Re)Tweets</h2>");
+	$('.tweets').append("<div class='tweets__ruler'></div>");
+	$('.lastfm').prepend("<h2 class='title title--h2 title--lastfm'>TopAlbums</h2>");
+	$('.feeds').addClass('show');
+
+	// OPEN LINKS DIE NAAR ANDERE WEBSITES GAAN IN NIEUW VENSTER
+	$('a').each(function() {
+		var a = new RegExp('/' + window.location.host + '/');
+		if(!a.test(this.href)) {
+			$(this).click(function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				window.open(this.href, '_blank');
+			});
+		}
 	});
 
 	$(window).on("resize", function() {
-/*
-		var wi = $(window).width();
-		if (wi < 1024){
-			$('.index .header').removeAttr('style');
-			$('.index .header').css("height", $(window).height());
-		} else {
-			$('.index .header').removeAttr('style');
-			$('.index .header').css("min-height", $(window).height());
-		}
-*/
-		$('.header').css("height", $(window).height());
-		$('.default').css("min-height", $(window).height());
-		//$('.header__content').css("min-height", $(window).height());
-		$('.header').css("min-height", $('.header__content').outerHeight(true));
+		$('.carousel__item').each(function() {
+			$(this).css("height", $('.slider').height());
+		});
+
+		//equalHeight($(".tweet__list__body"));
 
 	}).trigger("resize");
 
-}); // END FUNCTION
-
-$(window).load(function(){
+	$('body').addClass('ready');
 
 });

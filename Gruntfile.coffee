@@ -22,9 +22,9 @@ module.exports = (grunt) ->
       dist:
         src: [
           'js/source/plugins/modernizr.js',
-          'js/source/plugins/prefixfree.js',
           'js/source/plugins/*.js',
           'js/source/plugins.js',
+          'js/source/functions.js',
           'js/source/script.js'
         ]
         dest: 'js/script.concat.js'
