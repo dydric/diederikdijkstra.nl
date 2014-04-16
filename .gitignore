@@ -2,9 +2,12 @@ _drafts/
 _site/
 sass/
 js/source/
+js/script.concat.js
 psd/
 prototype/
 node_modules/
 .DS_Store
 .sass-cache
 codekit-config.json
+Gruntfile.coffee
+package.json
