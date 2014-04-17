@@ -1,6 +1,8 @@
 _drafts/
 _site/
 sass/
+img/sprite/
+img/sprite@2x/
 js/source/
 js/script.concat.js
 psd/
