@@ -1,0 +1,8 @@
+Gruntfile.coffee
+package.json
+node_modules
+.sass-cache
+.DS_Store
+.ftppass
+.grunt
+src
