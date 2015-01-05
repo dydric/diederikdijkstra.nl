@@ -1,0 +1,66 @@
+// SPRITE
+$sprites 			: sprite-map("sprite/*.png", $spacing: 10px);
+$sprites-2x 		: sprite-map("sprite@2x/*.png", $spacing: 20px);
+
+// BREAKPOINTS (MOBILE FIRST)
+$bp-mobile			: 480;  // MOBIEL (LANDSCAPE)
+$bp-smalltablet		: 600;  // KLEINE TABLETS
+$bp-tablet			: 768;  // IPAD
+$bp-desktop			: 1024; // DESKTOP
+$bp-widescreen		: 1280; // WIDESCREEN
+
+// AFMETINGEN
+$gutter				: 20px; // TUSSENRUIMTE
+$margin-bottom		: 20px; // MARGIN TUSSEN LAYOUTMODELLEN
+
+// STANDAARD KLEUREN
+$color-black		: rgb(0, 0, 0);
+$color-grey-darker 	: lighten($color-black, 10%);
+$color-grey-dark 	: lighten($color-black, 25%);
+$color-grey 		: lighten($color-black, 50%);
+$color-grey-light 	: lighten($color-black, 75%);
+$color-grey-lighter : lighten($color-black, 92%);
+$color-white 		: rgb(255, 255, 255);
+
+$color-social-twitter	: #35ccff;
+$color-social-facebook	: #03539e;
+$color-social-linkedin	: #217bc1;
+
+$color-status-error		: #e41b13; // ROOD
+$color-status-ok		: #7ab317; // GROEN
+$color-status-info		: #fff2af; // BOTERGEEL
+
+$color-test-1 			: #e68fa5;
+$color-test-2			: #f0e5e5;
+$color-test-3			: #fff339;
+$color-test-4			: #46c39e;
+$color-test-5			: #077b80;
+
+// TYPOGRAFIE
+$font-lineheight		: 1.5em;
+$font-lineheight-alt	: 1.1em; // WORDT OA GEBRUIKT VOOR ONDERSCHRIFT, TABELLEN, BUTTONS, OPSOMMINGEN
+$font-lineheight-title	: 1.2em; // WORDT GEBRUIKT VOOR TITELS
+
+$font-family			: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-title				: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-code				: Monaco, Consolas, "Lucida Console", monospace;
+
+// VEELGEBRUIKTE FONT-STACKS:
+// Arial	 		: Arial, "Helvetica Neue", Helvetica, sans-serif;
+// Courier New		: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+// Georgia			: Georgia, Times, "Times New Roman", serif;
+// Helvetica		: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// Lucida Grande	: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+// Tahoma			: Tahoma, Verdana, Segoe, sans-serif;
+// Times New Roman	: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+// Trebuchet MS		: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+// Verdana			: Verdana, Geneva, sans-serif;
+
+
+// SFEER
+$color-body: 		rgb(255, 255, 255);
+$color-text: 		rgb(71, 63, 63);
+
+$color-accent: 		#047199;
+$color-hover: 		#f96731;
+$color-alternate: 	#8a2f62;

@@ -1,0 +1,66 @@
+
+.site {
+	margin: 0 auto;
+	max-width: 1170px;
+	width: 100%;
+
+	.lt_ie9 & {
+		width: 1170px;
+	}
+}
+
+.container {
+	display: block;
+	clear: both;
+	margin: $margin-bottom $gutter;
+
+	.content {
+		margin: 0 auto $margin-bottom;
+		max-width: 725px;
+		min-width: 300px - ($gutter * 2);
+		width: 100%;
+	}
+
+	.sidebar {
+		margin: 0 auto $margin-bottom;
+		max-width: 400px;
+		width: 100%;
+	}
+
+	@include mq($bp-mobile, false) {
+		.content {
+			max-width: 400px;
+		}
+	}
+
+	@include mq($bp-smalltablet, false) {
+		.content {
+			max-width: 725px;
+		}
+	}
+
+	@include mq($bp-tablet, true) {
+		.content {
+			float: left;
+			margin: 0 0 $margin-bottom;
+			width: 65%;
+		}
+
+		.sidebar {
+			float: right;
+			margin: 0 0 $margin-bottom;
+			width: 32%;
+		}
+	}
+
+	.lt_ie9 & {
+		.content {
+			max-width: inherit;
+		}
+	}
+}
+
+.footer {
+	clear: both;
+}
+

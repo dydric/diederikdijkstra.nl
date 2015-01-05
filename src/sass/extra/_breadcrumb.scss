@@ -1,0 +1,31 @@
+.breadcrumb{
+	margin: 0 auto $margin-bottom;
+	color: $color-grey;
+	@include font-size(11);
+
+	&__description{
+		display: none;
+	}
+
+	&__item{
+		color: $color-grey;
+		text-decoration: none;
+
+		&:hover{
+			color: $color-grey-dark;
+		}
+	}
+
+	@include mq($bp-mobile, false) {
+		max-width: 400px;
+	}
+
+	@include mq($bp-smalltablet, true) {
+		max-width: inherit;
+		@include font-size(13);
+		
+		&__description{
+			display: inline;
+		}
+	}
+}

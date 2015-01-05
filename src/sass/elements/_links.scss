@@ -1,0 +1,66 @@
+.link {
+	color: $color-accent;
+
+	&:hover {
+		color: $color-hover;
+	}
+
+	&.link--blank {
+
+	}
+	&.link--download {
+
+	}
+
+}
+
+.search-result__hit {
+	text-decoration: none;
+	background: $color-status-info;
+	padding: 3px;
+}
+
+// BUTTON
+
+.button {
+	position: relative; top: $margin-bottom / 2;
+	display: inline-block;
+	margin-bottom: $margin-bottom;
+	padding: 5px 10px;
+	background-color: $color-grey-light;
+	color: $color-grey-darker;
+	@include font-size(14);
+	@include title-font();
+	text-decoration: none;
+	white-space: nowrap;
+	@include rounded(4px);
+	@include transition(all, .2, ease);
+
+	&:hover{
+		background: $color-hover;
+		color: $color-white;
+	}
+
+	@include mq($bp-smalltablet, true) {
+		@include font-size(18);
+		padding: 8px 10px;
+	}
+
+	&.button--primary {
+		background: $color-accent;
+		color: $color-white;
+		&:hover{
+			background: $color-hover;
+			color: $color-white;
+		}
+	}
+
+	&.button--right {
+		float: right;
+	}
+
+	&.button--hidden {
+		display: none;
+	}
+
+}

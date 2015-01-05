@@ -1,0 +1,42 @@
+.article--event{
+
+	&__content{
+		float: left; display: inline; 
+		width: 80%;
+
+		@include mq($bp-smalltablet, true) {
+			width: 85%;
+		}
+	}
+
+	&__image-link, &__placeholder{
+		float: left; display: block;
+		text-align: center;
+		max-width: auto; width: 18%; 
+		margin-right: 2%;
+
+		@include mq($bp-smalltablet, true) {
+			width: 13%;
+		}
+	}
+
+	&__placeholder{
+		background: $color-grey-lighter;
+		padding: 3% 0;
+		
+		i{
+			color: $color-white;
+			@include font-size(28)
+		}
+	}
+
+	&__date{
+		&--no-margin{
+			margin-bottom: 0;
+		}
+	}
+}
+
+// 
+//	VOOR OPSOMMING IN SIDEBARS ZIE LIST.SCSS
+//

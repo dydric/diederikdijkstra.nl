@@ -1,0 +1,32 @@
+//	TITELS
+h1, .title{
+	@include title-font();
+	color: $color-grey-darker;
+	margin-bottom: .2em;
+	
+	a{
+		text-decoration: none;
+	}
+}
+
+h1{
+	@include font-size(36);
+	margin-bottom: $margin-bottom;
+}
+
+.title{
+
+	&--h2{
+		@include font-size(24);
+	}
+
+	&--h3{
+		@include font-size(20);
+	}
+
+	&--h4,
+	&--h5,
+	&--h6{
+		@include font-size(16);
+	}
+}

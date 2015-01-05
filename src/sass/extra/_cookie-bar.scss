@@ -1,0 +1,53 @@
+//	COOKIE-BAR
+.cookie-bar {
+	position: fixed; bottom: 0; left: 0; z-index: 100;
+	width: 100%; padding: 10px 0;
+	background: $color-black;
+	background: rgba(0,0,0,0.8);
+	color: $color-white;
+	display: none;
+
+	&__text {
+		max-width: 960px;
+		margin: 0 auto;
+		text-align: center;
+		@include font-size(13);
+
+		p {
+			display: inline-block;
+			margin: 0 $gutter;
+			.lt_ie9 &{
+				display: inline;
+			}
+		}
+
+		a{
+			color: $color-white;
+			text-decoration: underline;
+			
+			&:hover {
+				color: $color-grey-lighter;
+			}
+
+			&.cookie-bar__close {
+				background: $color-white;
+				padding: 5px 20px;
+				margin: 10px auto 0;
+				color: $color-black;
+				text-decoration: none;
+				@include rounded(2px);
+				display: block;
+				max-width: 260px;
+
+				&:hover {
+					color: $color-grey-darker;
+					background: $color-grey-lighter;
+				}
+
+				@include mq($bp-tablet, true) {
+					display: inline;
+				}
+			}
+		}
+	}
+}

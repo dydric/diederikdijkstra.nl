@@ -1,0 +1,49 @@
+// WEEKOVERVIEW
+.table-wrapper {
+	overflow-y: hidden;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: $margin-bottom;
+
+	.table {
+		max-width: 99%;
+	}
+
+	@include mq($bp-desktop, true) {
+		overflow-y: visible;
+		overflow-x: visible;
+	}
+}
+
+.table {
+	width: 100%;
+	margin: 0;
+	text-align: left;
+	color: $color-grey-dark;
+
+	&__cell {
+		padding: 3px 5px;
+		border: 1px solid $color-grey-light;
+		@include font-size(11);
+		line-height: $font-lineheight-alt;
+		font-weight: normal;
+		text-align: left;
+
+		&--head,
+		.table--default &:first-child,
+		.table--row &:first-child {
+			background-color: darken($color-grey-lighter, 3) !important;
+			font-weight: bold;
+			color: darken($color-grey-dark, 10%);
+		}
+
+		@include mq($bp-smalltablet, true) {
+			padding: 5px;
+			@include font-size(13);
+		}
+	}
+
+	&__row:nth-child(even) {
+		background-color: lighten($color-grey-lighter, 3);
+	}
+}
