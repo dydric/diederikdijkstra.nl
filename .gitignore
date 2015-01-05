@@ -1,6 +1,7 @@
 Gruntfile.coffee
 package.json
 node_modules
+.scss-lint.yml
 .sass-cache
 .DS_Store
 .ftppass
