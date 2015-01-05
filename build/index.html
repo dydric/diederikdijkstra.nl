@@ -17,6 +17,23 @@
     <header class="header">
       <h1>Diederik Dijkstra</h1>
       <p>'Heit' van Elin en Fedde, ervaren front-end developer gespecialiseerd in CSS3 en HTML5. Zit graag op z'n racefiets. Momenteel werkzaam bij TRES.</p>
-    </header>
+    </header>	<div id="twitter" style="display:none;">
+		<div id="tweets"></div>
+	</div>
+
+	<script>
+		function recent_tweets(data) {
+			for (i=0; i<3; i++) {
+				document.getElementById("tweets").innerHTML =
+					document.getElementById("tweets").innerHTML +
+					'<a target="_blank" href="http://twitter.com/dydric/status/' +
+					(data[i].id_str ? data[i].id_str : data[i].id) +
+					'"><span>' + data[i].created_at +'</span><div class="tweet">' + data[i].text +
+					'</div></a>';
+			}
+			document.getElementById("twitter").style.display = 'block';
+		}
+	</script>
+	<script src="http://diederikdijkstra.nl/tweets.js"></script>
   </body>
 </html>
