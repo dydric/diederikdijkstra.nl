@@ -1,0 +1,67 @@
+<script>
+	$(function(){
+		$('[name^="formfield8_"]').change(function(){
+			$('#formfield8').val(
+				$('#formfield8_1').val() + '-' +
+				$('#formfield8_2').val() + '-' +
+				$('#formfield8_3').val());
+			if ($('#formfield8_1').val() == "" && $('#formfield8_2').val() == "" && $('#formfield8_3').val() == "") { $('#formfield8').val(""); }
+		});
+
+	$("#form3").unbind("submit");
+	$("#form3").get(0).onsubmit = function(){};
+
+	$("html").on("submit", "#form3", function(event){
+		var bValid = true;
+
+		$(this).find("[placeholder]").each(function(){
+			if($(this).val() == $(this).attr("placeholder")) {
+				$(this).val("");
+			}
+		});
+
+		$(this).find(".form__item--date, .form__item--email").each(function(){
+			$(this).closest(".form__item").removeClass("form__item--error");
+			if($(this).hasClass("date")) {
+				if($(this).val() != "" && !isValidDate($(this).val())) {
+					$(this).closest(".form__item").addClass("form__item--error");
+					bValid = false;
+				}
+			}
+			if($(this).hasClass("email")) {
+				if($(this).val() != "" && !isValidEmail($(this).val())) {
+					$(this).closest(".form__item").addClass("form__item--error");
+					bValid = false;
+				}
+			}
+		});
+
+		var fields = "1, 2, 6".split(", ");
+		for(var i = 0; i < fields.length; i++) {
+			$field = $("#formfield" + fields[i]);
+			if ($field.val() == "") {
+				$field.closest(".form__item").addClass("form__item--error");
+				bValid = false;
+			} else {
+				if(!$field.hasClass("date") && !$field.hasClass("email")) {
+					$field.closest(".form__item").removeClass("form__item--error");
+				}
+			}
+		}
+
+		var $status = $(this).find(".form__status");
+		if(bValid === false) {
+			if ($status.hasClass("form__status--error") || $status.hasClass("form__status--error-again")) {
+				$status.removeClass("form__status--error");
+				$status.removeClass("form__status--error-again").show();
+				window.setTimeout(function() { $status.addClass("form__status--error-again") }, 0);
+			} else {
+				$status.addClass("form__status--error");
+			}
+			event.preventDefault();
+		} else {
+			$status.removeClass("form__status--error form__status--error-again").hide();
+		}
+	});
+});
+</script>

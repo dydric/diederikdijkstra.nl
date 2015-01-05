@@ -1,0 +1,23 @@
+- var title = "Home"
+
+include includes/head.jade
+body
+	div(class='site')
+
+		include includes/searchform.html
+
+		header(class='header')
+
+		.container.clearfix
+			include includes/breadcrumb.html
+
+			main(class="content clearfix")
+				h1(class="title title--h1") #{title}
+				block content
+
+			aside(class="sidebar")
+				block sidebar
+				section(class="item")
+					h3(class="title title--h3") Sidebar
+
+		footer(class='footer')
