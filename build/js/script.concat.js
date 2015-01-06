@@ -1,5 +1,5 @@
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-fontface-backgroundsize-borderradius-boxshadow-flexbox-opacity-cssanimations-cssgradients-csstransforms3d-csstransitions-inlinesvg-svg-shiv-mq-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-css_calc-css_mediaqueries-load
+ * Build: http://modernizr.com/download/#-flexbox-flexboxlegacy-audio-video-inlinesvg-svg-touch-shiv-mq-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-css_calc-css_vhunit-css_vwunit-load
  */
 ;
 
@@ -218,75 +218,64 @@ window.Modernizr = (function( window, document, undefined ) {
     }    tests['flexbox'] = function() {
       return testPropsAll('flexWrap');
     };
-    tests['backgroundsize'] = function() {
-        return testPropsAll('backgroundSize');
-    };    tests['borderradius'] = function() {
-        return testPropsAll('borderRadius');
-    };
 
-    tests['boxshadow'] = function() {
-        return testPropsAll('boxShadow');
+
+    tests['flexboxlegacy'] = function() {
+        return testPropsAll('boxDirection');
     };
 
 
 
-    tests['opacity'] = function() {
-                setCssAll('opacity:.55');
-
-                    return (/^0.55$/).test(mStyle.opacity);
-    };
-
-
-    tests['cssanimations'] = function() {
-        return testPropsAll('animationName');
-    };    tests['cssgradients'] = function() {
-        var str1 = 'background-image:',
-            str2 = 'gradient(linear,left top,right bottom,from(#9f9),to(white));',
-            str3 = 'linear-gradient(left top,#9f9, white);';
-
-        setCss(
-                       (str1 + '-webkit- '.split(' ').join(str2 + str1) +
-                       prefixes.join(str3 + str1)).slice(0, -str1.length)
-        );
-
-        return contains(mStyle.backgroundImage, 'gradient');
-    };
-
-    tests['csstransforms3d'] = function() {
-
-        var ret = !!testPropsAll('perspective');
-
-                        if ( ret && 'webkitPerspective' in docElement.style ) {
-
-                      injectElementWithStyles('@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}', function( node, rule ) {
-            ret = node.offsetLeft === 9 && node.offsetHeight === 3;
-          });
-        }
-        return ret;
-    };
-
-
-    tests['csstransitions'] = function() {
-        return testPropsAll('transition');
-    };
-
-
-
-    tests['fontface'] = function() {
+    tests['touch'] = function() {
         var bool;
 
-        injectElementWithStyles('@font-face {font-family:"font";src:url("https://")}', function( node, rule ) {
-          var style = document.getElementById('smodernizr'),
-              sheet = style.sheet || style.styleSheet,
-              cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+        if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+          bool = true;
+        } else {
+          injectElementWithStyles(['@media (',prefixes.join('touch-enabled),('),mod,')','{#modernizr{top:9px;position:absolute}}'].join(''), function( node ) {
+            bool = node.offsetTop === 9;
+          });
+        }
 
-          bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
-        });
+        return bool;
+    };
+    tests['video'] = function() {
+        var elem = document.createElement('video'),
+            bool = false;
+
+            try {
+            if ( bool = !!elem.canPlayType ) {
+                bool      = new Boolean(bool);
+                bool.ogg  = elem.canPlayType('video/ogg; codecs="theora"')      .replace(/^no$/,'');
+
+                            bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"') .replace(/^no$/,'');
+
+                bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,'');
+            }
+
+        } catch(e) { }
 
         return bool;
     };
 
-    tests['svg'] = function() {
+    tests['audio'] = function() {
+        var elem = document.createElement('audio'),
+            bool = false;
+
+        try {
+            if ( bool = !!elem.canPlayType ) {
+                bool      = new Boolean(bool);
+                bool.ogg  = elem.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/,'');
+                bool.mp3  = elem.canPlayType('audio/mpeg;')               .replace(/^no$/,'');
+
+                                                    bool.wav  = elem.canPlayType('audio/wav; codecs="1"')     .replace(/^no$/,'');
+                bool.m4a  = ( elem.canPlayType('audio/x-m4a;')            ||
+                              elem.canPlayType('audio/aac;'))             .replace(/^no$/,'');
+            }
+        } catch(e) { }
+
+        return bool;
+    };    tests['svg'] = function() {
         return !!document.createElementNS && !!document.createElementNS(ns.svg, 'svg').createSVGRect;
     };
 
@@ -554,9 +543,34 @@ Modernizr.addTest('csscalc', function() {
 
     return !!el.style.length;
 });
-
-
-Modernizr.addTest('mediaqueries', Modernizr.mq('only all'));;
+// https://github.com/Modernizr/Modernizr/issues/572
+// Similar to http://jsfiddle.net/FWeinb/etnYC/
+Modernizr.addTest('cssvhunit', function() {
+    var bool;
+    Modernizr.testStyles("#modernizr { height: 50vh; }", function(elem, rule) {   
+        var height = parseInt(window.innerHeight/2,10),
+            compStyle = parseInt((window.getComputedStyle ?
+                      getComputedStyle(elem, null) :
+                      elem.currentStyle)["height"],10);
+        
+        bool= (compStyle == height);
+    });
+    return bool;
+});// https://github.com/Modernizr/Modernizr/issues/572
+// http://jsfiddle.net/FWeinb/etnYC/
+Modernizr.addTest('cssvwunit', function(){
+    var bool;
+    Modernizr.testStyles("#modernizr { width: 50vw; }", function(elem, rule) {
+        var width = parseInt(window.innerWidth/2,10),
+            compStyle = parseInt((window.getComputedStyle ?
+                      getComputedStyle(elem, null) :
+                      elem.currentStyle)["width"],10);
+        
+        bool= (compStyle == width);
+    });
+    return bool;
+});
+;
 //! moment.js
 //! version : 2.8.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
