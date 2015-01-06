@@ -3466,7 +3466,7 @@ $(function(){
 		userId:      43506,
 		accessToken: '43506.641afef.c6e98b8b3c524d669a742ad8a8387e79',
 		clientId:    '641afef0e84241348544153eb29093e2',
-		count:       12
+		count:       8
 	});
 
 });
@@ -3500,7 +3500,8 @@ function createPhotoElement(photo) {
 
 	var innerHtml = $('<img>')
 		.addClass('instagram__link__image')
-		.attr('src', photo.images.standard_resolution.url);
+		.attr('src', photo.images.low_resolution.url);
+		//.attr('src', photo.images.standard_resolution.url);
 
 		if(photo.caption) {
 			innerCaption = $('<span>')
