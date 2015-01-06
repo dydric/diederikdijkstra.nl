@@ -3543,7 +3543,7 @@ function recent_tweets(data) {
 		var posted = moment(date).format('DD-MM-YYYY hh:mm');
 
 		$("#tweets").append(
-			'<li class="tweet tweet--'+ i +'">
+			'<li class="tweet tweet--'+ (i + 1) +'">
 				<a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">
 					<span>' + posted + '</span>'
 					+ data[i].text +
