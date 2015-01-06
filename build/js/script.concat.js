@@ -571,6 +571,85 @@ Modernizr.addTest('cssvwunit', function(){
     return bool;
 });
 ;
+/*! jQuery Instagram - v0.3.0 - 2013-08-10
+* http://potomak.github.com/jquery-instagram
+* Copyright (c) 2013 Giovanni Cappellotto; Licensed MIT */
+(function($) {
+
+  function composeRequest(options) {
+    var url = 'https://api.instagram.com/v1';
+    var data = {};
+
+    if (options.accessToken == null && options.clientId == null) {
+      throw 'You must provide an access token or a client id';
+    }
+
+    data = $.extend(data, {
+      access_token: options.accessToken,
+      client_id: options.clientId,
+      count: options.count
+    });
+
+    if (options.url != null) {
+      url = options.url;
+    }
+    else if (options.hash != null) {
+      url += '/tags/' + options.hash + '/media/recent';
+    }
+    else if (options.search != null) {
+      url += '/media/search';
+      data = $.extend(data, options.search);
+    }
+    else if (options.userId != null) {
+      if (options.accessToken == null) {
+        throw 'You must provide an access token';
+      }
+      url += '/users/' + options.userId + '/media/recent';
+    }
+    else if (options.location != null) {
+      url += '/locations/' + options.location.id + '/media/recent';
+      delete options.location.id;
+      data = $.extend(data, options.location);
+    }
+    else {
+      url += '/media/popular';
+    }
+    
+    return {url: url, data: data};
+  }
+
+  $.fn.instagram = function(options) {
+    var that = this;
+    options = $.extend({}, $.fn.instagram.defaults, options);
+    var request = composeRequest(options);
+
+    $.ajax({
+      dataType: "jsonp",
+      url: request.url,
+      data: request.data,
+      success: function(response) {
+        that.trigger('didLoadInstagram', response);
+      }
+    });
+
+    this.trigger('willLoadInstagram', options);
+    
+    return this;
+  };
+
+  $.fn.instagram.defaults = {
+    accessToken: null,
+    clientId: null,
+    count: null,
+    url: null,
+    hash: null,
+    userId: null,
+    location: null,
+    search: null
+  };
+
+}(jQuery));
+
 //! moment.js
 //! version : 2.8.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -3382,10 +3461,80 @@ Modernizr.addTest('cssvwunit', function(){
 
 $(function(){
 
-
-
+	$('.instagram').on('didLoadInstagram', didLoadInstagram);
+	$('.instagram').instagram({
+		userId:      43506,
+		accessToken: '43506.641afef.c6e98b8b3c524d669a742ad8a8387e79',
+		clientId:    '641afef0e84241348544153eb29093e2',
+		count:       12
+	});
 
 });
+
+function didLoadInstagram(event, response) {
+	var that = this;
+	$.each(response.data, function(i, photo) {
+		$(that).append(createPhotoElement(photo));
+	});
+
+	$(".instagram__link--video").each(function() {
+		$(this).prepend( '<span class="instagram__link__play"></span>' );
+		$(this).hover(
+			function(e){
+				$(this).find("video").get(0).play();
+			},
+			function(e){
+				$(this).find("video").get(0).pause();
+			}
+		);
+	});
+
+	$('.instagram__item').each(function(i) {
+		$(this).addClass('instagram__item--' + (i + 1));
+	});
+}
+
+function createPhotoElement(photo) {
+
+	// console.log(photo);
+
+	var innerHtml = $('<img>')
+		.addClass('instagram__link__image')
+		.attr('src', photo.images.standard_resolution.url);
+
+		if(photo.caption) {
+			innerCaption = $('<span>')
+				.addClass('instagram__link__caption')
+				.text(photo.caption.text);
+		}
+
+		innerHtml = $('<a>')
+			.addClass('instagram__link')
+			.addClass('instagram__link--' + photo.type)
+			.attr('target', '_blank')
+			.attr('href', photo.link)
+			.append(innerHtml);
+
+		if(photo.videos) {
+			innerVideo = $('<video muted loop>')
+				.addClass('instagram__link__video')
+				.append('source')
+				.attr('src', photo.videos.standard_resolution.url)
+				.attr('type', 'video/mp4');
+		}
+
+		if(photo.videos) {
+			innerHtml.prepend(innerVideo);
+		}
+
+		if(photo.caption) {
+			innerHtml.prepend(innerCaption);
+		}
+
+	return $('<div>')
+		.addClass('instagram__item')
+		.append(innerHtml);
+}
 
 function recent_tweets(data) {
 	for ( i=0; i<6; i++ ) {
