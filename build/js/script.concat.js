@@ -3395,7 +3395,7 @@ function recent_tweets(data) {
 
 		$("#tweets").append(
 			'<li class="tweet tweet--'+ i +'">
-				<a href="http://twitter.com/dydric/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">
+				<a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">
 					<span>' + posted + '</span>'
 					+ data[i].text +
 				'</a>
