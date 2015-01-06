@@ -3541,7 +3541,7 @@ function recent_tweets(data) {
 	for ( i=0; i<6; i++ ) {
 
 		var date = data[i].created_at;
-		var posted = moment(date).format('DD-MM-YYYY hh:mm');
+		var posted = moment(date).format('DD-MM-YYYY HH:mm');
 
 		$("#tweets").append(
 			'<li class="tweet tweet--'+ (i + 1) +'">
