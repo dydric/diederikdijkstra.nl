@@ -3461,16 +3461,18 @@ Modernizr.addTest('cssvwunit', function(){
 
 $(function(){
 
-	$('.instagram').on('didLoadInstagram', didLoadInstagram);
-	$('.instagram').instagram({
-		userId:      43506,
-		accessToken: '43506.641afef.c6e98b8b3c524d669a742ad8a8387e79',
-		//clientId:    '641afef0e84241348544153eb29093e2',
-		count:       8
+	instagramApi = "https://api.instagram.com/v1/users/self?access_token=" + nAccessToken + "&amp;callback=?";
+	$.getJSON(instagramApi, function (data) {
+		$('.instagram').on('didLoadInstagram', didLoadInstagram);
+		$('.instagram').instagram({
+			userId:      data.data.id,
+			accessToken: nAccessToken,
+			count:       8
+		});
 	});
-
 });
 
+// INSTAGRAM
 function didLoadInstagram(event, response) {
 	var that = this;
 	$.each(response.data, function(i, photo) {
@@ -3537,6 +3539,7 @@ function createPhotoElement(photo) {
 		.append(innerHtml);
 }
 
+// TWITTER
 function recent_tweets(data) {
 	for ( i=0; i<6; i++ ) {
 
