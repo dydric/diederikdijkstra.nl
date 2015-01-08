@@ -3465,7 +3465,7 @@ $(function(){
 	$('.instagram').instagram({
 		userId:      43506,
 		accessToken: '43506.641afef.c6e98b8b3c524d669a742ad8a8387e79',
-		clientId:    '641afef0e84241348544153eb29093e2',
+		//clientId:    '641afef0e84241348544153eb29093e2',
 		count:       8
 	});
 
