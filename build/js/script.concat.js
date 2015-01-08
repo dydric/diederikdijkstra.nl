@@ -3469,6 +3469,9 @@ $(function(){
 			accessToken: nAccessToken,
 			count:       8
 		});
+
+		//$('.instagram').prepend('<h2>' + data.data.counts.media + '</h2>')
+		//console.log(data);
 	});
 });
 
@@ -3481,14 +3484,19 @@ function didLoadInstagram(event, response) {
 
 	$(".instagram__link--video").each(function() {
 		$(this).prepend( '<span class="instagram__link__play"></span>' );
-		$(this).hover(
-			function(e){
-				$(this).find("video").get(0).play();
-			},
-			function(e){
-				$(this).find("video").get(0).pause();
-			}
-		);
+		
+		$(this).find("video").get(0).play();
+		
+		// $(this).hover(
+		// 	function(e){
+		// 		//$(this).find("video").get(0).play();
+		// 		$(this).find("video").get(0).pause();
+		// 	},
+		// 	function(e){
+		// 		//$(this).find("video").get(0).pause();
+		// 		$(this).find("video").get(0).play();
+		// 	}
+		// );
 	});
 
 	$('.instagram__item').each(function(i) {
@@ -3505,11 +3513,11 @@ function createPhotoElement(photo) {
 		.attr('src', photo.images.low_resolution.url);
 		//.attr('src', photo.images.standard_resolution.url);
 
-		if(photo.caption) {
-			innerCaption = $('<span>')
-				.addClass('instagram__link__caption')
-				.text(photo.caption.text);
-		}
+		// if(photo.caption) {
+		// 	innerCaption = $('<span>')
+		// 		.addClass('instagram__link__caption')
+		// 		.text(photo.caption.text);
+		// }
 
 		innerHtml = $('<a>')
 			.addClass('instagram__link')
@@ -3518,21 +3526,23 @@ function createPhotoElement(photo) {
 			.attr('href', photo.link)
 			.append(innerHtml);
 
-		if(photo.videos) {
-			innerVideo = $('<video muted loop>')
-				.addClass('instagram__link__video')
-				.append('source')
-				.attr('src', photo.videos.standard_resolution.url)
-				.attr('type', 'video/mp4');
+		if(Modernizr.video){
+			if(photo.videos) {
+				innerVideo = $('<video muted loop>')
+					.addClass('instagram__link__video')
+					.append('source')
+					.attr('src', photo.videos.standard_resolution.url)
+					.attr('type', 'video/mp4');
+			}
+
+			if(photo.videos) {
+				innerHtml.prepend(innerVideo);
+			}
 		}
 
-		if(photo.videos) {
-			innerHtml.prepend(innerVideo);
-		}
-
-		if(photo.caption) {
-			innerHtml.prepend(innerCaption);
-		}
+		// if(photo.caption) {
+		// 	innerHtml.prepend(innerCaption);
+		// }
 
 	return $('<div>')
 		.addClass('instagram__item')
