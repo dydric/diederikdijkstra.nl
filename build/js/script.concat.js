@@ -662,6 +662,7 @@ $(function(){
 			count:       8
 		});
 
+		$('.instagram').prepend('<h2>Instagram <span>' + data.data.counts.media + ' Posts</span></h2>');
 		//$('.instagram').prepend('<h2>' + data.data.counts.media + '</h2>');
 		//console.log(data);
 	});
@@ -746,6 +747,7 @@ function createPhotoElement(photo) {
 function recent_tweets(data) {
 
 	//console.log(data[0].user.statuses_count);
+	$('#twitter').prepend('<h2>Twitter <span>' + data[0].user.statuses_count + ' Tweets</span></h2>');
 	//$('#twitter').prepend('<h2>' + data[0].user.statuses_count + '</h2>');
 
 	for ( i=0; i<6; i++ ) {
