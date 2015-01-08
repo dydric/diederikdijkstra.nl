@@ -754,13 +754,12 @@ function recent_tweets(data) {
 		//var postDate = moment(date).format('DD-MM-YYYY HH:mm');
 
 		var d = new Date(data[i].created_at);
-		
 		var curr_day = d.getDate();
 		var curr_month = d.getMonth() + 1;
 		var curr_year = d.getFullYear();
 		var curr_hour = d.getHours();
 		var curr_min = d.getMinutes();
-		
+
 		if (curr_month < 10) { curr_month = '0' + curr_month; }
 		if (curr_day < 10) { curr_day = '0' + curr_day; }
 		if (curr_hour < 10) { curr_hour = '0' + curr_hour; }
@@ -769,13 +768,8 @@ function recent_tweets(data) {
 		var postDate = curr_day + '-' + curr_month + '-' + curr_year + ' ' + curr_hour + ':' + curr_min;
 
 		$("#tweets").append(
-			'<li class="tweet tweet--'+ (i + 1) +'">
-				<a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '">
-					<span>' + postDate + '</span>'
-					+ data[i].text +
-				'</a>
-			</li>'
-		);
+			'<li class="tweet tweet--'+ (i + 1) +'"><a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '"><span>' + postDate + '</span>' + data[i].text + '</a></li>'
+			);
 	}
 	$("#twitter").show();
 }
