@@ -720,7 +720,7 @@ function createPhotoElement(photo) {
 			.attr('href', photo.link)
 			.append(innerHtml);
 
-		if(Modernizr.video){
+		if(Modernizr.video && !Modernizr.touch){
 			if(photo.videos) {
 				innerVideo = $('<video muted loop>')
 					.addClass('instagram__link__video')
@@ -733,7 +733,7 @@ function createPhotoElement(photo) {
 				innerHtml.prepend(innerVideo);
 			}
 		}
-
+		
 		// if(photo.caption) {
 		// 	innerHtml.prepend(innerCaption);
 		// }
