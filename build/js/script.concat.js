@@ -679,18 +679,20 @@ function didLoadInstagram(event, response) {
 	$(".instagram__link--video").each(function() {
 		$(this).prepend( '<span class="instagram__link__play"></span>' );
 		
-		$(this).find("video").get(0).play();
-		
-		// $(this).hover(
-		// 	function(e){
-		// 		//$(this).find("video").get(0).play();
-		// 		$(this).find("video").get(0).pause();
-		// 	},
-		// 	function(e){
-		// 		//$(this).find("video").get(0).pause();
-		// 		$(this).find("video").get(0).play();
-		// 	}
-		// );
+		if(Modernizr.video && !Modernizr.touch){
+			$(this).find("video").get(0).play();
+
+			// $(this).hover(
+			// 	function(e){
+			// 		//$(this).find("video").get(0).play();
+			// 		$(this).find("video").get(0).pause();
+			// 	},
+			// 	function(e){
+			// 		//$(this).find("video").get(0).pause();
+			// 		$(this).find("video").get(0).play();
+			// 	}
+			// );
+		}
 	});
 
 	$('.instagram__item').each(function(i) {
