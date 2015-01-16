@@ -662,7 +662,7 @@ $(function(){
 			count:       8
 		});
 
-		$('.instagram').prepend('<h2>Instagram <span>' + data.data.counts.media + ' Posts</span></h2>');
+		$('.instagram').prepend('<h2>Instagram <span>' + data.data.counts.media + ' Grams</span></h2>');
 		//$('.instagram').prepend('<h2>' + data.data.counts.media + '</h2>');
 		//console.log(data);
 	});
