@@ -650,7 +650,15 @@ Modernizr.addTest('cssvwunit', function(){
 
 }(jQuery));
 
-
+//EQUALHEIGHTS
+function equalHeight(obj){
+	var topHeight = 0;
+	obj.css({height: 'auto'});
+	obj.each(function(){
+		topHeight = ($(this).height() > topHeight ? $(this).height() : topHeight);
+	});
+	obj.height(topHeight);
+}
 $(function(){
 
 	instagramApi = "https://api.instagram.com/v1/users/self?access_token=" + nAccessToken + "&amp;callback=?";
@@ -777,3 +785,13 @@ function recent_tweets(data) {
 	}
 	$("#twitter").show();
 }
+
+$(window).load(function(){
+
+	$(window).on("resize", function() {
+
+		equalHeight($(".tweet a"));
+
+	}).trigger("resize");
+
+});
