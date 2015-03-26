@@ -707,7 +707,7 @@ function didLoadInstagram(event, response) {
 		$(this).addClass('instagram__item--' + (i + 1));
 	});
 
-	$(".instagram").addClass("show");
+	// console.log(response);
 }
 
 function createPhotoElement(photo) {
@@ -793,4 +793,5 @@ function recent_tweets(data) {
 
 
 $(window).load(function(){
+	$(".instagram").addClass("show");
 });
