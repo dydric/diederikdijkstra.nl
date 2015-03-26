@@ -706,6 +706,8 @@ function didLoadInstagram(event, response) {
 	$('.instagram__item').each(function(i) {
 		$(this).addClass('instagram__item--' + (i + 1));
 	});
+
+	$(".instagram").addClass("show");
 }
 
 function createPhotoElement(photo) {
@@ -783,15 +785,12 @@ function recent_tweets(data) {
 			'<li class="tweet tweet--'+ (i + 1) +'"><a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '"><span>' + postDate + '</span>' + data[i].text + '</a></li>'
 			);
 	}
-	$("#twitter").show();
+	$("#twitter").addClass("show");
+	$(window).on("resize", function() {
+		equalHeight($(".tweet a"));
+	}).trigger("resize");
 }
 
+
 $(window).load(function(){
-
-	$(window).on("resize", function() {
-
-		equalHeight($(".tweet a"));
-
-	}).trigger("resize");
-
 });
