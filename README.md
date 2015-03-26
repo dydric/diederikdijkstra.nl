@@ -1,2 +1,1 @@
-dydric.github.io
-================
+[diederikdijkstra.nl](http://diederikdijkstra.nl)
