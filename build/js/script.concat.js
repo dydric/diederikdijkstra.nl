@@ -1132,10 +1132,11 @@ $(function(){
 		});
 
 		//$('.instagram').prepend('<h2>Instagram <span>' + data.data.counts.media + ' Grams</span></h2>');
-
 		$('.instagram').prepend('<h2>Instagram <span>Loading...</span></h2>');
+
 		$(window).load(function(){
 			$('.instagram h2 span').text(data.data.counts.media + " Grams");
+			$(".instagram").addClass("show");
 		});
 
 		//$('.instagram').prepend('<h2>' + data.data.counts.media + '</h2>');
@@ -1268,8 +1269,3 @@ function recent_tweets(data) {
 		equalHeight($(".tweet a"));
 	}).trigger("resize");
 }
-
-
-$(window).load(function(){
-	$(".instagram").addClass("show");
-});
