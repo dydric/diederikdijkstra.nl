@@ -1154,6 +1154,23 @@ $(function(){
 		}
 	});
 
+	// var currentTime = new Date().getHours();
+	// console.log(currentTime);
+
+	// if (0 <= currentTime&&currentTime < 5) {
+	// 	$('h1').text('Góða nótt');
+	// }
+	// if (5 <= currentTime&&currentTime < 13) {
+	// 	$('h1').text('Góðan daginn');
+	// }
+	// if (13 <= currentTime&&currentTime < 18) {
+	// 	$('h1').text('Góðan dag');
+	// }
+	// if (18 <= currentTime&&currentTime < 24) {
+	// 	$('h1').text('Gott kvöld');
+	// }
+	// $('h1').show();
+
 });
 
 // INSTAGRAM
