@@ -1,4 +1,5 @@
 Gruntfile.coffee
+Gulpfile.js
 package.json
 node_modules
 .scss-lint.yml
