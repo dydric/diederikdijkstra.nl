@@ -1946,7 +1946,7 @@ $(function(){
 		});
 
 		//$('.instagram').prepend('<h2>Instagram <span>' + data.data.counts.media + ' Grams</span></h2>');
-		$('.instagram').prepend('<h2>Instagram <span>Loading...</span></h2>');
+		$('.instagram').prepend('<h2><a href="https://instagram.com/dydric" target="_blank">Instagram</a> <span>Loading...</span></h2>');
 
 		$(window).load(function(){
 			$('.instagram h2 span').text(data.data.counts.media + " Grams");
@@ -2071,7 +2071,7 @@ function createPhotoElement(photo) {
 function recent_tweets(data) {
 
 	//console.log(data[0].user.statuses_count);
-	$('.twitter').prepend('<h2>Twitter <span>' + data[0].user.statuses_count + ' Tweets</span></h2>');
+	$('.twitter').prepend('<h2><a href="https://twitter.com/dydric" target="_blank">Twitter</a> <span>' + data[0].user.statuses_count + ' Tweets</span></h2>');
 	//$('#twitter').prepend('<h2>' + data[0].user.statuses_count + '</h2>');
 
 	for ( i=0; i<6; i++ ) {
