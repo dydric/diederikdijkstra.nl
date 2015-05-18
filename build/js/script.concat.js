@@ -2094,7 +2094,7 @@ function recent_tweets(data) {
 		var postDate = curr_day + '-' + curr_month + '-' + curr_year + ' ' + curr_hour + ':' + curr_min;
 
 		$(".tweets").append(
-			'<li class="tweet tweet--'+ (i + 1) +'"><a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '"><span>' + postDate + '</span>' + data[i].text + '</a></li>'
+			'<li class="tweet tweet--'+ (i + 1) +'"><a href="http://twitter.com/' + twitterusername + '/status/' + (data[i].id_str ? data[i].id_str : data[i].id) + '" target="_blank"><span>' + postDate + '</span>' + data[i].text + '</a></li>'
 			);
 	}
 	$(".twitter").addClass("show");
