@@ -1925,15 +1925,15 @@ window.matchMedia || (window.matchMedia = function() {
   expose( picturefill );
 
 } )( window, window.document, new window.Image() );
-//EQUALHEIGHTS
-function equalHeight(obj){
-	var topHeight = 0;
-	obj.css({height: 'auto'});
-	obj.each(function(){
-		topHeight = ($(this).height() > topHeight ? $(this).height() : topHeight);
-	});
-	obj.height(topHeight);
-}
+// //EQUALHEIGHTS
+// function equalHeight(obj){
+// 	var topHeight = 0;
+// 	obj.css({height: 'auto'});
+// 	obj.each(function(){
+// 		topHeight = ($(this).height() > topHeight ? $(this).height() : topHeight);
+// 	});
+// 	obj.height(topHeight);
+// }
 $(function(){
 
 	instagramApi = "https://api.instagram.com/v1/users/self?access_token=" + nAccessToken + "&amp;callback=?";
@@ -2054,14 +2054,14 @@ function createPhotoElement(photo) {
 // TWITTER
 function recent_tweets(data) {
 
-	//console.log(data[0].user.statuses_count);
+	// console.log(data[0].user.statuses_count);
 	$('.twitter').prepend('<h2><a href="https://twitter.com/dydric" target="_blank">Twitter</a> <span>' + data[0].user.statuses_count + ' Tweets</span></h2>');
-	//$('#twitter').prepend('<h2>' + data[0].user.statuses_count + '</h2>');
+	// $('#twitter').prepend('<h2>' + data[0].user.statuses_count + '</h2>');
 
 	for ( i=0; i<6; i++ ) {
 
-		//var date = data[i].created_at;
-		//var postDate = moment(date).format('DD-MM-YYYY HH:mm');
+		// var date = data[i].created_at;
+		// var postDate = moment(date).format('DD-MM-YYYY HH:mm');
 
 		var d = new Date(data[i].created_at);
 		var curr_day = d.getDate();
