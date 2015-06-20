@@ -1971,23 +1971,6 @@ $(function(){
 
 	$('body').addClass("go");
 
-	// var currentTime = new Date().getHours();
-	// console.log(currentTime);
-
-	// if (0 <= currentTime&&currentTime < 5) {
-	// 	$('h1').text('Góða nótt');
-	// }
-	// if (5 <= currentTime&&currentTime < 13) {
-	// 	$('h1').text('Góðan daginn');
-	// }
-	// if (13 <= currentTime&&currentTime < 18) {
-	// 	$('h1').text('Góðan dag');
-	// }
-	// if (18 <= currentTime&&currentTime < 24) {
-	// 	$('h1').text('Gott kvöld');
-	// }
-	// $('h1').show();
-
 });
 
 // INSTAGRAM
@@ -2090,7 +2073,7 @@ function recent_tweets(data) {
 		if (curr_month < 10) { curr_month = '0' + curr_month; }
 		if (curr_day < 10) { curr_day = '0' + curr_day; }
 		if (curr_hour < 10) { curr_hour = '0' + curr_hour; }
-		if (curr_min < 10) { curr_min = '0' + curr_min; }
+		if (curr_min < 10) { curr_min = '0' + curr_min; } 
 
 		var postDate = curr_day + '-' + curr_month + '-' + curr_year + ' ' + curr_hour + ':' + curr_min;
 
