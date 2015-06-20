@@ -1960,6 +1960,7 @@ $(function(){
 	// PHOTOSET
 	$('.photoset-grid').photosetGrid({
 		highresLinks: true,
+		gutter: '2px',
 		rel: 'photoset',
 		onComplete: function(){
 			$('.photoset-grid').css({
@@ -2098,7 +2099,7 @@ function recent_tweets(data) {
 			);
 	}
 	$(".twitter").addClass("show");
-	$(window).on("resize", function() {
-		equalHeight($(".tweet a"));
-	}).trigger("resize");
+	// $(window).on("resize", function() {
+	// 	equalHeight($(".tweet a"));
+	// }).trigger("resize");
 }
