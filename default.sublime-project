@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".grunt",
+				".sass-cache",
+				"node_modules"
+			],
+			"path": "."
+		}
+	]
+}
