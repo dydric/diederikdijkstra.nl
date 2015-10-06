@@ -1,29 +1,22 @@
+mixin block(platform)
+	li(class= platform)
+		a(href="{{ site." + [platform] + "_url }}", target="_blank")
+			span= platform
+
 header
 	img.test(src="img/1.jpg")
 main
 	section
-		h1 Diederik Dijkstra
-		h2 Front-end developer
+		h1 {{ site.title }}
+		h2 {{ site.description }}
 	section.blocks
 		ul
-			li.instagram
-				a(href="https://instagram.com/dydric/", target="_blank")
-					span Instagram
-			li.twitter
-				a(href="https://twitter.com/Dydric", target="_blank")
-					span Twitter
-			li.codepen
-				a(href="http://codepen.io/dydric/", target="_blank")
-					span Codepen
-			li.tumblr
-				a(href="http://dydric.tumblr.com/", target="_blank")
-					span Tumblr
-			li.strava
-				a(href="http://www.strava.com/athletes/dydric", target="_blank")
-					span Strava
-			li.github
-				a(href="https://github.com/dydric", target="_blank")
-					span Github
+			+block("instagram")
+			+block("twitter")
+			+block("codepen")
+			+block("tumblr")
+			+block("strava")
+			+block("github")
 	section
 		p
 			a.email(user="diederikdijkstra", domain="gmail.com", href="#") diederikdijkstra<span>[at]</span>gmail<span>[dot]</span>com
