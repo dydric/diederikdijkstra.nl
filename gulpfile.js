@@ -36,10 +36,10 @@ gulp.task('serve:local', function (cb) {
 			logPrefix: 'BS',
 			server: '_site'
 		});
-		gulp.watch(['_sass/**/*'], ['styles']);
-		gulp.watch(['_js/**/*'], ['scripts']);
-		gulp.watch(['img/**/*'], ['images']);
-		gulp.watch(['_jade/**/*'], ['html']);
+		gulp.watch(['_sass/**/*'], ['styles', 'jekyll-rebuild']);
+		gulp.watch(['_js/**/*'], ['scripts', 'jekyll-rebuild']);
+		gulp.watch(['img/**/*'], ['images', 'jekyll-rebuild']);
+		gulp.watch(['_jade/**/*'], ['html', 'jekyll-rebuild']);
 		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 	});
 });
@@ -126,8 +126,8 @@ gulp.task('html', function (cb) {
 	return gulp.src(['_jade/*.{jade,html}'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
-			cache: true
-			// pretty: true
+			cache: true,
+			pretty: true
 		})))
 		.pipe(gulp.dest('_includes/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
