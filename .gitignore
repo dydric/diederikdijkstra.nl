@@ -1,7 +1,6 @@
 _drafts/
 _site/
 .idea
-gulpfile.js
 node_modules
 .scss-lint.yml
 .sass-cache
