@@ -1,5 +1,4 @@
 header {
-	// border: 1px solid $color-white;
 	left: 0;
 	opacity: 0;
 	padding: 10vw;
@@ -43,10 +42,6 @@ main {
 	top: 0;
 	z-index: 1;
 
-	// @include mq(500) {
-	// 	padding-top: 480px;
-	// }
-
 	@include mq(550) {
 		padding-top: 45%;
 	}
@@ -55,109 +50,3 @@ main {
 		padding-top: 495px;
 	}
 }
-
-// .site {
-// 	// display: none;
-// 	@include clearfix();
-// 	min-height: 100vh;
-// 	width: 100vw;
-// }
-
-// .panel {
-// 	@include clearfix();
-// 	// background: $color-body;
-// 	overflow: hidden;
-// 	padding: 20px 0;
-// 	position: relative;
-// 	transition: all 200ms, background-color 2s;
-// 	z-index: 9;
-
-// 	@include mq($bp-tablet, true) {
-// 		padding: 0;
-// 	}
-
-// 	&-bg {
-// 		bottom: 20px;
-// 		display: none;
-// 		left: 5vw;
-// 		opacity: .8;
-// 		position: absolute;
-// 		right: 5vw;
-// 		top: 20px;
-// 		z-index: 1;
-// 	}
-
-// 	&-1 {
-
-// 		.panel-bg {
-
-// 			@include mq($bp-tablet, true) {
-// 				bottom: 2vw;
-// 				display: block;
-// 				left: 30%;
-// 				top: 18vw;
-// 			}
-
-// 			@include mq(1000) {
-// 				top: 180px;
-// 			}
-// 		}
-// 	}
-
-// 	&-2 {
-
-// 		.panel-bg {
-
-// 			@include mq($bp-tablet, true) {
-// 				bottom: 0;
-// 				display: block;
-// 				left: 0;
-// 				right: 90%;
-// 				top: 0;
-// 			}
-// 		}
-// 	}
-
-// 	&-white {
-// 		background: $color-white;
-// 	}
-// }
-
-
-// .slider {
-// 	// overflow-y: hidden;
-// 	display: none;
-// 	height: 120px;
-// 	margin: 0 0 2px;
-
-// 	.ready & {
-// 		display: block;
-// 	}
-
-// 	@include mq($bp-desktop) {
-// 		height: 150px;
-// 	}
-
-// 	@include mq($bp-widescreen) {
-// 		height: 200px;
-// 	}
-
-
-// 	.item {
-// 		display: inline;
-// 		float: left;
-
-// 		img {
-// 			height: 120px;
-// 			// width: auto !important;
-
-// 			@include mq($bp-desktop) {
-// 				height: 150px;
-// 			}
-
-// 			@include mq($bp-widescreen) {
-// 				height: 200px;
-// 			}
-// 		}
-// 	}
-// }

@@ -16,10 +16,8 @@ body {
 	min-height: 100vh;
 	overflow-x: hidden;
 	text-align: center;
-	// transition: color .5s .3s;
 
 	&.loadpage {
-		// color: shade($color-bg, 10);
 		color: transparentize($color-black, .9);
 	}
 
