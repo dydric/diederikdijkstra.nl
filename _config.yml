@@ -1,0 +1,13 @@
+# Site settings
+title: Diederik Dijkstra
+email: diederikdijkstra@gmail.com
+description: Front-end developer
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://diederikdijkstra.nl" # the base hostname & protocol for your site
+twitter_username: dydric
+github_username:  dydric
+
+# Build settings
+markdown: kramdown
+highlighter: pygments # or rouge or null
+exclude: ["node_modules", "gulpfile.js", "package.json", "README.md"]

@@ -1,0 +1,50 @@
+// IMAGES
+
+img {
+	display: block;
+	margin: 0 auto;
+	// max-height: 90vh;
+	// max-width: 100%;
+
+	.permalink.photo & {
+		box-shadow: 0 5px 40px rgba(0, 0, 0, .3);
+	}
+
+	.full &,
+	.photo.caption & {
+		max-height: inherit;
+	}
+
+	// .index & {
+	// 	max-height: inherit;
+	// 	opacity: .2;
+	// }
+}
+
+.resize {
+	bottom: 12px;
+	display: none;
+	height: 24px;
+	position: fixed;
+	right: 12px;
+	text-decoration: none;
+	width: 24px;
+	z-index: 3;
+
+	@include mq($bp-tablet, true) {
+		&.show {
+			display: block;
+		}
+	}
+
+	svg {
+		fill: $color-white;
+		opacity: .5;
+	}
+
+	&:hover {
+		svg {
+			opacity: .8;
+		}
+	}
+}

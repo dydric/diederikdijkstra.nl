@@ -1,0 +1,45 @@
+// .loading {
+// 	display: none;
+// 	transition: all 5s;
+
+// 	.loadpage & {
+// 		display: inline;
+// 		font: bold 12px "Courier New", Courier, monospace;
+// 		opacity: .99;
+// 	}
+
+// 	.done & {
+// 		font-family: 24px;
+// 		opacity: .5;
+// 	}
+// }
+
+
+// scss-lint:disable IdSelector
+#nprogress {
+	pointer-events: none;
+
+	.bar {
+		background: $color-txt;
+		height: 5px;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 101;
+	}
+
+	.peg {
+		display: none;
+	}
+}
+
+.nprogress-custom-parent {
+	overflow: hidden;
+	position: relative;
+
+	#nprogress .bar {
+		position: absolute;
+	}
+}
+// scss-lint:enable IdSelector

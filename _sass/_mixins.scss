@@ -1,0 +1,75 @@
+// Media Queries
+// Info: http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+	@if $IE9 == true{
+		.no-mediaqueries & {
+			@content;
+		}
+
+		@media screen and (#{$query1}-#{$query2}: $point+px) {
+			@content;
+		}
+	} @else {
+		@media screen and (#{$query1}-#{$query2}: $point+px) {
+			@content;
+		}
+	}
+}
+
+// Clearfix
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// Unselectable
+@mixin unselectable() {
+	user-select: none;
+}
+
+// Typografie mixins
+@mixin text-size($title-font-size: 32, $vw-size-start: 600, $vw-size-stop: 1200, $title-margin: 18) {
+
+	$vw-start: $vw-size-start / 100;
+	$vw-stop: $vw-size-stop / 100;
+
+	font-size: #{$title-font-size}px; 
+	margin-bottom: #{$title-margin}px;
+
+	.no-mediaqueries & {
+		font-size: #{ceil(($title-font-size / $vw-start) * 9)}px;
+		margin-bottom: #{ceil(($title-margin / $vw-start) * 9)}px;
+	}
+
+	.no-js &,
+	.wf-loading & {
+		visibility: hidden;
+	}
+
+	.wf-active & {
+		visibility: visible;
+	}
+
+	@include mq($vw-size-start) {
+		font-size: #{$title-font-size / $vw-start}vw;
+		margin-bottom: #{$title-margin / $vw-start}vw;
+	}
+
+	@include mq($vw-size-stop) {
+		font-size: #{($title-font-size / $vw-start) * $vw-stop}px;
+		margin-bottom: #{($title-margin / $vw-start) * $vw-stop}px;
+	}
+}
+
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

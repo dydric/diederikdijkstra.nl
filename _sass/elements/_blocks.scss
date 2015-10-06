@@ -1,0 +1,114 @@
+.blocks {
+
+	ul {
+		display: none;
+		font-size: 0;
+		margin: 0 auto 8vw;
+		max-width: 500px;
+		padding: 0;
+		text-align: center;
+		transition: transform 500ms cubic-bezier(.75, -.5, 0, 1.75);
+
+		.done & {
+			display: block;
+		}
+
+		&:hover {
+			transform: translateZ(0) scale(.95);
+		}
+
+		@include mq(800) {
+			margin-bottom: 64px;
+			max-width: 750px;
+		}
+	}
+
+	li {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+
+		a {
+			background: transparentize($color-txt, 1);
+			border: 2vw solid transparentize($color-txt, .7);
+			display: block;
+			margin: 0 auto;
+			position: relative;
+			text-align: center;
+			transition: all 300ms cubic-bezier(.75, -.5, 0, 1.75);
+
+			span {
+				@include text-size(21, 600, 800, 0);
+				color: $color-txt;
+				line-height: 2;
+				transition: color 400ms;
+				z-index: 3;
+			}
+
+			&:hover {
+				background: $color-txt;
+				border-color: $color-txt;
+				transform: translateZ(0) scale(1.05);
+
+				span {
+					color: $color-white;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+
+		@include mq(400) {
+			display: inline-block;
+			width: 50%;
+			
+			a {
+				margin: 0 5px;
+			}
+		}
+
+		@include mq(550) {
+			display: inline-block;
+			margin: 0;
+			// height: 50vw;
+			// width: 50vw;
+
+			a {
+				border: 10px solid transparentize($color-txt, .7);
+				height: 200px;
+				margin: 0 auto 20px;
+				width: 200px;
+
+				span {
+					left: 50%;
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%, -50%);
+				}
+
+				&:hover {
+					background: $color-txt;
+					border-color: $color-txt;
+					transform: translateZ(0) scale(1.1);
+
+					span {
+						color: $color-white;
+						transform: translate(-50%, -50%);
+					}
+				}
+			}
+		}
+
+		@include mq(750) {
+			display: inline-block;
+			height: 250px;
+			width: 250px;
+
+			a {
+				height: 200px;
+				width: 200px;
+			}
+		}
+
+
+	}
+}

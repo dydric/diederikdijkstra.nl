@@ -1,0 +1,47 @@
+html {
+	@include unselectable();
+	font-size: 62.5%; // LATEN STAAN - NIET AANPASSEN
+	font-smoothing: antialiased;
+	height: 100%;
+	overflow-y: scroll;
+	tap-highlight-color: rgba(0, 0, 0, .1);
+	text-size-adjust: 100%;
+}
+
+body {
+	background-color: $color-bg;
+	color: $color-bg;
+	font-family: $font-family;
+	line-height: 1.2;
+	min-height: 100vh;
+	overflow-x: hidden;
+	text-align: center;
+	// transition: color .5s .3s;
+
+	&.loadpage {
+		// color: shade($color-bg, 10);
+		color: transparentize($color-black, .9);
+	}
+
+	&.done {
+		color: $color-txt;
+	}
+
+}
+
+::-webkit-scrollbar {
+	background: shade($color-bg, 5);
+	border: 0;
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $color-txt;
+	border: 0;
+	border-radius: 0;
+}
+
+::selection {
+	background: rgba(0, 0, 0, .5);
+	color: $color-white;
+}
