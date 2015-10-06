@@ -2,10 +2,15 @@
 title: Diederik Dijkstra
 email: diederikdijkstra@gmail.com
 description: Front-end developer
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://diederikdijkstra.nl" # the base hostname & protocol for your site
-twitter_username: dydric
-github_username:  dydric
+baseurl: ""
+url: "http://diederikdijkstra.nl"
+
+instagram_url: https://instagram.com/dydric/
+twitter_url: https://twitter.com/Dydric
+codepen_url: http://codepen.io/dydric/
+tumblr_url: http://dydric.tumblr.com/
+strava_url: http://www.strava.com/athletes/dydric
+github_url:  https://github.com/dydric
 
 # Build settings
 markdown: kramdown
