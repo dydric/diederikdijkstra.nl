@@ -126,8 +126,8 @@ gulp.task('html', function (cb) {
 	return gulp.src(['_jade/*.{jade,html}'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
-			cache: true,
-			pretty: true
+			cache: true
+			// pretty: true
 		})))
 		.pipe(gulp.dest('_includes/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
@@ -138,5 +138,5 @@ gulp.task('html', function (cb) {
 
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['css', 'js', '_site/'], cb);
+	return del(['css', 'js', '_includes', '_site/'], cb);
 });
