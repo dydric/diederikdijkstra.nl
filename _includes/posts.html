@@ -1,0 +1,1 @@
+<ul style="display: none" class="post-list">{% for post in site.posts %}<li><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span><h2><a href="{{ post.url | prepend: site.baseurl }}" class="post-link">{{ post.title }}</a></h2></li>{% endfor %}</ul>
