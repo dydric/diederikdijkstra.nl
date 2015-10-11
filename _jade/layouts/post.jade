@@ -1,0 +1,8 @@
+doctype html
+html(class='no-js')
+	| {% include head.html %}
+body
+	h1 {{ page.title }}
+	p.meta {{ page.date | date_to_string }}
+	.post {{ content }}
+	| {% include footer.html %}
