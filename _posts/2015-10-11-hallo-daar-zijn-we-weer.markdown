@@ -1,6 +1,6 @@
 ---
 layout:    post
-title:     "Here we go again!"
+title:     "Hallo, daar zijn we weer!"
 date:      2015-10-11
 bodyclass: post--1
 hero:      
