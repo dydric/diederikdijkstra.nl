@@ -26,9 +26,7 @@ var AUTOPREFIXER_BROWSERS = [
 	'bb >= 10'
 ];
 
-/*********************************
-serve scripts
-*********************************/
+// SERVE
 gulp.task('serve:local', function (cb) {
 	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'includes', 'layouts'], 'jekyll-build', function (cb) {
 		browserSync({
@@ -44,9 +42,7 @@ gulp.task('serve:local', function (cb) {
 	});
 });
 
-/*********************************
-Jekyll scripts
-*********************************/
+// JEKYLL
 gulp.task('jekyll-build', function (done) {
 	return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
 		.on('close', done);
@@ -56,9 +52,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 	browserSync.reload();
 });
 
-/*********************************
-watch scripts
-*********************************/
+// SASS
 gulp.task('styles', function (cb) {
 	return gulp.src(['_sass/*.scss'])
 		.pipe($.plumber())
