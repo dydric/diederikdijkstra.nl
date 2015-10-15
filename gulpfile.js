@@ -54,7 +54,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 
 // SASS
 gulp.task('styles', function (cb) {
-	return gulp.src(['_sass/*.scss'])
+	return gulp.src(['_sass/**/*.scss'])
 		.pipe($.plumber())
 		.pipe($.sourcemaps.init())
 		.pipe($.sass.sync().on('error', $.sass.logError))
