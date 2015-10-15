@@ -1,36 +1,14 @@
-// BREAKPOINTS (MOBILE FIRST)
-$bp-mobile      : 480;
-$bp-smalltablet : 600;
-$bp-tablet      : 768;
-$bp-desktop     : 1024;
-$bp-widescreen  : 1200;
+// BREAKPOINTS
+$bp-mobile		: 480;
+$bp-smalltablet	: 600;
+$bp-tablet		: 768;
+$bp-desktop		: 1024;
+$bp-widescreen	: 1200;
 
-// KLEUREN
-$color-black           : rgb(0, 0, 0);
-$color-grey-darker     : lighten($color-black, 10%);
-$color-grey-dark       : lighten($color-black, 25%);
-$color-grey            : lighten($color-black, 50%);
-$color-grey-light      : lighten($color-black, 75%);
-$color-grey-lighter    : lighten($color-black, 92%);
-$color-white           : rgb(255, 255, 255);
-
-@function tint($color, $percent) {
-	@return mix($color-white, $color, $percent);
-}
-
-@function shade($color, $percent) {
-	@return mix($color-black, $color, $percent);
-}
-
-// SFEER
-$color-bg				: #89fad0; //#f6ea8c;
-$color-txt				: #642ab6; //#343b99;
-
-$color-body            : #e3e2de;
-$color-text            : #2a2928;
-$color-accent          : #837251;
-$color-hover           : tint($color-accent, 5);
+// COLORS
+$color-bg		: #89fad0;
+$color-txt		: #642ab6;
 
 // TYPOGRAFIE
-$font-family : 'adelle-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-code   : Monaco, Consolas, "Lucida Console", monospace;
+$font-family	: 'adelle-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-code		: Monaco, Consolas, "Lucida Console", monospace;
