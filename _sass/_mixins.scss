@@ -1,5 +1,16 @@
-// Media Queries
-// Info: http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+// COLORS
+$color-black	: rgb(0, 0, 0);
+$color-white	: rgb(255, 255, 255);
+
+@function tint($color, $percent) {
+	@return mix($color-white, $color, $percent);
+}
+
+@function shade($color, $percent) {
+	@return mix($color-black, $color, $percent);
+}
+
+// MEDIA QUERIES
 @mixin mq($point, $IE9: false, $query1: min, $query2: width) {
 	@if $IE9 == true{
 		.no-mediaqueries & {
@@ -16,7 +27,7 @@
 	}
 }
 
-// Clearfix
+// CLEARFIX
 @mixin clearfix() {
 	&:before,
 	&:after {
@@ -29,12 +40,12 @@
 	}
 }
 
-// Unselectable
+// UNSELECTABLE
 @mixin unselectable() {
 	user-select: none;
 }
 
-// Typografie mixins
+// RESPONSIVE FONT-SIZE
 @mixin text-size($title-font-size: 32, $vw-size-start: 600, $vw-size-stop: 1200, $title-margin: 18) {
 
 	$vw-start: $vw-size-start / 100;
@@ -68,6 +79,7 @@
 	}
 }
 
+// ...
 @mixin text-overflow() {
 	overflow: hidden;
 	text-overflow: ellipsis;
