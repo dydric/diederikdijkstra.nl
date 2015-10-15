@@ -2,7 +2,7 @@
 layout:    post
 title:     "Hallo, daar zijn we weer!"
 date:      2015-10-11
-bodyclass: post--1
+body-ID:   post--01
 hero:      
 ---
 
