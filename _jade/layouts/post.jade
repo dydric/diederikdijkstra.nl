@@ -1,11 +1,11 @@
 doctype html
 html(class='no-js')
 	| {% include head.html %}
-body.post(class= "{{ page.bodyclass}}")
+body.post(class= "{{ page.body-ID}}")
 	section
 		h1 {{ page.title }}
 		p.meta {{ page.date | date_to_string }}
 		.content
-			{{ content }}
+			| {{ content }}
 
 	| {% include footer.html %}
