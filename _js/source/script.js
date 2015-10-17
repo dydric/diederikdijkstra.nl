@@ -30,8 +30,7 @@ $(window).load(function(){
 			// console.log("%cGo!","color: #2a2a2c; font-size: 14px; font-weight: bold");
 
 			$('body').removeClass('loadpage').addClass('done');
-
-			if (!Modernizr.touch) {
+			if (!Modernizr.touch && $('body').hasClass("home")) {
 				moveFx();
 				scrollFx();
 			}
@@ -49,7 +48,7 @@ function moveFx(){
 	var $b, $h, imageMoveDampeningX, imageMoveDampeningY, mouseEntered, mouseMovedX, mouseMovedY, moveImageLinkGreensock;
 
 	$b = $('.blocks');
-	$h = $('header');
+	$h = $('header img');
 
 	xPos = 0;
 	yPos = 0;
