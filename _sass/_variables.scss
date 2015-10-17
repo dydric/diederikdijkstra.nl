@@ -5,10 +5,19 @@ $bp-tablet		: 768;
 $bp-desktop		: 1024;
 $bp-widescreen	: 1200;
 
-// COLORS
-$color-bg		: #89fad0;
-$color-txt		: #642ab6;
-
-// TYPOGRAFIE
+// TYPOGRAPHY
 $font-family	: 'adelle-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-code		: Monaco, Consolas, "Lucida Console", monospace;
+
+// COLORS
+@if $body-ID == home {
+
+	$color-bg		: #89fad0;
+	$color-txt		: #642ab6;
+
+} @elseif $body-ID == post--01 {
+
+	$color-bg		: #f6ea8c;
+	$color-txt		: #343b99;
+
+}

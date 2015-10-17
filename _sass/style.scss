@@ -1,15 +1,3 @@
-// Misc
-@import 'variables';
-@import 'mixins';
-@import 'reset';
+$body-ID: home;
 
-// Layout
-@import 'layout/base';
-@import 'layout/layout';
-
-// Elements
-@import 'elements/text';
-@import 'elements/blocks';
-
-// Extra's
-@import 'extra/loading';
+@import 'includes';

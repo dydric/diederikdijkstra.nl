@@ -1,17 +1,3 @@
-// Misc
-@import '../variables';
-@import '../mixins';
-@import '../reset';
+$body-ID: post--01;
 
-$color-bg		: #f6ea8c;
-$color-txt		: #343b99;
-
-// Layout
-@import '../layout/base';
-@import '../layout/layout';
-
-// Elements
-@import '../elements/text';
-
-// Extra's
-@import '../extra/loading';
+@import '../includes';
