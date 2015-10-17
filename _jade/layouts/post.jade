@@ -1,6 +1,6 @@
 doctype html
 html(class='no-js')
-	| {% include head.html %}
+	include ../includes/head.jade
 	body.post(class= "{{ page.body-ID}}")
 		| {{ content }}
-		| {% include footer.html %}
+		include ../includes/footer.jade

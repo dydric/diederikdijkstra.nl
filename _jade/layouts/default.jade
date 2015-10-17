@@ -1,5 +1,7 @@
 doctype html
 html(class='no-js')
-	| {% include head.html %}
+	include ../includes/head.jade
 	body.home
-		| {% include home.html %} {% include posts.html %} {% include footer.html %} 
+		include ../includes/home.jade
+		include ../includes/posts.jade
+		include ../includes/footer.jade
