@@ -28,7 +28,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // SERVE
 gulp.task('serve:local', function (cb) {
-	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'includes', 'layouts'], 'jekyll-build', function (cb) {
+	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'includes', 'layouts', 'posts'], 'jekyll-build', function (cb) {
 		browserSync({
 			notify: false,
 			logPrefix: 'BS',
@@ -37,7 +37,7 @@ gulp.task('serve:local', function (cb) {
 		gulp.watch(['_sass/**/*'], ['styles', 'jekyll-rebuild']);
 		gulp.watch(['_js/**/*'], ['scripts', 'jekyll-rebuild']);
 		gulp.watch(['img/**/*'], ['images', 'jekyll-rebuild']);
-		gulp.watch(['_jade/**/*'], ['includes', 'layouts', 'jekyll-rebuild']);
+		gulp.watch(['_jade/**/*'], ['includes', 'layouts', 'posts', 'jekyll-rebuild']);
 		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
 	});
 });
@@ -142,6 +142,21 @@ gulp.task('layouts', function (cb) {
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'layouts'
+		}));
+});
+
+// POSTS
+gulp.task('posts', function (cb) {
+	return gulp.src(['_jade/posts/*'])
+		.pipe($.plumber())
+		.pipe($.if('*.jade', $.jade({
+			cache: true
+			// pretty: true
+		})))
+		.pipe(gulp.dest('_includes/posts'))
+		.pipe($.if(browserSync.active, reload({ stream: true })))
+		.pipe($.size({
+			title: 'posts'
 		}));
 });
 
