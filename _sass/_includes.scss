@@ -6,6 +6,9 @@
 // Layout
 @import 'layout/base';
 @import 'layout/layout';
+@if $grid == true {
+	@import 'layout/grid';
+}
 
 // Elements
 @import 'elements/text';
