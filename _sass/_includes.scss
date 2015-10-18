@@ -9,7 +9,12 @@
 
 // Elements
 @import 'elements/text';
-@import 'elements/blocks';
+@if $body-ID == home {
+	@import 'elements/blocks';
+}
 
 // Extra's
 @import 'extra/loading';
+@if $syntax == true {
+	@import 'extra/syntax';
+}
