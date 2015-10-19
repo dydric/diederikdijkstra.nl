@@ -7,6 +7,10 @@ header {
 	top: 0;
 	z-index: 0;
 
+	@include mq(500) {
+		padding: 50px;
+	}
+
 	.done & {
 		opacity: 1;
 		transition: opacity 600ms;
@@ -18,7 +22,7 @@ header {
 		max-width: 400px;
 		min-width: 180px;
 		opacity: .8;
-		width: 50% !important;
+		width: 50%;
 	}
 
 	.touch & {
@@ -27,10 +31,6 @@ header {
 		img {
 			opacity: 1;
 		}
-	}
-
-	@include mq(500) {
-		padding: 50px;
 	}
 }
 

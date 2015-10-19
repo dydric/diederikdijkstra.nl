@@ -1,36 +1,12 @@
-$grid-columns: 12;
-$max-width: 1800;
-
 .grid {
 	@include clearfix();
 	margin: 0;
 	position: relative;
 	z-index: 1;
 
-	// @include mq($max-width) {
-	// 	margin: 0 auto;
-	// }
-
-	// @include mq($bp-tablet) {
-	// 	left: 5vw;
-	// 	margin: 0;
-	// 	position: absolute;
-	// 	right: 5vw;
-
-		&-fixed {
-			left: 5vw;
-			margin: 0;
-			position: fixed;
-			right: 5vw;
-		}
-	// }
-
-	// @include mq(1320) {
-	// 	left: 50%;
-	// 	margin-left: -600px;
-	// 	right: auto;
-	// 	width: 1200px;
-	// }
+	@include mq($max-width) {
+		margin: 0 auto;
+	}
 
 	@for $i from 2 through 10 {
 		&-#{$i} { 
@@ -51,47 +27,47 @@ $max-width: 1800;
 	@include mq(800) {
 
 		@for $i from 1 through $grid-columns {
-			&-m-#{$i} { 
+			&-m#{$i} { 
 				width: 100% / $grid-columns * $i;
 			}
 
-			&-offset-m-#{$i} { 
+			&-offset-m#{$i} { 
 				margin-left: 100% / $grid-columns * $i;
 			}
 		}
 
-		&-m-hide {
+		&-hide-m {
 			display: none;
 		}
 	}
 
 	@include mq(1200, true) {
 		@for $i from 1 through $grid-columns {
-			&-l-#{$i} { 
+			&-l#{$i} { 
 				width: 100% / $grid-columns * $i;
 			}
 
-			&-offset-l-#{$i} { 
+			&-offset-l#{$i} { 
 				margin-left: 100% / $grid-columns * $i;
 			}
 		}
 
-		&-l-hide {
+		&-hide-l {
 			display: none;
 		}
 	}
 
 	@for $i from 1 through $grid-columns {
-		&-s-#{$i} { 
+		&-s#{$i} { 
 			width: 100% / $grid-columns * $i;
 		}
 
-		&-offset-s-#{$i} { 
+		&-offset-s#{$i} { 
 			margin-left: 100% / $grid-columns * $i;
 		}
 	}
 
-	&-s-hide {
+	&-hide-s {
 		display: none;
 	}
 }

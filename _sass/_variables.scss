@@ -1,13 +1,10 @@
-// BREAKPOINTS
-$bp-mobile		: 480;
-$bp-smalltablet	: 600;
-$bp-tablet		: 768;
-$bp-desktop		: 1024;
-$bp-widescreen	: 1200;
+// GRID
+$grid-columns: 12;
+$max-width: 1800;
 
 // TYPOGRAPHY
 $font-family	: 'adelle-sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-code		: Monaco, Consolas, "Lucida Console", monospace;
+$font-code		: Monaco, Consolas, 'Lucida Console', monospace;
 
 // COLORS
 @if $body-ID == home {

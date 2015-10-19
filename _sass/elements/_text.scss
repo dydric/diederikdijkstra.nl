@@ -88,7 +88,7 @@ a {
 .meta {
 	@extend %text;
 	@include text-size(15, 600, 800);
-	font-weight: 400;
 	color: shade($color-bg, 25);
+	font-weight: 400;
 	margin: 0 auto;
 }
