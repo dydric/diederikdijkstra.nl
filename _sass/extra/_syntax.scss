@@ -1,7 +1,7 @@
 $color-code-1: shade($color-bg, 20);
 $color-code-2: #aa0000;
 $color-code-3: #dd1144;
-$color-code-4: #009999;
+$color-code-4: lighten(saturate($color-txt, 1), 20);
 
 .highlight {
 	@extend %text;
@@ -76,40 +76,67 @@ $color-code-4: #009999;
 	}
 
 	.gd {
-		color: #000000;
-		background-color: #ffdddd;
+		background-color: tint($color-code-2, 80);
+		color: shade($color-txt, 90);
 
 		.x {
-			color: #000000;
-			background-color: #ffaaaa;
+			background-color: tint($color-code-2, 90);
+			color: shade($color-txt, 90);
 		}
 	}
-
-	.gh { color: #999999; }
 
 	.gi {
-		color: #000000;
-		background-color: #ddffdd;
+		background-color: desaturate(adjust_hue(lighten($color-bg, 2), 30), 1);
+		color: shade($color-txt, 90);
 
 		.x {
-			color: #000000;
-			background-color: #aaffaa;
+			background-color: desaturate(adjust_hue(darken($color-bg, 4), 30), 1);
+			color: shade($color-txt, 90);
 		}
 	}
 
-	.go { color: #888888;}
-	.gp { color: #555555;}
-	.gu { color: #aaaaaa;} 
-	.kt { color: #445588;}
-	.nb { color: #0086B3 } 
-	.nc { color: #445588;} 
-	.ni { color: #800080 } 
-	.nn { color: #555555 } 
-	.nt { color: #000080 } 
-	.w { color: #bbbbbb } 
-	.sr { color: #009926 } 
-	.ss { color: #990073 } 
-	.bp { color: #999999 } 
+	.go {
+		color: shade($color-txt, 60);
+	}
+
+	.gp,
+	.nn {
+		color: shade($color-txt, 70);
+	}
+
+	.gu {
+		color: shade($color-txt, 40);
+	}
+
+	.bp,
+	.gh {
+		color: shade($color-txt, 50);
+	}
+
+	.w {
+		color: shade($color-txt, 30);
+	}
+
+	.kt,
+	.nc { 
+		color: saturate(adjust_hue($color-txt, 330), 15);
+	}
+	
+	.nb { color: lighten(adjust_hue($color-txt, 325), 15);
+	} 
+
+	.ni
+	.ss { 
+		color: adjust_hue(lighten(saturate($color-txt, 12), 8), 50);
+	} 
+
+	.nt {
+		color: desaturate(darken(adjust_hue($color-txt, 360), 10), 10);
+	}
+
+	.sr {
+		color: adjust_hue(desaturate($color-txt, 0), 215);
+	}
 
 	// BOLD
 	.cp,
