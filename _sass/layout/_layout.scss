@@ -62,3 +62,39 @@ main {
 		text-align: left;
 	}
 }
+
+.posts {
+	@extend %text;
+	border-top: 1vw solid transparentize($color-txt, .9);
+	list-style: none;
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+
+	@include mq(550) {
+		border-top: 5px solid transparentize($color-txt, .9);
+	}
+}
+
+.post__link {
+	@include text-size(18, 600, 1200, 30);
+	border-bottom: 1vw solid transparentize($color-txt, .9);
+	font-weight: 700;
+	padding: .5em 0;
+	transition: transform 300ms cubic-bezier(.75, -.5, 0, 1.75);
+
+	@include mq(550) {
+		border-bottom: 5px solid transparentize($color-txt, .9);
+	}
+
+	span {
+		@include text-size(14, 600, 800, 0);
+		display: block;
+		font-weight: 400;
+		padding-bottom: .3em;
+	}
+
+	&:hover {
+		transform: translateZ(0) scale(1.05);
+	}
+}
+

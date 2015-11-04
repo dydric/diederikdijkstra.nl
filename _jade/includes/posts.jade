@@ -1,8 +1,7 @@
-ul.post-list
+ul.posts
 	| {% for post in site.posts %}
-	li
-		span.meta {% assign month = post.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober'| replace: '11', 'november' | replace: '12', 'december' %}
-			| {{ post.date | date: '%e' }} {{ month }} {{ post.date | date: '%Y' }}
-		h2
-			a.post-link(href="{{ post.url | prepend: site.baseurl }}") {{ post.title }}
+	li.post__link
+		a(href="{{ post.url | prepend: site.baseurl }}")
+			span {{ post.datum }} 
+			| {{ post.title }}
 	| {% endfor %}
