@@ -2,7 +2,7 @@ _drafts/
 _site/
 .idea
 node_modules
+.jekyll-metadata
 .scss-lint.yml
 .sass-cache
 .DS_Store
-.sublime-project
