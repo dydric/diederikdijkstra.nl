@@ -30,14 +30,25 @@ $(window).load(function(){
 			// console.log("%cGo!","color: #2a2a2c; font-size: 14px; font-weight: bold");
 
 			$('body').removeClass('loadpage').addClass('done');
-			if (!Modernizr.touch && $('body').hasClass("home")) {
+			if (!Modernizr.touch) {
 				moveFx();
 				scrollFx();
 			}
 
 		}, 500);
 	});
-	
+
+	$('a').each(function() {
+		var a = new RegExp('/' + window.location.host + '/');
+		if(!a.test(this.href)) {
+			$(this).click(function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				window.open(this.href, '_blank');
+			});
+		}
+	});
+
 });
 
 $(window).unload(function () {
@@ -47,8 +58,8 @@ $(window).unload(function () {
 function moveFx(){
 	var $b, $h, imageMoveDampeningX, imageMoveDampeningY, mouseEntered, mouseMovedX, mouseMovedY, moveImageLinkGreensock;
 
-	$b = $('.blocks');
-	$h = $('header img');
+	$b = $('.fx1');
+	$h = $('.fx2');
 
 	xPos = 0;
 	yPos = 0;
