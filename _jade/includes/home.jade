@@ -4,12 +4,12 @@ mixin block(platform)
 			span= platform
 
 header
-	img.test(src="img/1.jpg")
+	img.fx2(src="img/1.jpg")
 main
 	section
 		h1 {{ site.title }}
 		h2 {{ site.description }}
-	section.blocks
+	section.blocks.fx1
 		ul
 			+block("instagram")
 			+block("twitter")

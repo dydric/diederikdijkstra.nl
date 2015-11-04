@@ -1,0 +1,17 @@
+block variables
+| ---
+= '\n'
+| layout: #{layout}
+= '\n'
+| title: #{title}
+= '\n'
+| date: #{date}
+= '\n'
+| body-ID: #{bodyID}
+= '\n'
+| ---
+= '\n'
+section
+	block head
+	.content
+		block content
