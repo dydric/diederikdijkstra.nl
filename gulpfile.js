@@ -34,11 +34,11 @@ gulp.task('serve:local', function (cb) {
 			logPrefix: 'BS',
 			server: '_site'
 		});
-		gulp.watch(['_sass/**/*'], ['styles', 'jekyll-rebuild']);
-		gulp.watch(['_js/**/*'], ['scripts', 'jekyll-rebuild']);
-		gulp.watch(['img/**/*'], ['images', 'jekyll-rebuild']);
-		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'jekyll-rebuild']);
-		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+		gulp.watch(['_sass/**/*'], ['styles']);
+		gulp.watch(['_js/**/*'], ['scripts']);
+		gulp.watch(['img/**/*'], ['images']);
+		gulp.watch(['_jade/**/*'], ['layouts', 'posts']);
+		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
 
@@ -62,7 +62,9 @@ gulp.task('styles', function (cb) {
 			browsers: AUTOPREFIXER_BROWSERS
 		}))
 		.pipe($.minifyCss({
-			keepSpecialComments: false
+			keepSpecialComments: false,
+			processImport: false,
+			processImportFrom: ['!fonts.googleapis.com']
 		}))
 		.pipe($.sourcemaps.write('./'))
 		.pipe(gulp.dest('css'))
@@ -132,13 +134,12 @@ gulp.task('layouts', function (cb) {
 
 // POSTS
 gulp.task('posts', function (cb) {
-	return gulp.src(['_jade/posts/*'])
+	return gulp.src(['_jade/posts/*', '!_jade/posts/post.jade'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
 			cache: true
-			// pretty: true
 		})))
-		.pipe(gulp.dest('_includes/posts'))
+		.pipe(gulp.dest('_posts'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'posts'
@@ -147,5 +148,5 @@ gulp.task('posts', function (cb) {
 
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['css', 'js', '_includes', '_layouts', '_site/'], cb);
+	return del(['css', 'js', '_includes', '_posts', '_layouts', '_site/'], cb);
 });
