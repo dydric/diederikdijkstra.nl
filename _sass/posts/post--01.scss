@@ -1,5 +1,161 @@
+// MAIN VARIABLES
 $body-ID:	post--01;
 $grid:		false;
 $syntax:	true;
 
+// POST VARIABLES
+$color-white:	#ffffff;
+$color-black:	#000000;
+$color-1: 		#e20049;
+$color-2:		#f6e97f;
+
 @import '../includes';
+
+p {
+	strong {
+		background: tint($color-bg, 30);
+		padding: .1em .3em .15em;
+	}
+
+	a {
+		background: transparentize($color-txt, .9);
+		border-bottom: 1px solid transparentize($color-txt, .5);
+		padding: 0 .3em;
+
+		&:hover,
+		&:focus {
+			background: $color-txt;
+			border-bottom: 1px solid $color-txt;
+			color: $color-bg;
+		}
+	}
+
+}
+
+.intro {
+	font-weight: 700;
+
+	span {
+		background: $color-txt;
+		color: $color-bg;
+		padding: .1em .3em .15em;
+		white-space: nowrap;
+	}
+}
+
+.figure {
+	margin-bottom: 30px;
+	position: relative;
+	visibility: hidden;
+
+	@include mq(600, true) {
+		margin: 30px 0 60px;
+	}
+
+	img {
+		display: block;
+		margin: 0;
+		width: 100%;
+	}
+
+	figcaption {
+		@include text-size(15, 600, 800, 0);
+		background: $color-txt;
+		bottom: -1em;
+		color: $color-bg;
+		font-weight: 700;
+		left: 1em;
+		padding: .25em 1em;
+		position: absolute;
+
+		span {
+			display: inline;
+			float: right;
+			font-weight: 400;
+		}
+	}
+
+	&--left {
+		margin-left: 5%;
+		margin-right: 5%;
+
+		@include mq(600, true) {
+			display: inline;
+			float: left;
+			margin-left: 0;
+			margin-right: 2%;
+			width: 48%;
+		}
+	}
+
+	&--right {
+		margin-left: 5%;
+		margin-right: 5%;
+
+		@include mq(600, true) {
+			display: inline;
+			float: right;
+			margin-left: 2%;
+			margin-right: 0;
+			width: 48%;
+		}
+	}
+
+	&__link {
+		display: block;
+	}
+
+	.wf-active .done & {
+		visibility: visible;
+	}
+}
+
+blockquote {
+	@extend %text;
+	@include text-size(24, 600, 800, 40);
+	background: $color-txt;
+	color: $color-bg;
+	font-weight: 400;
+	line-height: 1.4;
+	padding: 1em;
+
+	@include mq(800) {
+		line-height: 1.6;
+	}
+
+	cite {
+		display: block;
+		font-size: 80%;
+		font-variant: italic;
+		padding-top: 1em;
+		text-align: right;
+
+		a {
+			background: transparent;
+			border-bottom: 1px solid $color-bg;
+			color: $color-white;
+
+			&:hover,
+			&:focus {
+				border-bottom: 0;
+				color: $color-bg;
+			}
+		}
+	}
+}
+
+// .button {
+// 	@extend %text;
+// 	text-align: center;
+
+// 	a {
+// 		@include text-size(18, 600, 800, 20);
+// 		background: shade($color-bg, 5);
+// 		color: $color-txt;
+// 		display: inline-block;
+// 		margin: 0 auto;
+// 		padding: 0 1em;
+// 		text-align: center;
+// 	}
+// }
+

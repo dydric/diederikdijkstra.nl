@@ -59,15 +59,6 @@ $color-white	: rgb(255, 255, 255);
 		margin-bottom: #{ceil(($title-margin / $vw-start) * 9)}px;
 	}
 
-	.no-js &,
-	.wf-loading & {
-		visibility: hidden;
-	}
-
-	.wf-active & {
-		visibility: visible;
-	}
-
 	@include mq($vw-size-start) {
 		font-size: #{$title-font-size / $vw-start}vw;
 		margin-bottom: #{$title-margin / $vw-start}vw;
