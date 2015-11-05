@@ -21,7 +21,7 @@ html.no-js
 					+block("strava")
 					+block("github")
 			section
-				ul.list
+				ul.list.fx1
 					| {% for post in site.posts %}
 					li.list__item
 						a.list__link(href="{{ post.url | prepend: site.baseurl }}")
