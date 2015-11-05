@@ -1,17 +1,16 @@
 // MAIN VARIABLES
 $body-ID:	post--01;
 $grid:		false;
-$syntax:	true;
+$syntax:	false;
 
 // POST VARIABLES
 $color-white:	#ffffff;
 $color-black:	#000000;
-$color-1: 		#e20049;
-$color-2:		#f6e97f;
 
 @import '../includes';
 
 p {
+
 	strong {
 		background: tint($color-1, 30);
 		padding: .1em .3em .15em;
@@ -30,18 +29,18 @@ p {
 		}
 	}
 
-}
+	&.intro {
+		font-weight: 700;
 
-.intro {
-	font-weight: 700;
-
-	span {
-		background: $color-2;
-		color: $color-1;
-		padding: .1em .3em .15em;
-		white-space: nowrap;
+		span {
+			background: $color-2;
+			color: $color-1;
+			padding: .1em .3em .15em;
+			white-space: nowrap;
+		}
 	}
 }
+
 
 .figure {
 	margin-bottom: 30px;
@@ -143,19 +142,3 @@ blockquote {
 		}
 	}
 }
-
-// .button {
-// 	@extend %text;
-// 	text-align: center;
-
-// 	a {
-// 		@include text-size(18, 600, 800, 20);
-// 		background: shade($color-1, 5);
-// 		color: $color-2;
-// 		display: inline-block;
-// 		margin: 0 auto;
-// 		padding: 0 1em;
-// 		text-align: center;
-// 	}
-// }
-
