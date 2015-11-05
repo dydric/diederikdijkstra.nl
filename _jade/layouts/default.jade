@@ -2,6 +2,33 @@ doctype html
 html.no-js
 	include ../includes/head.jade
 	body.home
-		include ../includes/home.jade
-		include ../includes/posts.jade
+		mixin block(platform)
+			li(class= platform)
+				a(href="{{ site." + [platform] + "_url }}", target="_blank")
+					span= platform
+		header
+			img.fx2(src="img/1.jpg")
+		main
+			section
+				h1 {{ site.title }}
+				h2 {{ site.description }}
+			section.blocks.fx1
+				ul
+					+block("instagram")
+					+block("twitter")
+					+block("codepen")
+					+block("tumblr")
+					+block("strava")
+					+block("github")
+			section
+				ul.list
+					| {% for post in site.posts %}
+					li.list__item
+						a.list__link(href="{{ post.url | prepend: site.baseurl }}")
+							span.list__date {{ post.datum }} 
+							| {{ post.title }}
+					| {% endfor %}
+			section
+				p
+					a.email(user="diederikdijkstra", domain="gmail.com", href="#") diederikdijkstra<span>[at]</span>gmail<span>[dot]</span>com
 		include ../includes/footer.jade

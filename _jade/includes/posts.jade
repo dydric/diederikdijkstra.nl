@@ -1,7 +1,0 @@
-ul.posts
-	| {% for post in site.posts %}
-	li.post__link
-		a(href="{{ post.url | prepend: site.baseurl }}")
-			span {{ post.datum }} 
-			| {{ post.title }}
-	| {% endfor %}

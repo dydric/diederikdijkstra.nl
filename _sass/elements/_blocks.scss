@@ -3,7 +3,7 @@
 	ul {
 		display: none;
 		font-size: 0;
-		margin: 0 auto 8vw;
+		margin: 0 auto;
 		max-width: 500px;
 		padding: 0;
 		text-align: center;
@@ -18,7 +18,6 @@
 		}
 
 		@include mq(800) {
-			margin-bottom: 64px;
 			max-width: 750px;
 		}
 	}
