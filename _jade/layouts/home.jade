@@ -1,11 +1,12 @@
+mixin block(platform)
+	li(class= platform)
+		a(href="{{ site." + [platform] + "_url }}", target="_blank")
+			span= platform
+
 doctype html
 html.no-js
 	include ../includes/head.jade
 	body.home
-		mixin block(platform)
-			li(class= platform)
-				a(href="{{ site." + [platform] + "_url }}", target="_blank")
-					span= platform
 		header
 			img.fx2(src="img/1.jpg")
 		main
