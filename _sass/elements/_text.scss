@@ -54,7 +54,7 @@ p {
 }
 
 a {
-	color: $color-txt;
+	color: $color-2;
 	display: inline-block;
 	text-decoration: none;
 
@@ -64,7 +64,7 @@ a {
 		z-index: 1;
 
 		&:after {
-			background: transparentize($color-txt, .9);
+			background: transparentize($color-2, .9);
 			bottom: -.2em;
 			content: '';
 			height: .3em;
@@ -80,7 +80,7 @@ a {
 		}
 
 		span {
-			color: transparentize($color-txt, .5);
+			color: transparentize($color-2, .5);
 			font-size: 70%;
 			font-weight: 700;
 			letter-spacing: .1em;
@@ -103,7 +103,7 @@ a {
 .meta {
 	@extend %text;
 	@include text-size(15, 600, 800);
-	color: shade($color-bg, 25);
+	color: shade($color-1, 25);
 	font-weight: 400;
 	margin: 0 auto;
 }

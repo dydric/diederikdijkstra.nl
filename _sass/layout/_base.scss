@@ -1,6 +1,6 @@
 html {
 	@include unselectable();
-	font-size: 62.5%; // LATEN STAAN - NIET AANPASSEN
+	font-size: 62.5%;
 	font-smoothing: antialiased;
 	height: 100%;
 	overflow-y: scroll;
@@ -9,8 +9,8 @@ html {
 }
 
 body {
-	background-color: $color-bg;
-	color: $color-bg;
+	background-color: $color-1;
+	color: $color-1;
 	font-family: $font-family;
 	line-height: 1.2;
 	min-height: 100vh;
@@ -22,19 +22,19 @@ body {
 	}
 
 	&.done {
-		color: $color-txt;
+		color: $color-2;
 	}
 
 }
 
 ::-webkit-scrollbar {
-	background: shade($color-bg, 5);
+	background: shade($color-1, 5);
 	border: 0;
 	width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $color-txt;
+	background: $color-2;
 	border: 0;
 	border-radius: 0;
 }

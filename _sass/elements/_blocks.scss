@@ -28,8 +28,8 @@
 		width: 100%;
 
 		a {
-			background: transparentize($color-txt, 1);
-			border: 2vw solid transparentize($color-txt, .7);
+			background: transparentize($color-2, 1);
+			border: 2vw solid transparentize($color-2, .7);
 			display: block;
 			margin: 0 auto;
 			position: relative;
@@ -39,15 +39,15 @@
 
 			span {
 				@include text-size(21, 600, 800, 0);
-				color: $color-txt;
+				color: $color-2;
 				line-height: 2;
 				transition: color 400ms;
 				z-index: 3;
 			}
 
 			&:hover {
-				background: $color-txt;
-				border-color: $color-txt;
+				background: $color-2;
+				border-color: $color-2;
 				transform: translateZ(0) scale(1.05);
 
 				span {
@@ -73,7 +73,7 @@
 			// width: 50vw;
 
 			a {
-				border: 10px solid transparentize($color-txt, .7);
+				border: 10px solid transparentize($color-2, .7);
 				height: 200px;
 				margin: 0 auto 20px;
 				width: 200px;
@@ -86,8 +86,8 @@
 				}
 
 				&:hover {
-					background: $color-txt;
-					border-color: $color-txt;
+					background: $color-2;
+					border-color: $color-2;
 					transform: translateZ(0) scale(1.1);
 
 					span {

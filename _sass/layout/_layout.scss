@@ -74,14 +74,14 @@ main {
 
 .list {
 	// @extend %text;
-	border-top: 1vw solid transparentize($color-txt, .9);
-	list-style: none;
-	max-width: 800px;
-	margin: 0 5vw 10px;
+	border-top: 1vw solid transparentize($color-2, .9);
 	display: none;
+	list-style: none;
+	margin: 0 5vw 10px;
+	max-width: 800px;
 
 	@include mq(550) {
-		border-top: 5px solid transparentize($color-txt, .9);
+		border-top: 5px solid transparentize($color-2, .9);
 	}
 
 	@include mq(800) {
@@ -89,10 +89,10 @@ main {
 	}
 
 	&__item {
-		border-bottom: 1vw solid transparentize($color-txt, .9);
+		border-bottom: 1vw solid transparentize($color-2, .9);
 
 		@include mq(550) {
-			border-bottom: 5px solid transparentize($color-txt, .9);
+			border-bottom: 5px solid transparentize($color-2, .9);
 		}
 	}
 

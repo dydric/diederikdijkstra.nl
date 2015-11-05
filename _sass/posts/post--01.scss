@@ -13,20 +13,20 @@ $color-2:		#f6e97f;
 
 p {
 	strong {
-		background: tint($color-bg, 30);
+		background: tint($color-1, 30);
 		padding: .1em .3em .15em;
 	}
 
 	a {
-		background: transparentize($color-txt, .9);
-		border-bottom: 1px solid transparentize($color-txt, .5);
+		background: transparentize($color-2, .9);
+		border-bottom: 1px solid transparentize($color-2, .5);
 		padding: 0 .3em;
 
 		&:hover,
 		&:focus {
-			background: $color-txt;
-			border-bottom: 1px solid $color-txt;
-			color: $color-bg;
+			background: $color-2;
+			border-bottom: 1px solid $color-2;
+			color: $color-1;
 		}
 	}
 
@@ -36,8 +36,8 @@ p {
 	font-weight: 700;
 
 	span {
-		background: $color-txt;
-		color: $color-bg;
+		background: $color-2;
+		color: $color-1;
 		padding: .1em .3em .15em;
 		white-space: nowrap;
 	}
@@ -60,9 +60,9 @@ p {
 
 	figcaption {
 		@include text-size(15, 600, 800, 0);
-		background: $color-txt;
+		background: $color-2;
 		bottom: -1em;
-		color: $color-bg;
+		color: $color-1;
 		font-weight: 700;
 		left: 1em;
 		padding: .25em 1em;
@@ -113,8 +113,8 @@ p {
 blockquote {
 	@extend %text;
 	@include text-size(24, 600, 800, 40);
-	background: $color-txt;
-	color: $color-bg;
+	background: $color-2;
+	color: $color-1;
 	font-weight: 400;
 	line-height: 1.4;
 	padding: 1em;
@@ -132,13 +132,13 @@ blockquote {
 
 		a {
 			background: transparent;
-			border-bottom: 1px solid $color-bg;
+			border-bottom: 1px solid $color-1;
 			color: $color-white;
 
 			&:hover,
 			&:focus {
 				border-bottom: 0;
-				color: $color-bg;
+				color: $color-1;
 			}
 		}
 	}
@@ -150,8 +150,8 @@ blockquote {
 
 // 	a {
 // 		@include text-size(18, 600, 800, 20);
-// 		background: shade($color-bg, 5);
-// 		color: $color-txt;
+// 		background: shade($color-1, 5);
+// 		color: $color-2;
 // 		display: inline-block;
 // 		margin: 0 auto;
 // 		padding: 0 1em;
