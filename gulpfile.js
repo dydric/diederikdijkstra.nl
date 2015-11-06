@@ -38,7 +38,7 @@ gulp.task('serve:local', function (cb) {
 		gulp.watch(['_js/**/*'], ['scripts']);
 		gulp.watch(['img/**/*'], ['images']);
 		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts']);
-		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
+		gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
 
