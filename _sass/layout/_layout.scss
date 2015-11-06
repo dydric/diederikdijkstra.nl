@@ -107,8 +107,13 @@
 				padding-bottom: .3em;
 			}
 
-			&:hover {
-				transform: translateZ(0) scale(1.05);
+			.list:hover & {
+				color: transparentize($color-2, .3);
+
+				&:hover {
+					color: $color-2;
+					transform: translateZ(0) scale(1.05);
+				}
 			}
 		}
 
