@@ -28,7 +28,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // SERVE
 gulp.task('serve:local', function (cb) {
-	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'layouts', 'posts'], 'jekyll-build', function (cb) {
+	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'layouts', 'posts', 'drafts'], 'jekyll-build', function (cb) {
 		browserSync({
 			notify: false,
 			logPrefix: 'BS',
@@ -37,14 +37,14 @@ gulp.task('serve:local', function (cb) {
 		gulp.watch(['_sass/**/*'], ['styles']);
 		gulp.watch(['_js/**/*'], ['scripts']);
 		gulp.watch(['img/**/*'], ['images']);
-		gulp.watch(['_jade/**/*'], ['layouts', 'posts']);
-		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
+		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts']);
+		gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
 
 // JEKYLL
 gulp.task('jekyll-build', function (done) {
-	return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
+	return cp.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
 		.on('close', done);
 });
 
@@ -146,7 +146,21 @@ gulp.task('posts', function (cb) {
 		}));
 });
 
+// POSTS
+gulp.task('drafts', function (cb) {
+	return gulp.src(['_jade/drafts/*'])
+		.pipe($.plumber())
+		.pipe($.if('*.jade', $.jade({
+			cache: true
+		})))
+		.pipe(gulp.dest('_drafts'))
+		.pipe($.if(browserSync.active, reload({ stream: true })))
+		.pipe($.size({
+			title: 'drafts'
+		}));
+});
+
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['css', 'js', '_includes', '_posts', '_layouts', '_site/'], cb);
+	return del(['css', 'js', '_includes', '_posts', '_drafts', '_layouts', '_site/'], cb);
 });
