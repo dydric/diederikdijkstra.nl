@@ -16,18 +16,6 @@
 		&:hover {
 			transform: translateZ(0) scale(.95);
 		}
-
-		@include mq(640) {
-			max-width: 600px;
-		}
-
-		@include mq(720) {
-			max-width: 680px;
-		}
-
-		@include mq(800) {
-			max-width: 750px;
-		}
 	}
 
 	li {
@@ -64,8 +52,10 @@
 				}
 			}
 		}
+	}
 
-		@include mq(400) {
+	@include mq(400) {
+		li {
 			display: inline-block;
 			width: 50%;
 
@@ -73,12 +63,12 @@
 				margin: 0 5px;
 			}
 		}
+	}
 
-		@include mq(550) {
+	@include mq(550) {
+		li {
 			display: inline-block;
 			margin: 0;
-			// height: 50vw;
-			// width: 50vw;
 
 			a {
 				border: 10px solid transparentize($color-2, .7);
@@ -105,8 +95,14 @@
 				}
 			}
 		}
+	}
 
-		@include mq(640) {
+	@include mq(640) {
+		ul {
+			max-width: 600px;
+		}
+
+		li {
 			width: 33.33%;
 
 			a {
@@ -114,16 +110,27 @@
 				width: 160px;
 			}
 		}
+	}
 
-		@include mq(720) {
+	@include mq(720) {
+		ul {
+			max-width: 680px;
+		}
 
+		li {
 			a {
 				height: 180px;
 				width: 180px;
 			}
 		}
+	}
 
-		@include mq(800) {
+	@include mq(800) {
+		ul {
+			max-width: 750px;
+		}
+
+		li {
 			display: inline-block;
 			height: 250px;
 			width: 250px;
