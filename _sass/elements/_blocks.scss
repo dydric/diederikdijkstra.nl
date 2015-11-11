@@ -18,6 +18,14 @@
 		}
 
 		@include mq(640) {
+			max-width: 600px;
+		}
+
+		@include mq(720) {
+			max-width: 680px;
+		}
+
+		@include mq(800) {
 			max-width: 750px;
 		}
 	}
