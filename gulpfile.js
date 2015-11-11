@@ -34,11 +34,11 @@ gulp.task('serve:local', function (cb) {
 			logPrefix: 'BS',
 			server: '_site'
 		});
-		gulp.watch(['_sass/**/*'], ['styles'], ['jekyll-rebuild']);
-		gulp.watch(['_js/**/*'], ['scripts'], ['jekyll-rebuild']);
-		gulp.watch(['img/**/*'], ['images'], ['jekyll-rebuild']);
-		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts'], ['jekyll-rebuild']);
-		gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*', 'js/*', ], ['jekyll-rebuild']);
+		gulp.watch(['_sass/**/*'], ['styles']);
+		gulp.watch(['_js/**/*'], ['scripts']);
+		gulp.watch(['img/**/*'], ['images']);
+		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts']);
+		gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*.css', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
 
