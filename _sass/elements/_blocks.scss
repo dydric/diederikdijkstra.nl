@@ -17,7 +17,7 @@
 			transform: translateZ(0) scale(.95);
 		}
 
-		@include mq(800) {
+		@include mq(640) {
 			max-width: 750px;
 		}
 	}
@@ -60,7 +60,7 @@
 		@include mq(400) {
 			display: inline-block;
 			width: 50%;
-			
+
 			a {
 				margin: 0 5px;
 			}
@@ -98,7 +98,24 @@
 			}
 		}
 
-		@include mq(750) {
+		@include mq(640) {
+			width: 33.33%;
+
+			a {
+				height: 160px;
+				width: 160px;
+			}
+		}
+
+		@include mq(720) {
+
+			a {
+				height: 180px;
+				width: 180px;
+			}
+		}
+
+		@include mq(800) {
 			display: inline-block;
 			height: 250px;
 			width: 250px;
