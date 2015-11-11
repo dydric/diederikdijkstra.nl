@@ -67,7 +67,6 @@
 
 	@include mq(550) {
 		li {
-			display: inline-block;
 			margin: 0;
 
 			a {
@@ -99,11 +98,12 @@
 
 	@include mq(640) {
 		ul {
-			max-width: 600px;
+			max-width: 588px;
 		}
 
 		li {
-			width: 33.33%;
+			height: 196px;
+			width: 196px;
 
 			a {
 				height: 160px;
@@ -114,10 +114,13 @@
 
 	@include mq(720) {
 		ul {
-			max-width: 680px;
+			max-width: 675px;
 		}
 
 		li {
+			height: 225px;
+			width: 225px;
+
 			a {
 				height: 180px;
 				width: 180px;
@@ -131,7 +134,6 @@
 		}
 
 		li {
-			display: inline-block;
 			height: 250px;
 			width: 250px;
 
