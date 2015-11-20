@@ -15,7 +15,11 @@
 
 		.done & {
 			opacity: 1;
-			transition: opacity 600ms;
+			transition: opacity 600ms, top 500ms cubic-bezier(.75, -.1, 0, 1.25);
+		}
+
+		.no-touch &.move {
+			top: -200%;
 		}
 
 		img {

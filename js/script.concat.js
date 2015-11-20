@@ -988,7 +988,8 @@ $(window).load(function(){
 			$('body').removeClass('loadpage').addClass('done');
 			if (!Modernizr.touch) {
 				moveFx();
-				scrollFx();
+				// scrollFx();
+				hideScrolling();
 			}
 
 		}, 500);
@@ -1109,3 +1110,17 @@ function scrollFx(){
 		$('header').css("opacity", scrollPercentage);
 	});
 }
+
+function hideScrolling(){
+	$(window).on('scroll touchmove', function(e){
+		clearTimeout(t);
+		var t = setTimeout(function(){
+			if ($(window).scrollTop() >= 100) {
+				$('header').addClass('move');
+			} else {
+				$('header').removeClass('move');
+			}
+		}, 100);
+	});
+}
+
