@@ -35,6 +35,20 @@ $(window).load(function(){
 				scrollStatus();
 				// scrollFx();
 				hideScrolling();
+
+				var t;
+				if(!$('body').hasClass('home')){
+					$(window).on("resize", function() {
+						clearTimeout(t);
+						t = setTimeout(function(){
+							if($(window).width() >= 800) {
+								hideNav();
+							} else {
+								$('.nav').removeClass('nav-up nav-down');
+							}
+						}, 250);
+					}).trigger("resize");
+				}
 			}
 
 		}, 500);
@@ -176,3 +190,38 @@ function hideScrolling(){
 	});
 }
 
+function hideNav(){
+	// Hide Header on on scroll down
+	var didScroll;
+	lastScrollTop = 0;
+	delta = 20;
+	navbarHeight = $('.nav').outerHeight();
+
+	$(window).scroll(function(event){
+		didScroll = true;
+	});
+
+	setInterval(function() {
+		if (didScroll) {
+			hasScrolled();
+			didScroll = false;
+		}
+	}, 250);
+}
+
+function hasScrolled() {
+	var st = $(this).scrollTop();
+
+	if(Math.abs(lastScrollTop - st) <= delta)
+		return;
+
+	if (st > lastScrollTop && st > navbarHeight){
+		$('.nav').removeClass('nav-down').addClass('nav-up');
+	} else {
+		if(st + $(window).height() < $(document).height()) {
+			$('.nav').removeClass('nav-up').addClass('nav-down');
+		}
+	}
+	
+	lastScrollTop = st;
+}

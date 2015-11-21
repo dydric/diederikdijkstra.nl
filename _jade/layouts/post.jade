@@ -5,8 +5,11 @@ html.no-js
 		.status
 			.bar
 		nav.nav
+			a.name(href="/") Diederik Dijkstra
 			ul.menu
 				li.menu__item
 					a.menu__link(href="/") Home
+				li.menu__item.menu__item--rss
+					a.menu__link(href="{{ '/feed.xml' | prepend: site.baseurl }}") RSS
 		| {{ content }}
 		include ../includes/footer.jade

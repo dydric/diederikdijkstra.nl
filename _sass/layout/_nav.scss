@@ -1,26 +1,40 @@
 .nav {
-	// background: $color-1;
-	// background: transparentize($color-1, .05);
-	// border-bottom: 1px solid $color-2;
-	// height: 50px;
+	@include text-size(15, 600, 800, 0);
+	background: $color-1;
+	border: 2px solid $color-2;
 	left: 10px;
+	line-height: 1.2;
+	margin-top: 15px;
 	position: absolute;
 	right: 10px;
 	top: 0;
-	transform: translateY(-100%);
-	transition: transform 500ms 200ms ease-in-out;
+	transform: translateY(-100px);
+	transition: transform 300ms ease-in-out;
 	z-index: 100;
 
-	.loadpage &,
 	.done & {
 		transform: translateY(0);
+
+		&.nav-up {
+			transform: translateY(-100px);
+		}
+
+		&.nav-down {
+			transform: translateY(0);
+		}
+	}
+
+	.name {
+		display: inline;
+		float: left;
+		font-weight: 700;
+		padding: .5em 1em;
 	}
 
 	.menu {
 		@include clearfix();
-		display: block;
-		line-height: 35px;
-		margin: 15px 0 0;
+		display: inline;
+		float: right;
 		padding: 0;
 
 		&__item {
@@ -29,12 +43,10 @@
 		}
 
 		&__link {
-			@include text-size(15, 600, 800, 0);
 			background: $color-1;
-			border: 2px solid $color-2;
+			border-left: 2px solid $color-2;
 			display: block;
-			font-weight: 700;
-			padding: 0 1em;
+			padding: .5em 1em;
 
 			&:hover {
 				background: shade($color-1, 5);
@@ -43,14 +55,16 @@
 	}
 
 	@include mq(800) {
-		// height: 60px;
 		left: 20px;
+		margin-top: 20px;
 		position: fixed;
 		right: 20px;
+	}
 
-		.menu {
-			margin-top: 20px;
-			line-height: 40px;
-		}
+	@include mq(1240) {
+		left: 50%;
+		margin-left: -600px;
+		right: auto;
+		width: 1190px;
 	}
 }
