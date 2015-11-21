@@ -988,6 +988,7 @@ $(window).load(function(){
 			$('body').removeClass('loadpage').addClass('done');
 			if (!Modernizr.touch) {
 				moveFx();
+				scrollStatus();
 				// scrollFx();
 				hideScrolling();
 			}
@@ -1108,6 +1109,13 @@ function scrollFx(){
 	$(window).on('scroll', function(e) {
 		scrollPercentage = (1 - (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
 		$('header').css("opacity", scrollPercentage);
+	});
+}
+
+function scrollStatus(){
+	$(window).on('scroll', function(e) {
+		scrollPercentage = (100 * (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+		$('.post .status .bar').css("width", scrollPercentage + "%");
 	});
 }
 

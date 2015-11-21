@@ -1,0 +1,56 @@
+.nav {
+	// background: $color-1;
+	// background: transparentize($color-1, .05);
+	// border-bottom: 1px solid $color-2;
+	// height: 50px;
+	left: 10px;
+	position: absolute;
+	right: 10px;
+	top: 0;
+	transform: translateY(-100%);
+	transition: transform 500ms 200ms ease-in-out;
+	z-index: 100;
+
+	.loadpage &,
+	.done & {
+		transform: translateY(0);
+	}
+
+	.menu {
+		@include clearfix();
+		display: block;
+		line-height: 35px;
+		margin: 15px 0 0;
+		padding: 0;
+
+		&__item {
+			display: inline;
+			float: left;
+		}
+
+		&__link {
+			@include text-size(15, 600, 800, 0);
+			background: $color-1;
+			border: 2px solid $color-2;
+			display: block;
+			font-weight: 700;
+			padding: 0 1em;
+
+			&:hover {
+				background: shade($color-1, 5);
+			}
+		}
+	}
+
+	@include mq(800) {
+		// height: 60px;
+		left: 20px;
+		position: fixed;
+		right: 20px;
+
+		.menu {
+			margin-top: 20px;
+			line-height: 40px;
+		}
+	}
+}

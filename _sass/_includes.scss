@@ -6,6 +6,9 @@
 // Layout
 @import 'layout/base';
 @import 'layout/layout';
+@if not ($body-ID == home) {
+	@import 'layout/nav';
+}
 @if $grid == true {
 	@import 'layout/grid';
 }
@@ -17,7 +20,7 @@
 }
 
 // Extra's
-@import 'extra/loading';
+@import 'extra/bars';
 @if $syntax == true {
 	@import 'extra/syntax';
 }
