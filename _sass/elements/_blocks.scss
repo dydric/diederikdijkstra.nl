@@ -65,15 +65,21 @@
 		}
 	}
 
-	@include mq(550) {
+	@include mq(640) {
+		ul {
+			max-width: 588px;
+		}
+
 		li {
+			height: 196px;
 			margin: 0;
+			width: 196px;
 
 			a {
 				border: 10px solid transparentize($color-2, .7);
-				height: 200px;
+				height: 160px;
 				margin: 0 auto 20px;
-				width: 200px;
+				width: 160px;
 
 				span {
 					left: 50%;
@@ -96,23 +102,7 @@
 		}
 	}
 
-	@include mq(640) {
-		ul {
-			max-width: 588px;
-		}
-
-		li {
-			height: 196px;
-			width: 196px;
-
-			a {
-				height: 160px;
-				width: 160px;
-			}
-		}
-	}
-
-	@include mq(720) {
+	@include mq(740) {
 		ul {
 			max-width: 675px;
 		}
@@ -128,7 +118,7 @@
 		}
 	}
 
-	@include mq(800) {
+	@include mq(840) {
 		ul {
 			max-width: 750px;
 		}
