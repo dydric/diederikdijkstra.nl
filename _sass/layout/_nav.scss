@@ -57,8 +57,11 @@
 	@include mq(800) {
 		left: 20px;
 		margin-top: 20px;
-		position: fixed;
 		right: 20px;
+
+		.no-touch & {
+			position: fixed;
+		}
 	}
 
 	@include mq(1240) {

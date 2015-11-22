@@ -1,1 +1,654 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tran",
+				"transform: "
+			],
+			[
+				"tr",
+				"transform: "
+			],
+			[
+				"box",
+				"box-sizing: "
+			],
+			[
+				"border-ra",
+				"border-top-left-radius: "
+			],
+			[
+				"border-r",
+				"border-bottom-right-radius: "
+			],
+			[
+				"text",
+				"text-transform: "
+			],
+			[
+				"overflow",
+				"overflow-y: "
+			],
+			[
+				"figure",
+				"figure__image"
+			],
+			[
+				"border",
+				"border-color: "
+			],
+			[
+				"background",
+				"background-color: "
+			],
+			[
+				"color",
+				"color-white"
+			],
+			[
+				"t",
+				"transform: "
+			],
+			[
+				"colo",
+				"color-1"
+			],
+			[
+				"font",
+				"font-weight: "
+			],
+			[
+				"De",
+				"Deelnemen"
+			],
+			[
+				"no",
+				"normal"
+			],
+			[
+				"race",
+				"race"
+			],
+			[
+				"text-",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_js/source/script.js",
+			"settings":
+			{
+				"buffer_size": 4916,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_jade/layouts/post.jade",
+			"settings":
+			{
+				"buffer_size": 381,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_jade/drafts/test.jade",
+			"settings":
+			{
+				"buffer_size": 370,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "lint",
+		"selected_items":
+		[
+			[
+				"lint",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"lin",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"t",
+			"r",
+			"f",
+			"we",
+			"r",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by).lo97uytt\\5",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/drafts",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_js/source",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_site/2015",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_site/2015/11",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_site/2015/11/04"
+	],
+	"file_history":
+	[
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/feed.xml",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/includes/head.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/_variables.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/layout/_nav.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/layout/_layout.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/_includes.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_js/source/script.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/layouts/post.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/extra/_loading.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/gulpfile.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/elements/_blocks.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/2015-11-4-je-hebt-helemaal-geen-CMS-nodig.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/drafts/test.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/404.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/post.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/posts/404.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/posts/post--02.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/drafts/2015-11-5-test.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/includes/posts.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/2015-11-1-je-hebt-helemaal-geen-CMS-nodig.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/layouts/default.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/posts/post--01.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/elements/_text.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/includes/home.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-11-4-je-hebt-helemaal-geen-CMS-nodig.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/2015-11-1-test.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/2015-10-28-je-hebt-helemaal-geen-CMS-nodig.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-10-28-je-hebt-helemaal-geen-CMS-nodig.markdown",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-10-28-je-hebt-helemaal-geen-CMS-nodig.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/layout/_base.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/_mixins.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/.gitignore",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/includes/post.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/includes/date.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-11-10-test.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-11-10-hallo-daar-zijn-we-weer.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/2015-11-10-hallo-daar-zijn-we-weer.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-10-11-hallo-daar-zijn-we-weer.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_includes/posts/post--01.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts/post--01.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/style.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass/extra/_syntax.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_config.yml",
+		"/Users/diederikdijkstra/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_posts/2015-10-11-hallo-daar-zijn-we-weer.markdown",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_includes/posts.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_includes/home.html",
+		"/Users/diederikdijkstra/Dropbox/Apps/SublimeText3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_includes/head.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/css/style.css",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/dd-backups/dd/js/source/functions.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/dd-backups/dd/js/source/script.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/js/source/script.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io backup/src/js/source/script.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/js/source/plugins.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/jade/index.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/jade/index2.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_layouts/post.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_layouts/post.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_layouts/default.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_layouts/default.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/head.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/footer.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_includes/footer.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_jade/posts.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/Gulpfile.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/build/index.html",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/Gulpfile.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/_reset.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/fondista/fondista-site/Gulpfile.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/package.json",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra 2/Gulpfile.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/jade/includes/head.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/elements/_blocks.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/elements/_text.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/layout/_layout.scss",
+		"/Users/diederikdijkstra/Dropbox/Apps/SublimeText3/Packages/User/Preferences.sublime-settings",
+		"/Users/diederikdijkstra/Dropbox/Apps/SublimeText3/Packages/User/Preferences (Exemplaar met conflict van iMac van Diederik 2015-09-27).sublime-settings",
+		"/Users/diederikdijkstra/Dropbox/Apps/SublimeText3/Packages/User/Package Control.sublime-settings",
+		"/Users/diederikdijkstra/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/style.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/layout/_base.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/elements/_images.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/jade/layouts/index.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/_variables.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/extra/_loading.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/layout/_grid.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/extra/_owl.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/json/persoonlijk.json",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/_sprite-source.scss",
+		"/Users/diederikdijkstra/Desktop/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css",
+		"/Users/diederikdijkstra/Library/Caches/Cleanup At Startup/Transmit/F9B3FB48-BF59-432C-98D6-BF9493EB0F5C/functions.php",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/layout/_loading.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass/extra/nprogress.scss",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/bitbucket/super11/build/css/style.css",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/bitbucket/super11/src/theme/iframe.php",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/jade/single.jade",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/js/source/plugins/nprogress.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/js/source/plugins/jquery.animsition.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/elements/_text.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/jade/index.jade",
+		"/Users/diederikdijkstra/Desktop/ColorExtraction/js/main.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/js/source/plugins.js",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/TRES/prototype/site/js/script.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/Gulpfile.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/layout/_layout.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/js/source/script.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/style.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/extra/animsition.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/layout/_base.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/jade/single.jade",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/extra/responsivelyLazy.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/extra/animsition.css",
+		"/Users/diederikdijkstra/Dropbox/Werkmap/fondista/demo/js/source/script.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/jade/layouts/index.jade",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/jade/includes/head.jade",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/_mixins.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/_variables.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/js/source/plugins/typed.js",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/bower.json",
+		"/Users/diederikdijkstra/.Trash/_links.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/elements/_links.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/elements/_titles.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/elements/_paragraphs.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/elements/_images.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/src/sass/layout.scss",
+		"/Users/diederikdijkstra/Desktop/werkmap/diederikdijkstra/package.json",
+		"/Users/diederikdijkstra/Desktop/rpwebsite/src/sass/layout/_search.scss"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 161.0,
+		"where_history":
+		[
+			"/Users/diederikdijkstra/Dropbox/Werkmap/github/dydric.github.io/_sass",
+			"<current file>,/Users/diederikdijkstra/Dropbox/Werkmap/diederikdijkstra/src/sass",
+			"<current file>",
+			"/Users/diederikdijkstra/Desktop/rpwebsite/src/sass"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"		border: 1px solid red;\n		display: none;\n		font-size: 0;\n		margin: 0 auto;\n		max-width: 500px;\n		padding: 0;\n		text-align: center;\n		transition: transform 500ms cubic-bezier(.75, -.5, 0, 1.75);",
+			" target=\"_blank\"",
+			"target",
+			"2014",
+			" target=\"_blank\"",
+			"Bestaat",
+			"intro",
+			"balloon",
+			".highlight ",
+			"html",
+			"bower",
+			"clean",
+			"build/",
+			"100%",
+			"$p",
+			"$bw",
+			"$g",
+			"transla",
+			"owl-item",
+			"</p>",
+			"<p class=\"menu\">",
+			"4",
+			"reqC",
+			"return this",
+			"icon",
+			"brows",
+			"loading",
+			"showCursor",
+			"$vw-size",
+			"+ 1, false, max",
+			"- 1, false, max",
+			"false, max",
+			", max",
+			"- 1",
+			"formatie",
+			"cons",
+			"lement.Club",
+			"element.Club",
+			"element.name",
+			"url",
+			"\"club1\"",
+			"2",
+			"1",
+			"club1",
+			"span.pos M",
+			"m",
+			"M",
+			"m",
+			"M",
+			"m",
+			"M",
+			"m",
+			"M",
+			"\"m\"",
+			"Middenvelder",
+			"Verdediger",
+			"data",
+			"closest",
+			"len",
+			"eac",
+			".check",
+			"<span",
+			"\")",
+			"<span>",
+			"</span>",
+			"color:",
+			"text*",
+			"player10",
+			"player9",
+			"player8",
+			"7",
+			"player6",
+			"player5",
+			"player4",
+			"player1",
+			"player2",
+			"player3",
+			"player2",
+			"Speler2",
+			"player1",
+			"filterGew",
+			"3",
+			"speler1",
+			"amount",
+			"url",
+			"https://api.instagram.com/v1",
+			"http",
+			" \n",
+			"twitter",
+			".csstransitions",
+			";\n",
+			"\"",
+			"detail",
+			"DETAIL",
+			"lockScroll",
+			"content",
+			"list-item",
+			"home",
+			"app",
+			":",
+			" :",
+			"complete",
+			"completer",
+			"color",
+			"	:",
+			"g:",
+			":",
+			"qq-",
+			"subtitle",
+			"font",
+			"top:",
+			"uit",
+			"team",
+			"title",
+			"    ",
+			"400x400"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/",
+			"$h",
+			"$b",
+			"item",
+			"[/gerecht]",
+			"[gerecht prijs=\"\" omschrijving=\"\"]",
+			", false, max",
+			"+ 1, false, max",
+			"sub",
+			"	",
+			"200x200"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_js/source/script.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4916,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								892,
+								892
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 447.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_jade/layouts/post.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								299,
+								320
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_jade/drafts/test.jade",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 370,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 81.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "default.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 418.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
