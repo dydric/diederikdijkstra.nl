@@ -7,3 +7,5 @@ node_modules
 .scss-lint.yml
 .sass-cache
 .DS_Store
+.sublime-project
+.sublime-workspace
