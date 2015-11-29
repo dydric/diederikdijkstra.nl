@@ -26,7 +26,9 @@ html.no-js
 					| {% for post in site.posts %}
 					li.list__item
 						a.list__link(href="{{ post.url | prepend: site.baseurl }}")
-							span.list__date {{ post.datum }} 
+							span.list__date
+								| {% assign month = post.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}
+								| {{ post.date | date: '%e' }}&nbsp;{{ month }}&nbsp;{{ post.date | date: '%Y' }}
 							| {{ post.title }}
 					| {% endfor %}
 			section
