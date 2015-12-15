@@ -1,73 +1,73 @@
 .grid {
-	@include clearfix();
-	margin: 0;
-	position: relative;
-	z-index: 1;
+  @include clearfix();
+  margin: 0;
+  position: relative;
+  z-index: 1;
 
-	@include mq($max-width) {
-		margin: 0 auto;
-	}
+  @include mq($max-width) {
+    margin: 0 auto;
+  }
 
-	@for $i from 2 through 10 {
-		&-#{$i} { 
-			z-index: $i;
-		}
-	}
+  @for $i from 2 through 10 {
+    &-#{$i} {
+      z-index: $i;
+    }
+  }
 }
 
 // COLUMS
 .col {
-	// background: $color-grey-lighter;
-	@include clearfix();
-	display: inline;
-	float: left;
-	text-align: center;
-	width: 100%;
+  // background: $color-grey-lighter;
+  @include clearfix();
+  display: inline;
+  float: left;
+  text-align: center;
+  width: 100%;
 
-	@include mq(800) {
+  @include mq(800) {
 
-		@for $i from 1 through $grid-columns {
-			&-m#{$i} { 
-				width: 100% / $grid-columns * $i;
-			}
+    @for $i from 1 through $grid-columns {
+      &-m#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
 
-			&-offset-m#{$i} { 
-				margin-left: 100% / $grid-columns * $i;
-			}
-		}
+      &-offset-m#{$i} {
+        margin-left: 100% / $grid-columns * $i;
+      }
+    }
 
-		&-hide-m {
-			display: none;
-		}
-	}
+    &-hide-m {
+      display: none;
+    }
+  }
 
-	@include mq(1200, true) {
-		@for $i from 1 through $grid-columns {
-			&-l#{$i} { 
-				width: 100% / $grid-columns * $i;
-			}
+  @include mq(1200, true) {
+    @for $i from 1 through $grid-columns {
+      &-l#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
 
-			&-offset-l#{$i} { 
-				margin-left: 100% / $grid-columns * $i;
-			}
-		}
+      &-offset-l#{$i} {
+        margin-left: 100% / $grid-columns * $i;
+      }
+    }
 
-		&-hide-l {
-			display: none;
-		}
-	}
+    &-hide-l {
+      display: none;
+    }
+  }
 
-	@for $i from 1 through $grid-columns {
-		&-s#{$i} { 
-			width: 100% / $grid-columns * $i;
-		}
+  @for $i from 1 through $grid-columns {
+    &-s#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
 
-		&-offset-s#{$i} { 
-			margin-left: 100% / $grid-columns * $i;
-		}
-	}
+    &-offset-s#{$i} {
+      margin-left: 100% / $grid-columns * $i;
+    }
+  }
 
-	&-hide-s {
-		display: none;
-	}
+  &-hide-s {
+    display: none;
+  }
 }

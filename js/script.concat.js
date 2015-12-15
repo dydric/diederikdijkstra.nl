@@ -52,469 +52,469 @@ var s,r,n,a,o,h,l,_,u;if((c(e)||M(e))&&"number"!=typeof e[0])for(s=e.length;--s>
  */
 
 (function () {
-	
 
-	/**
-	 * Class for managing events.
-	 * Can be extended to provide event functionality in other classes.
-	 *
-	 * @class EventEmitter Manages event registering and emitting.
-	 */
-	function EventEmitter() {}
 
-	// Shortcuts to improve speed and size
-	var proto = EventEmitter.prototype;
-	var exports = this;
-	var originalGlobalValue = exports.EventEmitter;
+  /**
+   * Class for managing events.
+   * Can be extended to provide event functionality in other classes.
+   *
+   * @class EventEmitter Manages event registering and emitting.
+   */
+  function EventEmitter() {}
 
-	/**
-	 * Finds the index of the listener for the event in it's storage array.
-	 *
-	 * @param {Function[]} listeners Array of listeners to search through.
-	 * @param {Function} listener Method to look for.
-	 * @return {Number} Index of the specified listener, -1 if not found
-	 * @api private
-	 */
-	function indexOfListener(listeners, listener) {
-		var i = listeners.length;
-		while (i--) {
-			if (listeners[i].listener === listener) {
-				return i;
-			}
-		}
+  // Shortcuts to improve speed and size
+  var proto = EventEmitter.prototype;
+  var exports = this;
+  var originalGlobalValue = exports.EventEmitter;
 
-		return -1;
-	}
+  /**
+   * Finds the index of the listener for the event in it's storage array.
+   *
+   * @param {Function[]} listeners Array of listeners to search through.
+   * @param {Function} listener Method to look for.
+   * @return {Number} Index of the specified listener, -1 if not found
+   * @api private
+   */
+  function indexOfListener(listeners, listener) {
+    var i = listeners.length;
+    while (i--) {
+      if (listeners[i].listener === listener) {
+        return i;
+      }
+    }
 
-	/**
-	 * Alias a method while keeping the context correct, to allow for overwriting of target method.
-	 *
-	 * @param {String} name The name of the target method.
-	 * @return {Function} The aliased method
-	 * @api private
-	 */
-	function alias(name) {
-		return function aliasClosure() {
-			return this[name].apply(this, arguments);
-		};
-	}
+    return -1;
+  }
 
-	/**
-	 * Returns the listener array for the specified event.
-	 * Will initialise the event object and listener arrays if required.
-	 * Will return an object if you use a regex search. The object contains keys for each matched event. So /ba[rz]/ might return an object containing bar and baz. But only if you have either defined them with defineEvent or added some listeners to them.
-	 * Each property in the object response is an array of listener functions.
-	 *
-	 * @param {String|RegExp} evt Name of the event to return the listeners from.
-	 * @return {Function[]|Object} All listener functions for the event.
-	 */
-	proto.getListeners = function getListeners(evt) {
-		var events = this._getEvents();
-		var response;
-		var key;
+  /**
+   * Alias a method while keeping the context correct, to allow for overwriting of target method.
+   *
+   * @param {String} name The name of the target method.
+   * @return {Function} The aliased method
+   * @api private
+   */
+  function alias(name) {
+    return function aliasClosure() {
+      return this[name].apply(this, arguments);
+    };
+  }
 
-		// Return a concatenated array of all matching events if
-		// the selector is a regular expression.
-		if (typeof evt === 'object') {
-			response = {};
-			for (key in events) {
-				if (events.hasOwnProperty(key) && evt.test(key)) {
-					response[key] = events[key];
-				}
-			}
-		}
-		else {
-			response = events[evt] || (events[evt] = []);
-		}
+  /**
+   * Returns the listener array for the specified event.
+   * Will initialise the event object and listener arrays if required.
+   * Will return an object if you use a regex search. The object contains keys for each matched event. So /ba[rz]/ might return an object containing bar and baz. But only if you have either defined them with defineEvent or added some listeners to them.
+   * Each property in the object response is an array of listener functions.
+   *
+   * @param {String|RegExp} evt Name of the event to return the listeners from.
+   * @return {Function[]|Object} All listener functions for the event.
+   */
+  proto.getListeners = function getListeners(evt) {
+    var events = this._getEvents();
+    var response;
+    var key;
 
-		return response;
-	};
+    // Return a concatenated array of all matching events if
+    // the selector is a regular expression.
+    if (typeof evt === 'object') {
+      response = {};
+      for (key in events) {
+        if (events.hasOwnProperty(key) && evt.test(key)) {
+          response[key] = events[key];
+        }
+      }
+    }
+    else {
+      response = events[evt] || (events[evt] = []);
+    }
 
-	/**
-	 * Takes a list of listener objects and flattens it into a list of listener functions.
-	 *
-	 * @param {Object[]} listeners Raw listener objects.
-	 * @return {Function[]} Just the listener functions.
-	 */
-	proto.flattenListeners = function flattenListeners(listeners) {
-		var flatListeners = [];
-		var i;
+    return response;
+  };
 
-		for (i = 0; i < listeners.length; i += 1) {
-			flatListeners.push(listeners[i].listener);
-		}
+  /**
+   * Takes a list of listener objects and flattens it into a list of listener functions.
+   *
+   * @param {Object[]} listeners Raw listener objects.
+   * @return {Function[]} Just the listener functions.
+   */
+  proto.flattenListeners = function flattenListeners(listeners) {
+    var flatListeners = [];
+    var i;
 
-		return flatListeners;
-	};
+    for (i = 0; i < listeners.length; i += 1) {
+      flatListeners.push(listeners[i].listener);
+    }
 
-	/**
-	 * Fetches the requested listeners via getListeners but will always return the results inside an object. This is mainly for internal use but others may find it useful.
-	 *
-	 * @param {String|RegExp} evt Name of the event to return the listeners from.
-	 * @return {Object} All listener functions for an event in an object.
-	 */
-	proto.getListenersAsObject = function getListenersAsObject(evt) {
-		var listeners = this.getListeners(evt);
-		var response;
+    return flatListeners;
+  };
 
-		if (listeners instanceof Array) {
-			response = {};
-			response[evt] = listeners;
-		}
+  /**
+   * Fetches the requested listeners via getListeners but will always return the results inside an object. This is mainly for internal use but others may find it useful.
+   *
+   * @param {String|RegExp} evt Name of the event to return the listeners from.
+   * @return {Object} All listener functions for an event in an object.
+   */
+  proto.getListenersAsObject = function getListenersAsObject(evt) {
+    var listeners = this.getListeners(evt);
+    var response;
 
-		return response || listeners;
-	};
+    if (listeners instanceof Array) {
+      response = {};
+      response[evt] = listeners;
+    }
 
-	/**
-	 * Adds a listener function to the specified event.
-	 * The listener will not be added if it is a duplicate.
-	 * If the listener returns true then it will be removed after it is called.
-	 * If you pass a regular expression as the event name then the listener will be added to all events that match it.
-	 *
-	 * @param {String|RegExp} evt Name of the event to attach the listener to.
-	 * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.addListener = function addListener(evt, listener) {
-		var listeners = this.getListenersAsObject(evt);
-		var listenerIsWrapped = typeof listener === 'object';
-		var key;
+    return response || listeners;
+  };
 
-		for (key in listeners) {
-			if (listeners.hasOwnProperty(key) && indexOfListener(listeners[key], listener) === -1) {
-				listeners[key].push(listenerIsWrapped ? listener : {
-					listener: listener,
-					once: false
-				});
-			}
-		}
+  /**
+   * Adds a listener function to the specified event.
+   * The listener will not be added if it is a duplicate.
+   * If the listener returns true then it will be removed after it is called.
+   * If you pass a regular expression as the event name then the listener will be added to all events that match it.
+   *
+   * @param {String|RegExp} evt Name of the event to attach the listener to.
+   * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.addListener = function addListener(evt, listener) {
+    var listeners = this.getListenersAsObject(evt);
+    var listenerIsWrapped = typeof listener === 'object';
+    var key;
 
-		return this;
-	};
+    for (key in listeners) {
+      if (listeners.hasOwnProperty(key) && indexOfListener(listeners[key], listener) === -1) {
+        listeners[key].push(listenerIsWrapped ? listener : {
+          listener: listener,
+          once: false
+        });
+      }
+    }
 
-	/**
-	 * Alias of addListener
-	 */
-	proto.on = alias('addListener');
+    return this;
+  };
 
-	/**
-	 * Semi-alias of addListener. It will add a listener that will be
-	 * automatically removed after it's first execution.
-	 *
-	 * @param {String|RegExp} evt Name of the event to attach the listener to.
-	 * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.addOnceListener = function addOnceListener(evt, listener) {
-		return this.addListener(evt, {
-			listener: listener,
-			once: true
-		});
-	};
+  /**
+   * Alias of addListener
+   */
+  proto.on = alias('addListener');
 
-	/**
-	 * Alias of addOnceListener.
-	 */
-	proto.once = alias('addOnceListener');
+  /**
+   * Semi-alias of addListener. It will add a listener that will be
+   * automatically removed after it's first execution.
+   *
+   * @param {String|RegExp} evt Name of the event to attach the listener to.
+   * @param {Function} listener Method to be called when the event is emitted. If the function returns true then it will be removed after calling.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.addOnceListener = function addOnceListener(evt, listener) {
+    return this.addListener(evt, {
+      listener: listener,
+      once: true
+    });
+  };
 
-	/**
-	 * Defines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.
-	 * You need to tell it what event names should be matched by a regex.
-	 *
-	 * @param {String} evt Name of the event to create.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.defineEvent = function defineEvent(evt) {
-		this.getListeners(evt);
-		return this;
-	};
+  /**
+   * Alias of addOnceListener.
+   */
+  proto.once = alias('addOnceListener');
 
-	/**
-	 * Uses defineEvent to define multiple events.
-	 *
-	 * @param {String[]} evts An array of event names to define.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.defineEvents = function defineEvents(evts) {
-		for (var i = 0; i < evts.length; i += 1) {
-			this.defineEvent(evts[i]);
-		}
-		return this;
-	};
+  /**
+   * Defines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.
+   * You need to tell it what event names should be matched by a regex.
+   *
+   * @param {String} evt Name of the event to create.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.defineEvent = function defineEvent(evt) {
+    this.getListeners(evt);
+    return this;
+  };
 
-	/**
-	 * Removes a listener function from the specified event.
-	 * When passed a regular expression as the event name, it will remove the listener from all events that match it.
-	 *
-	 * @param {String|RegExp} evt Name of the event to remove the listener from.
-	 * @param {Function} listener Method to remove from the event.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.removeListener = function removeListener(evt, listener) {
-		var listeners = this.getListenersAsObject(evt);
-		var index;
-		var key;
+  /**
+   * Uses defineEvent to define multiple events.
+   *
+   * @param {String[]} evts An array of event names to define.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.defineEvents = function defineEvents(evts) {
+    for (var i = 0; i < evts.length; i += 1) {
+      this.defineEvent(evts[i]);
+    }
+    return this;
+  };
 
-		for (key in listeners) {
-			if (listeners.hasOwnProperty(key)) {
-				index = indexOfListener(listeners[key], listener);
+  /**
+   * Removes a listener function from the specified event.
+   * When passed a regular expression as the event name, it will remove the listener from all events that match it.
+   *
+   * @param {String|RegExp} evt Name of the event to remove the listener from.
+   * @param {Function} listener Method to remove from the event.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.removeListener = function removeListener(evt, listener) {
+    var listeners = this.getListenersAsObject(evt);
+    var index;
+    var key;
 
-				if (index !== -1) {
-					listeners[key].splice(index, 1);
-				}
-			}
-		}
+    for (key in listeners) {
+      if (listeners.hasOwnProperty(key)) {
+        index = indexOfListener(listeners[key], listener);
 
-		return this;
-	};
+        if (index !== -1) {
+          listeners[key].splice(index, 1);
+        }
+      }
+    }
 
-	/**
-	 * Alias of removeListener
-	 */
-	proto.off = alias('removeListener');
+    return this;
+  };
 
-	/**
-	 * Adds listeners in bulk using the manipulateListeners method.
-	 * If you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.
-	 * You can also pass it a regular expression to add the array of listeners to all events that match it.
-	 * Yeah, this function does quite a bit. That's probably a bad thing.
-	 *
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add to multiple events at once.
-	 * @param {Function[]} [listeners] An optional array of listener functions to add.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.addListeners = function addListeners(evt, listeners) {
-		// Pass through to manipulateListeners
-		return this.manipulateListeners(false, evt, listeners);
-	};
+  /**
+   * Alias of removeListener
+   */
+  proto.off = alias('removeListener');
 
-	/**
-	 * Removes listeners in bulk using the manipulateListeners method.
-	 * If you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
-	 * You can also pass it an event name and an array of listeners to be removed.
-	 * You can also pass it a regular expression to remove the listeners from all events that match it.
-	 *
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to remove from multiple events at once.
-	 * @param {Function[]} [listeners] An optional array of listener functions to remove.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.removeListeners = function removeListeners(evt, listeners) {
-		// Pass through to manipulateListeners
-		return this.manipulateListeners(true, evt, listeners);
-	};
+  /**
+   * Adds listeners in bulk using the manipulateListeners method.
+   * If you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.
+   * You can also pass it a regular expression to add the array of listeners to all events that match it.
+   * Yeah, this function does quite a bit. That's probably a bad thing.
+   *
+   * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add to multiple events at once.
+   * @param {Function[]} [listeners] An optional array of listener functions to add.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.addListeners = function addListeners(evt, listeners) {
+    // Pass through to manipulateListeners
+    return this.manipulateListeners(false, evt, listeners);
+  };
 
-	/**
-	 * Edits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.
-	 * The first argument will determine if the listeners are removed (true) or added (false).
-	 * If you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
-	 * You can also pass it an event name and an array of listeners to be added/removed.
-	 * You can also pass it a regular expression to manipulate the listeners of all events that match it.
-	 *
-	 * @param {Boolean} remove True if you want to remove listeners, false if you want to add.
-	 * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple events at once.
-	 * @param {Function[]} [listeners] An optional array of listener functions to add/remove.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.manipulateListeners = function manipulateListeners(remove, evt, listeners) {
-		var i;
-		var value;
-		var single = remove ? this.removeListener : this.addListener;
-		var multiple = remove ? this.removeListeners : this.addListeners;
+  /**
+   * Removes listeners in bulk using the manipulateListeners method.
+   * If you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+   * You can also pass it an event name and an array of listeners to be removed.
+   * You can also pass it a regular expression to remove the listeners from all events that match it.
+   *
+   * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to remove from multiple events at once.
+   * @param {Function[]} [listeners] An optional array of listener functions to remove.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.removeListeners = function removeListeners(evt, listeners) {
+    // Pass through to manipulateListeners
+    return this.manipulateListeners(true, evt, listeners);
+  };
 
-		// If evt is an object then pass each of it's properties to this method
-		if (typeof evt === 'object' && !(evt instanceof RegExp)) {
-			for (i in evt) {
-				if (evt.hasOwnProperty(i) && (value = evt[i])) {
-					// Pass the single listener straight through to the singular method
-					if (typeof value === 'function') {
-						single.call(this, i, value);
-					}
-					else {
-						// Otherwise pass back to the multiple function
-						multiple.call(this, i, value);
-					}
-				}
-			}
-		}
-		else {
-			// So evt must be a string
-			// And listeners must be an array of listeners
-			// Loop over it and pass each one to the multiple method
-			i = listeners.length;
-			while (i--) {
-				single.call(this, evt, listeners[i]);
-			}
-		}
+  /**
+   * Edits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.
+   * The first argument will determine if the listeners are removed (true) or added (false).
+   * If you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.
+   * You can also pass it an event name and an array of listeners to be added/removed.
+   * You can also pass it a regular expression to manipulate the listeners of all events that match it.
+   *
+   * @param {Boolean} remove True if you want to remove listeners, false if you want to add.
+   * @param {String|Object|RegExp} evt An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple events at once.
+   * @param {Function[]} [listeners] An optional array of listener functions to add/remove.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.manipulateListeners = function manipulateListeners(remove, evt, listeners) {
+    var i;
+    var value;
+    var single = remove ? this.removeListener : this.addListener;
+    var multiple = remove ? this.removeListeners : this.addListeners;
 
-		return this;
-	};
+    // If evt is an object then pass each of it's properties to this method
+    if (typeof evt === 'object' && !(evt instanceof RegExp)) {
+      for (i in evt) {
+        if (evt.hasOwnProperty(i) && (value = evt[i])) {
+          // Pass the single listener straight through to the singular method
+          if (typeof value === 'function') {
+            single.call(this, i, value);
+          }
+          else {
+            // Otherwise pass back to the multiple function
+            multiple.call(this, i, value);
+          }
+        }
+      }
+    }
+    else {
+      // So evt must be a string
+      // And listeners must be an array of listeners
+      // Loop over it and pass each one to the multiple method
+      i = listeners.length;
+      while (i--) {
+        single.call(this, evt, listeners[i]);
+      }
+    }
 
-	/**
-	 * Removes all listeners from a specified event.
-	 * If you do not specify an event then all listeners will be removed.
-	 * That means every event will be emptied.
-	 * You can also pass a regex to remove all events that match it.
-	 *
-	 * @param {String|RegExp} [evt] Optional name of the event to remove all listeners for. Will remove from every event if not passed.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.removeEvent = function removeEvent(evt) {
-		var type = typeof evt;
-		var events = this._getEvents();
-		var key;
+    return this;
+  };
 
-		// Remove different things depending on the state of evt
-		if (type === 'string') {
-			// Remove all listeners for the specified event
-			delete events[evt];
-		}
-		else if (type === 'object') {
-			// Remove all events matching the regex.
-			for (key in events) {
-				if (events.hasOwnProperty(key) && evt.test(key)) {
-					delete events[key];
-				}
-			}
-		}
-		else {
-			// Remove all listeners in all events
-			delete this._events;
-		}
+  /**
+   * Removes all listeners from a specified event.
+   * If you do not specify an event then all listeners will be removed.
+   * That means every event will be emptied.
+   * You can also pass a regex to remove all events that match it.
+   *
+   * @param {String|RegExp} [evt] Optional name of the event to remove all listeners for. Will remove from every event if not passed.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.removeEvent = function removeEvent(evt) {
+    var type = typeof evt;
+    var events = this._getEvents();
+    var key;
 
-		return this;
-	};
+    // Remove different things depending on the state of evt
+    if (type === 'string') {
+      // Remove all listeners for the specified event
+      delete events[evt];
+    }
+    else if (type === 'object') {
+      // Remove all events matching the regex.
+      for (key in events) {
+        if (events.hasOwnProperty(key) && evt.test(key)) {
+          delete events[key];
+        }
+      }
+    }
+    else {
+      // Remove all listeners in all events
+      delete this._events;
+    }
 
-	/**
-	 * Alias of removeEvent.
-	 *
-	 * Added to mirror the node API.
-	 */
-	proto.removeAllListeners = alias('removeEvent');
+    return this;
+  };
 
-	/**
-	 * Emits an event of your choice.
-	 * When emitted, every listener attached to that event will be executed.
-	 * If you pass the optional argument array then those arguments will be passed to every listener upon execution.
-	 * Because it uses `apply`, your array of arguments will be passed as if you wrote them out separately.
-	 * So they will not arrive within the array on the other side, they will be separate.
-	 * You can also pass a regular expression to emit to all events that match it.
-	 *
-	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
-	 * @param {Array} [args] Optional array of arguments to be passed to each listener.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.emitEvent = function emitEvent(evt, args) {
-		var listeners = this.getListenersAsObject(evt);
-		var listener;
-		var i;
-		var key;
-		var response;
+  /**
+   * Alias of removeEvent.
+   *
+   * Added to mirror the node API.
+   */
+  proto.removeAllListeners = alias('removeEvent');
 
-		for (key in listeners) {
-			if (listeners.hasOwnProperty(key)) {
-				i = listeners[key].length;
+  /**
+   * Emits an event of your choice.
+   * When emitted, every listener attached to that event will be executed.
+   * If you pass the optional argument array then those arguments will be passed to every listener upon execution.
+   * Because it uses `apply`, your array of arguments will be passed as if you wrote them out separately.
+   * So they will not arrive within the array on the other side, they will be separate.
+   * You can also pass a regular expression to emit to all events that match it.
+   *
+   * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
+   * @param {Array} [args] Optional array of arguments to be passed to each listener.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.emitEvent = function emitEvent(evt, args) {
+    var listeners = this.getListenersAsObject(evt);
+    var listener;
+    var i;
+    var key;
+    var response;
 
-				while (i--) {
-					// If the listener returns true then it shall be removed from the event
-					// The function is executed either with a basic call or an apply if there is an args array
-					listener = listeners[key][i];
+    for (key in listeners) {
+      if (listeners.hasOwnProperty(key)) {
+        i = listeners[key].length;
 
-					if (listener.once === true) {
-						this.removeListener(evt, listener.listener);
-					}
+        while (i--) {
+          // If the listener returns true then it shall be removed from the event
+          // The function is executed either with a basic call or an apply if there is an args array
+          listener = listeners[key][i];
 
-					response = listener.listener.apply(this, args || []);
+          if (listener.once === true) {
+            this.removeListener(evt, listener.listener);
+          }
 
-					if (response === this._getOnceReturnValue()) {
-						this.removeListener(evt, listener.listener);
-					}
-				}
-			}
-		}
+          response = listener.listener.apply(this, args || []);
 
-		return this;
-	};
+          if (response === this._getOnceReturnValue()) {
+            this.removeListener(evt, listener.listener);
+          }
+        }
+      }
+    }
 
-	/**
-	 * Alias of emitEvent
-	 */
-	proto.trigger = alias('emitEvent');
+    return this;
+  };
 
-	/**
-	 * Subtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.
-	 * As with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.
-	 *
-	 * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
-	 * @param {...*} Optional additional arguments to be passed to each listener.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.emit = function emit(evt) {
-		var args = Array.prototype.slice.call(arguments, 1);
-		return this.emitEvent(evt, args);
-	};
+  /**
+   * Alias of emitEvent
+   */
+  proto.trigger = alias('emitEvent');
 
-	/**
-	 * Sets the current value to check against when executing listeners. If a
-	 * listeners return value matches the one set here then it will be removed
-	 * after execution. This value defaults to true.
-	 *
-	 * @param {*} value The new value to check for when executing listeners.
-	 * @return {Object} Current instance of EventEmitter for chaining.
-	 */
-	proto.setOnceReturnValue = function setOnceReturnValue(value) {
-		this._onceReturnValue = value;
-		return this;
-	};
+  /**
+   * Subtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.
+   * As with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.
+   *
+   * @param {String|RegExp} evt Name of the event to emit and execute listeners for.
+   * @param {...*} Optional additional arguments to be passed to each listener.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.emit = function emit(evt) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    return this.emitEvent(evt, args);
+  };
 
-	/**
-	 * Fetches the current value to check against when executing listeners. If
-	 * the listeners return value matches this one then it should be removed
-	 * automatically. It will return true by default.
-	 *
-	 * @return {*|Boolean} The current value to check for or the default, true.
-	 * @api private
-	 */
-	proto._getOnceReturnValue = function _getOnceReturnValue() {
-		if (this.hasOwnProperty('_onceReturnValue')) {
-			return this._onceReturnValue;
-		}
-		else {
-			return true;
-		}
-	};
+  /**
+   * Sets the current value to check against when executing listeners. If a
+   * listeners return value matches the one set here then it will be removed
+   * after execution. This value defaults to true.
+   *
+   * @param {*} value The new value to check for when executing listeners.
+   * @return {Object} Current instance of EventEmitter for chaining.
+   */
+  proto.setOnceReturnValue = function setOnceReturnValue(value) {
+    this._onceReturnValue = value;
+    return this;
+  };
 
-	/**
-	 * Fetches the events object and creates one if required.
-	 *
-	 * @return {Object} The events storage object.
-	 * @api private
-	 */
-	proto._getEvents = function _getEvents() {
-		return this._events || (this._events = {});
-	};
+  /**
+   * Fetches the current value to check against when executing listeners. If
+   * the listeners return value matches this one then it should be removed
+   * automatically. It will return true by default.
+   *
+   * @return {*|Boolean} The current value to check for or the default, true.
+   * @api private
+   */
+  proto._getOnceReturnValue = function _getOnceReturnValue() {
+    if (this.hasOwnProperty('_onceReturnValue')) {
+      return this._onceReturnValue;
+    }
+    else {
+      return true;
+    }
+  };
 
-	/**
-	 * Reverts the global {@link EventEmitter} to its previous value and returns a reference to this version.
-	 *
-	 * @return {Function} Non conflicting EventEmitter class.
-	 */
-	EventEmitter.noConflict = function noConflict() {
-		exports.EventEmitter = originalGlobalValue;
-		return EventEmitter;
-	};
+  /**
+   * Fetches the events object and creates one if required.
+   *
+   * @return {Object} The events storage object.
+   * @api private
+   */
+  proto._getEvents = function _getEvents() {
+    return this._events || (this._events = {});
+  };
 
-	// Expose the class either via AMD, CommonJS or the global object
-	if (typeof define === 'function' && define.amd) {
-		define('eventEmitter/EventEmitter',[],function () {
-			return EventEmitter;
-		});
-	}
-	else if (typeof module === 'object' && module.exports){
-		module.exports = EventEmitter;
-	}
-	else {
-		this.EventEmitter = EventEmitter;
-	}
+  /**
+   * Reverts the global {@link EventEmitter} to its previous value and returns a reference to this version.
+   *
+   * @return {Function} Non conflicting EventEmitter class.
+   */
+  EventEmitter.noConflict = function noConflict() {
+    exports.EventEmitter = originalGlobalValue;
+    return EventEmitter;
+  };
+
+  // Expose the class either via AMD, CommonJS or the global object
+  if (typeof define === 'function' && define.amd) {
+    define('eventEmitter/EventEmitter',[],function () {
+      return EventEmitter;
+    });
+  }
+  else if (typeof module === 'object' && module.exports){
+    module.exports = EventEmitter;
+  }
+  else {
+    this.EventEmitter = EventEmitter;
+  }
 }.call(this));
 
 /*!
@@ -601,7 +601,7 @@ if ( typeof define === 'function' && define.amd ) {
  * MIT License
  */
 
-( function( window, factory ) { 
+( function( window, factory ) {
   // universal module definition
 
   /*global define: false, module: false, require: false */
@@ -933,251 +933,251 @@ function makeArray( obj ) {
 
 // Avoid `console` errors in browsers that lack a console.
 (function() {
-	var method;
-	var noop = function () {};
-	var methods = [
-		'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-		'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-		'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-		'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
-	];
-	var length = methods.length;
-	var console = (window.console = window.console || {});
+  var method;
+  var noop = function () {};
+  var methods = [
+    'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+    'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+    'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+    'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+  ];
+  var length = methods.length;
+  var console = (window.console = window.console || {});
 
-	while (length--) {
-		method = methods[length];
+  while (length--) {
+    method = methods[length];
 
-		// Only stub undefined methods.
-		if (!console[method]) {
-			console[method] = noop;
-		}
-	}
+    // Only stub undefined methods.
+    if (!console[method]) {
+      console[method] = noop;
+    }
+  }
 }());
 
 // LOAD TYPEKIT
 WebFont.load({
-	typekit: { id: 'iez3ngi' }
+  typekit: { id: 'iez3ngi' }
 });
 
 var interval = setInterval(function() {
-	NProgress.inc(.2);
-	console.log((NProgress.inc().status * 100).toFixed() + "% loaded");
+  NProgress.inc(.2);
+  console.log((NProgress.inc().status * 100).toFixed() + "% loaded");
 }, 100);
 
 $(function() {
-	$('body').addClass('loadpage');
+  $('body').addClass('loadpage');
 
-	$('.email').html(function() {
-		var address = $(this).attr('user') + '@' + $(this).attr('domain');
-		$(this).attr('href', 'mailto:' + address);
-	});
+  $('.email').html(function() {
+    var address = $(this).attr('user') + '@' + $(this).attr('domain');
+    $(this).attr('href', 'mailto:' + address);
+  });
 
 });
 
 $(window).load(function(){
 
-	clearInterval(interval);
-	imagesLoaded($('.site'), function() {
-		console.log('all images are loaded');
+  clearInterval(interval);
+  imagesLoaded($('.site'), function() {
+    console.log('all images are loaded');
 
-		setTimeout(function(){
-			// LOADING COMPLETE!
-			NProgress.done();
-			// console.log("%cGo!","color: #2a2a2c; font-size: 14px; font-weight: bold");
+    setTimeout(function(){
+      // LOADING COMPLETE!
+      NProgress.done();
+      // console.log("%cGo!","color: #2a2a2c; font-size: 14px; font-weight: bold");
 
-			$('body').removeClass('loadpage').addClass('done');
-			if (!Modernizr.touch) {
-				moveFx();
-				scrollStatus();
-				// scrollFx();
-				hideScrolling();
+      $('body').removeClass('loadpage').addClass('done');
+      if (!Modernizr.touch) {
+        moveFx();
+        scrollStatus();
+        // scrollFx();
+        hideScrolling();
 
-				var t;
-				if(!$('body').hasClass('home')){
-					$(window).on("resize", function() {
-						clearTimeout(t);
-						t = setTimeout(function(){
-							if($(window).width() >= 800) {
-								hideNav();
-							} else {
-								$('.nav').removeClass('nav-up nav-down');
-							}
-						}, 250);
-					}).trigger("resize");
-				}
-			}
+        var t;
+        if(!$('body').hasClass('home')){
+          $(window).on("resize", function() {
+            clearTimeout(t);
+            t = setTimeout(function(){
+              if($(window).width() >= 800) {
+                hideNav();
+              } else {
+                $('.nav').removeClass('nav-up nav-down');
+              }
+            }, 250);
+          }).trigger("resize");
+        }
+      }
 
-		}, 500);
-	});
+    }, 500);
+  });
 
-	$('a').each(function() {
-		var a = new RegExp('/' + window.location.host + '/');
-		if(!a.test(this.href)) {
-			$(this).click(function(event) {
-				event.preventDefault();
-				event.stopPropagation();
-				window.open(this.href, '_blank');
-			});
-		}
-	});
+  $('a').each(function() {
+    var a = new RegExp('/' + window.location.host + '/');
+    if(!a.test(this.href)) {
+      $(this).click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.open(this.href, '_blank');
+      });
+    }
+  });
 
 });
 
 $(window).unload(function () {
-	NProgress.start();
+  NProgress.start();
 });
 
 function moveFx(){
-	var $b, $h, imageMoveDampeningX, imageMoveDampeningY, mouseEntered, mouseMovedX, mouseMovedY, moveImageLinkGreensock;
+  var $b, $h, imageMoveDampeningX, imageMoveDampeningY, mouseEntered, mouseMovedX, mouseMovedY, moveImageLinkGreensock;
 
-	$b = $('.fx1');
-	$h = $('.fx2');
+  $b = $('.fx1');
+  $h = $('.fx2');
 
-	xPos = 0;
-	yPos = 0;
+  xPos = 0;
+  yPos = 0;
 
-	$(window).on('mouseenter', function(e) {
-		var xPos = 0;
-		var yPos = 0;
+  $(window).on('mouseenter', function(e) {
+    var xPos = 0;
+    var yPos = 0;
 
-		TweenLite.to($h, 0.6, {
-			rotationY: 20*xPos,
-			rotationX: 20*yPos,
-			ease: Power1.easeOut,
-			transformPerspective: 900,
-			transformOrigin: "center"
-		});
-	});
+    TweenLite.to($h, 0.6, {
+      rotationY: 20*xPos,
+      rotationX: 20*yPos,
+      ease: Power1.easeOut,
+      transformPerspective: 900,
+      transformOrigin: "center"
+    });
+  });
 
-	$(window).on('mousemove', function(e) {
-		var xPos = (e.clientX/$(window).width())-0.5;
-		var yPos = (e.clientY/$(window).height())-0.5;
+  $(window).on('mousemove', function(e) {
+    var xPos = (e.clientX/$(window).width())-0.5;
+    var yPos = (e.clientY/$(window).height())-0.5;
 
-		TweenLite.to($h, 0.6, {
-			rotationY: 20*xPos,
-			rotationX: 20*yPos,
-			ease: Power1.easeOut,
-			transformPerspective: 900,
-			transformOrigin: "center"
-		});
-	});
+    TweenLite.to($h, 0.6, {
+      rotationY: 20*xPos,
+      rotationX: 20*yPos,
+      ease: Power1.easeOut,
+      transformPerspective: 900,
+      transformOrigin: "center"
+    });
+  });
 
-	$(window).on('mouseleave', function(e) {
-		var xPos = 0;
-		var yPos = 0;
+  $(window).on('mouseleave', function(e) {
+    var xPos = 0;
+    var yPos = 0;
 
-		TweenLite.to($h, 0.6, {
-			rotationY: 20*xPos,
-			rotationX: 20*yPos,
-			ease: Power1.easeOut,
-			transformPerspective: 900,
-			transformOrigin: "center"
-		});
-	});
+    TweenLite.to($h, 0.6, {
+      rotationY: 20*xPos,
+      rotationX: 20*yPos,
+      ease: Power1.easeOut,
+      transformPerspective: 900,
+      transformOrigin: "center"
+    });
+  });
 
-	moveImageLinkGreensock = function ($target, e) {
-		var mouseMovedX, mouseMovedY;
-		mouseMovedX = mouseEntered.x - e.pageX;
-		mouseMovedY = mouseEntered.y - e.pageY;
-		return TweenLite.to($target, 0.1, {
-			x: mouseMovedX * imageMoveDampeningX,
-			y: mouseMovedY * imageMoveDampeningY
-		});
-	};
+  moveImageLinkGreensock = function ($target, e) {
+    var mouseMovedX, mouseMovedY;
+    mouseMovedX = mouseEntered.x - e.pageX;
+    mouseMovedY = mouseEntered.y - e.pageY;
+    return TweenLite.to($target, 0.1, {
+      x: mouseMovedX * imageMoveDampeningX,
+      y: mouseMovedY * imageMoveDampeningY
+    });
+  };
 
-	imageMoveDampeningX = -0.03;
-	imageMoveDampeningY = -0.02;
-	mouseEntered = {
-		x: 0,
-		y: 0
-	};
-	mouseMovedX = 0;
-	mouseMovedY = 0;
+  imageMoveDampeningX = -0.03;
+  imageMoveDampeningY = -0.02;
+  mouseEntered = {
+    x: 0,
+    y: 0
+  };
+  mouseMovedX = 0;
+  mouseMovedY = 0;
 
-	$b.on('mouseenter', function(e) {
-		return mouseEntered = {
-			x: e.pageX,
-			y: e.pageY
-		};
-	});
+  $b.on('mouseenter', function(e) {
+    return mouseEntered = {
+      x: e.pageX,
+      y: e.pageY
+    };
+  });
 
-	$b.on('mousemove', function(e) {
-		var $hoveredBigLink;
-		$hoveredBigLink = $(this);
-		return moveImageLinkGreensock($hoveredBigLink, e, false, false);
-	});
+  $b.on('mousemove', function(e) {
+    var $hoveredBigLink;
+    $hoveredBigLink = $(this);
+    return moveImageLinkGreensock($hoveredBigLink, e, false, false);
+  });
 
-	$b.on('mouseleave', function(e) {
-		var $image;
-		$image = $(this);
-		mouseMovedX = 0;
-		mouseMovedY = 0;
-		return TweenLite.to($image, 0.5, {
-			x: 0,
-			y: 0
-		});
-	});
+  $b.on('mouseleave', function(e) {
+    var $image;
+    $image = $(this);
+    mouseMovedX = 0;
+    mouseMovedY = 0;
+    return TweenLite.to($image, 0.5, {
+      x: 0,
+      y: 0
+    });
+  });
 }
 
 function scrollFx(){
-	$(window).on('scroll', function(e) {
-		scrollPercentage = (1 - (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
-		$('header').css("opacity", scrollPercentage);
-	});
+  $(window).on('scroll', function(e) {
+    scrollPercentage = (1 - (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+    $('header').css("opacity", scrollPercentage);
+  });
 }
 
 function scrollStatus(){
-	$(window).on('scroll', function(e) {
-		scrollPercentage = (100 * (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
-		$('.post .status .bar').css("width", scrollPercentage + "%");
-	});
+  $(window).on('scroll', function(e) {
+    scrollPercentage = (100 * (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+    $('.post .status .bar').css("width", scrollPercentage + "%");
+  });
 }
 
 function hideScrolling(){
-	$(window).on('scroll touchmove', function(e){
-		clearTimeout(t);
-		var t = setTimeout(function(){
-			if ($(window).scrollTop() >= 100) {
-				$('header').addClass('move');
-			} else {
-				$('header').removeClass('move');
-			}
-		}, 100);
-	});
+  $(window).on('scroll touchmove', function(e){
+    clearTimeout(t);
+    var t = setTimeout(function(){
+      if ($(window).scrollTop() >= 100) {
+        $('header').addClass('move');
+      } else {
+        $('header').removeClass('move');
+      }
+    }, 100);
+  });
 }
 
 function hideNav(){
-	// Hide Header on on scroll down
-	var didScroll;
-	lastScrollTop = 0;
-	delta = 50;
-	navbarHeight = $('.nav').outerHeight();
+  // Hide Header on on scroll down
+  var didScroll;
+  lastScrollTop = 0;
+  delta = 50;
+  navbarHeight = $('.nav').outerHeight();
 
-	$(window).scroll(function(event){
-		didScroll = true;
-	});
+  $(window).scroll(function(event){
+    didScroll = true;
+  });
 
-	setInterval(function() {
-		if (didScroll) {
-			hasScrolled();
-			didScroll = false;
-		}
-	}, 250);
+  setInterval(function() {
+    if (didScroll) {
+      hasScrolled();
+      didScroll = false;
+    }
+  }, 250);
 }
 
 function hasScrolled() {
-	var st = $(this).scrollTop();
+  var st = $(this).scrollTop();
 
-	if(Math.abs(lastScrollTop - st) <= delta)
-		return;
+  if(Math.abs(lastScrollTop - st) <= delta)
+    return;
 
-	if (st > lastScrollTop && st > navbarHeight){
-		$('.nav').removeClass('nav-down').addClass('nav-up');
-	} else {
-		if(st + $(window).height() < $(document).height()) {
-			$('.nav').removeClass('nav-up').addClass('nav-down');
-		}
-	}
-	
-	lastScrollTop = st;
+  if (st > lastScrollTop && st > navbarHeight){
+    $('.nav').removeClass('nav-down').addClass('nav-up');
+  } else {
+    if(st + $(window).height() < $(document).height()) {
+      $('.nav').removeClass('nav-up').addClass('nav-down');
+    }
+  }
+
+  lastScrollTop = st;
 }

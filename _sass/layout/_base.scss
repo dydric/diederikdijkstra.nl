@@ -1,45 +1,45 @@
 html {
-	@include unselectable();
-	font-size: 62.5%;
-	font-smoothing: antialiased;
-	height: 100%;
-	overflow-y: scroll;
-	tap-highlight-color: rgba(0, 0, 0, .1);
-	text-size-adjust: 100%;
+  @include unselectable();
+  font-size: 62.5%;
+  font-smoothing: antialiased;
+  height: 100%;
+  overflow-y: scroll;
+  tap-highlight-color: rgba(0, 0, 0, .1);
+  text-size-adjust: 100%;
 }
 
 body {
-	background-color: $color-1;
-	color: $color-1;
-	font-family: $font-family;
-	line-height: 1.2;
-	// min-height: 100vh;
-	overflow-x: hidden;
-	text-align: center;
+  background-color: $color-1;
+  color: $color-1;
+  font-family: $font-family;
+  line-height: 1.2;
+  // min-height: 100vh;
+  overflow-x: hidden;
+  text-align: center;
 
-	&.loadpage {
-		color: transparentize($color-black, .9);
-	}
+  &.loadpage {
+    color: transparentize($color-black, .9);
+  }
 
-	&.done {
-		color: $color-2;
-	}
+  &.done {
+    color: $color-2;
+  }
 
 }
 
 ::-webkit-scrollbar {
-	background: shade($color-1, 5);
-	border: 0;
-	width: 10px;
+  background: shade($color-1, 5);
+  border: 0;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $color-2;
-	border: 0;
-	border-radius: 0;
+  background: $color-2;
+  border: 0;
+  border-radius: 0;
 }
 
 ::selection {
-	background: rgba(0, 0, 0, .5);
-	color: $color-white;
+  background: rgba(0, 0, 0, .5);
+  color: $color-white;
 }

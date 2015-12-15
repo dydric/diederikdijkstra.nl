@@ -1,192 +1,192 @@
 @if $body-ID == home {
 
-	header {
-		left: 0;
-		opacity: 0;
-		padding: 10vw;
-		position: fixed;
-		right: 0;
-		top: 0;
-		z-index: 0;
+  header {
+    left: 0;
+    opacity: 0;
+    padding: 10vw;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 0;
 
-		@include mq(500) {
-			padding: 50px;
-		}
+    @include mq(500) {
+      padding: 50px;
+    }
 
-		.done & {
-			opacity: 1;
-			transition: opacity 600ms, top 500ms cubic-bezier(.75, -.1, 0, 1.25);
-		}
+    .done & {
+      opacity: 1;
+      transition: opacity 600ms, top 500ms cubic-bezier(.75, -.1, 0, 1.25);
+    }
 
-		.no-touch &.move {
-			top: -200%;
-		}
+    .no-touch &.move {
+      top: -200%;
+    }
 
-		img {
-			display: block;
-			margin: 0 auto;
-			max-width: 400px;
-			min-width: 180px;
-			opacity: .8;
-			width: 50%;
-		}
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 400px;
+      min-width: 180px;
+      opacity: .8;
+      width: 50%;
+    }
 
-		.touch & {
-			position: absolute;
+    .touch & {
+      position: absolute;
 
-			img {
-				opacity: 1;
-			}
-		}
-	}
+      img {
+        opacity: 1;
+      }
+    }
+  }
 
-	main {
-		left: 0;
-		padding: 247px 20px 100px;
-		position: relative;
-		right: 0;
-		top: 0;
-		z-index: 1;
+  main {
+    left: 0;
+    padding: 247px 20px 100px;
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 1;
 
-		@include mq(550) {
-			padding-top: 45%;
-		}
+    @include mq(550) {
+      padding-top: 45%;
+    }
 
-		@include mq(1100) {
-			padding-top: 495px;
-		}
+    @include mq(1100) {
+      padding-top: 495px;
+    }
 
-		section {
-			margin-bottom: 10vw;
+    section {
+      margin-bottom: 10vw;
 
-			@include mq(800) {
-				margin-bottom: 100px;
-			}
-		}
-	}
+      @include mq(800) {
+        margin-bottom: 100px;
+      }
+    }
+  }
 
-	.list {
-		@include clearfix();
-		background: transparentize($color-2, .9);
-		display: none;
-		list-style: none;
-		margin: 0 5vw 10px;
-		max-width: 800px;
-		padding-top: 1vw;
-		transition: background 300ms;
+  .list {
+    @include clearfix();
+    background: transparentize($color-2, .9);
+    display: none;
+    list-style: none;
+    margin: 0 5vw 10px;
+    max-width: 800px;
+    padding-top: 1vw;
+    transition: background 300ms;
 
-		@include mq(550) {
-			padding-top: 5px;
-		}
+    @include mq(550) {
+      padding-top: 5px;
+    }
 
-		@include mq(800) {
-			margin: 0 auto 10px;
-		}
+    @include mq(800) {
+      margin: 0 auto 10px;
+    }
 
-		&:hover {
-			background: transparentize($color-2, .8);
-		}
+    &:hover {
+      background: transparentize($color-2, .8);
+    }
 
-		&__item {
-			background: $color-1;
-			box-sizing: border-box;
-			margin-bottom: 1vw;
+    &__item {
+      background: $color-1;
+      box-sizing: border-box;
+      margin-bottom: 1vw;
 
-			@include mq(550) {
-				margin-bottom: 5px;
-			}
-		}
+      @include mq(550) {
+        margin-bottom: 5px;
+      }
+    }
 
-		&__link {
-			@include text-size(18, 600, 1200, 0);
-			display: block;
-			font-weight: 700;
-			padding: .5em;
-			transition: transform 300ms cubic-bezier(.75, -.5, 0, 1.75);
+    &__link {
+      @include text-size(18, 600, 1200, 0);
+      display: block;
+      font-weight: 700;
+      padding: .5em;
+      transition: transform 300ms cubic-bezier(.75, -.5, 0, 1.75);
 
-			span {
-				@include text-size(14, 600, 800, 0);
-				display: block;
-				font-weight: 400;
-				padding-bottom: .3em;
-			}
+      span {
+        @include text-size(14, 600, 800, 0);
+        display: block;
+        font-weight: 400;
+        padding-bottom: .3em;
+      }
 
-			.list:hover & {
-				color: transparentize($color-2, .3);
+      .list:hover & {
+        color: transparentize($color-2, .3);
 
-				&:hover {
-					color: $color-2;
-					transform: translateZ(0) scale(1.05);
-				}
-			}
-		}
+        &:hover {
+          color: $color-2;
+          transform: translateZ(0) scale(1.05);
+        }
+      }
+    }
 
-		.wf-active & {
-			display: block;
-		}
+    .wf-active & {
+      display: block;
+    }
 
-		.wf-active .loadpage & {
-			visibility: hidden;
-		}
+    .wf-active .loadpage & {
+      visibility: hidden;
+    }
 
-		.wf-active .done & {
-			visibility: visible;
-		}
-	}
+    .wf-active .done & {
+      visibility: visible;
+    }
+  }
 
-	p a {
-		display: inline-block;
-		padding: 0 .1em;
-		position: relative;
-		z-index: 1;
+  p a {
+    display: inline-block;
+    padding: 0 .1em;
+    position: relative;
+    z-index: 1;
 
-		&:after {
-			background: transparentize($color-2, .9);
-			bottom: -.2em;
-			content: '';
-			height: .3em;
-			left: .1em;
-			position: absolute;
-			right: .1em;
-			transition: all 300ms cubic-bezier(.75, -.5, 0, 1.75);
-			z-index: -1;
+    &:after {
+      background: transparentize($color-2, .9);
+      bottom: -.2em;
+      content: '';
+      height: .3em;
+      left: .1em;
+      position: absolute;
+      right: .1em;
+      transition: all 300ms cubic-bezier(.75, -.5, 0, 1.75);
+      z-index: -1;
 
-			.post & {
-				bottom: .1em;
-			}
-		}
+      .post & {
+        bottom: .1em;
+      }
+    }
 
-		span {
-			color: transparentize($color-2, .5);
-			font-size: 70%;
-			font-weight: 700;
-			letter-spacing: .1em;
-			padding: .3em;
-			text-transform: uppercase;
-		}
+    span {
+      color: transparentize($color-2, .5);
+      font-size: 70%;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .3em;
+      text-transform: uppercase;
+    }
 
-		&:hover,
-		&:focus {
+    &:hover,
+    &:focus {
 
-			&:after {
-				height: 1.7em;
-				left: -.1em;
-				right: -.1em;
-			}
-		}
-	}
+      &:after {
+        height: 1.7em;
+        left: -.1em;
+        right: -.1em;
+      }
+    }
+  }
 
 } @else {
 
-	.post {
-		padding: 140px 20px 100px;
+  .post {
+    padding: 140px 20px 100px;
 
-		.content {
-			line-height: 1.8;
-			margin: 0 auto;
-			max-width: 1600px;
-			padding: 80px 2% 30px;
-			text-align: left;
-		}
-	}
+    .content {
+      line-height: 1.8;
+      margin: 0 auto;
+      max-width: 1600px;
+      padding: 80px 2% 30px;
+      text-align: left;
+    }
+  }
 }

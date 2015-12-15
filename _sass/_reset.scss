@@ -4,45 +4,45 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 // Font normalisation
 body {
-	font: 13px sans-serif;
-	*font-size: small;
-	*font: x-small;
-	line-height: 1.22;
+  font: 13px sans-serif;
+  *font-size: small;
+  *font: x-small;
+  line-height: 1.22;
 }
 
 table {
-	font-size: inherit;
-	font: 100%;
+  font-size: inherit;
+  font: 100%;
 }
 
 select, input, textarea {
-	font: 99% sans-serif;
+  font: 99% sans-serif;
 }
 
 // Clearfix
 .clearfix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .clearfix {
-	display: inline-block;
+  display: inline-block;
 }
 
 * html .clearfix {
-	height: 1%;
+  height: 1%;
 }
 
 .clearfix {
-	display: block;
+  display: block;
 }
 
 div.clear {
-	clear: both;
-	width: 100%;
-	height: 1px;
-	overflow: hidden;
+  clear: both;
+  width: 100%;
+  height: 1px;
+  overflow: hidden;
 }
