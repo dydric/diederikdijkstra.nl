@@ -85,8 +85,8 @@ function moveFx(){
     var yPos = 0;
 
     TweenLite.to($h, 0.6, {
-      rotationY: 20*xPos,
-      rotationX: 20*yPos,
+      rotationY: 20 * xPos,
+      rotationX: 20 * yPos,
       ease: Power1.easeOut,
       transformPerspective: 900,
       transformOrigin: "center"
@@ -98,8 +98,8 @@ function moveFx(){
     var yPos = (e.clientY/$(window).height())-0.5;
 
     TweenLite.to($h, 0.6, {
-      rotationY: 20*xPos,
-      rotationX: 20*yPos,
+      rotationY: 20 * xPos,
+      rotationX: 20 * yPos,
       ease: Power1.easeOut,
       transformPerspective: 900,
       transformOrigin: "center"
@@ -111,8 +111,8 @@ function moveFx(){
     var yPos = 0;
 
     TweenLite.to($h, 0.6, {
-      rotationY: 20*xPos,
-      rotationX: 20*yPos,
+      rotationY: 20 * xPos,
+      rotationX: 20 * yPos,
       ease: Power1.easeOut,
       transformPerspective: 900,
       transformOrigin: "center"
