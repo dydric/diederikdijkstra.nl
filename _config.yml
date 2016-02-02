@@ -14,5 +14,5 @@ github_url:  https://github.com/dydric
 
 # Build settings
 markdown: kramdown
-highlighter: pygments # or rouge or null
+highlighter: rouge # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "CNAME"]
