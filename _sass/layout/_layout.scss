@@ -67,7 +67,7 @@
 
   .list {
     @include clearfix();
-    background: transparentize($color-2, .9);
+    // background: transparentize($color-2, .9);
     display: none;
     list-style: none;
     margin: 0 5vw 10px;
@@ -75,33 +75,38 @@
     padding-top: 1vw;
     transition: background 300ms;
 
-    @include mq(550) {
-      padding-top: 5px;
-    }
+    // @include mq(550) {
+    //   padding-top: 5px;
+    // }
 
     @include mq(800) {
       margin: 0 auto 10px;
     }
 
-    &:hover {
-      background: transparentize($color-2, .8);
-    }
+    // &:hover {
+    //   background: transparentize($color-2, .8);
+    // }
 
     &__item {
-      background: $color-1;
+      // background: $color-1;
+      // margin-bottom: 1vw;
+      border-bottom: 5px solid transparentize($color-2, .9);
       box-sizing: border-box;
-      margin-bottom: 1vw;
 
-      @include mq(550) {
-        margin-bottom: 5px;
+      &:first-child {
+        border-top: 5px solid transparentize($color-2, .9);
       }
+
+      // @include mq(550) {
+      //   margin-bottom: 5px;
+      // }
     }
 
     &__link {
       @include text-size(18, 600, 1200, 0);
       display: block;
       font-weight: 700;
-      padding: .5em;
+      padding: .8em .5em;
       transition: transform 300ms cubic-bezier(.75, -.5, 0, 1.75);
 
       span {
@@ -111,13 +116,9 @@
         padding-bottom: .3em;
       }
 
-      .list:hover & {
-        color: transparentize($color-2, .3);
-
-        &:hover {
-          color: $color-2;
-          transform: translateZ(0) scale(1.05);
-        }
+      &:hover {
+        color: $color-2;
+        transform: translateZ(0) scale(1.05);
       }
     }
 
@@ -140,7 +141,7 @@
     position: relative;
     z-index: 1;
 
-    &:after {
+    &::after {
       background: transparentize($color-2, .9);
       bottom: -.2em;
       content: '';
@@ -168,7 +169,7 @@
     &:hover,
     &:focus {
 
-      &:after {
+      &::after {
         height: 1.7em;
         left: -.1em;
         right: -.1em;
