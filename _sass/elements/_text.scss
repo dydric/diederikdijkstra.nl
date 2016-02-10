@@ -23,6 +23,7 @@ h1 {
   @extend %text;
   @include text-size(32, 400, 1200, 5);
   font-weight: 700;
+  margin-top: 0;
   max-width: 1000px;
 
   .wf-active .loadpage & {
@@ -34,12 +35,14 @@ h2 {
   @extend %text;
   @include text-size(21, 600, 1200, 30);
   font-weight: 400;
+  margin-top: 0;
 }
 
 h3 {
   @extend %text;
   @include text-size(18, 600, 1200, 0);
   font-weight: 700;
+  margin-top: 0;
 }
 
 p {
