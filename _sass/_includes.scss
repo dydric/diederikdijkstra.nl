@@ -1,26 +1,18 @@
 // Misc
 @import 'variables';
 @import 'mixins';
-@import 'reset';
+@import 'normalize';
 
 // Layout
 @import 'layout/base';
 @import 'layout/layout';
-@if not ($body-ID == home) {
-  @import 'layout/nav';
-}
-@if $grid == true {
-  @import 'layout/grid';
-}
+@if not ($body-ID == home) { @import 'layout/nav'; }
+@if $grid == true { @import 'layout/grid'; }
 
 // Elements
 @import 'elements/text';
-@if $body-ID == home {
-  @import 'elements/blocks';
-}
+@if $body-ID == home { @import 'elements/blocks'; }
 
 // Extra's
-@import 'extra/bars';
-@if $syntax == true {
-  @import 'extra/syntax';
-}
+@import 'extra/loadingbars';
+@if $syntax == true { @import 'extra/syntax'; }
