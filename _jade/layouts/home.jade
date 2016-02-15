@@ -1,37 +1,38 @@
 mixin block(platform)
-	li(class= platform)
-		a(href="{{ site." + [platform] + "_url }}", target="_blank")
-			span= platform
+  li(class= platform)
+    a(href="{{ site." + [platform] + "_url }}", target="_blank")
+      span= platform
 
 doctype html
 html.no-js
-	include ../includes/head.jade
-	body.home
-		header
-			img.fx2(src="img/1.jpg")
-		main
-			section
-				h1 {{ site.title }}
-				h2 {{ site.description }}
-			section.blocks.fx1
-				ul
-					+block("instagram")
-					+block("twitter")
-					+block("codepen")
-					+block("tumblr")
-					+block("strava")
-					+block("github")
-			section
-				ul.list.fx1
-					| {% for post in site.posts %}
-					li.list__item
-						a.list__link(href="{{ post.url | prepend: site.baseurl }}")
-							span.list__date
-								| {% assign month = post.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}
-								| {{ post.date | date: '%e' }}&nbsp;{{ month }}&nbsp;{{ post.date | date: '%Y' }}
-							| {{ post.title }}
-					| {% endfor %}
-			//- section
-			//- 	p
-			//- 		a.email(user="diederikdijkstra", domain="gmail.com", href="#") diederikdijkstra<span>[at]</span>gmail<span>[dot]</span>com
-		include ../includes/footer.jade
+  include ../includes/head.jade
+  body.home
+    header
+      img.fx2(src="img/1.jpg")
+    main
+      section
+        h1 {{ site.title }}
+        h2 {{ site.description }}
+      section.blocks.fx1
+        ul
+          +block("instagram")
+          +block("twitter")
+          +block("codepen")
+          +block("tumblr")
+          +block("strava")
+          +block("github")
+      section
+        ul.list.fx1
+          | {% for post in site.posts %}
+          li.list__item
+            a.list__link(href="{{ post.url | prepend: site.baseurl }}")
+              span.list__date
+                | {% assign month = post.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}
+                | {{ post.date | date: '%e' }}&nbsp;{{ month }}&nbsp;{{ post.date | date: '%Y' }}
+              | {{ post.title }}
+          | {% endfor %}
+      //- section
+      //-   p
+      //-     a.email(user="diederikdijkstra", domain="gmail.com", href="#") diederikdijkstra<span>[at]</span>gmail<span>[dot]</span>com
+    .bg
+    include ../includes/footer.jade

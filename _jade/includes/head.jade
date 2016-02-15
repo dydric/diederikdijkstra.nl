@@ -1,18 +1,24 @@
 head
-	meta(charset="utf-8")
-	meta(http-equiv="X-UA-Compatible" content="IE=edge")
-	meta(http-equiv="imagetoolbar" content="no")
-	meta(name="description" content="Diederik Dijkstra - Front end developer")
-	meta(name="keywords" content="Diederik")
-	meta(name="format-detection" content="telephone=no")
-	meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+  script.
+    var host = "diederikdijkstra.nl";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(http-equiv="imagetoolbar" content="no")
+  meta(name="description" content="Diederik Dijkstra - Front end developer")
+  meta(name="keywords" content="Diederik")
+  meta(name="format-detection" content="telephone=no")
+  meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 
-	title {% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}
+  link(rel="canonical" href="{{ site.url }}{{ page.url }}")
 
-	link(rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl }}")
+  title {% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}
 
-	| {% if page.bodyclass %}
-	link(href="/css/custom/{{ page.bodyclass }}.css", rel="stylesheet")
-	| {% else %}
-	link(href="{{ '/css/style.css' | prepend: site.baseurl }}", rel="stylesheet")
-	| {% endif %}
+  link(rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl }}")
+
+  | {% if page.bodyclass %}
+  link(href="/css/custom/{{ page.bodyclass }}.css", rel="stylesheet")
+  | {% else %}
+  link(href="{{ '/css/style.css' | prepend: site.baseurl }}", rel="stylesheet")
+  | {% endif %}

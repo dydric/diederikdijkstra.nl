@@ -3,7 +3,8 @@ title: Diederik Dijkstra
 email: diederikdijkstra@gmail.com
 description: Front-end developer
 baseurl: ""
-url: "http://diederikdijkstra.nl"
+url: "https://diederikdijkstra.nl"
+enforce_ssl: diederikdijkstra.nl
 
 instagram_url: https://instagram.com/dydric/
 twitter_url: https://twitter.com/Dydric
