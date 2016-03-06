@@ -34,10 +34,10 @@ gulp.task('serve:local', function (cb) {
 			logPrefix: 'BS',
 			server: '_site'
 		});
-		gulp.watch(['src/sass/**/*'], ['styles']);
-		gulp.watch(['src/js/**/*'], ['scripts']);
-		gulp.watch(['src/img/**/*'], ['images']);
-		gulp.watch(['src/jade/**/*'], ['layouts', 'posts', 'drafts']);
+		gulp.watch(['_sass/**/*'], ['styles']);
+		gulp.watch(['_js/**/*'], ['scripts']);
+		gulp.watch(['img/**/*'], ['images']);
+		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts']);
 		gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*.css', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
@@ -67,7 +67,7 @@ gulp.task('styles', function (cb) {
 			processImportFrom: ['!fonts.googleapis.com']
 		}))
 		.pipe($.sourcemaps.write('./'))
-		.pipe(gulp.dest('build/css'))
+		.pipe(gulp.dest('css'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'styles'
@@ -79,11 +79,11 @@ gulp.task('scripts', function () {
 	return gulp.src(['src/js/source/plugins/**/*.js', 'src/js/source/*.js'])
 		.pipe($.sourcemaps.init())
 		.pipe($.concat('script.concat.js'))
-		.pipe(gulp.dest('build/js/'))
+		.pipe(gulp.dest('js/'))
 		.pipe($.uglify())
 		.pipe($.rename('script.min.js'))
 		.pipe($.sourcemaps.write('.'))
-		.pipe(gulp.dest('build/js/'))
+		.pipe(gulp.dest('js/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'scripts'
@@ -94,7 +94,7 @@ gulp.task('scripts', function () {
 gulp.task('nprogress', function (cb) {
 	return gulp.src(['src/js/nprogress.js'])
 		.pipe($.plumber())
-		.pipe(gulp.dest('build/js/'))
+		.pipe(gulp.dest('js/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'nprogress'
@@ -105,12 +105,12 @@ gulp.task('nprogress', function (cb) {
 gulp.task('images', function (cb) {
 	return gulp.src(['src/img/**/*.{jpg,png,svg}'])
 		.pipe($.plumber())
-		.pipe($.changed('build/img/'))
+		.pipe($.changed('img/'))
 		.pipe($.imagemin({
 			progressive: true,
 			interlaced: true
 		}))
-		.pipe(gulp.dest('build/img/'))
+		.pipe(gulp.dest('img/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'images'
@@ -125,7 +125,7 @@ gulp.task('layouts', function (cb) {
 			cache: true
 			// pretty: true
 		})))
-		.pipe(gulp.dest('build/_layouts/'))
+		.pipe(gulp.dest('_layouts/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'layouts'
@@ -139,7 +139,7 @@ gulp.task('posts', function (cb) {
 		.pipe($.if('*.jade', $.jade({
 			cache: true
 		})))
-		.pipe(gulp.dest('build/_posts'))
+		.pipe(gulp.dest('_posts'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'posts'
@@ -153,7 +153,7 @@ gulp.task('drafts', function (cb) {
 		.pipe($.if('*.jade', $.jade({
 			cache: true
 		})))
-		.pipe(gulp.dest('build/_drafts'))
+		.pipe(gulp.dest('_drafts'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'drafts'
@@ -162,5 +162,5 @@ gulp.task('drafts', function (cb) {
 
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['build/css', 'build/js', 'build/_posts', 'build/_drafts', 'build/_layouts', '_site/'], cb);
+	return del(['css', 'js', '_includes', '_posts', '_drafts', '_layouts', '_site/'], cb);
 });
