@@ -34,10 +34,10 @@ gulp.task('serve:local', function (cb) {
 			logPrefix: 'BS',
 			server: '_site'
 		});
-		gulp.watch(['_sass/**/*'], ['styles']);
-		gulp.watch(['_js/**/*'], ['scripts']);
-		gulp.watch(['img/**/*'], ['images']);
-		gulp.watch(['_jade/**/*'], ['layouts', 'posts', 'drafts']);
+		gulp.watch(['src/sass/**/*'], ['styles']);
+		gulp.watch(['src/js/**/*'], ['scripts']);
+		gulp.watch(['src/img/**/*'], ['images']);
+		gulp.watch(['src/jade/**/*'], ['layouts', 'posts', 'drafts']);
 		gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'css/**/*.css', 'js/*', ], ['jekyll-rebuild']);
 	});
 });
@@ -54,7 +54,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 
 // SASS
 gulp.task('styles', function (cb) {
-	return gulp.src(['_sass/**/*.scss'])
+	return gulp.src(['src/sass/**/*.scss'])
 		.pipe($.plumber())
 		.pipe($.sourcemaps.init())
 		.pipe($.sass.sync().on('error', $.sass.logError))
@@ -67,7 +67,7 @@ gulp.task('styles', function (cb) {
 			processImportFrom: ['!fonts.googleapis.com']
 		}))
 		.pipe($.sourcemaps.write('./'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('build/css'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'styles'
@@ -76,14 +76,14 @@ gulp.task('styles', function (cb) {
 
 // SCRIPTS
 gulp.task('scripts', function () {
-	return gulp.src(['_js/source/plugins/**/*.js', '_js/source/*.js'])
+	return gulp.src(['src/js/source/plugins/**/*.js', 'src/js/source/*.js'])
 		.pipe($.sourcemaps.init())
 		.pipe($.concat('script.concat.js'))
-		.pipe(gulp.dest('js/'))
+		.pipe(gulp.dest('build/js/'))
 		.pipe($.uglify())
 		.pipe($.rename('script.min.js'))
 		.pipe($.sourcemaps.write('.'))
-		.pipe(gulp.dest('js/'))
+		.pipe(gulp.dest('build/js/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'scripts'
@@ -92,9 +92,9 @@ gulp.task('scripts', function () {
 
 // NPROGRESS
 gulp.task('nprogress', function (cb) {
-	return gulp.src(['_js/nprogress.js'])
+	return gulp.src(['src/js/nprogress.js'])
 		.pipe($.plumber())
-		.pipe(gulp.dest('js/'))
+		.pipe(gulp.dest('build/js/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'nprogress'
@@ -103,14 +103,14 @@ gulp.task('nprogress', function (cb) {
 
 // IMAGES
 gulp.task('images', function (cb) {
-	return gulp.src(['img/**/*.{jpg,png,svg}'])
+	return gulp.src(['src/img/**/*.{jpg,png,svg}'])
 		.pipe($.plumber())
-		.pipe($.changed('img/'))
+		.pipe($.changed('build/img/'))
 		.pipe($.imagemin({
 			progressive: true,
 			interlaced: true
 		}))
-		.pipe(gulp.dest('img/'))
+		.pipe(gulp.dest('build/img/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'images'
@@ -119,13 +119,13 @@ gulp.task('images', function (cb) {
 
 // LAYOUTS
 gulp.task('layouts', function (cb) {
-	return gulp.src(['_jade/layouts/*'])
+	return gulp.src(['src/jade/layouts/*'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
 			cache: true
 			// pretty: true
 		})))
-		.pipe(gulp.dest('_layouts/'))
+		.pipe(gulp.dest('build/_layouts/'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'layouts'
@@ -134,12 +134,12 @@ gulp.task('layouts', function (cb) {
 
 // POSTS
 gulp.task('posts', function (cb) {
-	return gulp.src(['_jade/posts/*', '!_jade/posts/post.jade'])
+	return gulp.src(['src/jade/posts/*', '!src/jade/posts/post.jade'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
 			cache: true
 		})))
-		.pipe(gulp.dest('_posts'))
+		.pipe(gulp.dest('build/_posts'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'posts'
@@ -148,12 +148,12 @@ gulp.task('posts', function (cb) {
 
 // POSTS
 gulp.task('drafts', function (cb) {
-	return gulp.src(['_jade/drafts/*'])
+	return gulp.src(['src/jade/drafts/*'])
 		.pipe($.plumber())
 		.pipe($.if('*.jade', $.jade({
 			cache: true
 		})))
-		.pipe(gulp.dest('_drafts'))
+		.pipe(gulp.dest('build/_drafts'))
 		.pipe($.if(browserSync.active, reload({ stream: true })))
 		.pipe($.size({
 			title: 'drafts'
@@ -162,5 +162,5 @@ gulp.task('drafts', function (cb) {
 
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['css', 'js', '_includes', '_posts', '_drafts', '_layouts', '_site/'], cb);
+	return del(['build/css', 'build/js', 'build/_posts', 'build/_drafts', 'build/_layouts', '_site/'], cb);
 });

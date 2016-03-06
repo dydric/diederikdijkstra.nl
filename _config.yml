@@ -6,6 +6,14 @@ baseurl: ""
 url: "https://diederikdijkstra.nl"
 enforce_ssl: diederikdijkstra.nl
 
+# Location settings
+source:       ./build
+destination:  ./_site
+plugins_dir:  ./build/_plugins
+layouts_dir:  ./build/_layouts
+data_dir:     ./build/_data
+includes_dir: ./build/_includes
+
 instagram_url: https://instagram.com/dydric/
 twitter_url: https://twitter.com/Dydric
 codepen_url: http://codepen.io/dydric/
@@ -16,4 +24,4 @@ github_url:  https://github.com/dydric
 # Build settings
 markdown: kramdown
 highlighter: rouge # or rouge or null
-exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "CNAME"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "CNAME", "src", "build"]
