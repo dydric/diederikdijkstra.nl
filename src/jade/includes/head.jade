@@ -18,7 +18,7 @@ head
   link(rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl }}")
 
   | {% if page.bodyclass %}
-  link(href="/css/custom/{{ page.bodyclass }}.css", rel="stylesheet")
+  link(href="/assets/css/custom/{{ page.bodyclass }}.css", rel="stylesheet")
   | {% else %}
-  link(href="{{ '/css/style.css' | prepend: site.baseurl }}", rel="stylesheet")
+  link(href="{{ '/assets/css/style.css' | prepend: site.baseurl }}", rel="stylesheet")
   | {% endif %}
