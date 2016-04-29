@@ -1,0 +1,76 @@
+.site {
+  background: $color-body;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 100vh;
+  overflow: hidden;
+
+  @include mq(1500) {
+    max-width: 80vw;
+  }
+
+  @include mq(2000) {
+    max-width: 1600px;
+  }
+}
+
+.band {
+  box-sizing: border-box;
+  display: none;
+  position: relative;
+  z-index: 1;
+
+  .wf-active &,
+  .wf-inactive & {
+    display: block;
+  }
+
+  > p,
+  > span,
+  > a,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > ul,
+  > ol,
+  > table,
+  > blockquote,
+  > .highlight {
+    @include margin-left(1);
+    @include margin-right(1);
+    max-width: $max-width;
+    transition: margin 100ms;
+
+    @include mq($size-s) {
+      @include margin-left(2.5);
+      @include margin-right(2);
+    }
+
+    @include mq(990) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &--content {
+    @include margin-bottom(3.2);
+
+    .post & {
+      @include margin-bottom(4);
+    }
+  }
+
+  &--blog {
+    @include margin-bottom(3.2);
+
+    h3 {
+      text-transform: capitalize;
+
+      &::before {
+        text-transform: none;
+      }
+    }
+  }
+}

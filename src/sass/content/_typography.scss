@@ -1,0 +1,86 @@
+* {
+  @include line-height(1.2);
+  @include font-size(1.1);
+
+  &::selection {
+    background: $color-accent-1;
+  }
+}
+
+strong {
+  font-weight: bold;
+
+  p &::before,
+  p &::after {
+    color: $color-grey-light;
+    content: '__';
+    font-weight: 400;
+  }
+}
+
+em,
+i {
+  font-style: italic;
+
+  p &::before,
+  p &::after {
+    color: $color-grey-light;
+    content: '_';
+    font-weight: 400;
+  }
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  @include padding(0, .2);
+  background: $color-accent-1;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+small {
+  @include line-height(.5);
+  font-size: 80%;
+}
+
+.uppercase {
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.meta {
+  color: $color-grey-light;
+  display: block;
+
+  .post & {
+    @include margin-bottom(2);
+  }
+}
+
+@import 'headings';
+@import 'blockquote';
+@import 'links';
+@import 'images';
+@import 'svg';
+@import 'lists';
+@import 'forms';
+@import 'tables';
+@import 'embed';
+@import 'hr';

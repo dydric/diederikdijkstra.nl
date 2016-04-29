@@ -61,7 +61,7 @@ linters:
     filename_extension: false
 
   ImportantRule:
-    enabled: true
+    enabled: false
 
   ImportPath:
     enabled: true

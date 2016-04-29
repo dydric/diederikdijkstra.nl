@@ -1,0 +1,76 @@
+$max-width:               820px;
+
+// Media-Queries
+$size-xs:                 320;
+$size-s:                  500;
+$size-m:                  640;
+$size-l:                  800;
+$size-xl:                 1000;
+$size-xxl:                1600;
+
+// Typography
+$base-font-size:          80 !default;
+$base-font-size-m:        112.5 !default;
+$base-font-size-l:        125 !default;
+$base-font-size-xl:       150 !default;
+
+$base:                    16 * ($base-font-size / 100);
+$line-height:             1.625;
+$leading:                 round($base * $line-height) / $base;
+$l-rem:                   #{$leading + 'rem'};
+
+// Fonts
+$font-body:               'fira-mono', monospace; //'adelle-sans', sans-serif !default;
+$font-code:               $font-body;
+
+// Headings
+// [ 4.3 | 3.5 | 3 | 2.5 | 2 | 1.6875 | 1.4375 | 1.2 | 1 | .8125 ]
+// $headings: (
+//   h1: (3, 2, 3, .5),
+//   h2: (1.6875, 1.5, 1.5, .5),
+//   h3: (1.4375, 1, 1.5, .5),
+//   h4: (1.2, 1, 1.5, .5),
+//   h5: (1, 1, 1.5, .5)
+// ) !default;
+
+$headings: (
+  h1: (1.2, 1.2, 3, .5),
+  h2: (1.2, 1.2, 1.5, .5),
+  h3: (1.2, 1.2, 1.5, .5),
+  h4: (1.2, 1.2, 1.5, .5),
+  h5: (1.2, 1.2, 1.5, .5)
+) !default;
+
+// Colors
+$color-black:             #000000;
+$color-white:             #ffffff;
+@function tint($color, $percent) { @return mix($color-white, $color, $percent); }
+@function shade($color, $percent) { @return mix($color-black, $color, $percent); }
+
+$color-grey-darker:       #282828;
+$color-grey-dark:         #444444;
+$color-grey:              #666666;
+$color-grey-light:        #b4b4b4;
+$color-grey-lighter:      #f0f0f0;
+
+$color-body:              tint($color-grey-lighter, 80);
+$color-text:              $color-grey-darker;
+$color-headings:          shade($color-text, 10);
+$color-links:             $color-text;
+
+$color-accent-1:          #ffc600;
+
+$color-syntax-bg:         $color-grey-lighter;
+$color-syntax-txt:        tint($color-text, 5);
+$color-syntax-1:          #999988;  // Comments
+$color-syntax-2:          #008080;  // Numbers
+$color-syntax-3:          #dd1144;  // String
+$color-syntax-4:          #990000;  // Name: Variable/Attributes
+$color-syntax-5:          #008080;  // Exception / Functions
+$color-syntax-6:          #445588;
+$color-syntax-7:          #0086b3;
+$color-syntax-8:          #800080;
+$color-syntax-9:          #000080;
+$color-syntax-10:         #009926;
+$color-syntax-11:         #990073;
+$color-syntax-12:         #990000;  // Errors

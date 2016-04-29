@@ -1,0 +1,167 @@
+// MEDIA QUERIES
+@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+  @if $IE9 == true{
+    .no-mediaqueries & {
+      @content;
+    }
+
+    @media screen and (#{$query1}-#{$query2}: $point+px) {
+      @content;
+    }
+  } @else {
+    @media screen and (#{$query1}-#{$query2}: $point+px) {
+      @content;
+    }
+  }
+}
+
+// CLEARFIX
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// THEME FX
+// ==========================================================================
+
+@mixin md-before($content) {
+  @include mq($size-s) {
+    position: relative;
+
+    &::before {
+      color: $color-grey-light;
+      content: '#{$content}';
+      font-weight: 400;
+      left: -3.2rem;
+      position: absolute;
+      top: 0;
+      width: 3.2rem;
+    }
+  }
+}
+
+@mixin line-hover-fx() {
+  // overflow: hidden;
+  // // display: inline-block;
+  // vertical-align: bottom;
+
+  &::before,
+  &::after {
+    background: $color-accent-1;
+    bottom: 0;
+    content: '';
+    height: .2rem;
+    left: -.1rem;
+    position: absolute;
+    width: calc(100% + .2rem);
+    z-index: -2;
+  }
+
+  &::after {
+    background: $color-grey-light;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 200ms ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// TYPOGRAPHY
+// ==========================================================================
+
+// FONT-SIZE
+@mixin font-size($number) {
+  font-size: #{ $number + 'rem'};
+}
+
+// LINE-HEIGHT
+@mixin line-height($number) {
+  line-height: #{ $number * $l-rem};
+}
+
+// UNSELECTABLE
+@mixin unselectable() {
+  user-select: none;
+}
+
+// TEXT-OVERFLOW
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// MARGIN
+@mixin margin-top($number) {
+  margin-top: #{ $number * $l-rem};
+}
+
+@mixin margin-bottom($number) {
+  margin-bottom: #{ $number * $l-rem};
+}
+
+@mixin margin-left($number) {
+  margin-left: #{ $number * $l-rem};
+}
+
+@mixin margin-right($number) {
+  margin-right: #{ $number * $l-rem};
+}
+
+@mixin margin($top, $right, $bottom:null, $left:null) {
+  @if $left == null and $bottom == null {
+    margin: #{ $top * $l-rem} #{ $right * $l-rem};
+  } @else if $left == null or $left == $right {
+    margin: #{ $top * $l-rem} #{ $right * $l-rem} #{ $bottom * $l-rem};
+  } @else {
+    margin: #{ $top * $l-rem} #{ $right * $l-rem} #{ $bottom * $l-rem} #{ $left * $l-rem};
+  }
+}
+
+@mixin margin-equal($number) {
+  margin: #{ $number * $l-rem};
+}
+
+// PADDING
+@mixin padding-top($number) {
+  padding-top: #{ $number * $l-rem};
+}
+
+@mixin padding-bottom($number) {
+  padding-bottom: #{ $number * $l-rem};
+}
+
+@mixin padding-left($number) {
+  padding-left: #{ $number * $l-rem};
+}
+
+@mixin padding-right($number) {
+  padding-right: #{ $number * $l-rem};
+}
+
+@mixin padding($top, $right, $bottom:null, $left:null) {
+  @if $left == null and $bottom == null {
+    padding: #{ $top * $l-rem} #{ $right * $l-rem};
+  } @else if $left == null or $left == $right {
+    padding: #{ $top * $l-rem} #{ $right * $l-rem} #{ $bottom * $l-rem};
+  } @else {
+    padding: #{ $top * $l-rem} #{ $right * $l-rem} #{ $bottom * $l-rem} #{ $left * $l-rem};
+  }
+}
+
+@mixin padding-equal($number) {
+  padding: #{ $number * $l-rem};
+}

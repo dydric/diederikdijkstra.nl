@@ -1,0 +1,16 @@
+//- mixin nav_item(name, href)
+//-   | {% if page.url == '#{href}' %}
+//-   li.is-selected
+//-     a(href= href) #[span= name]
+//-   | {% else %}
+//-   li
+//-     a(href= href) #[span= name]
+//-   | {% endif %}
+
+nav.band.band--nav
+  //- ul
+  //-   +nav_item("Diederik", "/")
+  //-   +nav_item("Contact", "/contact.html")
+  //-   +nav_item("RSS", "/feed.xml")
+
+  p #[a(href="/") Diederik] / Blog

@@ -1,0 +1,24 @@
+blockquote {
+  // @include font-size(1.2);
+  // @include line-height(1.25);
+  @include margin(2, 0);
+  @include padding(.5, 1);
+  background: $color-text !important;
+  color: $color-grey-lighter;
+  border-left: .3rem solid $color-accent-1;
+  font-weight: bold;
+  box-sizing: border-box;
+  @include md-before('>');
+
+  cite {
+    @include font-size(1);
+    font-style: normal;
+    font-weight: 400;
+    margin-left: .5rem;
+
+    a {
+      font-weight: normal;
+      color: $color-grey-lighter;
+    }
+  }
+}

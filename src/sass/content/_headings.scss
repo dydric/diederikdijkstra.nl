@@ -1,0 +1,46 @@
+// Headings
+
+@each $heading, $properties in $headings {
+  #{$heading} {
+    @include font-size(nth($properties, 1));
+    @include line-height(nth($properties, 2));
+    @include margin-top(nth($properties, 3));
+    @include margin-bottom(nth($properties, 4));
+    color: $color-headings;
+  }
+}
+
+h1 {
+  @include md-before('#h1');
+
+  + h2 {
+    @include margin-top(1);
+  }
+
+  + .meta {
+    position: relative;
+    top: -.5rem;
+  }
+}
+
+h2 {
+  @include md-before('#h2');
+}
+
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+  @include margin-top(.5);
+}
+
+h3 {
+  @include md-before('#h3');
+}
+
+h4 {
+  @include md-before('#h4');
+}
+
+h5 {
+  @include md-before('#h5');
+}

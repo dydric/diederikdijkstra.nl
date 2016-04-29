@@ -15,152 +15,134 @@ var cp = require('child_process');
 
 // Which browsers do we need to support
 var AUTOPREFIXER_BROWSERS = [
-	'ie >= 10',
-	'ie_mob >= 10',
-	'ff >= 30',
-	'chrome >= 34',
-	'safari >= 7',
-	'opera >= 23',
-	'ios >= 7',
-	'android >= 4.4',
-	'bb >= 10'
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
 ];
 
+// BUILD
+gulp.task('default', function (cb) {
+  runSequence('clean', ['img']);
+});
+
 // SERVE
-gulp.task('serve:local', function (cb) {
-	runSequence('clean', ['images', 'styles', 'scripts', 'nprogress', 'layouts', 'posts', 'drafts'], 'jekyll-build', function (cb) {
-		browserSync({
-			notify: false,
-			logPrefix: 'BS',
-			server: '_site'
-		});
-		gulp.watch(['src/sass/**/*'], ['styles']);
-		gulp.watch(['src/js/**/*'], ['scripts']);
-		gulp.watch(['src/img/**/*'], ['images']);
-		gulp.watch(['src/jade/**/*'], ['layouts', 'posts', 'drafts']);
-		gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_drafts/*', 'assets/css/**/*.css', 'assets/js/*', ], ['jekyll-rebuild']);
-	});
+gulp.task('serve', function (cb) {
+  runSequence(['img', 'jade', 'sass', 'js', 'modernizr'], 'jekyll-build', function (cb) {
+    browserSync({
+      notify: false,
+      logPrefix: 'BS',
+      server: '_site'
+    });
+    gulp.watch(['src/sass/**/*'], ['sass']);
+    gulp.watch(['src/js/**/*'], ['js']);
+    gulp.watch(['src/img/**/*'], ['img']);
+    gulp.watch(['src/jade/**/*'], ['jade']);
+    gulp.watch([
+        '*.html', '*.md',
+        '_layouts/*',
+        '_posts/**/*', '_drafts/**/*',
+        'assets/css/**/*.css', 'assets/js/*'
+      ], ['jekyll-rebuild']);
+  });
 });
 
 // JEKYLL
 gulp.task('jekyll-build', function (done) {
-	return cp.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
-		.on('close', done);
+  return cp.spawn('jekyll', ['build', '--drafts'], {stdio: 'inherit'})
+    .on('close', done);
 });
 
 gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
-	browserSync.reload();
+  browserSync.reload();
 });
 
 // SASS
-gulp.task('styles', function (cb) {
-	return gulp.src(['src/sass/**/*.scss'])
-		.pipe($.plumber())
-		.pipe($.sourcemaps.init())
-		.pipe($.sass.sync().on('error', $.sass.logError))
-		.pipe($.autoprefixer({
-			browsers: AUTOPREFIXER_BROWSERS
-		}))
-		.pipe($.minifyCss({
-			keepSpecialComments: false,
-			processImport: false,
-			processImportFrom: ['!fonts.googleapis.com']
-		}))
-		.pipe($.sourcemaps.write('./'))
-		.pipe(gulp.dest('assets/css'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'styles'
-		}));
+gulp.task('sass', function (cb) {
+  return gulp.src(['src/sass/*.scss'])
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe($.sass.sync().on('error', $.sass.logError))
+    .pipe($.autoprefixer({
+      browsers: AUTOPREFIXER_BROWSERS
+    }))
+    .pipe($.minifyCss({
+      keepSpecialComments: false,
+      processImport: false,
+      processImportFrom: ['!fonts.googleapis.com']
+    }))
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest('assets/css'))
+    .pipe($.if(browserSync.active, reload({ stream: true })))
+    .pipe($.size({
+      title: 'sass'
+    }));
 });
 
-// SCRIPTS
-gulp.task('scripts', function () {
-	return gulp.src(['src/js/source/plugins/**/*.js', 'src/js/source/*.js'])
-		.pipe($.sourcemaps.init())
-		.pipe($.concat('script.concat.js'))
-		.pipe(gulp.dest('assets/js/'))
-		.pipe($.uglify())
-		.pipe($.rename('script.min.js'))
-		.pipe($.sourcemaps.write('.'))
-		.pipe(gulp.dest('assets/js/'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'scripts'
-		}));
+// JS
+gulp.task('js', function () {
+  return gulp.src(['src/js/plugins/**/*.js', 'src/js/script.js'])
+    .pipe($.sourcemaps.init())
+    .pipe($.concat('script.concat.js'))
+    .pipe(gulp.dest('assets/js/'))
+    .pipe($.uglify())
+    .pipe($.rename('script.min.js'))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('assets/js/'))
+    .pipe($.if(browserSync.active, reload({ stream: true })))
+    .pipe($.size({
+      title: 'js'
+    }));
 });
 
-// NPROGRESS
-gulp.task('nprogress', function (cb) {
-	return gulp.src(['src/js/nprogress.js'])
-		.pipe($.plumber())
-		.pipe(gulp.dest('assets/js/'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'nprogress'
-		}));
+// MODERNIZR
+gulp.task('modernizr', function (cb) {
+  return gulp.src(['src/js/modernizr-custom.js'])
+    .pipe($.plumber())
+    .pipe(gulp.dest('assets/js/'))
+    .pipe($.if(browserSync.active, reload({ stream: true })))
+    .pipe($.size({
+      title: 'modernizr'
+    }));
 });
 
-// IMAGES
-gulp.task('images', function (cb) {
-	return gulp.src(['src/img/**/*.{jpg,png,svg}'])
-		.pipe($.plumber())
-		.pipe($.changed('assets/img/'))
-		.pipe($.imagemin({
-			progressive: true,
-			interlaced: true
-		}))
-		.pipe(gulp.dest('assets/img/'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'images'
-		}));
+// IMG
+gulp.task('img', function (cb) {
+  return gulp.src(['src/img/**/*.{jpg,png,svg}'])
+    .pipe($.plumber())
+    .pipe($.changed('assets/img/'))
+    .pipe($.imagemin({
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest('assets/img/'))
+    .pipe($.if(browserSync.active, reload({ stream: true })))
+    .pipe($.size({
+      title: 'img'
+    }));
 });
 
-// LAYOUTS
-gulp.task('layouts', function (cb) {
-	return gulp.src(['src/jade/layouts/*'])
-		.pipe($.plumber())
-		.pipe($.if('*.jade', $.jade({
-			cache: true
-			// pretty: true
-		})))
-		.pipe(gulp.dest('_layouts/'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'layouts'
-		}));
-});
-
-// POSTS
-gulp.task('posts', function (cb) {
-	return gulp.src(['src/jade/posts/*', '!src/jade/posts/post.jade'])
-		.pipe($.plumber())
-		.pipe($.if('*.jade', $.jade({
-			cache: true
-		})))
-		.pipe(gulp.dest('_posts'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'posts'
-		}));
-});
-
-// POSTS
-gulp.task('drafts', function (cb) {
-	return gulp.src(['src/jade/drafts/*'])
-		.pipe($.plumber())
-		.pipe($.if('*.jade', $.jade({
-			cache: true
-		})))
-		.pipe(gulp.dest('_drafts'))
-		.pipe($.if(browserSync.active, reload({ stream: true })))
-		.pipe($.size({
-			title: 'drafts'
-		}));
+// JADE
+gulp.task('jade', function (cb) {
+  return gulp.src(['src/jade/layouts/*'])
+    .pipe($.plumber())
+    .pipe($.if('*.jade', $.jade({
+      cache: true,
+      pretty: false
+    })))
+    .pipe(gulp.dest('_layouts/'))
+    .pipe($.if(browserSync.active, reload({ stream: true })))
+    .pipe($.size({
+      title: 'jade'
+    }));
 });
 
 // CLEAN
 gulp.task('clean', function (cb) {
-	return del(['assets/', '_posts', '_drafts', '_layouts', '_site/'], cb);
+  return del(['assets/', '_layouts', '_site/'], cb);
 });

@@ -1,5 +1,12 @@
-$body-ID: home;
-$grid:    false;
-$syntax:  false;
+// SETTINGS
+@import 'config/variables';
+@import 'config/mixins';
+@import 'config/normalize';
 
-@import 'includes';
+// LAYOUT
+@import 'global/base';
+@import 'global/layout';
+@import 'global/nav';
+
+// CONTENT
+@import 'content/typography';

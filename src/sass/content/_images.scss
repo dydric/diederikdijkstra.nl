@@ -1,0 +1,31 @@
+img {
+  border: 0;
+  display: block;
+  margin: 0;
+  max-width: 100%;
+}
+
+.figure {
+  @include margin(.5, 0, 1);
+  color: $color-grey;
+  text-align: center;
+
+  @include mq($size-l) {
+    &--left {
+      // @include padding-equal(.5);
+      box-sizing: border-box;
+      display: inline;
+      float: left;
+      max-width: 50%;
+    }
+  }
+}
+
+figcaption {
+  @include line-height(1);
+  color: $color-grey;
+  display: inline-block;
+  font-size: 90%;
+  margin-bottom: 0;
+  text-align: center;
+}

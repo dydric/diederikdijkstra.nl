@@ -1,0 +1,11 @@
+mixin showdate(type)
+  | {% assign month = #{type}.date | date: '%m' | replace: '01', 'januari' | replace: '02', 'februari' | replace: '03', 'maart' | replace: '04', 'april' | replace: '05', 'mei' | replace: '06', 'juni' | replace: '07', 'juli' | replace: '08', 'augustus' | replace: '09', 'september' | replace: '10', 'oktober' | replace: '11', 'november' | replace: '12', 'december' %}
+  | {{ #{type}.date | date: '%e' }}&nbsp;{{ month }}&nbsp;{{ #{type}.date | date: '%Y' }}
+
+mixin readingtime()
+  | {% capture words %}
+  | {{ content | number_of_words | minus: 180 }}
+  | {% endcapture %}
+  | {% unless words contains "-" %}
+  | / {{ words | plus: 180 | divided_by: 180 | append: " min. leestijd" }}
+  | {% endunless %}

@@ -1,0 +1,35 @@
+html {
+  background-color: $color-body;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: #{$base-font-size + '%'};
+  height: 100%;
+  overflow-y: scroll;
+  text-size-adjust: 100%;
+  transition: font-size 100ms;
+
+  @include mq($size-m) {
+    font-size: #{$base-font-size-m / 100 + 'rem'};
+  }
+
+  @include mq($size-l) {
+    font-size: #{$base-font-size-l / 100 + 'rem'};
+  }
+
+  // @include mq($size-xl) {
+  //   font-size: #{$base-font-size-xl / 100 + 'rem'};
+  // }
+}
+
+body {
+  // background: tint($color-grey-lighter, 5);
+  margin: 0;
+}
+
+.highlight {
+  visibility: hidden;
+}
+
+.band--commits {
+  display: none !important;
+}

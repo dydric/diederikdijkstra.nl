@@ -5,15 +5,17 @@ description: Front-end developer
 baseurl: ""
 url: "https://diederikdijkstra.nl"
 enforce_ssl: diederikdijkstra.nl
+future: true
 
 instagram_url: https://instagram.com/dydric/
 twitter_url: https://twitter.com/Dydric
 codepen_url: http://codepen.io/dydric/
+vimeo_url: https://vimeo.com/dydric
 tumblr_url: http://dydric.tumblr.com/
 strava_url: http://www.strava.com/athletes/dydric
 github_url:  https://github.com/dydric
 
 # Build settings
 markdown: kramdown
-highlighter: rouge # or rouge or null
+highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "CNAME", "src"]

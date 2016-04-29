@@ -1,0 +1,80 @@
+// Links
+a {
+  background-color: transparent;
+  color: $color-links;
+  text-decoration: none;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+
+  // External links
+  // &:not([href*='diederikdijkstra.nl']):not([href^='#']):not([href^='/']) {
+  //   &::before {
+  //     color: $color-accent-1;
+  //     content: '\2192';
+  //   }
+  // }
+
+  .meta & {
+    color: $color-grey-light;
+    transition: color 300ms;
+
+    &:hover {
+      color: $color-grey;
+    }
+  }
+
+  p > &:not(.btn),
+  blockquote &,
+  .band:not(.band--nav):not(.band--blog):not(.band--commits) li > &, {
+    @include line-hover-fx();
+    font-weight: 700;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    z-index: 2;
+  }
+}
+
+// BUTTON
+.btn {
+  @include padding(.2, .5);
+  border: .2rem solid $color-text;
+  color: $color-text;
+  display: inline-block;
+  font-weight: 700;
+  position: relative;
+  text-decoration: none;
+  z-index: 2;
+
+  .home &:first-of-type {
+    @include margin-bottom(1);
+  }
+
+  &::after {
+    background: $color-accent-1;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 300ms ease-in-out;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover {
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  + .btn {
+    @include margin-left(2);
+  }
+}
