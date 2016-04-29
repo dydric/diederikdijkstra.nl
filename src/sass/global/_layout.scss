@@ -16,14 +16,15 @@
 
 .band {
   box-sizing: border-box;
-  display: none;
+  // display: none;
+  display: block;
   position: relative;
   z-index: 1;
 
-  .wf-active &,
-  .wf-inactive & {
-    display: block;
-  }
+  // .wf-active &,
+  // .wf-inactive & {
+  //   display: block;
+  // }
 
   > p,
   > span,
