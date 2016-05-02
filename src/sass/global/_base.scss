@@ -5,7 +5,7 @@ html {
   font-size: #{$base-font-size + '%'};
   height: 100%;
   overflow-y: scroll;
-  text-size-adjust: 100%;
+  text-size-adjust: none;
   transition: font-size 100ms;
 
   @include mq($size-m) {
