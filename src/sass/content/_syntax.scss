@@ -7,10 +7,18 @@ samp {
 
 p > code {
   @include padding(.1, .2);
-  border: .1rem solid shade($color-grey-lighter, 5);
+  color: $color-grey-light;
+  // border: .1rem solid shade($color-grey-lighter, 5);
   display: inline;
   margin: 0;
   white-space: nowrap;
+
+  &::before,
+  &::after {
+    color: $color-grey-light;
+    content: '`';
+    font-weight: 400;
+  }
 }
 
 pre {
