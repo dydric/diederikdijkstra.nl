@@ -3,6 +3,6 @@ layout: page
 title: Contact️
 ---
 
-Ik ben het beste via mail: **diederikdijkstra 🐵 gmail.com** en [twitter.com/dydric](https://twitter.com/dydric) te bereiken. 
+Ik ben het beste te bereiken via mail: **diederikdijkstra 🐵 gmail.com** en [twitter.com/dydric](https://twitter.com/dydric). 
 
 Zullen we anders een X ergens koffie drinken? ☕️
