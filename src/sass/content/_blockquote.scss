@@ -1,14 +1,12 @@
 blockquote {
-  // @include font-size(1.2);
-  // @include line-height(1.25);
   @include margin(2, 0);
+  @include md-before('>');
   @include padding(.5, 1);
   background: $color-text !important;
-  color: $color-grey-lighter;
   border-left: .3rem solid $color-accent-1;
-  font-weight: bold;
   box-sizing: border-box;
-  @include md-before('>');
+  color: $color-grey-lighter;
+  font-weight: bold;
 
   cite {
     @include font-size(1);
@@ -17,8 +15,8 @@ blockquote {
     margin-left: .5rem;
 
     a {
-      font-weight: normal;
       color: $color-grey-lighter;
+      font-weight: normal;
     }
   }
 }

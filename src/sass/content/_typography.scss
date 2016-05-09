@@ -8,27 +8,23 @@
 }
 
 strong {
+  @include md('**');
   font-weight: bold;
-
-  p &::before,
-  p &::after {
-    color: $color-grey-light;
-    content: '__';
-    font-weight: 400;
-  }
 }
 
 em,
 i {
+  @include md('_');
   font-style: italic;
-
-  p &::before,
-  p &::after {
-    color: $color-grey-light;
-    content: '_';
-    font-weight: 400;
-  }
 }
+
+del {
+  @include md('~', true);
+  color: $color-grey-light;
+  padding: 0 .8em;
+  text-decoration: line-through;
+}
+
 
 dfn {
   font-style: italic;

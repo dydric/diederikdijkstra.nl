@@ -1,4 +1,4 @@
-// MEDIA QUERIES
+// Media Queries
 @mixin mq($point, $IE9: false, $query1: min, $query2: width) {
   @if $IE9 == true{
     .no-mediaqueries & {
@@ -15,7 +15,7 @@
   }
 }
 
-// CLEARFIX
+// Clearfix
 @mixin clearfix() {
   &::before,
   &::after {
@@ -28,8 +28,33 @@
   }
 }
 
-// THEME FX
+// Theme mixins (markdown styling)
 // ==========================================================================
+
+@mixin md($content, $absolute: false) {
+  position: relative;
+
+  p &::before,
+  p &::after {
+    color: $color-grey-light;
+    content: '#{$content}';
+    font-weight: 400;
+    @if $absolute == true{
+      position: absolute;
+    }
+    text-decoration: none;
+  }
+
+  @if $absolute == true{
+    p &::before {
+      left: 0;
+    }
+
+    p &::after {
+      right: 0;
+    }
+  }
+}
 
 @mixin md-before($content) {
   @include mq($size-s) {
@@ -79,32 +104,32 @@
   }
 }
 
-// TYPOGRAPHY
+// Global
 // ==========================================================================
 
-// FONT-SIZE
+// Font-size
 @mixin font-size($number) {
   font-size: #{ $number + 'rem'};
 }
 
-// LINE-HEIGHT
+// Line-height
 @mixin line-height($number) {
   line-height: #{ $number * $l-rem};
 }
 
-// UNSELECTABLE
+// Unselectable
 @mixin unselectable() {
   user-select: none;
 }
 
-// TEXT-OVERFLOW
+// Text-overflow
 @mixin text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-// MARGIN
+// Margin
 @mixin margin-top($number) {
   margin-top: #{ $number * $l-rem};
 }
@@ -135,7 +160,7 @@
   margin: #{ $number * $l-rem};
 }
 
-// PADDING
+// Padding
 @mixin padding-top($number) {
   padding-top: #{ $number * $l-rem};
 }
