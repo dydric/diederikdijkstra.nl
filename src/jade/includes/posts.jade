@@ -12,7 +12,8 @@ nav.band.band--blog
   ul
     | {% for post in category[1] %}
     li
+      | #[+showdate("post")] #[br]
       a(href="{{ post.url | prepend: site.baseurl }}")
-        | #[+showdate("post")] #[br] #[strong {{ post.title }}]
+        | #[strong {{ post.title }}]
     | {% endfor %}
   | {% endfor %}
