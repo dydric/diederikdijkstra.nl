@@ -12,13 +12,14 @@ Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan 
 
 <figure class="figure figure--left">
   <a href="https://www.google.nl/trends/2014/" class="figure__link">
-    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="/assets/img/google-trends-2014.jpg" alt="" />
+    <img src="/assets/img/google-trends-2014.jpg" alt="" />
     <figcaption>Google Trends 2014</figcaption>
   </a>
 </figure>
+
 <figure class="figure figure--left">
   <a href="http://contribute.barackobama.com" class="figure__link">
-    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="/assets/img/obama-campagne.jpg" alt="" />
+    <img src="/assets/img/obama-campagne.jpg" alt="" />
     <figcaption>Obama Campagne</figcaption>
   </a>
 </figure>
