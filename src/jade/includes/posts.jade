@@ -10,7 +10,7 @@ nav.band.band--blog
   | {% for category in site.categories %}
   h3 {{ category[0] }}
   ul
-    | {% for post in category[1] %}
+    | {% for post in category[1] limit:5 %}
     li #[+showdate("post")] #[br]
       a(href="{{ post.url | prepend: site.baseurl }}")
         | #[strong {{ post.title }}]
