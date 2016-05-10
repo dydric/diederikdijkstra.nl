@@ -55,8 +55,8 @@ pre {
 
   .c {      color: $color-syntax-1; font-style: italic; } // Comment
   .err {    background-color: $color-syntax-12; color: $color-white; } // Error
-  .k {      font-weight: bold; } // Keyword
-  .o {      font-weight: bold; } // Operator
+  // .k {      font-weight: bold; } // Keyword
+  // .o {      font-weight: bold; } // Operator
   .cm {     color: $color-syntax-1; font-style: italic; } // Comment.Multiline
   .cp {     color: $color-syntax-1; font-weight: bold; } // Comment.Preproc
   .c1 {     color: $color-syntax-1; font-style: italic; } // Comment.Single
