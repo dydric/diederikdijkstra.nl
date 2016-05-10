@@ -7,15 +7,34 @@ url: "https://diederikdijkstra.nl"
 enforce_ssl: diederikdijkstra.nl
 future: true
 
-instagram_url: https://instagram.com/dydric/
-twitter_url: https://twitter.com/Dydric
-codepen_url: http://codepen.io/dydric/
-vimeo_url: https://vimeo.com/dydric
-tumblr_url: http://dydric.tumblr.com/
-strava_url: http://www.strava.com/athletes/dydric
-github_url:  https://github.com/dydric
+# Plugins
+gems:
+# - jemoji
+# - jekyll-redirect-from
+# - jekyll-sitemap
+# - jekyll-feed
 
-# Build settings
+# Markdown
 markdown: kramdown
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   smart_quotes: lsquo,rsquo,ldquo,rdquo
+#   enable_coderay: false
+
+# Syntax
 highlighter: rouge
-exclude: ["node_modules", "gulpfile.js", "package.json", "README.md", "CNAME", "src"]
+
+# Exlucde
+exclude:
+- node_modules
+- gulpfile.js
+- package.json
+- README.md
+- Gemfile
+- CNAME
+- .editorconfig
+- .scss-lint.yml
+- src
