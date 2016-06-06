@@ -39,6 +39,10 @@ pre {
     margin-right: auto;
   }
 
+  &::before {
+    padding-top: .2 * $l-rem;
+  }
+
   pre {
     @include padding(.3, 1);
     @include margin-bottom(.2);

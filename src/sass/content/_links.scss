@@ -40,13 +40,15 @@ a {
 
 // BUTTON
 .btn {
+  border-radius: .1rem;
   @include padding(.2, .5);
-  border: .2rem solid $color-text;
-  color: $color-text;
+  background-color: $color-text;
+  color: $color-body;
   display: inline-block;
   font-weight: 700;
   position: relative;
   text-decoration: none;
+  transition: transform 300ms ease-in-out;
   z-index: 2;
 
   .home &:first-of-type {
@@ -59,18 +61,18 @@ a {
     content: '';
     left: 0;
     position: absolute;
-    top: 0;
-    transform: scaleX(0);
-    transform-origin: top left;
+    height: .2rem;
+    transform: scaleY(0);
+    transform-origin: bottom;
     transition: transform 300ms ease-in-out;
     width: 100%;
     z-index: -1;
   }
 
   &:hover {
-
+    transform: scale(1.1);
     &::after {
-      transform: scaleX(1);
+      transform: scaleY(1);
     }
   }
 
