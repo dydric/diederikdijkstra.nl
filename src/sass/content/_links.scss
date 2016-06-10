@@ -40,12 +40,13 @@ a {
 
 // BUTTON
 .btn {
-  border-radius: .1rem;
   @include padding(.2, .5);
   background-color: $color-text;
+  border-radius: .3rem;
   color: $color-body;
   display: inline-block;
   font-weight: 700;
+  overflow: hidden;
   position: relative;
   text-decoration: none;
   transition: transform 300ms ease-in-out;
@@ -70,6 +71,7 @@ a {
   }
 
   &:hover {
+    // border-radius: 0;
     transform: scale(1.1);
     &::after {
       transform: scaleY(1);
