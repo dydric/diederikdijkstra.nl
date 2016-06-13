@@ -12,6 +12,20 @@ html {
     font-size: #{$base-font-size-m / 100 + 'rem'};
   }
 
+  @include mq(990) {
+    @include mq(600, false, min, height) {
+      &.home {
+        font-size: #{$base-font-size + '%'};
+      }
+    }
+  }
+
+  @include mq(1180) {
+    &.home {
+      font-size: #{$base-font-size-m / 100 + 'rem'};
+    }
+  }
+
   // @include mq($size-l) {
   //   font-size: #{$base-font-size-l / 100 + 'rem'};
   // }
