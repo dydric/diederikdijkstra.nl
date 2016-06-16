@@ -11,6 +11,9 @@ a {
 
   // External links
   // &:not([href*='diederikdijkstra.nl']):not([href^='#']):not([href^='/']) {
+  //   position: relative;
+  //   padding-right: 1em;
+
   //   &::before {
   //     color: $color-accent-1;
   //     content: '\2192';
@@ -40,9 +43,8 @@ a {
 
 // BUTTON
 .btn {
-  @include padding(.2, .5);
+  @include padding(.4, 1);
   background-color: $color-text;
-  border-radius: .3rem;
   color: $color-body;
   display: inline-block;
   font-weight: 700;
@@ -60,9 +62,9 @@ a {
     background: $color-accent-1;
     bottom: 0;
     content: '';
+    height: .2rem;
     left: 0;
     position: absolute;
-    height: .2rem;
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 300ms ease-in-out;
@@ -71,14 +73,14 @@ a {
   }
 
   &:hover {
-    // border-radius: 0;
     transform: scale(1.1);
+
     &::after {
       transform: scaleY(1);
     }
   }
 
-  + .btn {
-    @include margin-left(2);
-  }
+  // + .btn {
+  //   @include margin-left(2);
+  // }
 }
