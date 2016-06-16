@@ -58,7 +58,7 @@ $color-text:              $color-grey-darker;
 $color-headings:          shade($color-text, 10);
 $color-links:             $color-text;
 
-$color-accent-1:          #ffc600;
+$color-accent-1:          rgb(255, 198, 0); //#ffc600;
 
 $color-syntax-bg:         $color-grey-lighter;
 $color-syntax-txt:        tint($color-text, 5);
