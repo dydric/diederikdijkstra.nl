@@ -1680,4 +1680,5 @@ $(function(){
     output = emoji.replace_unified(output);
     el.html(output);
   });
+
 });

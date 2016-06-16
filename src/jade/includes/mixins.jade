@@ -9,3 +9,15 @@ mixin readingtime()
   | {% unless words contains "-" %}
   | / {{ words | plus: 180 | divided_by: 180 | append: " min. leestijd" }}
   | {% endunless %}
+
+-
+  function getColorMatrix(colors) {
+    var value = [];
+    var color1 = colors[0] || [255, 255, 255];
+    var color2 = colors[1] || [0, 0, 0];
+    value = value.concat([color1[0]/256 - color2[0]/256, 0, 0, 0, color2[0]/256]);
+    value = value.concat([color1[1]/256 - color2[1]/256, 0, 0, 0, color2[1]/256]);
+    value = value.concat([color1[2]/256 - color2[2]/256, 0, 0, 0, color2[2]/256]);
+    value = value.concat([0, 0, 0, 1, 0]);
+    return value.join(' ');
+  }

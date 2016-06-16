@@ -1,3 +1,13 @@
+-
+  posts = {
+    "hero" : {
+      "image": "diederik.jpg",
+      "width": "1600",
+      "height": "2000",
+      "colors": [ [255, 255, 200], [255 , 198, 0] ]
+    }
+  }
+
 include ../includes/mixins.jade
 
 doctype html
@@ -5,7 +15,14 @@ html.home.no-js
   include ../includes/head.jade
   body
     .site
-      header.hero
+      each post, slug in posts
+        header.hero
+          svg#duotone.svg(viewBox="0 0 " + post.width + " " + post.height preserveAspectRatio="xMidYMid slice" )
+            defs
+              filter(id="duotone-filter-" + slug)
+                feColorMatrix(type="matrix" values=getColorMatrix(post.colors))
+            image.image(xlink:href="assets/img/" + post.image filter="url(#duotone-filter-" + slug + ")" width= post.width height= post.height)
+
       main.band.band--content
         h1 {{page.title}}
         span.meta 🐤 #[a(href="https://twitter.com/dydric", target="_blank") Twitter] / 📷 #[a(href="https://www.instagram.com/dydric/", target="_blank") Instagram] / 💻 #[a(href="https://github.com/dydric", target="_blank") Github]

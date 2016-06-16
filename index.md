@@ -3,7 +3,7 @@ layout: home
 title: Diederik
 ---
 
-Gepassioneerde, ervaren front-end UI developer. Werkzaam bij [TRES](http://tres.nl). Voorliefde voor (grafisch) design, typografie, UX en animaties. Schrijft zijn `code` het liefst in SCSS en <del>Jade</del> Pug. Liefhebber van Gulp en groot voorstander van DRY! 😘
+Gepassioneerde, ervaren front-end UI developer. Werkzaam bij [TRES](http://tres.nl). Voorliefde voor (grafisch) design, typografie, UX en animaties. Schrijft zijn `code` het liefst in SCSS en Jade (óf Pug). Liefhebber van Gulp en groot voorstander van DRY! 😘
 
 <a class="btn" href="/contact.html">Contact</a>
 
