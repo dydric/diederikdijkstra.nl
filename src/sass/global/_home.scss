@@ -7,8 +7,6 @@
   @include mq(990) {
     @include mq(600, false, min, height) {
       .hero {
-        // background: url('../img/me-xxl.jpg') 50% no-repeat;
-        // background-size: cover;
         bottom: 0;
         left: 0;
         margin: 0;
@@ -23,9 +21,6 @@
       }
 
       #duotone {
-        // background-position: center;
-        // background-repeat: no-repeat;
-        // background-size: cover;
         display: block;
         height: 100%;
         width: 100%;
@@ -37,6 +32,3 @@
     }
   }
 }
-
-
-
