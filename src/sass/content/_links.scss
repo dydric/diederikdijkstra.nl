@@ -80,7 +80,7 @@ a {
     }
   }
 
-  // + .btn {
-  //   @include margin-left(2);
-  // }
+  + .btn {
+    @include margin-left(2);
+  }
 }
