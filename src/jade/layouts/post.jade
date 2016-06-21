@@ -6,9 +6,7 @@ html.post.no-js
   body
     .site
       nav.band.band--nav
-        | {% for category in page.categories %}
-        p #[a(href="/") Diederik] / {{ category }}
-        | {% endfor %}
+        p #[a(href="/") Diederik] / {% for category in page.categories %}{{ category }}{% endfor %}
       article.band.band--content
         h1 {{page.title}}
         span.meta #[+showdate("page")] #[+readingtime()]
