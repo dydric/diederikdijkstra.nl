@@ -73,9 +73,6 @@
 }
 
 @mixin line-hover-fx() {
-  // overflow: hidden;
-  // // display: inline-block;
-  // vertical-align: bottom;
 
   &::before,
   &::after {
