@@ -44,10 +44,13 @@ gulp.task('serve', function (cb) {
     gulp.watch(['src/img/**/*'], ['img']);
     gulp.watch(['src/jade/**/*'], ['jade']);
     gulp.watch([
-        '*.html', '*.md',
+        '*.html',
+        '*.md',
         '_layouts/*',
-        '_posts/**/*', '_drafts/**/*',
-        'assets/css/**/*.css', 'assets/js/*'
+        '_posts/**/*',
+        '_drafts/**/*',
+        'assets/css/**/*.css',
+        'assets/js/*'
       ], ['jekyll-rebuild']);
   });
 });
