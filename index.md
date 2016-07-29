@@ -1,6 +1,11 @@
 ---
 layout: home
 title: Diederik
+hero:
+  image: diederik.jpg
+  width: 1600,
+  height: 2000,
+  colors: [[255, 255, 200], [255, 198, 0]]
 ---
 
 Gepassioneerde, ervaren front-end UI developer. Werkzaam bij [TRES](http://tres.nl). Voorliefde voor (grafisch) design, typografie, UX en animaties. Schrijft zijn `code` het liefst in SCSS en Jade (óf Pug). Liefhebber van Gulp en groot voorstander van DRY! 😘
