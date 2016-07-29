@@ -33,7 +33,7 @@ gulp.task('default', function (cb) {
 
 // SERVE
 gulp.task('serve', function (cb) {
-  runSequence(['img', 'jade', 'sass', 'js', 'modernizr'], 'jekyll-build', function (cb) {
+  runSequence(['img', 'sass', 'js', 'modernizr'], 'jekyll-build', function (cb) {
     browserSync({
       notify: false,
       logPrefix: 'BS',
@@ -42,11 +42,12 @@ gulp.task('serve', function (cb) {
     gulp.watch(['src/sass/**/*'], ['sass']);
     gulp.watch(['src/js/**/*'], ['js']);
     gulp.watch(['src/img/**/*'], ['img']);
-    gulp.watch(['src/jade/**/*'], ['jade']);
+    // gulp.watch(['src/jade/**/*'], ['jade']);
     gulp.watch([
         '*.html',
         '*.md',
         '_layouts/*',
+        '_includes/**/*',
         '_posts/**/*',
         '_drafts/**/*',
         'assets/css/**/*.css',
@@ -131,21 +132,21 @@ gulp.task('img', function (cb) {
 });
 
 // JADE
-gulp.task('jade', function (cb) {
-  return gulp.src(['src/jade/layouts/*'])
-    .pipe($.plumber())
-    .pipe($.if('*.jade', $.jade({
-      cache: true,
-      pretty: false
-    })))
-    .pipe(gulp.dest('_layouts/'))
-    .pipe($.if(browserSync.active, reload({ stream: true })))
-    .pipe($.size({
-      title: 'jade'
-    }));
-});
+// gulp.task('jade', function (cb) {
+//   return gulp.src(['src/jade/layouts/*'])
+//     .pipe($.plumber())
+//     .pipe($.if('*.jade', $.jade({
+//       cache: true,
+//       pretty: true
+//     })))
+//     .pipe(gulp.dest('_layouts/'))
+//     .pipe($.if(browserSync.active, reload({ stream: true })))
+//     .pipe($.size({
+//       title: 'jade'
+//     }));
+// });
 
 // CLEAN
 gulp.task('clean', function (cb) {
-  return del(['assets/', '_layouts', '_site/'], cb);
+  return del(['assets/', '_site/'], cb);
 });
