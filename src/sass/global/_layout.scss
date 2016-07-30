@@ -16,13 +16,13 @@
 
 .band {
   box-sizing: border-box;
-  display: none;
   position: relative;
+  visibility: hidden;
   z-index: 1;
 
   .wf-active &,
   .wf-inactive & {
-    display: block;
+    visibility: visible;
   }
 
   > p,
