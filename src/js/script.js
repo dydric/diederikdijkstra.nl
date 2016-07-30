@@ -5,7 +5,7 @@ WebFont.load({
 
 $(function(){
   // CROSS-BROWSER EMOJI SUPPORT
-  $('.band').each(function(){
+  $('p, h1, h2, h3, li').each(function(){
     var el = $(this);
     var input = el.html();
     var output = input;
