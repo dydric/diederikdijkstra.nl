@@ -7,6 +7,10 @@ url: "https://diederikdijkstra.nl"
 enforce_ssl: diederikdijkstra.nl
 future: true
 
+#API
+mapbox_token: pk.eyJ1IjoiZHlkcmljIiwiYSI6ImY1ZjIwNTAwNmYxYzVlMzJmZTdjZGE1MzJhMzIwMzZhIn0.PQCzoNuDuKyxEYpsfMUd-A
+mapbox_style: mapbox://styles/dydric/cir6ftype0018cgm6a3hzzgpp
+
 # Plugins
 gems:
 # - jemoji
