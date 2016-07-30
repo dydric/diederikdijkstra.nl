@@ -49,7 +49,7 @@ gulp.task('serve', function (cb) {
         '_layouts/*',
         '_includes/**/*',
         '_posts/**/*',
-        '_drafts/**/*',
+        '_drafts/**',
         'assets/css/**/*.css',
         'assets/js/*'
       ], ['jekyll-rebuild']);
