@@ -49,7 +49,7 @@ gulp.task('serve', function (cb) {
         '_layouts/*',
         '_includes/**/*',
         '_posts/**/*',
-        '_drafts/**',
+        '_drafts/*',
         'assets/css/**/*.css',
         'assets/js/*'
       ], ['jekyll-rebuild']);
@@ -130,21 +130,6 @@ gulp.task('img', function (cb) {
       title: 'img'
     }));
 });
-
-// JADE
-// gulp.task('jade', function (cb) {
-//   return gulp.src(['src/jade/layouts/*'])
-//     .pipe($.plumber())
-//     .pipe($.if('*.jade', $.jade({
-//       cache: true,
-//       pretty: true
-//     })))
-//     .pipe(gulp.dest('_layouts/'))
-//     .pipe($.if(browserSync.active, reload({ stream: true })))
-//     .pipe($.size({
-//       title: 'jade'
-//     }));
-// });
 
 // CLEAN
 gulp.task('clean', function (cb) {
