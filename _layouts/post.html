@@ -2,6 +2,10 @@
 <html class="no-js">
   {% include head.html %}
     <div class="site">
+      {% if page.mapbox %}
+        {% include map.html %}
+      {% endif %}
+
       <nav class="band band--nav">
         <p><a href="/">Diederik</a> / {% for category in page.categories %}{{ category }}{% endfor %}</p>
       </nav>
