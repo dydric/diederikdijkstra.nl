@@ -131,7 +131,6 @@ gulp.task('img', function (cb) {
     }));
 });
 
-// CLEAN
 gulp.task('clean', function (cb) {
-  return del(['assets/', '_site/'], cb);
+  return del(['assets/*/', '!assets/img/', '_site/'], cb);
 });
