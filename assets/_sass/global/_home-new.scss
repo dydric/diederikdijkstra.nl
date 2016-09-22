@@ -1,0 +1,148 @@
+.gr {
+  // flex-direction: column;
+  align-items: stretch;
+  background-color: tint($color-black, 8);
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  // @include mq($bp-s) {
+  //   flex-direction: row;
+  // }
+
+  // @include mq($bp-l - 1px, max) {
+  //   @include mq(100vw, max, height) {
+  //     height: 100vh * 1.25;
+  //   }
+  // }
+
+  &__col {
+    align-items: stretch;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+
+    &--A {
+      height: 60vh;
+      order: 0;
+
+      @include mq($bp-s) {
+        flex: 0 0 40%;
+      }
+
+      @include mq($bp-l) {
+        flex: 0 0 33.33%;
+        height: inherit;
+      }
+    }
+
+    &--B {
+      flex: 0 0 100%;
+      height: 40vh;
+      order: 2;
+
+      @include mq($bp-s) {
+        flex: 0 0 60%;
+        height: 60vh;
+        order: 1;
+      }
+
+      @include mq($bp-l) {
+        flex: 0 0 33.33%;
+        flex-direction: column;
+        height: inherit;
+      }
+    }
+
+    &--C {
+      height: 60vh;
+      order: 1;
+
+      @include mq($bp-s) {
+        flex: 0 0 100%;
+        flex-direction: row;
+        height: 40vh;
+        order: 2;
+      }
+
+      @include mq($bp-l) {
+        flex: 0 0 33.33%;
+        flex-direction: column;
+        height: inherit;
+      }
+    }
+  }
+
+  &__i {
+    align-items: center;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    color: $color-white;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    opacity: .3;
+    padding: 5px;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: .6;
+    }
+
+    &--A1 {
+      flex: 0 0 100%;
+    }
+
+    &--B1 {
+      flex: 0 0 60%;
+      order: 1;
+
+      @include mq($bp-s) {
+        order: 0;
+      }
+    }
+
+    &--B2 {
+      background-color: tint($color-black, 8);
+      flex: 0 0 40%;
+      opacity: 1 !important;
+      order: 0;
+
+      @include mq($bp-s) {
+        order: 1;
+      }
+    }
+
+    &--C1,
+    &--C2 {
+      flex: 0 0 50%;
+    }
+
+    &__content {
+      text-align: center;
+
+      > * {
+        @include font-size(1.5);
+        margin: 0;
+        padding: 0;
+
+        @include mq($bp-l) {
+          font-size: calc(1vw + 1vh + .25vmin);
+        }
+      }
+
+      h1 {
+        color: $color-accent-1;
+      }
+    }
+  }
+}
