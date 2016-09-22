@@ -1,0 +1,16 @@
+{
+  "classPrefix": "",
+  "options": [
+    "atRule",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "css/calc",
+    "css/flexbox",
+    "css/mediaqueries",
+    "css/pointerevents",
+    "css/vhunit",
+    "css/vwunit",
+    "svg"
+  ]
+}

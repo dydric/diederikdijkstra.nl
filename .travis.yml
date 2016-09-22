@@ -1,0 +1,39 @@
+language: node_js
+node_js:
+  - '6'
+  - '5'
+  - '4'
+
+branches:
+  only:
+    - master
+    - gh-pages
+
+# env:
+#   global:
+#     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+# before_install:
+#   - rvm install 2.1
+
+# install:
+#   - npm install
+#   - gem install jekyll html-proofer
+
+# script:
+#   - jekyll build
+#   - htmlproofer ./_site
+
+scss-lint:
+  image: ruby:2.1
+  script:
+    - gem install scss_lint --no-ri --no-rdoc
+    - scss-lint assets/_sass/**/*.scss
+
+js-lint:
+  image: node:6.3.0-slim
+  script:
+    - npm install eslint
+    - node_modules/.bin/eslint assets/_js/script.js
+
+sudo: false
