@@ -1,15 +1,22 @@
 ---
 layout: home-new
 title: Diederik
-imgpath: "/assets/img/home/"
 ---
 
 <header class="header gr">
   <section class="gr__col gr__col--A">
-    <div data-sub="1" class="gr__i gr__i--A1 lazyload" data-bgset="{{page.imgpath}}A1-s.jpg [(max-width: 600px)] | {{page.imgpath}}A1-l.jpg [(max-width: 1000px)] | {{page.imgpath}}A1-xl.jpg" data-sizes="auto"></div>
+    <div class="gr__i gr__i--A1 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8041/29702782841_b28cf99dc6_z_d.jpg [(max-width: 600px)] | 
+      https://c1.staticflickr.com/9/8041/29702782841_b28cf99dc6_b_d.jpg [(max-width: 1000px)] | 
+      https://c1.staticflickr.com/9/8041/29702782841_15c2643e63_h_d.jpg" data-sizes="auto">
+    </div>
   </section>
   <section class="gr__col gr__col--B">
-    <div data-sub="2" class="gr__i gr__i--B1 lazyload" data-bgset="{{page.imgpath}}B1-s.jpg [(max-width: 600px)] | {{page.imgpath}}B1-l.jpg [(max-width: 1000px)] | {{page.imgpath}}B1-xl.jpg" data-sizes="auto"></div>
+    <div class="gr__i gr__i--B1 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8325/29702783301_050db6486d_z_d.jpg [(max-width: 600px)] |
+      https://c1.staticflickr.com/9/8325/29702783301_050db6486d_b_d.jpg [(max-width: 1000px)] |
+      https://c1.staticflickr.com/9/8325/29702783301_d39d85e5a7_h_d.jpg" data-sizes="auto">  
+    </div>
     <div class="gr__i gr__i--B2">
       <div class="gr__i__content">
         <h1>{{ site.title }}</h1>
@@ -18,8 +25,16 @@ imgpath: "/assets/img/home/"
     </div>
   </section>
   <section class="gr__col gr__col--C">
-    <div data-sub="3" class="gr__i gr__i--C1 lazyload" data-bgset="{{page.imgpath}}C1-s.jpg [(max-width: 600px)] | {{page.imgpath}}C1-l.jpg [(max-width: 1000px)] | {{page.imgpath}}C1-xl.jpg" data-sizes="auto"></div>
-    <div data-sub="4" class="gr__i gr__i--C2 lazyload" data-bgset="{{page.imgpath}}C2-s.jpg [(max-width: 600px)] | {{page.imgpath}}C2-l.jpg [(max-width: 1000px)] | {{page.imgpath}}C2-xl.jpg" data-sizes="auto"></div>
+    <div class="gr__i gr__i--C1 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8106/29702782651_90e86278ed_z_d.jpg [(max-width: 600px)] |
+      https://c1.staticflickr.com/9/8106/29702782651_90e86278ed_b_d.jpg [(max-width: 1000px)] |
+      https://c1.staticflickr.com/9/8106/29702782651_a4a2c74b28_o_d.jpg" data-sizes="auto">
+    </div>
+    <div class="gr__i gr__i--C2 lazyload" data-bgset="
+      https://c2.staticflickr.com/6/5251/29853797375_16f79c0874_z_d.jpg [(max-width: 600px)] |
+      https://c2.staticflickr.com/6/5251/29853797375_16f79c0874_b_d.jpg [(max-width: 1000px)] |
+      https://c2.staticflickr.com/6/5251/29853797375_6e21b8a9ca_h_d.jpg" data-sizes="auto">
+    </div>
   </section>
 </header>
 
