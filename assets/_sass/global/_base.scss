@@ -25,14 +25,6 @@ html {
       font-size: #{$base-font-size-m / 100 + 'rem'};
     }
   }
-
-  // @include mq($size-l) {
-  //   font-size: #{$base-font-size-l / 100 + 'rem'};
-  // }
-
-  // @include mq($size-xl) {
-  //   font-size: #{$base-font-size-xl / 100 + 'rem'};
-  // }
 }
 
 body {
