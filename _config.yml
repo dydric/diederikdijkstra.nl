@@ -8,7 +8,7 @@ enforce_ssl: diederikdijkstra.nl
 future: true
 
 gems:
-# - jemoji
+  - jemoji
 # - jekyll-redirect-from
 # - jekyll-sitemap
 # - jekyll-feed

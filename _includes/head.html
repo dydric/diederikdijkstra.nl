@@ -18,6 +18,7 @@
 <link href="{{ '/assets/css/style.css' | prepend: site.baseurl }}" rel="stylesheet">
 <noscript><link href="{{ '/assets/css/content.css' | prepend: site.baseurl }}" rel="stylesheet"></noscript>
 <script src="{{ '/assets/js/modernizr.js' | prepend: site.baseurl }}" async></script>
+<script src="{{ '/assets/js/bundle.js' | prepend: site.baseurl }}" async></script>
 {% if page.mapbox %}
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
@@ -25,6 +26,8 @@
 </head>
 {% if page.layout == 'home'
   %}<body class="home">{%
+else if page.layout == 'home-new'
+  %}<body class="home--new">{%
 else
   %}<body class="default">{%
 endif %}

@@ -4,8 +4,11 @@
     @include line-height(1.2);
     @include margin-bottom(nth($properties, 3));
     @include margin-top(nth($properties, 2));
-    @include md-before(#{nth($properties, 1)});
     color: $color-headings;
+
+    body:not(.home--new) & {
+      @include md-before(#{nth($properties, 1)});
+    }
   }
 }
 
