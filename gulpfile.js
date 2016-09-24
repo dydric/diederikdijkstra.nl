@@ -76,10 +76,17 @@ gulp.task('server', ['jekyll-build'], function() {
 
 // Sass
 gulp.task('sass', function () {
-  return gulp.src(paths.sass + '/**/*.scss')
+  return gulp.src(paths.sass + '/style.scss')
     .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
     .pipe(gulp.dest(paths.css));
+});
+
+gulp.task('sass-critical', function () {
+  return gulp.src(paths.sass + '/critical.scss')
+    .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
+    .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
+    .pipe(gulp.dest('_includes'));
 });
 
 // ImageMin
@@ -132,7 +139,7 @@ gulp.task('default', tasks, function () {
 
   if (config.tasks.sass) {
     watch(paths.sass + '/**/*', function () {
-      gulp.start('sass');
+      gulp.start('sass', 'sass-critical');
     });
   }
 
