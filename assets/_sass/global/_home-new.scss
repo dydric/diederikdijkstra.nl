@@ -69,6 +69,7 @@
   }
 
   &__i {
+    @include unselectable();
     align-items: center;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -120,13 +121,10 @@
       text-align: center;
 
       > * {
-        @include font-size(1.5);
+        @include font-size(1.4);
+        line-height: 1.5 !important;
         margin: 0;
-        padding: 0;
-
-        @include mq($size-l) {
-          font-size: calc(1vw + 1vh + .25vmin);
-        }
+        padding: 0 10px;
       }
 
       h1 {

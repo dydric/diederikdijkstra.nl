@@ -22,7 +22,7 @@ img {
 }
 
 figcaption {
-  @include line-height(1);
+  // @include line-height(1);
   color: $color-grey;
   display: inline-block;
   font-size: 90%;

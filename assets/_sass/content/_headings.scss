@@ -1,7 +1,7 @@
 // Headings
 @each $heading, $properties in $headings {
   #{$heading} {
-    @include line-height(1.2);
+    // @include line-height(1.2);
     @include margin-bottom(nth($properties, 3));
     @include margin-top(nth($properties, 2));
     color: $color-headings;

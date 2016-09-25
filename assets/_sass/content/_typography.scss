@@ -1,6 +1,6 @@
 * {
-  @include line-height(1.2);
   @include font-size(1.1);
+  line-height: 2;
 
   &::selection {
     background: $color-accent-1;
