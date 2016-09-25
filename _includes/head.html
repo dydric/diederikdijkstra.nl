@@ -18,6 +18,12 @@
 <style>{% include critical.css %}</style>
 <script src="{{ '/assets/js/modernizr.js' | prepend: site.baseurl }}" async></script>
 <script src="{{ '/assets/js/bundle.js' | prepend: site.baseurl }}" async></script>
+<script>
+  function loadJS(u){var r=document.getElementsByTagName('script')[0],s=document.createElement('script');s.src=u;r.parentNode.insertBefore(s,r);}
+  if(!window.HTMLPictureElement || !('sizes' in document.createElement('img'))){
+    loadJS('{{ "assets/js/vendor/ls.respimg.min.js" | prepend: site.baseurl }}');
+  }
+</script>
 {% if page.mapbox %}
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
