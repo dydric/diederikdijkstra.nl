@@ -37,6 +37,3 @@ title: Diederik
     </div>
   </section>
 </header>
-
-
-
