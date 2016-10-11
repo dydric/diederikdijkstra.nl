@@ -110,6 +110,12 @@ gulp.task('webpack', function () {
       watch: argv.watch ? true : false,
       output: {
         filename: config.js.output
+      },
+      module : {
+        loaders: [{
+          test: /.js$/,
+          loader: 'babel-loader'
+        }]
       }
     }))
     .pipe(uglify())
