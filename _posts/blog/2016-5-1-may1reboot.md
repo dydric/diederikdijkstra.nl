@@ -9,7 +9,7 @@ Lang, lang geleden (2001-2006) zat ik elk jaar weer tot 's avonds laat, avond op
 > May 1st Reboot is terug en 'natuurlijk' doe ik mee!
 
 <figure class="figure">
-  <img src="/assets/img/screenshots.jpg" alt="" />
+  <img src="/assets/img/screenshots.jpg" alt="Paar oude redesigns" />
   <figcaption>Paar oude redesigns</figcaption>
 </figure>
 
