@@ -15,6 +15,18 @@
   }
 }
 
+@mixin mq-vsize($landscape: true, $size: 100) {
+  @if $landscape == true {
+    @media screen and (min-width: $size+vh) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-height: $size+vw) {
+      @content;
+    }
+  }
+}
+
 // Clearfix
 @mixin clearfix() {
   &::before,
