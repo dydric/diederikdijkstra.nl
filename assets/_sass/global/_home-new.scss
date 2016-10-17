@@ -23,11 +23,11 @@
 
       @include mq($size-s) {
         flex: 0 0 40%;
-      }
 
-      @include mq-vsize(true, 136) {
-        flex: 0 0 33.33%;
-        height: inherit;
+        @include mq-vsize(true, 136) {
+          flex: 0 0 33.33%;
+          height: inherit;
+        }
       }
     }
 
@@ -40,12 +40,13 @@
         flex: 0 0 60%;
         height: 60vh;
         order: 1;
-      }
 
-      @include mq-vsize(true, 136) {
-        flex: 0 0 33.33%;
-        flex-direction: column;
-        height: inherit;
+
+        @include mq-vsize(true, 136) {
+          flex: 0 0 33.33%;
+          flex-direction: column;
+          height: inherit;
+        }
       }
     }
 
@@ -58,12 +59,12 @@
         flex-direction: row;
         height: 40vh;
         order: 2;
-      }
 
-      @include mq-vsize(true, 136) {
-        flex: 0 0 33.33%;
-        flex-direction: column;
-        height: inherit;
+        @include mq-vsize(true, 136) {
+          flex: 0 0 33.33%;
+          flex-direction: column;
+          height: inherit;
+        }
       }
     }
   }
