@@ -10,7 +10,7 @@ script:
   - bundle exec jekyll build
   - bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html
   - scss-lint assets/_sass/**/*.scss
-  - node_modules/.bin/eslint assets/_js/script.js
+  # - node_modules/.bin/eslint assets/_js/script.js
 
 env:
   global:
