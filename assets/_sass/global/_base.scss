@@ -29,6 +29,10 @@ html {
 
 body {
   margin: 0;
+
+  &.home--new {
+    background: tint($color-black, 7);
+  }
 }
 
 .highlight {
