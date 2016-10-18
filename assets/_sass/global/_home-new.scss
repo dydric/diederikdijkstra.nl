@@ -150,7 +150,7 @@
         padding: 0 10px;
 
         @include mq($size-s) {
-          font-size: 3vw;
+          font-size: 3vmin;
 
           @include mq-vsize(true, 136) {
             font-size: 2vw;
