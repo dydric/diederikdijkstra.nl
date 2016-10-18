@@ -48,11 +48,11 @@ a {
   color: $color-body;
   display: inline-block;
   font-weight: 700;
+  letter-spacing: .2rem;
   overflow: hidden;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: .2rem;
   transition: transform 300ms ease-in-out;
   z-index: 2;
 

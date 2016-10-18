@@ -1,34 +1,34 @@
-.home {
+// .home {
 
-  #duotone {
-    display: none;
-  }
+//   #duotone {
+//     display: none;
+//   }
 
-  @include mq(990) {
-    @include mq(600, false, min, height) {
-      .hero {
-        bottom: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-        position: fixed;
-        right: 60%;
-        top: 0;
-      }
+//   @include mq(990) {
+//     @include mq(600, false, min, height) {
+//       .hero {
+//         bottom: 0;
+//         left: 0;
+//         margin: 0;
+//         padding: 0;
+//         position: fixed;
+//         right: 60%;
+//         top: 0;
+//       }
 
-      .site {
-        padding: 0 10% 0 50%;
-      }
+//       .site {
+//         padding: 0 10% 0 50%;
+//       }
 
-      #duotone {
-        display: block;
-        height: 100%;
-        width: 100%;
-      }
+//       #duotone {
+//         display: block;
+//         height: 100%;
+//         width: 100%;
+//       }
 
-      svg {
-        color-interpolation-filters: sRGB;
-      }
-    }
-  }
-}
+//       svg {
+//         color-interpolation-filters: sRGB;
+//       }
+//     }
+//   }
+// }
