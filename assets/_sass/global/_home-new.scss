@@ -156,6 +156,10 @@
             font-size: 2vw;
           }
         }
+
+        @include mq($size-xl) {
+          @include font-size(1.4);
+        }
       }
 
       h1 {
