@@ -1,5 +1,5 @@
 ---
-title: Contact️
+title: Contact
 layout: page
 ---
 
