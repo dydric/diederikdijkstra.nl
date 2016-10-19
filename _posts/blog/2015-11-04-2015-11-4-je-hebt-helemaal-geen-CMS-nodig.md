@@ -1,7 +1,9 @@
 ---
-layout: post
-category: Blog
 title: Je hebt helemaal geen $#@%*!^ CMS nodig
+date: 2015-11-04 00:00:00 Z
+categories:
+- Blog
+layout: post
 ---
 
 Er is namelijk een prima alternatief: Static Sites!

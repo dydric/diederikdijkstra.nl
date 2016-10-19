@@ -1,6 +1,6 @@
 ---
-layout: home-new
 title: Diederik
+layout: home-new
 ---
 
 <header class="header gr">

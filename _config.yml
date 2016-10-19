@@ -1,34 +1,34 @@
-# Site settings
+---
 title: Diederik Dijkstra
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
 email: diederikdijkstra@gmail.com
 description: Front-end UI developer
 baseurl: ''
-url: 'https://diederikdijkstra.nl'
+url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
 future: true
-
 gems:
-  - jemoji
-# - jekyll-redirect-from
-# - jekyll-sitemap
-# - jekyll-feed
-
-# Build settings
+- jemoji
 markdown: kramdown
-
 highlighter: rouge
-
 exclude:
-  - .editorconfig
-  - .eslintrc.yml
-  - .scss-lint.yml
-  - CNAME
-  - config.js
-  - Gemfile
-  - gulpfile.js
-  - LICENSE
-  - modernizr.json
-  - node_modules
-  - npm-debug.log
-  - package.json
-  - README.md
+- ".editorconfig"
+- ".eslintrc.yml"
+- ".scss-lint.yml"
+- CNAME
+- config.js
+- Gemfile
+- gulpfile.js
+- LICENSE
+- modernizr.json
+- node_modules
+- npm-debug.log
+- package.json
+- README.md
