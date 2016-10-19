@@ -2,6 +2,9 @@
 title: Diederik Dijkstra
 timezone: Europe/Amsterdam
 collections:
+  collections:
+    title: Collections
+    output: true
   posts:
     title: Posts
     output: true
