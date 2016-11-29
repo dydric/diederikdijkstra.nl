@@ -1,6 +1,6 @@
 // Media Queries
 @mixin mq($point, $IE9: false, $query1: min, $query2: width) {
-  @if $IE9 == true{
+  @if $IE9 == true {
     .no-mediaqueries & {
       @content;
     }
@@ -51,13 +51,13 @@
     color: $color-grey-light;
     content: '#{$content}';
     font-weight: 400;
-    @if $absolute == true{
+    @if $absolute == true {
       position: absolute;
     }
     text-decoration: none;
   }
 
-  @if $absolute == true{
+  @if $absolute == true {
     p &::before {
       left: 0;
     }
