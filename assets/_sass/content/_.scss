@@ -70,13 +70,13 @@ small {
   }
 }
 
-@import 'headings';
-@import 'blockquote';
-@import 'links';
-@import 'images';
-@import 'svg';
-@import 'lists';
-@import 'forms';
-@import 'tables';
-@import 'embed';
-@import 'hr';
+@import 'headings',
+        'blockquote',
+        'links',
+        'images',
+        'svg',
+        'lists',
+        'forms',
+        'tables',
+        'embed',
+        'hr';
