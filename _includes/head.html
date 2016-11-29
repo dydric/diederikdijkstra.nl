@@ -23,10 +23,10 @@
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
 {% endif %}
 </head>
-{% if page.layout == 'home'
-  %}<body class="home">{%
-else if page.layout == 'home-new'
-  %}<body class="home--new">{%
-else
-  %}<body class="default">{%
-endif %}
+{% if page.layout == 'home' %}
+<body class="home">
+{% else if page.layout == 'home-new'%}
+<body class="home--new">
+{% else %}
+<body class="default">
+{% endif %}
