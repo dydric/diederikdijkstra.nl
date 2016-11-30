@@ -144,8 +144,8 @@
       text-align: center;
 
       > * {
-        font-family: $font-body;
         @include font-size(1.6);
+        font-family: $font-body;
         line-height: 1.5 !important;
         margin: 0;
         padding: 0 10px;

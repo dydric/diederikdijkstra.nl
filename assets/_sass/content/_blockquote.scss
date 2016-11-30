@@ -1,6 +1,6 @@
 blockquote {
   @include font-size(2.4);
-  border-left: 1px solid shade($color-white, 80);;
+  border-left: 1px solid shade($color-white, 80);
   box-sizing: border-box;
   font-family: $font-title;
   margin: 0;
@@ -15,10 +15,10 @@ blockquote {
   }
 
   cite {
+    font-size: 80%;
     font-style: normal;
     font-weight: 400;
     margin-left: .5rem;
-    font-size: 80%;
 
     a {
       font-weight: normal;
