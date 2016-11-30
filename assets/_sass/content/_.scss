@@ -1,27 +1,45 @@
-* {
-  @include font-size(1.1);
-  line-height: 2;
+body {
+  @include font-size(1.6);
+  line-height: $line-height;
+}
 
-  &::selection {
-    background: $color-accent-1;
+.content {
+  box-sizing: border-box;
+  flex: 1;
+  margin: 20px auto 0;
+  max-width: $max-width;
+  padding: 30vh 5% 20vh;
+
+  @include mq($size-l) {
+    padding: 30vh 40px 20vh;
+  }
+
+  > *:not(:first-child) {
+    margin: 4rem 0 0;
   }
 }
 
+p {
+  margin: 0;
+}
+
+::selection {
+  background: $color-accent-1;
+  color: $color-black;
+}
+
 strong {
-  @include md('**');
+  color: tint($color-text, 50);
   font-weight: bold;
 }
 
 em,
 i {
-  @include md('_');
   font-style: italic;
 }
 
 del {
-  @include md('~', true);
-  color: $color-grey-light;
-  padding: 0 .8em;
+  color: $color-grey;
   text-decoration: line-through;
 }
 
@@ -31,7 +49,6 @@ dfn {
 }
 
 mark {
-  @include padding(0, .2);
   background: $color-accent-1;
 }
 
@@ -52,7 +69,6 @@ sub {
 }
 
 small {
-  @include line-height(.5);
   font-size: 80%;
 }
 
@@ -62,12 +78,7 @@ small {
 }
 
 .meta {
-  color: $color-grey-light;
-  display: block;
-
-  .post & {
-    @include margin-bottom(2);
-  }
+  opacity: .5;
 }
 
 @import 'headings',

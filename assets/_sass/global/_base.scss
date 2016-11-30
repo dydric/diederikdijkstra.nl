@@ -1,40 +1,40 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 html {
-  background-color: $color-body;
+  background: $color-page-background;
   color: $color-text;
   font-family: $font-body;
-  font-size: #{$base-font-size + '%'};
+  font-size: 62.5%;
   height: 100%;
+  line-height: $line-height;
   overflow-y: scroll;
   text-size-adjust: none;
-  transition: font-size 100ms;
-
-  @include mq($size-m) {
-    font-size: #{$base-font-size-m / 100 + 'rem'};
-  }
-
-  @include mq(990) {
-    @include mq(600, false, min, height) {
-      &.home {
-        font-size: #{$base-font-size + '%'};
-      }
-    }
-  }
-
-  @include mq(1180) {
-    &.home {
-      font-size: #{$base-font-size-m / 100 + 'rem'};
-    }
-  }
 }
 
 body {
   margin: 0;
-
-  &.home--new {
-    background: tint($color-black, 7);
-  }
 }
 
-.highlight {
-  visibility: hidden;
-}
+

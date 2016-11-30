@@ -1,0 +1,45 @@
+@import 'mediaqueries';
+
+
+
+
+
+// Global
+// ==========================================================================
+
+// Clearfix
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// Font-size
+@mixin font-size($number) {
+  font-size: #{ $number + 'rem'};
+}
+
+// Line-height
+@mixin line-height($number) {
+  line-height: #{ $number * $l-rem};
+}
+
+// Unselectable
+@mixin unselectable() {
+  user-select: none;
+}
+
+// Text-overflow
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+

@@ -1,13 +1,10 @@
 // Lists
-ul,
-ol {
-  @include margin-bottom(2);
+.l-content ul,
+.l-content ol {
   list-style: none;
   padding: 0;
 
   li {
-    @include margin-bottom(.5);
-    @include padding-left(1);
     position: relative;
 
     &::before {
@@ -18,29 +15,21 @@ ol {
     }
 
     a {
-      @include line-hover-fx();
       display: inline-block;
       position: relative;
     }
   }
 }
 
-ul {
 
-  li {
-    &::before {
-      content: '—';
-    }
-  }
-}
 
-ol {
-  counter-reset: listcounter;
+// .l-content ol {
+//   counter-reset: listcounter;
 
-  li {
-    &::before {
-      content: counter(listcounter) '. ';
-      counter-increment: listcounter;
-    }
-  }
-}
+//   li {
+//     &::before {
+//       content: counter(listcounter) '. ';
+//       counter-increment: listcounter;
+//     }
+//   }
+// }

@@ -1,10 +1,16 @@
 // SETTINGS
-@import 'config/variables';
-@import 'config/mixins';
-@import 'config/normalize';
+@import 'variables/';
+@import 'mixins/';
 
 // LAYOUT
 @import 'global/base';
-@import 'global/layout';
-@import 'global/nav';
-@import 'global/home-new';
+@import 'global/home';
+
+.content {
+  visibility: hidden;
+
+  .wf-active &,
+  .wf-inactive & {
+    visibility: visible;
+  }
+}

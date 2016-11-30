@@ -1,0 +1,19 @@
+$max-width:               920px;
+
+// Media-Queries
+$size-xs:                 320;
+$size-s:                  500;
+$size-m:                  640;
+$size-l:                  800;
+$size-xl:                 1000;
+$size-xxl:                1600;
+
+// Typography
+$line-height:             2;
+
+// Fonts
+$font-title:              'Source Serif Pro', serif;
+$font-body:               'Source Code Pro', monospace;
+$font-code:               $font-body;
+
+@import 'colors';

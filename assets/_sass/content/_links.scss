@@ -3,10 +3,14 @@ a {
   background-color: transparent;
   color: $color-links;
   text-decoration: none;
+  position: relative;
+  padding-bottom: 1px;
+  border-bottom: 1px solid shade($color-white, 60);
 
   &:active,
   &:hover {
     outline: 0;
+    border-bottom-color: $color-accent-1;
   }
 
   // External links
@@ -20,69 +24,4 @@ a {
   //   }
   // }
 
-  .meta & {
-    color: $color-grey-light;
-    transition: color 300ms;
-
-    &:hover {
-      color: $color-grey;
-    }
-  }
-
-  p > &:not(.btn),
-  blockquote &,
-  .band:not(.band--nav):not(.band--blog):not(.band--commits) li > &, {
-    @include line-hover-fx();
-    font-weight: 700;
-    position: relative;
-    text-decoration: none;
-    white-space: nowrap;
-    z-index: 2;
-  }
-}
-
-// BUTTON
-.btn {
-  @include padding(.4, 1);
-  background-color: $color-text;
-  color: $color-body;
-  display: inline-block;
-  font-weight: 700;
-  letter-spacing: .2rem;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 300ms ease-in-out;
-  z-index: 2;
-
-  .home &:first-of-type {
-    @include margin-bottom(1);
-  }
-
-  &::after {
-    background: $color-accent-1;
-    bottom: 0;
-    content: '';
-    height: .2rem;
-    left: 0;
-    position: absolute;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 300ms ease-in-out;
-    width: 100%;
-    z-index: -1;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-
-    &::after {
-      transform: scaleY(1);
-    }
-  }
-
-  + .btn {
-    @include margin-left(2);
-  }
 }

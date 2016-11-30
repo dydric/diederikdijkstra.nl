@@ -1,0 +1,36 @@
+$color-black:             rgb(0, 0, 0);
+$color-white:             rgb(255, 255, 255);
+
+@function tint($color, $percent) { @return mix($color-white, $color, $percent); }
+@function shade($color, $percent) { @return mix($color-black, $color, $percent); }
+
+// 5 SHADES OF GREY
+$color-grey-darker:       tint($color-black, 12);
+$color-grey-dark:         shade($color-white, 65);
+$color-grey:              shade($color-white, 50);
+$color-grey-light:        shade($color-white, 35);
+$color-grey-lighter:      shade($color-white, 20);
+
+// ACCENT
+$color-accent-1:          rgb(255, 198, 0);
+
+$color-page-background:   tint($color-black, 7);
+$color-text:              $color-grey-lighter;
+$color-text-headings:     tint($color-text, 80);
+$color-links:             $color-accent-1;
+
+// SYNTAX
+$color-syntax-bg:         $color-grey-lighter;
+$color-syntax-txt:        tint($color-text, 5);
+$color-syntax-1:          #999988;  // Comments
+$color-syntax-2:          #008080;  // Numbers
+$color-syntax-3:          #dd1144;  // String
+$color-syntax-4:          #990000;  // Name: Variable/Attributes
+$color-syntax-5:          #008080;  // Exception / Functions
+$color-syntax-6:          #445588;
+$color-syntax-7:          #0086b3;
+$color-syntax-8:          #800080;
+$color-syntax-9:          #000080;
+$color-syntax-10:         #009926;
+$color-syntax-11:         #990073;
+$color-syntax-12:         #990000;  // Errors

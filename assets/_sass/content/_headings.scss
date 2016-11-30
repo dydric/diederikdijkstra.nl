@@ -1,31 +1,31 @@
+$headings: (
+  h1: (6.4),
+  h2: (4.8),
+  h3: (3.2),
+  h4: (2.4),
+  h5: (2)
+) !default;
+
 // Headings
 @each $heading, $properties in $headings {
   #{$heading} {
-    // @include line-height(1.2);
-    @include margin-bottom(nth($properties, 3));
-    @include margin-top(nth($properties, 2));
-    color: $color-headings;
+    @include font-size(nth($properties, 1));
+    color: $color-white;
+    font-family: $font-title;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
 
-    body:not(.home--new) & {
-      @include md-before(#{nth($properties, 1)});
+    body:not(.home) & + * {
+      margin-top: 1rem !important;
+    }
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5 {
+      margin-top: 2rem !important;
     }
   }
-}
-
-h1 {
-
-  + h2 {
-    @include margin-top(1);
-  }
-
-  + .meta {
-    position: relative;
-    top: -.5rem;
-  }
-}
-
-h2 + h3,
-h3 + h4,
-h4 + h5 {
-  @include margin-top(.5);
 }

@@ -1,31 +1,38 @@
 img {
   border: 0;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   max-width: 100%;
 }
 
 .figure {
-  @include margin(.5, 0, 1);
-  color: $color-grey;
+  color: $color-text;
+  left: 50%;
+  margin: 0;
+  max-width: 1600px;
+  position: relative;
   text-align: center;
+  transform: translateX(-50%);
+  width: 100vw;
 
-  @include mq($size-l) {
-    &--left {
-      // @include padding-equal(.5);
-      box-sizing: border-box;
-      display: inline;
-      float: left;
-      max-width: 50%;
+  a {
+    border: 0;
+    color: $color-text;
+    display: inline-block;
+
+    &:hover {
+      figcaption {
+        opacity: 1;
+      }
     }
   }
 }
 
 figcaption {
-  // @include line-height(1);
-  color: $color-grey;
   display: inline-block;
   font-size: 90%;
   margin-bottom: 0;
+  opacity: .5;
   text-align: center;
 }
+
