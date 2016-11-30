@@ -1,6 +1,6 @@
 ---
 title: Diederik
-layout: home-new
+layout: home
 ---
 
 <header class="header gr">

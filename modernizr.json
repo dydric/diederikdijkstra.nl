@@ -9,8 +9,6 @@
     "css/flexbox",
     "css/mediaqueries",
     "css/pointerevents",
-    "css/vhunit",
-    "css/vwunit",
     "elem/picture",
     "svg"
   ]
