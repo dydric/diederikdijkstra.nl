@@ -15,6 +15,8 @@ var sass         = require('gulp-sass');
 var uglify       = require('gulp-uglify');
 var watch        = require('gulp-watch');
 var webpack      = require('webpack-stream');
+var rename       = require('gulp-rename');
+var concat       = require('gulp-concat');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
@@ -102,6 +104,16 @@ gulp.task('imagemin', function () {
     .pipe(gulp.dest(paths.images));
 });
 
+// Scripts
+gulp.task('scripts', function () {
+  return gulp.src(entry)
+    .pipe(concat('script.concat.js'))
+    .pipe(gulp.dest(paths.jsSrc))
+    .pipe(uglify())
+    .pipe(rename('script.min.js'))
+    .pipe(gulp.dest(paths.js));
+});
+
 // Webpack
 gulp.task('webpack', function () {
   return gulp.src(entry)
@@ -146,6 +158,12 @@ gulp.task('default', tasks, function () {
   if (config.tasks.sass) {
     watch(paths.sass + '/**/*', function () {
       gulp.start('sass', 'sass-critical');
+    });
+  }
+
+  if (config.tasks.scripts) {
+    watch(paths.jsSrc + '/**/*', function () {
+      gulp.start('scripts');
     });
   }
 
