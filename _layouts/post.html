@@ -3,15 +3,13 @@
     {% if page.mapbox %}
       {% include map.html %}
     {% endif %}
-
-    <nav class="band band--nav">
-      <p><a href="/">Diederik</a> / {% for category in page.categories %}{{ category }}{% endfor %}</p>
-    </nav>
-    <article class="band band--content">
-      <h1>{{page.title}}</h1><span class="meta">
+    <article class="content">
+      <h1>{{page.title}}</h1>
+      <span class="meta">
         {% include functions/showdate.html type='page' %}
         {% include functions/readingtime.html %}
-        </span>{{ content }}
+      </span>
+      {{ content }}
     </article>
   </div>
 {% include foot.html %}
