@@ -5,7 +5,8 @@ var module = module.exports = {
     imagemin:   true,
     sass:       true,
     server:     true,
-    webpack:    true,
+    webpack:    false,
+    scripts:    true,
   },
 
   paths: {

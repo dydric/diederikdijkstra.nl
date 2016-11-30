@@ -8,6 +8,7 @@
     "build": "gulp build",
     "imagemin": "gulp imagemin",
     "sass": "gulp sass",
+    "scripts": "gulp scripts",
     "webpack": "gulp webpack",
     "server": "gulp server"
   },
@@ -35,6 +36,8 @@
     "vinyl-named": "^1.1.0",
     "webpack-stream": "^3.2.0",
     "babel-loader": "^5.0.0",
-    "yargs": "^4.8.1"
+    "yargs": "^4.8.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2"
   }
 }
