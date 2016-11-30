@@ -8,13 +8,12 @@ collections:
   posts:
     title: Posts
     output: true
-    permalink: /:path/
   uploads:
     title: Uploads
     output: true
 email: diederikdijkstra@gmail.com
 description: Front-end UI developer
-baseurl:
+baseurl: 
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
 future: true
