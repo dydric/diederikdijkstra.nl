@@ -14,7 +14,12 @@ a {
   }
 
   .home & {
-    color: $color-white;
+    color: shade($color-white, 40);
+
+    &:active,
+    &:hover {
+      color: $color-white;
+    }
   }
 
   // External links
