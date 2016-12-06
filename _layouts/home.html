@@ -1,3 +1,33 @@
 {% include head.html %}
-{{ content }}
+<div class="site">
+
+  <header class="mod mod--header">
+    <div class="mod__content">
+      <h1>{{site.title}}</h1>
+      <p><a href="https://twitter.com/dydric" target="_blank">Twitter</a> - <a href="https://www.instagram.com/dydric/" target="_blank">Instagram</a> - <a href="mailto:diederikdijkstra@gmail.com" target="_blank">E-mail</a></p>
+    </div>
+  </header>
+
+  <aside class="ps">
+    <div class="ps__img ps__img--1 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8041/29702782841_b28cf99dc6_z_d.jpg [(max-width: 600px)] |
+      https://c1.staticflickr.com/9/8041/29702782841_b28cf99dc6_b_d.jpg [(max-width: 1000px)] |
+      https://c1.staticflickr.com/9/8041/29702782841_15c2643e63_h_d.jpg" data-sizes="auto"></div>
+    <div class="ps__img ps__img--2 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8325/29702783301_050db6486d_z_d.jpg [(max-width: 600px)] |
+      https://c1.staticflickr.com/9/8325/29702783301_050db6486d_b_d.jpg [(max-width: 1000px)] |
+      https://c1.staticflickr.com/9/8325/29702783301_d39d85e5a7_h_d.jpg" data-sizes="auto"></div>
+      <div class="ps__img ps__img--3 lazyload" data-bgset="
+      https://c1.staticflickr.com/9/8106/29702782651_90e86278ed_z_d.jpg [(max-width: 600px)] |
+      https://c1.staticflickr.com/9/8106/29702782651_90e86278ed_b_d.jpg [(max-width: 1000px)] |
+      https://c1.staticflickr.com/9/8106/29702782651_a4a2c74b28_o_d.jpg" data-sizes="auto"></div>
+  </aside>
+
+  <main class="mod mod--main" style="display: none;">
+    <div class="mod__content">
+      {{ content }}
+    </div>
+  </main>
+
+</div>
 {% include foot.html %}
