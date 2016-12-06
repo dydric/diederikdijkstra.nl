@@ -1,0 +1,30 @@
+.site {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.mod {
+  display: flex;
+  position: relative;
+  z-index: 2;
+
+  &__content {
+    max-width: $max-width;
+    padding: 5vh 5% 12vh;
+  }
+
+  &--header {
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  &--main {
+    align-items: center;
+    background: $color-page-background;
+    justify-content: center;
+    min-height: 100vh;
+  }
+}
+
