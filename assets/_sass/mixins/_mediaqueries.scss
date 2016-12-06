@@ -10,7 +10,7 @@
   }
 }
 
-@mixin mq-vsize($landscape: true, $size: 100) {
+@mixin mq-ratio($landscape: true, $size: 100) {
   @if $landscape == true {
     @media screen and (min-width: #{$size}vh) {
       @content;

@@ -1,26 +1,4 @@
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
+@import 'normalize';
 
 html {
   background: $color-page-background;
@@ -37,4 +15,6 @@ body {
   margin: 0;
 }
 
+@import 'photoset',
+        'layout';
 

@@ -1,9 +1,9 @@
 $headings: (
-  h1: (6.4),
-  h2: (4.8),
-  h3: (3.2),
-  h4: (2.4),
-  h5: (2)
+  h1: (6.4, 1.1),
+  h2: (4.8, 1.3),
+  h3: (3.2, 1.4),
+  h4: (2.4, 1.5),
+  h5: (2, 1.5)
 ) !default;
 
 // Headings
@@ -13,7 +13,7 @@ $headings: (
     color: $color-white;
     font-family: $font-title;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: nth($properties, 2);
     margin: 0;
 
     body:not(.home) & + * {

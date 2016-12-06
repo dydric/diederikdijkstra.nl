@@ -13,6 +13,10 @@ a {
     outline: 0;
   }
 
+  .home & {
+    color: $color-white;
+  }
+
   // External links
   // &:not([href*='diederikdijkstra.nl']):not([href^='#']):not([href^='/']) {
   //   position: relative;
