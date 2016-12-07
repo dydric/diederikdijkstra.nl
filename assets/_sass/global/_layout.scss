@@ -18,6 +18,24 @@
     justify-content: center;
     min-height: 100vh;
     text-align: center;
+
+    p:first-child {
+      margin-bottom: 5vh;
+      padding-bottom: 2vh;
+      position: relative;
+
+      &::after {
+        background: shade($color-white, 60);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 50px;
+      }
+    }
   }
 
   &--main {

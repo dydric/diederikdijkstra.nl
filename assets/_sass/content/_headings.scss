@@ -16,7 +16,7 @@ $headings: (
     line-height: nth($properties, 2);
     margin: 0;
 
-    body:not(.home) & + * {
+    + * {
       margin-top: 1rem !important;
     }
 
