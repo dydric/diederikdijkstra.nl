@@ -5,9 +5,6 @@ collections:
   albums:
     title: Albums
     output: false
-  collections:
-    title: Collections
-    output: true
   posts:
     title: Posts
     output: true
