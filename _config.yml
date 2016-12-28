@@ -11,9 +11,17 @@ collections:
   uploads:
     title: Uploads
     output: true
+defaults:
+- scope:
+    path: ''
+    type: albums
+  values:
+    artist: 
+    spotify: 
+    cover: 
 email: diederikdijkstra@gmail.com
 description: Front-end developer
-baseurl:
+baseurl: 
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
 future: true
@@ -35,12 +43,3 @@ exclude:
 - npm-debug.log
 - package.json
 - README.md
-defaults:
-  -
-    scope:
-      path: ""
-      type: "albums"
-    values:
-      artist:
-      spotify:
-      cover:
