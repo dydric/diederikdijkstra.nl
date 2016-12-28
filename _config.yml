@@ -4,7 +4,7 @@ timezone: Europe/Amsterdam
 collections:
   albums:
     title: Albums
-    output: true
+    output: false
   collections:
     title: Collections
     output: true
