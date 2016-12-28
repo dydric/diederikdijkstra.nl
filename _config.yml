@@ -2,6 +2,9 @@
 title: Diederik Dijkstra
 timezone: Europe/Amsterdam
 collections:
+  albums:
+    title: Albums
+    output: true
   collections:
     title: Collections
     output: true
