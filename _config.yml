@@ -16,13 +16,13 @@ defaults:
     path: ''
     type: albums
   values:
-    artist: 
-    cover: 
-    spotify: 
-    youtube: 
+    artist:
+    cover_image:
+    spotify:
+    youtube:
 email: diederikdijkstra@gmail.com
 description: Front-end developer
-baseurl: 
+baseurl: https://diederikdijkstra.nl
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
 future: true
