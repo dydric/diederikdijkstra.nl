@@ -17,7 +17,7 @@ defaults:
     type: albums
   values:
     artist:
-    cover:
+    cover_image:
     spotify:
     youtube:
 email: diederikdijkstra@gmail.com
