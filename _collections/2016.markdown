@@ -1,0 +1,21 @@
+---
+title: '2016'
+date: 2016-12-30 20:35:00 +01:00
+instagram:
+- 
+albums:
+- title: 
+  artist: 
+  cover_image: 
+  spotify_url: 
+markers:
+- name: 
+  latitude: 
+  longitude: 
+strava:
+- distance: 
+  total_time: 
+  rides: 
+  longest_ride: 
+---
+
