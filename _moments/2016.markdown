@@ -5,10 +5,18 @@ instagram:
 - image: 
   link: 
 albums:
-- title: 
-  artist: 
+- title: Schaduwland
+  artist: Jan Swerts
   cover_image: 
-  spotify_url: 
+  spotify_url: https://open.spotify.com/album/2z9ELlKLzOFVNTnxWQoSfR
+- title: Bang zullen ze leven
+  artist: Tjing Tjing
+  cover_image: 
+  spotify_url: https://open.spotify.com/album/4oHH0A3jsN8a9yl1QUy3WL
+- title: Sirens
+  artist: Nicolas Jaar
+  cover_image: 
+  spotify_url: https://open.spotify.com/album/2EvZiOMBlC9b5hbjbZCjZv
 markers:
 - name: 
   latitude: 
