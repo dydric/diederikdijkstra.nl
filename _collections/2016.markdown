@@ -2,7 +2,8 @@
 title: '2016'
 date: 2016-12-30 20:35:00 +01:00
 instagram:
-- 
+- image: 
+  link: 
 albums:
 - title: 
   artist: 
@@ -12,10 +13,16 @@ markers:
 - name: 
   latitude: 
   longitude: 
+  description: 
 strava:
-- distance: 
+- total_distance: 
   total_time: 
-  rides: 
+  total_rides: 
   longest_ride: 
+  distance:
+  - 
+  - 
+video:
+- 
 ---
 
