@@ -5,8 +5,8 @@ collections:
   albums:
     title: Albums
     output: false
-  collections:
-    title: Collections
+  livestream:
+    title: Livestream
     output: true
   posts:
     title: Posts
