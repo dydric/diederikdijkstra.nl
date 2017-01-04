@@ -1,6 +1,9 @@
 ---
 title: '2016'
 date: 2016-12-30 20:35:00 +01:00
+highlights:
+  description:
+  - 
 music:
   albums:
   - title: Schaduwland
@@ -16,14 +19,20 @@ music:
     cover_image: 
     spotify_url: https://open.spotify.com/album/2EvZiOMBlC9b5hbjbZCjZv
   songs:
-  - title: 
-    artist: 
-    spotify_url: 
-markers:
-- name: 
-  latitude: 
-  longitude: 
-  description: 
+  - title: On Hold
+    artist: the XX
+    spotify_url: https://open.spotify.com/track/4w2iAP3X4FkpPb5kjRdIDx
+  - title: Catch & Release
+    artist: Matt Simons
+    spotify_url: https://open.spotify.com/track/1PVyUNzBT1D6y10Ksu5xCI
+  - title: Rivers
+    artist: The Tallest Man On Earth
+    spotify_url: https://open.spotify.com/track/07ZkpHysDtnBHQKbEOBZ2L
+map:
+  markers:
+  - name: 
+    latitude: 
+    longitude: 
 strava:
   month:
   - distance: 0
@@ -62,21 +71,11 @@ strava:
   - distance: 210
     rides: 5
     time: 8
-video:
-- 
-images:
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c109.0.862.862/12353903_966212586787148_873100444_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/10449057_1577548859233730_495826376_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12822451_137875906604617_1654317192_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/13355452_1063028590456309_1034241401_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13556818_153572508394615_1355271822_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13651724_111695905932659_44976974_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13671322_1048911515145432_1306477013_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14134605_661266797365071_1819796202_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/14099716_1895212307372632_1254521714_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14701269_225202544559206_4892307172819468288_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/15253325_594161470771286_7485988006763954176_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/15403351_255647858186756_2486270788567564288_n.jpg
+media:
+- images:
+  - 
+  video:
+  - 
 ---
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer consequat sapien a lectus gravida euismod. Sed vitae nisl non odio viverra accumsan. Curabitur nisi neque, egestas sed, vulputate sit amet, luctus vitae, dolor. Cras lacus massa, sagittis ut, volutpat consequat, interdum a, nulla. Vivamus rhoncus molestie nulla. Ut porttitor turpis sit amet turpis. Nam suscipit, justo quis ullamcorper sagittis, mauris diam dictum elit, suscipit blandit ligula ante sit amet mauris. Integer id arcu. Aenean scelerisque. Sed a purus. Pellentesque nec nisl eget metus varius tempor. Curabitur tincidunt iaculis lectus. Aliquam molestie velit id urna. Suspendisse in ante ac nunc commodo placerat.
