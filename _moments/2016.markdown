@@ -3,7 +3,12 @@ title: '2016'
 date: 2016-12-30 20:35:00 +01:00
 highlights:
   description:
-  - 
+  - '[Relatieplanet.nl](http://www.relatieplanet.nl) wint "website van het jaar" award!
+
+'
+  - Heel veel klussen in ons nieuwe huis.
+  - Helemaal los gaan bij Witch Doctor van De Staat [(video)](https://vimeo.com/154705020)
+  - 72uur non-stop Techno op Paradigm Festival
 music:
   albums:
   - title: Schaduwland
