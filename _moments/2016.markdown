@@ -1,19 +1,6 @@
 ---
 title: '2016'
 date: 2016-12-30 20:35:00 +01:00
-instagram_images:
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c109.0.862.862/12353903_966212586787148_873100444_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/10449057_1577548859233730_495826376_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12822451_137875906604617_1654317192_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/13355452_1063028590456309_1034241401_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13556818_153572508394615_1355271822_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13651724_111695905932659_44976974_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13671322_1048911515145432_1306477013_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14134605_661266797365071_1819796202_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/14099716_1895212307372632_1254521714_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14701269_225202544559206_4892307172819468288_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/15253325_594161470771286_7485988006763954176_n.jpg
-- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/15403351_255647858186756_2486270788567564288_n.jpg
 music:
   albums:
   - title: Schaduwland
@@ -38,17 +25,57 @@ markers:
   longitude: 
   description: 
 strava:
-  total_distance: 
-  total_time: 
-  total_rides: 
   month:
-    distance:
-    - 
-    rides:
-    - 
-    time:
-    - 
+  - distance: 0
+    rides: 0
+    time: 0
+  - distance: 0
+    rides: 0
+    time: 0
+  - distance: 77
+    rides: 2
+    time: 3
+  - distance: 122
+    rides: 3
+    time: 5
+  - distance: 366
+    rides: 7
+    time: 13
+  - distance: 168
+    rides: 6
+    time: 4
+  - distance: 380
+    rides: 7
+    time: 13
+  - distance: 121
+    rides: 2
+    time: 4
+  - distance: 57
+    rides: 1
+    time: 1
+  - distance: 0
+    rides: 0
+    time: 0
+  - distance: 0
+    rides: 0
+    time: 0
+  - distance: 210
+    rides: 5
+    time: 8
 video:
 - 
+images:
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c109.0.862.862/12353903_966212586787148_873100444_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/10449057_1577548859233730_495826376_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12822451_137875906604617_1654317192_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/13355452_1063028590456309_1034241401_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13556818_153572508394615_1355271822_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13651724_111695905932659_44976974_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13671322_1048911515145432_1306477013_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14134605_661266797365071_1819796202_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.135.1080.1080/14099716_1895212307372632_1254521714_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/14701269_225202544559206_4892307172819468288_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/15253325_594161470771286_7485988006763954176_n.jpg
+- https://scontent-ams3-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/c0.134.1080.1080/15403351_255647858186756_2486270788567564288_n.jpg
 ---
 
