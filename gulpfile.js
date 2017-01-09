@@ -78,7 +78,7 @@ gulp.task('server', ['jekyll-build'], function() {
 
 // Sass
 gulp.task('sass', function () {
-  return gulp.src(paths.sass + '/style.scss')
+  return gulp.src([paths.sass + '/*.scss', '!' + paths.sass + '/critical.scss'])
     .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
     .pipe(gulp.dest(paths.css));
