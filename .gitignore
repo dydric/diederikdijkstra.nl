@@ -3,6 +3,7 @@ _drafts/
 _site/
 .idea
 node_modules
+npm-debug.log
 .jekyll-metadata
 .sass-cache
 .DS_Store
