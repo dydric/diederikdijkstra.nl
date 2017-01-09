@@ -6,8 +6,5 @@ strava:
   - distance: 84
     rides: 1
     time: 3
-  - distance: 
-    rides: 
-    time: 
 ---
 
