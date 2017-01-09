@@ -11,25 +11,25 @@
   z-index: 2;
 
   &__wrapper {
+    // border-bottom: 1px solid $color-grey;
     height: 0;
     left: 50%;
     margin-bottom: 40px;
+    max-width: 960px;
+    overflow: hidden;
     padding-bottom: 30%;
     position: relative;
     transform: translateX(-50%);
     width: 100vw;
-    max-width: 960px;
-    overflow: hidden;
-    // border-bottom: 1px solid $color-grey;
   }
 
   &__ruler {
-    position: absolute;
+    background: $color-grey-darker;
+    display: block;
     height: 1px;
     left: 0;
+    position: absolute;
     right: 0;
-    display: block;
-    background: $color-grey-darker;
     z-index: 1;
   }
 
@@ -49,14 +49,14 @@
       width: 100%;
 
       span {
-        top: 0;
         cursor: default;
         font-size: 80%;
         left: 0;
+        padding-top: 3px;
         position: absolute;
         right: 0;
         text-align: center;
-        padding-top: 3px;
+        top: 0;
       }
     }
   }
