@@ -1,0 +1,74 @@
+{% include head.html %}
+<div class="site">
+
+  <main class="mod mod--main">
+    <div class="mod__content">
+      <h2>Muziek</h2>
+      {% if page.music.albums %}
+      <h4>Albums</h4>
+      <ul>
+      {% for album in page.music.albums %}
+        <li>
+          <a href="{{ album.spotify_url }}" target="_blank">{{ album.artist }} - {{ album.title }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+      {% if page.music.songs %}
+      <h4>Songs</h4>
+      {% for song in page.music.songs %}
+        <li>
+          <a href="{{ song.spotify_url }}" target="_blank">{{ song.artist }} - {{ song.title }}</a>
+        </li>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </main>
+
+  {% if page.strava.month %}
+  <main class="mod mod--main">
+    <div class="mod__content">
+      <h2>Wielrennen</h2>
+        {% assign distance = 0 %}
+        {% assign rides = 0 %}
+        {% assign time = 0 %}
+        {% assign distance_list = "" | split: ", " %}
+        {% for strava in page.strava.month %}
+          {% assign distance = distance | plus: strava.distance %}
+          {% assign rides = rides | plus: strava.rides %}
+          {% assign time = time | plus: strava.time %}
+          {% assign distance_list = distance_list | push: strava.distance %}
+        {% endfor %}
+        {% assign longest = distance_list | sort | last %}
+        {% assign longest = longest | times: 1.0 %}
+      <ul class="strava-data"">
+        {% for strava in page.strava.month %}
+        <li>{{ strava.distance | append: "km" }} - {{ strava.rides }} - {{ strava.time  | append: "h" }}
+          <span>[{{ strava.distance | divided_by: longest | times: 100 | round }}%]</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <ul>
+        <li>Totaal: {{ distance | append: "km" }} - {{ rides }} - {{ time | append: "h" }}</li>
+        <li>Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}</li>
+        <li>Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}</li>
+        <li>Meest gereden km in een maand: {{ distance_list | sort | last | append: "km" }}</li>
+      </ul>
+    </div>
+  </main>
+  {% endif %}
+
+  <main class="mod mod--main">
+    <div class="mod__content">
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+      <ul>
+      {% for highlight in page.highlights.description %}
+        <li>{{ highlight | markdownify }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  </main>
+
+</div>
+{% include foot.html %}
