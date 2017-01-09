@@ -5,14 +5,14 @@ collections:
   albums:
     title: Albums
     output: false
-  moments:
-    title: Moments
-    output: true
   posts:
     title: Posts
     output: true
   uploads:
     title: Uploads
+    output: true
+  year:
+    title: Year
     output: true
 defaults:
 - scope:
