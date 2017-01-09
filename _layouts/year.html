@@ -21,16 +21,23 @@
           {% for strava in page.strava.month %}
           <li>
             <!--{{ strava.distance | append: "km" }} - {{ strava.rides }} - {{ strava.time  | append: "h" }}-->
-            <div class="bars-chart__month" style="height: {{ strava.distance | divided_by: longest | times: 100 | round }}%">{% if strava.distance != 0 %}<span>{{ strava.distance }}</span>{% endif %}</div>
+            <div
+              class="bars-chart__month"
+              style="height: {{ strava.distance | divided_by: longest | times: 100 | round }}%">
+              {% if strava.distance != 0 %}
+                <span>{{ strava.distance }}</span>
+              {% endif %}
+            </div>
           </li>
           {% endfor %}
         </ul>
-        <div class="bars-chart__ruler bars-chart__ruler-1" style="bottom: {{ 100 | divided_by: longest | times: 100 | minus:round }}%"></div>
-        <div class="bars-chart__ruler bars-chart__ruler-2" style="bottom: {{ 200 | divided_by: longest | times: 100 | round }}%"></div>
-        <div class="bars-chart__ruler bars-chart__ruler-3" style="bottom: {{ 300 | divided_by: longest | times: 100 | round }}%"></div>
-        <div class="bars-chart__ruler bars-chart__ruler-4" style="bottom: {{ 400 | divided_by: longest | times: 100 | round }}%"></div>
-        <div class="bars-chart__ruler bars-chart__ruler-5" style="bottom: {{ 500 | divided_by: longest | times: 100 | round }}%"></div>
-        <div class="bars-chart__ruler bars-chart__ruler-6" style="bottom: {{ 600 | divided_by: longest | times: 100 | round }}%"></div>
+        {% assign n = longest | divided_by: 100 | floor %}
+        {% for num in (1...n) %}
+          <div
+            class="bars-chart__ruler bars-chart__ruler-{{ num }}"
+            style="bottom: {{ num | divided_by: longest | times: 10000 | round }}%">
+          </div>
+        {% endfor %}
       </div>
       <ul>
         <li>Totaal: {{ distance | append: "km" }} - {{ rides }} - {{ time | append: "h" }}</li>
