@@ -14,12 +14,37 @@ collections:
 defaults:
 - scope:
     path: ''
-    type: albums
+    type: year
   values:
-    artist: 
-    cover_image: 
-    spotify: 
-    youtube: 
+    layout: "year"
+    highlights:
+      - description:
+    music:
+      albums:
+      - title:
+        artist:
+        cover_image:
+        spotify_url:
+      songs:
+      - title:
+        artist:
+        spotify_url:
+    map:
+      markers:
+      - name:
+        latitude:
+        longitude:
+    strava:
+      month:
+      - distance:
+        rides:
+        time:
+    media:
+      images:
+      -
+      video:
+      -
+
 email: diederikdijkstra@gmail.com
 description: Front-end developer
 baseurl: https://diederikdijkstra.nl
