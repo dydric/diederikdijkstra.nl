@@ -1,0 +1,63 @@
+.bars-chart {
+  // @include unselectable();
+  align-items: stretch;
+  display: flex;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+
+  &__wrapper {
+    height: 0;
+    left: 50%;
+    margin-bottom: 40px;
+    padding-bottom: 30%;
+    position: relative;
+    transform: translateX(-50%);
+    width: 100vw;
+    max-width: 960px;
+    overflow: hidden;
+    // border-bottom: 1px solid $color-grey;
+  }
+
+  &__ruler {
+    position: absolute;
+    height: 1px;
+    left: 0;
+    right: 0;
+    display: block;
+    background: $color-grey-darker;
+    z-index: 1;
+  }
+
+  li {
+    align-items: flex-end;
+    background: transparentize($color-white, .96);
+    display: flex;
+    flex: 1 1 auto;
+    margin: 0 1px;
+    // padding-top: 1000px;
+
+    div {
+      background: $color-grey;
+      // border-top: 3px solid $color-white;
+      display: block;
+      position: relative;
+      width: 100%;
+
+      span {
+        top: 0;
+        cursor: default;
+        font-size: 80%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        padding-top: 3px;
+      }
+    }
+  }
+}

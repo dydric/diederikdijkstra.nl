@@ -1,6 +1,47 @@
 {% include head.html %}
 <div class="site">
 
+  {% if page.strava.month %}
+  <main class="mod mod--main">
+    <div class="mod__content">
+        {% assign distance = 0 %}
+        {% assign rides = 0 %}
+        {% assign time = 0 %}
+        {% assign distance_list = "" | split: ", " %}
+        {% for strava in page.strava.month %}
+          {% assign distance = distance | plus: strava.distance %}
+          {% assign rides = rides | plus: strava.rides %}
+          {% assign time = time | plus: strava.time %}
+          {% assign distance_list = distance_list | push: strava.distance %}
+        {% endfor %}
+        {% assign longest = distance_list | sort | last %}
+        {% assign longest = longest | times: 1.0 %}
+      <div class="bars-chart__wrapper">
+        <ul class="bars-chart">
+          {% for strava in page.strava.month %}
+          <li>
+            <!--{{ strava.distance | append: "km" }} - {{ strava.rides }} - {{ strava.time  | append: "h" }}-->
+            <div class="bars-chart__month" style="height: {{ strava.distance | divided_by: longest | times: 100 | round }}%">{% if strava.distance != 0 %}<span>{{ strava.distance }}</span>{% endif %}</div>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="bars-chart__ruler bars-chart__ruler-1" style="bottom: {{ 100 | divided_by: longest | times: 100 | minus:round }}%"></div>
+        <div class="bars-chart__ruler bars-chart__ruler-2" style="bottom: {{ 200 | divided_by: longest | times: 100 | round }}%"></div>
+        <div class="bars-chart__ruler bars-chart__ruler-3" style="bottom: {{ 300 | divided_by: longest | times: 100 | round }}%"></div>
+        <div class="bars-chart__ruler bars-chart__ruler-4" style="bottom: {{ 400 | divided_by: longest | times: 100 | round }}%"></div>
+        <div class="bars-chart__ruler bars-chart__ruler-5" style="bottom: {{ 500 | divided_by: longest | times: 100 | round }}%"></div>
+        <div class="bars-chart__ruler bars-chart__ruler-6" style="bottom: {{ 600 | divided_by: longest | times: 100 | round }}%"></div>
+      </div>
+      <ul>
+        <li>Totaal: {{ distance | append: "km" }} - {{ rides }} - {{ time | append: "h" }}</li>
+        <li>Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}</li>
+        <li>Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}</li>
+        <li>Meest gereden km in een maand: {{ distance_list | sort | last | append: "km" }}</li>
+      </ul>
+    </div>
+  </main>
+  {% endif %}
+
   <main class="mod mod--main">
     <div class="mod__content">
       <h2>Muziek</h2>
@@ -24,39 +65,6 @@
       {% endif %}
     </div>
   </main>
-
-  {% if page.strava.month %}
-  <main class="mod mod--main">
-    <div class="mod__content">
-      <h2>Wielrennen</h2>
-        {% assign distance = 0 %}
-        {% assign rides = 0 %}
-        {% assign time = 0 %}
-        {% assign distance_list = "" | split: ", " %}
-        {% for strava in page.strava.month %}
-          {% assign distance = distance | plus: strava.distance %}
-          {% assign rides = rides | plus: strava.rides %}
-          {% assign time = time | plus: strava.time %}
-          {% assign distance_list = distance_list | push: strava.distance %}
-        {% endfor %}
-        {% assign longest = distance_list | sort | last %}
-        {% assign longest = longest | times: 1.0 %}
-      <ul class="strava-data"">
-        {% for strava in page.strava.month %}
-        <li>{{ strava.distance | append: "km" }} - {{ strava.rides }} - {{ strava.time  | append: "h" }}
-          <span>[{{ strava.distance | divided_by: longest | times: 100 | round }}%]</span>
-        </li>
-        {% endfor %}
-      </ul>
-      <ul>
-        <li>Totaal: {{ distance | append: "km" }} - {{ rides }} - {{ time | append: "h" }}</li>
-        <li>Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}</li>
-        <li>Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}</li>
-        <li>Meest gereden km in een maand: {{ distance_list | sort | last | append: "km" }}</li>
-      </ul>
-    </div>
-  </main>
-  {% endif %}
 
   <main class="mod mod--main">
     <div class="mod__content">

@@ -21,5 +21,5 @@
 </script>
 </body>
 </html>
-<link href="{{ '/assets/css/style.css' | prepend: site.baseurl }}" rel="stylesheet">
-{% if page.customcss %}<link href="/assets/css/{{ page.customcss }}" rel="stylesheet">{% endif %}
+<link href="/assets/css/style.css" rel="stylesheet">
+{% if page.layout == 'year' %}<link href="/assets/css/year.css" rel="stylesheet">{% endif %}

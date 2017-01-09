@@ -1,3 +1,6 @@
-body {
-  border: 10px solid white;
-}
+// MISC
+@import 'variables/';
+@import 'mixins/';
+
+// CONTENT
+@import 'year/';
