@@ -11,7 +11,7 @@
   z-index: 2;
 
   &__wrapper {
-    // border-bottom: 1px solid $color-grey;
+    border-bottom: 1px solid $color-grey-darker;
     height: 0;
     left: 50%;
     margin-bottom: 40px;
@@ -35,28 +35,56 @@
 
   li {
     align-items: flex-end;
-    background: transparentize($color-white, .96);
     display: flex;
     flex: 1 1 auto;
     margin: 0 1px;
-    // padding-top: 1000px;
 
     div {
-      background: $color-grey;
-      // border-top: 3px solid $color-white;
       display: block;
       position: relative;
       width: 100%;
 
+      &::after {
+        background: $color-white;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: .5;
+        position: absolute;
+        right: 0;
+        transition: opacity 200ms ease-in-out;
+        z-index: 1;
+      }
+
       span {
+        color: $color-grey-darker;
         cursor: default;
         font-size: 80%;
+        font-weight: bold;
         left: 0;
+        opacity: 0;
         padding-top: 3px;
         position: absolute;
         right: 0;
         text-align: center;
         top: 0;
+        transform: translateY(40px);
+        transition: opacity 200ms 200ms ease-in-out, transform 200ms 200ms ease-in-out;
+        z-index: 2;
+      }
+    }
+
+    &:hover {
+      div {
+
+        &::after {
+          opacity: 1;
+        }
+
+        span {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     }
   }
