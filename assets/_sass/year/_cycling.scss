@@ -1,6 +1,7 @@
 .bars-chart {
-  // @include unselectable();
+  @include unselectable();
   align-items: stretch;
+  box-sizing: border-box;
   display: flex;
   height: 100%;
   list-style: none;
@@ -11,79 +12,104 @@
   z-index: 2;
 
   &__wrapper {
-    border-bottom: 1px solid $color-grey-darker;
     height: 0;
     left: 50%;
-    margin-bottom: 40px;
-    max-width: 960px;
-    overflow: hidden;
-    padding-bottom: 30%;
+    margin: 30vh 0 0;
+    max-width: 1280px;
+    padding-bottom: 70vh;
     position: relative;
     transform: translateX(-50%);
-    width: 100vw;
+    width: 80vw;
   }
 
   &__ruler {
-    background: $color-grey-darker;
+    background: $color-white;
     display: block;
     height: 1px;
-    left: 0;
+    left: 50%;
+    opacity: .05;
     position: absolute;
-    right: 0;
+    transform: translateX(-50%);
+    width: 100vw;
     z-index: 1;
+
+    &-0 {
+      z-index: 3;
+    }
   }
 
   li {
-    align-items: flex-end;
-    display: flex;
     flex: 1 1 auto;
-    margin: 0 1px;
+    margin: 0 1px 0 0;
+    position: relative;
+
+    &:first-child {
+
+      &::before {
+        background: $color-white;
+        bottom: 0;
+        content: '';
+        height: 100vh;
+        left: -1px;
+        opacity: .05;
+        position: absolute;
+        width: 1px;
+        z-index: 1;
+      }
+    }
+
+    &::after {
+      background: $color-white;
+      bottom: 0;
+      content: '';
+      height: 100vh;
+      opacity: .05;
+      position: absolute;
+      right: -1px;
+      width: 1px;
+      z-index: 1;
+    }
 
     div {
+      bottom: 1px;
       display: block;
-      position: relative;
+      left: 0;
+      position: absolute;
+      right: 0;
       width: 100%;
 
       &::after {
-        background: $color-white;
+        // background: $color-accent-1;
+        background: linear-gradient(135deg, $color-accent-1 0%, shade($color-accent-1, 35) 100%);
         content: '';
         height: 100%;
         left: 0;
-        opacity: .5;
         position: absolute;
         right: 0;
-        transition: opacity 200ms ease-in-out;
         z-index: 1;
       }
 
       span {
-        color: $color-grey-darker;
+        bottom: 1vh;
+        color: $color-black;
         cursor: default;
-        font-size: 80%;
+        display: none;
+        font-size: 1.6vw;
         font-weight: bold;
         left: 0;
-        opacity: 0;
+        opacity: .15;
         padding-top: 3px;
         position: absolute;
         right: 0;
         text-align: center;
-        top: 0;
-        transform: translateY(40px);
-        transition: opacity 200ms 200ms ease-in-out, transform 200ms 200ms ease-in-out;
         z-index: 2;
-      }
-    }
 
-    &:hover {
-      div {
-
-        &::after {
-          opacity: 1;
+        @include mq($size-m) {
+          display: block;
         }
 
-        span {
-          opacity: 1;
-          transform: translateY(0);
+        @include mq($size-xl) {
+          @include font-size(1.6);
         }
       }
     }

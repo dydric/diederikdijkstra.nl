@@ -1,21 +1,26 @@
 {% include head.html %}
 <div class="site">
-
   {% if page.strava.month %}
   <main class="mod mod--main">
     <div class="mod__content">
-        {% assign distance = 0 %}
-        {% assign rides = 0 %}
-        {% assign time = 0 %}
-        {% assign distance_list = "" | split: ", " %}
-        {% for strava in page.strava.month %}
-          {% assign distance = distance | plus: strava.distance %}
-          {% assign rides = rides | plus: strava.rides %}
-          {% assign time = time | plus: strava.time %}
-          {% assign distance_list = distance_list | push: strava.distance %}
-        {% endfor %}
-        {% assign longest = distance_list | sort | last %}
-        {% assign longest = longest | times: 1.0 %}
+      <h1>Wielrennen</h1>
+      {% assign distance = 0 %}
+      {% assign rides = 0 %}
+      {% assign time = 0 %}
+      {% assign distance_list = "" | split: ", " %}
+      {% for strava in page.strava.month %}
+        {% assign distance = distance | plus: strava.distance %}
+        {% assign rides = rides | plus: strava.rides %}
+        {% assign time = time | plus: strava.time %}
+        {% assign distance_list = distance_list | push: strava.distance %}
+      {% endfor %}
+      {% assign longest = distance_list | sort | last %}
+      {% assign longest = longest | times: 1.0 %}
+      <h2>Totaal: {{ distance | append: "km" }} - {{ rides | append: " ritten"}} - {{ time | append: " uur" }}</h2>
+      Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}<br />
+      Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}
+    </div>
+    <div class="mod__background">
       <div class="bars-chart__wrapper">
         <ul class="bars-chart">
           {% for strava in page.strava.month %}
@@ -31,20 +36,14 @@
           </li>
           {% endfor %}
         </ul>
-        {% assign n = longest | divided_by: 100 | floor %}
-        {% for num in (1...n) %}
-          <div
-            class="bars-chart__ruler bars-chart__ruler-{{ num }}"
-            style="bottom: {{ num | divided_by: longest | times: 10000 | round }}%">
-          </div>
-        {% endfor %}
+        {% assign n = longest | divided_by: 100 | round %}
+        {% for num in (0...n) %}
+        <div
+          class="bars-chart__ruler bars-chart__ruler-{{ num }}"
+          style="bottom: {{ num | divided_by: longest | times: 10000 | round }}%">
+        </div>
+      {% endfor %}
       </div>
-      <ul>
-        <li>Totaal: {{ distance | append: "km" }} - {{ rides }} - {{ time | append: "h" }}</li>
-        <li>Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}</li>
-        <li>Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}</li>
-        <li>Meest gereden km in een maand: {{ distance_list | sort | last | append: "km" }}</li>
-      </ul>
     </div>
   </main>
   {% endif %}

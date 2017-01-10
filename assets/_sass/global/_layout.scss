@@ -11,6 +11,17 @@
   &__content {
     max-width: $max-width;
     padding: 5vh 5% 12vh;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__background {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 
   &--header {
