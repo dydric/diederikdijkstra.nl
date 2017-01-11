@@ -1,13 +1,6 @@
 ---
 title: '2016'
 date: 2016-12-30 20:35:00 +01:00
-layout: year
-highlights:
-  description:
-  - '[Relatieplanet.nl](http://www.relatieplanet.nl) wint award "website van het jaar"!'
-  - Heel veel klussen in ons nieuwe huis.
-  - Helemaal los gaan bij Witch Doctor van De Staat [(video)](https://vimeo.com/154705020)
-  - 72uur non-stop Techno op Paradigm Festival
 music:
   albums:
   - title: Schaduwland
@@ -32,11 +25,6 @@ music:
   - title: Rivers
     artist: The Tallest Man On Earth
     spotify_url: https://open.spotify.com/track/07ZkpHysDtnBHQKbEOBZ2L
-map:
-  markers:
-  - name: 
-    latitude: 
-    longitude: 
 strava:
   month:
   - distance: 0
@@ -75,11 +63,7 @@ strava:
   - distance: 210
     rides: 5
     time: 8
-media:
-  images:
-  - 
-  video:
-  - 
+layout: year
 ---
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer consequat sapien a lectus gravida euismod. Sed vitae nisl non odio viverra accumsan. Curabitur nisi neque, egestas sed, vulputate sit amet, luctus vitae, dolor.
+Ons huis is opgeleverd en 2016 begint met heel veel klussen...
