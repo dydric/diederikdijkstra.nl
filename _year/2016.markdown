@@ -12,15 +12,15 @@ music:
   albums:
   - title: Schaduwland
     artist: Jan Swerts
-    cover_image:
+    cover_image: 
     spotify_url: https://open.spotify.com/album/2z9ELlKLzOFVNTnxWQoSfR
   - title: Bang zullen ze leven
     artist: Tjing Tjing
-    cover_image:
+    cover_image: 
     spotify_url: https://open.spotify.com/album/4oHH0A3jsN8a9yl1QUy3WL
   - title: Sirens
     artist: Nicolas Jaar
-    cover_image:
+    cover_image: 
     spotify_url: https://open.spotify.com/album/2EvZiOMBlC9b5hbjbZCjZv
   songs:
   - title: On Hold
@@ -34,9 +34,9 @@ music:
     spotify_url: https://open.spotify.com/track/07ZkpHysDtnBHQKbEOBZ2L
 map:
   markers:
-  - name:
-    latitude:
-    longitude:
+  - name: 
+    latitude: 
+    longitude: 
 strava:
   month:
   - distance: 0
@@ -77,9 +77,9 @@ strava:
     time: 8
 media:
   images:
-  -
+  - 
   video:
-  -
+  - 
 ---
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer consequat sapien a lectus gravida euismod. Sed vitae nisl non odio viverra accumsan. Curabitur nisi neque, egestas sed, vulputate sit amet, luctus vitae, dolor.
