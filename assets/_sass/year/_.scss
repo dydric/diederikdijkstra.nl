@@ -5,8 +5,8 @@
 
   &__content {
     max-width: inherit;
-    width: 100vw;
     text-align: center;
+    width: 100vw;
   }
 
   &--cycling {
@@ -31,12 +31,12 @@
 
 .year-title {
   @include unselectable();
-  color: $color-black;
+  color: $color-accent-1;
   font-family: $font-body;
-  font-size: 32vw;
-  left: -1.5vw;
-  letter-spacing: -3vw;
+  font-size: 54vw;
+  left: -14vw;
+  letter-spacing: -5vw;
+  line-height: .7;
   position: relative;
   text-align: center;
-  opacity: .5;
 }
