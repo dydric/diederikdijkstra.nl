@@ -1,7 +1,16 @@
 {% include head.html %}
-<div class="site">
-  {% if page.strava.month %}
+<div class="site site--year">
   <main class="mod mod--main">
+    <div class="mod__background">
+      <h1 class="year-title">{{ page.title }}</h1>
+    </div>
+    <div class="mod__content">
+      <h3>{{ content }}</h3>
+    </div>
+  </main>
+
+  {% if page.strava.month %}
+  <main class="mod mod--cycling">
     <div class="mod__content">
       <h1>Wielrennen</h1>
       {% assign distance = 0 %}
@@ -16,9 +25,9 @@
       {% endfor %}
       {% assign longest = distance_list | sort | last %}
       {% assign longest = longest | times: 1.0 %}
-      <h2>Totaal: {{ distance | append: "km" }} - {{ rides | append: " ritten"}} - {{ time | append: " uur" }}</h2>
-      Gemiddelde afstand per rit: {{ distance | divided_by: rides | append: "km" }}<br />
-      Gemiddelde snelheid: {{ distance | divided_by: time | append: "km/h" }}
+      <h3>Totaal: {{ distance | append: "km" }} - {{ rides | append: " ritten"}} - {{ time | append: " uur" }}</h3>
+      Gemiddelde afstand per rit: <strong>{{ distance | divided_by: rides | append: "km" }}</strong><br />
+      Gemiddelde snelheid: <strong>{{ distance | divided_by: time | append: "km/h" }}</strong>
     </div>
     <div class="mod__background">
       <div class="bars-chart__wrapper">
@@ -74,8 +83,6 @@
 
   <main class="mod mod--main">
     <div class="mod__content">
-      <h1>{{ page.title }}</h1>
-      {{ content }}
       <ul>
       {% for highlight in page.highlights.description %}
         <li>{{ highlight | markdownify }}</li>

@@ -9,6 +9,7 @@
   z-index: 2;
 
   &__content {
+    box-sizing: border-box;
     max-width: $max-width;
     padding: 5vh 5% 12vh;
     position: relative;
