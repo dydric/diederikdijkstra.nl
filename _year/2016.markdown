@@ -5,7 +5,7 @@ music:
   albums:
   - title: Schaduwland
     artist: Jan Swerts
-    cover_image: 
+    cover_image: https://www.dropbox.com/s/l1t7llchsdv2f1z/jan-swerts-schaduwland.jpg?raw=1
     spotify_url: https://open.spotify.com/album/2z9ELlKLzOFVNTnxWQoSfR
   - title: Bang zullen ze leven
     artist: Tjing Tjing
