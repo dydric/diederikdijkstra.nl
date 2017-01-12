@@ -15,10 +15,11 @@
     max-width: $max-width;
     padding: 5vh 5% 12vh;
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
-  &__background {
+  &__background,
+  &__bgtxt {
     bottom: 0;
     left: 0;
     overflow: hidden;
@@ -26,6 +27,18 @@
     right: 0;
     top: 0;
     z-index: 1;
+  }
+
+  &__bgtxt {
+    z-index: 2;
+    overflow: visible;
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+    }
   }
 
   &--header {
