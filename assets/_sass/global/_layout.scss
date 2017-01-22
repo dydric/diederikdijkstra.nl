@@ -30,12 +30,12 @@
   }
 
   &__bgtxt {
-    z-index: 2;
     overflow: visible;
+    z-index: 2;
 
     &__wrapper {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
       min-height: 100%;
     }
