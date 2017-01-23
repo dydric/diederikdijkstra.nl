@@ -12,9 +12,10 @@
     background-size: cover;
     height: 70%;
     left: 0;
-    opacity: .2;
+    opacity: 0;
     position: absolute;
     top: 0;
+    transition: opacity 2s ease-in-out;
     width: 100%;
 
     @include mq-ratio(true, 60) {
@@ -24,6 +25,10 @@
 
     @include mq-ratio(true, 200) {
       width: 33.33%;
+    }
+
+    &.lazyloaded {
+      opacity: .2;
     }
 
     &--2,
