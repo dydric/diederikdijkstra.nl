@@ -16,7 +16,7 @@
   </header>
 
   {% if page.photoset %}
-  <aside class="ps">
+  <aside class="ps rellax" data-rellax-speed="2">
     {% for images in page.photoset %}
       <div class="ps__img ps__img--{{ forloop.index }} lazyload" data-bgset="
       {% for image in images %}
@@ -29,7 +29,7 @@
   </aside>
   {% endif %}
 
-  <main class="mod mod--main" style="display: none;">
+  <main class="mod mod--main">
     <div class="mod__content">
       {{ content }}
     </div>
