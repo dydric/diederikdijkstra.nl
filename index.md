@@ -2,7 +2,7 @@
 title: Diederik
 layout: home
 social:
-  Twitter: http://www.twitter.com
+  Twitter: http://www.twitter.com/dydric
   Instagram: https://www.instagram.com/dydric/
   Github: https://github.com/dydric
   Strava: https://www.strava.com/athletes/630194
