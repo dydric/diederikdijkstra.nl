@@ -3,7 +3,6 @@
   left: 0;
   position: fixed;
   top: 0;
-  // transform: translate(-50%, -50%);
   width: 100vw;
   z-index: 1;
 
@@ -15,7 +14,7 @@
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity 2s ease-in-out;
+    transition: opacity 300ms ease-in-out;
     width: 100%;
 
     @include mq-ratio(true, 60) {
