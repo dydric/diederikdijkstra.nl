@@ -18,34 +18,34 @@ defaults:
   values:
     layout: year
     highlights:
-    - description: 
+    - description:
     music:
       albums:
-      - title: 
-        artist: 
-        cover_image: 
-        spotify_url: 
+      - title:
+        artist:
+        cover_image:
+        spotify_url:
       songs:
-      - title: 
-        artist: 
-        spotify_url: 
+      - title:
+        artist:
+        spotify_url:
     map:
       markers:
-      - name: 
-        latitude: 
-        longitude: 
+      - name:
+        latitude:
+        longitude:
     strava:
       month:
-      - distance: 
-        rides: 
-        time: 
+      - distance:
+        rides:
+        time:
     media:
       images:
-      - 
+      -
       video:
-      - 
+      -
 email: diederikdijkstra@gmail.com
-description: Front-end developer
+description: Front-end & prototype developer
 baseurl: https://diederikdijkstra.nl
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
