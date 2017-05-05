@@ -1,14 +1,17 @@
 {% include head.html %}
-<div class="site">
+<div class="min-vh-100 mv0 center overflow-hidden bg-near-black">
 
-  <header class="mod mod--header">
-    <div class="mod__content">
-      <p>{{site.description}}</p>
-      <h1>{{site.title}}</h1>
+  <header class="flex relative z-2 items-center justify-center min-vh-100 tc">
+    <div class="w-100 mw7 pa4 pb6">
+      <p class="code lh-copy white o-60 pb2">{{site.description}}</p>
+      <span class="w-100 bt bw1 mw4 b--white-40 db center"></span>
+      <h1 class="serif white lh-title f1 fw7 f-subheadline-ns">{{site.title}}</h1>
       {% if page.social %}
-      <ul class="social">
+      <ul class="mv0 pa0 mt2 list">
       {% for item in page.social %}
-        <li><a href="{{ item[1] }}" target="_blank">{{ item[0] }}</a></li>
+        <li class="db dib-ns mb2">
+          <a class="dib code mh2-ns pb1 bb bw1 white-40 no-underline hover-white hover-b" href="{{ item[1] }}" target="_blank">{{ item[0] }}</a>
+        </li>
       {% endfor %}
       </ul>
       {% endif %}
@@ -16,9 +19,17 @@
   </header>
 
   {% if page.photoset %}
-  <aside class="ps rellax" data-rellax-speed="2">
+  <aside class="h-100 w-100 fixed z-1 left-0 top-0 rellax" data-rellax-speed="2">
     {% for images in page.photoset %}
-      <div class="ps__img ps__img--{{ forloop.index }} lazyload" data-bgset="
+      <div class="bg-center cover fl lazyload o-20 ps{{ forloop.index }}
+      {% if forloop.index == 1 %}
+        w-100 h-75 w-50-ns h-100-ns
+      {% elsif forloop.index == 2 %}
+        w-50 h-25 fr-ns h-50-ns
+      {% elsif forloop.index == 3 %}
+        w-50 h-25 fr-ns h-50-ns
+      {% endif %}"
+      data-bgset="
       {% for image in images %}
         {{ image[1].small }} [(max-width: 600px)] |
         {{ image[1].medium }} [(max-width: 1000px)] |
@@ -29,8 +40,8 @@
   </aside>
   {% endif %}
 
-  <main class="mod mod--main">
-    <div class="mod__content">
+  <main class="flex relative z-2 items-center justify-center min-vh-100 tc bg-near-black">
+    <div class="w-100 mw7 pa4">
       {{ content }}
     </div>
   </main>
