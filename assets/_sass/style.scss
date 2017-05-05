@@ -1,6 +1,59 @@
 // MISC
 @import 'variables/';
 @import 'mixins/';
+@import 'assets/';
+
+// TACHYONS OVERWRITE
+
+// FONTS
+.serif { font-family: $font-serif;}
+
+code,
+.code {
+  font-family: $font-code;
+}
+
+// BORDERLINK
+.hover-b {
+  &:hover {
+    border-color: $gold;
+  }
+}
+
+// PHOTOSET
+@include mq-ratio(true, 200) {
+  .ps1,
+  .ps2,
+  .ps3 {
+    float: left;
+    height: 100%;
+    width: 33.33%;
+  }
+}
 
 // CONTENT
-@import 'content/';
+.content {
+  line-height: 2;
+
+  p {
+    margin-bottom: 2em;
+  }
+
+  a {
+    background-color: transparent;
+    border-bottom: 2px solid shade($color-white, 60);
+    color: $gold;
+    padding-bottom: 2px;
+    position: relative;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      border-bottom-color: $gold;
+      outline: 0;
+    }
+  }
+}
+
+@import 'content/images';
+
