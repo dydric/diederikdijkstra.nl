@@ -1,5 +1,4 @@
 
-
 (function(){
 	'use strict';
 	if(!window.addEventListener){return;}
@@ -1078,3 +1077,5 @@
   };
   return Rellax;
 }));
+
+var rellax = new Rellax('.rellax');
