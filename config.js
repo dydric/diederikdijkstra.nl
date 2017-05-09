@@ -37,8 +37,8 @@ var module = module.exports = {
 
   js: {
     entry: [
-      'script.js',
-      'plugins/*'
+      'plugins/*',
+      'script.js'
     ],
     output: 'bundle.js'
   },

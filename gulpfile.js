@@ -12,6 +12,7 @@ var newer        = require('gulp-newer');
 var plumber      = require('gulp-plumber');
 var pngquant     = require('imagemin-pngquant');
 var sass         = require('gulp-sass');
+var uncss        = require('gulp-uncss');
 var uglify       = require('gulp-uglify');
 var watch        = require('gulp-watch');
 var webpack      = require('webpack-stream');
@@ -67,7 +68,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
   browsersync.reload();
 });
 
-gulp.task('server', ['jekyll-build'], function() {
+gulp.task('server', ['jekyll-build', 'uncss'], function() {
   return browsersync.init({
     port: config.port,
     server: {
@@ -89,6 +90,16 @@ gulp.task('sass-critical', function () {
     .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
     .pipe(gulp.dest('_includes'));
+});
+
+// Uncss
+gulp.task('uncss', ['sass'], function() {
+  return gulp.src('_site/assets/css/style.css')
+    .pipe(uncss({
+      html: ['./_site/**/*.html'],
+      ignore: ['.rellax']
+    }))
+  .pipe(gulp.dest('_site/assets/css/'));
 });
 
 // ImageMin
