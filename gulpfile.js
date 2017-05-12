@@ -99,7 +99,9 @@ gulp.task('uncss', ['sass'], function() {
       html: ['./_site/**/*.html'],
       ignore: ['.rellax']
     }))
-  .pipe(gulp.dest('_site/assets/css/'));
+  .pipe(rename('style.min.css'))
+  .pipe(gulp.dest('_site/assets/css/'))
+  .pipe(gulp.dest('assets/css/'));
 });
 
 // ImageMin
