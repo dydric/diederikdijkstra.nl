@@ -63,7 +63,7 @@ gulp.task('jekyll-build', function (done) {
     .on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', ['jekyll-build', 'uncss'], function () {
   browsersync.notify('Rebuilded Jekyll');
   browsersync.reload();
 });
@@ -97,7 +97,7 @@ gulp.task('uncss', ['sass'], function() {
   return gulp.src('_site/assets/css/style.css')
     .pipe(uncss({
       html: ['./_site/**/*.html'],
-      ignore: ['.rellax']
+      ignore: ['.rellax', '.lazyloading']
     }))
   .pipe(rename('style.min.css'))
   .pipe(gulp.dest('_site/assets/css/'))
@@ -193,7 +193,8 @@ gulp.task('default', tasks, function () {
       paths.posts + '/**/*',
       paths.css + '/**/*',
       paths.js + '/**/*',
-      paths.images + '/**/*'
+      paths.images + '/**/*',
+      '!./assets/css/style.min.css',
     ], function () {
       gulp.start('jekyll-rebuild');
     });
