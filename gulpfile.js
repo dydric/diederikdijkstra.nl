@@ -63,12 +63,12 @@ gulp.task('jekyll-build', function (done) {
     .on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll-build', 'uncss'], function () {
+gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
   browsersync.notify('Rebuilded Jekyll');
   browsersync.reload();
 });
 
-gulp.task('server', ['jekyll-build', 'uncss'], function() {
+gulp.task('server', ['jekyll-build'], function() {
   return browsersync.init({
     port: config.port,
     server: {
@@ -93,13 +93,13 @@ gulp.task('sass-critical', function () {
 });
 
 // Uncss
-gulp.task('uncss', ['sass'], function() {
+gulp.task('uncss', ['server'], function() {
   return gulp.src('_site/assets/css/style.css')
     .pipe(uncss({
       html: ['./_site/**/*.html'],
       ignore: ['.rellax', '.lazyloading']
     }))
-  .pipe(rename('style.min.css'))
+  // .pipe(rename('style.min.css'))
   .pipe(gulp.dest('_site/assets/css/'))
   .pipe(gulp.dest('assets/css/'));
 });

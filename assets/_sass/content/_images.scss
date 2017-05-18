@@ -36,3 +36,21 @@ figcaption {
   text-align: center;
 }
 
+// .lazyloading {
+//   position: relative;
+//   overflow: hidden;
+//   background: yellow;
+
+//   &::before {
+//     border: 1px solid $color-white;
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     display: block;
+//     content: '';
+//     width: 10px;
+//     height: 10px;
+//     transform: translate(-50%, -50%);
+//     z-index: 3;
+//   }
+// }
