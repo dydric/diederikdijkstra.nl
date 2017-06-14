@@ -7,6 +7,7 @@
   "feature-detects": [
     "css/calc",
     "css/flexbox",
+    "css/cssgrid",
     "css/mediaqueries",
     "css/pointerevents",
     "elem/picture",
