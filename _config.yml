@@ -1,8 +1,5 @@
 ---
 title: Diederik Dijkstra
-description: Front-end developer
-keywords: Diederik, Diederik Dijkstra, Front-end developer, Leeuwarden
-
 timezone: Europe/Amsterdam
 collections:
   posts:
@@ -11,20 +8,17 @@ collections:
   uploads:
     title: Uploads
     output: true
-
+description: Front-end developer
+keywords: Diederik, Diederik Dijkstra, Front-end developer, Leeuwarden
 baseurl: https://diederikdijkstra.nl
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
-
 GA: UA-382624-7
 webfonts: "['Heebo:400,400i,700,700i', 'Source Code Pro:400,700', 'Anton']"
-
 future: true
 plugins:
-  - jekyll-feed
+- jekyll-feed
 markdown: kramdown
-# highlighter: rouge
-
 exclude:
 - ".editorconfig"
 - ".eslintrc.yml"
