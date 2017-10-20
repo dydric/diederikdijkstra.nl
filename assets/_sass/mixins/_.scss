@@ -1,14 +1,8 @@
 @import 'mediaqueries';
 
-
-
-
-
-// Global
-// ==========================================================================
-
 // Clearfix
 @mixin clearfix() {
+
   &::before,
   &::after {
     content: '';
@@ -20,14 +14,52 @@
   }
 }
 
-// Font-size
-@mixin font-size($number) {
-  font-size: #{ $number + 'rem'};
+// Development-border
+@mixin devborder($bordercolor: red) {
+  @if $dev == true {
+    border: 1px solid $bordercolor;
+    // box-sizing: border-box;
+  }
 }
 
-// Line-height
-@mixin line-height($number) {
-  line-height: #{ $number * $l-rem};
+// Font-size
+@mixin font-size($number) {
+  font-size: #{ $number / 10 + 'rem'};
+}
+
+// Responsive font-size
+@mixin text-size($title-font-size: 32, $vw-size-start: 600, $vw-size-stop: 1200) {
+
+  $vw-start: $vw-size-start / 100;
+  $vw-stop: $vw-size-stop / 100;
+
+  font-size: #{$title-font-size}px;
+
+  @include mq($vw-size-start) {
+    font-size: #{$title-font-size / $vw-start}vw;
+  }
+
+  @include mq($vw-size-stop) {
+    font-size: #{($title-font-size / $vw-start) * $vw-stop}px;
+  }
+}
+
+// Responsive margin-bottom
+@mixin margin-bottom($px: 24, $bp: $bp-medium) {
+  margin-bottom: #{$px / ($bp / 100)}vw;
+
+  @include mq($bp) {
+    margin-bottom: #{$px}px;
+  }
+}
+
+// Viewloaded
+@mixin fontloading() {
+  visibility: hidden;
+
+  .wf-active & {
+    visibility: visible;
+  }
 }
 
 // Unselectable
@@ -41,5 +73,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-

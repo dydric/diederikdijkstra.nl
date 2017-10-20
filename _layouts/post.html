@@ -1,14 +1,10 @@
 {% include head.html %}
-<div class="min-vh-100 mv0 center overflow-hidden bg-near-black">
-  <article class="mw8 center pa4 pt5-m pt6-l pb5-ns">
-    <h1 class="serif white lh-title f2 f1-m fw7 f-subheadline-l mb2">{{page.title}}</h1>
-    <span class="db code lh-copy white o-60 pb2 mb4 mb5-ns">
-      {% include functions/showdate.html type='page' %}
-      {% include functions/readingtime.html %}
-    </span>
-    <main class="code moon-gray content">
-      {{ content }}
-    </main>
+
+  <article class="article">
+    <h1>{{page.title}}</h1>
+    <p>{% include functions/showdate.html type='page' %}
+    {% include functions/readingtime.html %}</p>
+    {{ content }}
   </article>
-</div>
+
 {% include foot.html %}

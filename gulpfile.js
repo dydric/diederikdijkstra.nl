@@ -1,3 +1,6 @@
+/*eslint no-unused-vars: ["error", { "vars": "local" }]*/
+/*global require, process */
+
 'use strict';
 
 // gulp modules
@@ -12,12 +15,11 @@ var newer        = require('gulp-newer');
 var plumber      = require('gulp-plumber');
 var pngquant     = require('imagemin-pngquant');
 var sass         = require('gulp-sass');
-var uncss        = require('gulp-uncss');
 var uglify       = require('gulp-uglify');
 var watch        = require('gulp-watch');
-var webpack      = require('webpack-stream');
 var rename       = require('gulp-rename');
 var concat       = require('gulp-concat');
+var babel        = require('gulp-babel');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
@@ -26,12 +28,11 @@ var config = require('./config.js');
 var tasks  = [];
 var build  = [];
 var paths  = {};
-var entry  = [];
 
 // Set default & build tasks
 Object.keys(config.tasks).forEach(function (key) {
   if (config.tasks[key]) {
-    tasks.push(key == 'webpack' ? '_' + key : key);
+    tasks.push(key);
   }
 });
 
@@ -52,14 +53,9 @@ Object.keys(config.paths).forEach(function (key) {
   }
 });
 
-for (var i = 0; i <= config.js.entry.length - 1; i++) {
-  entry.push(paths.jsSrc + '/' + config.js.entry[i]);
-}
-
 // Jekyll
 gulp.task('jekyll-build', function (done) {
-  var jekyllConfig = config.jekyll.config;
-  return cp.spawn(jekyll, ['build', '--config', jekyllConfig], {stdio: 'inherit'})
+  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml'], {stdio: 'inherit'})
     .on('close', done);
 });
 
@@ -80,28 +76,17 @@ gulp.task('server', ['jekyll-build'], function() {
 // Sass
 gulp.task('sass', function () {
   return gulp.src([paths.sass + '/*.scss', '!' + paths.sass + '/critical.scss'])
-    .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
     .pipe(gulp.dest(paths.css));
 });
 
+// Copy critical.css to _includes folder to use inline
 gulp.task('sass-critical', function () {
   return gulp.src(paths.sass + '/critical.scss')
-    .pipe(sass({outputStyle: config.sass.outputStyle}).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
     .pipe(gulp.dest('_includes'));
-});
-
-// Uncss
-gulp.task('uncss', ['server'], function() {
-  return gulp.src('_site/assets/css/style.css')
-    .pipe(uncss({
-      html: ['./_site/**/*.html'],
-      ignore: ['.rellax', '.lazyloading']
-    }))
-  // .pipe(rename('style.min.css'))
-  .pipe(gulp.dest('_site/assets/css/'))
-  .pipe(gulp.dest('assets/css/'));
 });
 
 // ImageMin
@@ -118,45 +103,23 @@ gulp.task('imagemin', function () {
 });
 
 // Scripts
+
 gulp.task('scripts', function () {
-  return gulp.src(entry)
+  return gulp.src([paths.jsSrc + '/plugins/**/*.js', paths.jsSrc + '/script.js'])
     .pipe(concat('script.concat.js'))
-    .pipe(gulp.dest(paths.jsSrc))
-    .pipe(uglify())
+    .pipe(gulp.dest(paths.js))
+    .pipe(babel({
+      presets: ['es2015'],
+      minified: true,
+      comments: false
+    }))
     .pipe(rename('script.min.js'))
     .pipe(gulp.dest(paths.js));
 });
 
-// Webpack
-gulp.task('webpack', function () {
-  return gulp.src(entry)
-    .pipe(plumber())
-    .pipe(webpack({
-      watch: argv.watch ? true : false,
-      output: {
-        filename: config.js.output
-      },
-      module : {
-        loaders: [{
-          test: /.js$/,
-          loader: 'babel-loader'
-        }]
-      }
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.js));
-});
-
-// For internal use only
-gulp.task('_webpack', function () {
-  argv.watch = true;
-  gulp.start('webpack');
-});
-
 // Build
 gulp.task('build', build, function (done) {
-  var jekyllConfig = config.jekyll.config;
-  return cp.spawn(jekyll, ['build', '--config', jekyllConfig], {stdio: 'inherit'})
+  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml'], {stdio: 'inherit'})
     .on('close', done);
 });
 
@@ -169,13 +132,13 @@ gulp.task('default', tasks, function () {
   }
 
   if (config.tasks.sass) {
-    watch(paths.sass + '/**/*', function () {
+    watch(paths.sass + '/**/*.scss', function () {
       gulp.start('sass', 'sass-critical');
     });
   }
 
   if (config.tasks.scripts) {
-    watch(paths.jsSrc + '/**/*', function () {
+    watch([paths.jsSrc + '/plugins/**/*.js', paths.jsSrc + '/script.js'], function () {
       gulp.start('scripts');
     });
   }

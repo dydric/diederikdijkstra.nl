@@ -1,0 +1,67 @@
+body {
+  @include text-size(16, $bp-small, $bp-medium);
+
+  line-height: $lh-body;
+  margin: 0;
+  padding: 0;
+
+  > * {
+    visibility: visible;
+  }
+}
+
+// BUTTON
+
+.button {
+  background: #d6249f;
+  // background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  border-radius: 100vw;
+  color: $color-white;
+  display: inline-block;
+  font-weight: 700;
+  line-height: $lh-title;
+  padding: 1.5vw 3vw;
+  text-transform: uppercase;
+  // box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+// TITLES
+
+h1 {
+  @include text-size(48, $bp-small, $bp-xlarge);
+  @include margin-bottom(32);
+  @include unselectable();
+  @include fontloading();
+
+  font-family: $font-title;
+  font-weight: 400;
+  line-height: $lh-title;
+  text-transform: uppercase;
+
+  .header & {
+    @include text-size(48, 300, $bp-medium);
+
+    max-width: 70vw;
+  }
+}
+
+// BODY TEXT
+
+.article {
+
+  p,
+  ul,
+  ol {
+    max-width: $maxw-text;
+  }
+
+  p,
+  ul,
+  ol,
+  figure {
+    @include margin-bottom(24);
+    @include fontloading();
+
+    font-family: $font-body;
+  }
+}

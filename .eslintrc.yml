@@ -15,6 +15,3 @@ rules:
   semi:
     - error
     - always
-  globals:
-    WebFontConfig: false
-    ga: false

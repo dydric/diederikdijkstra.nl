@@ -1,76 +1,35 @@
-.site {
-  margin: 0 auto;
-  min-height: 100vh;
-  overflow: hidden;
-  width: 100vw;
-}
+.header {
+  @include devborder(green);
 
-.mod {
   display: flex;
-  position: relative;
-  z-index: 2;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: $maxw-site;
+
+  @include mq-ratio(max) {
+    height: 100vh - $himg-space;
+    max-height: $maxh-header;
+    padding-bottom: $himg-space;
+  }
+
+  @include mq-ratio() {
+    align-items: center;
+  }
 
   &__content {
+    @include devborder(brown);
+
     box-sizing: border-box;
-    max-width: $max-width;
-    padding: 5vh 5% 12vh;
+    padding: $gutter;
     position: relative;
-    z-index: 3;
-  }
-
-  &__background,
-  &__bgtxt {
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-
-  &__bgtxt {
-    overflow: visible;
     z-index: 2;
-
-    &__wrapper {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      min-height: 100%;
-    }
-  }
-
-  &--header {
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-
-    p:first-child {
-      margin-bottom: 5vh;
-      padding-bottom: 2vh;
-      position: relative;
-
-      &::after {
-        background: shade($color-white, 60);
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 2px;
-        left: 50%;
-        position: absolute;
-        transform: translateX(-50%);
-        width: 100px;
-      }
-    }
-  }
-
-  &--main {
-    align-items: center;
-    background: $color-page-background;
-    justify-content: center;
-    min-height: 100vh;
   }
 }
 
+.article {
+  @include devborder(pink);
+
+  box-sizing: border-box;
+  max-width: $maxw-site;
+  padding: $gutter;
+}

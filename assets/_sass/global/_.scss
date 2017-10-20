@@ -1,20 +1,11 @@
-@import 'normalize';
+@import 'layout',
+  'slider',
+  'typography';
 
-html {
-  background: $color-page-background;
-  color: $color-text;
-  font-family: $font-body;
-  font-size: 62.5%;
-  height: 100%;
-  line-height: $line-height;
-  overflow-y: scroll;
-  text-size-adjust: none;
-}
+// body {
+//   background: red;
 
-body {
-  margin: 0;
-}
-
-@import 'photoset',
-        'layout';
-
+//   @include mq-ratio(){
+//     background: green;
+//   }
+// }

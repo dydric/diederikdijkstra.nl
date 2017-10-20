@@ -1,21 +1,4 @@
 // SETTINGS
 @import 'variables/';
 @import 'mixins/';
-
-@import 'global/normalize';
-
-html {
-  height: 100%;
-}
-
-// LAYOUT
-// @import 'global/';
-
-// .content {
-//   visibility: hidden;
-
-//   .wf-active &,
-//   .wf-inactive & {
-//     visibility: visible;
-//   }
-// }
+@import 'critical/reset';

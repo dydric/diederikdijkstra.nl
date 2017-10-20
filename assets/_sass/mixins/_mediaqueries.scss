@@ -1,23 +1,21 @@
+// Breakpoints
 @mixin mq($point, $query1: min, $query2: width) {
   @if $query1 == 'max' {
     @media screen and (#{$query1}-#{$query2}: #{$point - 1}px) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media screen and (#{$query1}-#{$query2}: $point+px) {
       @content;
     }
   }
 }
 
-@mixin mq-ratio($landscape: true, $size: 100) {
-  @if $landscape == true {
-    @media screen and (min-width: #{$size}vh) {
-      @content;
-    }
-  } @else {
-    @media screen and (min-height: #{$size}vw) {
-      @content;
-    }
+// Ratio breakpoint
+@mixin mq-ratio($ratio: min, $size1: 100, $size2: 100) {
+  @media screen and (#{$ratio}-aspect-ratio: #{$size1}/#{$size2}) {
+    @content;
   }
 }

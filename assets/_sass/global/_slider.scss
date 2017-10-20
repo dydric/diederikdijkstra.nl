@@ -1,0 +1,47 @@
+.slider {
+  @include devborder(blue);
+
+  height: 100vh;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  user-select: none;
+  width: 100vw;
+  z-index: 0;
+
+  li {
+    @include devborder(red);
+
+    flex: 0 0 auto;
+    height: 100vh;
+    left: 100vw;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+
+    .bgimg {
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100vh - $himg-space;
+      left: 10vw;
+      margin: 0 auto;
+      max-height: $maxh-header;
+      position: absolute;
+      right: 0;
+      top: $himg-space;
+      z-index: 0;
+
+      @include mq-ratio() {
+        background-position: left 50%;
+        height: 92vh;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50vw;
+      }
+    }
+  }
+}

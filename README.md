@@ -1,7 +1,15 @@
-[![Build Status](https://travis-ci.org/dydric/dydric.github.io.svg?branch=master)](https://travis-ci.org/dydric/dydric.github.io)
+# Quick starter project for Jekyll
 
-[diederikdijkstra.nl](http://diederikdijkstra.nl)
+**Features**: Gulp, SCSS, Stylelint, Autoprefix, Babel, ES2015, Imagemin, Browsersync, Critical CSS, ESlint, Modernizr, Webfonts.js, ready for SSL and Siteleaf.com
 
-- Install: `npm install`
-- Start: `npm start`
-- Clean stylesheet (run task before deploy): `gulp uncss`
+- Clone this repo
+- Install `npm i` and start `npm start`
+- Have fun!
+
+## Settings
+- **config.js** for gulp settings
+- **_config.yml** for jekyll settings
+- **modernizr.json** for modernizr features
+
+### Todo's
+- Update `.travis.yml`

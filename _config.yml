@@ -1,5 +1,8 @@
 ---
 title: Diederik Dijkstra
+description: Front-end developer
+keywords: Diederik, Diederik Dijkstra, Front-end developer, Leeuwarden
+
 timezone: Europe/Amsterdam
 collections:
   posts:
@@ -8,52 +11,20 @@ collections:
   uploads:
     title: Uploads
     output: true
-  year:
-    title: Year
-    output: true
-defaults:
-- scope:
-    path: ''
-    type: year
-  values:
-    layout: year
-    highlights:
-    - description: 
-    music:
-      albums:
-      - title: 
-        artist: 
-        cover_image: 
-        spotify_url: 
-      songs:
-      - title: 
-        artist: 
-        spotify_url: 
-    map:
-      markers:
-      - name: 
-        latitude: 
-        longitude: 
-    strava:
-      month:
-      - distance: 
-        rides: 
-        time: 
-    media:
-      images:
-      - 
-      video:
-      - 
-email: diederikdijkstra@gmail.com
-description: Front-end & prototype developer
+
 baseurl: https://diederikdijkstra.nl
 url: https://diederikdijkstra.nl
 enforce_ssl: diederikdijkstra.nl
+
+GA: UA-382624-7
+webfonts: "['Heebo:400,400i,700,700i', 'Source Code Pro:400,700', 'Anton']"
+
 future: true
-gems:
-- jemoji
+plugins:
+  - jekyll-feed
 markdown: kramdown
-highlighter: rouge
+# highlighter: rouge
+
 exclude:
 - ".editorconfig"
 - ".eslintrc.yml"
@@ -67,4 +38,5 @@ exclude:
 - node_modules
 - npm-debug.log
 - package.json
+- package-lock.json
 - README.md

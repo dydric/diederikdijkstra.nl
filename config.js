@@ -4,9 +4,8 @@ var module = module.exports = {
   tasks: {
     imagemin:   true,
     sass:       true,
-    server:     true,
-    webpack:    false,
     scripts:    true,
+    server:     true
   },
 
   paths: {
@@ -21,25 +20,10 @@ var module = module.exports = {
     imagesSrc: '_img',
   },
 
-  jekyll: {
-    config: '_config.yml'
-  },
-
-  sass: {
-    outputStyle: 'compressed',
-  },
-
   autoprefixer: {
     browsers: [
       'last 3 versions',
     ]
   },
 
-  js: {
-    entry: [
-      'plugins/*',
-      'script.js'
-    ],
-    output: 'bundle.js'
-  },
 };

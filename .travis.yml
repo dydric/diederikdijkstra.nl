@@ -1,36 +1,27 @@
-language: ruby
-rvm:
-  - 2.2.2
-
-before_install:
-  - gem install scss_lint --no-ri --no-rdoc
-  - npm install eslint
-
-script:
-  - bundle exec jekyll build
-  # - bundle exec htmlproofer ./_site --only-4xx --check-favicon --check-html
-  - scss-lint assets/_sass/**/*.scss
-  # - node_modules/.bin/eslint assets/_js/script.js
-
-env:
-  global:
-    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+language: node_js
+node_js:
+  - '8'
+  - '6'
 
 branches:
   only:
     - master
     - gh-pages
 
-# scss-lint:
-#   image: ruby:2.1
-#   script:
-#     - gem install scss_lint --no-ri --no-rdoc
-#     - scss-lint assets/_sass/**/*.scss
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 
-# js-lint:
-#   image: node:6.3.0-slim
-#   script:
-#     - npm install eslint
-#     - node_modules/.bin/eslint assets/_js/script.js
+before_install:
+  - rvm install 2.4.1
+
+install:
+  - npm install
+  - gem install html-proofer
+
+script:
+  - jekyll build
+  - npm test
+  - htmlproofer ./_site
 
 sudo: false

@@ -1,50 +1,25 @@
 {% include head.html %}
-<div class="min-vh-100 mv0 center overflow-hidden bg-near-black">
-
-  <header class="flex relative z-2 items-center justify-center min-vh-100 tc">
-    <div class="w-100 mw7 pa4 pb6">
-      <p class="code lh-copy white o-60 pb2">{{site.description}}</p>
-      <span class="w-100 bt bw1 mw4 b--white-40 db center"></span>
-      <h1 class="serif white lh-title f1 fw7 f-subheadline-ns">{{site.title}}</h1>
-      {% if page.social %}
-      <ul class="mv0 pa0 mt2 list">
-      {% for item in page.social %}
-        <li class="db dib-ns mb2">
-          <a class="dib code mh2-ns pb1 bb bw1 white-40 no-underline hover-white hover-b" href="{{ item[1] }}" target="_blank">{{ item[0] }}</a>
-        </li>
-      {% endfor %}
+  <header class="header">
+    <div class="header__content">
+      <h1>ØH HELLO!<br>THIS IS ME.</h1>
+      {% comment %} {% if page.social %}
+      <ul>
+        {% for item in page.social %}
+          <li><a href="{{ item[1] }}" target="_blank" class="button button--{{ item[0] | downcase }}">{{ item[0] }}</a></li>
+        {% endfor %}
       </ul>
-      {% endif %}
+      {% endif %} {% endcomment %}
     </div>
+
+    <ul class="slider">
+      {% for i in (1..4) %}
+        {% include slide.html %}
+      {% endfor %}
+      {% for i in (1..1) %}
+        {% include slide.html %}
+      {% endfor %}
+    </ul>
+
   </header>
 
-  {% if page.photoset %}
-  <aside class="h-100 w-100 fixed z-1 left-0 top-0 rellax" data-rellax-speed="2">
-    {% for images in page.photoset %}
-      <div class="bg-center cover fl lazyload o-20 ps{{ forloop.index }}
-      {% if forloop.index == 1 %}
-        w-100 h-75 w-50-ns h-100-ns
-      {% elsif forloop.index == 2 %}
-        w-50 h-25 fr-ns h-50-ns
-      {% elsif forloop.index == 3 %}
-        w-50 h-25 fr-ns h-50-ns
-      {% endif %}"
-      data-bgset="
-      {% for image in images %}
-        {{ image[1].small }} [(max-width: 600px)] |
-        {{ image[1].medium }} [(max-width: 1000px)] |
-        {{ image[1].large }}
-      {% endfor %}
-      " data-sizes="auto"></div>
-    {% endfor %}
-  </aside>
-  {% endif %}
-
-<!--   <main class="flex relative z-2 items-center justify-center min-vh-100 tc bg-near-black">
-    <div class="w-100 mw7 pa4">
-      {{ content }}
-    </div>
-  </main> -->
-
-</div>
 {% include foot.html %}
