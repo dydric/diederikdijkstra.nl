@@ -9,3 +9,4 @@ npm-debug.log
 .DS_Store
 .sublime-project
 .sublime-workspace
+/Gemfile.lock
