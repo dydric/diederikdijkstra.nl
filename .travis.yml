@@ -17,11 +17,11 @@ before_install:
 
 install:
   - npm install
-  - gem install html-proofer
+  # - gem install html-proofer
 
 script:
   - jekyll build
   - npm test
-  - htmlproofer ./_site
+  # - htmlproofer ./_site
 
 sudo: false
