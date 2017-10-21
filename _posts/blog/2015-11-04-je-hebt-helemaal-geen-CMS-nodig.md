@@ -1,6 +1,6 @@
 ---
 title: Je hebt helemaal geen $#@%*!^ CMS nodig
-date: 2015-11-04 00:00:00 Z
+date: 2015-11-04 01:00:00 +01:00
 categories:
 - Blog
 layout: post
