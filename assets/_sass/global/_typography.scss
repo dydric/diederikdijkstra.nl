@@ -12,17 +12,70 @@ body {
 
 // BUTTON
 
+.buttons {
+  @include devborder(purple);
+
+  display: flex;
+  flex-wrap: wrap;
+  // width: 120px;
+
+  @include mq-ratio(max) {
+    flex-direction: row;
+    max-width: 100px;
+    width: 16vw;
+  }
+}
+
 .button {
-  background: #d6249f;
-  // background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-  border-radius: 100vw;
+  background-color: transparentize($color-black, .75);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 8vw 8vw;
+  border-radius: 50%;
   color: $color-white;
-  display: inline-block;
+  display: block;
   font-weight: 700;
+  height: 16vw;
   line-height: $lh-title;
-  padding: 1.5vw 3vw;
+  margin-right: 20px;
+  max-height: 100px;
+  max-width: 100px;
+  overflow: hidden;
+  text-indent: -9999px;
   text-transform: uppercase;
-  // box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+  width: 16vw;
+
+  @include mq-ratio(max) {
+    margin: 0 0 10px;
+  }
+
+  @include mq(500) {
+    background-size: 50px 50px;
+  }
+
+  &--instagram {
+    background-image: url(../svg/instagram.svg);
+
+    &:hover {
+      background-color: #bc2a8d;
+    }
+  }
+
+  &--twitter {
+    background-image: url(../svg/twitter.svg);
+
+    &:hover {
+      background-color: #00aced;
+    }
+  }
+
+  &--email {
+    background-image: url(../svg/envelope.svg);
+
+    &:hover {
+      background-color: #c71610;
+    }
+  }
 }
 
 // TITLES

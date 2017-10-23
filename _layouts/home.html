@@ -2,13 +2,15 @@
   <header class="header">
     <div class="header__content">
       <h1>ØH HELLO!<br>THIS IS ME.</h1>
-      {% comment %} {% if page.social %}
-      <ul>
+      {% if page.social %}
+      <ul class="buttons">
         {% for item in page.social %}
-          <li><a href="{{ item[1] }}" target="_blank" class="button button--{{ item[0] | downcase }}">{{ item[0] }}</a></li>
+          <li>
+            <a href="{{ item[1] }}" target="_blank" class="button button--{{ item[0] | downcase }}">{{ item[0] }}</a>
+          </li>
         {% endfor %}
       </ul>
-      {% endif %} {% endcomment %}
+      {% endif %}
     </div>
 
     <ul class="slider">
