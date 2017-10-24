@@ -1,6 +1,7 @@
 body {
   @include text-size(16, $bp-small, $bp-medium);
 
+  background-color: $color-grey-800;
   line-height: $lh-body;
   margin: 0;
   padding: 0;
@@ -27,12 +28,11 @@ body {
 }
 
 .button {
-  background-color: transparentize($color-black, .75);
+  background-color: $color-black;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 8vw 8vw;
   border-radius: 50%;
-  color: $color-white;
   display: block;
   font-weight: 700;
   height: 16vw;
@@ -40,13 +40,19 @@ body {
   margin-right: 20px;
   max-height: 100px;
   max-width: 100px;
+  opacity: .5;
   overflow: hidden;
   text-indent: -9999px;
   text-transform: uppercase;
   width: 16vw;
   z-index: 1;
 
+  .touchevents & {
+    opacity: 1;
+  }
+
   &:hover {
+    opacity: 1;
     z-index: 2;
   }
 
@@ -61,6 +67,7 @@ body {
   &--instagram {
     background-image: url(../svg/instagram.svg);
 
+    .touchevents &,
     &:hover {
       background-color: #bc2a8d;
     }
@@ -69,6 +76,7 @@ body {
   &--twitter {
     background-image: url(../svg/twitter.svg);
 
+    .touchevents &,
     &:hover {
       background-color: #00aced;
     }
@@ -77,6 +85,7 @@ body {
   &--email {
     background-image: url(../svg/envelope.svg);
 
+    .touchevents &,
     &:hover {
       background-color: #c71610;
     }
@@ -99,6 +108,7 @@ h1 {
   .header & {
     @include text-size(48, 300, $bp-medium);
 
+    color: transparentize($color-white, .1);
     max-width: 70vw;
   }
 }
