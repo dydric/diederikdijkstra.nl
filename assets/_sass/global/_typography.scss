@@ -44,6 +44,11 @@ body {
   text-indent: -9999px;
   text-transform: uppercase;
   width: 16vw;
+  z-index: 1;
+
+  &:hover {
+    z-index: 2;
+  }
 
   @include mq-ratio(max) {
     margin: 0 0 10px;
