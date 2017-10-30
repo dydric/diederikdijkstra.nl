@@ -1436,7 +1436,7 @@ if(btn1) {
         scale: 1.15,
         ease: Power2.easeOut
       });
-      this.el.style.zIndex = 10;
+      // this.el.style.zIndex = 10;
     }
     onLeave() {
       TweenMax.to(this.el, 0.7, {
@@ -1445,13 +1445,14 @@ if(btn1) {
         scale: 1,
         ease: Elastic.easeOut.config(1.2, 0.4)
       });
-      this.el.style.zIndex = 1;
+      // this.el.style.zIndex = 1;
     }
   }
 
   new HoverButton(btn1);
   new HoverButton(btn2);
   new HoverButton(btn3);
+
 }
 
 // // WAYPOINTS

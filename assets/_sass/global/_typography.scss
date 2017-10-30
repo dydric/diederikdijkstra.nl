@@ -25,6 +25,21 @@ body {
     max-width: 100px;
     width: 16vw;
   }
+
+  li {
+    opacity: 0;
+
+    @for $i from 1 through 3 {
+
+      &:nth-child(#{$i}) {
+        transition: opacity 600ms (150ms * $i + 800ms) ease-in-out;
+      }
+    }
+
+    .wf-active & {
+     opacity: 1;
+    }
+  }
 }
 
 .button {
@@ -40,7 +55,7 @@ body {
   margin-right: 20px;
   max-height: 100px;
   max-width: 100px;
-  opacity: .5;
+  opacity: .6;
   overflow: hidden;
   text-indent: -9999px;
   text-transform: uppercase;
@@ -110,6 +125,25 @@ h1 {
 
     color: transparentize($color-white, .1);
     max-width: 70vw;
+
+    span {
+      display: inline-block;
+      min-width: 2vw;
+      opacity: 0;
+      transform: scale(.4, .8);
+
+      @for $i from 1 through 50 {
+
+        &:nth-child(#{$i}) {
+          transition: transform 300ms ((50ms * $i)) ease-in-out, opacity 200ms ((50ms * $i)) ease-in-out;
+        }
+      }
+
+      .wf-active & {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   }
 }
 
