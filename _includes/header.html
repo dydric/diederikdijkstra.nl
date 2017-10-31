@@ -1,0 +1,15 @@
+<header class="header">
+  <div class="header__content">
+    <h1>ØH HELLO!<br>THIS IS ME.</h1>
+    <p>{{ site.title | split: ' ' | first }}</p>
+    {% include header/social.html %}
+  </div>
+  <ul class="slider">
+    {% for i in (1..4) %}
+      {% include header/slide.html %}
+    {% endfor %}
+    {% for i in (1..1) %}
+      {% include header/slide.html %}
+    {% endfor %}
+  </ul>
+</header>

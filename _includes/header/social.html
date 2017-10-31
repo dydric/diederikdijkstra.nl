@@ -1,0 +1,9 @@
+{% if page.social %}
+  <ul class="buttons">
+  {% for item in page.social %}
+    <li>
+      <a href="{{ item[1] }}" target="_blank" class="button button--{{ item[0] | downcase }}">{{ item[0] }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endif %}

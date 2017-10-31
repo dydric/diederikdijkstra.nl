@@ -1,27 +1,3 @@
 {% include head.html %}
-  <header class="header">
-    <div class="header__content">
-      <h1>ØH HELLO!<br>THIS IS ME.</h1>
-      {% if page.social %}
-      <ul class="buttons">
-        {% for item in page.social %}
-          <li>
-            <a href="{{ item[1] }}" target="_blank" class="button button--{{ item[0] | downcase }}">{{ item[0] }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-
-    <ul class="slider">
-      {% for i in (1..4) %}
-        {% include slide.html %}
-      {% endfor %}
-      {% for i in (1..1) %}
-        {% include slide.html %}
-      {% endfor %}
-    </ul>
-
-  </header>
-
+  {% include header.html %}
 {% include foot.html %}

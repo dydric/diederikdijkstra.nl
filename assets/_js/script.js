@@ -6,9 +6,14 @@ var section = document.querySelector('.section');
 var sections = document.querySelectorAll('.section');
 
 // CHARMING
-const h1title = document.querySelector('h1');
-if(h1title) {
-  charming(h1title);
+const h1Header = document.querySelector('.header h1');
+const pHeader = document.querySelector('.header p');
+if(h1Header) {
+  charming(h1Header);
+}
+
+if(pHeader) {
+  charming(pHeader);
 }
 
 // ONLY WHEN BODY HASCLASS BODY--HOME
