@@ -1,7 +1,7 @@
 body {
   @include text-size(16, $bp-small, $bp-medium);
 
-  background-color: $color-grey-800;
+  background: $color-black url(../img/noise.png);
   line-height: $lh-body;
   margin: 0;
   padding: 0;
@@ -37,13 +37,13 @@ body {
     }
 
     .wf-active & {
-     opacity: 1;
+      opacity: 1;
     }
   }
 }
 
 .button {
-  background-color: $color-black;
+  background-color: $color-grey-800;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 8vw 8vw;
