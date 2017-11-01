@@ -5,10 +5,16 @@
   height: 100vh;
   margin: 0 auto;
   max-width: $maxw-site;
+  min-height: 60vw;
+
+  @include mq($bp-medium) {
+    min-height: 480px;
+  }
 
   @include mq-ratio(max) {
     height: 100vh - $himg-space;
     max-height: $maxh-header;
+    min-height: inherit;
     padding-bottom: $himg-space;
   }
 

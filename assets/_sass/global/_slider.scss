@@ -4,12 +4,16 @@
   height: 100vh;
   left: 50%;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   transform: translateX(-50%);
   user-select: none;
   width: 100vw;
   z-index: 0;
+
+  @include mq-ratio(max) {
+    position: absolute;
+  }
 
   li {
     @include devborder(red);

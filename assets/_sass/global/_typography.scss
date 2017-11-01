@@ -109,6 +109,17 @@ body {
 
 // TITLES
 
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 h1 {
   @include text-size(48, $bp-small, $bp-xlarge);
   @include margin-bottom(32);
@@ -124,7 +135,7 @@ h1 {
     @include text-size(48, 300, $bp-medium);
 
     color: transparentize($color-white, .1);
-    margin-bottom: 0;
+    // margin-bottom: 0;
     max-width: 70vw;
 
     span {
@@ -140,67 +151,34 @@ h1 {
         }
       }
 
-      .wf-active & {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  }
-}
+      &:last-child {
+        position: relative;
 
-// BODY TEXT
+        &::after {
+          animation: spin 12s linear infinite;
+          // color: #ffc600;
+          content: '*';
+          display: inline-block;
+          height: 8vw;
+          left: 1.5vw;
+          line-height: 13.5vw;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 8vw;
 
-.header {
-
-  p {
-    @include text-size(16, 300, 600);
-    @include margin-bottom(24);
-
-    color: transparentize($color-white, .5);
-    display: block;
-    font-family: $font-title;
-    position: relative;
-    text-transform: uppercase;
-    transition: transform 300ms 2200ms ease-in-out;
-
-    .wf-active & {
-      transform: translateX(60px);
-    }
-
-    span {
-      display: inline-block;
-      opacity: 0;
-      transform: scale(.4, .8);
-
-      @for $i from 1 through 25 {
-
-        &:nth-child(#{$i}) {
-          transition: transform 300ms ((50ms * $i) + (50ms * 25)) ease-in-out, opacity 200ms ((50ms * $i) + (50ms * 25)) ease-in-out;
+          @include mq($bp-medium) {
+            height: 64px;
+            left: 12px;
+            line-height: 108px;
+            width: 64px;
+          }
         }
       }
 
       .wf-active & {
         opacity: 1;
         transform: scale(1);
-      }
-    }
-
-    &::before {
-      background: transparentize($color-white, .5);
-      content: '';
-      display: block;
-      height: 1px;
-      // max-width: 2em;
-      width: 50px;
-      position: absolute;
-      left: -60px;
-      top: 50%;
-      transform: scaleX(0);
-      transform-origin: left;
-
-      .wf-active & {
-        transform: scaleX(1);
-        transition: transform 600ms 2500ms ease-in-out;
       }
     }
   }
