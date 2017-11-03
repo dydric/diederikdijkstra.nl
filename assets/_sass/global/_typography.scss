@@ -157,6 +157,7 @@ h1 {
 
       &:last-child {
         position: relative;
+        pointer-events: none;
 
         &::after {
           animation: spin 12s linear infinite;
@@ -170,6 +171,7 @@ h1 {
           text-align: center;
           top: 0;
           width: 8vw;
+          pointer-events: auto;
 
           @include mq($bp-medium) {
             height: 64px;
@@ -178,6 +180,14 @@ h1 {
             width: 64px;
           }
         }
+
+        // &:hover {
+        //   text-decoration: none;
+
+        //   &::after {
+        //     // animation: spin 1s linear infinite;
+        //   }
+        // }
       }
 
       .wf-active & {
