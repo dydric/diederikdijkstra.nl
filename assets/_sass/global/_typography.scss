@@ -156,22 +156,22 @@ h1 {
       }
 
       &:last-child {
-        position: relative;
         pointer-events: none;
+        position: relative;
 
         &::after {
-          animation: spin 12s linear infinite;
           // color: #ffc600;
+          animation: spin 12s linear infinite;
           content: '*';
           display: inline-block;
           height: 8vw;
           left: 1.5vw;
           line-height: 13.5vw;
+          pointer-events: auto;
           position: absolute;
           text-align: center;
           top: 0;
           width: 8vw;
-          pointer-events: auto;
 
           @include mq($bp-medium) {
             height: 64px;
