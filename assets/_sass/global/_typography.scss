@@ -1,7 +1,23 @@
-body {
-  @include text-size(16, $bp-small, $bp-medium);
+@font-face {
+  font-family: 'Inter UI';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/Inter-UI-Black.woff2') format('woff2'), url('../fonts/Inter-UI-Black.woff') format('woff');
+}
 
-  background: $color-black url(../img/noise.png);
+@font-face {
+  font-family: 'Inter UI';
+  font-style: italic;
+  font-weight: 900;
+  src: url('../fonts/Inter-UI-BlackItalic.woff2') format('woff2'), url('../fonts/Inter-UI-BlackItalic.woff') format('woff');
+}
+
+body {
+  @include text-size(16, $bp-small, $bp-large);
+
+  background: $color-grey-800;
+  color: $color-white;
+  font-family: 'Inter UI', sans-serif;
   line-height: $lh-body;
   margin: 0;
   padding: 0;
@@ -11,208 +27,25 @@ body {
   }
 }
 
-// BUTTON
-
-.buttons {
-  @include devborder(purple);
-
-  display: flex;
-  flex-wrap: wrap;
-  // width: 120px;
-
-  @include mq-ratio(max) {
-    flex-direction: row;
-    max-width: 100px;
-    width: 16vw;
-  }
-
-  li {
-    opacity: 0;
-
-    @for $i from 1 through 3 {
-
-      &:nth-child(#{$i}) {
-        transition: opacity 600ms (150ms * $i + (50ms * 35)) ease-in-out;
-      }
-    }
-
-    .wf-active & {
-      opacity: 1;
-    }
-  }
-}
-
-.button {
-  background-color: $color-grey-800;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 8vw 8vw;
-  border-radius: 50%;
-  display: block;
-  font-weight: 700;
-  height: 16vw;
-  line-height: $lh-title;
-  margin-right: 20px;
-  max-height: 100px;
-  max-width: 100px;
-  opacity: .6;
-  overflow: hidden;
-  text-indent: -9999px;
-  text-transform: uppercase;
-  width: 16vw;
-  z-index: 1;
-
-  .touchevents & {
-    opacity: 1;
-  }
-
-  &:hover {
-    opacity: 1;
-    z-index: 2;
-  }
-
-  @include mq-ratio(max) {
-    margin: 0 0 10px;
-  }
-
-  @include mq(500) {
-    background-size: 50px 50px;
-  }
-
-  &--instagram {
-    background-image: url(../svg/instagram.svg);
-
-    .touchevents &,
-    &:hover {
-      background-color: #bc2a8d;
-    }
-  }
-
-  &--twitter {
-    background-image: url(../svg/twitter.svg);
-
-    .touchevents &,
-    &:hover {
-      background-color: #00aced;
-    }
-  }
-
-  &--email {
-    background-image: url(../svg/envelope.svg);
-
-    .touchevents &,
-    &:hover {
-      background-color: #c71610;
-    }
-  }
-}
-
-// TITLES
-
-@keyframes spin {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 h1 {
-  @include text-size(48, $bp-small, $bp-xlarge);
-  @include margin-bottom(32);
-  @include unselectable();
-  @include fontloading();
+  @include margin-bottom(40);
 
-  font-family: $font-title;
-  font-weight: 400;
-  line-height: $lh-title;
-  text-transform: uppercase;
+  font-size: 240%;
 
-  .header & {
-    @include text-size(48, 300, $bp-medium);
-
-    color: transparentize($color-white, .1);
-    // margin-bottom: 0;
-    // max-width: 70vw;
-
-    span {
-      display: inline-block;
-      min-width: 2vw;
-      opacity: 0;
-      transform: scale(.4, .8);
-
-      @include mq($bp-medium) {
-        min-width: 16px;
-      }
-
-      @for $i from 1 through 25 {
-
-        &:nth-child(#{$i}) {
-          transition: transform 300ms ((50ms * $i)) ease-in-out, opacity 200ms ((50ms * $i)) ease-in-out;
-        }
-      }
-
-      &:last-child {
-        pointer-events: none;
-        position: relative;
-
-        &::after {
-          // color: #ffc600;
-          animation: spin 12s linear infinite;
-          content: '*';
-          display: inline-block;
-          height: 8vw;
-          left: 1.5vw;
-          line-height: 13.5vw;
-          pointer-events: auto;
-          position: absolute;
-          text-align: center;
-          top: 0;
-          width: 8vw;
-
-          @include mq($bp-medium) {
-            height: 64px;
-            left: 12px;
-            line-height: 108px;
-            width: 64px;
-          }
-        }
-
-        // &:hover {
-        //   text-decoration: none;
-
-        //   &::after {
-        //     // animation: spin 1s linear infinite;
-        //   }
-        // }
-      }
-
-      .wf-active & {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+  + p {
+    color: rgba(255, 255, 255, .3);
+    font-size: 160%;
+    user-select: none;
   }
 }
 
-.article {
+p {
+  @include margin-bottom(40);
+}
 
-  p,
-  ul,
-  ol {
-    max-width: $maxw-text;
-  }
-
-  p,
-  ul,
-  ol,
-  figure {
-    @include margin-bottom(24);
-    @include fontloading();
-
-    font-family: $font-body;
-  }
+img.emoji {
+  height: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -.1em;
+  width: 1em;
 }
