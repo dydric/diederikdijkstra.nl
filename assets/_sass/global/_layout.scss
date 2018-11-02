@@ -30,6 +30,31 @@
     position: relative;
     z-index: 2;
   }
+
+  &__text {
+    @include devborder(blue);
+
+    max-width: $maxw-site - (2 * $gutter);
+    min-height: 108px;
+    position: relative;
+    width: calc(100vw - 40px);
+
+    @include mq(300) {
+      min-height: 36vw;
+    }
+
+    @include mq($bp-medium) {
+      min-height: 288px;
+    }
+
+    h1 {
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform: translateY(10%);
+    }
+  }
 }
 
 .article {

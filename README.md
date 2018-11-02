@@ -3,7 +3,7 @@
 **Features**: Gulp, SCSS, Stylelint, Autoprefix, Babel, ES2015, Imagemin, Browsersync, Critical CSS, ESlint, Modernizr, Webfonts.js, ready for SSL and Siteleaf.com
 
 - Clone this repo
-- Install `npm i` and start `npm start`
+- Install `yarn i` and start `yarn start`
 - Have fun!
 
 ## Settings

@@ -1336,20 +1336,16 @@ var section = document.querySelector('.section');
 var sections = document.querySelectorAll('.section');
 
 // CHARMING
-const h1Header = document.querySelector('.header h1');
-const pHeader = document.querySelector('.header p');
-if(h1Header) {
-  charming(h1Header);
-}
+// const headerText = document.querySelector('h1');
 
-if(pHeader) {
-  charming(pHeader);
-}
+// if(h1Header) {
+//   charming(h1Header);
+// }
 
 // ONLY WHEN BODY HASCLASS BODY--HOME
 if (body.classList.contains('body--home')) {
 
-  // SLIDER
+  // IMAGE SLIDER
   const headerslides = document.querySelectorAll('.slider li');
   const headerimg = document.querySelectorAll('.slider li .bgimg');
 
@@ -1375,9 +1371,40 @@ if (body.classList.contains('body--home')) {
     },
   });
 
+
+  const headertitles = document.querySelectorAll('.header__text h1');
+
+  var textslider = anime({
+    targets: headertitles,
+    autoplay: false,
+    opacity: [
+      { value: '1', duration: 5000, easing: 'easeOutExpo'},
+      { value: '0', duration: 1000, easing: 'easeOutExpo'}
+    ],
+    translateY: [
+      { value: '10%', duration: 0},
+      { value: '0', duration: 5000},
+      { value: '-50%', duration: 2500, easing: 'easeOutExpo'}
+    ],
+    loop: true,
+    delay: function(el, i) {
+      return i * 5000;
+    },
+    run: function(anim) {
+      // Start slider again at 5000ms when progress is 90%
+      // console.log('progress : ' + Math.round(anim.progress) + '%');
+      if (Math.round(anim.progress) >= 90) {
+        textslider.pause();
+        textslider.seek(5000);
+        textslider.play();
+      }
+    },
+  });
+
   // START SLIDER WHEN READY
   imagesLoaded( headerimg, { background: true }, function() {
     slider.play();
+    textslider.play();
   });
 
 }
