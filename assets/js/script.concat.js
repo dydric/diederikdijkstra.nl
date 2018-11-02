@@ -833,8 +833,6 @@
 }
 ));
 
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var n;n="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,n.charming=e()}}(function(){return function e(n,r,o){function t(i,u){if(!r[i]){if(!n[i]){var d="function"==typeof require&&require;if(!u&&d)return d(i,!0);if(f)return f(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var l=r[i]={exports:{}};n[i][0].call(l.exports,function(e){var r=n[i][1][e];return t(r?r:e)},l,l.exports,e,n,r,o)}return r[i].exports}for(var f="function"==typeof require&&require,i=0;i<o.length;i++)t(o[i]);return t}({1:[function(e,n,r){n.exports=function(e,n){function r(e){for(var n=e.parentNode,r=e.nodeValue,i=r.length,u=-1;++u<i;){var d=document.createElement(o);t&&(d.className=t+f,f++),d.appendChild(document.createTextNode(r[u])),n.insertBefore(d,e)}n.removeChild(e)}n=n||{};var o=n.tagName||"span",t=null!=n.classPrefix?n.classPrefix:"char",f=1;!function e(n){if(n.nodeType===Node.TEXT_NODE)return r(n);var o=Array.prototype.slice.call(n.childNodes),t=o.length;if(1===t&&o[0].nodeType===Node.TEXT_NODE)return r(o[0]);for(var f=-1;++f<t;)e(o[f])}(e)}},{}]},{},[1])(1)});
-
 /*!
  * imagesLoaded PACKAGED v4.1.3
  * JavaScript is all like "You images are done yet or what?"
@@ -1329,158 +1327,15 @@ return ImagesLoaded;
 });
 
 /*eslint no-unused-vars: ["error", { "vars": "local" }]*/
-/*global charming, anime, Waypoint, imagesLoaded, TweenMax, Elastic, Power2 */
+/*global twemoji */
 
-var body = document.body;
-var section = document.querySelector('.section');
-var sections = document.querySelectorAll('.section');
+twemoji.parse(document.body);
 
-// CHARMING
-const h1Header = document.querySelector('.header h1');
-const pHeader = document.querySelector('.header p');
-if(h1Header) {
-  charming(h1Header);
+// Get current time
+var bg = document.querySelector('.bg');
+
+if (bg) {
+  var currentdate = new Date();
+  bg.classList.add('bg--H' + currentdate.getHours());
+  // bg.classList.add('bg--H14');
 }
-
-if(pHeader) {
-  charming(pHeader);
-}
-
-// ONLY WHEN BODY HASCLASS BODY--HOME
-if (body.classList.contains('body--home')) {
-
-  // SLIDER
-  const headerslides = document.querySelectorAll('.slider li');
-  const headerimg = document.querySelectorAll('.slider li .bgimg');
-
-  var slider = anime({
-    targets: headerslides,
-    autoplay: false,
-    translateX: [
-      { value: '-100%', duration: 5000, easing: 'easeOutExpo'},
-      { value: '-200%', duration: 2500, easing: 'easeOutExpo'}
-    ],
-    loop: true,
-    delay: function(el, i) {
-      return i * 5000;
-    },
-    run: function(anim) {
-      // Start slider again at 5000ms when progress is 90%
-      // console.log('progress : ' + Math.round(anim.progress) + '%');
-      if (Math.round(anim.progress) >= 90) {
-        slider.pause();
-        slider.seek(5000);
-        slider.play();
-      }
-    },
-  });
-
-  // START SLIDER WHEN READY
-  imagesLoaded( headerimg, { background: true }, function() {
-    slider.play();
-  });
-
-}
-
-const btn1 = document.querySelector('.buttons li:nth-child(1) .button');
-const btn2 = document.querySelector('.buttons li:nth-child(2) .button');
-const btn3 = document.querySelector('.buttons li:nth-child(3) .button');
-
-// MOVE BUTTONS
-if(btn1) {
-  class HoverButton {
-    constructor(el) {
-      this.el = el;
-      this.hover = false;
-      this.calculatePosition();
-      this.attachEventsListener();
-    }
-
-    attachEventsListener() {
-      window.addEventListener('mousemove', e => this.onMouseMove(e));
-      window.addEventListener('resize', e => this.calculatePosition(e));
-    }
-
-    calculatePosition() {
-      TweenMax.set(this.el, {
-        x: 0,
-        y: 0,
-        scale: 1
-      });
-      const box = this.el.getBoundingClientRect();
-      this.x = box.left + (box.width * 0.5);
-      this.y = box.top + (box.height * 0.5);
-      this.width = box.width;
-      this.height = box.height;
-    }
-
-    onMouseMove(e) {
-      let hover = false;
-      let hoverArea = (this.hover ? 0.7 : 0.5);
-      let x = e.clientX - this.x;
-      let y = e.clientY - this.y;
-      let distance = Math.sqrt( x*x + y*y );
-      if (distance < (this.width * hoverArea)) {
-        hover = true;
-        if (!this.hover) {
-          this.hover = true;
-        }
-        this.onHover(e.clientX, e.clientY);
-      }
-
-      if(!hover && this.hover) {
-        this.onLeave();
-        this.hover = false;
-      }
-    }
-
-    onHover(x, y) {
-      TweenMax.to(this.el, 0.4, {
-        x: (x - this.x) * 0.4,
-        y: (y - this.y) * 0.4,
-        scale: 1.15,
-        ease: Power2.easeOut
-      });
-      // this.el.style.zIndex = 10;
-    }
-    onLeave() {
-      TweenMax.to(this.el, 0.7, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        ease: Elastic.easeOut.config(1.2, 0.4)
-      });
-      // this.el.style.zIndex = 1;
-    }
-  }
-
-  new HoverButton(btn1);
-  new HoverButton(btn2);
-  new HoverButton(btn3);
-
-}
-
-// // WAYPOINTS
-// for (var i = 0; i < sections.length; i++) {
-//   var waypoint = new Waypoint({
-//     element: sections[i],
-//     handler: function() {
-//       var previousWaypoint = this.previous();
-//       var nextWaypoint = this.next();
-
-//       this.element.classList.remove('section--prev', 'section--next', 'section--active');
-//       this.element.classList.add('section--active');
-
-//       if (previousWaypoint) {
-//         previousWaypoint.element.classList.add('section--prev');
-//         previousWaypoint.element.classList.remove('section--active');
-//       }
-
-//       if (nextWaypoint) {
-//         nextWaypoint.element.classList.add('section--next');
-//         nextWaypoint.element.classList.remove('section--active');
-//       }
-//     },
-//     offset: '50%'
-//   });
-// }

@@ -1,41 +1,11 @@
-.header {
-  @include devborder(green);
-
-  display: flex;
-  height: 100vh;
-  margin: 0 auto;
-  max-width: $maxw-site;
-  min-height: 60vw;
-
-  @include mq($bp-medium) {
-    min-height: 480px;
-  }
-
-  @include mq-ratio(max) {
-    height: 100vh - $himg-space;
-    max-height: $maxh-header;
-    min-height: inherit;
-    padding-bottom: $himg-space;
-  }
-
-  @include mq-ratio() {
-    align-items: center;
-  }
-
-  &__content {
-    @include devborder(brown);
-
-    box-sizing: border-box;
-    padding: $gutter;
-    position: relative;
-    z-index: 2;
-  }
-}
-
-.article {
-  @include devborder(pink);
-
+main {
   box-sizing: border-box;
-  max-width: $maxw-site;
-  padding: $gutter;
+  margin: (80 / (1000 / 100)) + vw auto;
+  max-width: 1200px;
+  padding: (40 / (1000 / 100)) + vw;
+
+  @include mq(1000) {
+    margin: 80px auto;
+    padding: 40px;
+  }
 }
