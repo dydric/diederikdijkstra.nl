@@ -12,40 +12,14 @@
   src: url('../fonts/Inter-UI-BlackItalic.woff2') format('woff2'), url('../fonts/Inter-UI-BlackItalic.woff') format('woff');
 }
 
-body {
-  @include text-size(16, $bp-small, $bp-large);
-
-  background: $color-grey-800;
-  color: $color-white;
+.interui {
   font-family: 'Inter UI', sans-serif;
-  line-height: $lh-body;
-  margin: 0;
-  padding: 0;
-
-  > * {
-    visibility: visible;
-  }
 }
 
 h1 {
-  @include margin-bottom(40);
-
-  font-size: 240%;
-
-  + p {
-    color: rgba(255, 255, 255, .3);
-    font-size: 160%;
-    user-select: none;
-  }
+  @extend .f2, .f1-l, .lh-title ;
 }
 
-p {
-  @include margin-bottom(40);
-}
-
-img.emoji {
-  height: 1em;
-  margin: 0 .05em 0 .1em;
-  vertical-align: -.1em;
-  width: 1em;
+a {
+  @extend .link, .gold, .hover-white ;
 }
