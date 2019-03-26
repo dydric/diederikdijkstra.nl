@@ -3,6 +3,8 @@ title: Diederik Dijkstra
 layout: home
 ---
 
-👨‍👩‍👧‍👦 Woont in Leeuwarden. Werkt bij [TRES](https://tres.nl). Trotse 'heit' van Elin en Fedde. Vriend van Lotte. 💛 Wielrennen. Koffie. Design. Typografie. Muziek. Koken. 👨🏼‍💻 Front-end UI developer. Atomic Design. UX. 10+ jaar ervaring.
+Woont in Leeuwarden. Trotse 'heit' van Elin en Fedde. Vriend van Lotte. Hobby's: wielrennen, muziek en koken. Werkt bij [TRES](https://tres.nl). Interesses: UX en Design Systems. 10+ jaar ervaring.
 
-Contact: diederikdijkstra [at] icloud.com
+![alt text](/assets/img/tres.jpg)
+
+[Contact](https://twitter.com/dydric)

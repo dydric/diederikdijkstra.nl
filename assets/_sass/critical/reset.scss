@@ -1,80 +1,12 @@
 html {
-  font-size: 62.5%;
+  // font-size: 62.5%;
   // height: 100%;
   -webkit-text-size-adjust: 100%; /* stylelint-disable-line property-no-vendor-prefix */
 }
 
 body {
-  font: 16px/1 sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  min-height: 100%;
 
   > * {
     visibility: hidden;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-blockquote,
-figure,
-ol,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-main,
-li {
-  display: block;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-size: inherit;
-}
-
-strong {
-  font-weight: bold;
-}
-
-a,
-button {
-  color: inherit;
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  -webkit-font-smoothing: inherit;
-  letter-spacing: inherit;
-  overflow: visible;
-}
-
-::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-:focus {
-  outline: 0;
-}
-
-img {
-  border: 0;
-  height: auto;
-  max-width: 100%;
 }

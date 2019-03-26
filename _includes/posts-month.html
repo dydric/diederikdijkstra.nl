@@ -1,0 +1,27 @@
+{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+{% for year in postsByYear %}
+  <h2>{{ year.name }}</h2>
+
+  {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%m'" %}
+  {% for month in postsByMonth %}
+    <h3>{% case month.name %}
+      {% when '01' %}Januari
+      {% when '02' %}Februari
+      {% when '03' %}Maart
+      {% when '04' %}April
+      {% when '05' %}Mei
+      {% when '06' %}Juni
+      {% when '07' %}Juli
+      {% when '08' %}Augustus
+      {% when '09' %}September
+      {% when '10' %}Oktober
+      {% when '11' %}November
+      {% when '12' %}December
+    {% endcase %}</h3>
+    <ul>
+      {% for post in month.items %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% endfor %}
