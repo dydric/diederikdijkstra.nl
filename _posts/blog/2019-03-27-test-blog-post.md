@@ -5,6 +5,6 @@ categories: Blog
 ---
 Werkt dit?
 
-![](/img/uploads/tres.jpg)
+![](/uploads/images/tres.jpg)
 
 Yo
