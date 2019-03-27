@@ -10,6 +10,3 @@
 - **config.js** for gulp settings
 - **_config.yml** for jekyll settings
 - **modernizr.json** for modernizr features
-
-### Todo's
-- Update `.travis.yml`
