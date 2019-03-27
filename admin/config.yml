@@ -1,8 +1,14 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (master by default)
+  commit_messages:
+    create: ✨ Create {{collection}} “{{slug}}”
+    update: ✨ Update {{collection}} “{{slug}}”
+    delete: 🔥 Delete {{collection}} “{{slug}}”
+    uploadMedia: 🖼 Upload “{{path}}”
+    deleteMedia: 🔥 Delete “{{path}}”
 
-media_folder: "img/uploads" # Folder where user uploaded files should go
+media_folder: "uploads/images" # Folder where user uploaded files should go
 
 collections: # A list of collections the CMS should be able to edit
   - name: "blog" # Used in routes, ie.: /admin/collections/:slug/edit
