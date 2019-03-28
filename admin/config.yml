@@ -31,7 +31,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "homepage"
         file: "index.md"
         fields:
-          - label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
           - {label: Title, name: title, widget: string}
           - {label: Intro, name: intro, widget: markdown}
           - label: Featured Image
