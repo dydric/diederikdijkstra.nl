@@ -33,5 +33,6 @@ collections: # A list of collections the CMS should be able to edit
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
           - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
           - {label: Body, name: body, widget: markdown}
 
