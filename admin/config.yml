@@ -35,7 +35,7 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Title, name: title, widget: string}
           - {label: Intro, name: intro, widget: markdown}
           - label: Featured Image
-            name: featured image
+            name: featured-image
             widget: image
             media_library:
               config:
