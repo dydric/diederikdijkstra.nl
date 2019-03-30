@@ -7,4 +7,4 @@ intro: >-
   Interesses: UX en Design Systems. 10+ jaar ervaring.
 featured-image: /uploads/images/tres.jpg
 ---
-[@dydric](https://twitter.com/dydric)
+[twitter](https://twitter.com/dydric)
