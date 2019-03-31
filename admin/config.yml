@@ -40,5 +40,4 @@ collections: # A list of collections the CMS should be able to edit
             media_library:
               config:
                 multiple: false
-          - {label: Body, name: body, widget: markdown}
 
