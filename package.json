@@ -13,9 +13,9 @@
     "url": ""
   },
   "devDependencies": {
+    "autoprefixer": "^7",
     "babel-eslint": "^7",
     "babel-preset-es2015": "^6",
-    "autoprefixer": "^7",
     "browser-sync": "^2",
     "eslint-config-google": "^0",
     "gulp": "^3",
@@ -26,8 +26,8 @@
     "gulp-imagemin": "^3",
     "gulp-newer": "^1",
     "gulp-plumber": "^1",
-    "gulp-rename": "^1",
     "gulp-postcss": "^7",
+    "gulp-rename": "^1",
     "gulp-sass": "^3",
     "gulp-stylelint": "^3",
     "gulp-uglify": "^3",
@@ -37,6 +37,10 @@
     "stylelint-config-standard": "^16",
     "stylelint-order": "^0",
     "vinyl-named": "^1",
-    "yargs": "^8"
+    "yargs": "^8",
+    "json2yaml": "~1.0.3"
+  },
+  "dependencies": {
+    "twitter": "^1.7.1"
   }
 }

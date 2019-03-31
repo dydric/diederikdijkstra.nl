@@ -3,27 +3,25 @@
 
   {% include head.html %}
 
-  <body class="w100 interui">
+  <body class="w100 inter">
 
 
 
     <section class="section section--intro bg-near-black white pa3">
-      <div class=" mw8 center ph3-m ph4-l">
+      <div class=" mw8 center ph3-m ph4-l fw8">
 
         <h1>{{page.title}}</h1>
-        <div class="f4 f2-l lh-title gray">
+        <div class="f4 f2-l lh-title gray mb3 mb5-l">
           {{ page.intro | markdownify }}
           {% if page.featured-image %}
           <img src="{{ page.featured-image }}" alt="">
           {% endif %}
         </div>
 
-        <div class="f5 f4-l lh-title gray">
-          {{ content }}
-        </div>
-
       </div>
     </section>
+
+    {% include tweets.html %}
 
 
 
