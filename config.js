@@ -5,7 +5,8 @@ var module = module.exports = {
     imagemin:   true,
     sass:       true,
     scripts:    true,
-    server:     true
+    server:     true,
+    twitter:    true
   },
 
   paths: {
@@ -17,7 +18,7 @@ var module = module.exports = {
     images:    'img',
     sass:      '_sass',
     jsSrc:     '_js',
-    imagesSrc: '_img',
+    imagesSrc: '_img'
   },
 
   autoprefixer: {

@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.6.0
+ * modernizr v3.7.1
  * Build https://modernizr.com/download?-csscalc-cssgrid_cssgridlegacy-csspointerevents-flexbox-mediaqueries-picture-svg-touchevents-atrule-setclasses-dontmin
  *
  * Copyright (c)
@@ -10,6 +10,7 @@
  *  Patrick Kettner
  *  Stu Cox
  *  Richard Herrera
+ *  Veeck
 
  * MIT License
  */
@@ -23,20 +24,19 @@
 */
 
 ;(function(window, document, undefined){
+
   var tests = [];
   
 
   /**
-   *
    * ModernizrProto is the constructor for Modernizr
    *
    * @class
    * @access public
    */
-
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.6.0',
+    _version: '3.7.1',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -95,20 +95,20 @@
    * @function is
    * @param {*} obj - A thing we want to check the type of
    * @param {string} type - A string to compare the typeof against
-   * @returns {boolean}
+   * @returns {boolean} true if the typeof the first parameter is exactly the specified type, false otherwise
    */
-
   function is(obj, type) {
     return typeof obj === type;
   }
+
   ;
 
   /**
    * Run through all tests and detect their support in the current UA.
    *
    * @access private
+   * @returns {void}
    */
-
   function testRunner() {
     var featureNames;
     var feature;
@@ -142,7 +142,6 @@
 
         // Run the test, or use the raw value if it's not a function
         result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
-
 
         // Set each of the names on the Modernizr object
         for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
@@ -179,7 +178,6 @@
    * @access private
    * @returns {HTMLElement|SVGElement} The root element of the document
    */
-
   var docElement = document.documentElement;
   
 
@@ -189,8 +187,8 @@
    * @access private
    * @returns {boolean}
    */
-
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
+
   
 
   /**
@@ -200,7 +198,6 @@
    * @function setClasses
    * @param {string[]} classes - Array of class names
    */
-
   // Pass in an and array of class names, e.g.:
   //  ['no-webp', 'borderradius', ...]
   function setClasses(classes) {
@@ -220,14 +217,15 @@
 
     if (Modernizr._config.enableClasses) {
       // Add the new classes
-      className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+      if (classes.length > 0) {
+        className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+      }
       if (isSVG) {
         docElement.className.baseVal = className;
       } else {
         docElement.className = className;
       }
     }
-
   }
 
   ;
@@ -247,7 +245,6 @@
    * @access private
    * @returns {string} The string representing the vendor-specific style properties
    */
-
   var omPrefixes = 'Moz O ms Webkit';
   
 
@@ -259,7 +256,7 @@
    * atRule returns a given CSS property at-rule (eg @keyframes), possibly in
    * some prefixed form, or false, in the case of an unsupported rule
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr.atRule
    * @optionName Modernizr.atRule()
    * @optionProp atRule
@@ -279,9 +276,7 @@
    *    // keyframes === `false`
    *  }
    * ```
-   *
    */
-
   var atRule = function(prop) {
     var length = prefixes.length;
     var cssrule = window.CSSRule;
@@ -324,9 +319,9 @@
 
   /**
    * List of property values to set for css tests. See ticket #21
-   * http://git.io/vUGl4
+   * https://github.com/modernizr/modernizr/issues/21
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr._prefixes
    * @optionName Modernizr._prefixes
    * @optionProp prefixes
@@ -353,7 +348,6 @@
    * rule === 'display:flex; display:-webkit-flex; display:-moz-flex; display:-o-flex; display:-ms-flex; display:flex'
    * ```
    */
-
   // we use ['',''] rather than an empty array in order to allow a pattern of .`join()`ing prefixes to test
   // values in feature detects to continue to work
   var prefixes = (ModernizrProto._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : ['','']);
@@ -373,7 +367,6 @@
    * @function createElement
    * @returns {HTMLElement|SVGElement} An HTML or SVG element
    */
-
   function createElement() {
     if (typeof document.createElement !== 'function') {
       // This is the case in IE7, where the type of createElement is "object".
@@ -397,7 +390,6 @@
    * @returns {HTMLElement|SVGElement} Returns the real body of a document, or an
    * artificially created element that stands in for the body
    */
-
   function getBody() {
     // After page load injecting a fake body doesn't work so check if body exists
     var body = document.body;
@@ -419,12 +411,11 @@
    * @access private
    * @function injectElementWithStyles
    * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
+   * @param {Function} callback - A function that is used to test the injected element
    * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
    * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
-   * @returns {boolean}
+   * @returns {boolean} the result of the specified callback test
    */
-
   function injectElementWithStyles(rule, callback, nodes, testnames) {
     var mod = 'modernizr';
     var style;
@@ -483,75 +474,85 @@
     }
 
     return !!ret;
-
   }
 
   ;
 
   /**
-   * testStyles injects an element with style element and some CSS rules
+   * Modernizr.mq tests a given media query, live against the current state of the window
+   * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
+   * gist.github.com/786768
    *
-   * @memberof Modernizr
-   * @name Modernizr.testStyles
-   * @optionName Modernizr.testStyles()
-   * @optionProp testStyles
+   * @memberOf Modernizr
+   * @name Modernizr.mq
+   * @optionName Modernizr.mq()
+   * @optionProp mq
    * @access public
-   * @function testStyles
-   * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
-   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
-   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
+   * @function mq
+   * @param {string} mq - String of the media query we want to test
    * @returns {boolean}
    * @example
-   *
-   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
-   * along with (possibly multiple) DOM elements. This lets you check for features
-   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
+   * Modernizr.mq allows for you to programmatically check if the current browser
+   * window state matches a media query.
    *
    * ```js
-   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
-   *   // elem is the first DOM node in the page (by default #modernizr)
-   *   // rule is the first argument you supplied - the CSS rule in string form
+   *  var query = Modernizr.mq('(min-width: 900px)');
    *
-   *   addTest('widthworks', elem.style.width === '9px')
-   * });
+   *  if (query) {
+   *    // the browser window is larger than 900px
+   *  }
    * ```
    *
-   * If your test requires multiple nodes, you can include a third argument
-   * indicating how many additional div elements to include on the page. The
-   * additional nodes are injected as children of the `elem` that is returned as
-   * the first argument to the callback.
+   * Only valid media queries are supported, therefore you must always include values
+   * with your media query
    *
    * ```js
-   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
-   *   document.getElementById('modernizr').style.width === '1px'; // true
-   *   document.getElementById('modernizr2').style.width === '2px'; // true
-   *   elem.firstChild === document.getElementById('modernizr2'); // true
-   * }, 1);
+   * // good
+   *  Modernizr.mq('(min-width: 900px)');
+   *
+   * // bad
+   *  Modernizr.mq('min-width');
    * ```
    *
-   * By default, all of the additional elements have an ID of `modernizr[n]`, where
-   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
-   * the second additional is `#modernizr3`, etc.).
-   * If you want to have more meaningful IDs for your function, you can provide
-   * them as the fourth argument, as an array of strings
+   * If you would just like to test that media queries are supported in general, use
    *
    * ```js
-   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
-   *   elem.firstChild === document.getElementById('foo'); // true
-   *   elem.lastChild === document.getElementById('bar'); // true
-   * }, 2, ['foo', 'bar']);
+   *  Modernizr.mq('only all'); // true if MQ are supported, false if not
    * ```
    *
+   * Note that if the browser does not support media queries (e.g. old IE) mq will
+   * always return false.
    */
+  var mq = (function() {
+    var matchMedia = window.matchMedia || window.msMatchMedia;
+    if (matchMedia) {
+      return function(mq) {
+        var mql = matchMedia(mq);
+        return mql && mql.matches || false;
+      };
+    }
 
-  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
+    return function(mq) {
+      var bool = false;
+
+      injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
+        bool = (window.getComputedStyle ?
+          window.getComputedStyle(node, null) :
+          node.currentStyle).position === 'absolute';
+      });
+
+      return bool;
+    };
+  })();
+
+  ModernizrProto.mq = mq;
+
   
 /*!
 {
   "name": "Touch Events",
   "property": "touchevents",
-  "caniuse" : "touch",
+  "caniuse": "touch",
   "tags": ["media", "attribute"],
   "notes": [{
     "name": "Touch Events spec",
@@ -578,25 +579,22 @@ This *does not* necessarily reflect a touchscreen device:
 
 See this article: [You Can't Detect A Touchscreen](http://www.stucox.com/blog/you-cant-detect-a-touchscreen/).
 
-It's recommended to bind both mouse and touch/pointer events simultaneously – see [this HTML5 Rocks tutorial](http://www.html5rocks.com/en/mobile/touchandmouse/).
+It's recommended to bind both mouse and touch/pointer events simultaneously – see [this HTML5 Rocks tutorial](https://www.html5rocks.com/en/mobile/touchandmouse/).
 
 This test will also return `true` for Firefox 4 Multitouch support.
 */
 
-  // Chrome (desktop) used to lie about its support on this, but that has since been rectified: http://crbug.com/36415
+  // Chrome (desktop) used to lie about its support on this, but that has since been rectified: https://bugs.chromium.org/p/chromium/issues/detail?id=36415
+  // Chrome also changed its behaviour since v70 and recommends the TouchEvent object for detection: https://www.chromestatus.com/feature/4764225348042752
   Modernizr.addTest('touchevents', function() {
-    var bool;
-    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-      bool = true;
-    } else {
-      // include the 'heartz' as a way to have a non matching MQ to help terminate the join
-      // https://git.io/vznFH
-      var query = ['@media (', prefixes.join('touch-enabled),('), 'heartz', ')', '{#modernizr{top:9px;position:absolute}}'].join('');
-      testStyles(query, function(node) {
-        bool = node.offsetTop === 9;
-      });
+    if (('ontouchstart' in window) || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch) {
+      return true;
     }
-    return bool;
+
+    // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+    // https://github.com/Modernizr/Modernizr/issues/1814
+    var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+    return mq(query);
   });
 
 /*!
@@ -630,7 +628,6 @@ Method of allowing calculated values for length units. For example:
   });
 
 
-
   /**
    * contains checks to see if a string contains another string
    *
@@ -638,9 +635,8 @@ Method of allowing calculated values for length units. For example:
    * @function contains
    * @param {string} str - The string we want to check for substrings
    * @param {string} substr - The substring we want to search the first string for
-   * @returns {boolean}
+   * @returns {boolean} true if and only if the first string 'str' contains the second string 'substr'
    */
-
   function contains(str, substr) {
     return !!~('' + str).indexOf(substr);
   }
@@ -652,7 +648,6 @@ Method of allowing calculated values for length units. For example:
    *
    * @access private
    */
-
   var modElem = {
     elem: createElement('modernizr')
   };
@@ -685,12 +680,12 @@ Method of allowing calculated values for length units. For example:
    * @param {string} name - String name of camelCase prop we want to convert
    * @returns {string} The kebab-case version of the supplied name
    */
-
   function domToCSS(name) {
     return name.replace(/([A-Z])/g, function(str, m1) {
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
   }
+
   ;
 
 
@@ -700,11 +695,11 @@ Method of allowing calculated values for length units. For example:
    *
    * @access private
    * @function computedStyle
-   * @param {HTMLElement|SVGElement} - The element we want to find the computed styles of
-   * @param {string|null} [pseudoSelector]- An optional pseudo element selector (e.g. :before), of null if none
-   * @returns {CSSStyleDeclaration}
+   * @param {HTMLElement|SVGElement} elem - The element we want to find the computed styles of
+   * @param {string|null} [pseudo] - An optional pseudo element selector (e.g. :before), of null if none
+   * @param {string} prop - A CSS property
+   * @returns {CSSStyleDeclaration} the value of the specified CSS property
    */
-
   function computedStyle(elem, pseudo, prop) {
     var result;
 
@@ -741,12 +736,11 @@ Method of allowing calculated values for length units. For example:
    * @param {string} value - A string representing the value we want to check via @supports
    * @returns {boolean|undefined} A boolean when @supports exists, undefined otherwise
    */
-
   // Accepts a list of property names and a single value
   // Returns `undefined` if native detection not available
   function nativeTestProps(props, value) {
     var i = props.length;
-    // Start with the JS API: http://www.w3.org/TR/css3-conditional/#the-css-interface
+    // Start with the JS API: https://www.w3.org/TR/css3-conditional/#the-css-interface
     if ('CSS' in window && 'supports' in window.CSS) {
       // Try every prefixed variant of the property
       while (i--) {
@@ -765,7 +759,7 @@ Method of allowing calculated values for length units. For example:
       }
       conditionText = conditionText.join(' or ');
       return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
-        return computedStyle(node, null, 'position') == 'absolute';
+        return computedStyle(node, null, 'position') === 'absolute';
       });
     }
     return undefined;
@@ -781,12 +775,12 @@ Method of allowing calculated values for length units. For example:
    * @param {string} name - String name of kebab-case prop we want to convert
    * @returns {string} The camelCase version of the supplied name
    */
-
   function cssToDOM(name) {
     return name.replace(/([a-z])-([a-z])/g, function(str, m1, m2) {
       return m1 + m2.toUpperCase();
     }).replace(/^-/, '');
   }
+
   ;
 
   // testProps is a generic CSS / DOM property test.
@@ -864,16 +858,16 @@ Method of allowing calculated values for length units. For example:
           // supported. If `value` is empty string, it'll fail here (because
           // it hasn't changed), which matches how browsers have implemented
           // CSS.supports()
-          if (mStyle.style[prop] != before) {
+          if (mStyle.style[prop] !== before) {
             cleanElems();
-            return prefixed == 'pfx' ? prop : true;
+            return prefixed === 'pfx' ? prop : true;
           }
         }
         // Otherwise just return true, or the property name if this is a
         // `prefixed()` call
         else {
           cleanElems();
-          return prefixed == 'pfx' ? prop : true;
+          return prefixed === 'pfx' ? prop : true;
         }
       }
     }
@@ -886,7 +880,7 @@ Method of allowing calculated values for length units. For example:
   /**
    * List of JavaScript DOM values used for tests
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr._domPrefixes
    * @optionName Modernizr._domPrefixes
    * @optionProp domPrefixes
@@ -900,7 +894,6 @@ Method of allowing calculated values for length units. For example:
    * Modernizr._domPrefixes === [ "Moz", "O", "ms", "Webkit" ];
    * ```
    */
-
   var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
   ModernizrProto._domPrefixes = domPrefixes;
   
@@ -910,11 +903,10 @@ Method of allowing calculated values for length units. For example:
    *
    * @access private
    * @function fnBind
-   * @param {function} fn - a function you want to change `this` reference to
-   * @param {object} that - the `this` you want to call the function with
-   * @returns {function} The wrapped version of the supplied function
+   * @param {Function} fn - a function you want to change `this` reference to
+   * @param {Object} that - the `this` you want to call the function with
+   * @returns {Function} The wrapped version of the supplied function
    */
-
   function fnBind(fn, that) {
     return function() {
       return fn.apply(that, arguments);
@@ -929,9 +921,9 @@ Method of allowing calculated values for length units. For example:
    *
    * @access private
    * @function testDOMProps
-   * @param {array.<string>} props - An array of properties to test for
-   * @param {object} obj - An object or Element you want to use to test the parameters again
-   * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
+   * @param {Array<string>} props - An array of properties to test for
+   * @param {Object} obj - An object or Element you want to use to test the parameters again
+   * @param {boolean|Object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
    * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
    */
   function testDOMProps(props, obj, elem) {
@@ -949,7 +941,7 @@ Method of allowing calculated values for length units. For example:
 
         // let's bind a function
         if (is(item, 'function')) {
-          // bind to obj unless overriden
+          // bind to obj unless overridden
           return fnBind(item, elem || obj);
         }
 
@@ -971,7 +963,7 @@ Method of allowing calculated values for length units. For example:
    * @access private
    * @function testPropsAll
    * @param {string} prop - A string of the property to test for
-   * @param {string|object} [prefixed] - An object to check the prefixed properties on. Use a string to skip
+   * @param {string|Object} [prefixed] - An object to check the prefixed properties on. Use a string to skip
    * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
    * @param {string} [value] - A string of a css value
    * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
@@ -1005,7 +997,7 @@ Method of allowing calculated values for length units. For example:
   /**
    * testAllProps determines whether a given CSS property is supported in the browser
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr.testAllProps
    * @optionName Modernizr.testAllProps()
    * @optionProp testAllProps
@@ -1014,6 +1006,7 @@ Method of allowing calculated values for length units. For example:
    * @param {string} prop - String naming the property to test (either camelCase or kebab-case)
    * @param {string} [value] - String of the value to test
    * @param {boolean} [skipValueTest=false] - Whether to skip testing that the value is supported when using non-native detection
+   * @returns {false|string} returns the string version of the property, or false if it is unsupported
    * @example
    *
    * testAllProps determines whether a given CSS property, in some prefixed form,
@@ -1038,11 +1031,12 @@ Method of allowing calculated values for length units. For example:
    * testAllProps('shapeOutside', 'content-box', true);
    * ```
    */
-
   function testAllProps(prop, value, skipValueTest) {
     return testPropsAll(prop, undefined, undefined, value, skipValueTest);
   }
+
   ModernizrProto.testAllProps = testAllProps;
+
   
 /*!
 {
@@ -1052,7 +1046,7 @@ Method of allowing calculated values for length units. For example:
   "tags": ["css"],
   "notes": [{
     "name": "The _new_ flexbox",
-    "href": "http://dev.w3.org/csswg/css3-flexbox"
+    "href": "https://www.w3.org/TR/css-flexbox-1/"
   }],
   "warnings": [
     "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
@@ -1085,80 +1079,6 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
   Modernizr.addTest('cssgridlegacy', testAllProps('grid-columns', '10px', true));
   Modernizr.addTest('cssgrid', testAllProps('grid-template-rows', 'none', true));
 
-
-  /**
-   * Modernizr.mq tests a given media query, live against the current state of the window
-   * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
-   * gist.github.com/786768
-   *
-   * @memberof Modernizr
-   * @name Modernizr.mq
-   * @optionName Modernizr.mq()
-   * @optionProp mq
-   * @access public
-   * @function mq
-   * @param {string} mq - String of the media query we want to test
-   * @returns {boolean}
-   * @example
-   * Modernizr.mq allows for you to programmatically check if the current browser
-   * window state matches a media query.
-   *
-   * ```js
-   *  var query = Modernizr.mq('(min-width: 900px)');
-   *
-   *  if (query) {
-   *    // the browser window is larger than 900px
-   *  }
-   * ```
-   *
-   * Only valid media queries are supported, therefore you must always include values
-   * with your media query
-   *
-   * ```js
-   * // good
-   *  Modernizr.mq('(min-width: 900px)');
-   *
-   * // bad
-   *  Modernizr.mq('min-width');
-   * ```
-   *
-   * If you would just like to test that media queries are supported in general, use
-   *
-   * ```js
-   *  Modernizr.mq('only all'); // true if MQ are supported, false if not
-   * ```
-   *
-   *
-   * Note that if the browser does not support media queries (e.g. old IE) mq will
-   * always return false.
-   */
-
-  var mq = (function() {
-    var matchMedia = window.matchMedia || window.msMatchMedia;
-    if (matchMedia) {
-      return function(mq) {
-        var mql = matchMedia(mq);
-        return mql && mql.matches || false;
-      };
-    }
-
-    return function(mq) {
-      var bool = false;
-
-      injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
-        bool = (window.getComputedStyle ?
-                window.getComputedStyle(node, null) :
-                node.currentStyle).position == 'absolute';
-      });
-
-      return bool;
-    };
-  })();
-
-
-  ModernizrProto.mq = mq;
-
-  
 /*!
 {
   "name": "CSS Media Queries",
@@ -1179,8 +1099,7 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
   "authors": ["ausi"],
   "tags": ["css"],
   "builderAliases": ["css_pointerevents"],
-  "notes": [
-    {
+  "notes": [{
       "name": "MDN Docs",
       "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
     },{
@@ -1189,12 +1108,10 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
     },{
       "name": "Test Project Wiki",
       "href": "https://github.com/ausi/Feature-detection-technique-for-pointer-events/wiki"
-    },
-    {
+    },{
       "name": "Related Github Issue",
       "href": "https://github.com/Modernizr/Modernizr/issues/80"
-    }
-  ]
+  }]
 }
 !*/
 
@@ -1211,8 +1128,8 @@ Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows 
   "tags": ["elem"],
   "authors": ["Scott Jehl", "Mat Marquis"],
   "notes": [{
-    "name": "Specification",
-    "href": "http://picture.responsiveimages.org"
+    "name": "WHATWG Spec",
+    "href": "https://html.spec.whatwg.org/multipage/embedded-content.html#embedded-content"
   },{
     "name": "Relevant spec issue",
     "href": "https://github.com/ResponsiveImagesCG/picture-element/issues/87"

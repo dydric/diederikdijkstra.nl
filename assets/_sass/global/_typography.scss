@@ -1,23 +1,20 @@
-@font-face {
-  font-family: 'Inter UI';
-  font-style: normal;
-  font-weight: 900;
-  src: url('../fonts/Inter-UI-Black.woff2') format('woff2'), url('../fonts/Inter-UI-Black.woff') format('woff');
+.inter {
+  font-family: 'Inter', sans-serif;
 }
 
-@font-face {
-  font-family: 'Inter UI';
-  font-style: italic;
-  font-weight: 900;
-  src: url('../fonts/Inter-UI-BlackItalic.woff2') format('woff2'), url('../fonts/Inter-UI-BlackItalic.woff') format('woff');
-}
+@supports (font-variation-settings: normal) {
 
-.interui {
-  font-family: 'Inter UI', sans-serif;
+  .inter {
+    font-family: 'Inter var', sans-serif;
+  }
 }
 
 h1 {
-  @extend .f2, .f1-l, .lh-title ;
+  @extend .f2, .f1-l, .lh-title, .fw8 ;
+}
+
+h2 {
+  @extend .f3, .f2-l, .lh-title, .fw8 ;
 }
 
 a {
