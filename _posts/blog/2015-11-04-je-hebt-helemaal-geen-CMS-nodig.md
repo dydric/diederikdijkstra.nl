@@ -3,28 +3,24 @@ title: Je hebt helemaal geen $#@%*!^ CMS nodig
 date: 2015-11-04 01:00:00 +01:00
 categories:
 - Blog
+intro: >-
+  Er is namelijk een prima alternatief: Static Sites!
 layout: post
 ---
-
-Er is namelijk een prima alternatief: Static Sites!
 
 Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan was je erg beperkt. Tegenwoordig is dit veel makkelijker door de komst van Static Site Generators. Veruit de meest gebruikte is [Jekyll](http://jekyllrb.com/) en de populariteit neemt alleen maar toe. Dat is ook niet zo gek, aangezien er veel voordelen zijn ten opzichte van een dynamische site met CMS.
 
 ​Static site's zijn **snel te ontwikkelen** en **precies naar wens te bouwen** en in te richten. Ze zijn **niet aan een database gekoppeld** en er zijn **geen beperkingen van een CMS** waar je rekening mee moet houden. In plaats van de site zo (om) te bouwen dat het door de CMS beheerd kan worden, kies je nu voor een oplossing op maat waardoor **beheer veel simpeler** is en de **focus ligt op elementen die echt belangrijk zijn**. Je hebt geen last van een onduidelijke CMS structuur met allerlei workarounds of functies die je nooit gebruikt. En omdat er puur HTML, CSS en JS wordt gegenereerd, zijn static sites **makkelijk te optimaliseren** en **laden ze snel** doordat er (onder andere) geen database koppelingen nodig zijn. **Hosting van static sites is ook veel goedkoper**. Jekyll sites kunnen gemakkelijk via Github Pages (gratis) of Amazon S3 gehost worden. Maar check ook zeker [Netlify.com](http://netlify.com), een hosting service voor static websites. En als de static site eenmaal online staat, heb je veel minder kans dat deze offline raakt. **Een static site is veel stabieler**. Bijvoorbeeld op piekmomenten met enorme aantallen bezoekers, maar ook tegen bugs/errors en hacks.
 
-<figure class="figure figure--left">
   <a href="https://www.google.nl/trends/2014/" class="figure__link">
     <img src="/assets/img/google-trends-2014.jpg" alt="Google Trends 2014" />
-    <figcaption>Google Trends 2014</figcaption>
+    Google Trends 2014
   </a>
-</figure>
 
-<figure class="figure figure--left">
   <a href="http://contribute.barackobama.com" class="figure__link">
     <img src="/assets/img/obama-campagne.jpg" alt="Obama Campagne" />
-    <figcaption>Obama Campagne</figcaption>
+    Obama Campagne
   </a>
-</figure>
 
 Hierboven staan twee voorbeelden van gigantische "static-site" projecten die al weer even geleden zijn ontwikkeld. Google heeft voor het jaaroverzicht gebruik gemaakt van een eigen generator (Goro), maar [Web Fundamentals](https://developers.google.com/web/fundamentals/) bijvoorbeeld (ook van Google) is gebouwd met behulp van Jekyll. Net zoals de Obama Campagne. Meer info over dit project is te vinden in dit ["$250 million fundraising platform"](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) artikel.
 
