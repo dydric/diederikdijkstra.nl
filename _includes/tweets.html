@@ -6,8 +6,8 @@
           <div class="flex flex-wrap mb3 mb5-l">
           {% for tweet in site.data.tweets %}
               <div class="w-100 w-50-l mb3 pr3-l">
-                <a href="{{ tweet.url }}" class="link db pa3 bg-white-50 h-100 hover-bg-white-80 bg-animate br1 bb bw1 b--black-20" target="_blank" rel="noopener noreferrer">
-                  <span class="db black-30 f7 fw3 mb2">{{ tweet.created | date: "%d-%m-%Y, %H:%M" }}</span>
+                <a href="{{ tweet.url }}" class="link db pa3 bg-white-80 h-100 hover-bg-white-90 bg-animate br1 bb bw1 b--black-20" target="_blank" rel="noopener noreferrer">
+                  <span class="db black-50 f7 fw3 mb2">{{ tweet.created | date: "%d-%m-%Y, %H:%M" }}</span>
                   <span class="db near-black fw6">{{ tweet.text }}</span>
                 </a>
               </div>
