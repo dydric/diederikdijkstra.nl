@@ -17,6 +17,98 @@ h2 {
   @extend .f3, .f2-l, .lh-title, .fw8 ;
 }
 
+h3 {
+  @extend .f4, .f3-l, .lh-title, .fw8 ;
+}
+
+h4 {
+  @extend .f5, .f4-l, .lh-title, .fw8 ;
+}
+
 a {
   @extend .link, .gold, .hover-white ;
+}
+
+.post {
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @extend .white-80, .mt0, .mb3 ;
+  }
+
+  p,
+  ol,
+  ul {
+    @extend .mt0, .mb3, .white-50 ;
+  }
+
+  ol,
+  ul {
+    @extend .ph3, .ph0-ns, .pt3 ;
+
+    li {
+      @extend .mb2 ;
+
+      list-style-type: none;
+
+      &::before {
+        @extend .gold, .dib, .nl3, .w1 ;
+      }
+    }
+  }
+
+  ul {
+
+    li {
+
+      &::before {
+        content: '\2022';
+      }
+    }
+  }
+
+  ol {
+    counter-reset: li;
+
+    li {
+      counter-increment: li;
+
+      &::before {
+        @extend .f7, .f6-ns, .fw8 ;
+
+        content: counter(li);
+      }
+    }
+  }
+
+  img:not(.emoji) {
+    @extend .mv2, .relative ;
+
+    left: 50%;
+    max-width: 960px;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  a {
+    @extend .underline ;
+  }
+
+  blockquote {
+    @extend .ma0, .ph3, .ph4-ns, .pv2, .pv3-ns, .relative, .mw7, .f4, .f3-l, .lh-title, .fw8, .white-80 ;
+
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+
+    p {
+      @extend .white-80 ;
+    }
+
+    cite {
+      @extend .f6, .f5-l, .white-30 ;
+    }
+  }
 }

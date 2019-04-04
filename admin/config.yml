@@ -20,6 +20,7 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Intro", name: "intro", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Categories", name: "categories", widget: "string", default: "Blog", required: false}
     meta: # Meta data fields. Just like fields, but without any preview element
@@ -31,7 +32,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "homepage"
         file: "index.md"
         fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: Layout, name: layout, widget: hidden, default: home}
           - {label: Title, name: title, widget: string}
           - {label: Intro, name: intro, widget: markdown}
           - label: Featured Image
