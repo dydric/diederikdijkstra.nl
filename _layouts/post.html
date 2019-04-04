@@ -5,20 +5,35 @@
 
   <body class="w100 inter">
 
-    <section class="section section--intro bg-near-black white pa3">
+    <section class="section section--intro bg-black white pv3">
+      <div class="mw8 center ph3-m ph4-l fw8">
+        <div class="mh3-l">
+          <h3 class="ma0"><a href="/" class="white-50 link hover-white-90">{{site.title}}</a></h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--intro bg-near-black pa3">
       <div class="mw8 center ph3-m ph4-l">
-        <div class="mh3-l mb5">
-          <p>{% include functions/showdate.html type='page' %}
-            {% include functions/readingtime.html %}</p>
+        <div class="mh3-l mb5 ">
 
+          <div class="mw7 pv3 bb b--white-10 f7 f6-l fw4 lh-copy white-30">
+            {% include functions/showdate.html type='page' %}
+            {% capture words %}
+            {{ content | number_of_words | minus: 120 }}
+            {% endcapture %}
+            {% unless words contains "-" %}
+            / {{ words | plus: 120 | divided_by: 120 | append: " minuten leestijd" }}
+            {% endunless %}
+          </div>
 
-          <h1 class="fw8 lh-title mb0">{{page.title}}</h1>
+          <h1 class="fw8 lh-title mb0 white ">{{page.title}}</h1>
 
-          <div class="f5 f4-l fw4 lh-copy white-50 mw7 mb5">
+          <div class="f5 f4-l fw4 lh-copy white-70 mw7 mb5">
             {{ page.intro | markdownify }}
           </div>
-          <div class="f6 f5-l fw4 lh-copy white-50 mw6 center">
 
+          <div class="post f6 f5-l fw4 lh-copy mw6 center pb4 mb4 bb b--white-10">
             {{ content }}
           </div>
         </div>
