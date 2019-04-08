@@ -5,19 +5,19 @@
 
   <body class="w100 inter overflow-x-hidden">
 
-    <section class="section section--intro bg-black white pa3">
-      <div class="mw8 center ph3-m ph4-l fw8">
+    <section class="section section--intro bg-black white">
+      <div class="fw8">
         <div class="mh3-l">
           <h3 class="ma0"><a href="/" class="white-90 link hover-white-70">{{site.title}}</a></h3>
         </div>
       </div>
     </section>
 
-    <section class="section section--intro bg-near-black pa3">
-      <div class="mw8 center ph3-m ph4-l">
+    <section class="section section--intro bg-near-black">
+      <div class="">
         <div class="mh3-l mb5 ">
 
-          <div class="mw7 pv3 bb b--white-10 f7 f6-l fw4 lh-copy white-30">
+          <div class="mw7 pv3 bb b--white-40 f7 f6-l fw4 lh-copy white-30">
             {% include functions/showdate.html type='page' %}
             {% capture words %}
             {{ content | number_of_words | minus: 120 }}

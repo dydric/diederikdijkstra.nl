@@ -9,6 +9,15 @@
   }
 }
 
+.section {
+  @extend .pa3, .overflow-x-hidden ;
+
+  > div {
+    @extend .mw8, .center, .ph3-m, .ph4-l ;
+  }
+}
+
+
 h1 {
   @extend .f2, .f1-l, .lh-title, .fw8 ;
 }
@@ -41,7 +50,7 @@ a {
   p,
   ol,
   ul {
-    @extend .mt0, .mb3, .white-50 ;
+    @extend .mt0, .mb3, .white-60 ;
   }
 
   ol,
