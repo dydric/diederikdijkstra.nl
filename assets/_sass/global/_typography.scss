@@ -120,3 +120,17 @@ a {
     }
   }
 }
+
+div.highlight {
+  @extend .f6, .bg-black, .white-80, .mt2, .mb4, .ph3, .overflow-scroll, .b--gold, .bw2, .bl, .relative ;
+
+  left: 50%;
+  max-width: 960px;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+pre,
+code {
+  @extend .f7 ;
+}
