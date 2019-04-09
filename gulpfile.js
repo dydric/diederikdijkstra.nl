@@ -32,6 +32,8 @@ var tasks  = [];
 var build  = [];
 var paths  = {};
 
+require('dotenv').config();
+
 // Set default & build tasks
 Object.keys(config.tasks).forEach(function (key) {
   if (config.tasks[key]) {
@@ -125,10 +127,10 @@ gulp.task('scripts', function () {
 gulp.task('twitter', (cb) => {
 
   const client = new Twitter({
-    consumer_key:        'UoffXbEdQ5XnYwcpeExBOg', // process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret:     '6YMsldgwwnxoxGIZKpTzFng1ULnbSruXEx7OpxGRg3w', // process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key:    '775387-FKL8W3iEcq6xFATCSdGODmhl4pn6VcjY4fGjKa4s8', //process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: 'mDhW5RW1jZeJKlScaKR4xZkZHsr53eXX76oSnbpXc' //process.env.TWITTER_ACCESS_TOKEN_SECRET
+    consumer_key:        process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key:    process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
 
   let params = {screen_name: 'dydric', count: 4};

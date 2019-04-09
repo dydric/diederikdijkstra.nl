@@ -41,6 +41,7 @@
     "json2yaml": "~1.0.3"
   },
   "dependencies": {
+    "dotenv": "^4",
     "twitter": "^1.7.1"
   }
 }
