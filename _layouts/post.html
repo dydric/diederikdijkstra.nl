@@ -20,10 +20,13 @@
           <div class="mw7 pv3 bb b--white-10 f7 f6-l fw4 lh-copy white-50">
             {% include functions/showdate.html type='page' %}
             {% capture words %}
-            {{ content | number_of_words | minus: 120 }}
+              {{ content | number_of_words | minus: 150 }}
             {% endcapture %}
             {% unless words contains "-" %}
-            / {{ words | plus: 120 | divided_by: 120 | append: " minuten leestijd" }}
+              {% assign minutes = words | plus: 150 | divided_by: 150 %}
+              {% if minutes > 2 %}
+              / {{ minutes | append: " minuten leestijd" }} <br>
+              {% endif %}
             {% endunless %}
           </div>
 
