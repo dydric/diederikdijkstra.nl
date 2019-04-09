@@ -41,3 +41,4 @@ doc/
 .idea
 .secret
 yarn.lock
+.env
