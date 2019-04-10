@@ -22,6 +22,7 @@ exclude:
 - ".editorconfig"
 - ".eslintrc.yml"
 - ".scss-lint.yml"
+- ".env-sample"
 - CNAME
 - config.js
 - Gemfile
