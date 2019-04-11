@@ -5,6 +5,7 @@ intro: >-
   Ik heb mijn website een ‘kleine’ update gegeven en verhuisd naar
   [Netlify](https://www.netlify.com/).
 categories: Blog
+date: '2019-04-12 09:18:00'
 ---
 In mijn vorige setup plaatste ik de code van mijn website op Github. Github (dat Jekyll ondersteund) genereerde hiervan een site. Ik gebruikte Cloudflare als CDN en voor mijn SSL certificaat. Dit is op zich (nog) prima, maar de ontwikkelingen van Static Site’s in combinatie met Netlify hadden me heel enthousiast gemaakt. 
 
