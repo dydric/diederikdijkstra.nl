@@ -4,7 +4,7 @@
 
 ```html
 - Clone this repo
-- Install `yarn i` and start `yarn start`
+- Install `yarn install` and start `yarn start`
 - Have fun!
 ```
 
