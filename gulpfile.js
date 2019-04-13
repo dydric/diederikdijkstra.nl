@@ -6,22 +6,23 @@
 // gulp modules
 var argv         = require('yargs').argv;
 var autoprefixer = require('gulp-autoprefixer');
+var babel        = require('gulp-babel');
 var browsersync  = require('browser-sync').create();
+var concat       = require('gulp-concat');
 var cp           = require('child_process');
+var fs           = require('fs');
 var gulp         = require('gulp');
 var imagemin     = require('gulp-imagemin');
 var named        = require('vinyl-named');
 var newer        = require('gulp-newer');
 var plumber      = require('gulp-plumber');
 var pngquant     = require('imagemin-pngquant');
+var rename       = require('gulp-rename');
 var sass         = require('gulp-sass');
+var sheetsy      = require('sheetsy');
+var twitter      = require('twitter');
 var uglify       = require('gulp-uglify');
 var watch        = require('gulp-watch');
-var rename       = require('gulp-rename');
-var concat       = require('gulp-concat');
-var babel        = require('gulp-babel');
-var Twitter      = require('twitter');
-var fs           = require('fs');
 var yaml         = require('json2yaml');
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -125,8 +126,6 @@ gulp.task('scripts', function () {
 // Workouts
 
 gulp.task('workouts', (cb) => {
-
-  const sheetsy = require('sheetsy');
   const { urlToKey, getWorkbook, getSheet } = sheetsy;
   const key = urlToKey(process.env.WORKOUTS_URL);
 
@@ -134,9 +133,19 @@ gulp.task('workouts', (cb) => {
     const workbookID = workbook.sheets[0].id;
 
     getSheet(key, workbookID).then(sheet => {
-      var jsonWorkouts = JSON.stringify(sheet.rows.slice(0, 7));
 
-      console.log(jsonWorkouts);
+      var activities = sheet.rows.map((activity) => {
+        return {
+          type: activity[2],
+          movingtime: activity[4],
+          distance: activity[6],
+          heartrate: activity[8],
+          activecalories: activity[7]
+        };
+      });
+
+      var jsonWorkouts = yaml.stringify(activities.slice(0, 49));
+
       fs.writeFile('_data/workouts.yml', jsonWorkouts, function(err) {
         if(err) {
           console.log(err);
@@ -147,15 +156,13 @@ gulp.task('workouts', (cb) => {
       });
     });
   });
-
-
 });
 
 // Twitter
 
 gulp.task('twitter', (cb) => {
 
-  const client = new Twitter({
+  const client = new twitter({
     consumer_key:        process.env.TWITTER_CONSUMER_KEY,
     consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
     access_token_key:    process.env.TWITTER_ACCESS_TOKEN_KEY,
