@@ -33,15 +33,15 @@
     "gulp-uglify": "^3",
     "gulp-watch": "^4",
     "imagemin-pngquant": "^5",
+    "json2yaml": "~1",
     "modernizr": "^3",
     "stylelint-config-standard": "^16",
     "stylelint-order": "^0",
     "vinyl-named": "^1",
-    "yargs": "^8",
-    "json2yaml": "~1.0.3"
+    "yargs": "^8"
   },
   "dependencies": {
     "dotenv": "^4",
-    "twitter": "^1.7.1"
+    "twitter": "^1"
   }
 }
