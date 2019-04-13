@@ -6,7 +6,8 @@ var module = module.exports = {
     sass:       true,
     scripts:    true,
     server:     true,
-    twitter:    true
+    twitter:    true,
+    workouts:   true
   },
 
   paths: {
