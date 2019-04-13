@@ -131,21 +131,24 @@ gulp.task('workouts', (cb) => {
   const key = urlToKey(process.env.WORKOUTS_URL);
 
   getWorkbook(key).then(workbook => {
-    workbook;
-    // console.log(workbook.sheets);
-  });
+    const workbookID = workbook.sheets[0].id;
 
-  getSheet(key, 'od6').then(sheet => {
-    var jsonWorkouts = JSON.stringify(sheet.rows);
-    fs.writeFile('_data/workouts.yml', jsonWorkouts, function(err) {
-      if(err) {
-        console.log(err);
-      } else {
-        console.log('Workouts data saved.');
-        cb();
-      }
+    getSheet(key, workbookID).then(sheet => {
+      var jsonWorkouts = JSON.stringify(sheet.rows.slice(0, 7));
+
+      console.log(jsonWorkouts);
+      fs.writeFile('_data/workouts.yml', jsonWorkouts, function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('Workouts data saved.');
+          cb();
+        }
+      });
     });
   });
+
+
 });
 
 // Twitter

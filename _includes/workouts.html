@@ -1,0 +1,18 @@
+    <section class="section section--tweets bg-black white">
+      <div>
+        <div class="ml3-l">
+          <h2 class="white">Workouts</h2>
+          <div class="flex flex-wrap mb3 mb5-l">
+          {% for workout in site.data.workouts %}
+              <div class="w-50 w-25-l mb3 pr3-l">
+                <span class="db white-50 f7 fw3 mb2">{{ workout[2] }}</span>
+                <span class="db near-white fw6">{{ workout[4] }}</span>
+                {% assign workoutkm = workout[6] | round: 2 | divided_by: 1000 %}
+                <span class="db near-white fw6">{{ workoutkm | round: 2 | append: " km" }}</span>
+                <span class="db white-70 f7 fw6 mv2">♥ {{ workout[8] }} / 💪 {{ workout[7] }}</span>
+              </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
