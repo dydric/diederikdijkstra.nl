@@ -122,6 +122,32 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(paths.js));
 });
 
+// Workouts
+
+gulp.task('workouts', (cb) => {
+
+  const sheetsy = require('sheetsy');
+  const { urlToKey, getWorkbook, getSheet } = sheetsy;
+  const key = urlToKey(process.env.WORKOUTS_URL);
+
+  getWorkbook(key).then(workbook => {
+    workbook;
+    // console.log(workbook.sheets);
+  });
+
+  getSheet(key, 'od6').then(sheet => {
+    var jsonWorkouts = JSON.stringify(sheet.rows);
+    fs.writeFile('_data/workouts.yml', jsonWorkouts, function(err) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log('Workouts data saved.');
+        cb();
+      }
+    });
+  });
+});
+
 // Twitter
 
 gulp.task('twitter', (cb) => {
@@ -144,15 +170,6 @@ gulp.task('twitter', (cb) => {
           created: tweet.created_at.substring(0, tweet.created_at.length - 11),
         };
       });
-
-      // fs.writeFile('_data/tweets.json', JSON.stringify(tweets), function (err) {
-      //   if (err) {
-      //     console.log(err);
-      //   } else {
-      //     console.log('Tweets data saved.');
-      //     cb();
-      //   }
-      // });
 
       var ymlText = yaml.stringify(tweets);
       fs.writeFile('_data/tweets.yml', ymlText, function(err) {
@@ -196,6 +213,10 @@ gulp.task('default', tasks, function () {
 
   if (config.tasks.twitter) {
     gulp.start('twitter');
+  }
+
+  if (config.tasks.workouts) {
+    gulp.start('workouts');
   }
 
   if (config.tasks['server']) {

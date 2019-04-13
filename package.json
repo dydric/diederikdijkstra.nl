@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "dotenv": "^4",
+    "sheetsy": "^2",
     "twitter": "^1"
   }
 }
