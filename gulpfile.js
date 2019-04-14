@@ -234,6 +234,7 @@ gulp.task('default', tasks, function () {
       '!./node_modules/**/*',
       '!./README.md',
       '!' + paths.dest + '/**/*',
+      '_data/**/*',
       '_includes/**/*',
       '_layouts/**/*',
       '*.html',
