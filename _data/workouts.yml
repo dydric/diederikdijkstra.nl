@@ -1,5 +1,11 @@
 ---
   - 
+    type: "Cycling"
+    movingtime: "1h:31m:07s"
+    distance: "43292,70"
+    heartrate: "163"
+    activecalories: "1154"
+  - 
     type: "Running"
     movingtime: "0h:35m:14s"
     distance: "5489,90"
