@@ -7,7 +7,7 @@ intro: >-
 categories: Blog
 date: '2019-04-12 09:18:00'
 ---
-In mijn vorige setup plaatste ik de code van mijn website op Github. Github (dat Jekyll ondersteund) genereerde hiervan een site. Ik gebruikte Cloudflare als CDN en voor mijn SSL certificaat. Dit is op zich (nog) prima, maar de ontwikkelingen van Static Site’s in combinatie met Netlify hadden me heel enthousiast gemaakt. 
+Deze nieuwe layout is al weer de 6e versie van mijn static-site website. In mijn vorige setup plaatste ik de code van mijn website op Github. Github (dat Jekyll ondersteund) genereerde hiervan een site. Ik gebruikte Cloudflare als CDN en voor mijn SSL certificaat. Dit werkt op zich (nog) prima, maar de ontwikkelingen van Static Site’s in combinatie met Netlify hadden me heel enthousiast gemaakt. Zo enthousiast dat ik het direct ook wilde proberen.
 
 ![](/uploads/images/applewatch.jpg "Diederikdijkstra.nl Build 🎉")
 
