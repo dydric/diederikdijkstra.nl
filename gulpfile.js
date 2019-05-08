@@ -158,6 +158,41 @@ gulp.task('workouts', (cb) => {
   });
 });
 
+// Health
+
+gulp.task('health', (cb) => {
+  const { urlToKey, getWorkbook, getSheet } = sheetsy;
+  const key = urlToKey(process.env.HEALTH_URL);
+
+  getWorkbook(key).then(workbook => {
+    const workbookID = workbook.sheets[0].id;
+
+    getSheet(key, workbookID).then(sheet => {
+
+      var dailyHealth = sheet.rows.map((day) => {
+        return {
+          energy: day[1],
+          resting_energy: day[2],
+          resting: day[3],
+          hrv: day[4],
+          steps: day[5]
+        };
+      });
+
+      var jsonHealth = yaml.stringify(dailyHealth.slice(0, 29));
+
+      fs.writeFile('_data/health.yml', jsonHealth, function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('Daily Health data saved.');
+          cb();
+        }
+      });
+    });
+  });
+});
+
 // Twitter
 
 gulp.task('twitter', (cb) => {
@@ -227,6 +262,10 @@ gulp.task('default', tasks, function () {
 
   if (config.tasks.workouts) {
     gulp.start('workouts');
+  }
+
+  if (config.tasks.health) {
+    gulp.start('health');
   }
 
   if (config.tasks['server']) {

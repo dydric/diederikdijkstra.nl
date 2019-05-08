@@ -7,7 +7,8 @@ var module = module.exports = {
     scripts:    true,
     server:     true,
     twitter:    true,
-    workouts:   true
+    workouts:   true,
+    health:   true
   },
 
   paths: {

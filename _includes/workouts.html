@@ -1,7 +1,16 @@
-    <section class="section section--tweets bg-black white">
+    <section class="section section--health bg-black white">
       <div>
         <div class="ml3-l">
           <h2 class="white">Activiteiten:</h2>
+
+          <h3 class="white">Stappen</h3>
+          <div class="flex flex-nowrap jusity-around items-end mb4 mb5-l pr3-l" style="width: 100%;">
+          {% for health in site.data.health limit:30 %}
+            <div class="bg-gold w1 flex-auto box mr1 br2" style="height: {{ health.steps | divided_by: 100 }}px"></div>
+          {% endfor %}
+          </div>
+
+          <h3 class="white">Workouts</h3>
           <div class="flex flex-wrap mb3 mb5-l">
             {% for workout in site.data.workouts limit:8 %}
               <div class="w-50 w-25-l mb3 pr3-l">
