@@ -65,19 +65,19 @@ gulp.task('jekyll-build', function (done) {
     .on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function () {
   browsersync.notify('👷🏻‍♂️ Rebuilded Jekyll');
   browsersync.reload();
-});
+}));
 
-gulp.task('server', ['jekyll-build'], function() {
+gulp.task('server', gulp.series('jekyll-build', function() {
   return browsersync.init({
     port: config.port,
     server: {
       baseDir: config.paths.dest,
     }
   });
-});
+}));
 
 // Sass
 gulp.task('sass', function () {
@@ -230,13 +230,13 @@ gulp.task('twitter', (cb) => {
 });
 
 // Build
-gulp.task('build', build, function (done) {
+gulp.task('build', gulp.series(build, function (done) {
   return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml'], {stdio: 'inherit'})
     .on('close', done);
-});
+}));
 
 // Default gulp task
-gulp.task('default', tasks, function () {
+gulp.task('default', gulp.series(tasks, function () {
 
   if (config.tasks.imagemin) {
     watch(paths.imagesSrc + '/**/*', function () {
@@ -288,4 +288,4 @@ gulp.task('default', tasks, function () {
       gulp.start('jekyll-rebuild');
     });
   }
-});
+}));
