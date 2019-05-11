@@ -1,5 +1,23 @@
 ---
   - 
+    energy: "477"
+    resting_energy: "1915"
+    resting: "47"
+    hrv: "49"
+    steps: "5884"
+  - 
+    energy: "585"
+    resting_energy: "1939"
+    resting: "49"
+    hrv: "46"
+    steps: "6184"
+  - 
+    energy: "483"
+    resting_energy: "1910"
+    resting: "49"
+    hrv: "39"
+    steps: "4751"
+  - 
     energy: "599"
     resting_energy: "1963"
     resting: "47"
@@ -155,21 +173,3 @@
     resting: "48"
     hrv: "51"
     steps: "5509"
-  - 
-    energy: "442"
-    resting_energy: "1909"
-    resting: "47"
-    hrv: "53"
-    steps: "4375"
-  - 
-    energy: "573"
-    resting_energy: "1915"
-    resting: "50"
-    hrv: "86"
-    steps: "7194"
-  - 
-    energy: "690"
-    resting_energy: "1942"
-    resting: "50"
-    hrv: "75"
-    steps: "7974"
