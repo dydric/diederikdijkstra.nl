@@ -1,5 +1,11 @@
 ---
   - 
+    energy: "473"
+    resting_energy: "1952"
+    resting: "45"
+    hrv: "55"
+    steps: "4988"
+  - 
     energy: "477"
     resting_energy: "1915"
     resting: "47"
@@ -167,9 +173,3 @@
     resting: "48"
     hrv: "59"
     steps: "7390"
-  - 
-    energy: "484"
-    resting_energy: "1924"
-    resting: "48"
-    hrv: "51"
-    steps: "5509"

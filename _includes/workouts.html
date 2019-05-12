@@ -6,7 +6,16 @@
           <h3 class="white">Stappen</h3>
           <div class="flex flex-nowrap jusity-around items-end mb4 mb5-l pr3-l" style="width: 100%;">
           {% for health in site.data.health limit:30 %}
-            <div class="bg-gold w1 flex-auto box mr1 br2" style="height: {{ health.steps | divided_by: 100 }}px"></div>
+              {%- assign steps = health.steps | plus: 0 -%}
+              {%- assign stepsclass = "bg-gold" -%}
+              {%- if steps > 10000 -%} 
+                {%- assign stepsclass = "bg-green" -%}
+              {%- elsif steps < 5000 -%}
+                {%- assign stepsclass = "bg-red" -%}
+              {%- endif -%}
+              <div class="w1 flex-auto box mr1 br2 {{ stepsclass }}" 
+                {{ health.steps | divided_by: 100 | prepend: "style='height: " | append: "px'" }}>
+              </div>
           {% endfor %}
           </div>
 
