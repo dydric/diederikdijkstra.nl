@@ -1,3 +1,6 @@
+#.ENV
+.env
+
 # Apache
 .htaccess
 .htpasswd
@@ -18,6 +21,9 @@ wp-config.php
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/uploads
+
+#Eleventy
+dist/
 
 # Jekyll
 _site
@@ -41,4 +47,5 @@ doc/
 .idea
 .secret
 yarn.lock
-.env
+package-lock.json
+

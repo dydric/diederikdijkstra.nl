@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% include "components/nav.njk" %}
+
+<section class="py-8">
+  <div class="mx-auto px-8 max-w-6xl">
+
+    <div class="border-b border-grey-700 pb-4 mb-8 lg:mb-16 font-400 text-grey-400">
+      {{ date | dateDisplay }} {{ date | yearDisplay }}
+    </div>
+
+    <div class="mb-8 md:mb-20">
+      <h1 class="page-title mb-8">{{ title }}</h1>
+      {% if intro %}
+      <div class="max-w-4xl text-grey-300 text-xl md:text-2xl font-500 leading-snug mb-8">
+        {{ intro | markdownify | safe }}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="post mx-auto max-w-2xl border-b border-grey-700 pb-8 mb-12">
+      {{ content | safe }}
+    </div>
+  </div>
+</section>
