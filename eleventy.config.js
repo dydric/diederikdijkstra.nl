@@ -41,6 +41,7 @@ module.exports = eleventyConfig => {
 
   // Include our static assets
   eleventyConfig.addPassthroughCopy('assets');
+  eleventyConfig.addPassthroughCopy('admin');
   eleventyConfig.addPassthroughCopy('images');
 
   return {
