@@ -1,0 +1,54 @@
+h1,
+h2,
+h3,
+h4 {
+  @apply font-800 leading-tight;
+}
+
+h1 {
+  @apply text-4xl;
+
+  @screen sm {
+    @apply text-5xl;
+  }
+
+  @screen lg {
+    @apply text-6xl;
+  }
+}
+
+h2 {
+  @apply text-3xl;
+
+  @screen sm {
+    @apply text-4xl;
+  }
+
+  @screen lg {
+    @apply text-5xl;
+  }
+}
+
+h3 {
+  @apply text-2xl;
+
+  @screen sm {
+    @apply text-3xl;
+  }
+
+  @screen lg {
+    @apply text-4xl;
+  }
+}
+
+h4 {
+  @apply text-xl;
+
+  @screen sm {
+    @apply text-2xl;
+  }
+
+  @screen lg {
+    @apply text-3xl;
+  }
+}

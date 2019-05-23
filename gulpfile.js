@@ -1,131 +1,58 @@
-/*eslint no-unused-vars: ["error", { "vars": "local" }]*/
+/*eslint no-console: ["error", { allow: ["log", "warn", "error"] }] */
 /*global require, process */
 
-'use strict';
+var gulp = require('gulp'),
+  babel = require('gulp-babel'),
+  cleanCSS = require('gulp-clean-css'),
+  concat = require('gulp-concat'),
+  fs = require('fs'),
+  notify = require('gulp-notify'),
+  plumber = require('gulp-plumber'),
+  postcss = require('gulp-postcss'),
+  purgecss = require('@fullhuman/postcss-purgecss'),
+  rename = require('gulp-rename'),
+  run = require('gulp-run-command').default,
+  sass = require('gulp-sass'),
+  sheetsy = require('sheetsy'),
+  tailwindcss = require('tailwindcss'),
+  twitter = require('twitter'),
+  uglify = require('gulp-uglify');
 
-// gulp modules
-var argv         = require('yargs').argv;
-var autoprefixer = require('gulp-autoprefixer');
-var babel        = require('gulp-babel');
-var browsersync  = require('browser-sync').create();
-var concat       = require('gulp-concat');
-var cp           = require('child_process');
-var fs           = require('fs');
-var gulp         = require('gulp');
-var imagemin     = require('gulp-imagemin');
-var named        = require('vinyl-named');
-var newer        = require('gulp-newer');
-var plumber      = require('gulp-plumber');
-var pngquant     = require('imagemin-pngquant');
-var rename       = require('gulp-rename');
-var sass         = require('gulp-sass');
-var sheetsy      = require('sheetsy');
-var twitter      = require('twitter');
-var uglify       = require('gulp-uglify');
-var watch        = require('gulp-watch');
-var yaml         = require('json2yaml');
+// Resources paths
+var paths = {
+  sass: {
+    source: './resources/sass/style.scss',
+    dest: 'assets/css/'
+  },
+  javascript: {
+    source: './resources/js/**/*.js',
+    dest: 'assets/javascript/'
+  }
+};
 
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+// Errors function
+var onError = function (err) {
+  notify.onError({
+    title: 'Gulp Error - Compile Failed',
+    message: 'Error: <%= error.message %>'
+  })(err);
 
-// Load configurations & set variables
-var config = require('./config.js');
-var tasks  = [];
-var build  = [];
-var paths  = {};
+  this.emit('end');
+};
+
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:/]+/g) || [];
+  }
+}
 
 require('dotenv').config();
 
-// Set default & build tasks
-Object.keys(config.tasks).forEach(function (key) {
-  if (config.tasks[key]) {
-    tasks.push(key);
-  }
-});
+// Create the tailwind.config.js file.
+gulp.task('tailwind:init', run('./node_modules/.bin/tailwind init tailwind.config.js'));
 
-Object.keys(config.tasks).forEach(function (key) {
-  if (config.tasks[key] && key != 'server') {
-    build.push(key);
-  }
-});
 
-// Paths
-Object.keys(config.paths).forEach(function (key) {
-  if (key != 'assets') {
-    if (config.paths.assets === '') {
-      paths[key] = './' + config.paths[key];
-    } else {
-      paths[key] = config.paths.assets + '/' + config.paths[key];
-    }
-  }
-});
-
-// Jekyll
-gulp.task('jekyll-build', function (done) {
-  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml'], {stdio: 'inherit'})
-    .on('close', done);
-});
-
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
-  browsersync.notify('👷🏻‍♂️ Rebuilded Jekyll');
-  browsersync.reload();
-});
-
-gulp.task('server', ['jekyll-build'], function() {
-  return browsersync.init({
-    port: config.port,
-    server: {
-      baseDir: config.paths.dest,
-    }
-  });
-});
-
-// Sass
-gulp.task('sass', function () {
-  return gulp.src([paths.sass + '/*.scss', '!' + paths.sass + '/critical.scss'])
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
-    .pipe(gulp.dest(paths.css));
-});
-
-// Copy critical.css to _includes folder to use inline
-gulp.task('sass-critical', function () {
-  return gulp.src(paths.sass + '/critical.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: config.autoprefixer.browsers }))
-    .pipe(gulp.dest('_includes'));
-});
-
-// ImageMin
-gulp.task('imagemin', function () {
-  return gulp.src(paths.imagesSrc + '/**/*')
-    .pipe(plumber())
-    .pipe(newer(paths.images))
-    .pipe(imagemin({
-      progressive: true,
-      svgoPlugins: [{removeViewBox: false}],
-      use: [pngquant()]
-    }))
-    .pipe(gulp.dest(paths.images));
-});
-
-// Scripts
-
-gulp.task('scripts', function () {
-  return gulp.src([paths.jsSrc + '/plugins/**/*.js', paths.jsSrc + '/script.js'])
-    .pipe(concat('script.concat.js'))
-    .pipe(gulp.dest(paths.js))
-    .pipe(babel({
-      presets: ['es2015'],
-      minified: true,
-      comments: false
-    }))
-    .pipe(rename('script.min.js'))
-    .pipe(gulp.dest(paths.js));
-});
-
-// Workouts
-
-gulp.task('workouts', (cb) => {
+gulp.task('data:workouts', (cb) => {
   const { urlToKey, getWorkbook, getSheet } = sheetsy;
   const key = urlToKey(process.env.WORKOUTS_URL);
 
@@ -144,11 +71,11 @@ gulp.task('workouts', (cb) => {
         };
       });
 
-      var jsonWorkouts = yaml.stringify(activities.slice(0, 49));
+      var jsonWorkouts = JSON.stringify(activities.slice(0, 49));
 
-      fs.writeFile('_data/workouts.yml', jsonWorkouts, function(err) {
+      fs.writeFile('site/data/import/workouts.json', jsonWorkouts, function(err) {
         if(err) {
-          console.log(err);
+          console.warn(err);
         } else {
           console.log('Workouts data saved.');
           cb();
@@ -160,7 +87,7 @@ gulp.task('workouts', (cb) => {
 
 // Health
 
-gulp.task('health', (cb) => {
+gulp.task('data:health', (cb) => {
   const { urlToKey, getWorkbook, getSheet } = sheetsy;
   const key = urlToKey(process.env.HEALTH_URL);
 
@@ -179,11 +106,11 @@ gulp.task('health', (cb) => {
         };
       });
 
-      var jsonHealth = yaml.stringify(dailyHealth.slice(0, 29));
+      var jsonHealth = JSON.stringify(dailyHealth.slice(0, 29));
 
-      fs.writeFile('_data/health.yml', jsonHealth, function(err) {
+      fs.writeFile('site/data/import/health.json', jsonHealth, function(err) {
         if(err) {
-          console.log(err);
+          console.warn(err);
         } else {
           console.log('Daily Health data saved.');
           cb();
@@ -194,8 +121,7 @@ gulp.task('health', (cb) => {
 });
 
 // Twitter
-
-gulp.task('twitter', (cb) => {
+gulp.task('data:twitter', (cb) => {
 
   const client = new twitter({
     consumer_key:        process.env.TWITTER_CONSUMER_KEY,
@@ -216,10 +142,9 @@ gulp.task('twitter', (cb) => {
         };
       });
 
-      var ymlText = yaml.stringify(tweets);
-      fs.writeFile('_data/tweets.yml', ymlText, function(err) {
+      fs.writeFile('site/data/import/tweets.json', JSON.stringify(tweets), function(err) {
         if(err) {
-          console.log(err);
+          console.warn(err);
         } else {
           console.log('Tweets data saved.');
           cb();
@@ -229,63 +154,116 @@ gulp.task('twitter', (cb) => {
   });
 });
 
-// Build
-gulp.task('build', build, function (done) {
-  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml'], {stdio: 'inherit'})
-    .on('close', done);
+// Global data task
+gulp.task('data', ['data:twitter', 'data:health', 'data:workouts']);
+
+// Compile Tailwind
+gulp.task('css:compile', function() {
+  return gulp.src(paths.sass.source)
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(sass())
+    .pipe(postcss([tailwindcss('./tailwind.config.js')]))
+    .pipe(rename({extname: '.css'}))
+    .pipe(gulp.dest(paths.sass.dest));
 });
 
-// Default gulp task
-gulp.task('default', tasks, function () {
-
-  if (config.tasks.imagemin) {
-    watch(paths.imagesSrc + '/**/*', function () {
-      gulp.start('imagemin');
-    });
-  }
-
-  if (config.tasks.sass) {
-    watch(paths.sass + '/**/*.scss', function () {
-      gulp.start('sass', 'sass-critical');
-    });
-  }
-
-  if (config.tasks.scripts) {
-    watch([paths.jsSrc + '/plugins/**/*.js', paths.jsSrc + '/script.js'], function () {
-      gulp.start('scripts');
-    });
-  }
-
-  if (config.tasks.twitter) {
-    gulp.start('twitter');
-  }
-
-  if (config.tasks.workouts) {
-    gulp.start('workouts');
-  }
-
-  if (config.tasks.health) {
-    gulp.start('health');
-  }
-
-  if (config.tasks['server']) {
-    watch([
-      '!./node_modules/**/*',
-      '!./README.md',
-      '!' + paths.dest + '/**/*',
-      '_data/**/*',
-      '_includes/**/*',
-      '_layouts/**/*',
-      '*.html',
-      './**/*.md',
-      './**/*.markdown',
-      paths.posts + '/**/*',
-      paths.css + '/**/*',
-      paths.js + '/**/*',
-      paths.images + '/**/*',
-      '!./assets/css/style.min.css',
-    ], function () {
-      gulp.start('jekyll-rebuild');
-    });
-  }
+// Minify CSS
+gulp.task('css:minify', ['css:compile'], function() {
+  return gulp.src([
+    './assets/css/style.css',
+    '!./assets/css/*.min.css'
+  ])
+    .pipe(cleanCSS())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./assets/css'));
 });
+
+// Run all CSS tasks
+gulp.task('css', ['css:minify']);
+
+// Concatinate and Compile Scripts
+gulp.task('js:compile', function () {
+  return gulp.src(paths.javascript.source)
+    .pipe(plumber({ errorHandler: onError }))
+    .pipe(babel({
+      presets: ['@babel/env'],
+      sourceType: 'script'
+    }))
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest(paths.javascript.dest));
+});
+
+// Minify Scripts
+gulp.task('js:minify', function() {
+  return gulp.src(paths.javascript.dest + 'script.js')
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.javascript.dest));
+});
+
+// Run all JS tasks
+gulp.task('js', ['js:minify']);
+
+// Default Gulp task
+gulp.task('default', ['data', 'css', 'js:compile']);
+
+// Dev task
+gulp.task('dev', ['css', 'js:compile'], function () {
+  gulp.watch(['site/*.njk', 'site/includes/**/*.njk'], ['css']);
+  gulp.watch('./tailwind.config.js', ['css']);
+  gulp.watch('./resources/sass/**/*.scss', ['css']);
+  gulp.watch('./resources/js/**/*.js', ['js:compile']);
+});
+
+// CSS Preflight
+gulp.task('css:compile:preflight', function () {
+  return gulp.src(paths.sass.source)
+    .pipe(sass())
+    .pipe(postcss([
+      tailwindcss('./tailwind.config.js'),
+      purgecss({
+        content: [
+          'site/*.njk',
+          'site/includes/**/*.njk'
+        ],
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ['html', 'njk']
+          }
+        ],
+        whitelist: [
+          'body',
+          'html',
+          'h1',
+          'h2',
+          'h3',
+          'p',
+          'blockquote',
+          'ul',
+          'ol',
+          'table',
+          'emoji'
+        ]
+      })
+    ]))
+    .pipe(rename({extname: '.css'}))
+    .pipe(gulp.dest('assets/css/'));
+});
+
+// Minify CSS [PREFLIGHT]
+gulp.task('css:minify:preflight', ['css:compile:preflight'], function () {
+  return gulp.src([
+    './assets/css/*.css',
+    '!./assets/css/*.min.css'
+  ])
+    .pipe(cleanCSS())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./assets/css'));
+});
+
+// Run all CSS tasks
+gulp.task('css:preflight', ['css:minify:preflight']);
+
+// Build task
+gulp.task('build', ['data', 'css:preflight', 'js:minify']);

@@ -1,0 +1,6 @@
+<div class="w-full md:w-1/2 mb-6 pr-4">
+  <a href="{{ item.url }}" class="block bg-black p-4 lg:p-6 h-full border-l-4 md:border-l-0 md:border-b-4 border-yellow-800" target="_blank" rel="noopener noreferrer">
+    <span class="block text-grey-600 text-base font-600 mb-2">{{ item.created  | dateDisplay  }}, {{ item.created  | timeDisplay  }}</span>
+    <span class="block text-grey-100 font-800 text-lg lg:text-xl">{{ item.text | safe }}</span>
+  </a>
+</div>

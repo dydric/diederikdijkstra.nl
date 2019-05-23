@@ -4,13 +4,16 @@
 
 ```html
 - Clone this repo
-- Install `yarn install` and start `yarn start`
+- Install `yarn`
 - Have fun!
 ```
 
-## Settings
+## Tasks
 
-- **config.js** for gulp settings
-- **_config.yml** for jekyll settings
-- **modernizr.json** for modernizr features
-- **.env** for api settings
+```html
+- yarn data: imports external data
+- yarn serve: serve & watch 11ty
+- yarn dev: watch & builld scss/js and serve task
+- yarn test: before deploy please test the site (with optimized css/js & real data)
+- yarn build: task used by netlify to build website
+```

@@ -1,0 +1,10 @@
+
+//==========  Links ==========//
+
+.transition {
+  transition: 150ms all ease-out;
+}
+
+a {
+  @apply no-underline transition;
+}
