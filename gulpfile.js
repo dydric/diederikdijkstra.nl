@@ -120,6 +120,41 @@ gulp.task('data:health', (cb) => {
   });
 });
 
+// Spotify
+
+gulp.task('data:spotify', (cb) => {
+  const { urlToKey, getWorkbook, getSheet } = sheetsy;
+  const key = urlToKey(process.env.SPOTIFY_URL);
+
+  getWorkbook(key).then(workbook => {
+    const workbookID = workbook.sheets[0].id;
+
+    getSheet(key, workbookID).then(sheet => {
+      // console.log(sheet);
+      var playlist = sheet.rows.reverse().map((track) => {
+        return {
+          name: track[0],
+          artist: track[1],
+          album: track[2],
+          cover: track[3],
+          url: track[4]
+        };
+      });
+
+      var jsonTracks = JSON.stringify(playlist.slice(0, 49));
+
+      fs.writeFile('site/data/import/tracks.json', jsonTracks, function(err) {
+        if(err) {
+          console.warn(err);
+        } else {
+          console.log('Spotify Tracks data saved.');
+          cb();
+        }
+      });
+    });
+  });
+});
+
 const client = new twitter({
   consumer_key:        process.env.TWITTER_CONSUMER_KEY,
   consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
@@ -186,7 +221,9 @@ gulp.task('data:twitter-likes', (cb) => {
 });
 
 // Global data task
-gulp.task('data', ['data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts']);
+gulp.task('data', [
+  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify'
+]);
 
 // Compile Tailwind
 gulp.task('css:compile', function() {

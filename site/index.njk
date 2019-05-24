@@ -112,3 +112,25 @@ body_class: home
 
   </div>
 </section>
+
+<section class="py-16 border-b border-grey-800">
+  <div class="mx-auto pl-8 pr-4 max-w-6xl">
+
+    <h2 class="mb-6 md:mb-10">Muziek</h2>
+
+    <h4 class="text-grey-600 mb-6 md:mb-8 mt-4 font-900">Repeat:</h4>
+
+    <div class="flex flex-wrap">
+      {%- for i in range(0, 8) -%}
+        {% set item = import.tracks[i] %}
+
+        <a class="w-1/4 pr-4 mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.cover }}" alt="{{ item.album }}" class="mb-2">
+          <span class="hidden md:block text-base md:text-lg leading-tight">{{ item.name }}</span>
+          <span class="hidden md:block text-grey-600 text-sm md:text-base font-500 mb2">{{ item.artist }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
