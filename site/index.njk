@@ -41,14 +41,22 @@ body_class: home
   <div class="mx-auto pl-8 pr-4 max-w-6xl">
 
     <div class="flex flex-no-wrap justify-between items-end mb-6 md:mb-10 mr-4">
-      <h2 class="flex-auto leading-none mb-0">Tweets</h2>
+      <h2 class="flex-auto leading-none mb-0">Twitter</h2>
       <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="flex-initial link bg-blue-800 hover:bg-white text-white hover:text-blue-800 font-800 rounded-full py-1 px-3 m-auto ml-6 text-sm sm:text-base">Follow me</a>
     </div>
 
+    <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">Recent:</h4>
     <div class="flex flex-wrap">
     {%- for i in range(0, 4) -%}
       {% set item = import.tweets[i] %}
       {% include "components/tweet.njk" %}
+    {%- endfor -%}
+
+    <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">Likes:</h4>
+    <div class="flex flex-wrap">
+    {%- for i in range(0, 4) -%}
+      {% set item = import.likes[i] %}
+      {% include "components/likes.njk" %}
     {%- endfor -%}
 
     </div>

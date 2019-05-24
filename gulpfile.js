@@ -120,17 +120,18 @@ gulp.task('data:health', (cb) => {
   });
 });
 
+const client = new twitter({
+  consumer_key:        process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key:    process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
+
 // Twitter
 gulp.task('data:twitter', (cb) => {
 
-  const client = new twitter({
-    consumer_key:        process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key:    process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-  });
-
   let params = {screen_name: 'dydric', count: 4};
+
   client.get('statuses/user_timeline', params, function (error, tweets) {
     if (!error) {
 
@@ -138,7 +139,7 @@ gulp.task('data:twitter', (cb) => {
         return {
           text:    tweet.text,
           url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-          created: tweet.created_at.substring(0, tweet.created_at.length - 11),
+          created: tweet.created_at.substring(0, tweet.created_at.length - 11)
         };
       });
 
@@ -154,8 +155,38 @@ gulp.task('data:twitter', (cb) => {
   });
 });
 
+gulp.task('data:twitter-likes', (cb) => {
+
+  let params = {screen_name: 'dydric', count: 4};
+
+  client.get('favorites/list', params, function (error, tweets) {
+    if (!error) {
+
+      tweets = tweets.map((tweet) => {
+
+        // console.log(tweet);
+        return {
+          text:  tweet.text,
+          url:   'https://twitter.com/dydric/status/' + tweet.id_str,
+          created: tweet.created_at.substring(0, tweet.created_at.length - 11),
+          from: tweet.user.name
+        };
+      });
+
+      fs.writeFile('site/data/import/likes.json', JSON.stringify(tweets), function(err) {
+        if(err) {
+          console.warn(err);
+        } else {
+          console.log('Likes data saved.');
+          cb();
+        }
+      });
+    }
+  });
+});
+
 // Global data task
-gulp.task('data', ['data:twitter', 'data:health', 'data:workouts']);
+gulp.task('data', ['data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts']);
 
 // Compile Tailwind
 gulp.task('css:compile', function() {
