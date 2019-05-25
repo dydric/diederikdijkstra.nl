@@ -165,7 +165,7 @@ const client = new twitter({
 // Twitter
 gulp.task('data:twitter', (cb) => {
 
-  let params = {screen_name: 'dydric', count: 4};
+  let params = {screen_name: 'dydric', count: 6};
 
   client.get('statuses/user_timeline', params, function (error, tweets) {
     if (!error) {
