@@ -52,7 +52,7 @@ body_class: home
       {% include "components/tweet.njk" %}
     {%- endfor -%}
 
-    <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">Likes:</h4>
+    <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">💙 Likes:</h4>
     <div class="flex flex-wrap">
     {%- for i in range(0, 4) -%}
       {% set item = import.likes[i] %}
@@ -114,21 +114,30 @@ body_class: home
 </section>
 
 <section class="py-16 border-b border-grey-800">
-  <div class="mx-auto pl-8 pr-4 max-w-6xl">
+  <div class="mx-auto pl-8 pr-6 md:pr-4 max-w-6xl">
 
-    <h2 class="mb-6 md:mb-10">Muziek</h2>
+    <h2 class="mb-6 md:mb-10">Playlist:</h2>
 
-    <h4 class="text-grey-600 mb-6 md:mb-8 mt-4 font-900">Repeat:</h4>
+    <div class="flex flex-no-wrap justify-between items-end mb-6 md:mb-10 mr-4">
+      <h4 class="flex-auto text-grey-600 font-900">🔁 on Repeat.</h4>
+      <a href="https://open.spotify.com/user/diederikdijkstra.nl/playlist/3fpp9Ub3JYOiLY5uo5GOQO?si=uaTa8UufTc64o1YsIpNh5Q" target="_blank" rel="noopener noreferrer" class="flex-initial link bg-green-500 hover:bg-white text-white hover:text-green-500 font-800 rounded-full py-1 px-3 m-auto ml-6 text-sm sm:text-base">Subscribe</a>
+    </div>
 
     <div class="flex flex-wrap">
-      {%- for i in range(0, 8) -%}
+      {%- for i in range(0, 10) -%}
         {% set item = import.tracks[i] %}
 
-        <a class="w-1/4 pr-4 mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+        {% if i <= 3 %}
+        <a class="w-1/4 pr-2 md:pr-4 md:mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
           <img src="{{ item.cover }}" alt="{{ item.album }}" class="mb-2">
           <span class="hidden md:block text-base md:text-lg leading-tight">{{ item.name }}</span>
           <span class="hidden md:block text-grey-600 text-sm md:text-base font-500 mb2">{{ item.artist }}</span>
         </a>
+        {% else %}
+          <a class="w-1/6 pr-2 md:pr-4 md:mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ item.cover }}" alt="{{ item.album }}" class="mb-2">
+          </a>
+        {% endif %}
       {%- endfor -%}
     </div>
 
