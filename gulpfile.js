@@ -292,9 +292,7 @@ gulp.task('css:compile:preflight', function () {
       purgecss({
         content: [
           'site/*.njk',
-          'site/includes/**/*.njk',
-          'dist/*.html',
-          'dist/**/*.html'
+          'site/includes/**/*.njk'
         ],
         extractors: [
           {
@@ -314,7 +312,8 @@ gulp.task('css:compile:preflight', function () {
           'ol',
           'table',
           'emoji'
-        ]
+        ],
+        whitelistPatterns: [/yellow-800$/, /lightblue-400$/, /red-500$/, /green-500$/],
       })
     ]))
     .pipe(rename({extname: '.css'}))
