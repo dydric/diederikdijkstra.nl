@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% include "shared/nav.njk" %}
+
+<section class="py-8">
+  <div class="mx-auto px-8 max-w-6xl">
+
+    <div class="border-b border-grey-700 pb-4 mb-8 lg:mb-16 font-400 text-grey-400">
+      {{ date | dateDisplay }} {{ date | yearDisplay }}
+    </div>
+
+    <div class="mb-8 md:mb-20">
+      <h1 class="page-title mb-8">Recept: {{ title }}</h1>
+    </div>
+
+    <div class="post mx-auto max-w-2xl border-b border-grey-700 pb-8 mb-12">
+      {{ content | safe }}
+    </div>
+  </div>
+</section>

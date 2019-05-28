@@ -1,0 +1,23 @@
+
+<strong>Sort by name</strong><br>
+{%- for post in collections.recipes -%}
+  {{ post.data.title }}
+{%- endfor -%}
+
+<Br><br>
+<strong>Reverse</strong><br>
+{%- for post in collections.recipes.reverse() -%}
+  {{ post.data.title }}
+{%- endfor -%}
+
+<br><br>
+<strong>Sort by date</strong></br>
+{{ collections.recipes[0].data.title }}
+{{ collections.recipes[1].data.title }}
+
+
+
+{# {{ collections.recipes | dump }} #}
+
+
+

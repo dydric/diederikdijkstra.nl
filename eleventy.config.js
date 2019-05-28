@@ -30,14 +30,29 @@ module.exports = eleventyConfig => {
   });
   eleventyConfig.addNunjucksFilter('markdownify', markdownString => md.render(markdownString));
 
+
+
   // Collections
   eleventyConfig.addCollection('blog', collection => {
     return collection.getFilteredByTag('blog').reverse();
   });
 
+  eleventyConfig.addCollection('recipes', (collection) => {
+    return collection.getFilteredByTag('recipes').reverse();
+  });
+
+  // eleventyConfig.addCollection('recipes', (collection) => {
+  //   return collection.getFilteredByTag('recipes').sort((a, b) => {
+  //     if (b.data.title > a.data.title) return -1;
+  //     else if (b.data.title < a.data.title) return 1;
+  //     else return 0;
+  //   });
+  // });
+
   // Layout aliases
   eleventyConfig.addLayoutAlias('default', 'layouts/default.njk');
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
+  eleventyConfig.addLayoutAlias('recipe', 'layouts/recipe.njk');
 
   // Include our static assets
   eleventyConfig.addPassthroughCopy('assets');
