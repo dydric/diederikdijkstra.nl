@@ -4,7 +4,8 @@
   url = "",
   created = "",
   from = "",
-  text = ""
+  text = "",
+  textsize = " text-lg lg:text-xl"
 ) %}
 <div class="{{ classes }}">
   <a href="{{ url }}" class="block bg-black px-4 py-2 lg:p-6 h-full border-l-4 md:border-l-0 md:border-b-4 border-{{ color }}" target="_blank" rel="noopener noreferrer">
@@ -21,7 +22,7 @@
     </span>
     {% endif %}
 
-    <span class="block text-grey-100 font-800 text-lg lg:text-xl">{{ text | safe }}</span>
+    <span class="block text-grey-100 font-800 {{ textsize }}">{{ text | safe }}</span>
   </a>
 </div>
 {% endmacro %}
