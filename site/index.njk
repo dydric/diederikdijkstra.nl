@@ -6,34 +6,16 @@ body_class: home
 
 <section class="py-16 border-b border-grey-800">
   <div class="mx-auto px-8 max-w-6xl">
-
     <h1 class="mb-6 md:mb-10">{{ site.name }}</h1>
     <p class="text-2xl sm:text-4xl lg:text-5xl text-grey-600 font-800 leading-tight">Woont in Leeuwarden. Trotse ‘heit’ van Elin en Fedde. Vriend van Lotte. Hobby’s: wielrennen, muziek en koken. Werkt bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link text-yellow-800 hover:text-white">TRES</a>. Interesses: UX en Design Systems. 10+ jaar ervaring.</p>
-
     <img src="/images/home/tres.jpg" alt="" class="pt-6 sm:pt-12 mb-6">
-
   </div>
 </section>
 
 <section class="py-16 bg-black border-b border-grey-800">
   <div class="mx-auto px-8 max-w-6xl pb-4">
-
     <h2 class="mb-6">Blog</h2>
-    {% for post in collections.blog %}
-
-      {% set year = post.date | yearDisplay %}
-      {% if year != prev_year %}
-        <h4 class="text-grey-600 mb-2 mt-4 md:mt-6 font-900">{{year}}</h4>
-      {% endif %}
-
-      <h4 class="mb-2">
-        <a class="pr-4 text-yellow-800 hover:text-white" href="{{ post.url }}">{{ post.data.title }}</a>
-        <span class="block md:inline text-base md:text-xl whitespace-no-wrap">{{ post.date | dateDisplay }}</span>
-      </h4>
-
-      {% set prev_year = post.date | yearDisplay %}
-    {% endfor %}
-
+    {% include "shared/archive-by-year.njk" %}
   </div>
 </section>
 
@@ -44,36 +26,39 @@ body_class: home
       <h2 class="flex-auto leading-none mb-0">Twitter</h2>
       <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="flex-initial link bg-blue-800 hover:bg-white text-white hover:text-blue-800 font-800 rounded-full py-1 px-3 m-auto ml-6 text-sm sm:text-base">Follow me</a>
     </div>
-
     <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">Recent:</h4>
     <div class="flex flex-wrap">
-    {%- for i in range(0, 6) -%}
-      {% set item = import.tweets[i] %}
-      {% set hideClass = '' %}
-      {% if i >= 4 %}
-        {% set hideClass = 'hidden lg:block' %}
-      {% endif %}
-      <div class="{{ hideClass }} w-full md:w-1/2 lg:w-1/3 mb-6 pr-4 ">
-        <a href="{{ item.url }}" class="block bg-black px-4 py-2 lg:p-6 h-full border-l-4 md:border-l-0 md:border-b-4 border-yellow-800" target="_blank" rel="noopener noreferrer">
-          <span class="block text-grey-600 text-base font-600 mb-2">{{ item.created  | dateDisplay  }}, {{ item.created  | timeDisplay  }}</span>
-          <span class="block text-grey-100 font-800 text-lg lg:text-xl">{{ item.text | safe }}</span>
-        </a>
-      </div>
+      {%- import "components/tweet.njk" as twitter -%}
+      {%- for i in range(0, 6) -%}
+        {%- set item = import.tweets[i] -%}
+
+        {%- set hideClass = '' -%}
+        {%- if i >= 4 -%}
+          {%- set hideClass = 'hidden lg:block' -%}
+        {%- endif -%}
+
+        {{ twitter.tweet (
+          classes = "w-full md:w-1/2 lg:w-1/3 mb-6 pr-4 " + hideClass,
+          url = item.url,
+          created = item.created,
+          text = item.text
+        ) }}
     {%- endfor -%}
 
     <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">💙 Likes:</h4>
     <div class="flex flex-wrap">
     {%- for i in range(0, 4) -%}
-      {% set item = import.likes[i] %}
-      <div class="w-full sm:w-1/2 lg:w-1/4 mb-6 pr-4">
-        <a href="{{ item.url }}" class="block overflow-hidden bg-black px-4 py-2 lg:p-6 h-full border-l-4 md:border-l-0 md:border-b-4 border-lightblue-400" target="_blank" rel="noopener noreferrer">
-          <span class="block text-lightblue-600 text-sm font-600 mb-2">{{ item.from  }}:</span>
-          <span class="block text-grey-100 font-600 text-sm sm:text-base">{{ item.text | safe }}</span>
-        </a>
-      </div>
+      {%- set item = import.likes[i] -%}
+      {{ twitter.tweet (
+          classes = "w-full sm:w-1/2 lg:w-1/4 mb-6 pr-4",
+          color = "lightblue-400",
+          url = item.url,
+          from = item.from,
+          text = item.text
+        ) }}
     {%- endfor -%}
-
     </div>
+
   </div>
 </section>
 
@@ -81,46 +66,37 @@ body_class: home
   <div class="mx-auto pl-8 max-w-6xl">
 
     <h2 class="mb-6 md:mb-10">Activiteiten</h2>
-
     <h4 class="text-grey-600 mb-4 md:mb-6 mt-4 font-900">Stappen:</h4>
 
     <div class="flex flex-no-wrap items-end mr-2 md:mr-0 mb-12 md:mb-16">
     {%- for i in range(0, 30) -%}
-      {% set item = import.health[i] %}
+      {%- set item = import.health[i] -%}
 
-      {%- set stepsclass = "bg-yellow-800" -%}
+      {%- set color = "yellow-800" -%}
       {%- if item.steps >= 10000 -%}
-        {%- set stepsclass = "bg-green-500" -%}
+        {%- set color = "green-500" -%}
       {%- elif item.steps <= 5000 -%}
-        {%- set stepsclass = "bg-red-500" -%}
+        {%- set color = "red-500" -%}
       {%- endif -%}
 
-      <div class="w1 flex-auto box mr-2 rounded-lg {{ stepsclass }}"
+      <div class="w1 flex-auto box mr-2 rounded-lg bg-{{ color }}"
           style="height:{{ (item.steps / 100) | round }}px">
       </div>
     {%- endfor -%}
     </div>
 
     <h4 class="text-grey-600 mb-6 md:mb-8 mt-4 font-900">Workouts:</h4>
-
     <div class="flex flex-wrap">
+      {%- import "components/activity.njk" as workout -%}
       {%- for i in range(0, 8) -%}
-        {% set item = import.workouts[i] %}
-
-        <div class="w-1/2 md:w-1/4 pr-4 mb-6 font-800">
-          <span class="block text-grey-600 text-sm md:text-base font-500 mb2">{{ item.type }}</span>
-          <span class="block text-lg md:text-xl">{{ item.movingtime }}</span>
-          {% if item.distance %}
-            {%- set workoutkm = item.distance | int -%}
-            <span class="block text-lg md:text-xl">{{ (workoutkm / 1000) | round(2) }}km</span>
-          {% endif %}
-          {% if item.heartrate %}
-            <span class="inline-block text-base font-600 my-2 mr-2">♥ {{ item.heartrate }}</span>
-          {% endif %}
-          {% if item.activecalories %}
-            <span class="inline-block text-base font-600 my-2">💪 {{ item.activecalories }}</span>
-          {% endif %}
-        </div>
+        {%- set item = import.workouts[i] -%}
+        {{ workout.activity(
+            type = item.type,
+            movingtime = item.movingtime,
+            distance = item.distance,
+            heartrate = item.heartrate,
+            activecalories = item.activecalories
+        ) }}
       {%- endfor -%}
     </div>
 
@@ -138,19 +114,25 @@ body_class: home
     <h4 class="text-grey-600 font-900 mb-6 md:mb-8">Playlist: 💛</h4>
 
     <div class="flex flex-wrap">
+      {%- import "components/track.njk" as music -%}
       {%- for i in range(0, 10) -%}
         {% set item = import.tracks[i] %}
-
-        {% if i <= 3 %}
-        <a class="w-1/4 pr-2 md:pr-4 md:mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
-          <img src="{{ item.cover }}" alt="{{ item.album }}" class="mb-2">
-          <span class="hidden md:block text-base md:text-lg leading-tight">{{ item.name }}</span>
-          <span class="hidden md:block text-grey-600 text-sm md:text-base font-500 mb2">{{ item.artist }}</span>
-        </a>
+        {%- if i <= 3 -%}
+          {{ music.track(
+            classes = "w-1/4 pr-2 md:pr-4 md:mb-4 font-800",
+            url = item.url,
+            cover = item.cover,
+            name = item.name,
+            artist = item.artist,
+            album = item.album
+          ) }}
         {% else %}
-          <a class="w-1/6 pr-2 md:pr-4 md:mb-4 font-800" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
-            <img src="{{ item.cover }}" alt="{{ item.album }}" class="mb-2">
-          </a>
+          {{ music.track(
+            classes = "w-1/6 pr-2 md:pr-4 md:mb-4",
+            url = item.url,
+            cover = item.cover,
+            album = item.album
+          ) }}
         {% endif %}
       {%- endfor -%}
     </div>
