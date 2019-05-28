@@ -41,13 +41,13 @@ module.exports = eleventyConfig => {
     return collection.getFilteredByTag('recipes').reverse();
   });
 
-  // eleventyConfig.addCollection('recipes', (collection) => {
-  //   return collection.getFilteredByTag('recipes').sort((a, b) => {
-  //     if (b.data.title > a.data.title) return -1;
-  //     else if (b.data.title < a.data.title) return 1;
-  //     else return 0;
-  //   });
-  // });
+  eleventyConfig.addCollection('recipesAsc', (collection) => {
+    return collection.getFilteredByTag('recipes').sort((a, b) => {
+      if (b.data.title > a.data.title) return -1;
+      else if (b.data.title < a.data.title) return 1;
+      else return 0;
+    });
+  });
 
   // Layout aliases
   eleventyConfig.addLayoutAlias('default', 'layouts/default.njk');
