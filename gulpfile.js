@@ -292,7 +292,9 @@ gulp.task('css:compile:preflight', function () {
       purgecss({
         content: [
           'site/*.njk',
-          'site/includes/**/*.njk'
+          'site/includes/**/*.njk',
+          'dist/*.html',
+          'dist/**/*.html'
         ],
         extractors: [
           {
