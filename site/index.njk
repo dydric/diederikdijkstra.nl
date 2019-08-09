@@ -4,20 +4,34 @@ meta_description:
 body_class: home
 ---
 
-<section class="py-16 border-b border-grey-800">
+<section class="py-16 ">
   <div class="mx-auto px-8 max-w-6xl">
-    <h1 class="mb-6 md:mb-10">{{ site.name }}</h1>
-    <p class="text-2xl sm:text-4xl lg:text-5xl text-grey-600 font-800 leading-tight">Woont in Leeuwarden. Trotse ‘heit’ van Elin en Fedde. Vriend van Lotte. Hobby’s: wielrennen, muziek en koken. Werkt bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link text-yellow-800 hover:text-white">TRES</a>. Interesses: UX en Design Systems. 10+ jaar ervaring.</p>
-    <img src="/images/home/tres.jpg" alt="" class="pt-6 sm:pt-12 mb-6">
+
+
+    <h1 class="mb-6 md:mb-10">
+      <img src="/images/home/avatar.jpg" alt="" class="block sm:inline align-baseline w-16 lg:w-20 pt-6 sm:pt-12 mr-6 mb-4 sm:mb-0">
+
+    {{ site.name }}</h1>
+    <p class="text-2xl sm:text-4xl lg:text-5xl text-grey-600 font-800 leading-tight mb-8 sm:mb-16">Woont in Leeuwarden. Trotse ‘heit’ van Elin en Fedde. Vriend van Lotte. Hobby’s: wielrennen, muziek en koken. Werkt bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link text-yellow-800 hover:text-white">TRES</a>. Interesses: UX en Design Systems. 10+ jaar ervaring. </p>
+    {# <img src="/images/home/tres.jpg" alt="" class="pt-6 sm:pt-12 mb-6"> #}
+
+    <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="block sm:inline-block link text-center bg-blue-800 hover:bg-blue-200 text-white hover:text-blue-800 font-800 rounded-full py-1 px-3 sm:px-6 m-auto text-xl sm:text-2xl lg:text-3xl mr-4 mb-4">Twitter</a>
+
+    <a href="https://www.instagram.com/dydric/" target="_blank" rel="noopener noreferrer" class="block sm:inline-block link text-center bg-purple-400 hover:bg-purple-100 text-white hover:text-purple-400 font-800 rounded-full py-1 px-3 sm:px-6 m-auto text-xl sm:text-2xl lg:text-3xl mr-4 mb-4">Instagram</a>
+
+    <a href="mailto:diederikdijkstra@me.com?subject=Hello" target="_blank" rel="noopener noreferrer" class="block sm:inline-block link text-center bg-pink-800 hover:bg-pink-200 text-white hover:text-pink-800 font-800 rounded-full py-1 px-3 sm:px-6 m-auto text-xl sm:text-2xl lg:text-3xl mr-4 mb-4">Email</a>
+
+
   </div>
 </section>
-
+{#
 <section class="py-16 bg-black border-b border-grey-800">
   <div class="mx-auto px-8 max-w-6xl pb-4">
     <h2 class="mb-6">Blog</h2>
     {% include "shared/archive-by-year.njk" %}
   </div>
 </section>
+
 
 <section class="py-16 border-b border-grey-800">
   <div class="mx-auto pl-8 pr-4 max-w-6xl">
@@ -140,3 +154,4 @@ body_class: home
 
   </div>
 </section>
+#}
