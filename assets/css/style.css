@@ -1021,6 +1021,20 @@ h4 {
   }
 }
 
+.text-gradient {
+  color: #fff;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(180deg, #d81b60, #f9a825);
+  -webkit-background-clip: text;
+}
+
+.text-gradient a {
+  color: #f9a825;
+  -webkit-text-fill-color: transparent;
+  background-image: -webkit-linear-gradient(180deg, #fff, #fff);
+  -webkit-background-clip: text;
+}
+
 .appearance-none {
   appearance: none;
 }
