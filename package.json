@@ -39,6 +39,7 @@
     "stylelint-config-standard": "^16",
     "stylelint-order": "^0",
     "tailwindcss": "^1",
+    "tumblr": "^0",
     "twitter": "^1"
   }
 }

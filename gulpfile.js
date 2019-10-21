@@ -15,6 +15,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   sheetsy = require('sheetsy'),
   tailwindcss = require('tailwindcss'),
+  tumblr = require('tumblr'),
   twitter = require('twitter'),
   uglify = require('gulp-uglify');
 
@@ -154,6 +155,68 @@ gulp.task('data:spotify', (cb) => {
     });
   });
 });
+
+
+// Tumblr
+
+const oauth = {
+  consumer_key: process.env.TUMBLR_CONSUMER_KEY,
+  consumer_secret: process.env.TUMBLR_CONSUMER_SECRET
+  // token: 'OAuth Access Token',
+  // token_secret: 'OAuth Access Token Secret'
+};
+
+gulp.task('data:tumblr', (cb) => {
+
+  var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
+
+  blog.posts({limit: 20 }, function(error, response) {
+
+    // console.log(response);
+
+    // var blogoffset = response.blog.posts ;
+    // console.log(blogoffset);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+    // console.log(response.posts);
+
+    var posts = response.posts.map((post) => {
+      return {
+        text:    post.type,
+        url:     post.short_url,
+        photos:  post.photos[0].alt_sizes[0].url
+      };
+    });
+
+    // console.log(posts);
+
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+      if(err) {
+        console.warn(err);
+      } else {
+        console.log('Tumblr posts saved.');
+        cb();
+      }
+    });
+
+
+  });
+
+  // var user = new tumblr.User(oauth);
+
+  // user.info(function(error, response) {
+  //   if (error) {
+  //     throw new Error(error);
+  //   }
+
+  //   console.log(response.user);
+  // });
+
+});
+
 
 const client = new twitter({
   consumer_key:        process.env.TWITTER_CONSUMER_KEY,
