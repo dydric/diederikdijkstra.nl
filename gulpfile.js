@@ -170,26 +170,36 @@ gulp.task('data:tumblr', (cb) => {
 
   var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
 
-  blog.posts({limit: 20 }, function(error, response) {
+  blog.photo({limit: 20 }, function(error, response) {
 
     // console.log(response);
-
-    // var blogoffset = response.blog.posts ;
-    // console.log(blogoffset);
 
     if (error) {
       throw new Error(error);
     }
 
-    // console.log(response.posts);
+  //  console.log(response.posts);
 
     var posts = response.posts.map((post) => {
+
+      if (post.type == 'photo') {
+        var photos = post.photos[0].alt_sizes[0].url;
+        var thumb = post.photos[0].alt_sizes[4].url;
+      } else {
+        photos = 'none';
+        thumb = 'none';
+      }
+
       return {
-        text:    post.type,
+        type:    post.type,
         url:     post.short_url,
-        photos:  post.photos[0].alt_sizes[0].url
+        // photos:  post.photos
+        photos:  photos,
+        thumb:  thumb
       };
+
     });
+
 
     // console.log(posts);
 
@@ -201,7 +211,6 @@ gulp.task('data:tumblr', (cb) => {
         cb();
       }
     });
-
 
   });
 
@@ -285,7 +294,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify'
+  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify', 'data:tumblr'
 ]);
 
 // Compile Tailwind
