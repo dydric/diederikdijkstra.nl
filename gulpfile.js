@@ -15,6 +15,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   sheetsy = require('sheetsy'),
   tailwindcss = require('tailwindcss'),
+  tumblr = require('tumblr'),
   twitter = require('twitter'),
   uglify = require('gulp-uglify');
 
@@ -155,6 +156,77 @@ gulp.task('data:spotify', (cb) => {
   });
 });
 
+
+// Tumblr
+
+const oauth = {
+  consumer_key: process.env.TUMBLR_CONSUMER_KEY,
+  consumer_secret: process.env.TUMBLR_CONSUMER_SECRET
+  // token: 'OAuth Access Token',
+  // token_secret: 'OAuth Access Token Secret'
+};
+
+gulp.task('data:tumblr', (cb) => {
+
+  var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
+
+  blog.photo({limit: 20 }, function(error, response) {
+
+    // console.log(response);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+  //  console.log(response.posts);
+
+    var posts = response.posts.map((post) => {
+
+      if (post.type == 'photo') {
+        var photos = post.photos[0].alt_sizes[0].url;
+        var thumb = post.photos[0].alt_sizes[4].url;
+      } else {
+        photos = 'none';
+        thumb = 'none';
+      }
+
+      return {
+        type:    post.type,
+        url:     post.short_url,
+        // photos:  post.photos
+        photos:  photos,
+        thumb:  thumb
+      };
+
+    });
+
+
+    // console.log(posts);
+
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+      if(err) {
+        console.warn(err);
+      } else {
+        console.log('Tumblr posts saved.');
+        cb();
+      }
+    });
+
+  });
+
+  // var user = new tumblr.User(oauth);
+
+  // user.info(function(error, response) {
+  //   if (error) {
+  //     throw new Error(error);
+  //   }
+
+  //   console.log(response.user);
+  // });
+
+});
+
+
 const client = new twitter({
   consumer_key:        process.env.TWITTER_CONSUMER_KEY,
   consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
@@ -222,7 +294,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify'
+  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify', 'data:tumblr'
 ]);
 
 // Compile Tailwind
