@@ -5,3 +5,36 @@
 @import 'links';
 @import 'twemoji';
 @import 'typography';
+
+body {
+  @apply bg-grey-100 text-bluegrey-600;
+  @apply tracking-tight leading-normal font-500;
+
+  @media (prefers-color-scheme: dark) {
+    @apply bg-grey-900 text-grey-500;
+  }
+}
+
+.section {
+
+  + .section {
+    @apply border-t-2 border-bluegrey-100;
+
+    @media (prefers-color-scheme: dark) {
+      @apply border-bluegrey-900;
+    }
+  }
+
+  div {
+    @apply max-w-5xl;
+    @apply p-6;
+
+    @screen md {
+      @apply p-12;
+    }
+
+    @screen lg {
+      @apply p-16;
+    }
+  }
+}

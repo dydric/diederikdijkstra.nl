@@ -453,7 +453,7 @@ html {
 *::after {
   border-width: 0;
   border-style: solid;
-  border-color: currentColor;
+  border-color: #eeeeee;
 }
 
 /**
@@ -792,12 +792,12 @@ Usage:
   src: url("../fonts/Inter-italic.var.woff2") format("woff2 supports variations(gvar)"), url("../fonts/Inter-italic.var.woff2") format("woff2-variations"), url("../fonts/Inter-italic.var.woff2") format("woff2");
 }
 
-.inter {
+.font-inter {
   font-family: 'Inter', sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
-  .inter {
+  .font-inter {
     font-family: 'Inter var', sans-serif;
   }
 }
@@ -825,70 +825,251 @@ h2,
 h3,
 h4 {
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #1a237e;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  h1,
+    h2,
+    h3,
+    h4 {
+    color: #607d8b;
+  }
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.4rem;
 }
 
 @media (min-width: 640px) {
   h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   h1 {
     font-size: 4rem;
   }
 }
 
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 5.6rem;
+  }
+}
+
 h2 {
-  font-size: 1.875rem;
+  font-size: 2.1rem;
 }
 
 @media (min-width: 640px) {
   h2 {
-    font-size: 2.25rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 3.2rem;
   }
 }
 
 @media (min-width: 1024px) {
   h2 {
-    font-size: 3rem;
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h2 {
+    font-size: 4.8rem;
   }
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 @media (min-width: 640px) {
   h3 {
-    font-size: 1.875rem;
+    font-size: 2.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 2.4rem;
   }
 }
 
 @media (min-width: 1024px) {
   h3 {
-    font-size: 2.25rem;
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h3 {
+    font-size: 4rem;
   }
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
 }
 
 @media (min-width: 640px) {
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 2.1rem;
   }
 }
 
 @media (min-width: 1024px) {
   h4 {
-    font-size: 1.875rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h4 {
+    font-size: 3.2rem;
+  }
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 640px) {
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+p + p {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  p + p {
+    margin-top: 1rem;
+  }
+}
+
+p.intro {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 640px) {
+  p.intro {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  p.intro {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  p.intro {
+    font-size: 2.1rem;
+  }
+}
+
+body {
+  background-color: #f6f6f6;
+  color: #546e7a;
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111111;
+    color: #757575;
+  }
+}
+
+.section + .section {
+  border-top-width: 2px;
+  border-color: #cfd8dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  .section + .section {
+    border-color: #263238;
+  }
+}
+
+.section div {
+  max-width: 80rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section div {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section div {
+    padding: 4rem;
   }
 }
 
@@ -918,121 +1099,6 @@ h4 {
   .container {
     max-width: 1280px;
   }
-}
-
-.post h1,
-.post h2,
-.post h3,
-.post h4 {
-  color: #eeeeee;
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.post p,
-.post ol,
-.post ul {
-  color: #757575;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-@media (min-width: 640px) {
-  .post p,
-  .post ol,
-  .post ul {
-    font-size: 1.125rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .post p,
-  .post ol,
-  .post ul {
-    font-size: 1.25rem;
-  }
-}
-
-.post ol li,
-.post ul li {
-  list-style-type: none;
-}
-
-.post ul li::before {
-  content: '\2022';
-}
-
-.post ol {
-  counter-reset: li;
-}
-
-.post ol li {
-  counter-increment: li;
-}
-
-.post ol li::before {
-  content: counter(li);
-}
-
-.post img:not(.emoji) {
-  position: relative;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  width: 100vw;
-  max-width: 56rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.post a {
-  color: #f9a825;
-  text-decoration: underline;
-}
-
-.post a:hover {
-  color: #fff;
-}
-
-.post blockquote {
-  position: relative;
-  width: 100vw;
-  max-width: 48rem;
-  margin: 0;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  max-width: 56rem;
-  font-weight: 800;
-  line-height: 1.25;
-  color: #f6f6f6;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.post blockquote p {
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-@media (min-width: 640px) {
-  .post blockquote p {
-    font-size: 1.875rem;
-  }
-}
-
-.text-gradient {
-  color: #fff;
-  -webkit-text-fill-color: transparent;
-  background: -webkit-linear-gradient(180deg, #d81b60, #f9a825);
-  -webkit-background-clip: text;
-}
-
-.text-gradient a {
-  color: #f9a825;
-  -webkit-text-fill-color: transparent;
-  background-image: -webkit-linear-gradient(180deg, #fff, #fff);
-  -webkit-background-clip: text;
 }
 
 .appearance-none {
@@ -7766,15 +7832,15 @@ h4 {
 }
 
 .max-w-4xl {
-  max-width: 56rem;
-}
-
-.max-w-5xl {
   max-width: 64rem;
 }
 
+.max-w-5xl {
+  max-width: 80rem;
+}
+
 .max-w-6xl {
-  max-width: 72rem;
+  max-width: 96rem;
 }
 
 .max-w-full {
@@ -11054,43 +11120,43 @@ h4 {
 }
 
 .text-xs {
-  font-size: 0.75rem;
+  font-size: 1.2rem;
 }
 
 .text-sm {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
 }
 
 .text-base {
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .text-lg {
-  font-size: 1.125rem;
+  font-size: 1.8rem;
 }
 
 .text-xl {
-  font-size: 1.25rem;
+  font-size: 2.1rem;
 }
 
 .text-2xl {
-  font-size: 1.5rem;
+  font-size: 2.4rem;
 }
 
 .text-3xl {
-  font-size: 1.875rem;
+  font-size: 3.2rem;
 }
 
 .text-4xl {
-  font-size: 2.25rem;
+  font-size: 4rem;
 }
 
 .text-5xl {
-  font-size: 3rem;
+  font-size: 4.8rem;
 }
 
 .text-6xl {
-  font-size: 4rem;
+  font-size: 5.6rem;
 }
 
 .italic {
@@ -18226,15 +18292,15 @@ h4 {
   }
 
   .sm\:max-w-4xl {
-    max-width: 56rem;
-  }
-
-  .sm\:max-w-5xl {
     max-width: 64rem;
   }
 
+  .sm\:max-w-5xl {
+    max-width: 80rem;
+  }
+
   .sm\:max-w-6xl {
-    max-width: 72rem;
+    max-width: 96rem;
   }
 
   .sm\:max-w-full {
@@ -21514,43 +21580,43 @@ h4 {
   }
 
   .sm\:text-xs {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 
   .sm\:text-sm {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
   }
 
   .sm\:text-base {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
   .sm\:text-lg {
-    font-size: 1.125rem;
+    font-size: 1.8rem;
   }
 
   .sm\:text-xl {
-    font-size: 1.25rem;
+    font-size: 2.1rem;
   }
 
   .sm\:text-2xl {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 
   .sm\:text-3xl {
-    font-size: 1.875rem;
+    font-size: 3.2rem;
   }
 
   .sm\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 4rem;
   }
 
   .sm\:text-5xl {
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
 
   .sm\:text-6xl {
-    font-size: 4rem;
+    font-size: 5.6rem;
   }
 
   .sm\:italic {
@@ -28687,15 +28753,15 @@ h4 {
   }
 
   .md\:max-w-4xl {
-    max-width: 56rem;
-  }
-
-  .md\:max-w-5xl {
     max-width: 64rem;
   }
 
+  .md\:max-w-5xl {
+    max-width: 80rem;
+  }
+
   .md\:max-w-6xl {
-    max-width: 72rem;
+    max-width: 96rem;
   }
 
   .md\:max-w-full {
@@ -31975,43 +32041,43 @@ h4 {
   }
 
   .md\:text-xs {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 
   .md\:text-sm {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
   }
 
   .md\:text-base {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
   .md\:text-lg {
-    font-size: 1.125rem;
+    font-size: 1.8rem;
   }
 
   .md\:text-xl {
-    font-size: 1.25rem;
+    font-size: 2.1rem;
   }
 
   .md\:text-2xl {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 
   .md\:text-3xl {
-    font-size: 1.875rem;
+    font-size: 3.2rem;
   }
 
   .md\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 4rem;
   }
 
   .md\:text-5xl {
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
 
   .md\:text-6xl {
-    font-size: 4rem;
+    font-size: 5.6rem;
   }
 
   .md\:italic {
@@ -39148,15 +39214,15 @@ h4 {
   }
 
   .lg\:max-w-4xl {
-    max-width: 56rem;
-  }
-
-  .lg\:max-w-5xl {
     max-width: 64rem;
   }
 
+  .lg\:max-w-5xl {
+    max-width: 80rem;
+  }
+
   .lg\:max-w-6xl {
-    max-width: 72rem;
+    max-width: 96rem;
   }
 
   .lg\:max-w-full {
@@ -42436,43 +42502,43 @@ h4 {
   }
 
   .lg\:text-xs {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 
   .lg\:text-sm {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
   }
 
   .lg\:text-base {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
   .lg\:text-lg {
-    font-size: 1.125rem;
+    font-size: 1.8rem;
   }
 
   .lg\:text-xl {
-    font-size: 1.25rem;
+    font-size: 2.1rem;
   }
 
   .lg\:text-2xl {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 
   .lg\:text-3xl {
-    font-size: 1.875rem;
+    font-size: 3.2rem;
   }
 
   .lg\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 4rem;
   }
 
   .lg\:text-5xl {
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
 
   .lg\:text-6xl {
-    font-size: 4rem;
+    font-size: 5.6rem;
   }
 
   .lg\:italic {
@@ -49609,15 +49675,15 @@ h4 {
   }
 
   .xl\:max-w-4xl {
-    max-width: 56rem;
-  }
-
-  .xl\:max-w-5xl {
     max-width: 64rem;
   }
 
+  .xl\:max-w-5xl {
+    max-width: 80rem;
+  }
+
   .xl\:max-w-6xl {
-    max-width: 72rem;
+    max-width: 96rem;
   }
 
   .xl\:max-w-full {
@@ -52897,43 +52963,43 @@ h4 {
   }
 
   .xl\:text-xs {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
 
   .xl\:text-sm {
-    font-size: 0.875rem;
+    font-size: 1.4rem;
   }
 
   .xl\:text-base {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
   .xl\:text-lg {
-    font-size: 1.125rem;
+    font-size: 1.8rem;
   }
 
   .xl\:text-xl {
-    font-size: 1.25rem;
+    font-size: 2.1rem;
   }
 
   .xl\:text-2xl {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 
   .xl\:text-3xl {
-    font-size: 1.875rem;
+    font-size: 3.2rem;
   }
 
   .xl\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 4rem;
   }
 
   .xl\:text-5xl {
-    font-size: 3rem;
+    font-size: 4.8rem;
   }
 
   .xl\:text-6xl {
-    font-size: 4rem;
+    font-size: 5.6rem;
   }
 
   .xl\:italic {

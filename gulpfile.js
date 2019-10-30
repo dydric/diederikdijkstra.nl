@@ -170,40 +170,44 @@ gulp.task('data:tumblr', (cb) => {
 
   var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
 
-  blog.photo({limit: 20 }, function(error, response) {
+  blog.posts(function() {
+    // console.log(response.blog.total_posts);
+    // var totalPosts = response.blog.total_posts;
+    var JSONposts = new Array();
 
-    // console.log(response);
+    for (var i = 1; i < 5; i++) {
 
-    if (error) {
-      throw new Error(error);
+      blog.photo({limit: 1, offset: i }, function(error, response) {
+        if (error) {
+          throw new Error(error);
+        }
+
+        response.posts.map((post) => {
+
+          if (post.type == 'photo') {
+            var photos = post.photos[0].alt_sizes[0].url;
+            var thumb = post.photos[0].alt_sizes[4].url;
+          } else {
+            photos = 'none';
+            thumb = 'none';
+          }
+
+          var newObject = {
+            type:   post.type,
+            url:    post.short_url,
+            photos: photos,
+            thumb:  thumb
+          };
+          JSONposts.push(newObject);
+        });
+
+        // console.log(JSON.stringify(JSONposts));
+        var str = JSON.stringify(JSONposts);
+        console.log(str);
+      });
     }
 
-  //  console.log(response.posts);
-
-    var posts = response.posts.map((post) => {
-
-      if (post.type == 'photo') {
-        var photos = post.photos[0].alt_sizes[0].url;
-        var thumb = post.photos[0].alt_sizes[4].url;
-      } else {
-        photos = 'none';
-        thumb = 'none';
-      }
-
-      return {
-        type:    post.type,
-        url:     post.short_url,
-        // photos:  post.photos
-        photos:  photos,
-        thumb:  thumb
-      };
-
-    });
-
-
-    // console.log(posts);
-
-    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(JSONposts), function(err) {
       if(err) {
         console.warn(err);
       } else {
@@ -212,7 +216,57 @@ gulp.task('data:tumblr', (cb) => {
       }
     });
 
+
+    // var str = JSON.stringify(JSONposts);
+    // console.log(str);
+
+    // blog.photo({limit: 20 }, function(error, response) {
+
+    //   // console.log(response);
+    //   //  console.log(response.posts);
+
+    //   if (error) {
+    //     throw new Error(error);
+    //   }
+
+    //   var posts = response.posts.map((post) => {
+
+    //     if (post.type == 'photo') {
+    //       var photos = post.photos[0].alt_sizes[0].url;
+    //       var thumb = post.photos[0].alt_sizes[4].url;
+    //     } else {
+    //       photos = 'none';
+    //       thumb = 'none';
+    //     }
+
+    //     return {
+    //       type:    post.type,
+    //       url:     post.short_url,
+    //       photos:  photos,
+    //       thumb:  thumb
+    //     };
+
+    //   });
+
+
+    //   // console.log(posts);
+
+    //   fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+    //     if(err) {
+    //       console.warn(err);
+    //     } else {
+    //       console.log('Tumblr posts saved.');
+    //       cb();
+    //     }
+    //   });
+
+    // });
+
+
   });
+
+
+
 
   // var user = new tumblr.User(oauth);
 
