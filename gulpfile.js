@@ -177,29 +177,40 @@ gulp.task('data:tumblr', (cb) => {
   var JSONposts = new Array();
   let promises = [];
 
-  for (var i = 1; i < 100; i++) {
+  for (var i = 0; i < 250; i++) {
 
     promises.push(new Promise(
       (resolve) => {
 
-        blog.photo({limit: 1, offset: i }, function(error, response) {
+        blog.photo({limit: 1, offset: (i * 1) }, function(error, response) {
           if (error) {
             throw new Error(error);
           }
 
           response.posts.map((post) => {
 
+            // console.log(post);
+
+            var epoch = new Date(post.date).getTime() / 1000;
+            // console.log(epoch);
+
             if (post.type == 'photo') {
-              var photos = post.photos[0].alt_sizes[0].url;
+              var newObject = {
+                type:  post.type,
+                date: post.date,
+                epoch: epoch,
+                url:   post.short_url,
+                photo: post.photos[0].alt_sizes[0].url
+              };
             } else {
-              photos = 'none';
+              // photo = 'none';
             }
 
-            var newObject = {
-              type:   post.type,
-              url:    post.short_url,
-              photos: photos
-            };
+            // var newObject = {
+            //   type:   post.type,
+            //   url:    post.short_url,
+            //   photo: photo
+            // };
             JSONposts.push(newObject);
 
             resolve();
