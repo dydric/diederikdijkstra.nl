@@ -854,7 +854,7 @@ h4 {
     h2,
     h3,
     h4 {
-    color: #607d8b;
+    color: #ffa726;
   }
 }
 
@@ -1052,7 +1052,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   .section + .section {
-    border-color: #263238;
+    border-color: #000;
   }
 }
 

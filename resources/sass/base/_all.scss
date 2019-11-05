@@ -21,7 +21,7 @@ body {
     @apply border-t-2 border-bluegrey-100;
 
     @media (prefers-color-scheme: dark) {
-      @apply border-bluegrey-900;
+      @apply border-black;
     }
   }
 
