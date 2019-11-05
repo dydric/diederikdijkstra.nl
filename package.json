@@ -36,6 +36,7 @@
     "gulp-uglify": "^3",
     "html-minifier": "^3",
     "sheetsy": "^2",
+    "playlist-importer-lite": "^0",
     "stylelint-config-standard": "^16",
     "stylelint-order": "^0",
     "tailwindcss": "^1",

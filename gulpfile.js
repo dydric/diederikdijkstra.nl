@@ -15,6 +15,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   sheetsy = require('sheetsy'),
   tailwindcss = require('tailwindcss'),
+  importer = require('playlist-importer-lite'),
   tumblr = require('tumblr'),
   twitter = require('twitter'),
   uglify = require('gulp-uglify');
@@ -121,49 +122,31 @@ gulp.task('data:health', (cb) => {
   });
 });
 
-// Spotify
+// Playlists
 
-gulp.task('data:spotify', (cb) => {
-  const { urlToKey, getWorkbook, getSheet } = sheetsy;
-  const key = urlToKey(process.env.SPOTIFY_URL);
+gulp.task('data:playlists', (cb) => {
 
-  getWorkbook(key).then(workbook => {
-    const workbookID = workbook.sheets[0].id;
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/gabber-hardcore-power-welcome-to-the-thunderdome/pl.u-zMY9TxMDELP')
+    .then((data) => {
 
-    getSheet(key, workbookID).then(sheet => {
-      // console.log(sheet);
-      var playlist = sheet.rows.reverse().map((track) => {
-        return {
-          name: track[0],
-          artist: track[1],
-          album: track[2],
-          cover: track[3],
-          url: track[4]
-        };
-      });
+      var playlistTracks = JSON.stringify(data);
 
-      var jsonTracks = JSON.stringify(playlist.slice(0, 49));
-
-      fs.writeFile('site/data/import/tracks.json', jsonTracks, function(err) {
+      fs.writeFile('site/data/import/playlist1.json', playlistTracks, function(err) {
         if(err) {
           console.warn(err);
         } else {
-          console.log('Spotify Tracks data saved.');
+          console.log('Playlist saved.');
           cb();
         }
       });
     });
-  });
 });
-
 
 // Tumblr
 
 const oauth = {
   consumer_key: process.env.TUMBLR_CONSUMER_KEY,
   consumer_secret: process.env.TUMBLR_CONSUMER_SECRET
-  // token: 'OAuth Access Token',
-  // token_secret: 'OAuth Access Token Secret'
 };
 
 gulp.task('data:tumblr', (cb) => {
@@ -177,19 +160,17 @@ gulp.task('data:tumblr', (cb) => {
   var JSONposts = new Array();
   let promises = [];
 
-  for (var i = 0; i < 250; i++) {
+  for (var i = 0; i < 51; i++) {
 
     promises.push(new Promise(
       (resolve) => {
 
-        blog.photo({limit: 1, offset: (i * 1) }, function(error, response) {
+        blog.photo({limit: 20, offset: (i * 20) }, function(error, response) {
           if (error) {
             throw new Error(error);
           }
 
           response.posts.map((post) => {
-
-            // console.log(post);
 
             var epoch = new Date(post.date).getTime() / 1000;
             // console.log(epoch);
@@ -197,14 +178,13 @@ gulp.task('data:tumblr', (cb) => {
             if (post.type == 'photo') {
               var newObject = {
                 type:  post.type,
-                date: post.date,
+                date:  post.date,
                 epoch: epoch,
                 url:   post.short_url,
                 photo: post.photos[0].alt_sizes[0].url
               };
-            } else {
-              // photo = 'none';
             }
+
 
             // var newObject = {
             //   type:   post.type,
@@ -222,7 +202,22 @@ gulp.task('data:tumblr', (cb) => {
 
   // console.log(promises.length);
   Promise.all(promises).then(() => {
-    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(JSONposts), function(err) {
+
+
+    function compare(a, b ) {
+      if ( a.epoch < b.epoch ){
+        return -1;
+      }
+      if ( a.epoch > b.epoch ){
+        return 1;
+      }
+      return 0;
+    }
+
+    var sortedJSON = JSONposts.sort( compare );
+    // console.log(sortedJSON);
+
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(sortedJSON.reverse()), function(err) {
       if(err) {
         console.warn(err);
       } else {
@@ -302,7 +297,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify', 'data:tumblr'
+  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:playlists', 'data:tumblr'
 ]);
 
 // Compile Tailwind
