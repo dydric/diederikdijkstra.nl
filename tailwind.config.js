@@ -459,6 +459,7 @@ module.exports = {
       '4xl': '64rem',
       '5xl': '80rem',
       '6xl': '96rem',
+      'site': '112rem',
       full: '100%',
     },
     minHeight: {

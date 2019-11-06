@@ -15,7 +15,34 @@ body {
   }
 }
 
+img {
+  @media (prefers-color-scheme: dark) {
+    filter: grayscale(25%);
+    opacity: .9;
+  }
+}
+
 .section {
+
+  &--intro {
+
+    p {
+      @apply font-800 leading-tight tracking-tight mb-3;
+      @apply text-lg;
+
+      @screen sm {
+        @apply text-xl;
+      }
+
+      @screen md {
+        @apply text-2xl;
+      }
+
+      @screen lg {
+        @apply text-3xl;
+      }
+    }
+  }
 
   + .section {
     @apply border-t-2 border-bluegrey-100;

@@ -1045,6 +1045,39 @@ body {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: grayscale(25%);
+    opacity: .9;
+  }
+}
+
+.section--intro p {
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 640px) {
+  .section--intro p {
+    font-size: 2.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section--intro p {
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section--intro p {
+    font-size: 3.2rem;
+  }
+}
+
 .section + .section {
   border-top-width: 2px;
   border-color: #cfd8dc;
@@ -7841,6 +7874,10 @@ body {
 
 .max-w-6xl {
   max-width: 96rem;
+}
+
+.max-w-site {
+  max-width: 112rem;
 }
 
 .max-w-full {
@@ -18301,6 +18338,10 @@ body {
 
   .sm\:max-w-6xl {
     max-width: 96rem;
+  }
+
+  .sm\:max-w-site {
+    max-width: 112rem;
   }
 
   .sm\:max-w-full {
@@ -28764,6 +28805,10 @@ body {
     max-width: 96rem;
   }
 
+  .md\:max-w-site {
+    max-width: 112rem;
+  }
+
   .md\:max-w-full {
     max-width: 100%;
   }
@@ -39225,6 +39270,10 @@ body {
     max-width: 96rem;
   }
 
+  .lg\:max-w-site {
+    max-width: 112rem;
+  }
+
   .lg\:max-w-full {
     max-width: 100%;
   }
@@ -49684,6 +49733,10 @@ body {
 
   .xl\:max-w-6xl {
     max-width: 96rem;
+  }
+
+  .xl\:max-w-site {
+    max-width: 112rem;
   }
 
   .xl\:max-w-full {

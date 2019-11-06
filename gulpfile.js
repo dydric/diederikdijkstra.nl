@@ -126,7 +126,7 @@ gulp.task('data:health', (cb) => {
 
 gulp.task('data:playlists', (cb) => {
 
-  importer.getPlaylistData('https://music.apple.com/nl/playlist/gabber-hardcore-power-welcome-to-the-thunderdome/pl.u-zMY9TxMDELP')
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/toptracks/pl.u-4ay2imMAdlN')
     .then((data) => {
 
       var playlistTracks = JSON.stringify(data);
@@ -140,6 +140,21 @@ gulp.task('data:playlists', (cb) => {
         }
       });
     });
+
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/techno/pl.u-5ZoqIVY3PLB')
+    .then((data) => {
+
+      var playlistTracks = JSON.stringify(data);
+
+      fs.writeFile('site/data/import/playlist2.json', playlistTracks, function(err) {
+        if(err) {
+          console.warn(err);
+        } else {
+          console.log('Playlist saved.');
+        }
+      });
+    });
+
 });
 
 // Tumblr
@@ -176,22 +191,25 @@ gulp.task('data:tumblr', (cb) => {
             // console.log(epoch);
 
             if (post.type == 'photo') {
+
+              var sizesLength = post.photos[0].alt_sizes.length;
+              if (sizesLength > 4) {
+                var thumb = post.photos[0].alt_sizes[sizesLength - 4].url;
+              } else {
+                thumb = post.photos[0].alt_sizes[sizesLength - 3].url;
+              }
+
               var newObject = {
                 type:  post.type,
                 date:  post.date,
                 epoch: epoch,
                 url:   post.short_url,
-                photo: post.photos[0].alt_sizes[0].url
+                photo: post.photos[0].alt_sizes[0].url,
+                thumb: thumb
               };
+
+              JSONposts.push(newObject);
             }
-
-
-            // var newObject = {
-            //   type:   post.type,
-            //   url:    post.short_url,
-            //   photo: photo
-            // };
-            JSONposts.push(newObject);
 
             resolve();
           });
