@@ -168,14 +168,14 @@ const instagram = new Instagram({
 
 gulp.task('data:instagram', (cb) => {
 
-  instagram.get('users/self', (err, data) => {
-    if (err) {
-      // an error occured
-      console.log(err);
-    } else {
-      console.log(data);
-    }
-  });
+  // instagram.get('users/self', (err, data) => {
+  //   if (err) {
+  //     // an error occured
+  //     console.log(err);
+  //   } else {
+  //     console.log(data);
+  //   }
+  // });
 
   instagram.get('users/self/media/recent').then(data => {
 
