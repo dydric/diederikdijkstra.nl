@@ -180,7 +180,7 @@ gulp.task('data:instagram', (cb) => {
   instagram.get('users/self/media/recent').then(data => {
 
     var instagramPosts = data;
-    console.log(instagramPosts);
+    // console.log(instagramPosts);
 
     fs.writeFile('site/data/import/instagram.json', JSON.stringify(instagramPosts), function(err) {
       if(err) {
@@ -239,7 +239,7 @@ gulp.task('data:tumblr', (cb) => {
 
         // console.log(JSON.stringify(JSONposts));
         var str = JSON.stringify(JSONposts);
-        console.log(str);
+        // console.log(str);
       });
     }
 
@@ -472,9 +472,10 @@ gulp.task('css:compile:preflight', function () {
           'ul',
           'ol',
           'table',
-          'emoji'
+          'emoji',
+          '.zoom-overlay'
         ],
-        whitelistPatterns: [/yellow-800$/, /lightblue-400$/, /red-500$/, /green-500$/],
+        // whitelistPatterns: [/yellow-800$/, /lightblue-400$/, /red-500$/, /green-500$/],
       })
     ]))
     .pipe(rename({extname: '.css'}))
