@@ -15,6 +15,8 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   sheetsy = require('sheetsy'),
   tailwindcss = require('tailwindcss'),
+  importer = require('playlist-importer-lite'),
+  Instagram = require('node-instagram').default,
   tumblr = require('tumblr'),
   twitter = require('twitter'),
   uglify = require('gulp-uglify');
@@ -121,84 +123,152 @@ gulp.task('data:health', (cb) => {
   });
 });
 
-// Spotify
+// Playlists
 
-gulp.task('data:spotify', (cb) => {
-  const { urlToKey, getWorkbook, getSheet } = sheetsy;
-  const key = urlToKey(process.env.SPOTIFY_URL);
+gulp.task('data:playlists', (cb) => {
 
-  getWorkbook(key).then(workbook => {
-    const workbookID = workbook.sheets[0].id;
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/toptracks/pl.u-4ay2imMAdlN')
+    .then((data) => {
 
-    getSheet(key, workbookID).then(sheet => {
-      // console.log(sheet);
-      var playlist = sheet.rows.reverse().map((track) => {
-        return {
-          name: track[0],
-          artist: track[1],
-          album: track[2],
-          cover: track[3],
-          url: track[4]
-        };
-      });
+      var playlistTracks = JSON.stringify(data);
 
-      var jsonTracks = JSON.stringify(playlist.slice(0, 49));
-
-      fs.writeFile('site/data/import/tracks.json', jsonTracks, function(err) {
+      fs.writeFile('site/data/import/playlist1.json', playlistTracks, function(err) {
         if(err) {
           console.warn(err);
         } else {
-          console.log('Spotify Tracks data saved.');
+          console.log('Playlist saved.');
           cb();
         }
       });
     });
-  });
+
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/techno/pl.u-5ZoqIVY3PLB')
+    .then((data) => {
+
+      var playlistTracks = JSON.stringify(data);
+
+      fs.writeFile('site/data/import/playlist2.json', playlistTracks, function(err) {
+        if(err) {
+          console.warn(err);
+        } else {
+          console.log('Playlist saved.');
+        }
+      });
+    });
+
 });
 
+// Instagram
+
+const instagram = new Instagram({
+  clientId: process.env.INSTAGRAM_CLIENTID,
+  clientSecret: process.env.INSTAGRAM_CLIENTSECRET,
+  accessToken: process.env.INSTAGRAM_ACCESSTOKEN,
+});
+
+gulp.task('data:instagram', (cb) => {
+
+  instagram.get('users/self', (err, data) => {
+    if (err) {
+      // an error occured
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
+
+  instagram.get('users/self/media/recent').then(data => {
+
+    var instagramPosts = data;
+    console.log(instagramPosts);
+
+    fs.writeFile('site/data/import/instagram.json', JSON.stringify(instagramPosts), function(err) {
+      if(err) {
+        console.warn(err);
+      } else {
+        console.log('Instagram posts saved.');
+        cb();
+      }
+    });
+  });
+});
 
 // Tumblr
 
 const oauth = {
   consumer_key: process.env.TUMBLR_CONSUMER_KEY,
   consumer_secret: process.env.TUMBLR_CONSUMER_SECRET
-  // token: 'OAuth Access Token',
-  // token_secret: 'OAuth Access Token Secret'
 };
 
 gulp.task('data:tumblr', (cb) => {
 
   var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
 
-  blog.photo({limit: 20 }, function(error, response) {
+  // blog.posts(function() {
+  // console.log(response.blog.total_posts);
+  // var totalPosts = response.blog.total_posts;
 
-    // console.log(response);
+  var JSONposts = new Array();
+  let promises = [];
 
-    if (error) {
-      throw new Error(error);
+  for (var i = 0; i < 51; i++) {
+
+    promises.push(new Promise(
+      (resolve) => {
+
+        blog.photo({limit: 20, offset: (i * 20) }, function(error, response) {
+          if (error) {
+            throw new Error(error);
+          }
+
+            var epoch = new Date(post.date).getTime() / 1000;
+            // console.log(epoch);
+
+            if (post.type == 'photo') {
+
+              var sizesLength = post.photos[0].alt_sizes.length;
+              if (sizesLength > 4) {
+                var thumb = post.photos[0].alt_sizes[sizesLength - 4].url;
+              } else {
+                thumb = post.photos[0].alt_sizes[sizesLength - 3].url;
+              }
+
+              var newObject = {
+                type:  post.type,
+                date:  post.date,
+                epoch: epoch,
+                url:   post.short_url,
+                photo: post.photos[0].alt_sizes[0].url,
+                thumb: thumb
+              };
+
+              JSONposts.push(newObject);
+            }
+
+            resolve();
+          });
+        });
+      }
+    ));
+  }
+
+  // console.log(promises.length);
+  Promise.all(promises).then(() => {
+  
+    function compare(a, b ) {
+      if ( a.epoch < b.epoch ){
+        return -1;
+      }
+      if ( a.epoch > b.epoch ){
+        return 1;
+      }
+      return 0;
     }
 
-    //  console.log(response.posts);
+    var sortedJSON = JSONposts.sort( compare );
+    // console.log(sortedJSON);
 
-    var posts = response.posts.map((post) => {
-
-      if (post.type == 'photo') {
-        var photos = post.photos[0].alt_sizes[0].url;
-      } else {
-        photos = 'none';
-      }
-
-      return {
-        type:    post.type,
-        url:     post.short_url,
-        photos:  photos
-      };
-
-    });
-
-    // console.log(posts);
-
-    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(sortedJSON.reverse()), function(err) {
       if(err) {
         console.warn(err);
       } else {
@@ -206,18 +276,7 @@ gulp.task('data:tumblr', (cb) => {
         cb();
       }
     });
-
   });
-
-  // var user = new tumblr.User(oauth);
-
-  // user.info(function(error, response) {
-  //   if (error) {
-  //     throw new Error(error);
-  //   }
-
-  //   console.log(response.user);
-  // });
 
 });
 
@@ -289,7 +348,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:spotify'
+  'data:twitter', 'data:twitter-likes', 'data:instagram', 'data:health', 'data:workouts', 'data:playlists', 'data:tumblr'
 ]);
 
 // Compile Tailwind
@@ -358,8 +417,7 @@ gulp.task('css:compile:preflight', function () {
       tailwindcss('./tailwind.config.js'),
       purgecss({
         content: [
-          'site/*.njk',
-          'site/includes/**/*.njk'
+          'site/**/*.njk'
         ],
         extractors: [
           {
