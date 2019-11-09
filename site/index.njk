@@ -11,6 +11,31 @@ body_class: home
     {# <p>Deze website gebruik ik om te experimenteren met koppelingen (API's) en nieuwe technieken. Af en toe schrijf ik daar ook wel eens een artikel over</p> #}
   </div>
 </section>
+{#
+{{ import.instagram.data | dump }} #}
+
+<section>
+  <div class="grid px-4 md:px-12 lg:px-16 max-w-site mb-4 lg:mb-16">
+
+    <div class="flex flex-wrap">
+    {%- for i in range(0, 12) -%}
+      {%- set item = import.instagram.data[i] -%}
+
+      <div class="w-1/4 sm:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end">
+        <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.images.standard_resolution.url }}" class="w-full m-0 block" >
+        </a>
+        {# {% if item.caption.text != "null" %}
+          <span>{{ item.caption.created_time | htmlDateDisplay }}</span>
+          <strong>{{ item.caption.text }}</strong>
+        {% endif %} #}
+      </div>
+    {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
 
 <section class="section section--playlist">
   <div class="content">

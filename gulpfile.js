@@ -16,6 +16,7 @@ var gulp = require('gulp'),
   sheetsy = require('sheetsy'),
   tailwindcss = require('tailwindcss'),
   importer = require('playlist-importer-lite'),
+  Instagram = require('node-instagram').default,
   tumblr = require('tumblr'),
   twitter = require('twitter'),
   uglify = require('gulp-uglify');
@@ -155,6 +156,41 @@ gulp.task('data:playlists', (cb) => {
       });
     });
 
+});
+
+// Instagram
+
+const instagram = new Instagram({
+  clientId: process.env.INSTAGRAM_CLIENTID,
+  clientSecret: process.env.INSTAGRAM_CLIENTSECRET,
+  accessToken: process.env.INSTAGRAM_ACCESSTOKEN,
+});
+
+gulp.task('data:instagram', (cb) => {
+
+  instagram.get('users/self', (err, data) => {
+    if (err) {
+      // an error occured
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
+
+  instagram.get('users/self/media/recent').then(data => {
+
+    var instagramPosts = data;
+    console.log(instagramPosts);
+
+    fs.writeFile('site/data/import/instagram.json', JSON.stringify(instagramPosts), function(err) {
+      if(err) {
+        console.warn(err);
+      } else {
+        console.log('Instagram posts saved.');
+        cb();
+      }
+    });
+  });
 });
 
 // Tumblr
@@ -315,7 +351,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:health', 'data:workouts', 'data:playlists', 'data:tumblr'
+  'data:twitter', 'data:twitter-likes', 'data:instagram', 'data:health', 'data:workouts', 'data:playlists', 'data:tumblr'
 ]);
 
 // Compile Tailwind
