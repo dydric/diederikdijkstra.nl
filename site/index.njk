@@ -7,28 +7,33 @@ body_class: home
 <section class="section section--intro">
   <div class="content">
     <h1>Diederik</h1>
-    <p class="intro">Woont in Leeuwarden met Lotte, Elin en Fedde. Werkt bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link">TRES</a>. Interesses: UX/UI en Design Systems. Al 15+ jaar ervaring. </p>
+    <p class="intro">Woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
+    {# <p>Deze website gebruik ik om te experimenteren met koppelingen (API's) en nieuwe technieken. Af en toe schrijf ik daar ook wel eens een artikel over</p> #}
   </div>
 </section>
 
 <section class="section section--playlist">
   <div class="content">
-    <h3 class="mb-8">Luistert naar:</h3>
+    <h3 class="mb-8">Luistert momenteel naar:</h3>
 
+    <div class="flex flex-wrap mb-8">
     {%- set playListlength = import.playlist1.tracklist.length -%}
-    {%- for i in range(playListlength - 5, playListlength) | reverse -%}
+    {%- for i in range(playListlength - 25, playListlength) | reverse -%}
       {%- set item = import.playlist1.tracklist[i] -%}
-      <div class="mb-2">
-        <p class="inline">{{ item.title }} <span class="opacity-50">{{ item.artist }}</span></p>
+      <div class="max-w-full truncate pr-2">
+        <p class="inline">{{ item.title }} <span class="text-xs opacity-50 font-800">{{ item.artist }}</span></p>
       </div>
     {%- endfor -%}
-    {%- set playListlength = import.playlist2.tracklist.length -%}
-    {%- for i in range(playListlength - 5, playListlength) | reverse -%}
+    {# {%- set playListlength = import.playlist2.tracklist.length -%}
+    {%- for i in range(playListlength - 25, playListlength) | reverse -%}
       {%- set item = import.playlist2.tracklist[i] -%}
-      <div class="mb-2">
-        <p class="inline">{{ item.title }} <span class="opacity-50">{{ item.artist }}</span></p>
+      <div class="max-w-full truncate pr-2">
+        <p class="inline">{{ item.title }} <span class="text-xs opacity-50 font-800">{{ item.artist }}</span></p>
       </div>
-    {%- endfor -%}
+    {%- endfor -%} #}
+    </div>
+
+    {# <p>Deze playlist werk ik regelmatig bij. Je kunt hem hier ook checken: Apple Music / Spotify. Enjoy!</p> #}
   </div>
 </section>
 
@@ -40,23 +45,18 @@ body_class: home
 
   <div class="grid px-4 md:px-12 lg:px-16 max-w-site mb-4 lg:mb-16">
 
-
     <div class="flex flex-wrap">
-
-    {%- for i in range(0, 30) -%}
-
-      {%- set item = import.tumblr[i] -%}
-      {% if item.type == 'photo' %}
-      <div class="w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-1 flex flex-wrap items-end">
-        <img src="{{ item.thumb }}" loading="lazy" class="w-full m-0 block">
-      </div>
-      {% endif %}
-    {%- endfor -%}
+      {%- for i in range(0, 120) -%}
+        {%- set item = import.tumblr[i] -%}
+        {%- if item.type == 'photo' -%}
+          <div class="w-1/4 sm:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end">
+            <img src="{{ item.photo }}" loading="lazy" class="w-full m-0 block" data-action="zoom" data-original="{{ item.photo }}">
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
-
   </div>
-  {# {% include "shared/archive-by-year.njk" %} #}
 </section>
 
 {# <section class="py-16 ">
@@ -78,16 +78,16 @@ body_class: home
 
   </div>
 </section> #}
-{#
-<section class="py-16 bg-black border-b border-grey-800">
+
+{# <section class="py-16 bg-black border-b border-grey-800">
   <div class="mx-auto px-8 max-w-6xl pb-4">
     <h2 class="mb-6">Blog</h2>
     {% include "shared/archive-by-year.njk" %}
   </div>
-</section>
+</section> #}
 
 
-<section class="py-16 border-b border-grey-800">
+{# <section class="py-16 border-b border-grey-800">
   <div class="mx-auto pl-8 pr-4 max-w-6xl">
 
     <div class="flex flex-no-wrap justify-between items-end mb-6 md:mb-10 mr-4">
@@ -170,42 +170,4 @@ body_class: home
     </div>
 
   </div>
-</section>
-
-<section class="py-16 border-b border-grey-800">
-  <div class="mx-auto pl-8 pr-6 md:pr-4 max-w-6xl">
-
-    <div class="flex flex-no-wrap justify-between items-end mb-6 md:mb-10 mr-4">
-      <h2 class="flex-auto leading-none mb-0">Muziek</h2>
-      <a href="https://open.spotify.com/user/diederikdijkstra.nl?si=AhZ1Tqk8QgO1SBlhUkiqaw" target="_blank" rel="noopener noreferrer" class="flex-initial link bg-green-500 hover:bg-white text-white hover:text-green-500 font-800 rounded-full py-1 px-3 m-auto ml-6 text-sm sm:text-base">Follow me</a>
-    </div>
-
-    <h4 class="text-grey-600 font-900 mb-6 md:mb-8">Listen on Repeat: 💛</h4>
-
-    <div class="flex flex-wrap">
-      {%- import "components/track.njk" as music -%}
-      {%- for i in range(0, 10) -%}
-        {% set item = import.tracks[i] %}
-        {%- if i <= 3 -%}
-          {{ music.track(
-            classes = "w-1/4 pr-2 md:pr-4 md:mb-4 font-800",
-            url = item.url,
-            cover = item.cover,
-            name = item.name,
-            artist = item.artist,
-            album = item.album
-          ) }}
-        {% else %}
-          {{ music.track(
-            classes = "w-1/6 pr-2 md:pr-4 md:mb-4",
-            url = item.url,
-            cover = item.cover,
-            album = item.album
-          ) }}
-        {% endif %}
-      {%- endfor -%}
-    </div>
-
-  </div>
-</section>
-#}
+</section> #}

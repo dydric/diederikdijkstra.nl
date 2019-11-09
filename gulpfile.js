@@ -384,8 +384,7 @@ gulp.task('css:compile:preflight', function () {
       tailwindcss('./tailwind.config.js'),
       purgecss({
         content: [
-          'site/*.njk',
-          'site/includes/**/*.njk'
+          'site/**/*.njk'
         ],
         extractors: [
           {

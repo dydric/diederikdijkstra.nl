@@ -1045,6 +1045,16 @@ body {
   }
 }
 
+.zoom-overlay {
+  background-color: #f6f6f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .zoom-overlay {
+    background-color: #111111;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   img {
     filter: grayscale(25%);
@@ -1052,7 +1062,7 @@ body {
   }
 }
 
-.section--intro p {
+.section--intro p.intro {
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.025em;
@@ -1061,19 +1071,19 @@ body {
 }
 
 @media (min-width: 640px) {
-  .section--intro p {
+  .section--intro p.intro {
     font-size: 2.1rem;
   }
 }
 
 @media (min-width: 768px) {
-  .section--intro p {
+  .section--intro p.intro {
     font-size: 2.4rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .section--intro p {
+  .section--intro p.intro {
     font-size: 3.2rem;
   }
 }

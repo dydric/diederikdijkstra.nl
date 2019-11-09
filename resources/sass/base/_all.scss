@@ -15,6 +15,14 @@ body {
   }
 }
 
+.zoom-overlay {
+  @apply bg-grey-100;
+
+  @media (prefers-color-scheme: dark) {
+    @apply bg-grey-900;
+  }
+}
+
 img {
   @media (prefers-color-scheme: dark) {
     filter: grayscale(25%);
@@ -26,7 +34,7 @@ img {
 
   &--intro {
 
-    p {
+    p.intro {
       @apply font-800 leading-tight tracking-tight mb-3;
       @apply text-lg;
 
