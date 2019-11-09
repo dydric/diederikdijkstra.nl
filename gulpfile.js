@@ -221,8 +221,6 @@ gulp.task('data:tumblr', (cb) => {
             throw new Error(error);
           }
 
-          response.posts.map((post) => {
-
             var epoch = new Date(post.date).getTime() / 1000;
             // console.log(epoch);
 
@@ -256,8 +254,7 @@ gulp.task('data:tumblr', (cb) => {
 
   // console.log(promises.length);
   Promise.all(promises).then(() => {
-
-
+  
     function compare(a, b ) {
       if ( a.epoch < b.epoch ){
         return -1;
