@@ -198,77 +198,52 @@ gulp.task('data:instagram', (cb) => {
 const oauth = {
   consumer_key: process.env.TUMBLR_CONSUMER_KEY,
   consumer_secret: process.env.TUMBLR_CONSUMER_SECRET
+  // token: 'OAuth Access Token',
+  // token_secret: 'OAuth Access Token Secret'
 };
 
 gulp.task('data:tumblr', (cb) => {
 
   var blog = new tumblr.Blog(process.env.TUMBLR_URL, oauth);
 
-  // blog.posts(function() {
-  // console.log(response.blog.total_posts);
-  // var totalPosts = response.blog.total_posts;
+  blog.posts(function() {
+    // console.log(response.blog.total_posts);
+    // var totalPosts = response.blog.total_posts;
+    var JSONposts = new Array();
 
-  var JSONposts = new Array();
-  let promises = [];
+    for (var i = 1; i < 5; i++) {
 
-  for (var i = 0; i < 51; i++) {
+      blog.photo({limit: 1, offset: i }, function(error, response) {
+        if (error) {
+          throw new Error(error);
+        }
 
-    promises.push(new Promise(
-      (resolve) => {
+        response.posts.map((post) => {
 
-        blog.photo({limit: 20, offset: (i * 20) }, function(error, response) {
-          if (error) {
-            throw new Error(error);
+          if (post.type == 'photo') {
+            var photos = post.photos[0].alt_sizes[0].url;
+            var thumb = post.photos[0].alt_sizes[4].url;
+          } else {
+            photos = 'none';
+            thumb = 'none';
           }
 
-            var epoch = new Date(post.date).getTime() / 1000;
-            // console.log(epoch);
-
-            if (post.type == 'photo') {
-
-              var sizesLength = post.photos[0].alt_sizes.length;
-              if (sizesLength > 4) {
-                var thumb = post.photos[0].alt_sizes[sizesLength - 4].url;
-              } else {
-                thumb = post.photos[0].alt_sizes[sizesLength - 3].url;
-              }
-
-              var newObject = {
-                type:  post.type,
-                date:  post.date,
-                epoch: epoch,
-                url:   post.short_url,
-                photo: post.photos[0].alt_sizes[0].url,
-                thumb: thumb
-              };
-
-              JSONposts.push(newObject);
-            }
-
-            resolve();
-          });
+          var newObject = {
+            type:   post.type,
+            url:    post.short_url,
+            photos: photos,
+            thumb:  thumb
+          };
+          JSONposts.push(newObject);
         });
-      }
-    ));
-  }
 
-  // console.log(promises.length);
-  Promise.all(promises).then(() => {
-  
-    function compare(a, b ) {
-      if ( a.epoch < b.epoch ){
-        return -1;
-      }
-      if ( a.epoch > b.epoch ){
-        return 1;
-      }
-      return 0;
+        // console.log(JSON.stringify(JSONposts));
+        var str = JSON.stringify(JSONposts);
+        console.log(str);
+      });
     }
 
-    var sortedJSON = JSONposts.sort( compare );
-    // console.log(sortedJSON);
-
-    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(sortedJSON.reverse()), function(err) {
+    fs.writeFile('site/data/import/tumblr.json', JSON.stringify(JSONposts), function(err) {
       if(err) {
         console.warn(err);
       } else {
@@ -276,7 +251,68 @@ gulp.task('data:tumblr', (cb) => {
         cb();
       }
     });
+
+
+    // var str = JSON.stringify(JSONposts);
+    // console.log(str);
+
+    // blog.photo({limit: 20 }, function(error, response) {
+
+    //   // console.log(response);
+    //   //  console.log(response.posts);
+
+    //   if (error) {
+    //     throw new Error(error);
+    //   }
+
+    //   var posts = response.posts.map((post) => {
+
+    //     if (post.type == 'photo') {
+    //       var photos = post.photos[0].alt_sizes[0].url;
+    //       var thumb = post.photos[0].alt_sizes[4].url;
+    //     } else {
+    //       photos = 'none';
+    //       thumb = 'none';
+    //     }
+
+    //     return {
+    //       type:    post.type,
+    //       url:     post.short_url,
+    //       photos:  photos,
+    //       thumb:  thumb
+    //     };
+
+    //   });
+
+
+    //   // console.log(posts);
+
+    //   fs.writeFile('site/data/import/tumblr.json', JSON.stringify(posts), function(err) {
+    //     if(err) {
+    //       console.warn(err);
+    //     } else {
+    //       console.log('Tumblr posts saved.');
+    //       cb();
+    //     }
+    //   });
+
+    // });
+
+
   });
+
+
+
+
+  // var user = new tumblr.User(oauth);
+
+  // user.info(function(error, response) {
+  //   if (error) {
+  //     throw new Error(error);
+  //   }
+
+  //   console.log(response.user);
+  // });
 
 });
 
