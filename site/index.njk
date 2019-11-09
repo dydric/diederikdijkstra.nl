@@ -25,7 +25,7 @@ body_class: home
         <a href="{{ item.link }}" class="relative" target="_blank" rel="noopener noreferrer">
           <img src="{{ item.images.standard_resolution.url }}" class="w-full m-0 block relative z-0" >
           <div class="absolute bottom-0 right-0 text-right max-w-full p-1">
-            {% if item.location.name != "null" %}
+            {% if item.location.name %}
               <div class="font-600 p-1 text-mini leading-none relative">
                 <span class="block relative z-10 max-w-full truncate text-grey-200">{{ item.location.name }}</span>
                 <div class="absolute z-0 top-0 right-0 left-0 bottom-0 bg-black opacity-50 rounded-sm"></div>
