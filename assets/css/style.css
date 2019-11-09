@@ -8010,6 +8010,26 @@ body {
   opacity: 1;
 }
 
+.hover\:opacity-0:hover {
+  opacity: 0;
+}
+
+.hover\:opacity-25:hover {
+  opacity: 0.25;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+}
+
+.hover\:opacity-75:hover {
+  opacity: 0.75;
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
+}
+
 .outline-none {
   outline: 0;
 }
@@ -18479,6 +18499,26 @@ body {
   }
 
   .sm\:opacity-100 {
+    opacity: 1;
+  }
+
+  .sm\:hover\:opacity-0:hover {
+    opacity: 0;
+  }
+
+  .sm\:hover\:opacity-25:hover {
+    opacity: 0.25;
+  }
+
+  .sm\:hover\:opacity-50:hover {
+    opacity: 0.5;
+  }
+
+  .sm\:hover\:opacity-75:hover {
+    opacity: 0.75;
+  }
+
+  .sm\:hover\:opacity-100:hover {
     opacity: 1;
   }
 
@@ -28955,6 +28995,26 @@ body {
     opacity: 1;
   }
 
+  .md\:hover\:opacity-0:hover {
+    opacity: 0;
+  }
+
+  .md\:hover\:opacity-25:hover {
+    opacity: 0.25;
+  }
+
+  .md\:hover\:opacity-50:hover {
+    opacity: 0.5;
+  }
+
+  .md\:hover\:opacity-75:hover {
+    opacity: 0.75;
+  }
+
+  .md\:hover\:opacity-100:hover {
+    opacity: 1;
+  }
+
   .md\:outline-none {
     outline: 0;
   }
@@ -39428,6 +39488,26 @@ body {
     opacity: 1;
   }
 
+  .lg\:hover\:opacity-0:hover {
+    opacity: 0;
+  }
+
+  .lg\:hover\:opacity-25:hover {
+    opacity: 0.25;
+  }
+
+  .lg\:hover\:opacity-50:hover {
+    opacity: 0.5;
+  }
+
+  .lg\:hover\:opacity-75:hover {
+    opacity: 0.75;
+  }
+
+  .lg\:hover\:opacity-100:hover {
+    opacity: 1;
+  }
+
   .lg\:outline-none {
     outline: 0;
   }
@@ -49898,6 +49978,26 @@ body {
   }
 
   .xl\:opacity-100 {
+    opacity: 1;
+  }
+
+  .xl\:hover\:opacity-0:hover {
+    opacity: 0;
+  }
+
+  .xl\:hover\:opacity-25:hover {
+    opacity: 0.25;
+  }
+
+  .xl\:hover\:opacity-50:hover {
+    opacity: 0.5;
+  }
+
+  .xl\:hover\:opacity-75:hover {
+    opacity: 0.75;
+  }
+
+  .xl\:hover\:opacity-100:hover {
     opacity: 1;
   }
 

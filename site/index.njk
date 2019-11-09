@@ -8,22 +8,18 @@ body_class: home
   <div class="content">
     <h1>Diederik</h1>
     <p class="intro">Woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer" class="link">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
-    {# <p>Deze website gebruik ik om te experimenteren met koppelingen (API's) en nieuwe technieken. Af en toe schrijf ik daar ook wel eens een artikel over</p> #}
+    <p class="text-xs font-500">🚧 Deze (static) website gebruik ik om te experimenteren met koppelingen (API's) en nieuwe technieken (JAMstack).</p>
   </div>
 </section>
-{#
-{{ import.instagram.data | dump }} #}
 
 <section class="section">
-
   <div class="grid">
-
     <div class="flex flex-wrap mb-4 lg:mb-8">
     {%- for i in range(0, 12) -%}
       {%- set item = import.instagram.data[i] -%}
       <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-1 flex flex-wrap items-end">
         <a href="{{ item.link }}" class="relative" target="_blank" rel="noopener noreferrer">
-          <img src="{{ item.images.standard_resolution.url }}" loading="lazy" class="w-full m-0 block relative z-0" >
+          <img src="{{ item.images.standard_resolution.url }}" loading="lazy" class="w-full m-0 block relative z-0 hover:opacity-75" >
           <div class="absolute bottom-0 right-0 text-right max-w-full p-1">
             {% if item.location.name %}
               <div class="font-600 p-1 text-mini leading-none relative">
@@ -36,17 +32,13 @@ body_class: home
       </div>
     {%- endfor -%}
     </div>
-
     <p class="text-sm"><a href="https://www.instagram.com/dydric/" target="_blank" rel="noopener noreferrer">📸 Instagram</a></p>
   </div>
-
 </section>
 
-
-{# <section class="section section--playlist">
+<section class="section section--playlist">
   <div class="content">
     <h3 class="mb-8">Luistert momenteel naar:</h3>
-
     <div class="flex flex-wrap mb-8">
     {%- set playListlength = import.playlist1.tracklist.length -%}
     {%- for i in range(playListlength - 25, playListlength) | reverse -%}
@@ -56,32 +48,32 @@ body_class: home
       </div>
     {%- endfor -%}
     </div>
-
-    <p>Deze playlist werk ik regelmatig bij. Je kunt hem hier ook checken: Apple Music / Spotify. Enjoy!</p>
+    {# <p>Deze playlist werk ik regelmatig bij. Je kunt hem hier ook checken: Apple Music / Spotify. Enjoy!</p> #}
   </div>
-</section> #}
+</section>
 
-{# <section class="section section--links">
-  <div class="content">
-    <h3>Scrapbook</h3>
-    <p>Note: These images are NOT mine, but reblogged from Tumblr.</p>
-  </div>
+<section class="section section--links">
+  <div class="grid">
+    <div class="max-w-5xl mb-4 lg:mb-8">
+      <h3>Scrapbook</h3>
+      {# <p>Mijn verzameling afbeeldingen/foto's. Voornamelijk foto's waar ik van kan genieten.</p> #}
+      <p class="text-xs"><strong>Note: These images are NOT mine, but reblogged from <a href="https://tumblr.com" target="_blank" rel="noopener noreferrer">Tumblr</a>.</strong></p>
+    </div>
 
-  <div class="grid px-4 md:px-12 lg:px-16 max-w-site mb-4 lg:mb-16">
-
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mb-4 lg:mb-8">
       {%- for i in range(0, 120) -%}
         {%- set item = import.tumblr[i] -%}
         {%- if item.type == 'photo' -%}
-          <div class="w-1/4 sm:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end">
+          <div class="w-1/4 sm:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end hover:opacity-75">
             <img src="{{ item.photo }}" loading="lazy" class="w-full m-0 block" data-action="zoom" data-original="{{ item.photo }}">
           </div>
         {%- endif -%}
       {%- endfor -%}
     </div>
 
+    <p class="text-sm"><a href="https://dydric.tumblr.com" target="_blank" rel="noopener noreferrer">🦩 Tumblr</a></p>
   </div>
-</section> #}
+</section>
 
 {# <section class="py-16 ">
   <div class="mx-auto px-8 max-w-6xl">
