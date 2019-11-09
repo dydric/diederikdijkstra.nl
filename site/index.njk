@@ -20,10 +20,10 @@ body_class: home
       <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-1 flex flex-wrap items-end">
         <a href="{{ item.link }}" class="relative" target="_blank" rel="noopener noreferrer">
           <img src="{{ item.images.standard_resolution.url }}" loading="lazy" class="w-full m-0 block relative z-0 hover:opacity-75" >
-          <div class="absolute bottom-0 right-0 text-right max-w-full p-1">
+          <div class="absolute bottom-0 right-0 text-right max-w-full p-1 pointer-events-none">
             {% if item.location.name %}
               <div class="font-600 p-1 text-mini leading-none relative">
-                <span class="block relative z-10 max-w-full truncate text-grey-200">{{ item.location.name }}</span>
+                <span class="block relative z-10 max-w-full truncate text-grey-200">📍{{ item.location.name }}</span>
                 <div class="absolute z-0 top-0 right-0 left-0 bottom-0 bg-black opacity-50 rounded-sm"></div>
               </div>
             {% endif %}
@@ -49,29 +49,6 @@ body_class: home
     {%- endfor -%}
     </div>
     <p>Deze playlist werk ik regelmatig bij. Je kunt hem hier ook checken: Apple Music / Spotify. Enjoy!</p>
-  </div>
-</section> #}
-
-{# <section class="section section--links">
-  <div class="grid">
-    <div class="max-w-5xl mb-4 lg:mb-8">
-      <h3>Scrapbook</h3>
-      <p>Mijn verzameling afbeeldingen/foto's. Voornamelijk foto's waar ik van kan genieten.</p>
-      <p class="text-xs"><strong>Note: These images are NOT mine, but reblogged from <a href="https://tumblr.com" target="_blank" rel="noopener noreferrer">Tumblr</a>.</strong></p>
-    </div>
-
-    <div class="flex flex-wrap mb-4 lg:mb-8">
-      {%- for i in range(0, 120) -%}
-        {%- set item = import.tumblr[i] -%}
-        {%- if item.type == 'photo' -%}
-          <div class="w-1/4 sm:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end hover:opacity-75">
-            <img src="{{ item.photo }}" loading="lazy" class="w-full m-0 block" data-action="zoom" data-original="{{ item.photo }}">
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-
-    <p class="text-sm"><a href="https://dydric.tumblr.com" target="_blank" rel="noopener noreferrer">🦩 Tumblr</a></p>
   </div>
 </section> #}
 
