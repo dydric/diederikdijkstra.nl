@@ -17,9 +17,9 @@ body_class: scrapbook
       {%- for i in range(0, 840) -%}
         {%- set item = import.tumblr[i] -%}
         {%- if item.type == 'photo' -%}
-          <div class="w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end relative group">
+          <div class="w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6 p-1 flex flex-wrap items-end relative">
             <img src="{{ item.photo }}" loading="lazy" class="w-full m-0 block" data-action="zoom" data-original="{{ item.photo }}">
-            <a href="{{ item.url }}" target="_blank" class="absolute bottom-0 right-0 block m-2 opacity-0 group-hover:opacity-100">
+            <a href="{{ item.url }}" target="_blank" class="absolute z-20 bottom-0 right-0 block m-2 opacity-0 hover:opacity-100">
                <div class="font-600 p-1 text-mini leading-none relative">
                 <span class="block relative z-10 max-w-full truncate text-grey-200 hover:text-white">Permalink</span>
                 <div class="absolute z-0 top-0 right-0 left-0 bottom-0 bg-black opacity-50 rounded-sm"></div>
