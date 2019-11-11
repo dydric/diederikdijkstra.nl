@@ -806,9 +806,40 @@ Usage:
   transition: 150ms all ease-out;
 }
 
-a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+p a {
+  position: relative;
+  color: #4caf50;
   text-decoration: none;
+}
+
+h1 a::after,
+  h2 a::after,
+  h3 a::after,
+  h4 a::after,
+  p a::after {
   transition: 150ms all ease-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: block;
+  background-color: #66bb6a;
+  opacity: 0.5;
+  height: 2px;
+  content: '';
+}
+
+h1 a:hover::after,
+  h2 a:hover::after,
+  h3 a:hover::after,
+  h4 a:hover::after,
+  p a:hover::after {
+  opacity: 0.75;
 }
 
 img.emoji {
@@ -827,7 +858,7 @@ h4 {
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.025em;
-  color: #1a237e;
+  color: #43a047;
   margin-bottom: 0.75rem;
 }
 
@@ -846,15 +877,6 @@ h4 {
   h3,
   h4 {
     margin-bottom: 1.5rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  h1,
-    h2,
-    h3,
-    h4 {
-    color: #ffa726;
   }
 }
 
@@ -1032,7 +1054,7 @@ p.intro {
 
 body {
   background-color: #f6f6f6;
-  color: #546e7a;
+  color: #616161;
   letter-spacing: -0.025em;
   line-height: 1.5;
   font-weight: 500;
@@ -1041,7 +1063,6 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111111;
-    color: #757575;
   }
 }
 

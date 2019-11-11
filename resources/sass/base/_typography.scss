@@ -3,7 +3,8 @@ h2,
 h3,
 h4 {
   @apply font-800 leading-none tracking-tight;
-  @apply text-indigo-900 mb-3;
+  @apply text-green-600;
+  @apply mb-3;
 
   @screen lg {
     @apply mb-4;
@@ -13,9 +14,9 @@ h4 {
     @apply mb-6;
   }
 
-  @media (prefers-color-scheme: dark) {
-    @apply text-orange-400;
-  }
+  // @media (prefers-color-scheme: dark) {
+  //   @apply text-orange-400;
+  // }
 }
 
 h1 {

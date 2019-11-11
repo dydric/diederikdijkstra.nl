@@ -5,6 +5,28 @@
   transition: 150ms all ease-out;
 }
 
-a {
-  @apply no-underline transition;
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+p a {
+  @apply relative text-green-500;
+  @apply no-underline;
+
+  &::after {
+    @apply transition;
+    @apply absolute left-0 right-0 bottom-0;
+    @apply w-full block;
+    @apply bg-green-400 opacity-50;
+
+    height: 2px;
+    content: '';
+  }
+
+  &:hover {
+
+    &::after {
+      @apply opacity-75;
+    }
+  }
 }

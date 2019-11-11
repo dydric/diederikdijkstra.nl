@@ -7,11 +7,11 @@
 @import 'typography';
 
 body {
-  @apply bg-grey-100 text-bluegrey-600;
+  @apply bg-grey-100 text-grey-600;
   @apply tracking-tight leading-normal font-500;
 
   @media (prefers-color-scheme: dark) {
-    @apply bg-grey-900 text-grey-500;
+    @apply bg-grey-900;
   }
 }
 
