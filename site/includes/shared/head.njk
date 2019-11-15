@@ -22,3 +22,6 @@
   <link rel="mask-icon" href="{{ '/assets/favicons/safari-pinned-tab.svg' }}"color="#222222">
   <meta name="msapplication-TileColor" content="#222222">
   <meta name="theme-color" content="#ffffff">
+  {% if robots == "no" %}
+  <meta name="robots" content="noindex, nofollow">
+  {% endif %}
