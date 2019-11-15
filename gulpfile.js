@@ -14,6 +14,7 @@ var gulp = require('gulp'),
   run = require('gulp-run-command').default,
   sass = require('gulp-sass'),
   sheetsy = require('sheetsy'),
+  spotifyWebApi = require('spotify-web-api-node'),
   tailwindcss = require('tailwindcss'),
   importer = require('playlist-importer-lite'),
   Instagram = require('node-instagram').default,
@@ -155,6 +156,83 @@ gulp.task('data:playlists', (cb) => {
         }
       });
     });
+
+  importer.getPlaylistData('https://music.apple.com/nl/playlist/music-log/pl.u-5X96tVY3PLB')
+    .then((data) => {
+
+      var playlistTracks = JSON.stringify(data);
+
+      fs.writeFile('site/data/import/playlist3.json', playlistTracks, function(err) {
+        if(err) {
+          console.warn(err);
+        } else {
+          console.log('Playlist saved.');
+        }
+      });
+    });
+
+
+});
+
+// Spotify
+
+// credentials are optional
+const spotifyApi = new spotifyWebApi({
+  clientId: process.env.SPOTIFY_CLIENTID,
+  clientSecret: process.env.SPOTIFY_CLIENTSECRET
+});
+
+gulp.task('data:spotify', (cb) => {
+
+  spotifyApi.clientCredentialsGrant()
+    .then(function(data) {
+      console.log('The access token is ' + data.body['access_token']);
+      spotifyApi.setAccessToken(data.body['access_token']);
+
+      // 0PaeOHUB8lHzVI9wUuxLAe
+
+      spotifyApi.getPlaylist('0czdhI8CDQK1c7GjXUO97X')
+        .then(function(data) {
+          console.log('Some information about this playlist', data.body.tracks.total);
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+        spotify:playlist:
+
+      spotifyApi.getPlaylistTracks('0czdhI8CDQK1c7GjXUO97X',
+        // {
+        //   offset: 0,
+        //   limit: 100,
+        //   fields: 'tracks'
+        // }
+      )
+        .then(function(data) {
+          // console.log('Some information about this playlist', data.body);
+          var playlistTracks = data.body;
+
+          fs.writeFile('site/data/import/spotify.json', JSON.stringify(playlistTracks), function(err) {
+            if(err) {
+              console.warn(err);
+            } else {
+              console.log('Spotify playlist saved.');
+              cb();
+            }
+          });
+
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+
+
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });
+
+
+
+
 
 });
 

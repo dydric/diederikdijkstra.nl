@@ -38,6 +38,7 @@
     "node-instagram": "^4",
     "sheetsy": "^2",
     "playlist-importer-lite": "^0",
+    "spotify-web-api-node": "^4",
     "stylelint-config-standard": "^16",
     "stylelint-order": "^0",
     "tailwindcss": "^1",

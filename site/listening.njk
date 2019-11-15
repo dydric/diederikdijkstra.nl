@@ -1,0 +1,74 @@
+---
+layout: default
+meta_description:
+robots: no
+body_class: listening
+---
+
+<section class="section section--links">
+  <div class="grid">
+    <div class="max-w-5xl mb-4 lg:mb-8">
+      <h4 class="text-base mb-2"><a href="/" class="">Diederik</a></h4>
+      <h2>/listening</h2>
+      {# <p class="text-sm font-800"><a href="https://www.twitter.com/dydric" target="_blank" rel="noopener noreferrer">🦩 Follow me @ Twitter</a></p> #}
+    </div>
+
+    {# {{ import.spotify.items[2] | dump }} #}
+
+    <div class="flex flex-wrap justify-between mb-4 lg:mb-8">
+      {%- for i in range(0, import.spotify.items.length) -%}
+        {%- set item = import.spotify.items[i] -%}
+
+
+        <div class="flex w-full mb-4">
+          {# {{ item.track.preview_url | dump }} #}
+          <div class="flex-shrink-0 mr-4">
+            <img src="{{ item.track.album.images[0].url }}" alt="" class="h-20 w-20">
+          </div>
+
+          <div class="flex-auto">
+            <h4 class="text-base mb-1">
+              <a href=" {{ item.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                {{ item.track.name  }}
+              </a> -
+              <span class="text-base">
+                {{ item.track.artists[0].name }}
+              </span>
+            </h4>
+            <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-sm font-800">{{ item.track.album.name }}</a>
+            {% if item.added_at %}
+            <span class="block mb-1 text-mini">
+              Toegevoegd op {{ item.added_at  | dateDisplay }}
+            </span>
+            {% endif %}
+          </div>
+
+          <div class="flex-initial">
+            {% if item.track.preview_url != null %}
+              <audio id="preview{{i}}" src="{{ item.track.preview_url }}"></audio>
+              <div>
+                <button onclick="document.getElementById('preview{{i}}').play()">Play</button>
+                <button onclick="document.getElementById('preview{{i}}').pause()">Pause</button>
+              </div>
+            {% endif %}
+          </div>
+
+          {# <a href="{{ item.url }}" class="block p-4" target="_blank" rel="noopener noreferrer">
+
+
+
+            {% if item.from %}
+            <span class="block text-sm font-600 mb-2">
+              {{ item.from  }}:
+            </span>
+            {% endif %}
+
+            <span class="block">{{ item.text | safe }}</span>
+          </a> #}
+        </div>
+      {%- endfor -%}
+    </div>
+
+
+  </div>
+</section>
