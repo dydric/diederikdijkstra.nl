@@ -244,6 +244,9 @@ gulp.task('data:tumblr', (cb) => {
               };
 
               JSONposts.push(newObject);
+            } else {
+              // var postBody = post.body;
+              // console.log(postBody);
             }
 
             resolve();
@@ -293,7 +296,7 @@ const client = new twitter({
 // Twitter
 gulp.task('data:twitter', (cb) => {
 
-  let params = {screen_name: 'dydric', count: 6};
+  let params = {screen_name: 'dydric', count: 200};
 
   client.get('statuses/user_timeline', params, function (error, tweets) {
     if (!error) {
@@ -320,7 +323,7 @@ gulp.task('data:twitter', (cb) => {
 
 gulp.task('data:twitter-likes', (cb) => {
 
-  let params = {screen_name: 'dydric', count: 4};
+  let params = {screen_name: 'dydric', count: 200};
 
   client.get('favorites/list', params, function (error, tweets) {
     if (!error) {
