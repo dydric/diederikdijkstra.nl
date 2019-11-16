@@ -16,7 +16,6 @@ var gulp = require('gulp'),
   sheetsy = require('sheetsy'),
   spotifyWebApi = require('spotify-web-api-node'),
   tailwindcss = require('tailwindcss'),
-  importer = require('playlist-importer-lite'),
   Instagram = require('node-instagram').default,
   tumblr = require('tumblr'),
   twitter = require('twitter'),
@@ -124,56 +123,6 @@ gulp.task('data:health', (cb) => {
   });
 });
 
-// Playlists
-
-gulp.task('data:playlists', (cb) => {
-
-  importer.getPlaylistData('https://music.apple.com/nl/playlist/toptracks/pl.u-4ay2imMAdlN')
-    .then((data) => {
-
-      var playlistTracks = JSON.stringify(data);
-
-      fs.writeFile('site/data/import/playlist1.json', playlistTracks, function(err) {
-        if(err) {
-          console.warn(err);
-        } else {
-          console.log('Playlist saved.');
-          cb();
-        }
-      });
-    });
-
-  importer.getPlaylistData('https://music.apple.com/nl/playlist/techno/pl.u-5ZoqIVY3PLB')
-    .then((data) => {
-
-      var playlistTracks = JSON.stringify(data);
-
-      fs.writeFile('site/data/import/playlist2.json', playlistTracks, function(err) {
-        if(err) {
-          console.warn(err);
-        } else {
-          console.log('Playlist saved.');
-        }
-      });
-    });
-
-  importer.getPlaylistData('https://music.apple.com/nl/playlist/music-log/pl.u-5X96tVY3PLB')
-    .then((data) => {
-
-      var playlistTracks = JSON.stringify(data);
-
-      fs.writeFile('site/data/import/playlist3.json', playlistTracks, function(err) {
-        if(err) {
-          console.warn(err);
-        } else {
-          console.log('Playlist saved.');
-        }
-      });
-    });
-
-
-});
-
 // Spotify
 
 // credentials are optional
@@ -182,58 +131,149 @@ const spotifyApi = new spotifyWebApi({
   clientSecret: process.env.SPOTIFY_CLIENTSECRET
 });
 
-gulp.task('data:spotify', (cb) => {
+gulp.task('data:spotify', () => {
 
   spotifyApi.clientCredentialsGrant()
     .then(function(data) {
-      console.log('The access token is ' + data.body['access_token']);
+      // console.log('The access token is ' + data.body['access_token']);
       spotifyApi.setAccessToken(data.body['access_token']);
 
-      // 0PaeOHUB8lHzVI9wUuxLAe
+      var playlistID_albums = '4Bv3dkg5pD81HBoFaKC4S7';
 
-      spotifyApi.getPlaylist('0czdhI8CDQK1c7GjXUO97X')
+      var playlistID_musiclog01 = '5C2AFaNulz8Wz6Tb6UPVfv';
+      var playlistID_musiclog02 = '6ShQiKq8bZF98ikrMlQVzy';
+      var playlistID_musiclog03 = '0NEo9bAKRbbhWvUGJzrSGh';
+      var playlistID_musiclog04 = '1GqnOwVW7VaWcivCpWVUZa';
+      var playlistID_musiclog05 = '0vGdLCvf1ohz0ybSPzTSJZ';
+      var playlistID_musiclog06 = '1urJgpzBntEN7rRF9YW0Gj';
+      var playlistID_musiclog07 = '6FlVlVj5kd3uQEtGhN1a2m';
+      var playlistID_musiclog08 = '6sNv1lYvJTwF6OrHu6tHTg';
+      var playlistID_musiclog09 = '43VdZl4vBgpROXbfgjCDVR';
+      var playlistID_musiclog10 = '7JXe7hZlzX2FCY7wBaIsox';
+      var playlistID_musiclog11 = '3Q0jxbxKS8Tid3jgr1ScVz';
+      var playlistID_musiclog12 = '41wLOutl8A36WoqAPltlZ6';
+
+      // ALBUMS
+      spotifyApi.getPlaylistTracks(playlistID_albums)
         .then(function(data) {
-          console.log('Some information about this playlist', data.body.tracks.total);
-        }, function(err) {
-          console.log('Something went wrong!', err);
-        });
-
-        spotify:playlist:
-
-      spotifyApi.getPlaylistTracks('0czdhI8CDQK1c7GjXUO97X',
-        // {
-        //   offset: 0,
-        //   limit: 100,
-        //   fields: 'tracks'
-        // }
-      )
-        .then(function(data) {
-          // console.log('Some information about this playlist', data.body);
           var playlistTracks = data.body;
-
-          fs.writeFile('site/data/import/spotify.json', JSON.stringify(playlistTracks), function(err) {
-            if(err) {
-              console.warn(err);
-            } else {
-              console.log('Spotify playlist saved.');
-              cb();
-            }
-          });
-
+          fs.writeFile('site/data/import/listening/albums.json', JSON.stringify(playlistTracks), function(){});
         }, function(err) {
           console.log('Something went wrong!', err);
         });
 
+      // JANUARI
+      spotifyApi.getPlaylistTracks(playlistID_musiclog01)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog01.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // FEBRUARI
+      spotifyApi.getPlaylistTracks(playlistID_musiclog02)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog02.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // MAART
+      spotifyApi.getPlaylistTracks(playlistID_musiclog03)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog03.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // APRIL
+      spotifyApi.getPlaylistTracks(playlistID_musiclog04)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog04.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // MEI
+      spotifyApi.getPlaylistTracks(playlistID_musiclog05)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog05.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // JUNI
+      spotifyApi.getPlaylistTracks(playlistID_musiclog06)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog06.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // JULI
+      spotifyApi.getPlaylistTracks(playlistID_musiclog07)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog07.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // AUGUSTUS
+      spotifyApi.getPlaylistTracks(playlistID_musiclog08)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog08.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // SEPTEMBER
+      spotifyApi.getPlaylistTracks(playlistID_musiclog09)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog09.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // OKTOBER
+      spotifyApi.getPlaylistTracks(playlistID_musiclog10)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog10.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // NOVEMBER
+      spotifyApi.getPlaylistTracks(playlistID_musiclog11)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog11.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
+
+      // DECEMBER
+      spotifyApi.getPlaylistTracks(playlistID_musiclog12)
+        .then(function(data) {
+          var playlistTracks = data.body;
+          fs.writeFile('site/data/import/listening/musiclog12.json', JSON.stringify(playlistTracks), function(){});
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
 
 
     }, function(err) {
       console.log('Something went wrong!', err);
     });
-
-
-
-
-
 });
 
 // Instagram
@@ -246,19 +286,9 @@ const instagram = new Instagram({
 
 gulp.task('data:instagram', (cb) => {
 
-  // instagram.get('users/self', (err, data) => {
-  //   if (err) {
-  //     // an error occured
-  //     console.log(err);
-  //   } else {
-  //     console.log(data);
-  //   }
-  // });
-
   instagram.get('users/self/media/recent').then(data => {
 
     var instagramPosts = data;
-    // console.log(instagramPosts);
 
     fs.writeFile('site/data/import/instagram.json', JSON.stringify(instagramPosts), function(err) {
       if(err) {
@@ -431,7 +461,7 @@ gulp.task('data:twitter-likes', (cb) => {
 
 // Global data task
 gulp.task('data', [
-  'data:twitter', 'data:twitter-likes', 'data:instagram', 'data:health', 'data:workouts', 'data:playlists', 'data:tumblr'
+  'data:twitter', 'data:twitter-likes', 'data:instagram', 'data:health', 'data:workouts', 'data:spotify', 'data:tumblr'
 ]);
 
 // Compile Tailwind

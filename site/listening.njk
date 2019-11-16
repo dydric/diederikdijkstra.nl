@@ -5,23 +5,50 @@ robots: no
 body_class: listening
 ---
 
-<section class="section section--links">
+<section class="section section--musiclog">
   <div class="grid">
     <div class="max-w-5xl mb-4 lg:mb-8">
       <h4 class="text-base mb-2"><a href="/" class="">Diederik</a></h4>
       <h2>/listening</h2>
-      {# <p class="text-sm font-800"><a href="https://www.twitter.com/dydric" target="_blank" rel="noopener noreferrer">🦩 Follow me @ Twitter</a></p> #}
     </div>
 
-    {# {{ import.spotify.items[2] | dump }} #}
+    <h4>Albums</h4>
+    <div class="flex flex-wrap -mx-2 mb-8">
+    {%- for i in range(0, import.listening.albums.items.length)|reverse -%}
+      {%- set item = import.listening.albums.items[i] -%}
+      <div class="w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-2">
+        <a href="{{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.track.album.images[0].url }}" alt="" class="w-full">
+        </a>
+      </div>
+    {% endfor %}
+    </div>
 
-    <div class="flex flex-wrap justify-between mb-4 lg:mb-8">
-      {%- for i in range(0, import.spotify.items.length) -%}
-        {%- set item = import.spotify.items[i] -%}
+    {% set playlists = [
+      [import.listening.musiclog12, "December"],
+      [import.listening.musiclog11, "November"],
+      [import.listening.musiclog10, "Oktober"],
+      [import.listening.musiclog09, "September"],
+      [import.listening.musiclog08, "Augustus"],
+      [import.listening.musiclog07, "Juli"],
+      [import.listening.musiclog06, "Juni"],
+      [import.listening.musiclog05, "Mei"],
+      [import.listening.musiclog04, "April"],
+      [import.listening.musiclog03, "Maart"],
+      [import.listening.musiclog02, "Februari"],
+      [import.listening.musiclog01, "Januari"]
+    ] %}
 
+    {% for playlist, month in playlists %}
+      {% if playlist.items.length > 0 %}
+        <h4>{{ month }}</h4>
+      {# {{ playlist.items.length | dump }} #}
+
+        <div class="flex flex-wrap justify-between mb-4 lg:mb-8">
+        {%- for i in range(0, playlist.items.length)|reverse -%}
+        {%- set item = playlist.items[i] -%}
 
         <div class="flex w-full mb-4">
-          {# {{ item.track.preview_url | dump }} #}
           <div class="flex-shrink-0 mr-4">
             <img src="{{ item.track.album.images[0].url }}" alt="" class="h-20 w-20">
           </div>
@@ -52,22 +79,15 @@ body_class: listening
               </div>
             {% endif %}
           </div>
-
-          {# <a href="{{ item.url }}" class="block p-4" target="_blank" rel="noopener noreferrer">
-
-
-
-            {% if item.from %}
-            <span class="block text-sm font-600 mb-2">
-              {{ item.from  }}:
-            </span>
-            {% endif %}
-
-            <span class="block">{{ item.text | safe }}</span>
-          </a> #}
         </div>
       {%- endfor -%}
-    </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+
+
+
 
 
   </div>
