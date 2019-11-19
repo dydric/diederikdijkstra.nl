@@ -10,9 +10,10 @@ body_class: listening
     <div class="max-w-5xl mb-4 lg:mb-8">
       <h4 class="text-base mb-2"><a href="/" class="">Diederik</a></h4>
       <h2>/listening</h2>
+      <p>
     </div>
 
-    <h4>Recommendations</h4>
+    <h4>On Repeat</h4>
     <div class="flex flex-wrap -mx-2 mb-8">
     {%- for i in range(0, import.listening.albums.items.length)|reverse -%}
       {%- set item = import.listening.albums.items[i] -%}
@@ -25,65 +26,77 @@ body_class: listening
     </div>
 
     {% set playlists = [
-      [import.listening.musiclog12, "December"],
-      [import.listening.musiclog11, "November"],
-      [import.listening.musiclog10, "Oktober"],
-      [import.listening.musiclog09, "September"],
-      [import.listening.musiclog08, "Augustus"],
       [import.listening.musiclog07, "Juli"],
       [import.listening.musiclog06, "Juni"],
       [import.listening.musiclog05, "Mei"],
       [import.listening.musiclog04, "April"],
       [import.listening.musiclog03, "Maart"],
       [import.listening.musiclog02, "Februari"],
-      [import.listening.musiclog01, "Januari"]
+      [import.listening.musiclog01, "Januari"],
+      [import.listening.musiclog12, "December"],
+      [import.listening.musiclog11, "November"],
+      [import.listening.musiclog10, "Oktober"],
+      [import.listening.musiclog09, "September"],
+      [import.listening.musiclog08, "Augustus"]
     ] %}
+
+    <h4>Music Log</h4>
 
     {% for playlist, month in playlists %}
       {% if playlist.items.length > 0 %}
-        <h4>{{ month }}</h4>
-      {# {{ playlist.items.length | dump }} #}
 
-        <div class="flex flex-wrap justify-between mb-4 lg:mb-8">
-        {%- for i in range(0, playlist.items.length)|reverse -%}
-        {%- set item = playlist.items[i] -%}
+        {% set track %}
+            {%- for i in range(0, playlist.items.length)|reverse -%}
+              {%- set item = playlist.items[i] -%}
 
-        <div class="flex w-full mb-4">
-          <div class="flex-shrink-0 mr-4">
-            <img src="{{ item.track.album.images[0].url }}" alt="" class="h-20 w-20">
-          </div>
+          <div class="flex w-full py-2">
+            <div class="flex-shrink-0 mr-4">
+              <img src="{{ item.track.album.images[0].url }}" alt="" class="h-12 w-12">
+            </div>
 
-          <div class="flex-auto">
-            <h4 class="text-base mb-1">
-              <a href=" {{ item.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                {{ item.track.name  }}
-              </a> -
-              <span class="text-base">
-                {{ item.track.artists[0].name }}
+            <div class="flex-auto">
+              <h4 class="text-base leading-tight mb-1">
+                <a href=" {{ item.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                  {{ item.track.name  }}
+                </a> -
+                <span class="text-base">
+                  {{ item.track.artists[0].name }}
+                </span>
+              </h4>
+              <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-sm font-400">{{ item.track.album.name }}</a>
+              {# {% if item.added_at %}
+              <span class="block mb-1 text-mini">
+                Toegevoegd op {{ item.added_at  | dateDisplay }}
               </span>
-            </h4>
-            <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-sm font-800">{{ item.track.album.name }}</a>
-            {% if item.added_at %}
-            <span class="block mb-1 text-mini">
-              Toegevoegd op {{ item.added_at  | dateDisplay }}
-            </span>
-            {% endif %}
-          </div>
+              {% endif %} #}
+            </div>
 
-          <div class="flex-initial">
-            {% if item.track.preview_url != null %}
-              <audio id="preview{{i}}" src="{{ item.track.preview_url }}"></audio>
-              <div>
-                <button onclick="document.getElementById('preview{{i}}').play()">Play</button>
-                <button onclick="document.getElementById('preview{{i}}').pause()">Pause</button>
-              </div>
-            {% endif %}
+            <div class="flex-initial ml-4">
+              {% if item.track.preview_url != null %}
+                <audio id="preview{{i}}" src="{{ item.track.preview_url }}"></audio>
+                <div>
+                  <button onclick="document.getElementById('preview{{i}}').play()">Play</button>
+                  <button onclick="document.getElementById('preview{{i}}').pause()">Pause</button>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {%- endfor -%}
+        {% endset %}
+
+
+        <div class="flex flex-wrap md:flex-no-wrap">
+          <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/4 lg:w-1/5 xl:w-1/6  md:sticky top-0 py-2">
+            <h4 class="truncate text-base leading-tight">{{ month }}</h4>
+          </div>
+          <div class="flex-auto">
+            {{ track | safe }}
           </div>
         </div>
-      {%- endfor -%}
-      </div>
-      {% endif %}
-    {% endfor %}
+
+
+        {% endif %}
+      {% endfor %}
 
 
 
