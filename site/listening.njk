@@ -73,10 +73,9 @@ body_class: listening
 
             <div class="flex-initial ml-4">
               {% if item.track.preview_url != null %}
-                <audio id="preview{{i}}" src="{{ item.track.preview_url }}"></audio>
-                <div>
-                  <button onclick="document.getElementById('preview{{i}}').play()">Play</button>
-                  <button onclick="document.getElementById('preview{{i}}').pause()">Pause</button>
+                <div class="js-audio">
+                  <audio src="{{ item.track.preview_url }}"></audio>
+                  <button>play</button>
                 </div>
               {% endif %}
             </div>
