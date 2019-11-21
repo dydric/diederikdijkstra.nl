@@ -18,12 +18,15 @@ body_class: listening
     {%- for i in range(0, import.listening.albums.items.length)|reverse -%}
       {%- set item = import.listening.albums.items[i] -%}
       <div class="w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-2">
-        <a href="{{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-          <img src="{{ item.track.album.images[0].url }}" alt="" class="w-full">
+        <a href="{{ item.track.album.external_urls.spotify }}" class="bg-black block group" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.track.album.images[0].url }}" alt="" class="w-full group-hover:opacity-75">
         </a>
       </div>
     {% endfor %}
     </div>
+  </div>
+
+  <div class="content">
 
     {% set playlists = [
       [import.listening.musiclog07, "Juli"],
@@ -51,38 +54,32 @@ body_class: listening
 
           <div class="flex w-full py-2">
             <div class="flex-shrink-0 mr-4">
-              <img src="{{ item.track.album.images[0].url }}" alt="" class="h-12 w-12">
+              <img src="{{ item.track.album.images[0].url }}" alt="" loading="lazy" class="h-12 w-12">
             </div>
 
             <div class="flex-auto">
-              <h4 class="text-base leading-tight mb-1">
+              <h4 class="text-sm md:text-base leading-tight mb-0 md:mb-1">
                 <a href=" {{ item.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
                   {{ item.track.name  }}
                 </a> -
-                <span class="text-base">
+                <span class="text-sm md:text-base">
                   {{ item.track.artists[0].name }}
                 </span>
               </h4>
-              <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-sm font-400">{{ item.track.album.name }}</a>
-              {# {% if item.added_at %}
-              <span class="block mb-1 text-mini">
-                Toegevoegd op {{ item.added_at  | dateDisplay }}
-              </span>
-              {% endif %} #}
+              <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm font-400 hover:opacity-75">{{ item.track.album.name }}</a>
             </div>
 
             <div class="flex-initial ml-4">
               {% if item.track.preview_url != null %}
                 <div class="js-audio">
                   <audio src="{{ item.track.preview_url }}"></audio>
-                  <button>play</button>
+                  <button>Preview track</button>
                 </div>
               {% endif %}
             </div>
           </div>
         {%- endfor -%}
         {% endset %}
-
 
         <div class="flex flex-wrap md:flex-no-wrap">
           <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/4 lg:w-1/5 xl:w-1/6  md:sticky top-0 py-2">
