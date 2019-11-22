@@ -550,7 +550,8 @@ gulp.task('css:compile:preflight', function () {
           'ol',
           'table',
           'emoji',
-          'zoom-overlay'
+          'zoom-overlay',
+          'playing'
         ],
         // whitelistPatterns: [/yellow-800$/, /lightblue-400$/, /red-500$/, /green-500$/],
       })
