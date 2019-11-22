@@ -6,27 +6,12 @@ body_class: listening
 ---
 
 <section class="section section--musiclog">
-  <div class="grid">
-    <div class="max-w-5xl mb-4 lg:mb-8">
+  <div class="content">
+    <div class="max-w-5xl mb-12">
       <h4 class="text-base mb-2"><a href="/" class="">Diederik</a></h4>
       <h2>/listening</h2>
       <p>
     </div>
-
-    <h4>On Repeat</h4>
-    <div class="flex flex-wrap -mx-2 mb-8">
-    {%- for i in range(0, import.listening.albums.items.length)|reverse -%}
-      {%- set item = import.listening.albums.items[i] -%}
-      <div class="w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-2">
-        <a href="{{ item.track.album.external_urls.spotify }}" class="bg-black block group" target="_blank" rel="noopener noreferrer">
-          <img src="{{ item.track.album.images[0].url }}" alt="" class="w-full group-hover:opacity-75">
-        </a>
-      </div>
-    {% endfor %}
-    </div>
-  </div>
-
-  <div class="content">
 
     {% set playlists = [
       [import.listening.musiclog04, "April"],
@@ -99,5 +84,19 @@ body_class: listening
 
 
 
+  </div>
+
+  <div class="grid">
+    <h4>On Repeat</h4>
+    <div class="flex flex-wrap -mx-2 mb-8">
+    {%- for i in range(0, import.listening.albums.items.length)|reverse -%}
+      {%- set item = import.listening.albums.items[i] -%}
+      <div class="w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-2">
+        <a href="{{ item.track.album.external_urls.spotify }}" class="bg-black block group" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.track.album.images[0].url }}" alt="" class="w-full group-hover:opacity-75">
+        </a>
+      </div>
+    {% endfor %}
+    </div>
   </div>
 </section>
