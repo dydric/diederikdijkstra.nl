@@ -5,12 +5,12 @@
       "url": "/"
     },
     {
-      "label": "About",
-      "url": "/about/"
+      "label": "Listening",
+      "url": "/listening/"
     },
     {
-      "label": "Blog",
-      "url": "/blog/"
+      "label": "Scrapbook",
+      "url": "/scrapbook/"
     },
     {
       "label": "Contact",
