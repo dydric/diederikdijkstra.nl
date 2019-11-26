@@ -4,16 +4,16 @@
 
 ```html
 - Clone this repo
-- Install `yarn`
+- Install `npm` of yarn`
 - Have fun!
 ```
 
 ## Tasks
 
 ```html
-- yarn data: imports external data
-- yarn serve: serve & watch 11ty
-- yarn dev: watch & builld scss/js and serve task
-- yarn test: before deploy please test the site (with optimized css/js & real data)
-- yarn build: task used by netlify to build website
+- npm run data/yarn data: imports external data
+- npm run serve/yarn serve: serve & watch 11ty
+- npm run dev/yarn dev: watch & builld scss/js and serve task
+- npm run test/yarn test: before deploy please test the site (with optimized css/js & real data)
+- npm run build/yarn build: task used by netlify to build website
 ```
