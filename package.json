@@ -1,47 +1,39 @@
 {
-  "name": "diederikdijkstra.nl",
-  "version": "2.0.1",
-  "description": "",
-  "scripts": {
-    "data": "gulp data",
-    "dev": "gulp dev & ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve",
-    "serve": "ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve",
-    "test": "gulp build && eleventy --config=eleventy.config.js --serve",
-    "build": "gulp build && eleventy --config=eleventy.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dydric/dydric.github.io"
-  },
-  "author": "Diederik Dijkstra",
-  "license": "MIT",
-  "devDependencies": {
-    "@11ty/eleventy": "^0",
-    "@babel/core": "^7",
-    "@babel/preset-env": "^7",
-    "@fullhuman/postcss-purgecss": "^1",
-    "dotenv": "^6",
-    "gulp": "^3",
-    "gulp-babel": "^8",
-    "gulp-clean-css": "^3",
-    "gulp-concat": "^2",
-    "gulp-eslint": "^4",
-    "gulp-notify": "^3",
-    "gulp-plumber": "^1",
-    "gulp-postcss": "^7",
-    "gulp-rename": "^1",
-    "gulp-run-command": "^0",
-    "gulp-sass": "^4",
-    "gulp-stylelint": "^3",
-    "gulp-uglify": "^3",
-    "html-minifier": "^3",
-    "node-instagram": "^4",
-    "sheetsy": "^2",
-    "spotify-web-api-node": "^4",
-    "stylelint-config-standard": "^16",
-    "stylelint-order": "^0",
-    "tailwindcss": "^1",
-    "tumblr": "^0",
-    "twitter": "^1"
-  }
+	"name": "diederikdijkstra.nl",
+	"version": "3.0.1",
+	"description": "",
+	"scripts": {
+		"dev": "ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve & gulp",
+		"build": "gulp build && eleventy --config=eleventy.config.js --serve",
+		"data": "gulp data"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dydric/dydric.github.io"
+	},
+	"author": "Diederik Dijkstra",
+	"license": "MIT",
+	"devDependencies": {
+		"@11ty/eleventy": "^0",
+		"@babel/core": "^7",
+		"@babel/preset-env": "^7",
+		"@fullhuman/postcss-purgecss": "^1",
+		"dotenv": "^6",
+		"gulp": "^4",
+		"gulp-babel": "^8",
+		"gulp-clean-css": "^4",
+		"gulp-concat": "^2",
+		"gulp-notify": "^3",
+		"gulp-plumber": "^1",
+		"gulp-postcss": "^8",
+		"gulp-rename": "^1",
+		"gulp-sass": "^4",
+		"gulp-uglify": "^3",
+		"html-minifier": "^4",
+		"node-instagram": "^4",
+		"spotify-web-api-node": "^4",
+		"tailwindcss": "^1",
+		"tumblr": "^0",
+		"twitter": "^1"
+	}
 }

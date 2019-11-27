@@ -1,3 +1,5 @@
+/*global twemoji */
+twemoji.parse(document.body);
 /*eslint no-unused-vars: ["error", { "vars": "local" }]*/
 // Audio
 (function () {
@@ -33,5 +35,3 @@
     }
   }
 })();
-/*global twemoji */
-twemoji.parse(document.body);

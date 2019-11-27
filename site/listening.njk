@@ -14,21 +14,19 @@ body_class: listening
     </div>
 
     {% set playlists = [
-      [import.playlists.2019.12, "December"],
-      [import.playlists.2019.11, "November"],
-      [import.playlists.2019.10, "Oktober"],
-      [import.playlists.2019.09, "September"],
-      [import.playlists.2019.08, "Augustus"],
-      [import.playlists.2019.07, "Juli"],
-      [import.playlists.2019.06, "Juni"],
-      [import.playlists.2019.05, "Mei"],
-      [import.playlists.2019.04, "April"],
-      [import.playlists.2019.03, "Maart"],
-      [import.playlists.2019.02, "Februari"],
-      [import.playlists.2019.01, "Januari"]
+      [import.playlists.2019_12, "December"],
+      [import.playlists.2019_11, "November"],
+      [import.playlists.2019_10, "Oktober"],
+      [import.playlists.2019_09, "September"],
+      [import.playlists.2019_08, "Augustus"],
+      [import.playlists.2019_07, "Juli"],
+      [import.playlists.2019_06, "Juni"],
+      [import.playlists.2019_05, "Mei"],
+      [import.playlists.2019_04, "April"],
+      [import.playlists.2019_03, "Maart"],
+      [import.playlists.2019_02, "Februari"],
+      [import.playlists.2019_01, "Januari"]
     ] %}
-
-    {# <h4>Music Log</h4> #}
 
     {% for playlist, month in playlists %}
       {% if playlist.items.length > 0 %}
@@ -76,8 +74,8 @@ body_class: listening
         </div>
 
 
-        {% endif %}
-      {% endfor %}
+      {% endif %}
+    {% endfor %}
 
 
 
