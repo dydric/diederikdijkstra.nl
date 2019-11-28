@@ -402,10 +402,14 @@ const minifyCSSPreflight = (done) => {
 }
 
 
+/**
+ * [IMPORT] task
+ */
+exports.data = series(spotifyImport, instagramImport, tumblrImport, twitterImport);
 
 /**
  * [BUILD] task
- * Run this once you're happy with your site and you want to prep the files for production.
+ * Run this once you'yare happy with your site and you want to prep the files for production.
  *
  * This will run the Preflight tasks to minify our CSS and scripts, as well as pass the CSS through PurgeCSS to remove any unused CSS.
  *
@@ -418,7 +422,4 @@ exports.build = series(compileCSSPreflight, minifyCSSPreflight, minifyJS);
  */
 exports.default = series(compileCSS, compileJS, watchFiles);
 
-/**
- * [IMPORT] task
- */
-// exports.data = series(spotifyImport, instagramImport, tumblrImport, twitterImport);
+
