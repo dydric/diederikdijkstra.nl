@@ -384,6 +384,7 @@ h3,
 h4,
 h5,
 h6,
+hr,
 figure,
 p,
 pre {
@@ -456,6 +457,14 @@ html {
   border-color: #eeeeee;
 }
 
+/*
+ * Ensure horizontal rules are visible by default
+ */
+
+hr {
+  border-top-width: 1px;
+}
+
 /**
  * Undo the `border-style: none` reset that Normalize applies to images so that
  * our `border-{width}` utilities have the expected effect.
@@ -476,8 +485,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: inherit;
-  opacity: 0.5;
+  color: #a0aec0;
 }
 
 button,
@@ -1246,6 +1254,52 @@ body {
   .container {
     max-width: 1280px;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.focus\:sr-only:focus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 .appearance-none {
@@ -6164,6 +6218,10 @@ body {
   border-style: dotted;
 }
 
+.border-double {
+  border-style: double;
+}
+
 .border-none {
   border-style: none;
 }
@@ -8766,6 +8824,1542 @@ body {
 
 .pl-px {
   padding-left: 1px;
+}
+
+.placeholder-transparent::placeholder {
+  color: transparent;
+}
+
+.placeholder-black::placeholder {
+  color: #000;
+}
+
+.placeholder-white::placeholder {
+  color: #fff;
+}
+
+.placeholder-grey-100::placeholder {
+  color: #f6f6f6;
+}
+
+.placeholder-grey-200::placeholder {
+  color: #eeeeee;
+}
+
+.placeholder-grey-300::placeholder {
+  color: #bdbdbd;
+}
+
+.placeholder-grey-400::placeholder {
+  color: #9e9e9e;
+}
+
+.placeholder-grey-500::placeholder {
+  color: #757575;
+}
+
+.placeholder-grey-600::placeholder {
+  color: #616161;
+}
+
+.placeholder-grey-700::placeholder {
+  color: #424242;
+}
+
+.placeholder-grey-800::placeholder {
+  color: #212121;
+}
+
+.placeholder-grey-900::placeholder {
+  color: #111111;
+}
+
+.placeholder-red-50::placeholder {
+  color: #ffebee;
+}
+
+.placeholder-red-100::placeholder {
+  color: #ffcdd2;
+}
+
+.placeholder-red-200::placeholder {
+  color: #ef9a9a;
+}
+
+.placeholder-red-300::placeholder {
+  color: #e57373;
+}
+
+.placeholder-red-400::placeholder {
+  color: #ef5350;
+}
+
+.placeholder-red-500::placeholder {
+  color: #f44336;
+}
+
+.placeholder-red-600::placeholder {
+  color: #e53935;
+}
+
+.placeholder-red-700::placeholder {
+  color: #d32f2f;
+}
+
+.placeholder-red-800::placeholder {
+  color: #c62828;
+}
+
+.placeholder-red-900::placeholder {
+  color: #b71c1c;
+}
+
+.placeholder-pink-50::placeholder {
+  color: #fce4ec;
+}
+
+.placeholder-pink-100::placeholder {
+  color: #f8bbd0;
+}
+
+.placeholder-pink-200::placeholder {
+  color: #f48fb1;
+}
+
+.placeholder-pink-300::placeholder {
+  color: #f06292;
+}
+
+.placeholder-pink-400::placeholder {
+  color: #ec407a;
+}
+
+.placeholder-pink-500::placeholder {
+  color: #e91e63;
+}
+
+.placeholder-pink-600::placeholder {
+  color: #d81b60;
+}
+
+.placeholder-pink-700::placeholder {
+  color: #c2185b;
+}
+
+.placeholder-pink-800::placeholder {
+  color: #ad1457;
+}
+
+.placeholder-pink-900::placeholder {
+  color: #880e4f;
+}
+
+.placeholder-purple-50::placeholder {
+  color: #f3e5f5;
+}
+
+.placeholder-purple-100::placeholder {
+  color: #e1bee7;
+}
+
+.placeholder-purple-200::placeholder {
+  color: #ce93d8;
+}
+
+.placeholder-purple-300::placeholder {
+  color: #ba68c8;
+}
+
+.placeholder-purple-400::placeholder {
+  color: #ab47bc;
+}
+
+.placeholder-purple-500::placeholder {
+  color: #9c27b0;
+}
+
+.placeholder-purple-600::placeholder {
+  color: #8e24aa;
+}
+
+.placeholder-purple-700::placeholder {
+  color: #7b1fa2;
+}
+
+.placeholder-purple-800::placeholder {
+  color: #6a1b9a;
+}
+
+.placeholder-purple-900::placeholder {
+  color: #4a148c;
+}
+
+.placeholder-deeppurple-50::placeholder {
+  color: #ede7f6;
+}
+
+.placeholder-deeppurple-100::placeholder {
+  color: #d1c4e9;
+}
+
+.placeholder-deeppurple-200::placeholder {
+  color: #b39ddb;
+}
+
+.placeholder-deeppurple-300::placeholder {
+  color: #9575cd;
+}
+
+.placeholder-deeppurple-400::placeholder {
+  color: #7e57c2;
+}
+
+.placeholder-deeppurple-500::placeholder {
+  color: #673ab7;
+}
+
+.placeholder-deeppurple-600::placeholder {
+  color: #5e35b1;
+}
+
+.placeholder-deeppurple-700::placeholder {
+  color: #512da8;
+}
+
+.placeholder-deeppurple-800::placeholder {
+  color: #4527a0;
+}
+
+.placeholder-deeppurple-900::placeholder {
+  color: #311b92;
+}
+
+.placeholder-indigo-50::placeholder {
+  color: #e8eaf6;
+}
+
+.placeholder-indigo-100::placeholder {
+  color: #c5cae9;
+}
+
+.placeholder-indigo-200::placeholder {
+  color: #9fa8da;
+}
+
+.placeholder-indigo-300::placeholder {
+  color: #7986cb;
+}
+
+.placeholder-indigo-400::placeholder {
+  color: #5c6bc0;
+}
+
+.placeholder-indigo-500::placeholder {
+  color: #3f51b5;
+}
+
+.placeholder-indigo-600::placeholder {
+  color: #3949ab;
+}
+
+.placeholder-indigo-700::placeholder {
+  color: #303f9f;
+}
+
+.placeholder-indigo-800::placeholder {
+  color: #283593;
+}
+
+.placeholder-indigo-900::placeholder {
+  color: #1a237e;
+}
+
+.placeholder-blue-50::placeholder {
+  color: #e3f2fd;
+}
+
+.placeholder-blue-100::placeholder {
+  color: #bbdefb;
+}
+
+.placeholder-blue-200::placeholder {
+  color: #90caf9;
+}
+
+.placeholder-blue-300::placeholder {
+  color: #64b5f6;
+}
+
+.placeholder-blue-400::placeholder {
+  color: #42a5f5;
+}
+
+.placeholder-blue-500::placeholder {
+  color: #2196f3;
+}
+
+.placeholder-blue-600::placeholder {
+  color: #1e88e5;
+}
+
+.placeholder-blue-700::placeholder {
+  color: #1976d2;
+}
+
+.placeholder-blue-800::placeholder {
+  color: #1565c0;
+}
+
+.placeholder-blue-900::placeholder {
+  color: #0d47a1;
+}
+
+.placeholder-lightblue-50::placeholder {
+  color: #e1f5fe;
+}
+
+.placeholder-lightblue-100::placeholder {
+  color: #b3e5fc;
+}
+
+.placeholder-lightblue-200::placeholder {
+  color: #81d4fa;
+}
+
+.placeholder-lightblue-300::placeholder {
+  color: #4fc3f7;
+}
+
+.placeholder-lightblue-400::placeholder {
+  color: #29b6f6;
+}
+
+.placeholder-lightblue-500::placeholder {
+  color: #03a9f4;
+}
+
+.placeholder-lightblue-600::placeholder {
+  color: #039be5;
+}
+
+.placeholder-lightblue-700::placeholder {
+  color: #0288d1;
+}
+
+.placeholder-lightblue-800::placeholder {
+  color: #0277bd;
+}
+
+.placeholder-lightblue-900::placeholder {
+  color: #01579b;
+}
+
+.placeholder-cyan-50::placeholder {
+  color: #e0f7fa;
+}
+
+.placeholder-cyan-100::placeholder {
+  color: #b2ebf2;
+}
+
+.placeholder-cyan-200::placeholder {
+  color: #80deea;
+}
+
+.placeholder-cyan-300::placeholder {
+  color: #4dd0e1;
+}
+
+.placeholder-cyan-400::placeholder {
+  color: #26c6da;
+}
+
+.placeholder-cyan-500::placeholder {
+  color: #00bcd4;
+}
+
+.placeholder-cyan-600::placeholder {
+  color: #00acc1;
+}
+
+.placeholder-cyan-700::placeholder {
+  color: #0097a7;
+}
+
+.placeholder-cyan-800::placeholder {
+  color: #00838f;
+}
+
+.placeholder-cyan-900::placeholder {
+  color: #006064;
+}
+
+.placeholder-teal-50::placeholder {
+  color: #e0f2f1;
+}
+
+.placeholder-teal-100::placeholder {
+  color: #b2dfdb;
+}
+
+.placeholder-teal-200::placeholder {
+  color: #80cbc4;
+}
+
+.placeholder-teal-300::placeholder {
+  color: #4db6ac;
+}
+
+.placeholder-teal-400::placeholder {
+  color: #26a69a;
+}
+
+.placeholder-teal-500::placeholder {
+  color: #009688;
+}
+
+.placeholder-teal-600::placeholder {
+  color: #00897b;
+}
+
+.placeholder-teal-700::placeholder {
+  color: #00796b;
+}
+
+.placeholder-teal-800::placeholder {
+  color: #00695c;
+}
+
+.placeholder-teal-900::placeholder {
+  color: #004d40;
+}
+
+.placeholder-green-50::placeholder {
+  color: #e8f5e9;
+}
+
+.placeholder-green-100::placeholder {
+  color: #c8e6c9;
+}
+
+.placeholder-green-200::placeholder {
+  color: #a5d6a7;
+}
+
+.placeholder-green-300::placeholder {
+  color: #81c784;
+}
+
+.placeholder-green-400::placeholder {
+  color: #66bb6a;
+}
+
+.placeholder-green-500::placeholder {
+  color: #4caf50;
+}
+
+.placeholder-green-600::placeholder {
+  color: #43a047;
+}
+
+.placeholder-green-700::placeholder {
+  color: #388e3c;
+}
+
+.placeholder-green-800::placeholder {
+  color: #2e7d32;
+}
+
+.placeholder-green-900::placeholder {
+  color: #1b5e20;
+}
+
+.placeholder-lightgreen-50::placeholder {
+  color: #f1f8e9;
+}
+
+.placeholder-lightgreen-100::placeholder {
+  color: #dcedc8;
+}
+
+.placeholder-lightgreen-200::placeholder {
+  color: #c5e1a5;
+}
+
+.placeholder-lightgreen-300::placeholder {
+  color: #aed581;
+}
+
+.placeholder-lightgreen-400::placeholder {
+  color: #9ccc65;
+}
+
+.placeholder-lightgreen-500::placeholder {
+  color: #8bc34a;
+}
+
+.placeholder-lightgreen-600::placeholder {
+  color: #7cb342;
+}
+
+.placeholder-lightgreen-700::placeholder {
+  color: #689f38;
+}
+
+.placeholder-lightgreen-800::placeholder {
+  color: #558b2f;
+}
+
+.placeholder-lightgreen-900::placeholder {
+  color: #33691e;
+}
+
+.placeholder-lime-50::placeholder {
+  color: #f9fbe7;
+}
+
+.placeholder-lime-100::placeholder {
+  color: #f0f4c3;
+}
+
+.placeholder-lime-200::placeholder {
+  color: #e6ee9c;
+}
+
+.placeholder-lime-300::placeholder {
+  color: #dce775;
+}
+
+.placeholder-lime-400::placeholder {
+  color: #d4e157;
+}
+
+.placeholder-lime-500::placeholder {
+  color: #cddc39;
+}
+
+.placeholder-lime-600::placeholder {
+  color: #c0ca33;
+}
+
+.placeholder-lime-700::placeholder {
+  color: #afb42b;
+}
+
+.placeholder-lime-800::placeholder {
+  color: #9e9d24;
+}
+
+.placeholder-lime-900::placeholder {
+  color: #827717;
+}
+
+.placeholder-yellow-50::placeholder {
+  color: #fffde7;
+}
+
+.placeholder-yellow-100::placeholder {
+  color: #fff9c4;
+}
+
+.placeholder-yellow-200::placeholder {
+  color: #fff59d;
+}
+
+.placeholder-yellow-300::placeholder {
+  color: #fff176;
+}
+
+.placeholder-yellow-400::placeholder {
+  color: #ffee58;
+}
+
+.placeholder-yellow-500::placeholder {
+  color: #ffeb3b;
+}
+
+.placeholder-yellow-600::placeholder {
+  color: #fdd835;
+}
+
+.placeholder-yellow-700::placeholder {
+  color: #fbc02d;
+}
+
+.placeholder-yellow-800::placeholder {
+  color: #f9a825;
+}
+
+.placeholder-yellow-900::placeholder {
+  color: #f57f17;
+}
+
+.placeholder-amber-50::placeholder {
+  color: #fff8e1;
+}
+
+.placeholder-amber-100::placeholder {
+  color: #ffecb3;
+}
+
+.placeholder-amber-200::placeholder {
+  color: #ffe082;
+}
+
+.placeholder-amber-300::placeholder {
+  color: #ffd54f;
+}
+
+.placeholder-amber-400::placeholder {
+  color: #ffca28;
+}
+
+.placeholder-amber-500::placeholder {
+  color: #ffc107;
+}
+
+.placeholder-amber-600::placeholder {
+  color: #ffb300;
+}
+
+.placeholder-amber-700::placeholder {
+  color: #ffa000;
+}
+
+.placeholder-amber-800::placeholder {
+  color: #ff8f00;
+}
+
+.placeholder-amber-900::placeholder {
+  color: #ff6f00;
+}
+
+.placeholder-orange-50::placeholder {
+  color: #fff3e0;
+}
+
+.placeholder-orange-100::placeholder {
+  color: #ffe0b2;
+}
+
+.placeholder-orange-200::placeholder {
+  color: #ffcc80;
+}
+
+.placeholder-orange-300::placeholder {
+  color: #ffb74d;
+}
+
+.placeholder-orange-400::placeholder {
+  color: #ffa726;
+}
+
+.placeholder-orange-500::placeholder {
+  color: #ff9800;
+}
+
+.placeholder-orange-600::placeholder {
+  color: #fb8c00;
+}
+
+.placeholder-orange-700::placeholder {
+  color: #f57c00;
+}
+
+.placeholder-orange-800::placeholder {
+  color: #ef6c00;
+}
+
+.placeholder-orange-900::placeholder {
+  color: #e65100;
+}
+
+.placeholder-deeporange-50::placeholder {
+  color: #fbe9e7;
+}
+
+.placeholder-deeporange-100::placeholder {
+  color: #ffccbc;
+}
+
+.placeholder-deeporange-200::placeholder {
+  color: #ffab91;
+}
+
+.placeholder-deeporange-300::placeholder {
+  color: #ff8a65;
+}
+
+.placeholder-deeporange-400::placeholder {
+  color: #ff7043;
+}
+
+.placeholder-deeporange-500::placeholder {
+  color: #ff5722;
+}
+
+.placeholder-deeporange-600::placeholder {
+  color: #f4511e;
+}
+
+.placeholder-deeporange-700::placeholder {
+  color: #e64a19;
+}
+
+.placeholder-deeporange-800::placeholder {
+  color: #d84315;
+}
+
+.placeholder-deeporange-900::placeholder {
+  color: #bf360c;
+}
+
+.placeholder-brown-50::placeholder {
+  color: #efebe9;
+}
+
+.placeholder-brown-100::placeholder {
+  color: #d7ccc8;
+}
+
+.placeholder-brown-200::placeholder {
+  color: #bcaaa4;
+}
+
+.placeholder-brown-300::placeholder {
+  color: #a1887f;
+}
+
+.placeholder-brown-400::placeholder {
+  color: #8d6e63;
+}
+
+.placeholder-brown-500::placeholder {
+  color: #795548;
+}
+
+.placeholder-brown-600::placeholder {
+  color: #6d4c41;
+}
+
+.placeholder-brown-700::placeholder {
+  color: #5d4037;
+}
+
+.placeholder-brown-800::placeholder {
+  color: #4e342e;
+}
+
+.placeholder-brown-900::placeholder {
+  color: #3e2723;
+}
+
+.placeholder-bluegrey-50::placeholder {
+  color: #eceff1;
+}
+
+.placeholder-bluegrey-100::placeholder {
+  color: #cfd8dc;
+}
+
+.placeholder-bluegrey-200::placeholder {
+  color: #b0bec5;
+}
+
+.placeholder-bluegrey-300::placeholder {
+  color: #90a4ae;
+}
+
+.placeholder-bluegrey-400::placeholder {
+  color: #78909c;
+}
+
+.placeholder-bluegrey-500::placeholder {
+  color: #607d8b;
+}
+
+.placeholder-bluegrey-600::placeholder {
+  color: #546e7a;
+}
+
+.placeholder-bluegrey-700::placeholder {
+  color: #455a64;
+}
+
+.placeholder-bluegrey-800::placeholder {
+  color: #37474f;
+}
+
+.placeholder-bluegrey-900::placeholder {
+  color: #263238;
+}
+
+.focus\:placeholder-transparent:focus::placeholder {
+  color: transparent;
+}
+
+.focus\:placeholder-black:focus::placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-white:focus::placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-grey-100:focus::placeholder {
+  color: #f6f6f6;
+}
+
+.focus\:placeholder-grey-200:focus::placeholder {
+  color: #eeeeee;
+}
+
+.focus\:placeholder-grey-300:focus::placeholder {
+  color: #bdbdbd;
+}
+
+.focus\:placeholder-grey-400:focus::placeholder {
+  color: #9e9e9e;
+}
+
+.focus\:placeholder-grey-500:focus::placeholder {
+  color: #757575;
+}
+
+.focus\:placeholder-grey-600:focus::placeholder {
+  color: #616161;
+}
+
+.focus\:placeholder-grey-700:focus::placeholder {
+  color: #424242;
+}
+
+.focus\:placeholder-grey-800:focus::placeholder {
+  color: #212121;
+}
+
+.focus\:placeholder-grey-900:focus::placeholder {
+  color: #111111;
+}
+
+.focus\:placeholder-red-50:focus::placeholder {
+  color: #ffebee;
+}
+
+.focus\:placeholder-red-100:focus::placeholder {
+  color: #ffcdd2;
+}
+
+.focus\:placeholder-red-200:focus::placeholder {
+  color: #ef9a9a;
+}
+
+.focus\:placeholder-red-300:focus::placeholder {
+  color: #e57373;
+}
+
+.focus\:placeholder-red-400:focus::placeholder {
+  color: #ef5350;
+}
+
+.focus\:placeholder-red-500:focus::placeholder {
+  color: #f44336;
+}
+
+.focus\:placeholder-red-600:focus::placeholder {
+  color: #e53935;
+}
+
+.focus\:placeholder-red-700:focus::placeholder {
+  color: #d32f2f;
+}
+
+.focus\:placeholder-red-800:focus::placeholder {
+  color: #c62828;
+}
+
+.focus\:placeholder-red-900:focus::placeholder {
+  color: #b71c1c;
+}
+
+.focus\:placeholder-pink-50:focus::placeholder {
+  color: #fce4ec;
+}
+
+.focus\:placeholder-pink-100:focus::placeholder {
+  color: #f8bbd0;
+}
+
+.focus\:placeholder-pink-200:focus::placeholder {
+  color: #f48fb1;
+}
+
+.focus\:placeholder-pink-300:focus::placeholder {
+  color: #f06292;
+}
+
+.focus\:placeholder-pink-400:focus::placeholder {
+  color: #ec407a;
+}
+
+.focus\:placeholder-pink-500:focus::placeholder {
+  color: #e91e63;
+}
+
+.focus\:placeholder-pink-600:focus::placeholder {
+  color: #d81b60;
+}
+
+.focus\:placeholder-pink-700:focus::placeholder {
+  color: #c2185b;
+}
+
+.focus\:placeholder-pink-800:focus::placeholder {
+  color: #ad1457;
+}
+
+.focus\:placeholder-pink-900:focus::placeholder {
+  color: #880e4f;
+}
+
+.focus\:placeholder-purple-50:focus::placeholder {
+  color: #f3e5f5;
+}
+
+.focus\:placeholder-purple-100:focus::placeholder {
+  color: #e1bee7;
+}
+
+.focus\:placeholder-purple-200:focus::placeholder {
+  color: #ce93d8;
+}
+
+.focus\:placeholder-purple-300:focus::placeholder {
+  color: #ba68c8;
+}
+
+.focus\:placeholder-purple-400:focus::placeholder {
+  color: #ab47bc;
+}
+
+.focus\:placeholder-purple-500:focus::placeholder {
+  color: #9c27b0;
+}
+
+.focus\:placeholder-purple-600:focus::placeholder {
+  color: #8e24aa;
+}
+
+.focus\:placeholder-purple-700:focus::placeholder {
+  color: #7b1fa2;
+}
+
+.focus\:placeholder-purple-800:focus::placeholder {
+  color: #6a1b9a;
+}
+
+.focus\:placeholder-purple-900:focus::placeholder {
+  color: #4a148c;
+}
+
+.focus\:placeholder-deeppurple-50:focus::placeholder {
+  color: #ede7f6;
+}
+
+.focus\:placeholder-deeppurple-100:focus::placeholder {
+  color: #d1c4e9;
+}
+
+.focus\:placeholder-deeppurple-200:focus::placeholder {
+  color: #b39ddb;
+}
+
+.focus\:placeholder-deeppurple-300:focus::placeholder {
+  color: #9575cd;
+}
+
+.focus\:placeholder-deeppurple-400:focus::placeholder {
+  color: #7e57c2;
+}
+
+.focus\:placeholder-deeppurple-500:focus::placeholder {
+  color: #673ab7;
+}
+
+.focus\:placeholder-deeppurple-600:focus::placeholder {
+  color: #5e35b1;
+}
+
+.focus\:placeholder-deeppurple-700:focus::placeholder {
+  color: #512da8;
+}
+
+.focus\:placeholder-deeppurple-800:focus::placeholder {
+  color: #4527a0;
+}
+
+.focus\:placeholder-deeppurple-900:focus::placeholder {
+  color: #311b92;
+}
+
+.focus\:placeholder-indigo-50:focus::placeholder {
+  color: #e8eaf6;
+}
+
+.focus\:placeholder-indigo-100:focus::placeholder {
+  color: #c5cae9;
+}
+
+.focus\:placeholder-indigo-200:focus::placeholder {
+  color: #9fa8da;
+}
+
+.focus\:placeholder-indigo-300:focus::placeholder {
+  color: #7986cb;
+}
+
+.focus\:placeholder-indigo-400:focus::placeholder {
+  color: #5c6bc0;
+}
+
+.focus\:placeholder-indigo-500:focus::placeholder {
+  color: #3f51b5;
+}
+
+.focus\:placeholder-indigo-600:focus::placeholder {
+  color: #3949ab;
+}
+
+.focus\:placeholder-indigo-700:focus::placeholder {
+  color: #303f9f;
+}
+
+.focus\:placeholder-indigo-800:focus::placeholder {
+  color: #283593;
+}
+
+.focus\:placeholder-indigo-900:focus::placeholder {
+  color: #1a237e;
+}
+
+.focus\:placeholder-blue-50:focus::placeholder {
+  color: #e3f2fd;
+}
+
+.focus\:placeholder-blue-100:focus::placeholder {
+  color: #bbdefb;
+}
+
+.focus\:placeholder-blue-200:focus::placeholder {
+  color: #90caf9;
+}
+
+.focus\:placeholder-blue-300:focus::placeholder {
+  color: #64b5f6;
+}
+
+.focus\:placeholder-blue-400:focus::placeholder {
+  color: #42a5f5;
+}
+
+.focus\:placeholder-blue-500:focus::placeholder {
+  color: #2196f3;
+}
+
+.focus\:placeholder-blue-600:focus::placeholder {
+  color: #1e88e5;
+}
+
+.focus\:placeholder-blue-700:focus::placeholder {
+  color: #1976d2;
+}
+
+.focus\:placeholder-blue-800:focus::placeholder {
+  color: #1565c0;
+}
+
+.focus\:placeholder-blue-900:focus::placeholder {
+  color: #0d47a1;
+}
+
+.focus\:placeholder-lightblue-50:focus::placeholder {
+  color: #e1f5fe;
+}
+
+.focus\:placeholder-lightblue-100:focus::placeholder {
+  color: #b3e5fc;
+}
+
+.focus\:placeholder-lightblue-200:focus::placeholder {
+  color: #81d4fa;
+}
+
+.focus\:placeholder-lightblue-300:focus::placeholder {
+  color: #4fc3f7;
+}
+
+.focus\:placeholder-lightblue-400:focus::placeholder {
+  color: #29b6f6;
+}
+
+.focus\:placeholder-lightblue-500:focus::placeholder {
+  color: #03a9f4;
+}
+
+.focus\:placeholder-lightblue-600:focus::placeholder {
+  color: #039be5;
+}
+
+.focus\:placeholder-lightblue-700:focus::placeholder {
+  color: #0288d1;
+}
+
+.focus\:placeholder-lightblue-800:focus::placeholder {
+  color: #0277bd;
+}
+
+.focus\:placeholder-lightblue-900:focus::placeholder {
+  color: #01579b;
+}
+
+.focus\:placeholder-cyan-50:focus::placeholder {
+  color: #e0f7fa;
+}
+
+.focus\:placeholder-cyan-100:focus::placeholder {
+  color: #b2ebf2;
+}
+
+.focus\:placeholder-cyan-200:focus::placeholder {
+  color: #80deea;
+}
+
+.focus\:placeholder-cyan-300:focus::placeholder {
+  color: #4dd0e1;
+}
+
+.focus\:placeholder-cyan-400:focus::placeholder {
+  color: #26c6da;
+}
+
+.focus\:placeholder-cyan-500:focus::placeholder {
+  color: #00bcd4;
+}
+
+.focus\:placeholder-cyan-600:focus::placeholder {
+  color: #00acc1;
+}
+
+.focus\:placeholder-cyan-700:focus::placeholder {
+  color: #0097a7;
+}
+
+.focus\:placeholder-cyan-800:focus::placeholder {
+  color: #00838f;
+}
+
+.focus\:placeholder-cyan-900:focus::placeholder {
+  color: #006064;
+}
+
+.focus\:placeholder-teal-50:focus::placeholder {
+  color: #e0f2f1;
+}
+
+.focus\:placeholder-teal-100:focus::placeholder {
+  color: #b2dfdb;
+}
+
+.focus\:placeholder-teal-200:focus::placeholder {
+  color: #80cbc4;
+}
+
+.focus\:placeholder-teal-300:focus::placeholder {
+  color: #4db6ac;
+}
+
+.focus\:placeholder-teal-400:focus::placeholder {
+  color: #26a69a;
+}
+
+.focus\:placeholder-teal-500:focus::placeholder {
+  color: #009688;
+}
+
+.focus\:placeholder-teal-600:focus::placeholder {
+  color: #00897b;
+}
+
+.focus\:placeholder-teal-700:focus::placeholder {
+  color: #00796b;
+}
+
+.focus\:placeholder-teal-800:focus::placeholder {
+  color: #00695c;
+}
+
+.focus\:placeholder-teal-900:focus::placeholder {
+  color: #004d40;
+}
+
+.focus\:placeholder-green-50:focus::placeholder {
+  color: #e8f5e9;
+}
+
+.focus\:placeholder-green-100:focus::placeholder {
+  color: #c8e6c9;
+}
+
+.focus\:placeholder-green-200:focus::placeholder {
+  color: #a5d6a7;
+}
+
+.focus\:placeholder-green-300:focus::placeholder {
+  color: #81c784;
+}
+
+.focus\:placeholder-green-400:focus::placeholder {
+  color: #66bb6a;
+}
+
+.focus\:placeholder-green-500:focus::placeholder {
+  color: #4caf50;
+}
+
+.focus\:placeholder-green-600:focus::placeholder {
+  color: #43a047;
+}
+
+.focus\:placeholder-green-700:focus::placeholder {
+  color: #388e3c;
+}
+
+.focus\:placeholder-green-800:focus::placeholder {
+  color: #2e7d32;
+}
+
+.focus\:placeholder-green-900:focus::placeholder {
+  color: #1b5e20;
+}
+
+.focus\:placeholder-lightgreen-50:focus::placeholder {
+  color: #f1f8e9;
+}
+
+.focus\:placeholder-lightgreen-100:focus::placeholder {
+  color: #dcedc8;
+}
+
+.focus\:placeholder-lightgreen-200:focus::placeholder {
+  color: #c5e1a5;
+}
+
+.focus\:placeholder-lightgreen-300:focus::placeholder {
+  color: #aed581;
+}
+
+.focus\:placeholder-lightgreen-400:focus::placeholder {
+  color: #9ccc65;
+}
+
+.focus\:placeholder-lightgreen-500:focus::placeholder {
+  color: #8bc34a;
+}
+
+.focus\:placeholder-lightgreen-600:focus::placeholder {
+  color: #7cb342;
+}
+
+.focus\:placeholder-lightgreen-700:focus::placeholder {
+  color: #689f38;
+}
+
+.focus\:placeholder-lightgreen-800:focus::placeholder {
+  color: #558b2f;
+}
+
+.focus\:placeholder-lightgreen-900:focus::placeholder {
+  color: #33691e;
+}
+
+.focus\:placeholder-lime-50:focus::placeholder {
+  color: #f9fbe7;
+}
+
+.focus\:placeholder-lime-100:focus::placeholder {
+  color: #f0f4c3;
+}
+
+.focus\:placeholder-lime-200:focus::placeholder {
+  color: #e6ee9c;
+}
+
+.focus\:placeholder-lime-300:focus::placeholder {
+  color: #dce775;
+}
+
+.focus\:placeholder-lime-400:focus::placeholder {
+  color: #d4e157;
+}
+
+.focus\:placeholder-lime-500:focus::placeholder {
+  color: #cddc39;
+}
+
+.focus\:placeholder-lime-600:focus::placeholder {
+  color: #c0ca33;
+}
+
+.focus\:placeholder-lime-700:focus::placeholder {
+  color: #afb42b;
+}
+
+.focus\:placeholder-lime-800:focus::placeholder {
+  color: #9e9d24;
+}
+
+.focus\:placeholder-lime-900:focus::placeholder {
+  color: #827717;
+}
+
+.focus\:placeholder-yellow-50:focus::placeholder {
+  color: #fffde7;
+}
+
+.focus\:placeholder-yellow-100:focus::placeholder {
+  color: #fff9c4;
+}
+
+.focus\:placeholder-yellow-200:focus::placeholder {
+  color: #fff59d;
+}
+
+.focus\:placeholder-yellow-300:focus::placeholder {
+  color: #fff176;
+}
+
+.focus\:placeholder-yellow-400:focus::placeholder {
+  color: #ffee58;
+}
+
+.focus\:placeholder-yellow-500:focus::placeholder {
+  color: #ffeb3b;
+}
+
+.focus\:placeholder-yellow-600:focus::placeholder {
+  color: #fdd835;
+}
+
+.focus\:placeholder-yellow-700:focus::placeholder {
+  color: #fbc02d;
+}
+
+.focus\:placeholder-yellow-800:focus::placeholder {
+  color: #f9a825;
+}
+
+.focus\:placeholder-yellow-900:focus::placeholder {
+  color: #f57f17;
+}
+
+.focus\:placeholder-amber-50:focus::placeholder {
+  color: #fff8e1;
+}
+
+.focus\:placeholder-amber-100:focus::placeholder {
+  color: #ffecb3;
+}
+
+.focus\:placeholder-amber-200:focus::placeholder {
+  color: #ffe082;
+}
+
+.focus\:placeholder-amber-300:focus::placeholder {
+  color: #ffd54f;
+}
+
+.focus\:placeholder-amber-400:focus::placeholder {
+  color: #ffca28;
+}
+
+.focus\:placeholder-amber-500:focus::placeholder {
+  color: #ffc107;
+}
+
+.focus\:placeholder-amber-600:focus::placeholder {
+  color: #ffb300;
+}
+
+.focus\:placeholder-amber-700:focus::placeholder {
+  color: #ffa000;
+}
+
+.focus\:placeholder-amber-800:focus::placeholder {
+  color: #ff8f00;
+}
+
+.focus\:placeholder-amber-900:focus::placeholder {
+  color: #ff6f00;
+}
+
+.focus\:placeholder-orange-50:focus::placeholder {
+  color: #fff3e0;
+}
+
+.focus\:placeholder-orange-100:focus::placeholder {
+  color: #ffe0b2;
+}
+
+.focus\:placeholder-orange-200:focus::placeholder {
+  color: #ffcc80;
+}
+
+.focus\:placeholder-orange-300:focus::placeholder {
+  color: #ffb74d;
+}
+
+.focus\:placeholder-orange-400:focus::placeholder {
+  color: #ffa726;
+}
+
+.focus\:placeholder-orange-500:focus::placeholder {
+  color: #ff9800;
+}
+
+.focus\:placeholder-orange-600:focus::placeholder {
+  color: #fb8c00;
+}
+
+.focus\:placeholder-orange-700:focus::placeholder {
+  color: #f57c00;
+}
+
+.focus\:placeholder-orange-800:focus::placeholder {
+  color: #ef6c00;
+}
+
+.focus\:placeholder-orange-900:focus::placeholder {
+  color: #e65100;
+}
+
+.focus\:placeholder-deeporange-50:focus::placeholder {
+  color: #fbe9e7;
+}
+
+.focus\:placeholder-deeporange-100:focus::placeholder {
+  color: #ffccbc;
+}
+
+.focus\:placeholder-deeporange-200:focus::placeholder {
+  color: #ffab91;
+}
+
+.focus\:placeholder-deeporange-300:focus::placeholder {
+  color: #ff8a65;
+}
+
+.focus\:placeholder-deeporange-400:focus::placeholder {
+  color: #ff7043;
+}
+
+.focus\:placeholder-deeporange-500:focus::placeholder {
+  color: #ff5722;
+}
+
+.focus\:placeholder-deeporange-600:focus::placeholder {
+  color: #f4511e;
+}
+
+.focus\:placeholder-deeporange-700:focus::placeholder {
+  color: #e64a19;
+}
+
+.focus\:placeholder-deeporange-800:focus::placeholder {
+  color: #d84315;
+}
+
+.focus\:placeholder-deeporange-900:focus::placeholder {
+  color: #bf360c;
+}
+
+.focus\:placeholder-brown-50:focus::placeholder {
+  color: #efebe9;
+}
+
+.focus\:placeholder-brown-100:focus::placeholder {
+  color: #d7ccc8;
+}
+
+.focus\:placeholder-brown-200:focus::placeholder {
+  color: #bcaaa4;
+}
+
+.focus\:placeholder-brown-300:focus::placeholder {
+  color: #a1887f;
+}
+
+.focus\:placeholder-brown-400:focus::placeholder {
+  color: #8d6e63;
+}
+
+.focus\:placeholder-brown-500:focus::placeholder {
+  color: #795548;
+}
+
+.focus\:placeholder-brown-600:focus::placeholder {
+  color: #6d4c41;
+}
+
+.focus\:placeholder-brown-700:focus::placeholder {
+  color: #5d4037;
+}
+
+.focus\:placeholder-brown-800:focus::placeholder {
+  color: #4e342e;
+}
+
+.focus\:placeholder-brown-900:focus::placeholder {
+  color: #3e2723;
+}
+
+.focus\:placeholder-bluegrey-50:focus::placeholder {
+  color: #eceff1;
+}
+
+.focus\:placeholder-bluegrey-100:focus::placeholder {
+  color: #cfd8dc;
+}
+
+.focus\:placeholder-bluegrey-200:focus::placeholder {
+  color: #b0bec5;
+}
+
+.focus\:placeholder-bluegrey-300:focus::placeholder {
+  color: #90a4ae;
+}
+
+.focus\:placeholder-bluegrey-400:focus::placeholder {
+  color: #78909c;
+}
+
+.focus\:placeholder-bluegrey-500:focus::placeholder {
+  color: #607d8b;
+}
+
+.focus\:placeholder-bluegrey-600:focus::placeholder {
+  color: #546e7a;
+}
+
+.focus\:placeholder-bluegrey-700:focus::placeholder {
+  color: #455a64;
+}
+
+.focus\:placeholder-bluegrey-800:focus::placeholder {
+  color: #37474f;
+}
+
+.focus\:placeholder-bluegrey-900:focus::placeholder {
+  color: #263238;
 }
 
 .pointer-events-none {
@@ -11826,6 +13420,52 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sm\:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .sm\:focus\:sr-only:focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sm\:focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
   .sm\:appearance-none {
     appearance: none;
   }
@@ -16742,6 +18382,10 @@ body {
     border-style: dotted;
   }
 
+  .sm\:border-double {
+    border-style: double;
+  }
+
   .sm\:border-none {
     border-style: none;
   }
@@ -19344,6 +20988,1542 @@ body {
 
   .sm\:pl-px {
     padding-left: 1px;
+  }
+
+  .sm\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
+  .sm\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-grey-100::placeholder {
+    color: #f6f6f6;
+  }
+
+  .sm\:placeholder-grey-200::placeholder {
+    color: #eeeeee;
+  }
+
+  .sm\:placeholder-grey-300::placeholder {
+    color: #bdbdbd;
+  }
+
+  .sm\:placeholder-grey-400::placeholder {
+    color: #9e9e9e;
+  }
+
+  .sm\:placeholder-grey-500::placeholder {
+    color: #757575;
+  }
+
+  .sm\:placeholder-grey-600::placeholder {
+    color: #616161;
+  }
+
+  .sm\:placeholder-grey-700::placeholder {
+    color: #424242;
+  }
+
+  .sm\:placeholder-grey-800::placeholder {
+    color: #212121;
+  }
+
+  .sm\:placeholder-grey-900::placeholder {
+    color: #111111;
+  }
+
+  .sm\:placeholder-red-50::placeholder {
+    color: #ffebee;
+  }
+
+  .sm\:placeholder-red-100::placeholder {
+    color: #ffcdd2;
+  }
+
+  .sm\:placeholder-red-200::placeholder {
+    color: #ef9a9a;
+  }
+
+  .sm\:placeholder-red-300::placeholder {
+    color: #e57373;
+  }
+
+  .sm\:placeholder-red-400::placeholder {
+    color: #ef5350;
+  }
+
+  .sm\:placeholder-red-500::placeholder {
+    color: #f44336;
+  }
+
+  .sm\:placeholder-red-600::placeholder {
+    color: #e53935;
+  }
+
+  .sm\:placeholder-red-700::placeholder {
+    color: #d32f2f;
+  }
+
+  .sm\:placeholder-red-800::placeholder {
+    color: #c62828;
+  }
+
+  .sm\:placeholder-red-900::placeholder {
+    color: #b71c1c;
+  }
+
+  .sm\:placeholder-pink-50::placeholder {
+    color: #fce4ec;
+  }
+
+  .sm\:placeholder-pink-100::placeholder {
+    color: #f8bbd0;
+  }
+
+  .sm\:placeholder-pink-200::placeholder {
+    color: #f48fb1;
+  }
+
+  .sm\:placeholder-pink-300::placeholder {
+    color: #f06292;
+  }
+
+  .sm\:placeholder-pink-400::placeholder {
+    color: #ec407a;
+  }
+
+  .sm\:placeholder-pink-500::placeholder {
+    color: #e91e63;
+  }
+
+  .sm\:placeholder-pink-600::placeholder {
+    color: #d81b60;
+  }
+
+  .sm\:placeholder-pink-700::placeholder {
+    color: #c2185b;
+  }
+
+  .sm\:placeholder-pink-800::placeholder {
+    color: #ad1457;
+  }
+
+  .sm\:placeholder-pink-900::placeholder {
+    color: #880e4f;
+  }
+
+  .sm\:placeholder-purple-50::placeholder {
+    color: #f3e5f5;
+  }
+
+  .sm\:placeholder-purple-100::placeholder {
+    color: #e1bee7;
+  }
+
+  .sm\:placeholder-purple-200::placeholder {
+    color: #ce93d8;
+  }
+
+  .sm\:placeholder-purple-300::placeholder {
+    color: #ba68c8;
+  }
+
+  .sm\:placeholder-purple-400::placeholder {
+    color: #ab47bc;
+  }
+
+  .sm\:placeholder-purple-500::placeholder {
+    color: #9c27b0;
+  }
+
+  .sm\:placeholder-purple-600::placeholder {
+    color: #8e24aa;
+  }
+
+  .sm\:placeholder-purple-700::placeholder {
+    color: #7b1fa2;
+  }
+
+  .sm\:placeholder-purple-800::placeholder {
+    color: #6a1b9a;
+  }
+
+  .sm\:placeholder-purple-900::placeholder {
+    color: #4a148c;
+  }
+
+  .sm\:placeholder-deeppurple-50::placeholder {
+    color: #ede7f6;
+  }
+
+  .sm\:placeholder-deeppurple-100::placeholder {
+    color: #d1c4e9;
+  }
+
+  .sm\:placeholder-deeppurple-200::placeholder {
+    color: #b39ddb;
+  }
+
+  .sm\:placeholder-deeppurple-300::placeholder {
+    color: #9575cd;
+  }
+
+  .sm\:placeholder-deeppurple-400::placeholder {
+    color: #7e57c2;
+  }
+
+  .sm\:placeholder-deeppurple-500::placeholder {
+    color: #673ab7;
+  }
+
+  .sm\:placeholder-deeppurple-600::placeholder {
+    color: #5e35b1;
+  }
+
+  .sm\:placeholder-deeppurple-700::placeholder {
+    color: #512da8;
+  }
+
+  .sm\:placeholder-deeppurple-800::placeholder {
+    color: #4527a0;
+  }
+
+  .sm\:placeholder-deeppurple-900::placeholder {
+    color: #311b92;
+  }
+
+  .sm\:placeholder-indigo-50::placeholder {
+    color: #e8eaf6;
+  }
+
+  .sm\:placeholder-indigo-100::placeholder {
+    color: #c5cae9;
+  }
+
+  .sm\:placeholder-indigo-200::placeholder {
+    color: #9fa8da;
+  }
+
+  .sm\:placeholder-indigo-300::placeholder {
+    color: #7986cb;
+  }
+
+  .sm\:placeholder-indigo-400::placeholder {
+    color: #5c6bc0;
+  }
+
+  .sm\:placeholder-indigo-500::placeholder {
+    color: #3f51b5;
+  }
+
+  .sm\:placeholder-indigo-600::placeholder {
+    color: #3949ab;
+  }
+
+  .sm\:placeholder-indigo-700::placeholder {
+    color: #303f9f;
+  }
+
+  .sm\:placeholder-indigo-800::placeholder {
+    color: #283593;
+  }
+
+  .sm\:placeholder-indigo-900::placeholder {
+    color: #1a237e;
+  }
+
+  .sm\:placeholder-blue-50::placeholder {
+    color: #e3f2fd;
+  }
+
+  .sm\:placeholder-blue-100::placeholder {
+    color: #bbdefb;
+  }
+
+  .sm\:placeholder-blue-200::placeholder {
+    color: #90caf9;
+  }
+
+  .sm\:placeholder-blue-300::placeholder {
+    color: #64b5f6;
+  }
+
+  .sm\:placeholder-blue-400::placeholder {
+    color: #42a5f5;
+  }
+
+  .sm\:placeholder-blue-500::placeholder {
+    color: #2196f3;
+  }
+
+  .sm\:placeholder-blue-600::placeholder {
+    color: #1e88e5;
+  }
+
+  .sm\:placeholder-blue-700::placeholder {
+    color: #1976d2;
+  }
+
+  .sm\:placeholder-blue-800::placeholder {
+    color: #1565c0;
+  }
+
+  .sm\:placeholder-blue-900::placeholder {
+    color: #0d47a1;
+  }
+
+  .sm\:placeholder-lightblue-50::placeholder {
+    color: #e1f5fe;
+  }
+
+  .sm\:placeholder-lightblue-100::placeholder {
+    color: #b3e5fc;
+  }
+
+  .sm\:placeholder-lightblue-200::placeholder {
+    color: #81d4fa;
+  }
+
+  .sm\:placeholder-lightblue-300::placeholder {
+    color: #4fc3f7;
+  }
+
+  .sm\:placeholder-lightblue-400::placeholder {
+    color: #29b6f6;
+  }
+
+  .sm\:placeholder-lightblue-500::placeholder {
+    color: #03a9f4;
+  }
+
+  .sm\:placeholder-lightblue-600::placeholder {
+    color: #039be5;
+  }
+
+  .sm\:placeholder-lightblue-700::placeholder {
+    color: #0288d1;
+  }
+
+  .sm\:placeholder-lightblue-800::placeholder {
+    color: #0277bd;
+  }
+
+  .sm\:placeholder-lightblue-900::placeholder {
+    color: #01579b;
+  }
+
+  .sm\:placeholder-cyan-50::placeholder {
+    color: #e0f7fa;
+  }
+
+  .sm\:placeholder-cyan-100::placeholder {
+    color: #b2ebf2;
+  }
+
+  .sm\:placeholder-cyan-200::placeholder {
+    color: #80deea;
+  }
+
+  .sm\:placeholder-cyan-300::placeholder {
+    color: #4dd0e1;
+  }
+
+  .sm\:placeholder-cyan-400::placeholder {
+    color: #26c6da;
+  }
+
+  .sm\:placeholder-cyan-500::placeholder {
+    color: #00bcd4;
+  }
+
+  .sm\:placeholder-cyan-600::placeholder {
+    color: #00acc1;
+  }
+
+  .sm\:placeholder-cyan-700::placeholder {
+    color: #0097a7;
+  }
+
+  .sm\:placeholder-cyan-800::placeholder {
+    color: #00838f;
+  }
+
+  .sm\:placeholder-cyan-900::placeholder {
+    color: #006064;
+  }
+
+  .sm\:placeholder-teal-50::placeholder {
+    color: #e0f2f1;
+  }
+
+  .sm\:placeholder-teal-100::placeholder {
+    color: #b2dfdb;
+  }
+
+  .sm\:placeholder-teal-200::placeholder {
+    color: #80cbc4;
+  }
+
+  .sm\:placeholder-teal-300::placeholder {
+    color: #4db6ac;
+  }
+
+  .sm\:placeholder-teal-400::placeholder {
+    color: #26a69a;
+  }
+
+  .sm\:placeholder-teal-500::placeholder {
+    color: #009688;
+  }
+
+  .sm\:placeholder-teal-600::placeholder {
+    color: #00897b;
+  }
+
+  .sm\:placeholder-teal-700::placeholder {
+    color: #00796b;
+  }
+
+  .sm\:placeholder-teal-800::placeholder {
+    color: #00695c;
+  }
+
+  .sm\:placeholder-teal-900::placeholder {
+    color: #004d40;
+  }
+
+  .sm\:placeholder-green-50::placeholder {
+    color: #e8f5e9;
+  }
+
+  .sm\:placeholder-green-100::placeholder {
+    color: #c8e6c9;
+  }
+
+  .sm\:placeholder-green-200::placeholder {
+    color: #a5d6a7;
+  }
+
+  .sm\:placeholder-green-300::placeholder {
+    color: #81c784;
+  }
+
+  .sm\:placeholder-green-400::placeholder {
+    color: #66bb6a;
+  }
+
+  .sm\:placeholder-green-500::placeholder {
+    color: #4caf50;
+  }
+
+  .sm\:placeholder-green-600::placeholder {
+    color: #43a047;
+  }
+
+  .sm\:placeholder-green-700::placeholder {
+    color: #388e3c;
+  }
+
+  .sm\:placeholder-green-800::placeholder {
+    color: #2e7d32;
+  }
+
+  .sm\:placeholder-green-900::placeholder {
+    color: #1b5e20;
+  }
+
+  .sm\:placeholder-lightgreen-50::placeholder {
+    color: #f1f8e9;
+  }
+
+  .sm\:placeholder-lightgreen-100::placeholder {
+    color: #dcedc8;
+  }
+
+  .sm\:placeholder-lightgreen-200::placeholder {
+    color: #c5e1a5;
+  }
+
+  .sm\:placeholder-lightgreen-300::placeholder {
+    color: #aed581;
+  }
+
+  .sm\:placeholder-lightgreen-400::placeholder {
+    color: #9ccc65;
+  }
+
+  .sm\:placeholder-lightgreen-500::placeholder {
+    color: #8bc34a;
+  }
+
+  .sm\:placeholder-lightgreen-600::placeholder {
+    color: #7cb342;
+  }
+
+  .sm\:placeholder-lightgreen-700::placeholder {
+    color: #689f38;
+  }
+
+  .sm\:placeholder-lightgreen-800::placeholder {
+    color: #558b2f;
+  }
+
+  .sm\:placeholder-lightgreen-900::placeholder {
+    color: #33691e;
+  }
+
+  .sm\:placeholder-lime-50::placeholder {
+    color: #f9fbe7;
+  }
+
+  .sm\:placeholder-lime-100::placeholder {
+    color: #f0f4c3;
+  }
+
+  .sm\:placeholder-lime-200::placeholder {
+    color: #e6ee9c;
+  }
+
+  .sm\:placeholder-lime-300::placeholder {
+    color: #dce775;
+  }
+
+  .sm\:placeholder-lime-400::placeholder {
+    color: #d4e157;
+  }
+
+  .sm\:placeholder-lime-500::placeholder {
+    color: #cddc39;
+  }
+
+  .sm\:placeholder-lime-600::placeholder {
+    color: #c0ca33;
+  }
+
+  .sm\:placeholder-lime-700::placeholder {
+    color: #afb42b;
+  }
+
+  .sm\:placeholder-lime-800::placeholder {
+    color: #9e9d24;
+  }
+
+  .sm\:placeholder-lime-900::placeholder {
+    color: #827717;
+  }
+
+  .sm\:placeholder-yellow-50::placeholder {
+    color: #fffde7;
+  }
+
+  .sm\:placeholder-yellow-100::placeholder {
+    color: #fff9c4;
+  }
+
+  .sm\:placeholder-yellow-200::placeholder {
+    color: #fff59d;
+  }
+
+  .sm\:placeholder-yellow-300::placeholder {
+    color: #fff176;
+  }
+
+  .sm\:placeholder-yellow-400::placeholder {
+    color: #ffee58;
+  }
+
+  .sm\:placeholder-yellow-500::placeholder {
+    color: #ffeb3b;
+  }
+
+  .sm\:placeholder-yellow-600::placeholder {
+    color: #fdd835;
+  }
+
+  .sm\:placeholder-yellow-700::placeholder {
+    color: #fbc02d;
+  }
+
+  .sm\:placeholder-yellow-800::placeholder {
+    color: #f9a825;
+  }
+
+  .sm\:placeholder-yellow-900::placeholder {
+    color: #f57f17;
+  }
+
+  .sm\:placeholder-amber-50::placeholder {
+    color: #fff8e1;
+  }
+
+  .sm\:placeholder-amber-100::placeholder {
+    color: #ffecb3;
+  }
+
+  .sm\:placeholder-amber-200::placeholder {
+    color: #ffe082;
+  }
+
+  .sm\:placeholder-amber-300::placeholder {
+    color: #ffd54f;
+  }
+
+  .sm\:placeholder-amber-400::placeholder {
+    color: #ffca28;
+  }
+
+  .sm\:placeholder-amber-500::placeholder {
+    color: #ffc107;
+  }
+
+  .sm\:placeholder-amber-600::placeholder {
+    color: #ffb300;
+  }
+
+  .sm\:placeholder-amber-700::placeholder {
+    color: #ffa000;
+  }
+
+  .sm\:placeholder-amber-800::placeholder {
+    color: #ff8f00;
+  }
+
+  .sm\:placeholder-amber-900::placeholder {
+    color: #ff6f00;
+  }
+
+  .sm\:placeholder-orange-50::placeholder {
+    color: #fff3e0;
+  }
+
+  .sm\:placeholder-orange-100::placeholder {
+    color: #ffe0b2;
+  }
+
+  .sm\:placeholder-orange-200::placeholder {
+    color: #ffcc80;
+  }
+
+  .sm\:placeholder-orange-300::placeholder {
+    color: #ffb74d;
+  }
+
+  .sm\:placeholder-orange-400::placeholder {
+    color: #ffa726;
+  }
+
+  .sm\:placeholder-orange-500::placeholder {
+    color: #ff9800;
+  }
+
+  .sm\:placeholder-orange-600::placeholder {
+    color: #fb8c00;
+  }
+
+  .sm\:placeholder-orange-700::placeholder {
+    color: #f57c00;
+  }
+
+  .sm\:placeholder-orange-800::placeholder {
+    color: #ef6c00;
+  }
+
+  .sm\:placeholder-orange-900::placeholder {
+    color: #e65100;
+  }
+
+  .sm\:placeholder-deeporange-50::placeholder {
+    color: #fbe9e7;
+  }
+
+  .sm\:placeholder-deeporange-100::placeholder {
+    color: #ffccbc;
+  }
+
+  .sm\:placeholder-deeporange-200::placeholder {
+    color: #ffab91;
+  }
+
+  .sm\:placeholder-deeporange-300::placeholder {
+    color: #ff8a65;
+  }
+
+  .sm\:placeholder-deeporange-400::placeholder {
+    color: #ff7043;
+  }
+
+  .sm\:placeholder-deeporange-500::placeholder {
+    color: #ff5722;
+  }
+
+  .sm\:placeholder-deeporange-600::placeholder {
+    color: #f4511e;
+  }
+
+  .sm\:placeholder-deeporange-700::placeholder {
+    color: #e64a19;
+  }
+
+  .sm\:placeholder-deeporange-800::placeholder {
+    color: #d84315;
+  }
+
+  .sm\:placeholder-deeporange-900::placeholder {
+    color: #bf360c;
+  }
+
+  .sm\:placeholder-brown-50::placeholder {
+    color: #efebe9;
+  }
+
+  .sm\:placeholder-brown-100::placeholder {
+    color: #d7ccc8;
+  }
+
+  .sm\:placeholder-brown-200::placeholder {
+    color: #bcaaa4;
+  }
+
+  .sm\:placeholder-brown-300::placeholder {
+    color: #a1887f;
+  }
+
+  .sm\:placeholder-brown-400::placeholder {
+    color: #8d6e63;
+  }
+
+  .sm\:placeholder-brown-500::placeholder {
+    color: #795548;
+  }
+
+  .sm\:placeholder-brown-600::placeholder {
+    color: #6d4c41;
+  }
+
+  .sm\:placeholder-brown-700::placeholder {
+    color: #5d4037;
+  }
+
+  .sm\:placeholder-brown-800::placeholder {
+    color: #4e342e;
+  }
+
+  .sm\:placeholder-brown-900::placeholder {
+    color: #3e2723;
+  }
+
+  .sm\:placeholder-bluegrey-50::placeholder {
+    color: #eceff1;
+  }
+
+  .sm\:placeholder-bluegrey-100::placeholder {
+    color: #cfd8dc;
+  }
+
+  .sm\:placeholder-bluegrey-200::placeholder {
+    color: #b0bec5;
+  }
+
+  .sm\:placeholder-bluegrey-300::placeholder {
+    color: #90a4ae;
+  }
+
+  .sm\:placeholder-bluegrey-400::placeholder {
+    color: #78909c;
+  }
+
+  .sm\:placeholder-bluegrey-500::placeholder {
+    color: #607d8b;
+  }
+
+  .sm\:placeholder-bluegrey-600::placeholder {
+    color: #546e7a;
+  }
+
+  .sm\:placeholder-bluegrey-700::placeholder {
+    color: #455a64;
+  }
+
+  .sm\:placeholder-bluegrey-800::placeholder {
+    color: #37474f;
+  }
+
+  .sm\:placeholder-bluegrey-900::placeholder {
+    color: #263238;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
+  }
+
+  .sm\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-grey-100:focus::placeholder {
+    color: #f6f6f6;
+  }
+
+  .sm\:focus\:placeholder-grey-200:focus::placeholder {
+    color: #eeeeee;
+  }
+
+  .sm\:focus\:placeholder-grey-300:focus::placeholder {
+    color: #bdbdbd;
+  }
+
+  .sm\:focus\:placeholder-grey-400:focus::placeholder {
+    color: #9e9e9e;
+  }
+
+  .sm\:focus\:placeholder-grey-500:focus::placeholder {
+    color: #757575;
+  }
+
+  .sm\:focus\:placeholder-grey-600:focus::placeholder {
+    color: #616161;
+  }
+
+  .sm\:focus\:placeholder-grey-700:focus::placeholder {
+    color: #424242;
+  }
+
+  .sm\:focus\:placeholder-grey-800:focus::placeholder {
+    color: #212121;
+  }
+
+  .sm\:focus\:placeholder-grey-900:focus::placeholder {
+    color: #111111;
+  }
+
+  .sm\:focus\:placeholder-red-50:focus::placeholder {
+    color: #ffebee;
+  }
+
+  .sm\:focus\:placeholder-red-100:focus::placeholder {
+    color: #ffcdd2;
+  }
+
+  .sm\:focus\:placeholder-red-200:focus::placeholder {
+    color: #ef9a9a;
+  }
+
+  .sm\:focus\:placeholder-red-300:focus::placeholder {
+    color: #e57373;
+  }
+
+  .sm\:focus\:placeholder-red-400:focus::placeholder {
+    color: #ef5350;
+  }
+
+  .sm\:focus\:placeholder-red-500:focus::placeholder {
+    color: #f44336;
+  }
+
+  .sm\:focus\:placeholder-red-600:focus::placeholder {
+    color: #e53935;
+  }
+
+  .sm\:focus\:placeholder-red-700:focus::placeholder {
+    color: #d32f2f;
+  }
+
+  .sm\:focus\:placeholder-red-800:focus::placeholder {
+    color: #c62828;
+  }
+
+  .sm\:focus\:placeholder-red-900:focus::placeholder {
+    color: #b71c1c;
+  }
+
+  .sm\:focus\:placeholder-pink-50:focus::placeholder {
+    color: #fce4ec;
+  }
+
+  .sm\:focus\:placeholder-pink-100:focus::placeholder {
+    color: #f8bbd0;
+  }
+
+  .sm\:focus\:placeholder-pink-200:focus::placeholder {
+    color: #f48fb1;
+  }
+
+  .sm\:focus\:placeholder-pink-300:focus::placeholder {
+    color: #f06292;
+  }
+
+  .sm\:focus\:placeholder-pink-400:focus::placeholder {
+    color: #ec407a;
+  }
+
+  .sm\:focus\:placeholder-pink-500:focus::placeholder {
+    color: #e91e63;
+  }
+
+  .sm\:focus\:placeholder-pink-600:focus::placeholder {
+    color: #d81b60;
+  }
+
+  .sm\:focus\:placeholder-pink-700:focus::placeholder {
+    color: #c2185b;
+  }
+
+  .sm\:focus\:placeholder-pink-800:focus::placeholder {
+    color: #ad1457;
+  }
+
+  .sm\:focus\:placeholder-pink-900:focus::placeholder {
+    color: #880e4f;
+  }
+
+  .sm\:focus\:placeholder-purple-50:focus::placeholder {
+    color: #f3e5f5;
+  }
+
+  .sm\:focus\:placeholder-purple-100:focus::placeholder {
+    color: #e1bee7;
+  }
+
+  .sm\:focus\:placeholder-purple-200:focus::placeholder {
+    color: #ce93d8;
+  }
+
+  .sm\:focus\:placeholder-purple-300:focus::placeholder {
+    color: #ba68c8;
+  }
+
+  .sm\:focus\:placeholder-purple-400:focus::placeholder {
+    color: #ab47bc;
+  }
+
+  .sm\:focus\:placeholder-purple-500:focus::placeholder {
+    color: #9c27b0;
+  }
+
+  .sm\:focus\:placeholder-purple-600:focus::placeholder {
+    color: #8e24aa;
+  }
+
+  .sm\:focus\:placeholder-purple-700:focus::placeholder {
+    color: #7b1fa2;
+  }
+
+  .sm\:focus\:placeholder-purple-800:focus::placeholder {
+    color: #6a1b9a;
+  }
+
+  .sm\:focus\:placeholder-purple-900:focus::placeholder {
+    color: #4a148c;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-50:focus::placeholder {
+    color: #ede7f6;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-100:focus::placeholder {
+    color: #d1c4e9;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-200:focus::placeholder {
+    color: #b39ddb;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-300:focus::placeholder {
+    color: #9575cd;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-400:focus::placeholder {
+    color: #7e57c2;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-500:focus::placeholder {
+    color: #673ab7;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-600:focus::placeholder {
+    color: #5e35b1;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-700:focus::placeholder {
+    color: #512da8;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-800:focus::placeholder {
+    color: #4527a0;
+  }
+
+  .sm\:focus\:placeholder-deeppurple-900:focus::placeholder {
+    color: #311b92;
+  }
+
+  .sm\:focus\:placeholder-indigo-50:focus::placeholder {
+    color: #e8eaf6;
+  }
+
+  .sm\:focus\:placeholder-indigo-100:focus::placeholder {
+    color: #c5cae9;
+  }
+
+  .sm\:focus\:placeholder-indigo-200:focus::placeholder {
+    color: #9fa8da;
+  }
+
+  .sm\:focus\:placeholder-indigo-300:focus::placeholder {
+    color: #7986cb;
+  }
+
+  .sm\:focus\:placeholder-indigo-400:focus::placeholder {
+    color: #5c6bc0;
+  }
+
+  .sm\:focus\:placeholder-indigo-500:focus::placeholder {
+    color: #3f51b5;
+  }
+
+  .sm\:focus\:placeholder-indigo-600:focus::placeholder {
+    color: #3949ab;
+  }
+
+  .sm\:focus\:placeholder-indigo-700:focus::placeholder {
+    color: #303f9f;
+  }
+
+  .sm\:focus\:placeholder-indigo-800:focus::placeholder {
+    color: #283593;
+  }
+
+  .sm\:focus\:placeholder-indigo-900:focus::placeholder {
+    color: #1a237e;
+  }
+
+  .sm\:focus\:placeholder-blue-50:focus::placeholder {
+    color: #e3f2fd;
+  }
+
+  .sm\:focus\:placeholder-blue-100:focus::placeholder {
+    color: #bbdefb;
+  }
+
+  .sm\:focus\:placeholder-blue-200:focus::placeholder {
+    color: #90caf9;
+  }
+
+  .sm\:focus\:placeholder-blue-300:focus::placeholder {
+    color: #64b5f6;
+  }
+
+  .sm\:focus\:placeholder-blue-400:focus::placeholder {
+    color: #42a5f5;
+  }
+
+  .sm\:focus\:placeholder-blue-500:focus::placeholder {
+    color: #2196f3;
+  }
+
+  .sm\:focus\:placeholder-blue-600:focus::placeholder {
+    color: #1e88e5;
+  }
+
+  .sm\:focus\:placeholder-blue-700:focus::placeholder {
+    color: #1976d2;
+  }
+
+  .sm\:focus\:placeholder-blue-800:focus::placeholder {
+    color: #1565c0;
+  }
+
+  .sm\:focus\:placeholder-blue-900:focus::placeholder {
+    color: #0d47a1;
+  }
+
+  .sm\:focus\:placeholder-lightblue-50:focus::placeholder {
+    color: #e1f5fe;
+  }
+
+  .sm\:focus\:placeholder-lightblue-100:focus::placeholder {
+    color: #b3e5fc;
+  }
+
+  .sm\:focus\:placeholder-lightblue-200:focus::placeholder {
+    color: #81d4fa;
+  }
+
+  .sm\:focus\:placeholder-lightblue-300:focus::placeholder {
+    color: #4fc3f7;
+  }
+
+  .sm\:focus\:placeholder-lightblue-400:focus::placeholder {
+    color: #29b6f6;
+  }
+
+  .sm\:focus\:placeholder-lightblue-500:focus::placeholder {
+    color: #03a9f4;
+  }
+
+  .sm\:focus\:placeholder-lightblue-600:focus::placeholder {
+    color: #039be5;
+  }
+
+  .sm\:focus\:placeholder-lightblue-700:focus::placeholder {
+    color: #0288d1;
+  }
+
+  .sm\:focus\:placeholder-lightblue-800:focus::placeholder {
+    color: #0277bd;
+  }
+
+  .sm\:focus\:placeholder-lightblue-900:focus::placeholder {
+    color: #01579b;
+  }
+
+  .sm\:focus\:placeholder-cyan-50:focus::placeholder {
+    color: #e0f7fa;
+  }
+
+  .sm\:focus\:placeholder-cyan-100:focus::placeholder {
+    color: #b2ebf2;
+  }
+
+  .sm\:focus\:placeholder-cyan-200:focus::placeholder {
+    color: #80deea;
+  }
+
+  .sm\:focus\:placeholder-cyan-300:focus::placeholder {
+    color: #4dd0e1;
+  }
+
+  .sm\:focus\:placeholder-cyan-400:focus::placeholder {
+    color: #26c6da;
+  }
+
+  .sm\:focus\:placeholder-cyan-500:focus::placeholder {
+    color: #00bcd4;
+  }
+
+  .sm\:focus\:placeholder-cyan-600:focus::placeholder {
+    color: #00acc1;
+  }
+
+  .sm\:focus\:placeholder-cyan-700:focus::placeholder {
+    color: #0097a7;
+  }
+
+  .sm\:focus\:placeholder-cyan-800:focus::placeholder {
+    color: #00838f;
+  }
+
+  .sm\:focus\:placeholder-cyan-900:focus::placeholder {
+    color: #006064;
+  }
+
+  .sm\:focus\:placeholder-teal-50:focus::placeholder {
+    color: #e0f2f1;
+  }
+
+  .sm\:focus\:placeholder-teal-100:focus::placeholder {
+    color: #b2dfdb;
+  }
+
+  .sm\:focus\:placeholder-teal-200:focus::placeholder {
+    color: #80cbc4;
+  }
+
+  .sm\:focus\:placeholder-teal-300:focus::placeholder {
+    color: #4db6ac;
+  }
+
+  .sm\:focus\:placeholder-teal-400:focus::placeholder {
+    color: #26a69a;
+  }
+
+  .sm\:focus\:placeholder-teal-500:focus::placeholder {
+    color: #009688;
+  }
+
+  .sm\:focus\:placeholder-teal-600:focus::placeholder {
+    color: #00897b;
+  }
+
+  .sm\:focus\:placeholder-teal-700:focus::placeholder {
+    color: #00796b;
+  }
+
+  .sm\:focus\:placeholder-teal-800:focus::placeholder {
+    color: #00695c;
+  }
+
+  .sm\:focus\:placeholder-teal-900:focus::placeholder {
+    color: #004d40;
+  }
+
+  .sm\:focus\:placeholder-green-50:focus::placeholder {
+    color: #e8f5e9;
+  }
+
+  .sm\:focus\:placeholder-green-100:focus::placeholder {
+    color: #c8e6c9;
+  }
+
+  .sm\:focus\:placeholder-green-200:focus::placeholder {
+    color: #a5d6a7;
+  }
+
+  .sm\:focus\:placeholder-green-300:focus::placeholder {
+    color: #81c784;
+  }
+
+  .sm\:focus\:placeholder-green-400:focus::placeholder {
+    color: #66bb6a;
+  }
+
+  .sm\:focus\:placeholder-green-500:focus::placeholder {
+    color: #4caf50;
+  }
+
+  .sm\:focus\:placeholder-green-600:focus::placeholder {
+    color: #43a047;
+  }
+
+  .sm\:focus\:placeholder-green-700:focus::placeholder {
+    color: #388e3c;
+  }
+
+  .sm\:focus\:placeholder-green-800:focus::placeholder {
+    color: #2e7d32;
+  }
+
+  .sm\:focus\:placeholder-green-900:focus::placeholder {
+    color: #1b5e20;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-50:focus::placeholder {
+    color: #f1f8e9;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-100:focus::placeholder {
+    color: #dcedc8;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-200:focus::placeholder {
+    color: #c5e1a5;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-300:focus::placeholder {
+    color: #aed581;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-400:focus::placeholder {
+    color: #9ccc65;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-500:focus::placeholder {
+    color: #8bc34a;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-600:focus::placeholder {
+    color: #7cb342;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-700:focus::placeholder {
+    color: #689f38;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-800:focus::placeholder {
+    color: #558b2f;
+  }
+
+  .sm\:focus\:placeholder-lightgreen-900:focus::placeholder {
+    color: #33691e;
+  }
+
+  .sm\:focus\:placeholder-lime-50:focus::placeholder {
+    color: #f9fbe7;
+  }
+
+  .sm\:focus\:placeholder-lime-100:focus::placeholder {
+    color: #f0f4c3;
+  }
+
+  .sm\:focus\:placeholder-lime-200:focus::placeholder {
+    color: #e6ee9c;
+  }
+
+  .sm\:focus\:placeholder-lime-300:focus::placeholder {
+    color: #dce775;
+  }
+
+  .sm\:focus\:placeholder-lime-400:focus::placeholder {
+    color: #d4e157;
+  }
+
+  .sm\:focus\:placeholder-lime-500:focus::placeholder {
+    color: #cddc39;
+  }
+
+  .sm\:focus\:placeholder-lime-600:focus::placeholder {
+    color: #c0ca33;
+  }
+
+  .sm\:focus\:placeholder-lime-700:focus::placeholder {
+    color: #afb42b;
+  }
+
+  .sm\:focus\:placeholder-lime-800:focus::placeholder {
+    color: #9e9d24;
+  }
+
+  .sm\:focus\:placeholder-lime-900:focus::placeholder {
+    color: #827717;
+  }
+
+  .sm\:focus\:placeholder-yellow-50:focus::placeholder {
+    color: #fffde7;
+  }
+
+  .sm\:focus\:placeholder-yellow-100:focus::placeholder {
+    color: #fff9c4;
+  }
+
+  .sm\:focus\:placeholder-yellow-200:focus::placeholder {
+    color: #fff59d;
+  }
+
+  .sm\:focus\:placeholder-yellow-300:focus::placeholder {
+    color: #fff176;
+  }
+
+  .sm\:focus\:placeholder-yellow-400:focus::placeholder {
+    color: #ffee58;
+  }
+
+  .sm\:focus\:placeholder-yellow-500:focus::placeholder {
+    color: #ffeb3b;
+  }
+
+  .sm\:focus\:placeholder-yellow-600:focus::placeholder {
+    color: #fdd835;
+  }
+
+  .sm\:focus\:placeholder-yellow-700:focus::placeholder {
+    color: #fbc02d;
+  }
+
+  .sm\:focus\:placeholder-yellow-800:focus::placeholder {
+    color: #f9a825;
+  }
+
+  .sm\:focus\:placeholder-yellow-900:focus::placeholder {
+    color: #f57f17;
+  }
+
+  .sm\:focus\:placeholder-amber-50:focus::placeholder {
+    color: #fff8e1;
+  }
+
+  .sm\:focus\:placeholder-amber-100:focus::placeholder {
+    color: #ffecb3;
+  }
+
+  .sm\:focus\:placeholder-amber-200:focus::placeholder {
+    color: #ffe082;
+  }
+
+  .sm\:focus\:placeholder-amber-300:focus::placeholder {
+    color: #ffd54f;
+  }
+
+  .sm\:focus\:placeholder-amber-400:focus::placeholder {
+    color: #ffca28;
+  }
+
+  .sm\:focus\:placeholder-amber-500:focus::placeholder {
+    color: #ffc107;
+  }
+
+  .sm\:focus\:placeholder-amber-600:focus::placeholder {
+    color: #ffb300;
+  }
+
+  .sm\:focus\:placeholder-amber-700:focus::placeholder {
+    color: #ffa000;
+  }
+
+  .sm\:focus\:placeholder-amber-800:focus::placeholder {
+    color: #ff8f00;
+  }
+
+  .sm\:focus\:placeholder-amber-900:focus::placeholder {
+    color: #ff6f00;
+  }
+
+  .sm\:focus\:placeholder-orange-50:focus::placeholder {
+    color: #fff3e0;
+  }
+
+  .sm\:focus\:placeholder-orange-100:focus::placeholder {
+    color: #ffe0b2;
+  }
+
+  .sm\:focus\:placeholder-orange-200:focus::placeholder {
+    color: #ffcc80;
+  }
+
+  .sm\:focus\:placeholder-orange-300:focus::placeholder {
+    color: #ffb74d;
+  }
+
+  .sm\:focus\:placeholder-orange-400:focus::placeholder {
+    color: #ffa726;
+  }
+
+  .sm\:focus\:placeholder-orange-500:focus::placeholder {
+    color: #ff9800;
+  }
+
+  .sm\:focus\:placeholder-orange-600:focus::placeholder {
+    color: #fb8c00;
+  }
+
+  .sm\:focus\:placeholder-orange-700:focus::placeholder {
+    color: #f57c00;
+  }
+
+  .sm\:focus\:placeholder-orange-800:focus::placeholder {
+    color: #ef6c00;
+  }
+
+  .sm\:focus\:placeholder-orange-900:focus::placeholder {
+    color: #e65100;
+  }
+
+  .sm\:focus\:placeholder-deeporange-50:focus::placeholder {
+    color: #fbe9e7;
+  }
+
+  .sm\:focus\:placeholder-deeporange-100:focus::placeholder {
+    color: #ffccbc;
+  }
+
+  .sm\:focus\:placeholder-deeporange-200:focus::placeholder {
+    color: #ffab91;
+  }
+
+  .sm\:focus\:placeholder-deeporange-300:focus::placeholder {
+    color: #ff8a65;
+  }
+
+  .sm\:focus\:placeholder-deeporange-400:focus::placeholder {
+    color: #ff7043;
+  }
+
+  .sm\:focus\:placeholder-deeporange-500:focus::placeholder {
+    color: #ff5722;
+  }
+
+  .sm\:focus\:placeholder-deeporange-600:focus::placeholder {
+    color: #f4511e;
+  }
+
+  .sm\:focus\:placeholder-deeporange-700:focus::placeholder {
+    color: #e64a19;
+  }
+
+  .sm\:focus\:placeholder-deeporange-800:focus::placeholder {
+    color: #d84315;
+  }
+
+  .sm\:focus\:placeholder-deeporange-900:focus::placeholder {
+    color: #bf360c;
+  }
+
+  .sm\:focus\:placeholder-brown-50:focus::placeholder {
+    color: #efebe9;
+  }
+
+  .sm\:focus\:placeholder-brown-100:focus::placeholder {
+    color: #d7ccc8;
+  }
+
+  .sm\:focus\:placeholder-brown-200:focus::placeholder {
+    color: #bcaaa4;
+  }
+
+  .sm\:focus\:placeholder-brown-300:focus::placeholder {
+    color: #a1887f;
+  }
+
+  .sm\:focus\:placeholder-brown-400:focus::placeholder {
+    color: #8d6e63;
+  }
+
+  .sm\:focus\:placeholder-brown-500:focus::placeholder {
+    color: #795548;
+  }
+
+  .sm\:focus\:placeholder-brown-600:focus::placeholder {
+    color: #6d4c41;
+  }
+
+  .sm\:focus\:placeholder-brown-700:focus::placeholder {
+    color: #5d4037;
+  }
+
+  .sm\:focus\:placeholder-brown-800:focus::placeholder {
+    color: #4e342e;
+  }
+
+  .sm\:focus\:placeholder-brown-900:focus::placeholder {
+    color: #3e2723;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-50:focus::placeholder {
+    color: #eceff1;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-100:focus::placeholder {
+    color: #cfd8dc;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-200:focus::placeholder {
+    color: #b0bec5;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-300:focus::placeholder {
+    color: #90a4ae;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-400:focus::placeholder {
+    color: #78909c;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-500:focus::placeholder {
+    color: #607d8b;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-600:focus::placeholder {
+    color: #546e7a;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-700:focus::placeholder {
+    color: #455a64;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-800:focus::placeholder {
+    color: #37474f;
+  }
+
+  .sm\:focus\:placeholder-bluegrey-900:focus::placeholder {
+    color: #263238;
   }
 
   .sm\:pointer-events-none {
@@ -22405,6 +25585,52 @@ body {
 }
 
 @media (min-width: 768px) {
+  .md\:sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .md\:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .md\:focus\:sr-only:focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .md\:focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
   .md\:appearance-none {
     appearance: none;
   }
@@ -27321,6 +30547,10 @@ body {
     border-style: dotted;
   }
 
+  .md\:border-double {
+    border-style: double;
+  }
+
   .md\:border-none {
     border-style: none;
   }
@@ -29923,6 +33153,1542 @@ body {
 
   .md\:pl-px {
     padding-left: 1px;
+  }
+
+  .md\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
+  .md\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-grey-100::placeholder {
+    color: #f6f6f6;
+  }
+
+  .md\:placeholder-grey-200::placeholder {
+    color: #eeeeee;
+  }
+
+  .md\:placeholder-grey-300::placeholder {
+    color: #bdbdbd;
+  }
+
+  .md\:placeholder-grey-400::placeholder {
+    color: #9e9e9e;
+  }
+
+  .md\:placeholder-grey-500::placeholder {
+    color: #757575;
+  }
+
+  .md\:placeholder-grey-600::placeholder {
+    color: #616161;
+  }
+
+  .md\:placeholder-grey-700::placeholder {
+    color: #424242;
+  }
+
+  .md\:placeholder-grey-800::placeholder {
+    color: #212121;
+  }
+
+  .md\:placeholder-grey-900::placeholder {
+    color: #111111;
+  }
+
+  .md\:placeholder-red-50::placeholder {
+    color: #ffebee;
+  }
+
+  .md\:placeholder-red-100::placeholder {
+    color: #ffcdd2;
+  }
+
+  .md\:placeholder-red-200::placeholder {
+    color: #ef9a9a;
+  }
+
+  .md\:placeholder-red-300::placeholder {
+    color: #e57373;
+  }
+
+  .md\:placeholder-red-400::placeholder {
+    color: #ef5350;
+  }
+
+  .md\:placeholder-red-500::placeholder {
+    color: #f44336;
+  }
+
+  .md\:placeholder-red-600::placeholder {
+    color: #e53935;
+  }
+
+  .md\:placeholder-red-700::placeholder {
+    color: #d32f2f;
+  }
+
+  .md\:placeholder-red-800::placeholder {
+    color: #c62828;
+  }
+
+  .md\:placeholder-red-900::placeholder {
+    color: #b71c1c;
+  }
+
+  .md\:placeholder-pink-50::placeholder {
+    color: #fce4ec;
+  }
+
+  .md\:placeholder-pink-100::placeholder {
+    color: #f8bbd0;
+  }
+
+  .md\:placeholder-pink-200::placeholder {
+    color: #f48fb1;
+  }
+
+  .md\:placeholder-pink-300::placeholder {
+    color: #f06292;
+  }
+
+  .md\:placeholder-pink-400::placeholder {
+    color: #ec407a;
+  }
+
+  .md\:placeholder-pink-500::placeholder {
+    color: #e91e63;
+  }
+
+  .md\:placeholder-pink-600::placeholder {
+    color: #d81b60;
+  }
+
+  .md\:placeholder-pink-700::placeholder {
+    color: #c2185b;
+  }
+
+  .md\:placeholder-pink-800::placeholder {
+    color: #ad1457;
+  }
+
+  .md\:placeholder-pink-900::placeholder {
+    color: #880e4f;
+  }
+
+  .md\:placeholder-purple-50::placeholder {
+    color: #f3e5f5;
+  }
+
+  .md\:placeholder-purple-100::placeholder {
+    color: #e1bee7;
+  }
+
+  .md\:placeholder-purple-200::placeholder {
+    color: #ce93d8;
+  }
+
+  .md\:placeholder-purple-300::placeholder {
+    color: #ba68c8;
+  }
+
+  .md\:placeholder-purple-400::placeholder {
+    color: #ab47bc;
+  }
+
+  .md\:placeholder-purple-500::placeholder {
+    color: #9c27b0;
+  }
+
+  .md\:placeholder-purple-600::placeholder {
+    color: #8e24aa;
+  }
+
+  .md\:placeholder-purple-700::placeholder {
+    color: #7b1fa2;
+  }
+
+  .md\:placeholder-purple-800::placeholder {
+    color: #6a1b9a;
+  }
+
+  .md\:placeholder-purple-900::placeholder {
+    color: #4a148c;
+  }
+
+  .md\:placeholder-deeppurple-50::placeholder {
+    color: #ede7f6;
+  }
+
+  .md\:placeholder-deeppurple-100::placeholder {
+    color: #d1c4e9;
+  }
+
+  .md\:placeholder-deeppurple-200::placeholder {
+    color: #b39ddb;
+  }
+
+  .md\:placeholder-deeppurple-300::placeholder {
+    color: #9575cd;
+  }
+
+  .md\:placeholder-deeppurple-400::placeholder {
+    color: #7e57c2;
+  }
+
+  .md\:placeholder-deeppurple-500::placeholder {
+    color: #673ab7;
+  }
+
+  .md\:placeholder-deeppurple-600::placeholder {
+    color: #5e35b1;
+  }
+
+  .md\:placeholder-deeppurple-700::placeholder {
+    color: #512da8;
+  }
+
+  .md\:placeholder-deeppurple-800::placeholder {
+    color: #4527a0;
+  }
+
+  .md\:placeholder-deeppurple-900::placeholder {
+    color: #311b92;
+  }
+
+  .md\:placeholder-indigo-50::placeholder {
+    color: #e8eaf6;
+  }
+
+  .md\:placeholder-indigo-100::placeholder {
+    color: #c5cae9;
+  }
+
+  .md\:placeholder-indigo-200::placeholder {
+    color: #9fa8da;
+  }
+
+  .md\:placeholder-indigo-300::placeholder {
+    color: #7986cb;
+  }
+
+  .md\:placeholder-indigo-400::placeholder {
+    color: #5c6bc0;
+  }
+
+  .md\:placeholder-indigo-500::placeholder {
+    color: #3f51b5;
+  }
+
+  .md\:placeholder-indigo-600::placeholder {
+    color: #3949ab;
+  }
+
+  .md\:placeholder-indigo-700::placeholder {
+    color: #303f9f;
+  }
+
+  .md\:placeholder-indigo-800::placeholder {
+    color: #283593;
+  }
+
+  .md\:placeholder-indigo-900::placeholder {
+    color: #1a237e;
+  }
+
+  .md\:placeholder-blue-50::placeholder {
+    color: #e3f2fd;
+  }
+
+  .md\:placeholder-blue-100::placeholder {
+    color: #bbdefb;
+  }
+
+  .md\:placeholder-blue-200::placeholder {
+    color: #90caf9;
+  }
+
+  .md\:placeholder-blue-300::placeholder {
+    color: #64b5f6;
+  }
+
+  .md\:placeholder-blue-400::placeholder {
+    color: #42a5f5;
+  }
+
+  .md\:placeholder-blue-500::placeholder {
+    color: #2196f3;
+  }
+
+  .md\:placeholder-blue-600::placeholder {
+    color: #1e88e5;
+  }
+
+  .md\:placeholder-blue-700::placeholder {
+    color: #1976d2;
+  }
+
+  .md\:placeholder-blue-800::placeholder {
+    color: #1565c0;
+  }
+
+  .md\:placeholder-blue-900::placeholder {
+    color: #0d47a1;
+  }
+
+  .md\:placeholder-lightblue-50::placeholder {
+    color: #e1f5fe;
+  }
+
+  .md\:placeholder-lightblue-100::placeholder {
+    color: #b3e5fc;
+  }
+
+  .md\:placeholder-lightblue-200::placeholder {
+    color: #81d4fa;
+  }
+
+  .md\:placeholder-lightblue-300::placeholder {
+    color: #4fc3f7;
+  }
+
+  .md\:placeholder-lightblue-400::placeholder {
+    color: #29b6f6;
+  }
+
+  .md\:placeholder-lightblue-500::placeholder {
+    color: #03a9f4;
+  }
+
+  .md\:placeholder-lightblue-600::placeholder {
+    color: #039be5;
+  }
+
+  .md\:placeholder-lightblue-700::placeholder {
+    color: #0288d1;
+  }
+
+  .md\:placeholder-lightblue-800::placeholder {
+    color: #0277bd;
+  }
+
+  .md\:placeholder-lightblue-900::placeholder {
+    color: #01579b;
+  }
+
+  .md\:placeholder-cyan-50::placeholder {
+    color: #e0f7fa;
+  }
+
+  .md\:placeholder-cyan-100::placeholder {
+    color: #b2ebf2;
+  }
+
+  .md\:placeholder-cyan-200::placeholder {
+    color: #80deea;
+  }
+
+  .md\:placeholder-cyan-300::placeholder {
+    color: #4dd0e1;
+  }
+
+  .md\:placeholder-cyan-400::placeholder {
+    color: #26c6da;
+  }
+
+  .md\:placeholder-cyan-500::placeholder {
+    color: #00bcd4;
+  }
+
+  .md\:placeholder-cyan-600::placeholder {
+    color: #00acc1;
+  }
+
+  .md\:placeholder-cyan-700::placeholder {
+    color: #0097a7;
+  }
+
+  .md\:placeholder-cyan-800::placeholder {
+    color: #00838f;
+  }
+
+  .md\:placeholder-cyan-900::placeholder {
+    color: #006064;
+  }
+
+  .md\:placeholder-teal-50::placeholder {
+    color: #e0f2f1;
+  }
+
+  .md\:placeholder-teal-100::placeholder {
+    color: #b2dfdb;
+  }
+
+  .md\:placeholder-teal-200::placeholder {
+    color: #80cbc4;
+  }
+
+  .md\:placeholder-teal-300::placeholder {
+    color: #4db6ac;
+  }
+
+  .md\:placeholder-teal-400::placeholder {
+    color: #26a69a;
+  }
+
+  .md\:placeholder-teal-500::placeholder {
+    color: #009688;
+  }
+
+  .md\:placeholder-teal-600::placeholder {
+    color: #00897b;
+  }
+
+  .md\:placeholder-teal-700::placeholder {
+    color: #00796b;
+  }
+
+  .md\:placeholder-teal-800::placeholder {
+    color: #00695c;
+  }
+
+  .md\:placeholder-teal-900::placeholder {
+    color: #004d40;
+  }
+
+  .md\:placeholder-green-50::placeholder {
+    color: #e8f5e9;
+  }
+
+  .md\:placeholder-green-100::placeholder {
+    color: #c8e6c9;
+  }
+
+  .md\:placeholder-green-200::placeholder {
+    color: #a5d6a7;
+  }
+
+  .md\:placeholder-green-300::placeholder {
+    color: #81c784;
+  }
+
+  .md\:placeholder-green-400::placeholder {
+    color: #66bb6a;
+  }
+
+  .md\:placeholder-green-500::placeholder {
+    color: #4caf50;
+  }
+
+  .md\:placeholder-green-600::placeholder {
+    color: #43a047;
+  }
+
+  .md\:placeholder-green-700::placeholder {
+    color: #388e3c;
+  }
+
+  .md\:placeholder-green-800::placeholder {
+    color: #2e7d32;
+  }
+
+  .md\:placeholder-green-900::placeholder {
+    color: #1b5e20;
+  }
+
+  .md\:placeholder-lightgreen-50::placeholder {
+    color: #f1f8e9;
+  }
+
+  .md\:placeholder-lightgreen-100::placeholder {
+    color: #dcedc8;
+  }
+
+  .md\:placeholder-lightgreen-200::placeholder {
+    color: #c5e1a5;
+  }
+
+  .md\:placeholder-lightgreen-300::placeholder {
+    color: #aed581;
+  }
+
+  .md\:placeholder-lightgreen-400::placeholder {
+    color: #9ccc65;
+  }
+
+  .md\:placeholder-lightgreen-500::placeholder {
+    color: #8bc34a;
+  }
+
+  .md\:placeholder-lightgreen-600::placeholder {
+    color: #7cb342;
+  }
+
+  .md\:placeholder-lightgreen-700::placeholder {
+    color: #689f38;
+  }
+
+  .md\:placeholder-lightgreen-800::placeholder {
+    color: #558b2f;
+  }
+
+  .md\:placeholder-lightgreen-900::placeholder {
+    color: #33691e;
+  }
+
+  .md\:placeholder-lime-50::placeholder {
+    color: #f9fbe7;
+  }
+
+  .md\:placeholder-lime-100::placeholder {
+    color: #f0f4c3;
+  }
+
+  .md\:placeholder-lime-200::placeholder {
+    color: #e6ee9c;
+  }
+
+  .md\:placeholder-lime-300::placeholder {
+    color: #dce775;
+  }
+
+  .md\:placeholder-lime-400::placeholder {
+    color: #d4e157;
+  }
+
+  .md\:placeholder-lime-500::placeholder {
+    color: #cddc39;
+  }
+
+  .md\:placeholder-lime-600::placeholder {
+    color: #c0ca33;
+  }
+
+  .md\:placeholder-lime-700::placeholder {
+    color: #afb42b;
+  }
+
+  .md\:placeholder-lime-800::placeholder {
+    color: #9e9d24;
+  }
+
+  .md\:placeholder-lime-900::placeholder {
+    color: #827717;
+  }
+
+  .md\:placeholder-yellow-50::placeholder {
+    color: #fffde7;
+  }
+
+  .md\:placeholder-yellow-100::placeholder {
+    color: #fff9c4;
+  }
+
+  .md\:placeholder-yellow-200::placeholder {
+    color: #fff59d;
+  }
+
+  .md\:placeholder-yellow-300::placeholder {
+    color: #fff176;
+  }
+
+  .md\:placeholder-yellow-400::placeholder {
+    color: #ffee58;
+  }
+
+  .md\:placeholder-yellow-500::placeholder {
+    color: #ffeb3b;
+  }
+
+  .md\:placeholder-yellow-600::placeholder {
+    color: #fdd835;
+  }
+
+  .md\:placeholder-yellow-700::placeholder {
+    color: #fbc02d;
+  }
+
+  .md\:placeholder-yellow-800::placeholder {
+    color: #f9a825;
+  }
+
+  .md\:placeholder-yellow-900::placeholder {
+    color: #f57f17;
+  }
+
+  .md\:placeholder-amber-50::placeholder {
+    color: #fff8e1;
+  }
+
+  .md\:placeholder-amber-100::placeholder {
+    color: #ffecb3;
+  }
+
+  .md\:placeholder-amber-200::placeholder {
+    color: #ffe082;
+  }
+
+  .md\:placeholder-amber-300::placeholder {
+    color: #ffd54f;
+  }
+
+  .md\:placeholder-amber-400::placeholder {
+    color: #ffca28;
+  }
+
+  .md\:placeholder-amber-500::placeholder {
+    color: #ffc107;
+  }
+
+  .md\:placeholder-amber-600::placeholder {
+    color: #ffb300;
+  }
+
+  .md\:placeholder-amber-700::placeholder {
+    color: #ffa000;
+  }
+
+  .md\:placeholder-amber-800::placeholder {
+    color: #ff8f00;
+  }
+
+  .md\:placeholder-amber-900::placeholder {
+    color: #ff6f00;
+  }
+
+  .md\:placeholder-orange-50::placeholder {
+    color: #fff3e0;
+  }
+
+  .md\:placeholder-orange-100::placeholder {
+    color: #ffe0b2;
+  }
+
+  .md\:placeholder-orange-200::placeholder {
+    color: #ffcc80;
+  }
+
+  .md\:placeholder-orange-300::placeholder {
+    color: #ffb74d;
+  }
+
+  .md\:placeholder-orange-400::placeholder {
+    color: #ffa726;
+  }
+
+  .md\:placeholder-orange-500::placeholder {
+    color: #ff9800;
+  }
+
+  .md\:placeholder-orange-600::placeholder {
+    color: #fb8c00;
+  }
+
+  .md\:placeholder-orange-700::placeholder {
+    color: #f57c00;
+  }
+
+  .md\:placeholder-orange-800::placeholder {
+    color: #ef6c00;
+  }
+
+  .md\:placeholder-orange-900::placeholder {
+    color: #e65100;
+  }
+
+  .md\:placeholder-deeporange-50::placeholder {
+    color: #fbe9e7;
+  }
+
+  .md\:placeholder-deeporange-100::placeholder {
+    color: #ffccbc;
+  }
+
+  .md\:placeholder-deeporange-200::placeholder {
+    color: #ffab91;
+  }
+
+  .md\:placeholder-deeporange-300::placeholder {
+    color: #ff8a65;
+  }
+
+  .md\:placeholder-deeporange-400::placeholder {
+    color: #ff7043;
+  }
+
+  .md\:placeholder-deeporange-500::placeholder {
+    color: #ff5722;
+  }
+
+  .md\:placeholder-deeporange-600::placeholder {
+    color: #f4511e;
+  }
+
+  .md\:placeholder-deeporange-700::placeholder {
+    color: #e64a19;
+  }
+
+  .md\:placeholder-deeporange-800::placeholder {
+    color: #d84315;
+  }
+
+  .md\:placeholder-deeporange-900::placeholder {
+    color: #bf360c;
+  }
+
+  .md\:placeholder-brown-50::placeholder {
+    color: #efebe9;
+  }
+
+  .md\:placeholder-brown-100::placeholder {
+    color: #d7ccc8;
+  }
+
+  .md\:placeholder-brown-200::placeholder {
+    color: #bcaaa4;
+  }
+
+  .md\:placeholder-brown-300::placeholder {
+    color: #a1887f;
+  }
+
+  .md\:placeholder-brown-400::placeholder {
+    color: #8d6e63;
+  }
+
+  .md\:placeholder-brown-500::placeholder {
+    color: #795548;
+  }
+
+  .md\:placeholder-brown-600::placeholder {
+    color: #6d4c41;
+  }
+
+  .md\:placeholder-brown-700::placeholder {
+    color: #5d4037;
+  }
+
+  .md\:placeholder-brown-800::placeholder {
+    color: #4e342e;
+  }
+
+  .md\:placeholder-brown-900::placeholder {
+    color: #3e2723;
+  }
+
+  .md\:placeholder-bluegrey-50::placeholder {
+    color: #eceff1;
+  }
+
+  .md\:placeholder-bluegrey-100::placeholder {
+    color: #cfd8dc;
+  }
+
+  .md\:placeholder-bluegrey-200::placeholder {
+    color: #b0bec5;
+  }
+
+  .md\:placeholder-bluegrey-300::placeholder {
+    color: #90a4ae;
+  }
+
+  .md\:placeholder-bluegrey-400::placeholder {
+    color: #78909c;
+  }
+
+  .md\:placeholder-bluegrey-500::placeholder {
+    color: #607d8b;
+  }
+
+  .md\:placeholder-bluegrey-600::placeholder {
+    color: #546e7a;
+  }
+
+  .md\:placeholder-bluegrey-700::placeholder {
+    color: #455a64;
+  }
+
+  .md\:placeholder-bluegrey-800::placeholder {
+    color: #37474f;
+  }
+
+  .md\:placeholder-bluegrey-900::placeholder {
+    color: #263238;
+  }
+
+  .md\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
+  }
+
+  .md\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-grey-100:focus::placeholder {
+    color: #f6f6f6;
+  }
+
+  .md\:focus\:placeholder-grey-200:focus::placeholder {
+    color: #eeeeee;
+  }
+
+  .md\:focus\:placeholder-grey-300:focus::placeholder {
+    color: #bdbdbd;
+  }
+
+  .md\:focus\:placeholder-grey-400:focus::placeholder {
+    color: #9e9e9e;
+  }
+
+  .md\:focus\:placeholder-grey-500:focus::placeholder {
+    color: #757575;
+  }
+
+  .md\:focus\:placeholder-grey-600:focus::placeholder {
+    color: #616161;
+  }
+
+  .md\:focus\:placeholder-grey-700:focus::placeholder {
+    color: #424242;
+  }
+
+  .md\:focus\:placeholder-grey-800:focus::placeholder {
+    color: #212121;
+  }
+
+  .md\:focus\:placeholder-grey-900:focus::placeholder {
+    color: #111111;
+  }
+
+  .md\:focus\:placeholder-red-50:focus::placeholder {
+    color: #ffebee;
+  }
+
+  .md\:focus\:placeholder-red-100:focus::placeholder {
+    color: #ffcdd2;
+  }
+
+  .md\:focus\:placeholder-red-200:focus::placeholder {
+    color: #ef9a9a;
+  }
+
+  .md\:focus\:placeholder-red-300:focus::placeholder {
+    color: #e57373;
+  }
+
+  .md\:focus\:placeholder-red-400:focus::placeholder {
+    color: #ef5350;
+  }
+
+  .md\:focus\:placeholder-red-500:focus::placeholder {
+    color: #f44336;
+  }
+
+  .md\:focus\:placeholder-red-600:focus::placeholder {
+    color: #e53935;
+  }
+
+  .md\:focus\:placeholder-red-700:focus::placeholder {
+    color: #d32f2f;
+  }
+
+  .md\:focus\:placeholder-red-800:focus::placeholder {
+    color: #c62828;
+  }
+
+  .md\:focus\:placeholder-red-900:focus::placeholder {
+    color: #b71c1c;
+  }
+
+  .md\:focus\:placeholder-pink-50:focus::placeholder {
+    color: #fce4ec;
+  }
+
+  .md\:focus\:placeholder-pink-100:focus::placeholder {
+    color: #f8bbd0;
+  }
+
+  .md\:focus\:placeholder-pink-200:focus::placeholder {
+    color: #f48fb1;
+  }
+
+  .md\:focus\:placeholder-pink-300:focus::placeholder {
+    color: #f06292;
+  }
+
+  .md\:focus\:placeholder-pink-400:focus::placeholder {
+    color: #ec407a;
+  }
+
+  .md\:focus\:placeholder-pink-500:focus::placeholder {
+    color: #e91e63;
+  }
+
+  .md\:focus\:placeholder-pink-600:focus::placeholder {
+    color: #d81b60;
+  }
+
+  .md\:focus\:placeholder-pink-700:focus::placeholder {
+    color: #c2185b;
+  }
+
+  .md\:focus\:placeholder-pink-800:focus::placeholder {
+    color: #ad1457;
+  }
+
+  .md\:focus\:placeholder-pink-900:focus::placeholder {
+    color: #880e4f;
+  }
+
+  .md\:focus\:placeholder-purple-50:focus::placeholder {
+    color: #f3e5f5;
+  }
+
+  .md\:focus\:placeholder-purple-100:focus::placeholder {
+    color: #e1bee7;
+  }
+
+  .md\:focus\:placeholder-purple-200:focus::placeholder {
+    color: #ce93d8;
+  }
+
+  .md\:focus\:placeholder-purple-300:focus::placeholder {
+    color: #ba68c8;
+  }
+
+  .md\:focus\:placeholder-purple-400:focus::placeholder {
+    color: #ab47bc;
+  }
+
+  .md\:focus\:placeholder-purple-500:focus::placeholder {
+    color: #9c27b0;
+  }
+
+  .md\:focus\:placeholder-purple-600:focus::placeholder {
+    color: #8e24aa;
+  }
+
+  .md\:focus\:placeholder-purple-700:focus::placeholder {
+    color: #7b1fa2;
+  }
+
+  .md\:focus\:placeholder-purple-800:focus::placeholder {
+    color: #6a1b9a;
+  }
+
+  .md\:focus\:placeholder-purple-900:focus::placeholder {
+    color: #4a148c;
+  }
+
+  .md\:focus\:placeholder-deeppurple-50:focus::placeholder {
+    color: #ede7f6;
+  }
+
+  .md\:focus\:placeholder-deeppurple-100:focus::placeholder {
+    color: #d1c4e9;
+  }
+
+  .md\:focus\:placeholder-deeppurple-200:focus::placeholder {
+    color: #b39ddb;
+  }
+
+  .md\:focus\:placeholder-deeppurple-300:focus::placeholder {
+    color: #9575cd;
+  }
+
+  .md\:focus\:placeholder-deeppurple-400:focus::placeholder {
+    color: #7e57c2;
+  }
+
+  .md\:focus\:placeholder-deeppurple-500:focus::placeholder {
+    color: #673ab7;
+  }
+
+  .md\:focus\:placeholder-deeppurple-600:focus::placeholder {
+    color: #5e35b1;
+  }
+
+  .md\:focus\:placeholder-deeppurple-700:focus::placeholder {
+    color: #512da8;
+  }
+
+  .md\:focus\:placeholder-deeppurple-800:focus::placeholder {
+    color: #4527a0;
+  }
+
+  .md\:focus\:placeholder-deeppurple-900:focus::placeholder {
+    color: #311b92;
+  }
+
+  .md\:focus\:placeholder-indigo-50:focus::placeholder {
+    color: #e8eaf6;
+  }
+
+  .md\:focus\:placeholder-indigo-100:focus::placeholder {
+    color: #c5cae9;
+  }
+
+  .md\:focus\:placeholder-indigo-200:focus::placeholder {
+    color: #9fa8da;
+  }
+
+  .md\:focus\:placeholder-indigo-300:focus::placeholder {
+    color: #7986cb;
+  }
+
+  .md\:focus\:placeholder-indigo-400:focus::placeholder {
+    color: #5c6bc0;
+  }
+
+  .md\:focus\:placeholder-indigo-500:focus::placeholder {
+    color: #3f51b5;
+  }
+
+  .md\:focus\:placeholder-indigo-600:focus::placeholder {
+    color: #3949ab;
+  }
+
+  .md\:focus\:placeholder-indigo-700:focus::placeholder {
+    color: #303f9f;
+  }
+
+  .md\:focus\:placeholder-indigo-800:focus::placeholder {
+    color: #283593;
+  }
+
+  .md\:focus\:placeholder-indigo-900:focus::placeholder {
+    color: #1a237e;
+  }
+
+  .md\:focus\:placeholder-blue-50:focus::placeholder {
+    color: #e3f2fd;
+  }
+
+  .md\:focus\:placeholder-blue-100:focus::placeholder {
+    color: #bbdefb;
+  }
+
+  .md\:focus\:placeholder-blue-200:focus::placeholder {
+    color: #90caf9;
+  }
+
+  .md\:focus\:placeholder-blue-300:focus::placeholder {
+    color: #64b5f6;
+  }
+
+  .md\:focus\:placeholder-blue-400:focus::placeholder {
+    color: #42a5f5;
+  }
+
+  .md\:focus\:placeholder-blue-500:focus::placeholder {
+    color: #2196f3;
+  }
+
+  .md\:focus\:placeholder-blue-600:focus::placeholder {
+    color: #1e88e5;
+  }
+
+  .md\:focus\:placeholder-blue-700:focus::placeholder {
+    color: #1976d2;
+  }
+
+  .md\:focus\:placeholder-blue-800:focus::placeholder {
+    color: #1565c0;
+  }
+
+  .md\:focus\:placeholder-blue-900:focus::placeholder {
+    color: #0d47a1;
+  }
+
+  .md\:focus\:placeholder-lightblue-50:focus::placeholder {
+    color: #e1f5fe;
+  }
+
+  .md\:focus\:placeholder-lightblue-100:focus::placeholder {
+    color: #b3e5fc;
+  }
+
+  .md\:focus\:placeholder-lightblue-200:focus::placeholder {
+    color: #81d4fa;
+  }
+
+  .md\:focus\:placeholder-lightblue-300:focus::placeholder {
+    color: #4fc3f7;
+  }
+
+  .md\:focus\:placeholder-lightblue-400:focus::placeholder {
+    color: #29b6f6;
+  }
+
+  .md\:focus\:placeholder-lightblue-500:focus::placeholder {
+    color: #03a9f4;
+  }
+
+  .md\:focus\:placeholder-lightblue-600:focus::placeholder {
+    color: #039be5;
+  }
+
+  .md\:focus\:placeholder-lightblue-700:focus::placeholder {
+    color: #0288d1;
+  }
+
+  .md\:focus\:placeholder-lightblue-800:focus::placeholder {
+    color: #0277bd;
+  }
+
+  .md\:focus\:placeholder-lightblue-900:focus::placeholder {
+    color: #01579b;
+  }
+
+  .md\:focus\:placeholder-cyan-50:focus::placeholder {
+    color: #e0f7fa;
+  }
+
+  .md\:focus\:placeholder-cyan-100:focus::placeholder {
+    color: #b2ebf2;
+  }
+
+  .md\:focus\:placeholder-cyan-200:focus::placeholder {
+    color: #80deea;
+  }
+
+  .md\:focus\:placeholder-cyan-300:focus::placeholder {
+    color: #4dd0e1;
+  }
+
+  .md\:focus\:placeholder-cyan-400:focus::placeholder {
+    color: #26c6da;
+  }
+
+  .md\:focus\:placeholder-cyan-500:focus::placeholder {
+    color: #00bcd4;
+  }
+
+  .md\:focus\:placeholder-cyan-600:focus::placeholder {
+    color: #00acc1;
+  }
+
+  .md\:focus\:placeholder-cyan-700:focus::placeholder {
+    color: #0097a7;
+  }
+
+  .md\:focus\:placeholder-cyan-800:focus::placeholder {
+    color: #00838f;
+  }
+
+  .md\:focus\:placeholder-cyan-900:focus::placeholder {
+    color: #006064;
+  }
+
+  .md\:focus\:placeholder-teal-50:focus::placeholder {
+    color: #e0f2f1;
+  }
+
+  .md\:focus\:placeholder-teal-100:focus::placeholder {
+    color: #b2dfdb;
+  }
+
+  .md\:focus\:placeholder-teal-200:focus::placeholder {
+    color: #80cbc4;
+  }
+
+  .md\:focus\:placeholder-teal-300:focus::placeholder {
+    color: #4db6ac;
+  }
+
+  .md\:focus\:placeholder-teal-400:focus::placeholder {
+    color: #26a69a;
+  }
+
+  .md\:focus\:placeholder-teal-500:focus::placeholder {
+    color: #009688;
+  }
+
+  .md\:focus\:placeholder-teal-600:focus::placeholder {
+    color: #00897b;
+  }
+
+  .md\:focus\:placeholder-teal-700:focus::placeholder {
+    color: #00796b;
+  }
+
+  .md\:focus\:placeholder-teal-800:focus::placeholder {
+    color: #00695c;
+  }
+
+  .md\:focus\:placeholder-teal-900:focus::placeholder {
+    color: #004d40;
+  }
+
+  .md\:focus\:placeholder-green-50:focus::placeholder {
+    color: #e8f5e9;
+  }
+
+  .md\:focus\:placeholder-green-100:focus::placeholder {
+    color: #c8e6c9;
+  }
+
+  .md\:focus\:placeholder-green-200:focus::placeholder {
+    color: #a5d6a7;
+  }
+
+  .md\:focus\:placeholder-green-300:focus::placeholder {
+    color: #81c784;
+  }
+
+  .md\:focus\:placeholder-green-400:focus::placeholder {
+    color: #66bb6a;
+  }
+
+  .md\:focus\:placeholder-green-500:focus::placeholder {
+    color: #4caf50;
+  }
+
+  .md\:focus\:placeholder-green-600:focus::placeholder {
+    color: #43a047;
+  }
+
+  .md\:focus\:placeholder-green-700:focus::placeholder {
+    color: #388e3c;
+  }
+
+  .md\:focus\:placeholder-green-800:focus::placeholder {
+    color: #2e7d32;
+  }
+
+  .md\:focus\:placeholder-green-900:focus::placeholder {
+    color: #1b5e20;
+  }
+
+  .md\:focus\:placeholder-lightgreen-50:focus::placeholder {
+    color: #f1f8e9;
+  }
+
+  .md\:focus\:placeholder-lightgreen-100:focus::placeholder {
+    color: #dcedc8;
+  }
+
+  .md\:focus\:placeholder-lightgreen-200:focus::placeholder {
+    color: #c5e1a5;
+  }
+
+  .md\:focus\:placeholder-lightgreen-300:focus::placeholder {
+    color: #aed581;
+  }
+
+  .md\:focus\:placeholder-lightgreen-400:focus::placeholder {
+    color: #9ccc65;
+  }
+
+  .md\:focus\:placeholder-lightgreen-500:focus::placeholder {
+    color: #8bc34a;
+  }
+
+  .md\:focus\:placeholder-lightgreen-600:focus::placeholder {
+    color: #7cb342;
+  }
+
+  .md\:focus\:placeholder-lightgreen-700:focus::placeholder {
+    color: #689f38;
+  }
+
+  .md\:focus\:placeholder-lightgreen-800:focus::placeholder {
+    color: #558b2f;
+  }
+
+  .md\:focus\:placeholder-lightgreen-900:focus::placeholder {
+    color: #33691e;
+  }
+
+  .md\:focus\:placeholder-lime-50:focus::placeholder {
+    color: #f9fbe7;
+  }
+
+  .md\:focus\:placeholder-lime-100:focus::placeholder {
+    color: #f0f4c3;
+  }
+
+  .md\:focus\:placeholder-lime-200:focus::placeholder {
+    color: #e6ee9c;
+  }
+
+  .md\:focus\:placeholder-lime-300:focus::placeholder {
+    color: #dce775;
+  }
+
+  .md\:focus\:placeholder-lime-400:focus::placeholder {
+    color: #d4e157;
+  }
+
+  .md\:focus\:placeholder-lime-500:focus::placeholder {
+    color: #cddc39;
+  }
+
+  .md\:focus\:placeholder-lime-600:focus::placeholder {
+    color: #c0ca33;
+  }
+
+  .md\:focus\:placeholder-lime-700:focus::placeholder {
+    color: #afb42b;
+  }
+
+  .md\:focus\:placeholder-lime-800:focus::placeholder {
+    color: #9e9d24;
+  }
+
+  .md\:focus\:placeholder-lime-900:focus::placeholder {
+    color: #827717;
+  }
+
+  .md\:focus\:placeholder-yellow-50:focus::placeholder {
+    color: #fffde7;
+  }
+
+  .md\:focus\:placeholder-yellow-100:focus::placeholder {
+    color: #fff9c4;
+  }
+
+  .md\:focus\:placeholder-yellow-200:focus::placeholder {
+    color: #fff59d;
+  }
+
+  .md\:focus\:placeholder-yellow-300:focus::placeholder {
+    color: #fff176;
+  }
+
+  .md\:focus\:placeholder-yellow-400:focus::placeholder {
+    color: #ffee58;
+  }
+
+  .md\:focus\:placeholder-yellow-500:focus::placeholder {
+    color: #ffeb3b;
+  }
+
+  .md\:focus\:placeholder-yellow-600:focus::placeholder {
+    color: #fdd835;
+  }
+
+  .md\:focus\:placeholder-yellow-700:focus::placeholder {
+    color: #fbc02d;
+  }
+
+  .md\:focus\:placeholder-yellow-800:focus::placeholder {
+    color: #f9a825;
+  }
+
+  .md\:focus\:placeholder-yellow-900:focus::placeholder {
+    color: #f57f17;
+  }
+
+  .md\:focus\:placeholder-amber-50:focus::placeholder {
+    color: #fff8e1;
+  }
+
+  .md\:focus\:placeholder-amber-100:focus::placeholder {
+    color: #ffecb3;
+  }
+
+  .md\:focus\:placeholder-amber-200:focus::placeholder {
+    color: #ffe082;
+  }
+
+  .md\:focus\:placeholder-amber-300:focus::placeholder {
+    color: #ffd54f;
+  }
+
+  .md\:focus\:placeholder-amber-400:focus::placeholder {
+    color: #ffca28;
+  }
+
+  .md\:focus\:placeholder-amber-500:focus::placeholder {
+    color: #ffc107;
+  }
+
+  .md\:focus\:placeholder-amber-600:focus::placeholder {
+    color: #ffb300;
+  }
+
+  .md\:focus\:placeholder-amber-700:focus::placeholder {
+    color: #ffa000;
+  }
+
+  .md\:focus\:placeholder-amber-800:focus::placeholder {
+    color: #ff8f00;
+  }
+
+  .md\:focus\:placeholder-amber-900:focus::placeholder {
+    color: #ff6f00;
+  }
+
+  .md\:focus\:placeholder-orange-50:focus::placeholder {
+    color: #fff3e0;
+  }
+
+  .md\:focus\:placeholder-orange-100:focus::placeholder {
+    color: #ffe0b2;
+  }
+
+  .md\:focus\:placeholder-orange-200:focus::placeholder {
+    color: #ffcc80;
+  }
+
+  .md\:focus\:placeholder-orange-300:focus::placeholder {
+    color: #ffb74d;
+  }
+
+  .md\:focus\:placeholder-orange-400:focus::placeholder {
+    color: #ffa726;
+  }
+
+  .md\:focus\:placeholder-orange-500:focus::placeholder {
+    color: #ff9800;
+  }
+
+  .md\:focus\:placeholder-orange-600:focus::placeholder {
+    color: #fb8c00;
+  }
+
+  .md\:focus\:placeholder-orange-700:focus::placeholder {
+    color: #f57c00;
+  }
+
+  .md\:focus\:placeholder-orange-800:focus::placeholder {
+    color: #ef6c00;
+  }
+
+  .md\:focus\:placeholder-orange-900:focus::placeholder {
+    color: #e65100;
+  }
+
+  .md\:focus\:placeholder-deeporange-50:focus::placeholder {
+    color: #fbe9e7;
+  }
+
+  .md\:focus\:placeholder-deeporange-100:focus::placeholder {
+    color: #ffccbc;
+  }
+
+  .md\:focus\:placeholder-deeporange-200:focus::placeholder {
+    color: #ffab91;
+  }
+
+  .md\:focus\:placeholder-deeporange-300:focus::placeholder {
+    color: #ff8a65;
+  }
+
+  .md\:focus\:placeholder-deeporange-400:focus::placeholder {
+    color: #ff7043;
+  }
+
+  .md\:focus\:placeholder-deeporange-500:focus::placeholder {
+    color: #ff5722;
+  }
+
+  .md\:focus\:placeholder-deeporange-600:focus::placeholder {
+    color: #f4511e;
+  }
+
+  .md\:focus\:placeholder-deeporange-700:focus::placeholder {
+    color: #e64a19;
+  }
+
+  .md\:focus\:placeholder-deeporange-800:focus::placeholder {
+    color: #d84315;
+  }
+
+  .md\:focus\:placeholder-deeporange-900:focus::placeholder {
+    color: #bf360c;
+  }
+
+  .md\:focus\:placeholder-brown-50:focus::placeholder {
+    color: #efebe9;
+  }
+
+  .md\:focus\:placeholder-brown-100:focus::placeholder {
+    color: #d7ccc8;
+  }
+
+  .md\:focus\:placeholder-brown-200:focus::placeholder {
+    color: #bcaaa4;
+  }
+
+  .md\:focus\:placeholder-brown-300:focus::placeholder {
+    color: #a1887f;
+  }
+
+  .md\:focus\:placeholder-brown-400:focus::placeholder {
+    color: #8d6e63;
+  }
+
+  .md\:focus\:placeholder-brown-500:focus::placeholder {
+    color: #795548;
+  }
+
+  .md\:focus\:placeholder-brown-600:focus::placeholder {
+    color: #6d4c41;
+  }
+
+  .md\:focus\:placeholder-brown-700:focus::placeholder {
+    color: #5d4037;
+  }
+
+  .md\:focus\:placeholder-brown-800:focus::placeholder {
+    color: #4e342e;
+  }
+
+  .md\:focus\:placeholder-brown-900:focus::placeholder {
+    color: #3e2723;
+  }
+
+  .md\:focus\:placeholder-bluegrey-50:focus::placeholder {
+    color: #eceff1;
+  }
+
+  .md\:focus\:placeholder-bluegrey-100:focus::placeholder {
+    color: #cfd8dc;
+  }
+
+  .md\:focus\:placeholder-bluegrey-200:focus::placeholder {
+    color: #b0bec5;
+  }
+
+  .md\:focus\:placeholder-bluegrey-300:focus::placeholder {
+    color: #90a4ae;
+  }
+
+  .md\:focus\:placeholder-bluegrey-400:focus::placeholder {
+    color: #78909c;
+  }
+
+  .md\:focus\:placeholder-bluegrey-500:focus::placeholder {
+    color: #607d8b;
+  }
+
+  .md\:focus\:placeholder-bluegrey-600:focus::placeholder {
+    color: #546e7a;
+  }
+
+  .md\:focus\:placeholder-bluegrey-700:focus::placeholder {
+    color: #455a64;
+  }
+
+  .md\:focus\:placeholder-bluegrey-800:focus::placeholder {
+    color: #37474f;
+  }
+
+  .md\:focus\:placeholder-bluegrey-900:focus::placeholder {
+    color: #263238;
   }
 
   .md\:pointer-events-none {
@@ -32984,6 +37750,52 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .lg\:sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .lg\:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .lg\:focus\:sr-only:focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .lg\:focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
   .lg\:appearance-none {
     appearance: none;
   }
@@ -37900,6 +42712,10 @@ body {
     border-style: dotted;
   }
 
+  .lg\:border-double {
+    border-style: double;
+  }
+
   .lg\:border-none {
     border-style: none;
   }
@@ -40502,6 +45318,1542 @@ body {
 
   .lg\:pl-px {
     padding-left: 1px;
+  }
+
+  .lg\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
+  .lg\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-grey-100::placeholder {
+    color: #f6f6f6;
+  }
+
+  .lg\:placeholder-grey-200::placeholder {
+    color: #eeeeee;
+  }
+
+  .lg\:placeholder-grey-300::placeholder {
+    color: #bdbdbd;
+  }
+
+  .lg\:placeholder-grey-400::placeholder {
+    color: #9e9e9e;
+  }
+
+  .lg\:placeholder-grey-500::placeholder {
+    color: #757575;
+  }
+
+  .lg\:placeholder-grey-600::placeholder {
+    color: #616161;
+  }
+
+  .lg\:placeholder-grey-700::placeholder {
+    color: #424242;
+  }
+
+  .lg\:placeholder-grey-800::placeholder {
+    color: #212121;
+  }
+
+  .lg\:placeholder-grey-900::placeholder {
+    color: #111111;
+  }
+
+  .lg\:placeholder-red-50::placeholder {
+    color: #ffebee;
+  }
+
+  .lg\:placeholder-red-100::placeholder {
+    color: #ffcdd2;
+  }
+
+  .lg\:placeholder-red-200::placeholder {
+    color: #ef9a9a;
+  }
+
+  .lg\:placeholder-red-300::placeholder {
+    color: #e57373;
+  }
+
+  .lg\:placeholder-red-400::placeholder {
+    color: #ef5350;
+  }
+
+  .lg\:placeholder-red-500::placeholder {
+    color: #f44336;
+  }
+
+  .lg\:placeholder-red-600::placeholder {
+    color: #e53935;
+  }
+
+  .lg\:placeholder-red-700::placeholder {
+    color: #d32f2f;
+  }
+
+  .lg\:placeholder-red-800::placeholder {
+    color: #c62828;
+  }
+
+  .lg\:placeholder-red-900::placeholder {
+    color: #b71c1c;
+  }
+
+  .lg\:placeholder-pink-50::placeholder {
+    color: #fce4ec;
+  }
+
+  .lg\:placeholder-pink-100::placeholder {
+    color: #f8bbd0;
+  }
+
+  .lg\:placeholder-pink-200::placeholder {
+    color: #f48fb1;
+  }
+
+  .lg\:placeholder-pink-300::placeholder {
+    color: #f06292;
+  }
+
+  .lg\:placeholder-pink-400::placeholder {
+    color: #ec407a;
+  }
+
+  .lg\:placeholder-pink-500::placeholder {
+    color: #e91e63;
+  }
+
+  .lg\:placeholder-pink-600::placeholder {
+    color: #d81b60;
+  }
+
+  .lg\:placeholder-pink-700::placeholder {
+    color: #c2185b;
+  }
+
+  .lg\:placeholder-pink-800::placeholder {
+    color: #ad1457;
+  }
+
+  .lg\:placeholder-pink-900::placeholder {
+    color: #880e4f;
+  }
+
+  .lg\:placeholder-purple-50::placeholder {
+    color: #f3e5f5;
+  }
+
+  .lg\:placeholder-purple-100::placeholder {
+    color: #e1bee7;
+  }
+
+  .lg\:placeholder-purple-200::placeholder {
+    color: #ce93d8;
+  }
+
+  .lg\:placeholder-purple-300::placeholder {
+    color: #ba68c8;
+  }
+
+  .lg\:placeholder-purple-400::placeholder {
+    color: #ab47bc;
+  }
+
+  .lg\:placeholder-purple-500::placeholder {
+    color: #9c27b0;
+  }
+
+  .lg\:placeholder-purple-600::placeholder {
+    color: #8e24aa;
+  }
+
+  .lg\:placeholder-purple-700::placeholder {
+    color: #7b1fa2;
+  }
+
+  .lg\:placeholder-purple-800::placeholder {
+    color: #6a1b9a;
+  }
+
+  .lg\:placeholder-purple-900::placeholder {
+    color: #4a148c;
+  }
+
+  .lg\:placeholder-deeppurple-50::placeholder {
+    color: #ede7f6;
+  }
+
+  .lg\:placeholder-deeppurple-100::placeholder {
+    color: #d1c4e9;
+  }
+
+  .lg\:placeholder-deeppurple-200::placeholder {
+    color: #b39ddb;
+  }
+
+  .lg\:placeholder-deeppurple-300::placeholder {
+    color: #9575cd;
+  }
+
+  .lg\:placeholder-deeppurple-400::placeholder {
+    color: #7e57c2;
+  }
+
+  .lg\:placeholder-deeppurple-500::placeholder {
+    color: #673ab7;
+  }
+
+  .lg\:placeholder-deeppurple-600::placeholder {
+    color: #5e35b1;
+  }
+
+  .lg\:placeholder-deeppurple-700::placeholder {
+    color: #512da8;
+  }
+
+  .lg\:placeholder-deeppurple-800::placeholder {
+    color: #4527a0;
+  }
+
+  .lg\:placeholder-deeppurple-900::placeholder {
+    color: #311b92;
+  }
+
+  .lg\:placeholder-indigo-50::placeholder {
+    color: #e8eaf6;
+  }
+
+  .lg\:placeholder-indigo-100::placeholder {
+    color: #c5cae9;
+  }
+
+  .lg\:placeholder-indigo-200::placeholder {
+    color: #9fa8da;
+  }
+
+  .lg\:placeholder-indigo-300::placeholder {
+    color: #7986cb;
+  }
+
+  .lg\:placeholder-indigo-400::placeholder {
+    color: #5c6bc0;
+  }
+
+  .lg\:placeholder-indigo-500::placeholder {
+    color: #3f51b5;
+  }
+
+  .lg\:placeholder-indigo-600::placeholder {
+    color: #3949ab;
+  }
+
+  .lg\:placeholder-indigo-700::placeholder {
+    color: #303f9f;
+  }
+
+  .lg\:placeholder-indigo-800::placeholder {
+    color: #283593;
+  }
+
+  .lg\:placeholder-indigo-900::placeholder {
+    color: #1a237e;
+  }
+
+  .lg\:placeholder-blue-50::placeholder {
+    color: #e3f2fd;
+  }
+
+  .lg\:placeholder-blue-100::placeholder {
+    color: #bbdefb;
+  }
+
+  .lg\:placeholder-blue-200::placeholder {
+    color: #90caf9;
+  }
+
+  .lg\:placeholder-blue-300::placeholder {
+    color: #64b5f6;
+  }
+
+  .lg\:placeholder-blue-400::placeholder {
+    color: #42a5f5;
+  }
+
+  .lg\:placeholder-blue-500::placeholder {
+    color: #2196f3;
+  }
+
+  .lg\:placeholder-blue-600::placeholder {
+    color: #1e88e5;
+  }
+
+  .lg\:placeholder-blue-700::placeholder {
+    color: #1976d2;
+  }
+
+  .lg\:placeholder-blue-800::placeholder {
+    color: #1565c0;
+  }
+
+  .lg\:placeholder-blue-900::placeholder {
+    color: #0d47a1;
+  }
+
+  .lg\:placeholder-lightblue-50::placeholder {
+    color: #e1f5fe;
+  }
+
+  .lg\:placeholder-lightblue-100::placeholder {
+    color: #b3e5fc;
+  }
+
+  .lg\:placeholder-lightblue-200::placeholder {
+    color: #81d4fa;
+  }
+
+  .lg\:placeholder-lightblue-300::placeholder {
+    color: #4fc3f7;
+  }
+
+  .lg\:placeholder-lightblue-400::placeholder {
+    color: #29b6f6;
+  }
+
+  .lg\:placeholder-lightblue-500::placeholder {
+    color: #03a9f4;
+  }
+
+  .lg\:placeholder-lightblue-600::placeholder {
+    color: #039be5;
+  }
+
+  .lg\:placeholder-lightblue-700::placeholder {
+    color: #0288d1;
+  }
+
+  .lg\:placeholder-lightblue-800::placeholder {
+    color: #0277bd;
+  }
+
+  .lg\:placeholder-lightblue-900::placeholder {
+    color: #01579b;
+  }
+
+  .lg\:placeholder-cyan-50::placeholder {
+    color: #e0f7fa;
+  }
+
+  .lg\:placeholder-cyan-100::placeholder {
+    color: #b2ebf2;
+  }
+
+  .lg\:placeholder-cyan-200::placeholder {
+    color: #80deea;
+  }
+
+  .lg\:placeholder-cyan-300::placeholder {
+    color: #4dd0e1;
+  }
+
+  .lg\:placeholder-cyan-400::placeholder {
+    color: #26c6da;
+  }
+
+  .lg\:placeholder-cyan-500::placeholder {
+    color: #00bcd4;
+  }
+
+  .lg\:placeholder-cyan-600::placeholder {
+    color: #00acc1;
+  }
+
+  .lg\:placeholder-cyan-700::placeholder {
+    color: #0097a7;
+  }
+
+  .lg\:placeholder-cyan-800::placeholder {
+    color: #00838f;
+  }
+
+  .lg\:placeholder-cyan-900::placeholder {
+    color: #006064;
+  }
+
+  .lg\:placeholder-teal-50::placeholder {
+    color: #e0f2f1;
+  }
+
+  .lg\:placeholder-teal-100::placeholder {
+    color: #b2dfdb;
+  }
+
+  .lg\:placeholder-teal-200::placeholder {
+    color: #80cbc4;
+  }
+
+  .lg\:placeholder-teal-300::placeholder {
+    color: #4db6ac;
+  }
+
+  .lg\:placeholder-teal-400::placeholder {
+    color: #26a69a;
+  }
+
+  .lg\:placeholder-teal-500::placeholder {
+    color: #009688;
+  }
+
+  .lg\:placeholder-teal-600::placeholder {
+    color: #00897b;
+  }
+
+  .lg\:placeholder-teal-700::placeholder {
+    color: #00796b;
+  }
+
+  .lg\:placeholder-teal-800::placeholder {
+    color: #00695c;
+  }
+
+  .lg\:placeholder-teal-900::placeholder {
+    color: #004d40;
+  }
+
+  .lg\:placeholder-green-50::placeholder {
+    color: #e8f5e9;
+  }
+
+  .lg\:placeholder-green-100::placeholder {
+    color: #c8e6c9;
+  }
+
+  .lg\:placeholder-green-200::placeholder {
+    color: #a5d6a7;
+  }
+
+  .lg\:placeholder-green-300::placeholder {
+    color: #81c784;
+  }
+
+  .lg\:placeholder-green-400::placeholder {
+    color: #66bb6a;
+  }
+
+  .lg\:placeholder-green-500::placeholder {
+    color: #4caf50;
+  }
+
+  .lg\:placeholder-green-600::placeholder {
+    color: #43a047;
+  }
+
+  .lg\:placeholder-green-700::placeholder {
+    color: #388e3c;
+  }
+
+  .lg\:placeholder-green-800::placeholder {
+    color: #2e7d32;
+  }
+
+  .lg\:placeholder-green-900::placeholder {
+    color: #1b5e20;
+  }
+
+  .lg\:placeholder-lightgreen-50::placeholder {
+    color: #f1f8e9;
+  }
+
+  .lg\:placeholder-lightgreen-100::placeholder {
+    color: #dcedc8;
+  }
+
+  .lg\:placeholder-lightgreen-200::placeholder {
+    color: #c5e1a5;
+  }
+
+  .lg\:placeholder-lightgreen-300::placeholder {
+    color: #aed581;
+  }
+
+  .lg\:placeholder-lightgreen-400::placeholder {
+    color: #9ccc65;
+  }
+
+  .lg\:placeholder-lightgreen-500::placeholder {
+    color: #8bc34a;
+  }
+
+  .lg\:placeholder-lightgreen-600::placeholder {
+    color: #7cb342;
+  }
+
+  .lg\:placeholder-lightgreen-700::placeholder {
+    color: #689f38;
+  }
+
+  .lg\:placeholder-lightgreen-800::placeholder {
+    color: #558b2f;
+  }
+
+  .lg\:placeholder-lightgreen-900::placeholder {
+    color: #33691e;
+  }
+
+  .lg\:placeholder-lime-50::placeholder {
+    color: #f9fbe7;
+  }
+
+  .lg\:placeholder-lime-100::placeholder {
+    color: #f0f4c3;
+  }
+
+  .lg\:placeholder-lime-200::placeholder {
+    color: #e6ee9c;
+  }
+
+  .lg\:placeholder-lime-300::placeholder {
+    color: #dce775;
+  }
+
+  .lg\:placeholder-lime-400::placeholder {
+    color: #d4e157;
+  }
+
+  .lg\:placeholder-lime-500::placeholder {
+    color: #cddc39;
+  }
+
+  .lg\:placeholder-lime-600::placeholder {
+    color: #c0ca33;
+  }
+
+  .lg\:placeholder-lime-700::placeholder {
+    color: #afb42b;
+  }
+
+  .lg\:placeholder-lime-800::placeholder {
+    color: #9e9d24;
+  }
+
+  .lg\:placeholder-lime-900::placeholder {
+    color: #827717;
+  }
+
+  .lg\:placeholder-yellow-50::placeholder {
+    color: #fffde7;
+  }
+
+  .lg\:placeholder-yellow-100::placeholder {
+    color: #fff9c4;
+  }
+
+  .lg\:placeholder-yellow-200::placeholder {
+    color: #fff59d;
+  }
+
+  .lg\:placeholder-yellow-300::placeholder {
+    color: #fff176;
+  }
+
+  .lg\:placeholder-yellow-400::placeholder {
+    color: #ffee58;
+  }
+
+  .lg\:placeholder-yellow-500::placeholder {
+    color: #ffeb3b;
+  }
+
+  .lg\:placeholder-yellow-600::placeholder {
+    color: #fdd835;
+  }
+
+  .lg\:placeholder-yellow-700::placeholder {
+    color: #fbc02d;
+  }
+
+  .lg\:placeholder-yellow-800::placeholder {
+    color: #f9a825;
+  }
+
+  .lg\:placeholder-yellow-900::placeholder {
+    color: #f57f17;
+  }
+
+  .lg\:placeholder-amber-50::placeholder {
+    color: #fff8e1;
+  }
+
+  .lg\:placeholder-amber-100::placeholder {
+    color: #ffecb3;
+  }
+
+  .lg\:placeholder-amber-200::placeholder {
+    color: #ffe082;
+  }
+
+  .lg\:placeholder-amber-300::placeholder {
+    color: #ffd54f;
+  }
+
+  .lg\:placeholder-amber-400::placeholder {
+    color: #ffca28;
+  }
+
+  .lg\:placeholder-amber-500::placeholder {
+    color: #ffc107;
+  }
+
+  .lg\:placeholder-amber-600::placeholder {
+    color: #ffb300;
+  }
+
+  .lg\:placeholder-amber-700::placeholder {
+    color: #ffa000;
+  }
+
+  .lg\:placeholder-amber-800::placeholder {
+    color: #ff8f00;
+  }
+
+  .lg\:placeholder-amber-900::placeholder {
+    color: #ff6f00;
+  }
+
+  .lg\:placeholder-orange-50::placeholder {
+    color: #fff3e0;
+  }
+
+  .lg\:placeholder-orange-100::placeholder {
+    color: #ffe0b2;
+  }
+
+  .lg\:placeholder-orange-200::placeholder {
+    color: #ffcc80;
+  }
+
+  .lg\:placeholder-orange-300::placeholder {
+    color: #ffb74d;
+  }
+
+  .lg\:placeholder-orange-400::placeholder {
+    color: #ffa726;
+  }
+
+  .lg\:placeholder-orange-500::placeholder {
+    color: #ff9800;
+  }
+
+  .lg\:placeholder-orange-600::placeholder {
+    color: #fb8c00;
+  }
+
+  .lg\:placeholder-orange-700::placeholder {
+    color: #f57c00;
+  }
+
+  .lg\:placeholder-orange-800::placeholder {
+    color: #ef6c00;
+  }
+
+  .lg\:placeholder-orange-900::placeholder {
+    color: #e65100;
+  }
+
+  .lg\:placeholder-deeporange-50::placeholder {
+    color: #fbe9e7;
+  }
+
+  .lg\:placeholder-deeporange-100::placeholder {
+    color: #ffccbc;
+  }
+
+  .lg\:placeholder-deeporange-200::placeholder {
+    color: #ffab91;
+  }
+
+  .lg\:placeholder-deeporange-300::placeholder {
+    color: #ff8a65;
+  }
+
+  .lg\:placeholder-deeporange-400::placeholder {
+    color: #ff7043;
+  }
+
+  .lg\:placeholder-deeporange-500::placeholder {
+    color: #ff5722;
+  }
+
+  .lg\:placeholder-deeporange-600::placeholder {
+    color: #f4511e;
+  }
+
+  .lg\:placeholder-deeporange-700::placeholder {
+    color: #e64a19;
+  }
+
+  .lg\:placeholder-deeporange-800::placeholder {
+    color: #d84315;
+  }
+
+  .lg\:placeholder-deeporange-900::placeholder {
+    color: #bf360c;
+  }
+
+  .lg\:placeholder-brown-50::placeholder {
+    color: #efebe9;
+  }
+
+  .lg\:placeholder-brown-100::placeholder {
+    color: #d7ccc8;
+  }
+
+  .lg\:placeholder-brown-200::placeholder {
+    color: #bcaaa4;
+  }
+
+  .lg\:placeholder-brown-300::placeholder {
+    color: #a1887f;
+  }
+
+  .lg\:placeholder-brown-400::placeholder {
+    color: #8d6e63;
+  }
+
+  .lg\:placeholder-brown-500::placeholder {
+    color: #795548;
+  }
+
+  .lg\:placeholder-brown-600::placeholder {
+    color: #6d4c41;
+  }
+
+  .lg\:placeholder-brown-700::placeholder {
+    color: #5d4037;
+  }
+
+  .lg\:placeholder-brown-800::placeholder {
+    color: #4e342e;
+  }
+
+  .lg\:placeholder-brown-900::placeholder {
+    color: #3e2723;
+  }
+
+  .lg\:placeholder-bluegrey-50::placeholder {
+    color: #eceff1;
+  }
+
+  .lg\:placeholder-bluegrey-100::placeholder {
+    color: #cfd8dc;
+  }
+
+  .lg\:placeholder-bluegrey-200::placeholder {
+    color: #b0bec5;
+  }
+
+  .lg\:placeholder-bluegrey-300::placeholder {
+    color: #90a4ae;
+  }
+
+  .lg\:placeholder-bluegrey-400::placeholder {
+    color: #78909c;
+  }
+
+  .lg\:placeholder-bluegrey-500::placeholder {
+    color: #607d8b;
+  }
+
+  .lg\:placeholder-bluegrey-600::placeholder {
+    color: #546e7a;
+  }
+
+  .lg\:placeholder-bluegrey-700::placeholder {
+    color: #455a64;
+  }
+
+  .lg\:placeholder-bluegrey-800::placeholder {
+    color: #37474f;
+  }
+
+  .lg\:placeholder-bluegrey-900::placeholder {
+    color: #263238;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
+  }
+
+  .lg\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-grey-100:focus::placeholder {
+    color: #f6f6f6;
+  }
+
+  .lg\:focus\:placeholder-grey-200:focus::placeholder {
+    color: #eeeeee;
+  }
+
+  .lg\:focus\:placeholder-grey-300:focus::placeholder {
+    color: #bdbdbd;
+  }
+
+  .lg\:focus\:placeholder-grey-400:focus::placeholder {
+    color: #9e9e9e;
+  }
+
+  .lg\:focus\:placeholder-grey-500:focus::placeholder {
+    color: #757575;
+  }
+
+  .lg\:focus\:placeholder-grey-600:focus::placeholder {
+    color: #616161;
+  }
+
+  .lg\:focus\:placeholder-grey-700:focus::placeholder {
+    color: #424242;
+  }
+
+  .lg\:focus\:placeholder-grey-800:focus::placeholder {
+    color: #212121;
+  }
+
+  .lg\:focus\:placeholder-grey-900:focus::placeholder {
+    color: #111111;
+  }
+
+  .lg\:focus\:placeholder-red-50:focus::placeholder {
+    color: #ffebee;
+  }
+
+  .lg\:focus\:placeholder-red-100:focus::placeholder {
+    color: #ffcdd2;
+  }
+
+  .lg\:focus\:placeholder-red-200:focus::placeholder {
+    color: #ef9a9a;
+  }
+
+  .lg\:focus\:placeholder-red-300:focus::placeholder {
+    color: #e57373;
+  }
+
+  .lg\:focus\:placeholder-red-400:focus::placeholder {
+    color: #ef5350;
+  }
+
+  .lg\:focus\:placeholder-red-500:focus::placeholder {
+    color: #f44336;
+  }
+
+  .lg\:focus\:placeholder-red-600:focus::placeholder {
+    color: #e53935;
+  }
+
+  .lg\:focus\:placeholder-red-700:focus::placeholder {
+    color: #d32f2f;
+  }
+
+  .lg\:focus\:placeholder-red-800:focus::placeholder {
+    color: #c62828;
+  }
+
+  .lg\:focus\:placeholder-red-900:focus::placeholder {
+    color: #b71c1c;
+  }
+
+  .lg\:focus\:placeholder-pink-50:focus::placeholder {
+    color: #fce4ec;
+  }
+
+  .lg\:focus\:placeholder-pink-100:focus::placeholder {
+    color: #f8bbd0;
+  }
+
+  .lg\:focus\:placeholder-pink-200:focus::placeholder {
+    color: #f48fb1;
+  }
+
+  .lg\:focus\:placeholder-pink-300:focus::placeholder {
+    color: #f06292;
+  }
+
+  .lg\:focus\:placeholder-pink-400:focus::placeholder {
+    color: #ec407a;
+  }
+
+  .lg\:focus\:placeholder-pink-500:focus::placeholder {
+    color: #e91e63;
+  }
+
+  .lg\:focus\:placeholder-pink-600:focus::placeholder {
+    color: #d81b60;
+  }
+
+  .lg\:focus\:placeholder-pink-700:focus::placeholder {
+    color: #c2185b;
+  }
+
+  .lg\:focus\:placeholder-pink-800:focus::placeholder {
+    color: #ad1457;
+  }
+
+  .lg\:focus\:placeholder-pink-900:focus::placeholder {
+    color: #880e4f;
+  }
+
+  .lg\:focus\:placeholder-purple-50:focus::placeholder {
+    color: #f3e5f5;
+  }
+
+  .lg\:focus\:placeholder-purple-100:focus::placeholder {
+    color: #e1bee7;
+  }
+
+  .lg\:focus\:placeholder-purple-200:focus::placeholder {
+    color: #ce93d8;
+  }
+
+  .lg\:focus\:placeholder-purple-300:focus::placeholder {
+    color: #ba68c8;
+  }
+
+  .lg\:focus\:placeholder-purple-400:focus::placeholder {
+    color: #ab47bc;
+  }
+
+  .lg\:focus\:placeholder-purple-500:focus::placeholder {
+    color: #9c27b0;
+  }
+
+  .lg\:focus\:placeholder-purple-600:focus::placeholder {
+    color: #8e24aa;
+  }
+
+  .lg\:focus\:placeholder-purple-700:focus::placeholder {
+    color: #7b1fa2;
+  }
+
+  .lg\:focus\:placeholder-purple-800:focus::placeholder {
+    color: #6a1b9a;
+  }
+
+  .lg\:focus\:placeholder-purple-900:focus::placeholder {
+    color: #4a148c;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-50:focus::placeholder {
+    color: #ede7f6;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-100:focus::placeholder {
+    color: #d1c4e9;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-200:focus::placeholder {
+    color: #b39ddb;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-300:focus::placeholder {
+    color: #9575cd;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-400:focus::placeholder {
+    color: #7e57c2;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-500:focus::placeholder {
+    color: #673ab7;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-600:focus::placeholder {
+    color: #5e35b1;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-700:focus::placeholder {
+    color: #512da8;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-800:focus::placeholder {
+    color: #4527a0;
+  }
+
+  .lg\:focus\:placeholder-deeppurple-900:focus::placeholder {
+    color: #311b92;
+  }
+
+  .lg\:focus\:placeholder-indigo-50:focus::placeholder {
+    color: #e8eaf6;
+  }
+
+  .lg\:focus\:placeholder-indigo-100:focus::placeholder {
+    color: #c5cae9;
+  }
+
+  .lg\:focus\:placeholder-indigo-200:focus::placeholder {
+    color: #9fa8da;
+  }
+
+  .lg\:focus\:placeholder-indigo-300:focus::placeholder {
+    color: #7986cb;
+  }
+
+  .lg\:focus\:placeholder-indigo-400:focus::placeholder {
+    color: #5c6bc0;
+  }
+
+  .lg\:focus\:placeholder-indigo-500:focus::placeholder {
+    color: #3f51b5;
+  }
+
+  .lg\:focus\:placeholder-indigo-600:focus::placeholder {
+    color: #3949ab;
+  }
+
+  .lg\:focus\:placeholder-indigo-700:focus::placeholder {
+    color: #303f9f;
+  }
+
+  .lg\:focus\:placeholder-indigo-800:focus::placeholder {
+    color: #283593;
+  }
+
+  .lg\:focus\:placeholder-indigo-900:focus::placeholder {
+    color: #1a237e;
+  }
+
+  .lg\:focus\:placeholder-blue-50:focus::placeholder {
+    color: #e3f2fd;
+  }
+
+  .lg\:focus\:placeholder-blue-100:focus::placeholder {
+    color: #bbdefb;
+  }
+
+  .lg\:focus\:placeholder-blue-200:focus::placeholder {
+    color: #90caf9;
+  }
+
+  .lg\:focus\:placeholder-blue-300:focus::placeholder {
+    color: #64b5f6;
+  }
+
+  .lg\:focus\:placeholder-blue-400:focus::placeholder {
+    color: #42a5f5;
+  }
+
+  .lg\:focus\:placeholder-blue-500:focus::placeholder {
+    color: #2196f3;
+  }
+
+  .lg\:focus\:placeholder-blue-600:focus::placeholder {
+    color: #1e88e5;
+  }
+
+  .lg\:focus\:placeholder-blue-700:focus::placeholder {
+    color: #1976d2;
+  }
+
+  .lg\:focus\:placeholder-blue-800:focus::placeholder {
+    color: #1565c0;
+  }
+
+  .lg\:focus\:placeholder-blue-900:focus::placeholder {
+    color: #0d47a1;
+  }
+
+  .lg\:focus\:placeholder-lightblue-50:focus::placeholder {
+    color: #e1f5fe;
+  }
+
+  .lg\:focus\:placeholder-lightblue-100:focus::placeholder {
+    color: #b3e5fc;
+  }
+
+  .lg\:focus\:placeholder-lightblue-200:focus::placeholder {
+    color: #81d4fa;
+  }
+
+  .lg\:focus\:placeholder-lightblue-300:focus::placeholder {
+    color: #4fc3f7;
+  }
+
+  .lg\:focus\:placeholder-lightblue-400:focus::placeholder {
+    color: #29b6f6;
+  }
+
+  .lg\:focus\:placeholder-lightblue-500:focus::placeholder {
+    color: #03a9f4;
+  }
+
+  .lg\:focus\:placeholder-lightblue-600:focus::placeholder {
+    color: #039be5;
+  }
+
+  .lg\:focus\:placeholder-lightblue-700:focus::placeholder {
+    color: #0288d1;
+  }
+
+  .lg\:focus\:placeholder-lightblue-800:focus::placeholder {
+    color: #0277bd;
+  }
+
+  .lg\:focus\:placeholder-lightblue-900:focus::placeholder {
+    color: #01579b;
+  }
+
+  .lg\:focus\:placeholder-cyan-50:focus::placeholder {
+    color: #e0f7fa;
+  }
+
+  .lg\:focus\:placeholder-cyan-100:focus::placeholder {
+    color: #b2ebf2;
+  }
+
+  .lg\:focus\:placeholder-cyan-200:focus::placeholder {
+    color: #80deea;
+  }
+
+  .lg\:focus\:placeholder-cyan-300:focus::placeholder {
+    color: #4dd0e1;
+  }
+
+  .lg\:focus\:placeholder-cyan-400:focus::placeholder {
+    color: #26c6da;
+  }
+
+  .lg\:focus\:placeholder-cyan-500:focus::placeholder {
+    color: #00bcd4;
+  }
+
+  .lg\:focus\:placeholder-cyan-600:focus::placeholder {
+    color: #00acc1;
+  }
+
+  .lg\:focus\:placeholder-cyan-700:focus::placeholder {
+    color: #0097a7;
+  }
+
+  .lg\:focus\:placeholder-cyan-800:focus::placeholder {
+    color: #00838f;
+  }
+
+  .lg\:focus\:placeholder-cyan-900:focus::placeholder {
+    color: #006064;
+  }
+
+  .lg\:focus\:placeholder-teal-50:focus::placeholder {
+    color: #e0f2f1;
+  }
+
+  .lg\:focus\:placeholder-teal-100:focus::placeholder {
+    color: #b2dfdb;
+  }
+
+  .lg\:focus\:placeholder-teal-200:focus::placeholder {
+    color: #80cbc4;
+  }
+
+  .lg\:focus\:placeholder-teal-300:focus::placeholder {
+    color: #4db6ac;
+  }
+
+  .lg\:focus\:placeholder-teal-400:focus::placeholder {
+    color: #26a69a;
+  }
+
+  .lg\:focus\:placeholder-teal-500:focus::placeholder {
+    color: #009688;
+  }
+
+  .lg\:focus\:placeholder-teal-600:focus::placeholder {
+    color: #00897b;
+  }
+
+  .lg\:focus\:placeholder-teal-700:focus::placeholder {
+    color: #00796b;
+  }
+
+  .lg\:focus\:placeholder-teal-800:focus::placeholder {
+    color: #00695c;
+  }
+
+  .lg\:focus\:placeholder-teal-900:focus::placeholder {
+    color: #004d40;
+  }
+
+  .lg\:focus\:placeholder-green-50:focus::placeholder {
+    color: #e8f5e9;
+  }
+
+  .lg\:focus\:placeholder-green-100:focus::placeholder {
+    color: #c8e6c9;
+  }
+
+  .lg\:focus\:placeholder-green-200:focus::placeholder {
+    color: #a5d6a7;
+  }
+
+  .lg\:focus\:placeholder-green-300:focus::placeholder {
+    color: #81c784;
+  }
+
+  .lg\:focus\:placeholder-green-400:focus::placeholder {
+    color: #66bb6a;
+  }
+
+  .lg\:focus\:placeholder-green-500:focus::placeholder {
+    color: #4caf50;
+  }
+
+  .lg\:focus\:placeholder-green-600:focus::placeholder {
+    color: #43a047;
+  }
+
+  .lg\:focus\:placeholder-green-700:focus::placeholder {
+    color: #388e3c;
+  }
+
+  .lg\:focus\:placeholder-green-800:focus::placeholder {
+    color: #2e7d32;
+  }
+
+  .lg\:focus\:placeholder-green-900:focus::placeholder {
+    color: #1b5e20;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-50:focus::placeholder {
+    color: #f1f8e9;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-100:focus::placeholder {
+    color: #dcedc8;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-200:focus::placeholder {
+    color: #c5e1a5;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-300:focus::placeholder {
+    color: #aed581;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-400:focus::placeholder {
+    color: #9ccc65;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-500:focus::placeholder {
+    color: #8bc34a;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-600:focus::placeholder {
+    color: #7cb342;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-700:focus::placeholder {
+    color: #689f38;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-800:focus::placeholder {
+    color: #558b2f;
+  }
+
+  .lg\:focus\:placeholder-lightgreen-900:focus::placeholder {
+    color: #33691e;
+  }
+
+  .lg\:focus\:placeholder-lime-50:focus::placeholder {
+    color: #f9fbe7;
+  }
+
+  .lg\:focus\:placeholder-lime-100:focus::placeholder {
+    color: #f0f4c3;
+  }
+
+  .lg\:focus\:placeholder-lime-200:focus::placeholder {
+    color: #e6ee9c;
+  }
+
+  .lg\:focus\:placeholder-lime-300:focus::placeholder {
+    color: #dce775;
+  }
+
+  .lg\:focus\:placeholder-lime-400:focus::placeholder {
+    color: #d4e157;
+  }
+
+  .lg\:focus\:placeholder-lime-500:focus::placeholder {
+    color: #cddc39;
+  }
+
+  .lg\:focus\:placeholder-lime-600:focus::placeholder {
+    color: #c0ca33;
+  }
+
+  .lg\:focus\:placeholder-lime-700:focus::placeholder {
+    color: #afb42b;
+  }
+
+  .lg\:focus\:placeholder-lime-800:focus::placeholder {
+    color: #9e9d24;
+  }
+
+  .lg\:focus\:placeholder-lime-900:focus::placeholder {
+    color: #827717;
+  }
+
+  .lg\:focus\:placeholder-yellow-50:focus::placeholder {
+    color: #fffde7;
+  }
+
+  .lg\:focus\:placeholder-yellow-100:focus::placeholder {
+    color: #fff9c4;
+  }
+
+  .lg\:focus\:placeholder-yellow-200:focus::placeholder {
+    color: #fff59d;
+  }
+
+  .lg\:focus\:placeholder-yellow-300:focus::placeholder {
+    color: #fff176;
+  }
+
+  .lg\:focus\:placeholder-yellow-400:focus::placeholder {
+    color: #ffee58;
+  }
+
+  .lg\:focus\:placeholder-yellow-500:focus::placeholder {
+    color: #ffeb3b;
+  }
+
+  .lg\:focus\:placeholder-yellow-600:focus::placeholder {
+    color: #fdd835;
+  }
+
+  .lg\:focus\:placeholder-yellow-700:focus::placeholder {
+    color: #fbc02d;
+  }
+
+  .lg\:focus\:placeholder-yellow-800:focus::placeholder {
+    color: #f9a825;
+  }
+
+  .lg\:focus\:placeholder-yellow-900:focus::placeholder {
+    color: #f57f17;
+  }
+
+  .lg\:focus\:placeholder-amber-50:focus::placeholder {
+    color: #fff8e1;
+  }
+
+  .lg\:focus\:placeholder-amber-100:focus::placeholder {
+    color: #ffecb3;
+  }
+
+  .lg\:focus\:placeholder-amber-200:focus::placeholder {
+    color: #ffe082;
+  }
+
+  .lg\:focus\:placeholder-amber-300:focus::placeholder {
+    color: #ffd54f;
+  }
+
+  .lg\:focus\:placeholder-amber-400:focus::placeholder {
+    color: #ffca28;
+  }
+
+  .lg\:focus\:placeholder-amber-500:focus::placeholder {
+    color: #ffc107;
+  }
+
+  .lg\:focus\:placeholder-amber-600:focus::placeholder {
+    color: #ffb300;
+  }
+
+  .lg\:focus\:placeholder-amber-700:focus::placeholder {
+    color: #ffa000;
+  }
+
+  .lg\:focus\:placeholder-amber-800:focus::placeholder {
+    color: #ff8f00;
+  }
+
+  .lg\:focus\:placeholder-amber-900:focus::placeholder {
+    color: #ff6f00;
+  }
+
+  .lg\:focus\:placeholder-orange-50:focus::placeholder {
+    color: #fff3e0;
+  }
+
+  .lg\:focus\:placeholder-orange-100:focus::placeholder {
+    color: #ffe0b2;
+  }
+
+  .lg\:focus\:placeholder-orange-200:focus::placeholder {
+    color: #ffcc80;
+  }
+
+  .lg\:focus\:placeholder-orange-300:focus::placeholder {
+    color: #ffb74d;
+  }
+
+  .lg\:focus\:placeholder-orange-400:focus::placeholder {
+    color: #ffa726;
+  }
+
+  .lg\:focus\:placeholder-orange-500:focus::placeholder {
+    color: #ff9800;
+  }
+
+  .lg\:focus\:placeholder-orange-600:focus::placeholder {
+    color: #fb8c00;
+  }
+
+  .lg\:focus\:placeholder-orange-700:focus::placeholder {
+    color: #f57c00;
+  }
+
+  .lg\:focus\:placeholder-orange-800:focus::placeholder {
+    color: #ef6c00;
+  }
+
+  .lg\:focus\:placeholder-orange-900:focus::placeholder {
+    color: #e65100;
+  }
+
+  .lg\:focus\:placeholder-deeporange-50:focus::placeholder {
+    color: #fbe9e7;
+  }
+
+  .lg\:focus\:placeholder-deeporange-100:focus::placeholder {
+    color: #ffccbc;
+  }
+
+  .lg\:focus\:placeholder-deeporange-200:focus::placeholder {
+    color: #ffab91;
+  }
+
+  .lg\:focus\:placeholder-deeporange-300:focus::placeholder {
+    color: #ff8a65;
+  }
+
+  .lg\:focus\:placeholder-deeporange-400:focus::placeholder {
+    color: #ff7043;
+  }
+
+  .lg\:focus\:placeholder-deeporange-500:focus::placeholder {
+    color: #ff5722;
+  }
+
+  .lg\:focus\:placeholder-deeporange-600:focus::placeholder {
+    color: #f4511e;
+  }
+
+  .lg\:focus\:placeholder-deeporange-700:focus::placeholder {
+    color: #e64a19;
+  }
+
+  .lg\:focus\:placeholder-deeporange-800:focus::placeholder {
+    color: #d84315;
+  }
+
+  .lg\:focus\:placeholder-deeporange-900:focus::placeholder {
+    color: #bf360c;
+  }
+
+  .lg\:focus\:placeholder-brown-50:focus::placeholder {
+    color: #efebe9;
+  }
+
+  .lg\:focus\:placeholder-brown-100:focus::placeholder {
+    color: #d7ccc8;
+  }
+
+  .lg\:focus\:placeholder-brown-200:focus::placeholder {
+    color: #bcaaa4;
+  }
+
+  .lg\:focus\:placeholder-brown-300:focus::placeholder {
+    color: #a1887f;
+  }
+
+  .lg\:focus\:placeholder-brown-400:focus::placeholder {
+    color: #8d6e63;
+  }
+
+  .lg\:focus\:placeholder-brown-500:focus::placeholder {
+    color: #795548;
+  }
+
+  .lg\:focus\:placeholder-brown-600:focus::placeholder {
+    color: #6d4c41;
+  }
+
+  .lg\:focus\:placeholder-brown-700:focus::placeholder {
+    color: #5d4037;
+  }
+
+  .lg\:focus\:placeholder-brown-800:focus::placeholder {
+    color: #4e342e;
+  }
+
+  .lg\:focus\:placeholder-brown-900:focus::placeholder {
+    color: #3e2723;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-50:focus::placeholder {
+    color: #eceff1;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-100:focus::placeholder {
+    color: #cfd8dc;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-200:focus::placeholder {
+    color: #b0bec5;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-300:focus::placeholder {
+    color: #90a4ae;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-400:focus::placeholder {
+    color: #78909c;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-500:focus::placeholder {
+    color: #607d8b;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-600:focus::placeholder {
+    color: #546e7a;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-700:focus::placeholder {
+    color: #455a64;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-800:focus::placeholder {
+    color: #37474f;
+  }
+
+  .lg\:focus\:placeholder-bluegrey-900:focus::placeholder {
+    color: #263238;
   }
 
   .lg\:pointer-events-none {
@@ -43563,6 +49915,52 @@ body {
 }
 
 @media (min-width: 1280px) {
+  .xl\:sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .xl\:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .xl\:focus\:sr-only:focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .xl\:focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
   .xl\:appearance-none {
     appearance: none;
   }
@@ -48479,6 +54877,10 @@ body {
     border-style: dotted;
   }
 
+  .xl\:border-double {
+    border-style: double;
+  }
+
   .xl\:border-none {
     border-style: none;
   }
@@ -51081,6 +57483,1542 @@ body {
 
   .xl\:pl-px {
     padding-left: 1px;
+  }
+
+  .xl\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
+  .xl\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-grey-100::placeholder {
+    color: #f6f6f6;
+  }
+
+  .xl\:placeholder-grey-200::placeholder {
+    color: #eeeeee;
+  }
+
+  .xl\:placeholder-grey-300::placeholder {
+    color: #bdbdbd;
+  }
+
+  .xl\:placeholder-grey-400::placeholder {
+    color: #9e9e9e;
+  }
+
+  .xl\:placeholder-grey-500::placeholder {
+    color: #757575;
+  }
+
+  .xl\:placeholder-grey-600::placeholder {
+    color: #616161;
+  }
+
+  .xl\:placeholder-grey-700::placeholder {
+    color: #424242;
+  }
+
+  .xl\:placeholder-grey-800::placeholder {
+    color: #212121;
+  }
+
+  .xl\:placeholder-grey-900::placeholder {
+    color: #111111;
+  }
+
+  .xl\:placeholder-red-50::placeholder {
+    color: #ffebee;
+  }
+
+  .xl\:placeholder-red-100::placeholder {
+    color: #ffcdd2;
+  }
+
+  .xl\:placeholder-red-200::placeholder {
+    color: #ef9a9a;
+  }
+
+  .xl\:placeholder-red-300::placeholder {
+    color: #e57373;
+  }
+
+  .xl\:placeholder-red-400::placeholder {
+    color: #ef5350;
+  }
+
+  .xl\:placeholder-red-500::placeholder {
+    color: #f44336;
+  }
+
+  .xl\:placeholder-red-600::placeholder {
+    color: #e53935;
+  }
+
+  .xl\:placeholder-red-700::placeholder {
+    color: #d32f2f;
+  }
+
+  .xl\:placeholder-red-800::placeholder {
+    color: #c62828;
+  }
+
+  .xl\:placeholder-red-900::placeholder {
+    color: #b71c1c;
+  }
+
+  .xl\:placeholder-pink-50::placeholder {
+    color: #fce4ec;
+  }
+
+  .xl\:placeholder-pink-100::placeholder {
+    color: #f8bbd0;
+  }
+
+  .xl\:placeholder-pink-200::placeholder {
+    color: #f48fb1;
+  }
+
+  .xl\:placeholder-pink-300::placeholder {
+    color: #f06292;
+  }
+
+  .xl\:placeholder-pink-400::placeholder {
+    color: #ec407a;
+  }
+
+  .xl\:placeholder-pink-500::placeholder {
+    color: #e91e63;
+  }
+
+  .xl\:placeholder-pink-600::placeholder {
+    color: #d81b60;
+  }
+
+  .xl\:placeholder-pink-700::placeholder {
+    color: #c2185b;
+  }
+
+  .xl\:placeholder-pink-800::placeholder {
+    color: #ad1457;
+  }
+
+  .xl\:placeholder-pink-900::placeholder {
+    color: #880e4f;
+  }
+
+  .xl\:placeholder-purple-50::placeholder {
+    color: #f3e5f5;
+  }
+
+  .xl\:placeholder-purple-100::placeholder {
+    color: #e1bee7;
+  }
+
+  .xl\:placeholder-purple-200::placeholder {
+    color: #ce93d8;
+  }
+
+  .xl\:placeholder-purple-300::placeholder {
+    color: #ba68c8;
+  }
+
+  .xl\:placeholder-purple-400::placeholder {
+    color: #ab47bc;
+  }
+
+  .xl\:placeholder-purple-500::placeholder {
+    color: #9c27b0;
+  }
+
+  .xl\:placeholder-purple-600::placeholder {
+    color: #8e24aa;
+  }
+
+  .xl\:placeholder-purple-700::placeholder {
+    color: #7b1fa2;
+  }
+
+  .xl\:placeholder-purple-800::placeholder {
+    color: #6a1b9a;
+  }
+
+  .xl\:placeholder-purple-900::placeholder {
+    color: #4a148c;
+  }
+
+  .xl\:placeholder-deeppurple-50::placeholder {
+    color: #ede7f6;
+  }
+
+  .xl\:placeholder-deeppurple-100::placeholder {
+    color: #d1c4e9;
+  }
+
+  .xl\:placeholder-deeppurple-200::placeholder {
+    color: #b39ddb;
+  }
+
+  .xl\:placeholder-deeppurple-300::placeholder {
+    color: #9575cd;
+  }
+
+  .xl\:placeholder-deeppurple-400::placeholder {
+    color: #7e57c2;
+  }
+
+  .xl\:placeholder-deeppurple-500::placeholder {
+    color: #673ab7;
+  }
+
+  .xl\:placeholder-deeppurple-600::placeholder {
+    color: #5e35b1;
+  }
+
+  .xl\:placeholder-deeppurple-700::placeholder {
+    color: #512da8;
+  }
+
+  .xl\:placeholder-deeppurple-800::placeholder {
+    color: #4527a0;
+  }
+
+  .xl\:placeholder-deeppurple-900::placeholder {
+    color: #311b92;
+  }
+
+  .xl\:placeholder-indigo-50::placeholder {
+    color: #e8eaf6;
+  }
+
+  .xl\:placeholder-indigo-100::placeholder {
+    color: #c5cae9;
+  }
+
+  .xl\:placeholder-indigo-200::placeholder {
+    color: #9fa8da;
+  }
+
+  .xl\:placeholder-indigo-300::placeholder {
+    color: #7986cb;
+  }
+
+  .xl\:placeholder-indigo-400::placeholder {
+    color: #5c6bc0;
+  }
+
+  .xl\:placeholder-indigo-500::placeholder {
+    color: #3f51b5;
+  }
+
+  .xl\:placeholder-indigo-600::placeholder {
+    color: #3949ab;
+  }
+
+  .xl\:placeholder-indigo-700::placeholder {
+    color: #303f9f;
+  }
+
+  .xl\:placeholder-indigo-800::placeholder {
+    color: #283593;
+  }
+
+  .xl\:placeholder-indigo-900::placeholder {
+    color: #1a237e;
+  }
+
+  .xl\:placeholder-blue-50::placeholder {
+    color: #e3f2fd;
+  }
+
+  .xl\:placeholder-blue-100::placeholder {
+    color: #bbdefb;
+  }
+
+  .xl\:placeholder-blue-200::placeholder {
+    color: #90caf9;
+  }
+
+  .xl\:placeholder-blue-300::placeholder {
+    color: #64b5f6;
+  }
+
+  .xl\:placeholder-blue-400::placeholder {
+    color: #42a5f5;
+  }
+
+  .xl\:placeholder-blue-500::placeholder {
+    color: #2196f3;
+  }
+
+  .xl\:placeholder-blue-600::placeholder {
+    color: #1e88e5;
+  }
+
+  .xl\:placeholder-blue-700::placeholder {
+    color: #1976d2;
+  }
+
+  .xl\:placeholder-blue-800::placeholder {
+    color: #1565c0;
+  }
+
+  .xl\:placeholder-blue-900::placeholder {
+    color: #0d47a1;
+  }
+
+  .xl\:placeholder-lightblue-50::placeholder {
+    color: #e1f5fe;
+  }
+
+  .xl\:placeholder-lightblue-100::placeholder {
+    color: #b3e5fc;
+  }
+
+  .xl\:placeholder-lightblue-200::placeholder {
+    color: #81d4fa;
+  }
+
+  .xl\:placeholder-lightblue-300::placeholder {
+    color: #4fc3f7;
+  }
+
+  .xl\:placeholder-lightblue-400::placeholder {
+    color: #29b6f6;
+  }
+
+  .xl\:placeholder-lightblue-500::placeholder {
+    color: #03a9f4;
+  }
+
+  .xl\:placeholder-lightblue-600::placeholder {
+    color: #039be5;
+  }
+
+  .xl\:placeholder-lightblue-700::placeholder {
+    color: #0288d1;
+  }
+
+  .xl\:placeholder-lightblue-800::placeholder {
+    color: #0277bd;
+  }
+
+  .xl\:placeholder-lightblue-900::placeholder {
+    color: #01579b;
+  }
+
+  .xl\:placeholder-cyan-50::placeholder {
+    color: #e0f7fa;
+  }
+
+  .xl\:placeholder-cyan-100::placeholder {
+    color: #b2ebf2;
+  }
+
+  .xl\:placeholder-cyan-200::placeholder {
+    color: #80deea;
+  }
+
+  .xl\:placeholder-cyan-300::placeholder {
+    color: #4dd0e1;
+  }
+
+  .xl\:placeholder-cyan-400::placeholder {
+    color: #26c6da;
+  }
+
+  .xl\:placeholder-cyan-500::placeholder {
+    color: #00bcd4;
+  }
+
+  .xl\:placeholder-cyan-600::placeholder {
+    color: #00acc1;
+  }
+
+  .xl\:placeholder-cyan-700::placeholder {
+    color: #0097a7;
+  }
+
+  .xl\:placeholder-cyan-800::placeholder {
+    color: #00838f;
+  }
+
+  .xl\:placeholder-cyan-900::placeholder {
+    color: #006064;
+  }
+
+  .xl\:placeholder-teal-50::placeholder {
+    color: #e0f2f1;
+  }
+
+  .xl\:placeholder-teal-100::placeholder {
+    color: #b2dfdb;
+  }
+
+  .xl\:placeholder-teal-200::placeholder {
+    color: #80cbc4;
+  }
+
+  .xl\:placeholder-teal-300::placeholder {
+    color: #4db6ac;
+  }
+
+  .xl\:placeholder-teal-400::placeholder {
+    color: #26a69a;
+  }
+
+  .xl\:placeholder-teal-500::placeholder {
+    color: #009688;
+  }
+
+  .xl\:placeholder-teal-600::placeholder {
+    color: #00897b;
+  }
+
+  .xl\:placeholder-teal-700::placeholder {
+    color: #00796b;
+  }
+
+  .xl\:placeholder-teal-800::placeholder {
+    color: #00695c;
+  }
+
+  .xl\:placeholder-teal-900::placeholder {
+    color: #004d40;
+  }
+
+  .xl\:placeholder-green-50::placeholder {
+    color: #e8f5e9;
+  }
+
+  .xl\:placeholder-green-100::placeholder {
+    color: #c8e6c9;
+  }
+
+  .xl\:placeholder-green-200::placeholder {
+    color: #a5d6a7;
+  }
+
+  .xl\:placeholder-green-300::placeholder {
+    color: #81c784;
+  }
+
+  .xl\:placeholder-green-400::placeholder {
+    color: #66bb6a;
+  }
+
+  .xl\:placeholder-green-500::placeholder {
+    color: #4caf50;
+  }
+
+  .xl\:placeholder-green-600::placeholder {
+    color: #43a047;
+  }
+
+  .xl\:placeholder-green-700::placeholder {
+    color: #388e3c;
+  }
+
+  .xl\:placeholder-green-800::placeholder {
+    color: #2e7d32;
+  }
+
+  .xl\:placeholder-green-900::placeholder {
+    color: #1b5e20;
+  }
+
+  .xl\:placeholder-lightgreen-50::placeholder {
+    color: #f1f8e9;
+  }
+
+  .xl\:placeholder-lightgreen-100::placeholder {
+    color: #dcedc8;
+  }
+
+  .xl\:placeholder-lightgreen-200::placeholder {
+    color: #c5e1a5;
+  }
+
+  .xl\:placeholder-lightgreen-300::placeholder {
+    color: #aed581;
+  }
+
+  .xl\:placeholder-lightgreen-400::placeholder {
+    color: #9ccc65;
+  }
+
+  .xl\:placeholder-lightgreen-500::placeholder {
+    color: #8bc34a;
+  }
+
+  .xl\:placeholder-lightgreen-600::placeholder {
+    color: #7cb342;
+  }
+
+  .xl\:placeholder-lightgreen-700::placeholder {
+    color: #689f38;
+  }
+
+  .xl\:placeholder-lightgreen-800::placeholder {
+    color: #558b2f;
+  }
+
+  .xl\:placeholder-lightgreen-900::placeholder {
+    color: #33691e;
+  }
+
+  .xl\:placeholder-lime-50::placeholder {
+    color: #f9fbe7;
+  }
+
+  .xl\:placeholder-lime-100::placeholder {
+    color: #f0f4c3;
+  }
+
+  .xl\:placeholder-lime-200::placeholder {
+    color: #e6ee9c;
+  }
+
+  .xl\:placeholder-lime-300::placeholder {
+    color: #dce775;
+  }
+
+  .xl\:placeholder-lime-400::placeholder {
+    color: #d4e157;
+  }
+
+  .xl\:placeholder-lime-500::placeholder {
+    color: #cddc39;
+  }
+
+  .xl\:placeholder-lime-600::placeholder {
+    color: #c0ca33;
+  }
+
+  .xl\:placeholder-lime-700::placeholder {
+    color: #afb42b;
+  }
+
+  .xl\:placeholder-lime-800::placeholder {
+    color: #9e9d24;
+  }
+
+  .xl\:placeholder-lime-900::placeholder {
+    color: #827717;
+  }
+
+  .xl\:placeholder-yellow-50::placeholder {
+    color: #fffde7;
+  }
+
+  .xl\:placeholder-yellow-100::placeholder {
+    color: #fff9c4;
+  }
+
+  .xl\:placeholder-yellow-200::placeholder {
+    color: #fff59d;
+  }
+
+  .xl\:placeholder-yellow-300::placeholder {
+    color: #fff176;
+  }
+
+  .xl\:placeholder-yellow-400::placeholder {
+    color: #ffee58;
+  }
+
+  .xl\:placeholder-yellow-500::placeholder {
+    color: #ffeb3b;
+  }
+
+  .xl\:placeholder-yellow-600::placeholder {
+    color: #fdd835;
+  }
+
+  .xl\:placeholder-yellow-700::placeholder {
+    color: #fbc02d;
+  }
+
+  .xl\:placeholder-yellow-800::placeholder {
+    color: #f9a825;
+  }
+
+  .xl\:placeholder-yellow-900::placeholder {
+    color: #f57f17;
+  }
+
+  .xl\:placeholder-amber-50::placeholder {
+    color: #fff8e1;
+  }
+
+  .xl\:placeholder-amber-100::placeholder {
+    color: #ffecb3;
+  }
+
+  .xl\:placeholder-amber-200::placeholder {
+    color: #ffe082;
+  }
+
+  .xl\:placeholder-amber-300::placeholder {
+    color: #ffd54f;
+  }
+
+  .xl\:placeholder-amber-400::placeholder {
+    color: #ffca28;
+  }
+
+  .xl\:placeholder-amber-500::placeholder {
+    color: #ffc107;
+  }
+
+  .xl\:placeholder-amber-600::placeholder {
+    color: #ffb300;
+  }
+
+  .xl\:placeholder-amber-700::placeholder {
+    color: #ffa000;
+  }
+
+  .xl\:placeholder-amber-800::placeholder {
+    color: #ff8f00;
+  }
+
+  .xl\:placeholder-amber-900::placeholder {
+    color: #ff6f00;
+  }
+
+  .xl\:placeholder-orange-50::placeholder {
+    color: #fff3e0;
+  }
+
+  .xl\:placeholder-orange-100::placeholder {
+    color: #ffe0b2;
+  }
+
+  .xl\:placeholder-orange-200::placeholder {
+    color: #ffcc80;
+  }
+
+  .xl\:placeholder-orange-300::placeholder {
+    color: #ffb74d;
+  }
+
+  .xl\:placeholder-orange-400::placeholder {
+    color: #ffa726;
+  }
+
+  .xl\:placeholder-orange-500::placeholder {
+    color: #ff9800;
+  }
+
+  .xl\:placeholder-orange-600::placeholder {
+    color: #fb8c00;
+  }
+
+  .xl\:placeholder-orange-700::placeholder {
+    color: #f57c00;
+  }
+
+  .xl\:placeholder-orange-800::placeholder {
+    color: #ef6c00;
+  }
+
+  .xl\:placeholder-orange-900::placeholder {
+    color: #e65100;
+  }
+
+  .xl\:placeholder-deeporange-50::placeholder {
+    color: #fbe9e7;
+  }
+
+  .xl\:placeholder-deeporange-100::placeholder {
+    color: #ffccbc;
+  }
+
+  .xl\:placeholder-deeporange-200::placeholder {
+    color: #ffab91;
+  }
+
+  .xl\:placeholder-deeporange-300::placeholder {
+    color: #ff8a65;
+  }
+
+  .xl\:placeholder-deeporange-400::placeholder {
+    color: #ff7043;
+  }
+
+  .xl\:placeholder-deeporange-500::placeholder {
+    color: #ff5722;
+  }
+
+  .xl\:placeholder-deeporange-600::placeholder {
+    color: #f4511e;
+  }
+
+  .xl\:placeholder-deeporange-700::placeholder {
+    color: #e64a19;
+  }
+
+  .xl\:placeholder-deeporange-800::placeholder {
+    color: #d84315;
+  }
+
+  .xl\:placeholder-deeporange-900::placeholder {
+    color: #bf360c;
+  }
+
+  .xl\:placeholder-brown-50::placeholder {
+    color: #efebe9;
+  }
+
+  .xl\:placeholder-brown-100::placeholder {
+    color: #d7ccc8;
+  }
+
+  .xl\:placeholder-brown-200::placeholder {
+    color: #bcaaa4;
+  }
+
+  .xl\:placeholder-brown-300::placeholder {
+    color: #a1887f;
+  }
+
+  .xl\:placeholder-brown-400::placeholder {
+    color: #8d6e63;
+  }
+
+  .xl\:placeholder-brown-500::placeholder {
+    color: #795548;
+  }
+
+  .xl\:placeholder-brown-600::placeholder {
+    color: #6d4c41;
+  }
+
+  .xl\:placeholder-brown-700::placeholder {
+    color: #5d4037;
+  }
+
+  .xl\:placeholder-brown-800::placeholder {
+    color: #4e342e;
+  }
+
+  .xl\:placeholder-brown-900::placeholder {
+    color: #3e2723;
+  }
+
+  .xl\:placeholder-bluegrey-50::placeholder {
+    color: #eceff1;
+  }
+
+  .xl\:placeholder-bluegrey-100::placeholder {
+    color: #cfd8dc;
+  }
+
+  .xl\:placeholder-bluegrey-200::placeholder {
+    color: #b0bec5;
+  }
+
+  .xl\:placeholder-bluegrey-300::placeholder {
+    color: #90a4ae;
+  }
+
+  .xl\:placeholder-bluegrey-400::placeholder {
+    color: #78909c;
+  }
+
+  .xl\:placeholder-bluegrey-500::placeholder {
+    color: #607d8b;
+  }
+
+  .xl\:placeholder-bluegrey-600::placeholder {
+    color: #546e7a;
+  }
+
+  .xl\:placeholder-bluegrey-700::placeholder {
+    color: #455a64;
+  }
+
+  .xl\:placeholder-bluegrey-800::placeholder {
+    color: #37474f;
+  }
+
+  .xl\:placeholder-bluegrey-900::placeholder {
+    color: #263238;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
+  }
+
+  .xl\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-grey-100:focus::placeholder {
+    color: #f6f6f6;
+  }
+
+  .xl\:focus\:placeholder-grey-200:focus::placeholder {
+    color: #eeeeee;
+  }
+
+  .xl\:focus\:placeholder-grey-300:focus::placeholder {
+    color: #bdbdbd;
+  }
+
+  .xl\:focus\:placeholder-grey-400:focus::placeholder {
+    color: #9e9e9e;
+  }
+
+  .xl\:focus\:placeholder-grey-500:focus::placeholder {
+    color: #757575;
+  }
+
+  .xl\:focus\:placeholder-grey-600:focus::placeholder {
+    color: #616161;
+  }
+
+  .xl\:focus\:placeholder-grey-700:focus::placeholder {
+    color: #424242;
+  }
+
+  .xl\:focus\:placeholder-grey-800:focus::placeholder {
+    color: #212121;
+  }
+
+  .xl\:focus\:placeholder-grey-900:focus::placeholder {
+    color: #111111;
+  }
+
+  .xl\:focus\:placeholder-red-50:focus::placeholder {
+    color: #ffebee;
+  }
+
+  .xl\:focus\:placeholder-red-100:focus::placeholder {
+    color: #ffcdd2;
+  }
+
+  .xl\:focus\:placeholder-red-200:focus::placeholder {
+    color: #ef9a9a;
+  }
+
+  .xl\:focus\:placeholder-red-300:focus::placeholder {
+    color: #e57373;
+  }
+
+  .xl\:focus\:placeholder-red-400:focus::placeholder {
+    color: #ef5350;
+  }
+
+  .xl\:focus\:placeholder-red-500:focus::placeholder {
+    color: #f44336;
+  }
+
+  .xl\:focus\:placeholder-red-600:focus::placeholder {
+    color: #e53935;
+  }
+
+  .xl\:focus\:placeholder-red-700:focus::placeholder {
+    color: #d32f2f;
+  }
+
+  .xl\:focus\:placeholder-red-800:focus::placeholder {
+    color: #c62828;
+  }
+
+  .xl\:focus\:placeholder-red-900:focus::placeholder {
+    color: #b71c1c;
+  }
+
+  .xl\:focus\:placeholder-pink-50:focus::placeholder {
+    color: #fce4ec;
+  }
+
+  .xl\:focus\:placeholder-pink-100:focus::placeholder {
+    color: #f8bbd0;
+  }
+
+  .xl\:focus\:placeholder-pink-200:focus::placeholder {
+    color: #f48fb1;
+  }
+
+  .xl\:focus\:placeholder-pink-300:focus::placeholder {
+    color: #f06292;
+  }
+
+  .xl\:focus\:placeholder-pink-400:focus::placeholder {
+    color: #ec407a;
+  }
+
+  .xl\:focus\:placeholder-pink-500:focus::placeholder {
+    color: #e91e63;
+  }
+
+  .xl\:focus\:placeholder-pink-600:focus::placeholder {
+    color: #d81b60;
+  }
+
+  .xl\:focus\:placeholder-pink-700:focus::placeholder {
+    color: #c2185b;
+  }
+
+  .xl\:focus\:placeholder-pink-800:focus::placeholder {
+    color: #ad1457;
+  }
+
+  .xl\:focus\:placeholder-pink-900:focus::placeholder {
+    color: #880e4f;
+  }
+
+  .xl\:focus\:placeholder-purple-50:focus::placeholder {
+    color: #f3e5f5;
+  }
+
+  .xl\:focus\:placeholder-purple-100:focus::placeholder {
+    color: #e1bee7;
+  }
+
+  .xl\:focus\:placeholder-purple-200:focus::placeholder {
+    color: #ce93d8;
+  }
+
+  .xl\:focus\:placeholder-purple-300:focus::placeholder {
+    color: #ba68c8;
+  }
+
+  .xl\:focus\:placeholder-purple-400:focus::placeholder {
+    color: #ab47bc;
+  }
+
+  .xl\:focus\:placeholder-purple-500:focus::placeholder {
+    color: #9c27b0;
+  }
+
+  .xl\:focus\:placeholder-purple-600:focus::placeholder {
+    color: #8e24aa;
+  }
+
+  .xl\:focus\:placeholder-purple-700:focus::placeholder {
+    color: #7b1fa2;
+  }
+
+  .xl\:focus\:placeholder-purple-800:focus::placeholder {
+    color: #6a1b9a;
+  }
+
+  .xl\:focus\:placeholder-purple-900:focus::placeholder {
+    color: #4a148c;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-50:focus::placeholder {
+    color: #ede7f6;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-100:focus::placeholder {
+    color: #d1c4e9;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-200:focus::placeholder {
+    color: #b39ddb;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-300:focus::placeholder {
+    color: #9575cd;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-400:focus::placeholder {
+    color: #7e57c2;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-500:focus::placeholder {
+    color: #673ab7;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-600:focus::placeholder {
+    color: #5e35b1;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-700:focus::placeholder {
+    color: #512da8;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-800:focus::placeholder {
+    color: #4527a0;
+  }
+
+  .xl\:focus\:placeholder-deeppurple-900:focus::placeholder {
+    color: #311b92;
+  }
+
+  .xl\:focus\:placeholder-indigo-50:focus::placeholder {
+    color: #e8eaf6;
+  }
+
+  .xl\:focus\:placeholder-indigo-100:focus::placeholder {
+    color: #c5cae9;
+  }
+
+  .xl\:focus\:placeholder-indigo-200:focus::placeholder {
+    color: #9fa8da;
+  }
+
+  .xl\:focus\:placeholder-indigo-300:focus::placeholder {
+    color: #7986cb;
+  }
+
+  .xl\:focus\:placeholder-indigo-400:focus::placeholder {
+    color: #5c6bc0;
+  }
+
+  .xl\:focus\:placeholder-indigo-500:focus::placeholder {
+    color: #3f51b5;
+  }
+
+  .xl\:focus\:placeholder-indigo-600:focus::placeholder {
+    color: #3949ab;
+  }
+
+  .xl\:focus\:placeholder-indigo-700:focus::placeholder {
+    color: #303f9f;
+  }
+
+  .xl\:focus\:placeholder-indigo-800:focus::placeholder {
+    color: #283593;
+  }
+
+  .xl\:focus\:placeholder-indigo-900:focus::placeholder {
+    color: #1a237e;
+  }
+
+  .xl\:focus\:placeholder-blue-50:focus::placeholder {
+    color: #e3f2fd;
+  }
+
+  .xl\:focus\:placeholder-blue-100:focus::placeholder {
+    color: #bbdefb;
+  }
+
+  .xl\:focus\:placeholder-blue-200:focus::placeholder {
+    color: #90caf9;
+  }
+
+  .xl\:focus\:placeholder-blue-300:focus::placeholder {
+    color: #64b5f6;
+  }
+
+  .xl\:focus\:placeholder-blue-400:focus::placeholder {
+    color: #42a5f5;
+  }
+
+  .xl\:focus\:placeholder-blue-500:focus::placeholder {
+    color: #2196f3;
+  }
+
+  .xl\:focus\:placeholder-blue-600:focus::placeholder {
+    color: #1e88e5;
+  }
+
+  .xl\:focus\:placeholder-blue-700:focus::placeholder {
+    color: #1976d2;
+  }
+
+  .xl\:focus\:placeholder-blue-800:focus::placeholder {
+    color: #1565c0;
+  }
+
+  .xl\:focus\:placeholder-blue-900:focus::placeholder {
+    color: #0d47a1;
+  }
+
+  .xl\:focus\:placeholder-lightblue-50:focus::placeholder {
+    color: #e1f5fe;
+  }
+
+  .xl\:focus\:placeholder-lightblue-100:focus::placeholder {
+    color: #b3e5fc;
+  }
+
+  .xl\:focus\:placeholder-lightblue-200:focus::placeholder {
+    color: #81d4fa;
+  }
+
+  .xl\:focus\:placeholder-lightblue-300:focus::placeholder {
+    color: #4fc3f7;
+  }
+
+  .xl\:focus\:placeholder-lightblue-400:focus::placeholder {
+    color: #29b6f6;
+  }
+
+  .xl\:focus\:placeholder-lightblue-500:focus::placeholder {
+    color: #03a9f4;
+  }
+
+  .xl\:focus\:placeholder-lightblue-600:focus::placeholder {
+    color: #039be5;
+  }
+
+  .xl\:focus\:placeholder-lightblue-700:focus::placeholder {
+    color: #0288d1;
+  }
+
+  .xl\:focus\:placeholder-lightblue-800:focus::placeholder {
+    color: #0277bd;
+  }
+
+  .xl\:focus\:placeholder-lightblue-900:focus::placeholder {
+    color: #01579b;
+  }
+
+  .xl\:focus\:placeholder-cyan-50:focus::placeholder {
+    color: #e0f7fa;
+  }
+
+  .xl\:focus\:placeholder-cyan-100:focus::placeholder {
+    color: #b2ebf2;
+  }
+
+  .xl\:focus\:placeholder-cyan-200:focus::placeholder {
+    color: #80deea;
+  }
+
+  .xl\:focus\:placeholder-cyan-300:focus::placeholder {
+    color: #4dd0e1;
+  }
+
+  .xl\:focus\:placeholder-cyan-400:focus::placeholder {
+    color: #26c6da;
+  }
+
+  .xl\:focus\:placeholder-cyan-500:focus::placeholder {
+    color: #00bcd4;
+  }
+
+  .xl\:focus\:placeholder-cyan-600:focus::placeholder {
+    color: #00acc1;
+  }
+
+  .xl\:focus\:placeholder-cyan-700:focus::placeholder {
+    color: #0097a7;
+  }
+
+  .xl\:focus\:placeholder-cyan-800:focus::placeholder {
+    color: #00838f;
+  }
+
+  .xl\:focus\:placeholder-cyan-900:focus::placeholder {
+    color: #006064;
+  }
+
+  .xl\:focus\:placeholder-teal-50:focus::placeholder {
+    color: #e0f2f1;
+  }
+
+  .xl\:focus\:placeholder-teal-100:focus::placeholder {
+    color: #b2dfdb;
+  }
+
+  .xl\:focus\:placeholder-teal-200:focus::placeholder {
+    color: #80cbc4;
+  }
+
+  .xl\:focus\:placeholder-teal-300:focus::placeholder {
+    color: #4db6ac;
+  }
+
+  .xl\:focus\:placeholder-teal-400:focus::placeholder {
+    color: #26a69a;
+  }
+
+  .xl\:focus\:placeholder-teal-500:focus::placeholder {
+    color: #009688;
+  }
+
+  .xl\:focus\:placeholder-teal-600:focus::placeholder {
+    color: #00897b;
+  }
+
+  .xl\:focus\:placeholder-teal-700:focus::placeholder {
+    color: #00796b;
+  }
+
+  .xl\:focus\:placeholder-teal-800:focus::placeholder {
+    color: #00695c;
+  }
+
+  .xl\:focus\:placeholder-teal-900:focus::placeholder {
+    color: #004d40;
+  }
+
+  .xl\:focus\:placeholder-green-50:focus::placeholder {
+    color: #e8f5e9;
+  }
+
+  .xl\:focus\:placeholder-green-100:focus::placeholder {
+    color: #c8e6c9;
+  }
+
+  .xl\:focus\:placeholder-green-200:focus::placeholder {
+    color: #a5d6a7;
+  }
+
+  .xl\:focus\:placeholder-green-300:focus::placeholder {
+    color: #81c784;
+  }
+
+  .xl\:focus\:placeholder-green-400:focus::placeholder {
+    color: #66bb6a;
+  }
+
+  .xl\:focus\:placeholder-green-500:focus::placeholder {
+    color: #4caf50;
+  }
+
+  .xl\:focus\:placeholder-green-600:focus::placeholder {
+    color: #43a047;
+  }
+
+  .xl\:focus\:placeholder-green-700:focus::placeholder {
+    color: #388e3c;
+  }
+
+  .xl\:focus\:placeholder-green-800:focus::placeholder {
+    color: #2e7d32;
+  }
+
+  .xl\:focus\:placeholder-green-900:focus::placeholder {
+    color: #1b5e20;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-50:focus::placeholder {
+    color: #f1f8e9;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-100:focus::placeholder {
+    color: #dcedc8;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-200:focus::placeholder {
+    color: #c5e1a5;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-300:focus::placeholder {
+    color: #aed581;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-400:focus::placeholder {
+    color: #9ccc65;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-500:focus::placeholder {
+    color: #8bc34a;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-600:focus::placeholder {
+    color: #7cb342;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-700:focus::placeholder {
+    color: #689f38;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-800:focus::placeholder {
+    color: #558b2f;
+  }
+
+  .xl\:focus\:placeholder-lightgreen-900:focus::placeholder {
+    color: #33691e;
+  }
+
+  .xl\:focus\:placeholder-lime-50:focus::placeholder {
+    color: #f9fbe7;
+  }
+
+  .xl\:focus\:placeholder-lime-100:focus::placeholder {
+    color: #f0f4c3;
+  }
+
+  .xl\:focus\:placeholder-lime-200:focus::placeholder {
+    color: #e6ee9c;
+  }
+
+  .xl\:focus\:placeholder-lime-300:focus::placeholder {
+    color: #dce775;
+  }
+
+  .xl\:focus\:placeholder-lime-400:focus::placeholder {
+    color: #d4e157;
+  }
+
+  .xl\:focus\:placeholder-lime-500:focus::placeholder {
+    color: #cddc39;
+  }
+
+  .xl\:focus\:placeholder-lime-600:focus::placeholder {
+    color: #c0ca33;
+  }
+
+  .xl\:focus\:placeholder-lime-700:focus::placeholder {
+    color: #afb42b;
+  }
+
+  .xl\:focus\:placeholder-lime-800:focus::placeholder {
+    color: #9e9d24;
+  }
+
+  .xl\:focus\:placeholder-lime-900:focus::placeholder {
+    color: #827717;
+  }
+
+  .xl\:focus\:placeholder-yellow-50:focus::placeholder {
+    color: #fffde7;
+  }
+
+  .xl\:focus\:placeholder-yellow-100:focus::placeholder {
+    color: #fff9c4;
+  }
+
+  .xl\:focus\:placeholder-yellow-200:focus::placeholder {
+    color: #fff59d;
+  }
+
+  .xl\:focus\:placeholder-yellow-300:focus::placeholder {
+    color: #fff176;
+  }
+
+  .xl\:focus\:placeholder-yellow-400:focus::placeholder {
+    color: #ffee58;
+  }
+
+  .xl\:focus\:placeholder-yellow-500:focus::placeholder {
+    color: #ffeb3b;
+  }
+
+  .xl\:focus\:placeholder-yellow-600:focus::placeholder {
+    color: #fdd835;
+  }
+
+  .xl\:focus\:placeholder-yellow-700:focus::placeholder {
+    color: #fbc02d;
+  }
+
+  .xl\:focus\:placeholder-yellow-800:focus::placeholder {
+    color: #f9a825;
+  }
+
+  .xl\:focus\:placeholder-yellow-900:focus::placeholder {
+    color: #f57f17;
+  }
+
+  .xl\:focus\:placeholder-amber-50:focus::placeholder {
+    color: #fff8e1;
+  }
+
+  .xl\:focus\:placeholder-amber-100:focus::placeholder {
+    color: #ffecb3;
+  }
+
+  .xl\:focus\:placeholder-amber-200:focus::placeholder {
+    color: #ffe082;
+  }
+
+  .xl\:focus\:placeholder-amber-300:focus::placeholder {
+    color: #ffd54f;
+  }
+
+  .xl\:focus\:placeholder-amber-400:focus::placeholder {
+    color: #ffca28;
+  }
+
+  .xl\:focus\:placeholder-amber-500:focus::placeholder {
+    color: #ffc107;
+  }
+
+  .xl\:focus\:placeholder-amber-600:focus::placeholder {
+    color: #ffb300;
+  }
+
+  .xl\:focus\:placeholder-amber-700:focus::placeholder {
+    color: #ffa000;
+  }
+
+  .xl\:focus\:placeholder-amber-800:focus::placeholder {
+    color: #ff8f00;
+  }
+
+  .xl\:focus\:placeholder-amber-900:focus::placeholder {
+    color: #ff6f00;
+  }
+
+  .xl\:focus\:placeholder-orange-50:focus::placeholder {
+    color: #fff3e0;
+  }
+
+  .xl\:focus\:placeholder-orange-100:focus::placeholder {
+    color: #ffe0b2;
+  }
+
+  .xl\:focus\:placeholder-orange-200:focus::placeholder {
+    color: #ffcc80;
+  }
+
+  .xl\:focus\:placeholder-orange-300:focus::placeholder {
+    color: #ffb74d;
+  }
+
+  .xl\:focus\:placeholder-orange-400:focus::placeholder {
+    color: #ffa726;
+  }
+
+  .xl\:focus\:placeholder-orange-500:focus::placeholder {
+    color: #ff9800;
+  }
+
+  .xl\:focus\:placeholder-orange-600:focus::placeholder {
+    color: #fb8c00;
+  }
+
+  .xl\:focus\:placeholder-orange-700:focus::placeholder {
+    color: #f57c00;
+  }
+
+  .xl\:focus\:placeholder-orange-800:focus::placeholder {
+    color: #ef6c00;
+  }
+
+  .xl\:focus\:placeholder-orange-900:focus::placeholder {
+    color: #e65100;
+  }
+
+  .xl\:focus\:placeholder-deeporange-50:focus::placeholder {
+    color: #fbe9e7;
+  }
+
+  .xl\:focus\:placeholder-deeporange-100:focus::placeholder {
+    color: #ffccbc;
+  }
+
+  .xl\:focus\:placeholder-deeporange-200:focus::placeholder {
+    color: #ffab91;
+  }
+
+  .xl\:focus\:placeholder-deeporange-300:focus::placeholder {
+    color: #ff8a65;
+  }
+
+  .xl\:focus\:placeholder-deeporange-400:focus::placeholder {
+    color: #ff7043;
+  }
+
+  .xl\:focus\:placeholder-deeporange-500:focus::placeholder {
+    color: #ff5722;
+  }
+
+  .xl\:focus\:placeholder-deeporange-600:focus::placeholder {
+    color: #f4511e;
+  }
+
+  .xl\:focus\:placeholder-deeporange-700:focus::placeholder {
+    color: #e64a19;
+  }
+
+  .xl\:focus\:placeholder-deeporange-800:focus::placeholder {
+    color: #d84315;
+  }
+
+  .xl\:focus\:placeholder-deeporange-900:focus::placeholder {
+    color: #bf360c;
+  }
+
+  .xl\:focus\:placeholder-brown-50:focus::placeholder {
+    color: #efebe9;
+  }
+
+  .xl\:focus\:placeholder-brown-100:focus::placeholder {
+    color: #d7ccc8;
+  }
+
+  .xl\:focus\:placeholder-brown-200:focus::placeholder {
+    color: #bcaaa4;
+  }
+
+  .xl\:focus\:placeholder-brown-300:focus::placeholder {
+    color: #a1887f;
+  }
+
+  .xl\:focus\:placeholder-brown-400:focus::placeholder {
+    color: #8d6e63;
+  }
+
+  .xl\:focus\:placeholder-brown-500:focus::placeholder {
+    color: #795548;
+  }
+
+  .xl\:focus\:placeholder-brown-600:focus::placeholder {
+    color: #6d4c41;
+  }
+
+  .xl\:focus\:placeholder-brown-700:focus::placeholder {
+    color: #5d4037;
+  }
+
+  .xl\:focus\:placeholder-brown-800:focus::placeholder {
+    color: #4e342e;
+  }
+
+  .xl\:focus\:placeholder-brown-900:focus::placeholder {
+    color: #3e2723;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-50:focus::placeholder {
+    color: #eceff1;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-100:focus::placeholder {
+    color: #cfd8dc;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-200:focus::placeholder {
+    color: #b0bec5;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-300:focus::placeholder {
+    color: #90a4ae;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-400:focus::placeholder {
+    color: #78909c;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-500:focus::placeholder {
+    color: #607d8b;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-600:focus::placeholder {
+    color: #546e7a;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-700:focus::placeholder {
+    color: #455a64;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-800:focus::placeholder {
+    color: #37474f;
+  }
+
+  .xl\:focus\:placeholder-bluegrey-900:focus::placeholder {
+    color: #263238;
   }
 
   .xl\:pointer-events-none {
