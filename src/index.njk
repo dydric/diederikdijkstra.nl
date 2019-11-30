@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+---
+
+<main class="px-4 max-w-xl mx-auto text-lg text-gray-800 text-center">
+    <img src="/static/sample.png" alt="Illustration of a hand glider getting off the ground" class="w-full">
+    <h1 class="font-bold text-3xl">Web Starter <span class="font-light text-gray-500">v{{ site.version}}</span></h1>
+    <p class="text-gray-700">Get your website off the ground and enjoy the journey.</p>
+
+    <ul class="md:flex my-4">
+      <li class="md:flex-auto p-2">
+        <a href="https://github.com/chrisssycollins/web-starter/zipball/master/" class="block py-3 px-5 shadow-lg font-bold bg-teal-400 text-white rounded-lg hover:bg-teal-500">Download</a>
+      </li>
+      <li class="md:flex-auto p-2">
+        <a href="https://github.com/chrisssycollins/web-starter#features" class="block py-3 px-5 shadow-lg font-bold border rounded-lg hover:bg-gray-100">Get started</a>
+      </li>
+    </ul>
+
+    <p class="text-xs text-gray-500">Open source project by <a class="underline" href="https://www.chriscollins.me">Chris Collins</a>. Go and build something great, don't thank me.</p>
+
+  {# <div class="grid">
+    <div class="grid__item">gregre</div>
+  </div> #}
+
+   <div class="mb-8 grid">
+      {%- for i in range(0, tweets.length) -%}
+        {%- set item = tweets[i] -%}
+        <div class="border-2 border-green-300 grid__item">{{ item.text | safe }}</div>
+      {% endfor %}
+    </div>
+
+    <div class="flex mb-8">
+      {%- for i in range(0, 6) -%}
+        {%- set item = instagram.data[i] -%}
+        <div class="flex-auto w-48 border-2 border-black">
+          <img class="w-48" src="{{ item.images.standard_resolution.url }}" loading="lazy">
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+</main>

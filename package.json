@@ -1,39 +1,37 @@
 {
-	"name": "diederikdijkstra.nl",
-	"version": "3.0.1",
-	"description": "",
-	"scripts": {
-		"dev": "ELEVENTY_ENV=development eleventy --config=eleventy.config.js --serve & gulp",
-		"build": "gulp build && eleventy --config=eleventy.config.js --serve",
-		"data": "gulp data"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/dydric/dydric.github.io"
-	},
-	"author": "Diederik Dijkstra",
-	"license": "MIT",
-	"devDependencies": {
-		"@11ty/eleventy": "^0",
-		"@babel/core": "^7",
-		"@babel/preset-env": "^7",
-		"@fullhuman/postcss-purgecss": "^1",
-		"dotenv": "^6",
-		"gulp": "^4",
-		"gulp-babel": "^8",
-		"gulp-clean-css": "^4",
-		"gulp-concat": "^2",
-		"gulp-notify": "^3",
-		"gulp-plumber": "^1",
-		"gulp-postcss": "^8",
-		"gulp-rename": "^1",
-		"gulp-sass": "^4",
-		"gulp-uglify": "^3",
-		"html-minifier": "^4",
-		"node-instagram": "^4",
-		"spotify-web-api-node": "^4",
-		"tailwindcss": "^1",
-		"tumblr": "^0",
-		"twitter": "^1"
-	}
+  "name": "diederikdijkstra",
+  "version": "3.0.1",
+  "description": "Personal website with 11ty, TailwindsCSS and PostCSS.",
+  "scripts": {
+    "start": "concurrently \"ELEVENTY_ENV=development eleventy --serve --watch\" \"postcss src/_assets/stylesheets/app.pcss -o src/static/app.compiled.css -w\" \"webpack --watch --config webpack.config.js\"",
+    "minify": "del dist && ELEVENTY_ENV=production eleventy && purgecss --config ./purgecss.config.js --out src/_includes/stylesheets && ELEVENTY_ENV=production webpack --config webpack.config.js",
+    "build": "npm run minify && ELEVENTY_ENV=online eleventy --serve",
+    "online": "npm run minify && ELEVENTY_ENV=online eleventy"
+  },
+  "author": "Diederik Dijkstra",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0",
+    "@babel/core": "^7",
+    "@babel/preset-env": "^7",
+    "autoprefixer": "^9",
+    "babel-loader": "^8",
+    "concurrently": "^5",
+    "del-cli": "^3",
+    "dotenv-webpack": "^1",
+    "html-minifier": "^4",
+    "luxon": "^1",
+    "node-instagram": "^4",
+    "postcss-cli": "^6",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "4.2.1",
+    "postcss-preset-env": "^6.5.0",
+    "purgecss": "^1",
+    "spotify-web-api-node": "^4",
+    "tailwindcss": "^1",
+    "tumblr": "^0",
+    "twitter": "^1",
+    "webpack": "^4",
+    "webpack-cli": "^3"
+  }
 }

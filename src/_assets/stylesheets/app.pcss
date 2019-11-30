@@ -1,0 +1,46 @@
+@import "_test.pcss";
+
+:root {
+  --color-black: #12345678;
+}
+
+a {
+  color: rgb(0 0 100% / 90%);
+
+  &:hover {
+    color: rebeccapurple;
+  }
+}
+
+.grid {
+  @apply border border-blue-600;
+
+  &__item {
+    border: 4px solid green;
+  }
+}
+
+.grid .grid__item {
+  background: orange;
+}
+
+body {
+  @apply block;
+
+  @screen md {
+    @apply block;
+  }
+
+  border: 10px solid var(--color-black);
+}
+
+img.emoji {
+  display: inline-block !important;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -.1em;
+  width: 1em;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
