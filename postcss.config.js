@@ -27,7 +27,7 @@ module.exports = {
       purgecss({
         content: ["dist/**/*.html", "dist/**/*.js"],
         css: ["src/static/app.compiled.css"],
-        whitelist: ['body', 'emoji', 'grid__item'],
+        whitelist: ['body', 'emoji'],
         extractors: [{
           extractor: class TailwindCSS {
             static extract(content) {
