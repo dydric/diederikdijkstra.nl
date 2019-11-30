@@ -8,7 +8,8 @@
 <html lang="en">
   <head>
     {% include "partials/head.njk" %}
-    {% if site.ENV == 'production' or site.ENV == 'online' %}
+    <link rel="stylesheet" href="/static/app.compiled.css">
+    {# {% if site.ENV == 'production' or site.ENV == 'online' %}
       <!-- capture the CSS content as a Liquid variable -->
       {% set css %}{% include "stylesheets/app.compiled.css" %}{% endset %}
       <style>
@@ -16,7 +17,7 @@
       </style>
     {% else %}
     <link rel="stylesheet" href="/static/app.compiled.css">
-    {% endif %}
+    {% endif %} #}
   </head>
   <body>
     {{ content | safe }}
