@@ -1,39 +1,89 @@
 ---
 layout: layouts/base.njk
+pagination:
+   data: collections.post
+   size: 5
+   reverse: true
+   alias: posts
 ---
 
-<main class="px-4 max-w-xl mx-auto text-lg text-gray-800 text-center">
-    <img src="/static/sample.png" alt="Illustration of a hand glider getting off the ground" class="w-full">
-    <h1 class="font-bold text-3xl">Web Starter <span class="font-light text-gray-500">v{{ site.version}}</span></h1>
-    <p class="text-gray-700">Get your website off the ground and enjoy the journey.</p>
+<section class="flex">
+  {# <aside class="hidden md:block w-48 flex-initial relative p-4 md:flex-shrink-0">
+      <nav class="sticky top-0 self-start py-8 pl-4 font-normal">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/listening/2019">Listening</a></li>
+        </ul>
+      </nav>
 
-    <ul class="md:flex my-4">
-      <li class="md:flex-auto p-2">
-        <a href="https://github.com/chrisssycollins/web-starter/zipball/master/" class="block py-3 px-5 shadow-lg font-bold bg-teal-400 text-white rounded-lg hover:bg-teal-500">Download</a>
-      </li>
-      <li class="md:flex-auto p-2">
-        <a href="https://github.com/chrisssycollins/web-starter#features" class="block py-3 px-5 shadow-lg font-bold border rounded-lg hover:bg-gray-100">Get started</a>
-      </li>
-    </ul>
+  </aside> #}
+  <main class="p-8 max-w-xl mx-auto md:mx-0 text-lg">
 
-    <p class="text-xs text-gray-500">Open source project by <a class="underline" href="https://www.chriscollins.me">Chris Collins</a>. Go and build something great, don't thank me.</p>
+    <section class="border-b-2 border-theme-color-4 mb-8">
+      <h2 class="font-extrabold text-4xl mb-2">{{ site.author }} <span class="hidden">v{{ site.version}}</span></h2>
+      <p class="mb-4 text-xl font-medium">Woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
 
-   <div class="mb-8 grid">
-      {%- for i in range(0, tweets.length) -%}
-        {%- set item = tweets[i] -%}
-        <div class="grid__item">{{ item.text | safe }}</div>
-      {% endfor %}
-    </div>
+      <p class="mb-8">
+        <span class="text-base">Contact:</span>
+        <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="button">✉️ E-mail</a>
+        <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="button">🐤 Twitter</a>
+        <a href="https://instagram.com/dydric" target="_blank" rel="noopener noreferrer" class="button">📸 Instagram</a>
+      </p>
+    </section>
 
-    <div class="flex mb-8">
-      {%- for i in range(0, 6) -%}
-        {%- set item = instagram.data[i] -%}
-        <div class="flex-auto w-48 border-2 border-black">
-          <img class="w-48" src="{{ item.images.standard_resolution.url }}" loading="lazy">
-        </div>
-      {% endfor %}
-    </div>
+    {% for post in posts %}
 
+      <article class="border-b-2 border-theme-color-3 mb-4">
+        <h2 class="font-bold text-3xl"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-75">
+            {{ post.date | readableDate }}
+        </time>
+        {% if post.data.featured_image %}
+        <figure>
+          <img src="{{ post.data.featured_image }}" alt="{{ post.data.image_caption }}" loading="lazy">
+          {% if post.data.image_caption %}
+            <figcaption class="text-center text-sm italic mt-4">{{ post.data.image_caption }}</figcaption>
+          {% endif %}
+        </figure>
+        {% endif %}
+        {% if post.data.excerpt %}
+          <p>{{ post.data.excerpt | safe }}</p>
+          <p class="mb-8 pt-4"><a href="{{ post.url }}" class="button">Lees verder</a></p>
+        {% endif %}
+      </article>
+    {% endfor %}
 
+  {% if pagination.pageLinks.length > 1 %}
+  <nav class="mt-6 pt-6 flex justify-between text-base">
+    <div> {% if pagination.previousPageLink %}
+        <a class="no-underline hover:underline" href="{{ pagination.previousPageHref | url }}">← Volgende</a>
+        {% else %}
+        <span class="text-grey opacity-25">← Volgende</span>
+        {% endif %}</div>
 
-</main>
+    <div> {% if pagination.nextPageLink %}
+        <a class="no-underline hover:underline" href="{{ pagination.nextPageHref | url }}">Vorige →</a>
+        {% else %}
+        <span class="text-grey opacity-25">Vorige →</span>
+        {% endif %}</div>
+  </nav>
+  {% endif %}
+
+    {# <div class="mb-8 grid">
+        {%- for i in range(0, tweets.length) -%}
+          {%- set item = tweets[i] -%}
+          <div class="grid__item">{{ item.text | safe }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="flex mb-8">
+        {%- for i in range(0, 6) -%}
+          {%- set item = instagram.data[i] -%}
+          <div class="flex-auto w-48 border-2 border-black">
+            <img class="w-48" src="{{ item.images.standard_resolution.url }}" loading="lazy">
+          </div>
+        {% endfor %}
+      </div> #}
+
+  </main>
+</section><!-- site -->
