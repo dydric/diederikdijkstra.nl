@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(`I was loaded at ${Date(Date.now()).toString()}`);\ntwemoji.parse(document.body);\n\n//# sourceURL=webpack:///./src/_assets/scripts/app.js?");
+eval("console.log(`I was loaded at ${Date(Date.now()).toString()}`); // Twemoji\n\ntwemoji.parse(document.body); // Audio\n\n(function () {\n  const audio = document.querySelectorAll('.js-audio audio');\n\n  if (audio) {\n    for (var i = 0; i < audio.length; i++) {\n      const audioHolder = audio[i].parentNode;\n      const audioButton = audioHolder.querySelector('button');\n      audioButton.addEventListener('click', function (e) {\n        const audio = document.querySelectorAll('.js-audio audio');\n        const button = document.querySelectorAll('.js-audio button');\n        const player = this.parentNode.querySelector('audio');\n\n        if (player.duration > 0 && !player.paused) {\n          this.classList.remove('playing');\n          player.pause();\n        } else {\n          for (var i = 0; i < button.length; i++) {\n            button[i].classList.remove('playing');\n          }\n\n          for (i = 0; i < audio.length; i++) {\n            audio[i].pause();\n          }\n\n          this.classList.add('playing');\n          player.play();\n        }\n\n        e.preventDefault();\n      });\n    }\n  }\n})();\n\n//# sourceURL=webpack:///./src/_assets/scripts/app.js?");
 
 /***/ })
 

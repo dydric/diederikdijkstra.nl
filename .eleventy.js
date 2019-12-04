@@ -24,6 +24,11 @@ module.exports = function (eleventyConfig) {
         });
     }
 
+    // Collections
+    eleventyConfig.addCollection('posts', collection => {
+        return collection.getFilteredByTag('posts').reverse()
+    })
+
     // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
     eleventyConfig.addFilter('htmlDateString', (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
@@ -45,8 +50,6 @@ module.exports = function (eleventyConfig) {
         env = "dev"
     }
 
-    // env = (env === 'production') ? "prod" : "dev";
-    // env = (env === 'online') ? "dev" : "dev";
     console.log(env);
 
     return {

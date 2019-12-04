@@ -1,43 +1,86 @@
-@import "_test.pcss";
+@import "_themes.pcss";
+@import "_inter.pcss";
+@import "_emoji.pcss";
 
-:root {
-  --color-black: #12345678;
+@import "tailwindcss/base";
+/* @import BASE-STYLES; */
+@import "tailwindcss/components";
+/* @import CUSTOM-COMPONENTS; */
+@import "tailwindcss/utilities";
+/* @import CUSTOM UTILITIES; */
+
+body {
+  @apply font-light;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 a {
-  color: rgb(0 0 100% / 90%);
+  @apply underline;
 
   &:hover {
-    color: rebeccapurple;
+    @apply no-underline;
   }
 }
 
-.grid {
-  @apply border border-blue-600;
+p {
+  @apply mb-4;
 
-  &__item {
-    border: 4px solid green;
-    background: orange;
+  strong {
+    @apply font-medium;
   }
 }
 
-body {
-  @apply block;
+h1, h2, h3 {
+  color: var(--color-title);
+}
 
-  @screen md {
+h2 {
+  @apply font-extrabold text-2xl pt-2;
+}
+
+pre {
+  @apply text-sm mb-4 p-2 rounded;
+  @apply block overflow-auto;
+
+  background-color: var(--color-bg-alt);
+
+  code {
     @apply block;
   }
-
-  border: 10px solid var(--color-black);
 }
 
-img.emoji {
-  display: inline-block !important;
-  margin: 0 .05em 0 .1em;
-  vertical-align: -.1em;
-  width: 1em;
+code {
+  @apply text-sm p-1 rounded;
+
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-alt);
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.button {
+  @apply block text-sm text-center border-2 p-2 rounded no-underline uppercase font-bold mb-1;
+
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-border);
+  color: var(--color-text-alt);
+
+  @screen sm {
+    @apply inline-block py-1 px-2;
+  }
+
+  &:hover {
+    border-color: var(--color-border-alt);
+    color: var(--color-text);
+  }
+}
+
+img {
+  @apply mb-4 w-full;
+
+  @media (prefers-color-scheme: dark) {
+    filter: grayscale(25%);
+    opacity: .9;
+  }
+}
+
