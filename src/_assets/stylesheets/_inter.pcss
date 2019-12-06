@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Inter var';
+  font-named-instance: 'Regular';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('/static/fonts/Inter-upright.var.woff2') format('woff2 supports variations(gvar)'), url('/static/fonts/Inter-upright.var.woff2') format('woff2-variations'), url('/static/fonts/Inter-upright.var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter var';
+  font-named-instance: 'Italic';
+  font-style: italic;
+  font-weight: 100 900;
+  src: url('/static/fonts/Inter-italic.var.woff2') format('woff2 supports variations(gvar)'), url('/static/fonts/Inter-italic.var.woff2') format('woff2-variations'), url('/static/fonts/Inter-italic.var.woff2') format('woff2');
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: 'Inter var', sans-serif;
+  }
+}
