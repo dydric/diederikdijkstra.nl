@@ -9,7 +9,9 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
+
     colors: {
+
       transparent: 'transparent',
 
       black: '#000',
@@ -291,6 +293,8 @@ module.exports = {
     }),
     inset: {
       '0': '0',
+      '50': '50%',
+      '100': '100%',
       auto: 'auto',
     },
     letterSpacing: {
@@ -385,7 +389,10 @@ module.exports = {
     stroke: {
       current: 'currentColor',
     },
-    textColor: theme => theme('colors'),
+    textColor: theme => ({
+      ...theme('colors'),
+      'primary': '#ff3300',
+    }),
     width: theme => ({
       auto: 'auto',
       ...theme('spacing'),

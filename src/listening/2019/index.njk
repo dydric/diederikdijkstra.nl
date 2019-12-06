@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="flex">
+  {# <aside class="hidden md:block w-48 flex-initial relative p-4 md:flex-shrink-0">
+      <nav class="sticky top-0 self-start py-8 pl-4 font-normal">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/listening/2019">Listening</a></li>
+        </ul>
+      </nav>
+  </aside> #}
+  <main class="p-8 max-w-xl mx-auto md:mx-0 text-lg">
+
+    <h2 class="font-extrabold text-4xl mb-8"><a href="/">{{ site.author }} <span class="hidden">v{{ site.version}}</span></a></h2>
+
+    <h1 class="font-bold text-5xl mb-8">Music Log</h1>
+
+    {% set playlists = [
+      [spotify.2019_12, "December"],
+      [spotify.2019_11, "November"],
+      [spotify.2019_10, "Oktober"],
+      [spotify.2019_09, "September"],
+      [spotify.2019_08, "Augustus"],
+      [spotify.2019_07, "Juli"],
+      [spotify.2019_06, "Juni"],
+      [spotify.2019_05, "Mei"],
+      [spotify.2019_04, "April"],
+      [spotify.2019_03, "Maart"],
+      [spotify.2019_02, "Februari"],
+      [spotify.2019_01, "Januari"]
+    ] %}
+
+{% for playlist, month in playlists %}
+      {% if playlist.items.length > 0 %}
+
+        {% set track %}
+            {%- for i in range(0, playlist.items.length)|reverse -%}
+              {%- set item = playlist.items[i] -%}
+
+          <div class="flex w-full mb-2">
+            <div class="flex-shrink-0 mr-4">
+              <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+                <img src="{{ item.track.album.images[0].url }}" alt="" loading="lazy" class="h-12 w-12">
+              </a>
+            </div>
+
+            <div class="flex-auto">
+              <h4 class="text-lg leading-tight mb-1">
+                <a href=" {{ item.track.external_urls.spotify }}" class="font-bold block mb-1 no-underline hover:underline text-theme-color-7" target="_blank" rel="noopener noreferrer">
+                  {{ item.track.name  }}
+                </a>
+                  <span class="text-sm font-bold opacity-75 uppercase">
+                    {{ item.track.artists[0].name }}
+                  </span>
+
+                  <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-xs font-light opacity-50 no-underline"> &mdash; <span class="hover:underline">{{ item.track.album.name }}</span></a>
+              </h4>
+            </div>
+
+            <div class="flex-initial ml-4">
+              {% if item.track.preview_url != null %}
+                <div class="js-audio">
+                  <audio src="{{ item.track.preview_url }}"></audio>
+                  <button></button>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {%- endfor -%}
+        {% endset %}
+
+        <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-theme-color-3 mb-4 ">
+          <div class="flex-initial flex-shrink-0 self-start w-full sm:w-1/5 md:sticky top-0 py-4">
+            <h4 class="truncate text-base leading-tight font-bold text-theme-color-7">{{ month }}</h4>
+          </div>
+          <div class="flex-auto py-4">
+            {{ track | safe }}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+
+  </main>
+</section>
