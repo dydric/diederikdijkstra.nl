@@ -59,7 +59,7 @@ module.exports = function (eleventyConfig) {
             includes: "_includes",
             data: `_data/${env}`
         },
-        templateFormats: ["html", "md", "njk"],
+        templateFormats: ["html", "md", "njk", "yml"],
         htmlTemplateEngine: "njk",
 
         // 1.1 Enable elventy to pass dirs specified above
