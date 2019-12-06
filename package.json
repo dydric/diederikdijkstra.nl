@@ -4,7 +4,7 @@
   "description": "Personal website with 11ty, TailwindsCSS and PostCSS.",
   "scripts": {
     "start": "concurrently \"ELEVENTY_ENV=development eleventy --serve --watch\" \"ELEVENTY_ENV=development postcss src/_assets/stylesheets/app.pcss -o src/static/app.compiled.css -w\" \"webpack --watch --config webpack.config.js\"",
-    "minify": "del dist && ELEVENTY_ENV=production eleventy && ELEVENTY_ENV=production webpack --config webpack.config.js",
+    "minify": "del _site && ELEVENTY_ENV=production eleventy && ELEVENTY_ENV=production webpack --config webpack.config.js",
     "build": "npm run minify && concurrently \"ELEVENTY_ENV=online eleventy --serve\" \"ELEVENTY_ENV=production postcss src/_assets/stylesheets/app.pcss -o src/_includes/css/app.compiled.css -w\"",
     "online": "npm run minify && ELEVENTY_ENV=online eleventy && ELEVENTY_ENV=production postcss src/_assets/stylesheets/app.pcss -o src/_includes/css/app.compiled.css"
   },

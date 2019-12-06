@@ -68,11 +68,6 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
-
 /* Sections
    ========================================================================== */
 
@@ -97,11 +92,6 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
 /* Grouping content
    ========================================================================== */
 
@@ -115,21 +105,12 @@ h1 {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
 /* Text-level semantics
    ========================================================================== */
 
 /**
  * Remove the gray background on active links in IE 10.
  */
-
-a {
-  background-color: transparent;
-}
 
 /**
  * 1. Remove the bottom border in Chrome 57-
@@ -150,11 +131,6 @@ strong {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-code {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
 /**
  * Add the correct font size in all browsers.
  */
@@ -170,10 +146,6 @@ code {
 /**
  * Remove the border on images inside links in IE 10.
  */
-
-img {
-  border-style: none;
-}
 
 /* Forms
    ========================================================================== */
@@ -358,11 +330,6 @@ legend {
  * 2. Change the default font family in all browsers (opinionated)
  */
 
-html {
-  box-sizing: border-box; /* 1 */
-  font-family: sans-serif; /* 2 */
-}
-
 *,
 *::before,
 *::after {
@@ -372,16 +339,6 @@ html {
 /**
  * Removes the default spacing and border for appropriate elements.
  */
-
-
-h1,
-h2,
-h4,
-figure,
-p,
-pre {
-  margin: 0;
-}
 
 button {
   background: transparent;
@@ -398,13 +355,6 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 /**
  * Tailwind custom reset styles
  */
@@ -414,11 +364,6 @@ ul {
  * 2. Use Tailwind's default "normal" line-height so the user isn't forced
  * to override it to ensure consistency even when using the default theme.
  */
-
-html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
-  line-height: 1.5; /* 2 */
-}
 
 /**
  * Allow adding a border to an element by just adding a border-width.
@@ -458,10 +403,6 @@ html {
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
-img {
-  border-style: solid;
-}
-
 input::-webkit-input-placeholder {
   color: #a0aec0;
 }
@@ -487,22 +428,10 @@ button,
   cursor: pointer;
 }
 
-h1,
-h2,
-h4 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
 /**
  * Reset links to optimize for opt-in styling instead of
  * opt-out.
  */
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
 
 /**
  * Reset form element properties that are easy to forget to
@@ -526,11 +455,6 @@ input {
  * 'mono' font family.
  */
 
-pre,
-code {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
 /**
  * Make replaced elements `display: block` by default as that's
  * the behavior you want almost all of the time. Inspired by
@@ -539,11 +463,8 @@ code {
  * https://github.com/mozdevs/cssremedy/issues/14
  */
 
-img,
-svg,
-canvas,
-audio,
-object {
+
+canvas {
   display: block;
   vertical-align: middle;
 }
@@ -555,225 +476,9 @@ object {
  * https://github.com/mozdevs/cssremedy/issues/14
  */
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 /* @import BASE-STYLES; */
 
 /* @import CUSTOM-COMPONENTS; */
-
-.bg-theme-color-1 {
-  background-color: var(--color-bg);
-}
-
-.border-theme-color-3 {
-  border-color: var(--color-border);
-}
-
-.border-theme-color-4 {
-  border-color: var(--color-border-alt);
-}
-
-.border-b-2 {
-  border-bottom-width: 2px;
-}
-
-.block {
-  display: block;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.inline {
-  display: inline;
-}
-
-.flex {
-  display: -webkit-box;
-  display: flex;
-}
-
-.hidden {
-  display: none;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.self-start {
-  align-self: flex-start;
-}
-
-.flex-auto {
-  -webkit-box-flex: 1;
-          flex: 1 1 auto;
-}
-
-.flex-initial {
-  -webkit-box-flex: 0;
-          flex: 0 1 auto;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
-.font-light {
-  font-weight: 300;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.font-extrabold {
-  font-weight: 800;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.leading-tight {
-  line-height: 1.25;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.max-w-xl {
-  max-width: 36rem;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-.opacity-75 {
-  opacity: 0.75;
-}
-
-.p-8 {
-  padding: 2rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.static {
-  position: static;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.text-theme-color-2 {
-  color: var(--color-bg-alt);
-}
-
-.text-theme-color-7 {
-  color: var(--color-title);
-}
-
-.text-xs {
-  font-size: 0.75rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-}
-
-.text-base {
-  font-size: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.no-underline {
-  text-decoration: none;
-}
-
-.hover\:underline:hover {
-  text-decoration: underline;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.w-12 {
-  width: 3rem;
-}
-
-.w-full {
-  width: 100%;
-}
 
 /* @import CUSTOM UTILITIES; */
 
@@ -783,112 +488,6 @@ body {
   background-color: var(--color-bg);
   color: #2d3748;
   color: var(--color-text);
-}
-
-a {
-  text-decoration: underline
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-p strong {
-    font-weight: 500;
-  }
-
-h1, h2 {
-  color: #48bb78;
-  color: var(--color-title);
-}
-
-h2 {
-  font-weight: 800;
-  font-size: 1.5rem;
-  padding-top: 0.5rem;
-}
-
-pre {
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  display: block;
-  overflow: auto;
-  background-color: #edf2f7;
-  background-color: var(--color-bg-alt);
-}
-
-pre code {
-    display: block;
-  }
-
-code {
-  font-size: 0.875rem;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  background-color: #edf2f7;
-  background-color: var(--color-bg-alt);
-  color: #718096;
-  color: var(--color-text-alt);
-}
-
-.button {
-  display: block;
-  font-size: 0.875rem;
-  text-align: center;
-  border-width: 2px;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  background-color: #edf2f7;
-  background-color: var(--color-bg-alt);
-  border-color: #e2e8f0;
-  border-color: var(--color-border);
-  color: #718096;
-  color: var(--color-text-alt);
-}
-
-@media (min-width: 640px) {
-
-.button {
-    display: inline-block;
-
-    padding-top: 0.25rem;
-
-    padding-bottom: 0.25rem;
-
-    padding-left: 0.5rem;
-
-    padding-right: 0.5rem
-}
-  }
-
-.button:hover {
-  border-color: #a0aec0;
-  border-color: var(--color-border-alt);
-  color: #2d3748;
-  color: var(--color-text);
-}
-
-img {
-  margin-bottom: 1rem;
-  width: 100%
-}
-
-@media (prefers-color-scheme: dark) {
-  img {
-    -webkit-filter: grayscale(25%);
-    filter: grayscale(25%);
-    opacity: .9
-  }
 }
 
 .js-audio button {
@@ -922,41 +521,3 @@ img {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z'/%3E%3C/svg%3E")
     }
   }
-
-.js-audio button.playing {
-    opacity: 0.75
-  }
-
-.js-audio button.playing::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23333333' d='M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z'/%3E%3C/svg%3E")
-  }
-
-@media (prefers-color-scheme: dark) {
-    .js-audio button.playing::after {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z'/%3E%3C/svg%3E")
-    }
-  }
-
-@media (min-width: 640px) {
-
-  .sm\:w-1\/5 {
-    width: 20%;
-  }
-}
-
-@media (min-width: 768px) {
-
-  .md\:flex-no-wrap {
-    flex-wrap: nowrap;
-  }
-
-  .md\:mx-0 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .md\:sticky {
-    position: -webkit-sticky;
-    position: sticky;
-  }
-}

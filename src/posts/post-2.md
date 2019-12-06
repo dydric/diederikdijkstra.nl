@@ -51,7 +51,7 @@ module.exports = {
 
     process.env.ELEVENTY_ENV === 'production' ?
         purgecss({
-          content: ["dist/**/*.html", "dist/**/*.js"],
+          content: ["_site/**/*.html", "_site/**/*.js"],
           css: ["src/_includes/css/app.compiled.css"],
           whitelist: ['body', 'emoji'],
           extractors: [{

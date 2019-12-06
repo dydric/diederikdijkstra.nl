@@ -64,4 +64,5 @@ typings/
 .DS_Store
 
 # Build
+_site
 dist
