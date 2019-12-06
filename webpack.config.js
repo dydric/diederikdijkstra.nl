@@ -4,7 +4,7 @@ module.exports = {
         app: __dirname + '/src/_assets/scripts/app.js',
     },
     output: {
-        path: __dirname + '/src/static', // `/_site` is the destination
+        path: __dirname + '/src/static', // `/dist` is the destination
         filename: 'app.bundled.js', // bundle created by webpack it will contain all our app logic. we will link to this .js file from our html page.
     },
     module: {
