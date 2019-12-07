@@ -8,13 +8,13 @@ backend:
     uploadMedia: 🖼 Upload “{{path}}”
     deleteMedia: 🔥 Delete “{{path}}”
 
-media_folder: "/static/images/uploads" # Folder where user uploaded files should go
+media_folder: "src/static/images/uploads" # Folder where user uploaded files should go
 publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
 
 collections: # A list of collections the CMS should be able to edit
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Posts" # Used in the UI, ie.: "New Post"
-    folder: "./src/posts" # The path to the folder where the documents are stored
+    folder: "src/posts" # The path to the folder where the documents are stored
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
