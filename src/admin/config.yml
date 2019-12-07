@@ -23,6 +23,15 @@ collections: # A list of collections the CMS should be able to edit
         name: "title"
         widget: "string"
         tagname: "h1"
+      - label: "Publish Date"
+        name: "date"
+        widget: "date"
+        format: "YYYY-MM-DD"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["post"]
+        required: true
       - label: "Excerpt"
         name: "excerpt"
         widget: "text"
@@ -40,13 +49,4 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        default: ["post"]
-        required: true
-      - label: "Publish Date"
-        name: "date"
-        widget: "date"
-        format: "YYYY-MM-DD"
 
