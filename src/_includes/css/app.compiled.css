@@ -656,6 +656,10 @@ img {
   margin-bottom: 0.25rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -690,6 +694,11 @@ img {
 
 .p-8 {
   padding: 2rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .py-4 {
@@ -850,8 +859,8 @@ code {
   margin-bottom: 0.25rem;
   background-color: #edf2f7;
   background-color: var(--color-bg-alt);
-  border-color: #e2e8f0;
-  border-color: var(--color-border);
+  border-color: #edf2f7;
+  border-color: var(--color-bg-alt);
   color: #718096;
   color: var(--color-text-alt);
 }
@@ -872,8 +881,8 @@ code {
   }
 
 .button:hover {
-  border-color: #a0aec0;
-  border-color: var(--color-border-alt);
+  border-color: #e2e8f0;
+  border-color: var(--color-border);
   color: #2d3748;
   color: var(--color-text);
 }
@@ -938,6 +947,10 @@ img {
   }
 
 @media (min-width: 640px) {
+
+  .sm\:inline-block {
+    display: inline-block;
+  }
 
   .sm\:w-1\/5 {
     width: 20%;
