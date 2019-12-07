@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Hello world
 excerpt: "Redesignen van mijn eigen website doe ik regelmatig \U0001F601. Het gaat me dan eigenlijk niet eens om het resultaat. Het proces om met nieuwe technieken te experimenteren is leuk en leerzaam. In april heb ik mijn website overgezet naar Netlify en gebruik ik <a href=\"https://www.11ty.io/\">Eleventy</a> als static site generator. <strong>Dit werkt super!</strong>"
 tags:
