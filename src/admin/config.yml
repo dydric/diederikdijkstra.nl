@@ -36,9 +36,11 @@ collections: # A list of collections the CMS should be able to edit
         media_library:
           config:
             multiple: false
+        required: false
       - label: "Image_caption"
         name: "image_caption"
         widget: "string"
+        required: false
       - label: "Body"
         name: "body"
         widget: "markdown"
