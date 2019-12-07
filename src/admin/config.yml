@@ -8,7 +8,7 @@ backend:
     uploadMedia: 🖼 Upload “{{path}}”
     deleteMedia: 🔥 Delete “{{path}}”
 
-media_folder: "./src/static/images/uploads" # Folder where user uploaded files should go
+media_folder: "/src/static/images/uploads" # Folder where user uploaded files should go
 publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
 
 collections: # A list of collections the CMS should be able to edit
@@ -53,6 +53,4 @@ collections: # A list of collections the CMS should be able to edit
         name: "date"
         widget: "datetime"
         format: "YYYY-MM-DD hh:mm:ss"
-    meta: # Meta data fields. Just like fields, but without any preview element
-      # - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
 
