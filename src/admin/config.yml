@@ -47,6 +47,6 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: "Publish Date"
         name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD hh:mm:ss"
+        widget: "date"
+        format: "YYYY-MM-DD"
 
