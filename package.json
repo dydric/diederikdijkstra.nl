@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2",
     "@babel/core": "^7",
     "@babel/preset-env": "^7",
     "@fullhuman/postcss-purgecss": "^1",
@@ -28,6 +29,9 @@
     "postcss-nested": "4",
     "postcss-preset-env": "^6",
     "spotify-web-api-node": "^4",
+    "stylelint": "^10",
+    "stylelint-config-standard": "^18",
+    "stylelint-order": "^3",
     "tailwindcss": "^1",
     "tumblr": "^0",
     "twitter": "^1",
