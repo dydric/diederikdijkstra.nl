@@ -158,6 +158,9 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '96': '24rem',
+      '128': '32rem',
+      '256': '64rem',
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
@@ -232,6 +235,10 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
+      inter: [
+        'Inter var',
+        'sans-serif',
+      ],
       sans: [
         '-apple-system',
         'BlinkMacSystemFont',
@@ -362,9 +369,11 @@ module.exports = {
     },
     opacity: {
       '0': '0',
+      '10': '0.1',
       '25': '0.25',
       '50': '0.5',
       '75': '0.75',
+      '90': '0.9',
       '100': '1',
     },
     order: {
@@ -427,6 +436,7 @@ module.exports = {
     }),
     zIndex: {
       auto: 'auto',
+      '-1': '-1',
       '0': '0',
       '10': '10',
       '20': '20',
