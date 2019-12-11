@@ -24,18 +24,18 @@ pagination:
   <div class="content md:w-1/2 md:flex-auto">
     {% for post in posts %}
     <article class="border-b-2 border-theme-color-3 mb-4 max-w-xl">
-      <h2 class="font-bold text-3xl"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <h2 class="font-bold leading-tight text-3xl mb-2"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
       <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-75">
           {{ post.date | readableDate }}
       </time>
-      {% if post.data.featured_image %}
+      {# {% if post.data.featured_image %}
       <figure>
         <img src="{{ post.data.featured_image }}" alt="{{ post.data.image_caption }}" loading="lazy">
         {% if post.data.image_caption %}
           <figcaption class="text-center text-sm italic mt-4">{{ post.data.image_caption }}</figcaption>
         {% endif %}
       </figure>
-      {% endif %}
+      {% endif %} #}
       {% if post.data.excerpt %}
         <p>{{ post.data.excerpt | safe }}</p>
         <p class="mb-8 pt-4"><a href="{{ post.url }}" class="button">Lees verder</a></p>
