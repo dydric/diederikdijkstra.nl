@@ -69,7 +69,7 @@ collections: # A list of collections the CMS should be able to edit
                 widget: "string"
               - label: "Items"
                 name: "Items"
-                wiget: "list"
+                widget: "list"
                 fields:
                   - label: "Text"
                     name: "text"
