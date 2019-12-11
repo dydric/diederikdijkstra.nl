@@ -11,7 +11,7 @@ excerpt: >-
   te stellen dat je een hele Editor workflow hebt (zie screenshot). Ik heb ook
   de menu-structuur, die ik van een <code>.json</code> uitlees, beheerbaar
   gemaakt via de CMS.
-featured_image: /src/static/images/uploads/netlify-cms.png
+featured_image: /static/images/uploads/netlify-cms.png
 image_caption: Editor Workflow van Netlify CMS
 ---
 Dit was eerst even puzzelen omdat ik het nog nooit gedaan had, maar door de file-widget te gebruiken is dit op de volgende manier goed in te regelen:
