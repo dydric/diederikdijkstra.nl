@@ -8,7 +8,8 @@ backend:
     uploadMedia: 🖼 Upload “{{path}}”
     deleteMedia: 🔥 Delete “{{path}}”
 
-media_folder: "static/images/uploads" # Folder where user uploaded files should go
+media_folder: "src/static/images/uploads" # Folder where user uploaded files should go
+public_folder: "/static/images/uploads"
 publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
 
 collections: # A list of collections the CMS should be able to edit
