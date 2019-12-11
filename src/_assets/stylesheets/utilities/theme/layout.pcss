@@ -1,0 +1,78 @@
+body {
+  @apply font-normal;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.site {
+  @apply max-w-8xl mx-auto;
+
+  @screen lg {
+    @apply flex;
+  }
+}
+
+.header {
+  @apply flex flex-wrap justify-between items-center flex-shrink-0;
+  @apply p-3;
+
+  @screen lg {
+    @apply sticky top-0 justify-start self-start w-56;
+  }
+
+  &__title {
+    @apply w-full flex justify-between items-center;
+    @apply p-3;
+
+    h3 {
+      @apply font-extrabold text-2xl;
+    }
+  }
+}
+
+.nav {
+  @apply w-full;
+
+  ul {
+    @apply flex flex-wrap p-3;
+    @apply hidden;
+
+    .show-menu & {
+      @apply block;
+    }
+
+    @screen lg {
+      @apply block;
+    }
+
+    li {
+      @apply w-full;
+    }
+  }
+}
+
+.main {
+  @apply w-full;
+}
+
+.section {
+
+  .content {
+    @apply p-6;
+  }
+
+  h1 {
+    @apply -mt-3 mb-6;
+  }
+}
+
+/* * { background-color: rgba(255,0,0,.2); }
+* * { background-color: rgba(0,255,0,.2); }
+* * * { background-color: rgba(0,0,255,.2); }
+* * * * { background-color: rgba(255,0,255,.2); }
+* * * * * { background-color: rgba(0,255,255,.2); }
+* * * * * * { background-color: rgba(255,255,0,.2); }
+* * * * * * * { background-color: rgba(255,0,0,.2); }
+* * * * * * * * { background-color: rgba(0,255,0,.2); }
+* * * * * * * * * { background-color: rgba(0,0,255,.2); } */

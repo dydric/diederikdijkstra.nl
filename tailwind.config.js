@@ -235,11 +235,8 @@ module.exports = {
       default: '1',
     },
     fontFamily: {
-      inter: [
-        'Inter var',
-        'sans-serif',
-      ],
       sans: [
+        'Inter var',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -345,6 +342,8 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
+      '7xl': '96rem',
+      '8xl': '108rem',
       full: '100%',
     },
     minHeight: {
