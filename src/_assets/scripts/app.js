@@ -3,6 +3,19 @@ console.log(`I was loaded at ${Date(Date.now()).toString()}`);
 // Twemoji
 twemoji.parse(document.body);
 
+// Toggle Menu
+(function () {
+
+  var toggleMenuLink = document.querySelector('.js-toggleMenu');
+  if(toggleMenuLink) {
+    toggleMenuLink.addEventListener('click', function(e){
+      document.body.classList.toggle('show-menu');
+      e.preventDefault();
+    });
+  }
+
+})();
+
 // Audio
 (function() {
 
