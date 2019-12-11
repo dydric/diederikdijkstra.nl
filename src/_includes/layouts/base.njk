@@ -17,7 +17,18 @@
     {% endif %}
   </head>
   <body>
-    {{ content | safe }}
+    <div class="site">
+      <header class="header">
+        <section class="header__title">
+          <h3>{{ site.author }} <span class="hidden">v{{ site.version}}</span></h3>
+          <a href="#" class="lg:hidden js-toggleMenu">menu</a>
+        </section>
+        {% include "partials/navigation.njk" %}
+      </header>
+      <main class="main">
+        {{ content | safe }}
+      </main>
+    </div>
   </body>
   <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
   <script src="/static/app.bundled.js"></script>

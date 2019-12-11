@@ -1,0 +1,24 @@
+{%- if navigation.items -%}
+  <nav class="nav">
+    <ul>
+      {% for item in navigation.items -%}
+        {%- set currentAttributes = '' -%}
+        {%- if page.url == item.url -%}
+          {%- set currentAttributes = ' class="current"' -%}
+        {%- endif -%}
+        <li>
+          <a href="{{ item.url }}"{{ currentAttributes | safe }}>{{ item.text }}</a>
+          {%- if item.items %}
+            <ul>
+            {%- for item in item.items %}
+              <li>
+                <a href="{{ item.url }}">{{ item.text }}</a>
+              </li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </li>
+      {% endfor -%}
+    </ul>
+  </nav>
+{%- endif -%}

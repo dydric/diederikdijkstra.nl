@@ -7,51 +7,41 @@ pagination:
    alias: posts
 ---
 
-<section class="flex">
-  {# <aside class="hidden md:block w-48 flex-initial relative p-4 md:flex-shrink-0">
-      <nav class="sticky top-0 self-start py-8 pl-4 font-normal">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/listening/2019">Listening</a></li>
-        </ul>
-      </nav>
+<section class="section
+  md:flex
+  ">
 
-  </aside> #}
-  <main class="p-8 max-w-xl mx-auto md:mx-0 text-lg">
+  <div class="content md:w-1/2 md:max-w-md md:sticky md:top-0 md:flex-auto md:self-start">
+    <img src="/static/images/home/avatar.jpg" alt="avatar van Diederik" loading="lazy" class="w-full max-w-sm">
+    <p class="mb-4 text-xl font-medium">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
+    <p class="mb-8">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="button">✉️ E-mail</a>
+      <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="button">🐤 Twitter</a>
+      <a href="https://instagram.com/dydric" target="_blank" rel="noopener noreferrer" class="button">📸 Instagram</a>
+    </p>
+  </div>
 
-    <section class="border-b-2 border-theme-color-4 mb-8">
-      <h2 class="font-extrabold text-4xl mb-2">{{ site.author }} <span class="hidden">v{{ site.version}}</span></h2>
-      <p class="mb-4 text-xl font-medium">Woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
-
-      <p class="mb-8">
-        <span class="text-base py-2 mr-2 hidden sm:inline-block">Contact:</span>
-        <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="button">✉️ E-mail</a>
-        <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer" class="button">🐤 Twitter</a>
-        <a href="https://instagram.com/dydric" target="_blank" rel="noopener noreferrer" class="button">📸 Instagram</a>
-      </p>
-    </section>
-
+  <div class="content md:w-1/2 md:flex-auto">
     {% for post in posts %}
-
-      <article class="border-b-2 border-theme-color-3 mb-4">
-        <h2 class="font-bold text-3xl"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-        <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-75">
-            {{ post.date | readableDate }}
-        </time>
-        {% if post.data.featured_image %}
-        <figure>
-          <img src="{{ post.data.featured_image }}" alt="{{ post.data.image_caption }}" loading="lazy">
-          {% if post.data.image_caption %}
-            <figcaption class="text-center text-sm italic mt-4">{{ post.data.image_caption }}</figcaption>
-          {% endif %}
-        </figure>
+    <article class="border-b-2 border-theme-color-3 mb-4 max-w-xl">
+      <h2 class="font-bold text-3xl"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-75">
+          {{ post.date | readableDate }}
+      </time>
+      {% if post.data.featured_image %}
+      <figure>
+        <img src="{{ post.data.featured_image }}" alt="{{ post.data.image_caption }}" loading="lazy">
+        {% if post.data.image_caption %}
+          <figcaption class="text-center text-sm italic mt-4">{{ post.data.image_caption }}</figcaption>
         {% endif %}
-        {% if post.data.excerpt %}
-          <p>{{ post.data.excerpt | safe }}</p>
-          <p class="mb-8 pt-4"><a href="{{ post.url }}" class="button">Lees verder</a></p>
-        {% endif %}
-      </article>
-    {% endfor %}
+      </figure>
+      {% endif %}
+      {% if post.data.excerpt %}
+        <p>{{ post.data.excerpt | safe }}</p>
+        <p class="mb-8 pt-4"><a href="{{ post.url }}" class="button">Lees verder</a></p>
+      {% endif %}
+    </article>
+  {% endfor %}
 
   {% if pagination.pageLinks.length > 1 %}
   <nav class="mt-6 pt-6 flex justify-between text-base">
@@ -69,21 +59,6 @@ pagination:
   </nav>
   {% endif %}
 
-    {# <div class="mb-8 grid">
-        {%- for i in range(0, tweets.length) -%}
-          {%- set item = tweets[i] -%}
-          <div class="grid__item">{{ item.text | safe }}</div>
-        {% endfor %}
-      </div>
+  </div>
 
-      <div class="flex mb-8">
-        {%- for i in range(0, 6) -%}
-          {%- set item = instagram.data[i] -%}
-          <div class="flex-auto w-48 border-2 border-black">
-            <img class="w-48" src="{{ item.images.standard_resolution.url }}" loading="lazy">
-          </div>
-        {% endfor %}
-      </div> #}
-
-  </main>
-</section><!-- site -->
+</section>
