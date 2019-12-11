@@ -8,8 +8,9 @@ excerpt: >-
   Mijn berichten kan ik nu publiceren via <a
   href="https://www.netlifycms.org/">Netlify CMS</a>. Dit is via een
   config-bestand helemaal naar wens en op maat in te richten. Het is zelf zo in
-  te stellen dat je een hele workflow. Ik heb ook de menu-structuur, die ik van
-  een <code>.json</code> uitlees, beheerbaar gemaakt via Netlify CMS.
+  te stellen dat je een hele Editor workflow hebt (zie screenshot). Ik heb ook
+  de menu-structuur, die ik van een <code>.json</code> uitlees, beheerbaar
+  gemaakt via de CMS.
 featured_image: /static/images/uploads/netlify-cms.png
 ---
 Dit was eerst even puzzelen omdat ik het nog nooit gedaan had, maar door de file-widget te gebruiken is dit op de volgende manier goed in te regelen:
