@@ -49,4 +49,32 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
+  - name: "globals"
+    label: "Globals"
+    files:
+      - label: "Navigation"
+        name: "nav"
+        delete: false
+        file: "src/_data/dev/navigation.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Text"
+                name: "text"
+                widget: "string"
+              - label: "Url"
+                name: "url"
+                widget: "string"
+              - label: "Items"
+                name: "Items"
+                wiget: "list"
+                fields:
+                  - label: "Text"
+                    name: "text"
+                    widget: "string"
+                  - label: "Url"
+                    name: "url"
+                    widget: "string"
 

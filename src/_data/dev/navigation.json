@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "text": "Collections2",
+      "url": "/collections/",
+      "items": [
+        {
+          "text": "Musiclog",
+          "url": "/collections/musiclog/"
+        },
+        {
+          "text": "Scrapbook",
+          "url": "/collections/scrapbook/"
+        }
+      ]
+    },
+    {
+      "text": "Styleguide",
+      "url": "/styleguide/"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/"
+    }
+  ]
+}
