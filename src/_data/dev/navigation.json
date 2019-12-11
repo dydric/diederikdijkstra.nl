@@ -11,14 +11,10 @@
     {
       "text": "Collections2",
       "url": "/collections/",
-      "items": [
+      "Items": [
         {
-          "text": "Musiclog",
-          "url": "/collections/musiclog/"
-        },
-        {
-          "text": "Scrapbook",
-          "url": "/collections/scrapbook/"
+          "text": "test",
+          "url": "url"
         }
       ]
     },
