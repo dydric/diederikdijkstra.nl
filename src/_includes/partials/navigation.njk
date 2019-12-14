@@ -4,7 +4,7 @@
       {% for item in navigation.items -%}
         {%- set currentAttributes = '' -%}
         {%- if page.url == item.url -%}
-          {%- set currentAttributes = ' class="current"' -%}
+          {%- set currentAttributes = ' class="current font-bold no-underline"' -%}
         {%- endif -%}
         <li>
           <a href="{{ item.url }}"{{ currentAttributes | safe }}>{{ item.text }}</a>

@@ -22,47 +22,28 @@ layout: layouts/base.njk
 
     <h1 class="font-bold text-5xl">Music Log</h1>
 
+    {%- import "src/_includes/partials/macros/track.njk" as spotify -%}
+
     {% for playlist, month in playlists %}
       {% if playlist.items.length > 0 %}
 
         {% set track %}
           {%- for i in range(0, playlist.items.length)|reverse -%}
-          {%- set item = playlist.items[i] -%}
-
-          <div class="flex w-full mb-2">
-            <div class="flex-shrink-0 mr-4">
-              <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
-                <img src="{{ item.track.album.images[0].url }}" alt="" loading="lazy" class="h-12 w-12">
-              </a>
-            </div>
-
-            <div class="flex-auto">
-              <h4 class="text-lg leading-tight mb-1">
-                <a href=" {{ item.track.external_urls.spotify }}" class="font-bold block mb-1 no-underline hover:underline text-theme-color-7" target="_blank" rel="noopener noreferrer">
-                  {{ item.track.name  }}
-                </a>
-                  <span class="text-sm font-bold opacity-75 uppercase text-theme-color-5">
-                    {{ item.track.artists[0].name }}
-                  </span>
-
-                  <a href=" {{ item.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-xs font-light opacity-50 no-underline text-theme-color-5"> &mdash; <span class="hover:underline">{{ item.track.album.name }}</span></a>
-              </h4>
-            </div>
-
-            <div class="flex-initial ml-4">
-              {% if item.track.preview_url != null %}
-                <div class="js-audio">
-                  <audio src="{{ item.track.preview_url }}"></audio>
-                  <button></button>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        {%- endfor -%}
+            {%- set item = playlist.items[i] -%}
+            {{ spotify.track(
+              name = item.track.name,
+              artist = item.track.artists[0].name,
+              album = item.track.album.name,
+              link = item.track.external_urls.spotify,
+              albumlink = item.track.album.external_urls.spotify,
+              previewlink = item.track.preview_url,
+              cover = item.track.album.images[0].url
+            ) }}
+          {%- endfor -%}
         {% endset %}
 
         <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-theme-color-3 mb-4 ">
-          <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/5 md:sticky top-0 py-3 md:py-6">
+          <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/5 md:sticky top-0 py-3 md:pt-6 md:pb-12">
             <h4 class="truncate font-bold text-xl lg:text-2xl text-theme-color-5">{{ month }}</h4>
           </div>
           <div class="flex-auto py-6 md:mt-2">

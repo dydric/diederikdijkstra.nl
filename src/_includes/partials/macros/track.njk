@@ -1,0 +1,41 @@
+{% macro track(
+  name = "",
+  artist = "",
+  album = "",
+  link = "",
+  albumlink = "",
+  previewlink = "",
+  cover = ""
+) %}
+
+<div class="flex items-center w-full mb-2">
+  <div class="flex-shrink-0 mr-4">
+    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer">
+      <img src="{{ cover }}" alt="" loading="lazy" class="w-12 lg:w-16 xl:w-20">
+    </a>
+  </div>
+
+  <div class="flex-auto self-start">
+    <h4 class="text-lg md:text-xl lg:text-2xl leading-tight mb-1">
+      <a href=" {{ link }}" class="font-bold block mb-1 no-underline hover:underline text-theme-color-7" target="_blank" rel="noopener noreferrer">
+        {{ name }}
+      </a>
+        <span class="text-sm md:text-base xl:text-xl font-bold opacity-75 uppercase text-theme-color-5">
+          {{ artist }}
+        </span>
+
+        <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm lg:text-base font-normal opacity-50 no-underline text-theme-color-5"> &mdash; <span class="hover:underline">{{ album }}</span></a>
+    </h4>
+  </div>
+
+  <div class="flex-initial ml-4">
+    {% if previewlink != null %}
+      <div class="js-audio">
+        <audio src="{{ previewlink }}"></audio>
+        <button></button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endmacro %}

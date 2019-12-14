@@ -716,11 +716,14 @@ a:hover {
 
 .button {
   display: block;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-align: center;
   border-width: 2px;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.5rem;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -736,15 +739,7 @@ a:hover {
 @media (min-width: 640px) {
 
 .button {
-    display: inline-block;
-
-    padding-top: 0.25rem;
-
-    padding-bottom: 0.25rem;
-
-    padding-left: 0.5rem;
-
-    padding-right: 0.5rem
+    display: inline-block
 }
   }
 
@@ -759,8 +754,8 @@ a:hover {
     position: relative;
     overflow: hidden;
     outline: 0;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
     background-color: #edf2f7;
     border-radius: 9999px;
     background-color: var(--color-bg-alt)
@@ -770,8 +765,8 @@ a:hover {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 0.75rem;
+    width: 0.75rem;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -800,6 +795,34 @@ a:hover {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z'/%3E%3C/svg%3E")
     }
   }
+
+@media (min-width: 768px) {
+
+.js-audio button {
+      height: 2.5rem;
+
+      width: 2.5rem
+  }
+
+      .js-audio button::after {
+        height: 0.75rem;
+        width: 0.75rem;
+      }
+    }
+
+@media (min-width: 1280px) {
+
+.js-audio button {
+      height: 3rem;
+
+      width: 3rem
+  }
+
+      .js-audio button::after {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
 
 pre {
   font-size: 0.875rem;
@@ -12867,13 +12890,14 @@ body {
   width: 100%;
 }
 
+.section {
+  /* h1 {
+    @apply -mt-3 mb-6;
+  } */
+}
+
 .section .content {
     padding: 1.5rem;
-  }
-
-.section h1 {
-    margin-top: -0.75rem;
-    margin-bottom: 1.5rem;
   }
 
 /* * { background-color: rgba(255,0,0,.2); }
