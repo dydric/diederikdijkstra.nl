@@ -714,6 +714,25 @@ a:hover {
   text-decoration: none;
 }
 
+ol {
+  padding-left: 1rem;
+  counter-reset: my-awesome-counter;
+}
+
+ol li {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+    counter-increment: my-awesome-counter
+  }
+
+ol li::before {
+    position: absolute;
+    right: 100%;
+    opacity: 0.5;
+    content: counter(my-awesome-counter) '. ';
+  }
+
 .button {
   display: block;
   font-size: 1rem;

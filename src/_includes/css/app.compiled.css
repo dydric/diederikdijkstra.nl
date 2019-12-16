@@ -339,7 +339,7 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-
+ol,
 ul {
   list-style: none;
   margin: 0;
@@ -588,6 +588,25 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+ol {
+  padding-left: 1rem;
+  counter-reset: my-awesome-counter;
+}
+
+ol li {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+    counter-increment: my-awesome-counter
+  }
+
+ol li::before {
+    position: absolute;
+    right: 100%;
+    opacity: 0.5;
+    content: counter(my-awesome-counter) '. ';
+  }
 
 .button {
   display: block;
@@ -934,6 +953,11 @@ h4 {
           justify-content: flex-start;
 }
 
+.justify-between {
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
 .flex-auto {
   -webkit-box-flex: 1;
           flex: 1 1 auto;
@@ -1023,6 +1047,10 @@ h4 {
   margin-left: 1rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -1041,6 +1069,10 @@ h4 {
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.opacity-25 {
+  opacity: 0.25;
 }
 
 .opacity-50 {
@@ -1085,6 +1117,10 @@ h4 {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .static {

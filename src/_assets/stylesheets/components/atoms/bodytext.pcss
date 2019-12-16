@@ -13,3 +13,21 @@ a {
     @apply no-underline;
   }
 }
+
+ol {
+  @apply pl-4;
+
+  counter-reset: my-awesome-counter;
+
+  li {
+    @apply ml-2 pl-4 relative;
+
+    counter-increment: my-awesome-counter;
+
+    &::before {
+      @apply absolute right-100 opacity-50;
+
+      content: counter(my-awesome-counter) '. ';
+    }
+  }
+}

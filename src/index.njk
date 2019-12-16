@@ -44,7 +44,7 @@ pagination:
   {% endfor %}
 
   {% if pagination.pageLinks.length > 1 %}
-  <nav class="mt-6 pt-6 flex justify-between text-base">
+  <nav class="mt-6 pt-6 flex justify-between text-base max-w-xl">
     <div> {% if pagination.previousPageLink %}
         <a class="no-underline hover:underline" href="{{ pagination.previousPageHref | url }}">← Volgende</a>
         {% else %}
