@@ -7,14 +7,15 @@
 <html lang="en">
   <head>
     {% include "partials/head.njk" %}
-    {% if site.ENV == 'production' or site.ENV == 'online' %}
+    {# {% if site.ENV == 'production' or site.ENV == 'online' %}
       {% set css %}{% include "css/app.compiled.css" %}{% endset %}
       <style>
         {{ css | safe }}
       </style>
     {% else %}
     <link rel="stylesheet" href="/static/app.compiled.css">
-    {% endif %}
+    {% endif %} #}
+    <link rel="stylesheet" href="/static/app.compiled.css">
   </head>
   <body>
     <div class="site">

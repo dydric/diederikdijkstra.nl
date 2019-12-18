@@ -17,26 +17,21 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
-      theme: {
-        'color-1': 'var(--color-bg)',
-        'color-2': 'var(--color-bg-alt)',
-        'color-3': 'var(--color-border)',
-        'color-4': 'var(--color-border-alt)',
-        'color-5': 'var(--color-text)',
-        'color-6': 'var(--color-text-alt)',
-        'color-7': 'var(--color-title)'
+      accent: {
+        'primary': 'var(--color-accent-primary)',
+        'secondary': 'var(--color-accent-secondary)'
       },
 
       gray: {
-        100: '#f7fafc',
-        200: '#edf2f7',
-        300: '#e2e8f0',
-        400: '#cbd5e0',
-        500: '#a0aec0',
-        600: '#718096',
-        700: '#4a5568',
-        800: '#2d3748',
-        900: '#1a202c',
+        100: '#f7f7f7',
+        200: '#ededed',
+        300: '#e2e2e2',
+        400: '#cbcbcb',
+        500: '#a0a0a0',
+        600: '#717171',
+        700: '#4a4a4a',
+        800: '#2d2d2d',
+        900: '#1a1a1a',
       },
       red: {
         100: '#fff5f5',
@@ -162,7 +157,14 @@ module.exports = {
       '128': '32rem',
       '256': '64rem',
     },
-    backgroundColor: theme => theme('colors'),
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'body': 'var(--color-body-background)',
+      button: {
+        'primary': 'var(--color-button-primary-background)',
+        'secondary': 'var(--color-button-secondary-background)',
+      }
+    }),
     backgroundPosition: {
       bottom: 'bottom',
       center: 'center',
@@ -182,6 +184,8 @@ module.exports = {
     borderColor: theme => ({
       ...theme('colors'),
       default: theme('colors.gray.300', 'currentColor'),
+      'primary': 'var(--color-border-primary)',
+      'secondary': 'var(--color-button-secondary)',
     }),
     borderRadius: {
       none: '0',
@@ -399,7 +403,13 @@ module.exports = {
     },
     textColor: theme => ({
       ...theme('colors'),
-      'primary': '#ff3300',
+      'body': 'var(--color-text-body)',
+      'headline': 'var(--color-text-headline)',
+      'subheadline': 'var(--color-text-subheadline)',
+      'caption': 'var(--color-text-caption)',
+      'meta': 'var(--color-text-meta)',
+      'button-primary': 'var(--color-button-primary-text)',
+      'button-secondary': 'var(--color-button-secondary-text)'
     }),
     width: theme => ({
       auto: 'auto',

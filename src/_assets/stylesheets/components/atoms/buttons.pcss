@@ -1,26 +1,26 @@
 .button {
-  @apply block text-base text-center border-2 py-2 px-3 rounded-lg no-underline uppercase font-bold mb-1;
-
-  background-color: var(--color-bg-alt);
-  border-color: var(--color-bg-alt);
-  color: var(--color-text-alt);
+  @apply block text-base text-center py-2 px-3 no-underline uppercase font-bold mb-1;
+  @apply bg-button-primary text-button-primary;
+  /* background-color: var(--color-bg-alt); */
+  /* border-color: var(--color-bg-alt); */
+  /* color: var(--color-text-alt); */
 
   @screen sm {
     @apply inline-block;
   }
 
-  &:hover {
+  /* &:hover {
     border-color: var(--color-border);
     color: var(--color-text);
-  }
+  } */
 }
 
 .js-audio {
 
   button {
     @apply relative overflow-hidden outline-none;
-    @apply h-8 w-8 bg-gray-200 rounded-full;
-    @apply bg-theme-color-2;
+    @apply h-8 w-8 rounded-full;
+    @apply bg-button-secondary;
 
     &::after {
       @apply absolute left-50 top-50;

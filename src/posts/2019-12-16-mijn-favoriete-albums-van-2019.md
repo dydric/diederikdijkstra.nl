@@ -23,4 +23,3 @@ Nu ik weer door mijn playlists aan het luisteren ben, kan ik ook zo de albums er
   8. **Metronomy** - [Metronomy Forever](https://open.spotify.com/album/7IzNAyOsxeWhKPyNNz1urS?si=4dWBQ58WSdqnMj7f4qE6kg)
   9. **Clark** - [Kiri Variations](https://open.spotify.com/album/2x3toNpynOT9W9FV4kZNSQ)
   10. **Beck** - [Hyperspace](https://open.spotify.com/album/4ZUryKKDhiMXcD4fluAEhl)
-

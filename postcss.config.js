@@ -1,5 +1,5 @@
 const postcssPresetEnv = require('postcss-preset-env');
-// const cssnano = require('cssnano');
+const cssnano = require('cssnano');
 const purgecss = require('@fullhuman/postcss-purgecss');
 
 console.log("!!!!!!!!!!!!!!!! " + process.env.ELEVENTY_ENV);
@@ -18,9 +18,9 @@ module.exports = {
     require('postcss-nested'),
     require('autoprefixer'),
 
-    // process.env.ELEVENTY_ENV === 'production' ?
-    //   cssnano({ preset: 'default' })
-    //   : null,
+    process.env.ELEVENTY_ENV === 'production' ?
+      cssnano({ preset: 'default' })
+      : null,
 
     process.env.ELEVENTY_ENV === 'production' ?
       purgecss({
