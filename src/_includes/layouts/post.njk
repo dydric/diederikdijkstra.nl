@@ -7,55 +7,80 @@
 <html lang="en">
   <head>
     {% include "partials/head.njk" %}
-    {% if site.ENV == 'production' or site.ENV == 'online' %}
-      {% set css %}{% include "css/app.compiled.css" %}{% endset %}
-      <style>
-        {{ css | safe }}
-      </style>
-    {% else %}
     <link rel="stylesheet" href="/static/app.compiled.css">
-    {% endif %}
   </head>
   <body>
 
-<main class="p-8 max-w-xl text-lg">
-  <h2 class="font-extrabold text-4xl mb-8"><a href="/">{{ site.author }} <span class="hidden">v{{ site.version}}</span></a></h2>
 
-  <article>
-    <h1 class="font-bold text-5xl leading-tight mb-2">{{ title }}</h1>
-    <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-50">
-      {{ date | readableDate }}
-    </time>
 
-    {% if tags %}
-      <ul class="tags mb-8">
-      {% set comma = joiner() %}
-      {% for item in tags %}
-        {%- if item != "post" -%}
-          <li>
-            <a href="/category/{{ item }}" class="button">{# {{ comma() }} #} #{{ item | capitalize }}</a>
-          </li>
-        {%- endif -%}
-      {% endfor %}
-      </ul>
-    {% endif %}
+    <div class="site">
+      <header class="header">
+        <section class="header__title">
+          <h3>{{ site.author }} <span class="hidden">v{{ site.version}}</span></h3>
+          <a href="#" class="lg:hidden js-toggleMenu">menu</a>
+        </section>
+        {% include "partials/navigation.njk" %}
+      </header>
+      <main class="main">
+        <article class="py-4 mb-8">
+          <h1 class="font-bold text-5xl leading-tight mb-2">{{ title }}</h1>
+          <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-50">
+            {{ date | readableDate }}
+          </time>
 
-    {% if featured_image %}
-    <figure>
-      <img src="{{ featured_image }}" alt="{{ image_caption }}" loading="lazy">
-      {% if image_caption %}
-        <figcaption class="text-center text-sm italic mt-2 mb-8">{{ image_caption }}</figcaption>
-      {% endif %}
-    </figure>
-    {% endif %}
+          {% if tags %}
+            <ul class="tags mb-8">
+            {% set comma = joiner() %}
+            {% for item in tags %}
+              {%- if item != "post" -%}
+                <li>
+                  <a href="/category/{{ item }}" class="button">{# {{ comma() }} #} #{{ item | capitalize }}</a>
+                </li>
+              {%- endif -%}
+            {% endfor %}
+            </ul>
+          {% endif %}
 
-    {% if excerpt %}
-      <p>{{ excerpt | safe }}
-    {% endif %}
+          {% if featured_image %}
+          <figure class="max-w-3xl">
+            <img src="{{ featured_image }}" alt="{{ image_caption }}" loading="lazy">
+            {% if image_caption %}
+              <figcaption class="text-center text-sm italic mt-2 mb-8">{{ image_caption }}</figcaption>
+            {% endif %}
+          </figure>
+          {% endif %}
 
-    {{ content | safe }}
-  </article>
-</main>
+          <div class="max-w-xl">
+            {% if excerpt %}
+              <p>{{ excerpt | safe }}
+            {% endif %}
+
+            {{ content | safe }}
+          </div>
+        </article>
+      </main>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </body>
   <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
