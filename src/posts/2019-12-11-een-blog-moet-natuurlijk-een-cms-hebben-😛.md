@@ -50,4 +50,4 @@ Geen idee of dit handig is in de praktijk en of ik dit wel (op deze manier) blij
 
 Daarnaast ben ik bezig geweest om de data van mijn musiclog playlist's in te laden via de [spotify-api](https://www.npmjs.com/package/spotify-web-api-node) en heb ik wat wijzigingen aangebracht in de css-indeling en de homepage een klein beetje gestyled. Ik ben nog heel erg zoekende welke richting ik op wil qua style, maar vind het voor nu belangrijker om de basis goed klaar te zetten en daar over na te denken. Ik zal in een volgend bericht wat meer vertellen over mijn musiclog dat ik het hele jaar heb bijgehouden.
 
-Bovenstaande titel slaat trouwens op dit bericht: "[Je hebt helemaal geen $#@%*!^ CMS nodig](/posts/2015-11-04-je-hebt-helemaal-geen-CMS-nodig/)" wat ik in 2015 plaatste en waarvan ik nog steeds denk dat dit de beste oplossing is bijna alle website's (en ja, ook webshops, blogs, nieuwssites, etc).
+Bovenstaande titel slaat trouwens op dit bericht: "[Je hebt helemaal geen $#@%*!^ CMS nodig](/posts/2015-11-04-je-hebt-helemaal-geen-CMS-nodig/)" wat ik in 2015 plaatste en waarvan ik nog steeds denk dat dit de beste oplossing is voor (bijna alle) website's.
