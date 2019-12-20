@@ -1,0 +1,31 @@
+.track {
+  @apply relative;
+
+  > div {
+    @apply relative z-10;
+  }
+
+  &::after {
+    @apply absolute block z-0 left-0 right-0 top-0 bottom-0 w-full h-full;
+    @apply bg-gray-600 opacity-10;
+
+    content: '';
+    transition: opacity 300ms ease-in-out;
+
+    @media (prefers-color-scheme: dark) {
+      @apply bg-black;
+    }
+  }
+
+  &:hover {
+    @apply shadow-xl;
+
+    &::after {
+      @apply opacity-0;
+
+      @media (prefers-color-scheme: dark) {
+        @apply shadow-none opacity-25;
+      }
+    }
+  }
+}

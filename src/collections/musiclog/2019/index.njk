@@ -1,5 +1,6 @@
 ---
 layout: layouts/base.njk
+title: Music Log 2019
 ---
 
 {%- set playlists = [
@@ -20,7 +21,10 @@ layout: layouts/base.njk
 <section class="section">
   <div class="content">
 
-    <h1 class="font-bold text-5xl">Music Log</h1>
+    <h1 class="font-bold text-5xl">{{ title }}</h1>
+    {% if body %}<div class="max-w-4xl">
+      {{ body }}
+    </div>{% endif %}
 
     {%- import "src/_includes/partials/macros/track.njk" as spotify -%}
 
@@ -42,11 +46,11 @@ layout: layouts/base.njk
           {%- endfor -%}
         {% endset %}
 
-        <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-primary mb-4 ">
+        <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-primary mb-4 max-w-6xl">
           <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/5 md:sticky top-0 py-3 md:pt-6 md:pb-12">
-            <h4 class="truncate font-bold text-xl lg:text-2xl text-theme-color-5">{{ month }}</h4>
+            <h4 class="truncate font-bold text-xl lg:text-2xl text-body">{{ month }}</h4>
           </div>
-          <div class="flex-auto py-6 md:mt-2">
+          <div class="flex-auto pb-3 md:py-6 md:-mt-2">
             {{ track | safe }}
           </div>
         </div>
