@@ -17,14 +17,16 @@
 
   <div class="flex-auto self-start">
     <h4 class="text-lg md:text-xl lg:text-2xl leading-tight mb-1">
-      <a href=" {{ link }}" class="font-bold block mb-1 no-underline hover:underline" target="_blank" rel="noopener noreferrer">
+      <a href=" {{ link }}" class="font-bold inline-block mb-1 no-underline hover:underline" target="_blank" rel="noopener noreferrer">
         {{ name }}
       </a>
+      <div>
         <span class="text-sm md:text-base xl:text-xl font-bold opacity-75 uppercase text-body">
           {{ artist }}
         </span>
 
-        <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm lg:text-base font-normal opacity-50 no-underline text-caption"> &mdash; <span class="hover:underline">{{ album }}</span></a>
+        <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm lg:text-base font-normal opacity-75 no-underline text-caption"> &mdash; <span class="hover:underline">{{ album }}</span></a>
+      </div>
     </h4>
   </div>
 

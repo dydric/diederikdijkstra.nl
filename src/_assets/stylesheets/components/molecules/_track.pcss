@@ -3,6 +3,16 @@
 
   > div {
     @apply relative z-10;
+
+    img {
+      @apply relative;
+
+      &:hover {
+        @apply opacity-75;
+
+        transform: scale(.95);
+      }
+    }
   }
 
   &::after {
