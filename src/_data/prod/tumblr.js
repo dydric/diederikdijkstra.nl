@@ -33,6 +33,8 @@ module.exports = () => {
           response.posts.map((post) => {
             var epoch = new Date(post.date).getTime() / 1000;
 
+              // console.log(post);
+
               if (post.type == 'photo') {
 
                 var sizesLength = post.photos[0].alt_sizes.length;
@@ -47,6 +49,7 @@ module.exports = () => {
                   date:  post.date,
                   epoch: epoch,
                   url:   post.short_url,
+                  tags:  JSON.stringify(post.tags),
                   photo: post.photos[0].alt_sizes[0].url,
                   thumb: thumb
                 };
