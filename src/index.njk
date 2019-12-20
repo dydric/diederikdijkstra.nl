@@ -8,15 +8,20 @@ pagination:
 ---
 
 <section class="section
-  md:flex
+  md:flex lg:flex-wrap
   ">
 
-  <div class="content md:w-1/2 md:max-w-md md:sticky md:top-0 md:flex-auto md:self-start">
-    <img src="/static/images/home/avatar.jpg" alt="avatar van Diederik" loading="lazy" class="w-full max-w-sm">
-    <p class="mb-4 text-2xl font-medium">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
+  <div class="content md:w-full lg:max-w-4xl lg:static">
+    <img src="/static/images/home/avatar.jpg" alt="avatar van Diederik" loading="lazy" class="lg:hidden w-full max-w-sm rounded-lg">
+    <h1 class="font-bold text-4xl md:text-5xl">Hoi!</h1>
+    <p class="mb-4 text-2xl lg:text-3xl font-medium md:font-bold">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
+
+    <h2 class="text-xl lg:text-2xl">Contact:</h2>
+    <p class="text-lg"><a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer">E-mail</a> / <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer">Twitter</a> / <a href="https://instagram.com/dydric" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+
   </div>
 
-  <div class="content md:w-1/2 md:flex-auto">
+  <!-- <div class="content md:w-1/2 md:flex-auto">
     {% for post in posts %}
     <article class="border-b-2 border-primary mb-4 max-w-xl">
       <h2 class="font-bold leading-tight text-3xl mb-2">
@@ -56,6 +61,6 @@ pagination:
   </nav>
   {% endif %}
 
-  </div>
+  </div>-->
 
 </section>
