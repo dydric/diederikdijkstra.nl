@@ -17,7 +17,7 @@ pagination:
     <p class="mb-4 text-2xl lg:text-3xl font-medium md:font-bold">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij <a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a>. Gespecialiseerd in UX/UI en Design Systems.</p>
 
     <h2 class="text-xl lg:text-2xl">Contact:</h2>
-    <p class="text-lg"><a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer">E-mail</a> / <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer">Twitter</a> / <a href="https://instagram.com/dydric" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="text-lg"><a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer">E-mail</a> / <a href="https://twitter.com/dydric" target="_blank" rel="noopener noreferrer">Twitter</a></p>
 
   </div>
 
@@ -63,4 +63,44 @@ pagination:
 
   </div>-->
 
+</section>
+
+<section>
+  <div class="content w-full lg:max-w-6xl p-6 border-t-2 border-primary">
+
+    <h2 class="text-2xl lg:text-3xl"><a href="https://www.instagram.com/dydric/" target="_blank" rel="noopener noreferrer">Instagram</a></h2>
+
+    <div class="flex flex-wrap mb-4 lg:mb-8">
+    {%- for i in range(0, 18) -%}
+      {%- set item = instagram.data[i] -%}
+      {%- set itemclasses = "" %}
+
+      {% if i < 6 %}
+        {%- set itemclasses = "flex" %}
+      {% elif (i > 5 and i < 9) %}
+        {%- set itemclasses = "hidden sm:flex" %}
+      {% elif (i > 8 and i < 12) %}
+        {%- set itemclasses = "hidden md:flex" %}
+      {% elif i > 11 %}
+        {%- set itemclasses = "hidden xl:flex" %}
+      {% endif %}
+
+      <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-1 flex-wrap items-end {{ itemclasses }}">
+        <a href="{{ item.link }}" class="relative" target="_blank" rel="noopener noreferrer">
+          <img src="{{ item.images.standard_resolution.url }}" loading="lazy" class="w-full m-0 block relative z-0 hover:opacity-75 rounded-lg" >
+          <div class="absolute bottom-0 right-0 text-right max-w-full p-1 pointer-events-none">
+            {% if item.location.name %}
+              <div class="font-600 p-1 text-mini leading-none relative">
+                <span class="block relative z-10 max-w-full truncate text-gray-200 text-xs font-medium">📍{{ item.location.name }}</span>
+                <div class="absolute z-0 top-0 right-0 left-0 bottom-0 bg-black opacity-50 rounded-sm"></div>
+              </div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    {%- endfor -%}
+    </div>
+
+
+  </div>
 </section>
