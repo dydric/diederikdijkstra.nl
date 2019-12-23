@@ -15,7 +15,7 @@ intro:
 
         {# {{ item.time | readableDate }} #}
         <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
-        {% if item.description %}<p class="mb-2 text-base">{{ item.description }}</p>{% endif %}
+        {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
         {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
       </div>
     {% endfor %}
