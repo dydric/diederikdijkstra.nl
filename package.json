@@ -25,6 +25,7 @@
     "html-minifier": "^4",
     "luxon": "^1",
     "node-instagram": "^4",
+    "pinboard-bookmarks": "^1",
     "postcss-cli": "^6",
     "postcss-import": "^12",
     "postcss-nested": "4",

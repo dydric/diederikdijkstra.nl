@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Bookmarks
+intro:
+---
+
+<section class="section">
+  <div class="content">
+
+    <h1 class="font-bold text-5xl">{{ title }}</h1>
+
+    <div class="flex flex-wrap max-w-6xl py-6 -mx-1">
+    {% for item in pinboard %}
+      <div class="w-full py-3 border-b-2 border-primary">
+
+        {# {{ item.time | readableDate }} #}
+        <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
+        {% if item.description %}<p class="mb-2 text-base">{{ item.description }}</p>{% endif %}
+        {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+</section>
