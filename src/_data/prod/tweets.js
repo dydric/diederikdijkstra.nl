@@ -14,17 +14,17 @@ module.exports = () => {
 
   let params = {
     screen_name: 'dydric',
-    count: 20
+    count: 99
   };
 
-  client.get('statuses/user_timeline', params, function (error, tweets) {
+  client.get('favorites/list', params, function (error, tweets) {
     if (!error) {
 
       tweets = tweets.map((tweet) => {
         return {
           text:    tweet.text,
           url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-          created: tweet.created_at.substring(0, tweet.created_at.length - 11)
+          created: tweet.created_at.substring()
         };
       });
 
