@@ -9,16 +9,35 @@ intro:
 
     <h1 class="font-bold text-5xl">{{ title }}</h1>
 
-    <div class="flex flex-wrap max-w-6xl py-6 -mx-1">
-    {% for item in pinboard %}
-      <div class="w-full py-3 border-b-2 border-primary">
 
-        {# {{ item.time | readableDate }} #}
-        <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
-        {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
-        {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
+
+    <div class="flex flex-wrap max-w-6xl py-6 -mx-1">
+
+      <div class="flex-auto w-full md:w-1/2 md:pr-4">
+        {% for item in pinboard %}
+          {% if item.tags == "Instapaper" %}
+          <div class="w-full py-3 border-b-2 border-primary">
+            <span class="text-base font-bold opacity-75">{{ item.time | readableDate }}</span>
+            <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
+            {# {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %} #}
+          </div>
+          {% endif %}
+        {% endfor %}
       </div>
-    {% endfor %}
+
+      <div class="flex-auto w-full md:w-1/2 md:pl-4">
+        {% for item in pinboard %}
+          {% if item.tags != "Instapaper" %}
+          <div class="w-full py-3 border-b-2 border-primary">
+            {# {{ item.time | readableDate }} #}
+            <h3 class="text-lg md:text-xl leading-tight mb-1"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
+            {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
+            {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
     </div>
 
   </div>
