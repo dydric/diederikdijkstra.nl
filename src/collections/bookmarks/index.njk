@@ -16,10 +16,12 @@ intro:
       <div class="flex-auto w-full md:w-1/2 md:pr-4">
         {% for item in pinboard %}
           {% if item.tags == "Instapaper" %}
-          <div class="w-full py-3 border-b-2 border-primary">
-            <span class="text-base font-bold opacity-75">{{ item.time | readableDate }}</span>
-            <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
-            {# {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %} #}
+          <div class="card mb-4">
+            <div>
+              <span class="text-base font-bold opacity-75">{{ item.time | readableDate }}</span>
+              <h3 class="text-lg md:text-2xl lg:text-3xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
+              {# {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %} #}
+            </div>
           </div>
           {% endif %}
         {% endfor %}

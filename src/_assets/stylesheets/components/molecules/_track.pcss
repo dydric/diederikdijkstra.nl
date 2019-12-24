@@ -1,5 +1,15 @@
-.track {
+.card {
   @apply relative;
+  @apply flex items-center w-full overflow-hidden;
+  @apply mb-2 rounded-lg p-1;
+
+  @screen sm {
+    @apply p-2;
+  }
+
+  @screen lg {
+    @apply p-3;
+  }
 
   > div {
     @apply relative z-10;
@@ -17,25 +27,20 @@
 
   &::after {
     @apply absolute block z-0 left-0 right-0 top-0 bottom-0 w-full h-full;
-    @apply bg-gray-600 opacity-10;
+    @apply bg-gray-600 opacity-10 border-2 border-gray-800 rounded-lg;
 
     content: '';
     transition: opacity 300ms ease-in-out;
 
     @media (prefers-color-scheme: dark) {
-      @apply bg-black;
+      @apply bg-black border-gray-500;
     }
   }
 
   &:hover {
-    @apply shadow-xl;
 
     &::after {
       @apply opacity-0;
-
-      @media (prefers-color-scheme: dark) {
-        @apply shadow-none opacity-25;
-      }
     }
   }
 }
