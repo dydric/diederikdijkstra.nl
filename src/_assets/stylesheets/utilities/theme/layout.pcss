@@ -45,6 +45,14 @@ body {
 
     li {
       @apply w-full;
+
+      a {
+        @apply text-lg py-1 inline-block;
+
+        @screen lg {
+          @apply text-base py-0;
+        }
+      }
     }
   }
 }

@@ -12,13 +12,7 @@
   <body>
 
     <div class="site">
-      <header class="header">
-        <section class="header__title">
-          <h3>{{ site.author }} <span class="hidden">v{{ site.version}}</span></h3>
-          <a href="#" class="lg:hidden js-toggleMenu">menu</a>
-        </section>
-        {% include "partials/navigation.njk" %}
-      </header>
+      {% include "partials/header.njk" %}
       <main class="main">
         <section class="section">
           <div class="content">

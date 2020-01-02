@@ -19,16 +19,7 @@
   </head>
   <body>
     <div class="site">
-      <header class="header">
-        <a href="/" class="block px-3 pt-3">
-          <img src="/static/images/home/avatar.jpg" alt="avatar van Diederik" loading="lazy" class="hidden lg:block w-full rounded-lg">
-        </a>
-        <section class="header__title lg:hidden">
-          <h3>{{ site.author }} <span class="hidden">v{{ site.version}}</span></h3>
-          <a href="#" class="lg:hidden js-toggleMenu">menu</a>
-        </section>
-        {% include "partials/navigation.njk" %}
-      </header>
+      {% include "partials/header.njk" %}
       <main class="main">
         {{ content | safe }}
       </main>
