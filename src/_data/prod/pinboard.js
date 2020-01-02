@@ -18,12 +18,12 @@ module.exports = () => {
         if(err) {
           console.log(err);
         } else {
-          console.log("Updated instagram.json");
+          console.log("Updated pinboard.json");
         }
       });
 
     })
     .catch((error) => {
-      // handle any errors.
+      console.log('Something went wrong!', error);
     });
 }
