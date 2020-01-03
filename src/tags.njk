@@ -10,11 +10,11 @@ permalink: /category/{{ category }}/
 
   <section class="section">
     <div class="content">
-      <h1 class="font-bold text-5xl mb-8">#{{ category | capitalize }}</h1>
+      <h1 class="mb-8">#{{ category | capitalize }}</h1>
 
       {% for post in collections[category] | reverse %}
       <article class="border-b-2 border-primary mb-2 max-w-4xl">
-        <h2 class="font-bold text-3xl"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <h2 class="mb-1"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         <time datetime="{{ post.date }}" class="mb-2 block text-base opacity-75">
             {{ post.date | readableDate }}
         </time>
