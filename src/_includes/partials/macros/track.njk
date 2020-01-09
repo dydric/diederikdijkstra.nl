@@ -9,10 +9,16 @@
 ) %}
 
 <div class="card">
-  <div class="flex-shrink-0 mr-4">
-    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer">
+  <div class="flex-shrink-0 mr-4 relative">
+    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer" class="relative z-0">
       <img src="{{ cover }}" alt="" loading="lazy" class="w-12 lg:w-16 xl:w-20 rounded mb-0">
     </a>
+    {% if previewlink != null %}
+      <div class="js-audio">
+        <audio src="{{ previewlink }}"></audio>
+        <button></button>
+      </div>
+    {% endif %}
   </div>
 
   <div class="flex-auto self-start">
@@ -30,14 +36,7 @@
     </h4>
   </div>
 
-  <div class="flex-initial ml-4">
-    {% if previewlink != null %}
-      <div class="js-audio">
-        <audio src="{{ previewlink }}"></audio>
-        <button></button>
-      </div>
-    {% endif %}
-  </div>
+
 </div>
 
 {% endmacro %}
