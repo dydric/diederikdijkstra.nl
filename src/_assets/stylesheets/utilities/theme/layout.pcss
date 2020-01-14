@@ -10,7 +10,7 @@ body {
   @apply max-w-8xl mx-auto;
 
   @screen lg {
-    @apply flex;
+    @apply flex max-w-full;
   }
 }
 
@@ -62,13 +62,14 @@ body {
 }
 
 .main {
-  @apply w-full;
+  @apply w-full min-w-0;
 }
 
 .section {
+  @apply max-w-full;
 
   .content {
-    @apply p-6;
+    @apply m-6 max-w-6xl;
   }
 
   /* h1 {

@@ -1,0 +1,10 @@
+{% macro row(
+  classes = "",
+  content = ""
+) %}
+<section class="section{% if classes %} {{ classes }}{% endif %}">
+  <div class="content">
+    {{ content | safe }}
+  </div>
+</section>
+{% endmacro %}
