@@ -9,39 +9,116 @@ title: Design Guide
   content = "<h1>" + title + "</h1>"
 ) }}
 
+<style>
+  .output--headings * {
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+
 {% set headings %}
-<div class="output">
-  <h1 class="truncate">H1. Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
-  <h2 class="truncate">H2. Lorem ipsum dolor sit amet consectetur adipiscing elit</h2>
-  <h3 class="truncate">H3. Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
-  <h4 class="truncate">H4. Lorem ipsum dolor sit amet consectetur adipiscing elit</h4>
-  <h5 class="truncate">H5. Lorem ipsum dolor sit amet consectetur adipiscing elit</h5>
-</div>
+<h1>H1. Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
+<h2>H2. Lorem ipsum dolor sit amet consectetur adipiscing elit</h2>
+<h3>H3. Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
+<h4>H4. Lorem ipsum dolor sit amet consectetur adipiscing elit</h4>
+<h5>H5. Lorem ipsum dolor sit amet consectetur adipiscing elit</h5>
 {% endset %}
 
 {{ section.row(
   classes = "section--guide",
-  content = "<h4>Headings</h4>" + headings
+  content = section.output(
+              title = "Headings",
+              content = headings,
+              code = true
+            )
 ) }}
 
 {% set bodytext %}
-<div class="output">
-  <div class="max-w-xl">
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit duis leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo congue pretium eget facilisi. Taciti tempor id rutrum adipiscing arcu mus nascetur vulputate dis, imperdiet montes tortor phasellus auctor quam egestas feugiat, velit vestibulum sit himenaeos purus massa duis sagittis. Cubilia justo nunc ipsum lectus magna pellentesque parturient purus proin, nec elit molestie malesuada laoreet dictumst rutrum enim fringilla mattis, hendrerit sagittis vehicula dictum pretium consequat felis metus. Viverra tincidunt habitasse at natoque vestibulum porttitor lectus mattis sapien, odio elit integer sed cras auctor sociis. Lacus est cum accumsan sagittis massa metus urna, leo varius vulputate lorem ullamcorper lacinia, vivamus laoreet sollicitudin pharetra adipiscing tempus.</p>
-  </div>
-</div>
+<p>Lorem ipsum <a href="#">dolor</a> sit amet <strong>consectetur</strong> <em>adipiscing</em> elit duis leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo.</p>
 {% endset %}
 
 {{ section.row(
   classes = "section--guide",
-  content = "<h4>Bodytext</h4>" + bodytext
+  content = section.output(
+              title = "Bodytext",
+              content = bodytext,
+              beforeContent = '<div class="max-w-xl">',
+              afterContent = '</div>',
+              code = true
+            )
 ) }}
 
-<!-- ROWS -->
+{% set intro %}
+<p class="mb-4 text-2xl lg:text-3xl font-medium md:font-bold">Lorem ipsum <a href="#">dolor</a> sit amet consectetur adipiscing elit duis leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo.</p>
+{% endset %}
+
+{{ section.row(
+  classes = "section--guide",
+  content = section.output(
+              title = "Introduction",
+              content = intro,
+              code = true
+            )
+) }}
+
+{% set unorderedlist %}
+<ul>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+</ul>
+{% endset %}
+
+{{ section.row(
+  classes = "section--guide",
+  content = section.output(
+              title = "Unordered list",
+              content = unorderedlist,
+              beforeContent = '<div class="max-w-xl">',
+              afterContent = '</div>',
+              code = true
+            )
+) }}
+
+{% set orderedlist %}
+<ol>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+  <li>Lorem ipsum dolor sit amet consectetur adipiscing</li>
+</ol>
+{% endset %}
+
+{{ section.row(
+  classes = "section--guide",
+  content = section.output(
+              title = "Ordered list",
+              content = orderedlist,
+              beforeContent = '<div class="max-w-xl">',
+              afterContent = '</div>',
+              code = true
+            )
+) }}
+
 <style>
 .section--example, .section--example .content{ border: 2px dashed #999; }
 </style>
+
+{% set rows %}
 {{ section.row(
   classes = "section--example",
-  content = "Example"
+  content = "&nbsp;"
 ) }}
+{% endset %}
+
+{{ section.row(
+  classes = "section--guide",
+  content = section.output(
+              title = "Rows",
+              content = rows,
+              code = true
+            )
+) }}
+
+
