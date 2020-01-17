@@ -2,9 +2,6 @@
 layout: layouts/base.njk
 title: Scrapbook
 intro:
-pagination:
-  data: tumblr
-  size: 100
 ---
 
 <section class="section">
@@ -23,7 +20,7 @@ pagination:
     </div>
 
     {% if pagination %}
-    <p>
+    <p class="mb-8">
       {% if pagination.previousPageLink %}
         <a href="{{ pagination.previousPageLink}} ">Previous</a>
       {% else %}
