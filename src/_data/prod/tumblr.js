@@ -8,7 +8,7 @@ module.exports = () => {
   const paths = {
     tumblr: {
       dest: '/../dev/tumblr.json',
-      pages: 51,
+      pages: 100,
       posts: 20
     }
   };
