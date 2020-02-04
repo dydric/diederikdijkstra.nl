@@ -19,7 +19,7 @@ title: Musiclog 2019
 ] -%}
 
 {%- import "src/_includes/macros/section.njk" as section -%}
-{%- import "src/_includes/macros/track.njk" as spotify -%}
+{%- import "src/_includes/macros/items.njk" as item -%}
 
 
 {% set intro %}
@@ -38,24 +38,26 @@ title: Musiclog 2019
   {% for playlist, month in playlists %}
     {% if playlist.items.length > 0 %}
 
-      {% set track %}
+      {% set tracks %}
+        <div class="items">
         {%- for i in range(0, playlist.items.length)|reverse -%}
-          {%- set item = playlist.items[i] -%}
-          {{ spotify.track(
-            name = item.track.name,
-            artist = item.track.artists[0].name,
-            album = item.track.album.name,
-            link = item.track.external_urls.spotify,
-            albumlink = item.track.album.external_urls.spotify,
-            previewlink = item.track.preview_url,
-            cover = item.track.album.images[0].url
+          {%- set spotify = playlist.items[i] -%}
+          {{ item.track(
+            name = spotify.track.name,
+            artist = spotify.track.artists[0].name,
+            album = spotify.track.album.name,
+            link = spotify.track.external_urls.spotify,
+            albumlink = spotify.track.album.external_urls.spotify,
+            previewlink = spotify.track.preview_url,
+            cover = spotify.track.album.images[0].url
           ) }}
         {%- endfor -%}
+        </div>
       {% endset %}
 
       {{ section.collection(
           title = month,
-          content = track | safe
+          content = tracks | safe
         )
       }}
 

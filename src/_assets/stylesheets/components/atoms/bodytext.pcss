@@ -4,6 +4,23 @@ p {
   strong {
     @apply font-medium;
   }
+
+  &.intro {
+    @apply mb-4 text-2xl font-medium;
+
+    @screen md {
+      @apply font-bold;
+    }
+
+    @screen lg {
+      @apply text-3xl;
+    }
+  }
+
+  .small {
+    @apply opacity-75;
+    @apply text-sm;
+  }
 }
 
 a {

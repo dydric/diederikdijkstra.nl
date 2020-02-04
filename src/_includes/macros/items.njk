@@ -1,0 +1,31 @@
+{% macro track(
+  name = "",
+  artist = "",
+  album = "",
+  link = "",
+  albumlink = "",
+  previewlink = "",
+  cover = ""
+) %}
+
+<div class="item item--track">
+  <div class="album">
+    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer">
+      <img src="{{ cover }}" alt="" loading="lazy" class="">
+    </a>
+  </div>
+  <div class="text">
+    <h4{% if previewlink != null %} class="has-audio"{% endif %}>
+      <a href=" {{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a>
+      {% if previewlink != null %}
+        <div class="js-audio">
+          <audio src="{{ previewlink }}"></audio>
+          <button></button>
+        </div>
+      {% endif %}
+    </h4>
+    <p><strong>{{ artist }}</strong> <span class="small">{{ album }}</span></p>
+  </div>
+</div>
+
+{% endmacro %}
