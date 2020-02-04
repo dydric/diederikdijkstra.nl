@@ -9,6 +9,21 @@
 </section>
 {% endmacro %}
 
+{% macro collection(
+  title = "",
+  content = ""
+) %}
+
+<div class="collection">
+  <div class="col col--title">
+    <h4>{{ title }}</h4>
+  </div>
+  <div class="col col--content">
+    {{ content | safe }}
+  </div>
+</div>
+{% endmacro %}
+
 {% macro output(
   title = "",
   content = "",

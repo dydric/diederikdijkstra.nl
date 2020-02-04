@@ -115,10 +115,29 @@ title: Design Guide
 {{ section.row(
   classes = "section--guide",
   content = section.output(
-              title = "Rows",
+              title = "Section",
               content = rows,
               code = true
             )
 ) }}
 
+<style>
+.collection .col--content { border: 2px dashed #999; }
+</style>
+
+{% set collection %}
+{{ section.collection(
+  title = "####",
+  content = "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies, libero natoque nulla nullam eros in curae, faucibus rutrum hendrerit suspendisse purus a vehicula."
+) }}
+{% endset %}
+
+{{ section.row(
+  classes = "section--guide",
+  content = section.output(
+              title = "Collection",
+              content = collection,
+              code = true
+            )
+) }}
 

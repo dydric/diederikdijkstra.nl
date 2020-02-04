@@ -18,44 +18,51 @@ title: Musiclog
   [spotify.2019_03, "Maart"]
 ] -%}
 
-<section class="section">
-  <div class="content">
+{%- import "src/_includes/macros/section.njk" as section -%}
+{%- import "src/_includes/macros/track.njk" as spotify -%}
 
-    <h1>{{ title }}</h1>
-    <div class="max-w-4xl">
-      <p class="text-2xl lg:text-3xl font-medium md:font-bold"><a href="https://open.spotify.com/playlist/0U2gEvXyHaY67UPObHltWl?si=8AP3-qlESwaSoxabPhiyCQ" target="_blank" rel="noopener noreferrer">Luister de complete 2019 afspeellijst op Spotify</a></p>
-    </div>
-
-    {%- import "src/_includes/macros/track.njk" as spotify -%}
-
-    {% for playlist, month in playlists %}
-      {% if playlist.items.length > 0 %}
-
-        {% set track %}
-          {%- for i in range(0, playlist.items.length)|reverse -%}
-            {%- set item = playlist.items[i] -%}
-            {{ spotify.track(
-              name = item.track.name,
-              artist = item.track.artists[0].name,
-              album = item.track.album.name,
-              link = item.track.external_urls.spotify,
-              albumlink = item.track.album.external_urls.spotify,
-              previewlink = item.track.preview_url,
-              cover = item.track.album.images[0].url
-            ) }}
-          {%- endfor -%}
-        {% endset %}
-
-        <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-primary mb-4 max-w-6xl">
-          <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/5 md:sticky top-0 py-3 md:pt-6 md:pb-12">
-            <h4 class="truncate font-bold text-xl lg:text-2xl text-body">{{ month }}</h4>
-          </div>
-          <div class="flex-auto pb-3 md:py-6 md:-mt-2">
-            {{ track | safe }}
-          </div>
-        </div>
-        {% endif %}
-      {% endfor %}
-
+{% set intro %}
+  <h1>{{ title }}</h1>
+  <div class="max-w-4xl">
+    <p class="text-2xl lg:text-3xl font-medium md:font-bold"><a href="https://open.spotify.com/playlist/0U2gEvXyHaY67UPObHltWl?si=8AP3-qlESwaSoxabPhiyCQ" target="_blank" rel="noopener noreferrer">Luister de complete 2019 afspeellijst op Spotify</a></p>
   </div>
-</section>
+{% endset %}
+
+{{ section.row(
+  classes = "section--intro",
+  content = intro
+) }}
+
+{% set musiclog %}
+  {% for playlist, month in playlists %}
+    {% if playlist.items.length > 0 %}
+
+      {% set track %}
+        {%- for i in range(0, playlist.items.length)|reverse -%}
+          {%- set item = playlist.items[i] -%}
+          {{ spotify.track(
+            name = item.track.name,
+            artist = item.track.artists[0].name,
+            album = item.track.album.name,
+            link = item.track.external_urls.spotify,
+            albumlink = item.track.album.external_urls.spotify,
+            previewlink = item.track.preview_url,
+            cover = item.track.album.images[0].url
+          ) }}
+        {%- endfor -%}
+      {% endset %}
+
+      {{ section.collection(
+          title = month,
+          content = track | safe
+        )
+      }}
+
+    {% endif %}
+  {% endfor %}
+{% endset %}
+
+{{ section.row(
+  classes = "section--musiclog",
+  content = musiclog
+) }}

@@ -4,45 +4,60 @@ title: Bookmarks
 intro:
 ---
 
-<section class="section">
-  <div class="content">
+{%- import "src/_includes/macros/section.njk" as section -%}
 
-    <h1>{{ title }}</h1>
+{% set intro %}
+  <h1>{{ title }}</h1>
+{% endset %}
 
-    {% set year = '' %}
-    {% set month = '' %}
+{{ section.row(
+  classes = "section--intro",
+  content = intro
+) }}
 
-        {% for item in pinboard %}
+{% set bookmarks %}
 
-          {% set date = item.time | readableDate %}
-          {% set currentyear = date.slice(6) %}
-          {% set currentmonth = date.slice(3) %}
+  {% set year = '' %}
+  {% set month = '' %}
 
-          {% if month != currentmonth %}
-            {% if loop.index != 1 %}</div></div>{% endif %}
-              <div class="flex flex-wrap md:flex-no-wrap border-b-2 border-primary mb-4 max-w-6xl">
-                <div class="flex-initial flex-shrink-0 self-start w-full md:w-1/5 md:sticky top-0 py-3 md:pt-6 md:pb-12">
-                  <h4 class="truncate font-bold text-xl lg:text-2xl text-body">{{ currentmonth }}</h4>
-                </div>
-                {% set month = currentmonth %}
-                <div class="flex-auto pb-3 md:py-6 md:-mt-2 max-w-full">
-          {% endif %}
+  {% for item in pinboard %}
 
-          {% if item.tags == "Instapaper" %}
-            <div class="py-3 block overflow-hidden">
-              <h3 class="text-lg md:text-2xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h3>
-              <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class=" break-all no-underline hover:underline">
-                <span class="mb-2 text-sm opacity-75 text-meta">{{ item.href }}</span>
-              </a>
-            </div>
-          {% else %}
-            <div class="w-full py-3 ">
-              <h3 class="text-lg md:text-xl leading-tight mb-1"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
-              {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
-              {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+    {% set date = item.time | readableDate %}
+    {% set currentyear = date.slice(6) %}
+    {% set currentmonth = date.slice(3) %}
 
-  </div>
-</section>
+    {% if month != currentmonth %}
+      {% if loop.index != 1 %}
+          </div>
+        </div>
+      {% endif %}
+        <div class="collection">
+          <div class="col col--title">
+            <h4>{{ currentmonth }}</h4>
+          </div>
+          {% set month = currentmonth %}
+          <div class="col col--content">
+    {% endif %}
+
+    {% if item.tags == "Instapaper" %}
+      <div class="pb-6 block overflow-hidden">
+        <h3 class="text-lg md:text-2xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h3>
+        <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class=" break-all no-underline hover:underline">
+          <span class="mb-2 text-sm opacity-75 text-meta">{{ item.href }}</span>
+        </a>
+      </div>
+    {% else %}
+      <div class="w-full pb-3 ">
+        <h3 class="text-lg md:text-xl leading-tight mb-1"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
+        {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
+        {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+{% endset %}
+
+{{ section.row(
+  classes = "section--bookmarks",
+  content = bookmarks
+) }}
