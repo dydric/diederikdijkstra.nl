@@ -1,0 +1,73 @@
+p {
+  @apply mb-4;
+
+  strong {
+    @apply font-medium;
+  }
+
+  &.intro {
+    @apply mb-4 text-2xl font-medium;
+
+    @screen md {
+      @apply font-bold;
+    }
+
+    @screen lg {
+      @apply text-3xl;
+    }
+  }
+
+  small {
+    @apply opacity-50;
+    @apply text-sm uppercase font-semibold;
+  }
+}
+
+a {
+  @apply underline;
+
+  &:hover {
+    @apply no-underline;
+  }
+}
+
+.content {
+
+  ol,
+  ul {
+    @apply pl-4 mb-4;
+
+    li {
+      @apply pl-4 relative;
+
+      &::before {
+        @apply absolute left-0 -ml-3;
+        @apply text-accent-primary font-bold text-left ;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: my-awesome-counter;
+
+    li {
+      counter-increment: my-awesome-counter;
+
+      &::before {
+        content: counter(my-awesome-counter) '. ';
+      }
+    }
+  }
+
+  ul {
+
+    li {
+
+      &::before {
+        @apply -ml-2;
+
+        content: '\2022';
+      }
+    }
+  }
+}

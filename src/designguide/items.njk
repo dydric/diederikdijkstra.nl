@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+title: Design Guide
+---
+
+{%- import "src/_includes/macros/layouts.njk" as layout -%}
+{%- import "src/_includes/macros/items.njk" as item -%}
+
+{{ layout.row(
+  content = "<h1>" + title + "</h1>"
+) }}
+
+{{ layout.row(
+  content = '<h2 class="text-body">Items</h2>'
+) }}
+
+{% set track %}
+{{ item.track(
+  name = "Another Day in Paradise - 2016 Remaster",
+  artist = "Phil Collins",
+  album = "..But Seriously (Deluxe Edition)",
+  link = "https://open.spotify.com/track/1NCuYqMc8hKMb4cpNTcJbD",
+  albumlink = "https://open.spotify.com/artist/4lxfqrEsLX6N1N4OCSkILp",
+  previewlink = "https://p.scdn.co/mp3-preview/caded0dd1037c167ae428022979e3e1003d0af39?cid=083b8f469c0945df83b14b76e5e53557",
+  cover = "https://i.scdn.co/image/ab67616d0000b273fb2daafa0993f39d87a84385"
+) }}
+{% endset %}
+
+{{ layout.row(
+  classes = "section--guide",
+  content = layout.output(
+              title = "Track",
+              content = track,
+              code = true
+            )
+) }}

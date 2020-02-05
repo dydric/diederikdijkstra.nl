@@ -10,21 +10,21 @@
 
 <div class="item item--track{% if previewlink != null %} item--has-audio{% endif %}">
   <div class="album">
+    {% if cover -%}
     <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer">
       <img src="{{ cover }}" alt="" loading="lazy" class="">
+      {%- if previewlink != null %}
+      <div class="js-audio">
+        <audio src="{{ previewlink }}"></audio>
+        <button></button>
+      </div>
+      {%- endif %}
     </a>
+    {%- endif %}
   </div>
   <div class="text">
-    <h4>
-      <a href=" {{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a>
-      {% if previewlink != null %}
-        <div class="js-audio">
-          <audio src="{{ previewlink }}"></audio>
-          <button></button>
-        </div>
-      {% endif %}
-    </h4>
-    <p><strong>{{ artist }}</strong> <span class="small">{{ album }}</span></p>
+    <h4><a href=" {{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a></h4>
+    <p><strong>{{ artist }}</strong> <small>{{ album }}</small></p>
   </div>
 </div>
 

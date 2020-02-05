@@ -3,10 +3,15 @@ layout: layouts/base.njk
 title: Design Guide
 ---
 
-{%- import "src/_includes/macros/section.njk" as section -%}
+{%- import "src/_includes/macros/layouts.njk" as layout -%}
+{%- import "src/_includes/macros/items.njk" as item -%}
 
-{{ section.row(
+{{ layout.row(
   content = "<h1>" + title + "</h1>"
+) }}
+
+{{ layout.row(
+  content = '<h2 class="text-body">Content</h2>'
 ) }}
 
 <style>
@@ -26,9 +31,9 @@ title: Design Guide
 <h5>H5. Lorem ipsum dolor sit amet consectetur adipiscing elit</h5>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Headings",
               content = headings,
               code = true
@@ -36,12 +41,12 @@ title: Design Guide
 ) }}
 
 {% set bodytext %}
-<p>Lorem ipsum <a href="#">dolor</a> sit amet <strong>consectetur</strong> <em>adipiscing</em> elit duis leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo.</p>
+<p>Lorem ipsum <a href="#">dolor</a> sit amet <strong>consectetur</strong> <em>adipiscing</em> elit <small>duis</small> leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo.</p>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Bodytext",
               content = bodytext,
               beforeContent = '<div class="max-w-xl">',
@@ -54,9 +59,9 @@ title: Design Guide
 <p class="intro">Lorem ipsum <a href="#">dolor</a> sit amet consectetur adipiscing elit duis leo mattis elementum dictum aliquet integer dis, nunc ligula magna curabitur platea imperdiet rhoncus maecenas pulvinar commodo.</p>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Introduction",
               content = intro,
               code = true
@@ -71,9 +76,9 @@ title: Design Guide
 </ul>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Unordered list",
               content = unorderedlist,
               beforeContent = '<div class="max-w-xl">',
@@ -90,9 +95,9 @@ title: Design Guide
 </ol>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Ordered list",
               content = orderedlist,
               beforeContent = '<div class="max-w-xl">',
@@ -101,20 +106,24 @@ title: Design Guide
             )
 ) }}
 
+{{ layout.row(
+  content = '<h2 class="text-body">Layout</h2>'
+) }}
+
 <style>
 .section--example, .section--example .content{ border: 2px dashed #999; }
 </style>
 
 {% set rows %}
-{{ section.row(
+{{ layout.row(
   classes = "section--example",
   content = "&nbsp;"
 ) }}
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Section",
               content = rows,
               code = true
@@ -126,18 +135,42 @@ title: Design Guide
 </style>
 
 {% set collection %}
-{{ section.collection(
+{{ layout.collection(
   title = "####",
   content = "Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies, libero natoque nulla nullam eros in curae, faucibus rutrum hendrerit suspendisse purus a vehicula."
 ) }}
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--guide",
-  content = section.output(
+  content = layout.output(
               title = "Collection",
               content = collection,
               code = true
             )
 ) }}
 
+{{ layout.row(
+  content = '<h2 class="text-body">Items</h2>'
+) }}
+
+{% set track %}
+{{ item.track(
+  name = "Another Day in Paradise - 2016 Remaster",
+  artist = "Phil Collins",
+  album = "..But Seriously (Deluxe Edition)",
+  link = "https://open.spotify.com/track/1NCuYqMc8hKMb4cpNTcJbD",
+  albumlink = "https://open.spotify.com/artist/4lxfqrEsLX6N1N4OCSkILp",
+  previewlink = "https://p.scdn.co/mp3-preview/caded0dd1037c167ae428022979e3e1003d0af39?cid=083b8f469c0945df83b14b76e5e53557",
+  cover = "https://i.scdn.co/image/ab67616d0000b273fb2daafa0993f39d87a84385"
+) }}
+{% endset %}
+
+{{ layout.row(
+  classes = "section--guide",
+  content = layout.output(
+              title = "Track",
+              content = track,
+              code = true
+            )
+) }}

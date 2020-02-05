@@ -4,13 +4,13 @@ title: Bookmarks
 intro:
 ---
 
-{%- import "src/_includes/macros/section.njk" as section -%}
+{%- import "src/_includes/macros/layouts.njk" as layout -%}
 
 {% set intro %}
   <h1>{{ title }}</h1>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--intro",
   content = intro
 ) }}
@@ -57,7 +57,7 @@ intro:
 
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--bookmarks",
   content = bookmarks
 ) }}

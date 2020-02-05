@@ -11,21 +11,47 @@
 
   &--track {
     @apply flex;
-    @apply flex-initial w-full;
 
-    @screen xl {
-      @apply flex-auto w-1/2;
+    .items & {
+      @apply flex-initial w-full;
+
+      @screen xl {
+        @apply flex-auto w-1/2;
+      }
     }
 
     .album {
-      @apply flex-initial flex-shrink-0 w-12;
+      @apply flex-initial self-start flex-shrink-0 w-12 h-12 overflow-hidden mt-1;
+      @apply relative;
 
       img {
-        @apply w-12 h-12 block rounded block mt-1;
+        @apply w-12 h-12 block rounded block;
 
         /* &:hover {
           @apply opacity-75;
         } */
+      }
+    }
+
+    &.item--has-audio {
+
+      .album {
+
+        .js-audio {
+          @apply opacity-0;
+
+          transform: scale(.5);
+          transition: all 200ms;
+        }
+
+        &:hover {
+
+          .js-audio {
+            @apply opacity-100;
+
+            transform: scale(1);
+          }
+        }
       }
     }
 
@@ -34,31 +60,23 @@
       @apply relative;
     }
 
-    /* &.item--has-audio {
-    } */
-
     h4,
     p {
       @apply mb-0;
     }
 
-    .small {
+    small {
       @apply block;
 
       @screen sm {
-        @apply inline pl-2;
+        @apply inline;
       }
     }
   }
 }
 
 .js-audio {
-  @apply absolute left-0 top-0 w-6 -ml-12 pl-2;
-  @apply mt-3;
-
-  /* @screen sm {
-    @apply mt-4;
-  } */
+  @apply absolute left-0 top-0 h-8 w-8 mt-2 ml-2;
 
   button {
     @apply relative outline-none;
@@ -66,10 +84,6 @@
     @apply shadow-xl border-2 border-white;
 
     background-color: rgba(255, 255, 255, .75);
-
-    &:hover {
-      @apply bg-white;
-    }
 
     &::after {
       @apply absolute left-50 top-50;

@@ -18,7 +18,7 @@ title: Musiclog 2019
   [spotify.2019_01, "Jan 2019"]
 ] -%}
 
-{%- import "src/_includes/macros/section.njk" as section -%}
+{%- import "src/_includes/macros/layouts.njk" as layout -%}
 {%- import "src/_includes/macros/items.njk" as item -%}
 
 
@@ -29,7 +29,7 @@ title: Musiclog 2019
   </div>
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--intro",
   content = intro
 ) }}
@@ -55,7 +55,7 @@ title: Musiclog 2019
         </div>
       {% endset %}
 
-      {{ section.collection(
+      {{ layout.collection(
           title = month,
           content = tracks | safe
         )
@@ -65,7 +65,7 @@ title: Musiclog 2019
   {% endfor %}
 {% endset %}
 
-{{ section.row(
+{{ layout.row(
   classes = "section--musiclog",
   content = musiclog
 ) }}

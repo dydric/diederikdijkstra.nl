@@ -23,16 +23,14 @@
               </time>
 
               {% if tags %}
-                <ul class="tags mb-8">
+                <div class="tags mb-8">
                 {% set comma = joiner() %}
                 {% for item in tags %}
                   {%- if item != "post" -%}
-                    <li>
-                      <a href="/category/{{ item }}" class="button">{# {{ comma() }} #} #{{ item | capitalize }}</a>
-                    </li>
+                    <a href="/category/{{ item }}" class="button">{# {{ comma() }} #} #{{ item | capitalize }}</a>
                   {%- endif -%}
                 {% endfor %}
-                </ul>
+                </div>
               {% endif %}
 
               {% if featured_image %}
