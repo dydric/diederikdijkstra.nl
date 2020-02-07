@@ -5,17 +5,7 @@ title: Musiclog
 
 {%- set playlists = [
   [spotify.2020_02, "Feb 2020"],
-  [spotify.2020_01, "Jan 2020"],
-  [spotify.2019_12, "Dec 2019"],
-  [spotify.2019_11, "Nov 2019"],
-  [spotify.2019_10, "Oct 2019"],
-  [spotify.2019_09, "Sep 2019"],
-  [spotify.2019_08, "Aug 2019"],
-  [spotify.2019_07, "Jul 2019"],
-  [spotify.2019_06, "Jun 2019"],
-  [spotify.2019_05, "May 2019"],
-  [spotify.2019_04, "Apr 2019"],
-  [spotify.2019_03, "Mar 2019"]
+  [spotify.2020_01, "Jan 2020"]
 ] -%}
 
 {%- import "src/_includes/macros/layouts.njk" as layout -%}
@@ -23,9 +13,6 @@ title: Musiclog
 
 {% set intro %}
   <h1>{{ title }}</h1>
-  <div class="max-w-4xl">
-    <p class="text-2xl lg:text-3xl font-medium md:font-bold"><a href="https://open.spotify.com/playlist/0U2gEvXyHaY67UPObHltWl?si=8AP3-qlESwaSoxabPhiyCQ" target="_blank" rel="noopener noreferrer">Luister de complete 2019 afspeellijst op Spotify</a></p>
-  </div>
 {% endset %}
 
 {{ layout.row(
@@ -67,4 +54,13 @@ title: Musiclog
 {{ layout.row(
   classes = "section--musiclog",
   content = musiclog
+) }}
+
+{% set outro %}
+  <p class="intro"><a href="/collections/musiclog/2019/">Klik hier voor de 2019 lijst</a></p>
+{% endset %}
+
+{{ layout.row(
+  classes = "section--intro",
+  content = outro
 ) }}
