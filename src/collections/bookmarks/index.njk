@@ -41,16 +41,20 @@ intro:
 
     {% if item.tags == "Instapaper" %}
       <div class="pb-6 block overflow-hidden">
-        <h3 class="text-lg md:text-2xl leading-tight mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h3>
+        <h4 class="mb-0"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h4>
         <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class=" break-all no-underline hover:underline">
-          <span class="mb-2 text-sm opacity-75 text-meta">{{ item.href }}</span>
+          <small class="block mt-1">{{ item.href }}</small>
         </a>
       </div>
     {% else %}
-      <div class="w-full pb-3 ">
-        <h3 class="text-lg md:text-xl leading-tight mb-1"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h3>
-        {% if item.extended %}<p class="mb-2 text-base">{{ item.extended }}</p>{% endif %}
-        {% if item.tags %}<span class="opacity-50 text-sm">{{ item.tags }}</span>{% endif %}
+      <div class="w-full pb-4">
+        <h4 class="mb-0"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h4>
+        {% if item.extended %}<p class="mb-0 text-base">{{ item.extended }}</p>{% endif %}
+        {%- set list1 = item.tags.split(' ') -%}
+        <small class="block mt-1">{% for list in list1 %}
+          <a href="https://pinboard.in/u:dydric/t:{{ list }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline mr-2">#{{ list }}</a>
+        {% endfor %}</small>
+        {# {% if item.tags %}<small class="mt-1 inline-block">{{ item.tags }}</small>{% endif %} #}
       </div>
     {% endif %}
   {% endfor %}
