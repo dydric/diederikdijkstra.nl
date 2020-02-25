@@ -39,9 +39,10 @@ intro:
           <div class="col col--content">
     {% endif %}
 
-    {% if item.tags == "Instapaper" %}
+    {% if "Instapaper" in item.tags %}
       <div class="pb-6 block overflow-hidden">
         <h4 class="mb-0"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h4>
+        {% if item.extended %}<p class="mb-0 text-base">{{ item.extended }}</p>{% endif %}
         <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class=" break-all no-underline hover:underline">
           <small class="block mt-1">{{ item.href }}</small>
         </a>
