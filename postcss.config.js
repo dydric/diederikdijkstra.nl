@@ -30,7 +30,7 @@ module.exports = {
         extractors: [{
           extractor: class TailwindCSS {
             static extract(content) {
-              return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+              return content.match(/[\w-/.:]+(?<!:)/g) || [];
             }
           },
           extensions: ["html", "js"]

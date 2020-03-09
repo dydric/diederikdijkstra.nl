@@ -16,6 +16,7 @@
     "@babel/core": "^7",
     "@babel/preset-env": "^7",
     "@fullhuman/postcss-purgecss": "^1",
+    "@tailwindcss/ui": "^0",
     "autoprefixer": "^9",
     "babel-loader": "^8",
     "concurrently": "^5",
