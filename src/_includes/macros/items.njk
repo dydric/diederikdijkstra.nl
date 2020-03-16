@@ -11,12 +11,12 @@
 <div class="item item--track{% if previewlink != null %} item--has-audio{% endif %}">
   <div class="album">
     {% if cover -%}
-    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer">
+    <a href=" {{ albumlink }}" target="_blank" rel="noopener noreferrer" tabindex="-1">
       <img src="{{ cover }}" alt="" loading="lazy" class="">
       {%- if previewlink != null %}
       <div class="js-audio">
         <audio src="{{ previewlink }}"></audio>
-        <button></button>
+        <button tabindex="-1"></button>
       </div>
       {%- endif %}
     </a>
