@@ -5,6 +5,18 @@ h4,
 h5,
 h6 {
   @apply font-extrabold text-headline leading-tight;
+
+  &.xl {
+    @apply text-5xl mb-2;
+
+    @screen md {
+      @apply text-6xl;
+    }
+
+    @screen lg {
+      @apply text-7xl;
+    }
+  }
 }
 
 h1 {
