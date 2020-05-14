@@ -40,16 +40,16 @@ intro:
     {% endif %}
 
     {% if "Instapaper" in item.tags %}
-      <div class="pb-6 block overflow-hidden">
-        <h4 class="mb-0"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h4>
+      <div class="w-full p-2 lg:px-4 mb-4 bg-card shadow-sm rounded-md border-2 border-accent-primary overflow-hidden">
+        <h4 class="mb-1"><a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline">{{ item.description }}</a></h4>
         {% if item.extended %}<p class="mb-0 text-base">{{ item.extended }}</p>{% endif %}
         <a href="{{ item.href }}" target="_blank" rel="noopener noreferrer" class=" break-all no-underline hover:underline">
           <small class="block mt-1">{{ item.href }}</small>
         </a>
       </div>
     {% else %}
-      <div class="w-full pb-4">
-        <h4 class="mb-0"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h4>
+      <div class="w-full p-2 lg:px-4 mb-4 bg-card rounded-md border-2 border-card">
+        <h4 class="mb-1"><a class=" text-body" href="{{ item.href }}" target="_blank" rel="noopener noreferrer">{{ item.description }}</a></h4>
         {% if item.extended %}<p class="mb-0 text-base">{{ item.extended }}</p>{% endif %}
         {%- set list1 = item.tags.split(' ') -%}
         <small class="block mt-1">{% for list in list1 %}
