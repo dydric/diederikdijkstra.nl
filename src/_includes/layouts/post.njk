@@ -22,16 +22,16 @@
                 {{ date | readableDate }}
               </time>
 
-              {% if tags %}
+              {# {% if tags %}
                 <div class="tags mb-8">
                 {% set comma = joiner() %}
                 {% for item in tags %}
                   {%- if item != "post" -%}
-                    <a href="/category/{{ item }}" class="button">{# {{ comma() }} #} #{{ item | capitalize }}</a>
+                    <a href="/category/{{ item }}" class="button">#{{ item | capitalize }}</a>
                   {%- endif -%}
                 {% endfor %}
                 </div>
-              {% endif %}
+              {% endif %} #}
 
               {% if featured_image %}
               <figure class="max-w-3xl">
