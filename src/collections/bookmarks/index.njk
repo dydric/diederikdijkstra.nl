@@ -76,9 +76,9 @@ intro:
         </h4>
         {% if item.extended %}<p class="mb-0 text-base">{{ item.extended }}</p>{% endif %}
         {%- set list1 = item.tags.split(' ') -%}
-        <small class="block mt-1">{% for list in list1 %}
-          <a href="https://pinboard.in/u:dydric/t:{{ list }}" target="_blank" rel="noopener noreferrer" class="no-underline hover:underline mr-2">#{{ list }}</a>
-        {% endfor %}</small>
+        <div class="block mt-1">{% for list in list1 %}
+          <a href="https://pinboard.in/u:dydric/t:{{ list }}" target="_blank" rel="noopener noreferrer"  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-indigo-100 text-indigo-500 mr-1 no-underline hover:bg-green-400 hover:text-white">{{ list }}</a>
+        {% endfor %}</div>
       </div>
     {% endif %}
   {% endfor %}
