@@ -92,6 +92,10 @@ module.exports = {
         '7xl': '96rem',
         '8xl': '108rem',
       },
+
+      opacity: {
+        '5': '.08',
+      },
     },
 
   },
