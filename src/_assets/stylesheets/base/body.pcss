@@ -1,7 +1,7 @@
 body {
   @apply font-normal bg-body text-body;
 
-  &::after {
+  /* &::after {
     @apply fixed z-0 left-0 top-0 right-0 bottom-0 w-full h-full block;
     @apply bg-center bg-cover;
     @apply pointer-events-none;
@@ -9,7 +9,7 @@ body {
 
     background-image: url(images/noise.gif);
     content: '';
-  }
+  } */
 
   @screen md {
     @apply text-lg;
@@ -32,4 +32,10 @@ body {
       }
     } */
   }
+}
+
+.noise {
+  @apply fixed z-0 left-0 top-0 right-0 bottom-0 w-full h-full block;
+  @apply pointer-events-none;
+  @apply opacity-5;
 }
