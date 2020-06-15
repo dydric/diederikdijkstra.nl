@@ -1,29 +1,29 @@
-const fs = require('fs');
-const Pinboard = require('pinboard-bookmarks');
+// const fs = require('fs');
+// const Pinboard = require('pinboard-bookmarks');
 
-module.exports = () => {
+// module.exports = () => {
 
-  require('dotenv').config();
+//   require('dotenv').config();
 
-  const pinboard = new Pinboard(process.env.PINBOARD_API);
+//   const pinboard = new Pinboard(process.env.PINBOARD_API);
 
-  pinboard.bookmarks({ results: 2500 })
-    .then((bookmarks) => {
+//   pinboard.bookmarks({ results: 1000 })
+//     .then((bookmarks) => {
 
-      // console.log(bookmarks);
+//       // console.log(bookmarks);
 
-      var bookmarks = bookmarks;
+//       var bookmarks = bookmarks;
 
-      fs.writeFile(__dirname + '/../dev/pinboard.json', JSON.stringify(bookmarks), err => {
-        if(err) {
-          console.log(err);
-        } else {
-          console.log("Updated pinboard.json");
-        }
-      });
+//       fs.writeFile(__dirname + '/../dev/pinboard.json', JSON.stringify(bookmarks), err => {
+//         if(err) {
+//           console.log(err);
+//         } else {
+//           console.log("Updated pinboard.json");
+//         }
+//       });
 
-    })
-    .catch((error) => {
-      console.log('Something went wrong!', error);
-    });
-}
+//     })
+//     .catch((error) => {
+//       console.log('Something went wrong!', error);
+//     });
+// }
