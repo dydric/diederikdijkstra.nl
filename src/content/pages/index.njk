@@ -1,0 +1,76 @@
+---
+layout: layouts/default.njk
+permalink: /
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+{# renderData:
+  title: "{{ site.author.name }}" #}
+
+<p class="font-bold text-3xl lg:text-4xl mb-12 leading-tight md:leading-normal md:-mt-1 lg:-mt-2">
+
+{{ site.author.name }} woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
+{# {{ site.author.name }} lives in Leeuwarden, the Netherlands together with Lotte and their two kids Elin and Fedde. He works as a developer at TRES. Specialized in UX/UI and Design Systems. #}
+
+</p>
+
+<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-4 text-cool-gray-700 text-opacity-75">
+  🎧 Favorieten:
+</h2>
+<div class="grid gap-2 grid-cols-3 md:grid-cols-6 max-w-sm md:max-w-full mb-12 lg:mb-20">
+{# {%- for i in range(0, spotify_now.items.length) | reverse -%} #}
+
+{%- for i in range(0, spotify_now.items.length) | reverse -%}
+  {%- set spotify = spotify_now.items[i] -%}
+  {% if loop.index < 7 %}
+  <div>
+    <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+    <img src="{{ spotify.track.album.images[1].url }}" alt="'{{ spotify.track.name }}' - {{ spotify.track.artists[0].name }}" class="">
+    </a>
+  </div>
+  {% endif %}
+
+{%- endfor -%}
+</div>
+
+{# <div class="flex">
+  <div class="flex-initial flex-shrink-0 text-center mr-4">
+    <h2 class="font-extrabold text-2xl text-indigo-500 mb-2">😍</h2>
+  </div>
+  <div>
+  <!-- Lately I spend most of my time working with: -->
+    <p class="font-bold text-2xl mb-1 text-indigo-900 text-opacity-75">Eleventy, Tailwind CSS, Nunjucks, Alpine.js, Netlify <span class="text-black text-opacity-50">*</span></p>
+    <p class="text-sm text-indigo-800 text-opacity-50 font-medium mb-8">*: toevallig ook allemaal gebruikt voor deze website 😉</p>
+  </div>
+</div> #}
+
+{% set postTitle = "Laatste berichten:" %}
+
+{%- if collections.post.length > 5 -%}
+  {%- set postCount = 5 -%}
+  {% set postTitle = "Laatste " + postCount + " berichten:" %}
+{%- endif -%}
+
+{%- import "macros/cards.njk" as card -%}
+
+<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+  {{ postTitle }}
+</h2>
+
+<div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
+{% for post in collections.post | reverse %}
+  {%- if collections.post.length > 5 -%}{% if loop.index < (postCount + 1) %}{% endif %}
+    {{ card.post(
+      postTitle = post.data.title,
+      postUrl = post.url,
+      postDate = post.date,
+      postTags = post.data.tags
+    ) }}
+  {%- if collections.post.length > 5 -%}{% endif %}{% endif %}
+{%- endfor %}
+</div>
+
+
+

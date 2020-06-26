@@ -1,10 +1,66 @@
-<header class="header">
-  <a href="/" class="block px-3 pt-3">
-    <img src="/static/images/home/avatar.jpg" alt="avatar van Diederik" loading="lazy" class="hidden lg:block w-full rounded-lg">
-  </a>
-  <section class="header__title lg:hidden">
-    <h3><a href="/" class="no-underline">{{ site.author }}</a> <span class="hidden">v{{ site.version }}</span></h3>
-    <a href="#" class="lg:hidden js-toggleMenu text-3xl leading-none">🍔</a>
-  </section>
-  {% include "partials/navigation.njk" %}
+<header class="fixed w-full z-30 py-3 sm:py-4 transition-all duration-200 ease-in-out"
+
+  :class="{
+      'bg-white shadow-2xl' : !atTop,
+      'bg-transparent ' : atTop
+    }"
+
+   @scroll.window="atTop = (window.pageYOffset > 40) ? false : true"
+
+  >
+  <div class="max-w-screen-xl px-4 md:px-6 mx-auto flex items-center ease-in-out transform"
+
+    :class="{
+      'translate-y-0 duration-150' : !atTop,
+      'sm:translate-y-12 duration-300' : atTop,
+      'transition-none' : isPreload
+    }"
+  >
+    <div class="flex-auto mr-8">
+      <h1 class="font-extrabold leading-none text-lg sm:text-2xl sm:text-3xl text-purple-800 mb-0">
+        {{ site.title }}
+      </h1>
+    </div>
+    <div class="flex-initial text-right mx-2 sm:mr-0">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 border border-transparent text-base leading-4 font-medium rounded-md text-white bg-purple-700 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150 shadow-lg">
+          <svg class="h-6 w-6 sm:-ml-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+          <span class="hidden sm:inline">Contact</span>
+      </a>
+
+    </div>
+    <div class="flex-initial text-right">
+
+      <button
+        @click="isOpen = !isOpen"
+        class="sm:hidden inline-flex items-center p-1 bg-white rounded-lg border-2 text-purple-500 border-white hover:border-purple-300 focus:border-purple-400 focus:outline-none"
+
+        :class="{
+          'border-purple-400 bg-purple-100' : isOpen,
+          '' : !atTop,
+          'shadow-lg ' : atTop
+        }"
+        x-bind:aria-label="isOpen ? 'Menu sluiten' : 'Menu openen'"
+        aria-label="Main menu"
+        x-bind:aria-expanded="isOpen"
+      >
+        <!-- Icon when menu is closed. -->
+        <svg
+          :class="{ 'hidden': isOpen, 'block': !isOpen }"
+          class="block h-8 w-8"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- Icon when menu is isOpen. -->
+        <svg :class="{ 'block': isOpen, 'hidden': !isOpen }" class="hidden h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+
+      </button>
+
+
+    </div>
+  </div>
 </header>

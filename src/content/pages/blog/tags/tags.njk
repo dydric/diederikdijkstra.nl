@@ -1,0 +1,26 @@
+---
+layout: layouts/default.njk
+permalink: /blog/tags/{{ tag }}/
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+renderData:
+  title: "#{{ tag | upper }}"
+---
+
+<div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
+
+{%- import "macros/cards.njk" as card -%}
+{% for post in collections[ tag ] | reverse %}
+  {{ card.post(
+    postTitle = post.data.title,
+    postUrl = post.url,
+    postDate = post.date,
+    postTags = post.data.tags
+  ) }}
+{%- endfor %}
+</div>
+
+{# <p>See <a href="{{ '/blog/tags/' | url }}">all tags</a>.</p> #}

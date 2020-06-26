@@ -1,0 +1,20 @@
+---
+layout: layouts/default.njk
+title: Blog
+permalink: /blog/
+eleventyNavigation:
+  key: Blog
+  order: 2
+---
+
+<div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
+  {%- import "macros/cards.njk" as card -%}
+  {% for post in collections.post | reverse %}
+    {{ card.post(
+      postTitle = post.data.title,
+      postUrl = post.url,
+      postDate = post.date,
+      postTags = post.data.tags
+    ) }}
+  {%- endfor %}
+</div>

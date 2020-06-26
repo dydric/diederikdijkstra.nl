@@ -10,12 +10,12 @@ backend:
 
 media_folder: "/src/static/images/uploads" # Folder where user uploaded files should go
 public_folder: "/static/images/uploads"
-publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
+# publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
 
 collections: # A list of collections the CMS should be able to edit
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Posts" # Used in the UI, ie.: "New Post"
-    folder: "src/posts" # The path to the folder where the documents are stored
+    folder: "src/content/posts" # The path to the folder where the documents are stored
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -50,32 +50,3 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
-  - name: "globals"
-    label: "Globals"
-    files:
-      - label: "Navigation"
-        name: "nav"
-        delete: false
-        file: "src/_data/dev/navigation.json"
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            fields:
-              - label: "Text"
-                name: "text"
-                widget: "string"
-              - label: "Url"
-                name: "url"
-                widget: "string"
-              - label: "Items"
-                name: "items"
-                widget: "list"
-                fields:
-                  - label: "Text"
-                    name: "text"
-                    widget: "string"
-                  - label: "Url"
-                    name: "url"
-                    widget: "string"
-

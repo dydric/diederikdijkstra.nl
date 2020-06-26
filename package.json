@@ -1,44 +1,28 @@
 {
-  "name": "diederikdijkstra",
-  "version": "3.0.1",
-  "description": "Personal website with 11ty, TailwindsCSS and PostCSS.",
   "scripts": {
-    "start": "concurrently \"ELEVENTY_ENV=development eleventy --serve --watch\" \"ELEVENTY_ENV=development postcss src/_assets/stylesheets/app.pcss -o src/static/app.compiled.css -w\" \"webpack --watch --config webpack.config.js\"",
-    "minify": "del dist && ELEVENTY_ENV=production eleventy && ELEVENTY_ENV=production webpack --config webpack.config.js",
-    "build": "npm run minify && concurrently \"ELEVENTY_ENV=online eleventy --serve\" \"ELEVENTY_ENV=production postcss src/_assets/stylesheets/app.pcss -o src/static/app.compiled.css -w\"",
-    "online": "npm run minify && ELEVENTY_ENV=online eleventy && ELEVENTY_ENV=production postcss src/_assets/stylesheets/app.pcss -o src/static/app.compiled.css"
+    "start": "eleventy --serve & postcss src/stylesheets/app.pcss --o _temp/app.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true eleventy & ELEVENTY_PRODUCTION=true postcss src/stylesheets/app.pcss --o _site/app.css"
   },
-  "author": "Diederik Dijkstra",
-  "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2",
-    "@babel/core": "^7",
-    "@babel/preset-env": "^7",
-    "@fullhuman/postcss-purgecss": "^1",
-    "@tailwindcss/ui": "^0",
-    "autoprefixer": "^9",
-    "babel-loader": "^8",
-    "concurrently": "^5",
-    "cssnano": "^4",
-    "del-cli": "^3",
-    "dotenv-webpack": "^1",
+    "@11ty/eleventy-navigation": "^0",
+    "@11ty/eleventy-plugin-rss": "^1",
+    "@fullhuman/postcss-purgecss": "^2",
+    "alpinejs": "^2",
+    "dotenv": "^8",
     "html-minifier": "^4",
     "luxon": "^1",
-    "node-instagram": "^4",
-    "pinboard-bookmarks": "^1",
-    "postcss-cli": "^6",
+    "postcss-clean": "^1",
+    "postcss-cli": "^7",
     "postcss-import": "^12",
     "postcss-nested": "4",
     "postcss-preset-env": "^6",
-    "spotify-web-api-node": "^4",
-    "stylelint": "^10",
-    "stylelint-config-standard": "^18",
-    "stylelint-order": "^3",
     "tailwindcss": "^1",
-    "tumblr": "^0",
-    "twitter": "^1",
-    "webpack": "^4",
-    "webpack-cli": "^3"
+    "@tailwindcss/ui": "^0"
+  },
+  "dependencies": {
+    "spotify-web-api-node": "^4",
+    "tumblr": "^0"
   }
 }

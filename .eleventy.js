@@ -1,72 +1,81 @@
-const htmlmin = require("html-minifier");
 const { DateTime } = require("luxon");
+const htmlmin = require("html-minifier");
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-
-var env = "dev";
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginNavigation = require("@11ty/eleventy-navigation");
 
 module.exports = function (eleventyConfig) {
-    // Folders to copy to build dir (See. 1.1)
-    eleventyConfig.addPassthroughCopy("src/static");
+  eleventyConfig.setUseGitIgnore(false);
 
-    if (process.env.ELEVENTY_ENV === 'production' || process.env.ELEVENTY_ENV === 'online' ) {
-        // Minify HTML (including inlined CSS and JS)
-        eleventyConfig.addTransform("compressHTML", function (content, outputPath) {
-            if (outputPath.endsWith(".html")) {
-                let minified = htmlmin.minify(content, {
-                    useShortDoctype: true,
-                    removeComments: true,
-                    collapseWhitespace: true,
-                    minifyCSS: true,
-                    minifyJS: true
-                });
-                return minified;
-            }
-            return content;
-        });
+  eleventyConfig.addWatchTarget("./_temp/app.css");
+
+  eleventyConfig.addPassthroughCopy("./src/static");
+
+  eleventyConfig.addPassthroughCopy({
+    "./_temp/app.css": "./app.css"
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
+  });
+
+  eleventyConfig.addShortcode("version", function () {
+    return String(Date.now());
+  });
+
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    var months = ["jan", "feb", "mar", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    var month = months[
+      DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("M") - 1
+    ];
+    var day = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d");
+    var year = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("yyyy");
+    return day + " " + month + " " + year;
+    // return DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d LLLL yyyy");
+  });
+
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-MM-dd');
+  });
+
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+    if (
+      process.env.ELEVENTY_PRODUCTION &&
+      outputPath &&
+      outputPath.endsWith(".html")
+    ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+      return minified;
     }
 
-    // Collections
-    eleventyConfig.addCollection('posts', collection => {
-        return collection.getFilteredByTag('posts').reverse()
-    })
+    return content;
+  });
 
-    // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-    eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
-    });
+  // Collections
+  eleventyConfig.addCollection('posts', collection => {
+    return collection.getFilteredByTag('posts').reverse()
+  });
 
-    eleventyConfig.addFilter("readableDate", dateObj => {
-        return DateTime.fromJSDate(new Date(dateObj), { zone: 'utc' }).toFormat("dd LLL yyyy");
-    });
+  // Plugins
+  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginRss);
 
-    eleventyConfig.addFilter("w3cDate", function (date) {
-        return date.toISOString();
-    });
+  return {
+    dir: {
+        input: "src/",
+        output: "_site",
+        includes: "_includes",
+        data: `_data`
+    },
+    templateFormats: ["html", "md", "njk", "yml"],
+    htmlTemplateEngine: "njk",
 
-    if (process.env.ELEVENTY_ENV === 'production') {
-        env = "prod"
-    }
-
-    if (process.env.ELEVENTY_ENV === 'online') {
-        env = "dev"
-    }
-
-    console.log(env);
-
-    // Plugins
-    eleventyConfig.addPlugin(syntaxHighlight);
-
-    return {
-        dir: {
-            input: "src/",
-            output: "dist",
-            includes: "_includes",
-            data: `_data/${env}`
-        },
-        templateFormats: ["html", "md", "njk", "yml"],
-        htmlTemplateEngine: "njk",
-
-        // 1.1 Enable elventy to pass dirs specified above
-        passthroughFileCopy: true
-    };
+    // 1.1 Enable elventy to pass dirs specified above
+    passthroughFileCopy: true
+  };
 };

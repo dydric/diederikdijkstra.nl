@@ -1,0 +1,33 @@
+{% macro tag(
+  tagName = ""
+) %}
+  <a href="/blog/tags/{{ tagName }}/" class="tag text-xs uppercase inline-block mr-1 text-cool-gray-600 hover:text-opacity-75">#{{ tagName }}</a>
+{% endmacro %}
+
+{% macro tags(
+  tags = ""
+) %}
+  {%- for postTag in tags -%}
+    {%- if
+      ('all' not in postTag) and
+      ('nav' not in postTag) and
+      ('post' not in postTag) and
+      ('posts' not in postTag)
+    -%}
+      {{ tag( tagName = postTag ) }}
+    {%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% macro post(
+  postTitle = "",
+  postUrl = "",
+  postDate = "",
+  postTags = ""
+) %}
+  <div class="flex flex-col lg:block leading-none py-4 sm:pb-2 border-t-2 border-gray-300 border-opacity-25 w-full">
+    <time class="inline-block font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase w-full md:w-24 mb-2" datetime="{{ postDate | htmlDateString }}">{{ postDate | readableDate }}</time>
+    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-xl lg:text-2xl text-cool-gray-800 hover:text-opacity-75 mr-1 mb-2">{{ postTitle }}</a>
+    <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
+  </div>
+{% endmacro %}

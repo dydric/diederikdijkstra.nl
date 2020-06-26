@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/default",
+  "permalink": "blog/{{ date }}-{{ title | slug }}/index.html",
+  "tags": [
+    "posts"
+  ]
+}

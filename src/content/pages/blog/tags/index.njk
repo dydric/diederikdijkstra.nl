@@ -1,0 +1,34 @@
+---
+layout: layouts/default.njk
+permalink: /blog/tags/
+title: Tags
+---
+{%- import "macros/cards.njk" as card -%}
+
+{% set tagList = [] %}
+{%- set categories -%}
+  {%- for post in collections.post -%}
+    {%- for tag in post.data.tags -%}
+      {%- if tag not in tagList -%}
+        {% if
+          ('all' not in tag) and
+          ('nav' not in tag) and
+          ('post' not in tag) and
+          ('posts' not in tag)
+        %}
+          {%- set tagList = (tagList.push(tag), tagList) -%}
+        {% endif %}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endset -%}
+{# {{ tagList | dump }} #}
+
+<div class="border-t-2 border-b-2 border-gray-300 border-opacity-25 py-8 mb-8 text-lg">
+{% for tag2 in tagList %}
+  {% set tagUrl %}/tags/{{ tag2 }}/{% endset %}
+  {{ card.tag(
+    tagName = tag2
+  )}}
+{% endfor %}
+</div>
