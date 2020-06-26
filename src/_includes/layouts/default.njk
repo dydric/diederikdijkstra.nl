@@ -11,12 +11,7 @@
   <body class="bg-cool-gray-50">
 
   <div
-    x-data="{
-      isOpen: false,
-      atTop: true,
-      isPreload: true
-    }"
-
+    x-data="{ isOpen: false, atTop: true, isPreload: true }"
     @scroll.window="isPreload = (window.pageYOffset > 1) ? false : false"
   >
     {% include "partials/header.njk" %}
