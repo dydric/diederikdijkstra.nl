@@ -47,6 +47,7 @@ module.exports = function (eleventyConfig) {
       let minified = htmlmin.minify(content, {
         customAttrSurround: [[/@/, new RegExp('')], [/:/, new RegExp('')]],
         useShortDoctype: true,
+        minifyJS: true,
         removeComments: true,
         collapseWhitespace: true,
       });
