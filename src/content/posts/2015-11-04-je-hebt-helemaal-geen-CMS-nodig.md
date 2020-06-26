@@ -1,6 +1,6 @@
 ---
 title: Je hebt helemaal geen $#@%*!^ CMS nodig
-date: 2015-11-04
+date: '2015-11-04'
 tags:
   - post
   - webdesign
