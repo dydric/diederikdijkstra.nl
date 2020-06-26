@@ -1,12 +1,10 @@
 ---
 title: Je hebt helemaal geen $#@%*!^ CMS nodig
-excerpt: >-
-  Er is namelijk een prima alternatief: Static Sites!
+date: 2015-11-04
 tags:
   - post
-  - nav
   - webdesign
-date: '2015-11-04'
+excerpt: "Er is namelijk een prima alternatief: Static Sites!"
 ---
 
 Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan was je erg beperkt. Tegenwoordig is dit veel makkelijker door de komst van Static Site Generators. Veruit de meest gebruikte is [Jekyll](http://jekyllrb.com/) en de populariteit neemt alleen maar toe. Dat is ook niet zo gek, aangezien er veel voordelen zijn ten opzichte van een dynamische site met CMS.
