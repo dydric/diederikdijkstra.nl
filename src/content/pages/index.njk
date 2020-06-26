@@ -61,14 +61,23 @@ eleventyNavigation:
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
 {% for post in collections.post | reverse %}
-  {%- if collections.post.length > 5 -%}{% if loop.index < (postCount + 1) %}{% endif %}
+  {%- if collections.post.length > 5 -%}
+    {% if loop.index < (postCount + 1) %}
+      {{ card.post(
+        postTitle = post.data.title,
+        postUrl = post.url,
+        postDate = post.date,
+        postTags = post.data.tags
+      ) }}
+    {% endif %}
+  {% else %}
     {{ card.post(
       postTitle = post.data.title,
       postUrl = post.url,
       postDate = post.date,
       postTags = post.data.tags
     ) }}
-  {%- if collections.post.length > 5 -%}{% endif %}{% endif %}
+  {% endif %}
 {%- endfor %}
 </div>
 
