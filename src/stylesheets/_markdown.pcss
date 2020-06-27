@@ -1,0 +1,37 @@
+.markdown {
+
+  & > * {
+    @apply mb-8;
+  }
+
+  p,
+  ul,
+  ol {
+    @apply max-w-2xl;
+  }
+
+  img {
+    @apply rounded-lg max-w-full shadow-2xl;
+
+    @screen lg {
+      max-width: calc(100vw - 18.5rem);
+    }
+
+    @screen xl {
+
+      max-width: 985px;
+    }
+  }
+
+  a {
+    @apply font-medium text-purple-600 underline;
+
+    &:hover {
+      @apply text-pink-500;
+    }
+  }
+
+  blockquote p {
+    @apply font-light text-xl text-cool-gray-800 text-opacity-75 italic;
+  }
+}
