@@ -27,7 +27,12 @@ eleventyNavigation:
   {% if loop.index < 7 %}
   <div>
     <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-    <img src="{{ spotify.track.album.images[1].url }}" alt="'{{ spotify.track.name }}' - {{ spotify.track.artists[0].name }}">
+    <img
+      class="w-full lazyload"
+      src="{{ spotify.track.album.images[2].url }}"
+      data-src="{{ spotify.track.album.images[1].url }}"
+      alt="'{{ spotify.track.name }}' - {{ spotify.track.artists[0].name }}"
+    >
     </a>
   </div>
   {% endif %}
