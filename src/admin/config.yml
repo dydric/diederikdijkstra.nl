@@ -26,16 +26,14 @@ collections: # A list of collections the CMS should be able to edit
         tagname: "h1"
       - label: "Publish Date"
         name: "date"
-        widget: "date"
-        format: "YYYY-MM-DD"
+        widget: "datetime"
+        dateformat: "YYYY-MM-DD"
+        timeformat: false
       - label: "Tags"
         name: "tags"
         widget: "list"
         default: ["post"]
         required: true
-      - label: "Excerpt"
-        name: "excerpt"
-        widget: "text"
       - label: "Featured Image"
         name: "featured_image"
         widget: "image"
