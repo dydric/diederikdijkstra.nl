@@ -68,6 +68,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginRss);
 
+  // Markdown
+  let markdownIt = require("markdown-it");
+  const lazy_loading = require('markdown-it-image-lazysizes');
+  let options = {
+    html: true
+  };
+  let markdownLib = markdownIt(options).use(lazy_loading);
+  eleventyConfig.setLibrary("md", markdownLib);
+
   return {
     dir: {
         input: "src/",
