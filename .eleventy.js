@@ -70,11 +70,8 @@ module.exports = function (eleventyConfig) {
 
   // Markdown
   let markdownIt = require("markdown-it");
-  const lazy_loading = require('markdown-it-image-lazysizes');
-  let options = {
-    html: true
-  };
-  let markdownLib = markdownIt(options).use(lazy_loading);
+  let lazy_loading = require('markdown-it-image-lazysizes');
+  let markdownLib = markdownIt({html: true}).use(lazy_loading);
   eleventyConfig.setLibrary("md", markdownLib);
 
   return {
