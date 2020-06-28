@@ -16,7 +16,7 @@
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
   </author>
-  {%- for post in collections.post %}
+  {%- for post in collections.post | reverse %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
