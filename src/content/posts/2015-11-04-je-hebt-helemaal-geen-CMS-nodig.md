@@ -11,15 +11,9 @@ Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan 
 
 ​Static site's zijn **snel te ontwikkelen** en **precies naar wens te bouwen** en in te richten. Ze zijn **niet aan een database gekoppeld** en er zijn **geen beperkingen van een CMS** waar je rekening mee moet houden. In plaats van de site zo (om) te bouwen dat het door de CMS beheerd kan worden, kies je nu voor een oplossing op maat waardoor **beheer veel simpeler** is en de **focus ligt op elementen die echt belangrijk zijn**. Je hebt geen last van een onduidelijke CMS structuur met allerlei workarounds of functies die je nooit gebruikt. En omdat er puur HTML, CSS en JS wordt gegenereerd, zijn static sites **makkelijk te optimaliseren** en **laden ze snel** doordat er (onder andere) geen database koppelingen nodig zijn. **Hosting van static sites is ook veel goedkoper**. Jekyll sites kunnen gemakkelijk via Github Pages (gratis) of Amazon S3 gehost worden. Maar check ook zeker [Netlify.com](http://netlify.com), een hosting service voor static websites. En als de static site eenmaal online staat, heb je veel minder kans dat deze offline raakt. **Een static site is veel stabieler**. Bijvoorbeeld op piekmomenten met enorme aantallen bezoekers, maar ook tegen bugs/errors en hacks.
 
-  <a href="https://www.google.nl/trends/2014/" class="block">
-    <img src="/static/images/uploads/google-trends-2014.jpg" alt="Google Trends 2014" />
-    Google Trends 2014
-  </a>
+  [![Google Trends 2014](/static/images/uploads/google-trends-2014.jpg) Google Trends 2014](https://www.google.nl/trends/2014/)
 
-  <a href="http://contribute.barackobama.com" class="block">
-    <img src="/static/images/uploads/obama-campagne.jpg" alt="Obama Campagne" />
-    Obama Campagne
-  </a>
+  [![Obama Campagne](/static/images/uploads/obama-campagne.jpg) Obama Campagne](http://contribute.barackobama.com)
 
 Hierboven staan twee voorbeelden van gigantische "static-site" projecten die al weer even geleden zijn ontwikkeld. Google heeft voor het jaaroverzicht gebruik gemaakt van een eigen generator (Goro), maar [Web Fundamentals](https://developers.google.com/web/fundamentals/) bijvoorbeeld (ook van Google) is gebouwd met behulp van Jekyll. Net zoals de Obama Campagne. Meer info over dit project is te vinden in dit ["$250 million fundraising platform"](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) artikel.
 
