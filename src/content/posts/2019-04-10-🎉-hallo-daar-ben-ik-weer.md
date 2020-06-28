@@ -1,8 +1,5 @@
 ---
 title: "\U0001F389 Hallo, daar ben ik weer"
-excerpt: >-
-  Ik heb mijn website een ‘kleine’ update gegeven en verhuisd naar
-  <a href="https://www.netlify.com/">Netlify</a>.
 tags:
   - post
 date: '2019-04-12'

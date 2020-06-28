@@ -4,7 +4,6 @@ date: '2015-11-04'
 tags:
   - post
   - webdesign
-excerpt: "Er is namelijk een prima alternatief: Static Sites!"
 ---
 
 Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan was je erg beperkt. Tegenwoordig is dit veel makkelijker door de komst van Static Site Generators. Veruit de meest gebruikte is [Jekyll](http://jekyllrb.com/) en de populariteit neemt alleen maar toe. Dat is ook niet zo gek, aangezien er veel voordelen zijn ten opzichte van een dynamische site met CMS.
@@ -22,6 +21,6 @@ Static sites worden dus al enige tijd voor 'serieuze' projecten ingezet. Ze zitt
 Om contentbeheer toegankelijk te maken voor klanten (of teams) zijn er platformen ontwikkeld waarmee (de content van) static-site's beheerd kunnen worden. De populairste zijn op dit moment [Cloudcannon](http://cloudcannon.com/) en [Contentful](https://www.contentful.com/). ~~Maar ook PooleApp, waarmee je dynamische content kunt plaatsen en ophalen, kan interessant zijn om in te zetten.~~
 
  > That being said, static website generators will continue to grow in capability and popularity. The infrastructure and ecosystem will keep maturing. And as the tools improve, we’ll see developers push the limit of what can be done with static websites.
- > <cite>&mdash; via [Smashing Magazine.com](http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/)</cite>
+ > &mdash; via [Smashing Magazine.com](http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/)
 
 Natuurlijk is het (nog) niet voor elk project geschikt, maar je kunt er eigenlijk niet meer om heen. Static sites hebben zich al enige jaren bewezen. Ze worden zo snel doorontwikkeld dat ze een vaste waarde zijn en nóg meer gaan worden.
