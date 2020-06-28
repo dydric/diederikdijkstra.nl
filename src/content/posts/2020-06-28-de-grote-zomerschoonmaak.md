@@ -1,5 +1,5 @@
 ---
-title: De grote zomerschoonmaak 🧹 - (aka Redesign)
+title: De grote zomerschoonmaak 🧹
 date: '2020-06-28'
 tags:
   - post
