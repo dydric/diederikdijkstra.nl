@@ -3,4 +3,14 @@ layout: layouts/default
 ---
 <div class="markdown">
   {{ content | safe }}
-</main>
+</div>
+
+TEST
+
+{{ getPreviousCollectionItem(post) | dump }}
+
+{% set previousPost = collections.posts | getPreviousCollectionItem(post) %}
+{% set nextPost = collections.posts | getNextCollectionItem(post) %}
+
+{% if previousPost %}Previous Blog Post: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
+{% if nextPost %}Next Blog Post: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
