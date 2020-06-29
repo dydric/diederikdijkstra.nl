@@ -11,12 +11,12 @@ eleventyNavigation:
 
 {% macro family(
   name = "lotte"
-) %}
-<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}"><button
-  @click="open = !open"
-  @click.away="open = false"
-  class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">
-    {{ name | capitalize }}
+) %}<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
+  <button
+    @click="open = !open"
+    @click.away="open = false"
+    class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">
+      {{ name | capitalize }}
   </button><span
     x-show="open"
     x-transition:enter="transition ease-in duration-150"
@@ -31,16 +31,17 @@ eleventyNavigation:
       data-src="/static/images/home/{{ name }}.png"
       alt="afbeelding van {{ name | capitalize }}"
       class="lazyload"
-    ></span></span>{% endmacro %}
+    >
+  </span>
+</span>
+{% endmacro %}
 
 <p class="font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1 lg:-mt-2">
 
   {{ site.author.name }}
   woont in Leeuwarden met
   {{ family(name = "lotte") }},
-  {{ family(name = "elin") }}
-
-  en
+  {{ family(name = "elin") }}&nbsp;en
 
   {{ family(name = "fedde") }}.
 
