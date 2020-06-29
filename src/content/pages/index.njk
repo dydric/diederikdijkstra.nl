@@ -12,7 +12,7 @@ eleventyNavigation:
 {% macro family(
   name = "lotte"
 ) %}
- <span class="inline relative{% if name == "elin" %} pr-2{% endif %}" x-data="{open: false}" :class="{'z-20': open}">
+ <span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
   <button
     @click="open = !open"
     @click.away="open = false"
@@ -37,12 +37,20 @@ eleventyNavigation:
     >
   </span>
 </span>
-
 {% endmacro %}
 
 <p class="font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1 lg:-mt-2">
 
-  {{ site.author.name }} woont in Leeuwarden met {{ family(name = "lotte") }}, {{ family(name = "elin") }}en {{ family(name = "fedde") }}. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
+  {{ site.author.name }}
+  woont in Leeuwarden met
+  {{ family(name = "lotte") }},
+  {{ family(name = "elin") }}
+
+  en
+
+  {{ family(name = "fedde") }}.
+
+  Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
 
 </p>
 
