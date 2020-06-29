@@ -12,7 +12,7 @@ eleventyNavigation:
 {% macro family(
   name = "lotte"
 ) %}
- <span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
+<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
   <button
     @click="open = !open"
     @click.away="open = false"
@@ -36,8 +36,7 @@ eleventyNavigation:
       class="lazyload"
     >
   </span>
-</span>
-{% endmacro %}
+</span>{% endmacro %}
 
 <p class="font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1 lg:-mt-2">
 
