@@ -12,7 +12,7 @@ eleventyNavigation:
 {% macro family(
   name = "lotte"
 ) %}
-<span class="inline-block relative{% if name == "elin" %} pr-2{% endif %}" x-data="{open: false}" :class="{'z-50': open}">
+<span class="inline-block relative{% if name == "elin" %} pr-2{% endif %}" x-data="{open: false}" :class="{'z-20': open}">
   <button
     @click="open = !open"
     @click.away="open = false"
