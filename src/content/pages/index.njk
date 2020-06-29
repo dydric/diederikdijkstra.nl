@@ -10,12 +10,13 @@ eleventyNavigation:
   title: "{{ site.author.name }}" #}
 
 {% macro family(
-  name = "lotte"
+  name = "lotte",
+  color = "lavender"
 ) %}<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
   <button
     @click="open = !open"
     @click.away="open = false"
-    class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">
+    class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-4 border-{{ color }}-400 border-opacity-50 hover:border-{{ color }}-300">
       {{ name | capitalize }}
   </button><span
     x-show="open"
@@ -25,14 +26,13 @@ eleventyNavigation:
     x-transition:leave="transition ease-out duration-500"
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-50"
-    class="absolute left-50 top-50 w-24 max-w-none -m-12 rounded-full shadow select-none pointer-events-none bg-cool-gray-200 block"
+    class="absolute left-50 top-50 w-24 h-24 max-w-none -m-12 rounded-full shadow select-none pointer-events-none bg-{{ color }}-200 block"
   ><img
       src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       data-src="/static/images/home/{{ name }}.png"
       alt="afbeelding van {{ name | capitalize }}"
       class="lazyload"
-    >
-  </span>
+  ></span>
 </span>
 {% endmacro %}
 
@@ -41,9 +41,9 @@ eleventyNavigation:
   {{ site.author.name }}
   woont in Leeuwarden met
   {{ family(name = "lotte") }},
-  {{ family(name = "elin") }}&nbsp;en
+  {{ family(name = "elin", color = "flamingo") }}&nbsp;en
 
-  {{ family(name = "fedde") }}.
+  {{ family(name = "fedde", color = "sky") }}.
 
   Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
 

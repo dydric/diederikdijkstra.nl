@@ -17,12 +17,12 @@
     }"
   >
     <div class="flex-auto mr-8">
-      <h1 class="font-extrabold leading-none text-lg sm:text-3xl text-purple-800 mb-0">
-        <a href="/" class="text-purple-800 hover:text-purple-700">{{ site.title }}</a>
+      <h1 class="font-extrabold leading-none text-lg sm:text-3xl text-lavender-700 mb-0">
+        <a href="/" class="text-lavender-700 hover:text-lavender-800">{{ site.title }}</a>
       </h1>
     </div>
     <div class="flex-initial text-right mx-2 sm:mr-0">
-      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 border border-transparent text-base leading-4 font-medium rounded-md text-white bg-purple-700 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150 shadow-lg">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 border border-transparent text-base leading-4 font-medium rounded-md text-white bg-lavender-600 hover:bg-lavender-700 focus:outline-none focus:border-lavender-700 focus:shadow-outline-lavender active:bg-lavender-700 transition ease-in-out duration-150 shadow-lg">
           <svg class="h-6 w-6 sm:-ml-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -35,10 +35,10 @@
 
       <button
         @click="isOpen = !isOpen"
-        class="sm:hidden inline-flex items-center p-1 bg-white rounded-lg border-2 text-purple-500 border-white hover:border-purple-300 focus:border-purple-400 focus:outline-none"
+        class="sm:hidden inline-flex items-center p-1 bg-white rounded-lg border-2 text-lavender-600 border-white hover:border-lavender-200 focus:border-lavender-300 focus:outline-none"
 
         :class="{
-          'border-purple-400 bg-purple-100' : isOpen,
+          'border-lavender-200 bg-lavender-100' : isOpen,
           '' : !atTop,
           'shadow-lg ' : atTop
         }"
