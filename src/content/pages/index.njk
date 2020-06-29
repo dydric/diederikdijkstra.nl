@@ -19,16 +19,14 @@ eleventyNavigation:
     class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">{{ name | capitalize }}</button>
   <img
     x-show="open"
-    x-transition:enter="transition ease-out duration-150"
     x-transition:enter-start="opacity-0 transform scale-90"
     x-transition:enter-end="opacity-100 transform scale-100"
-    x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-50"
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
     data-src="/static/images/home/{{ name }}.png"
     alt="afbeelding van {{ name | capitalize }}"
-    class="lazyload absolute left-50 top-50 w-24 max-w-none -m-12 rounded-full shadow select-none pointer-events-none transition"
+    class="lazyload absolute left-50 top-50 w-24 max-w-none -m-12 rounded-full shadow select-none pointer-events-none transition ease-out duration-150"
   >
 </span>
 {% endmacro %}
