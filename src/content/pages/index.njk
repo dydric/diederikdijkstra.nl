@@ -12,14 +12,12 @@ eleventyNavigation:
 {% macro family(
   name = "lotte"
 ) %}
-<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}">
-  <button
-    @click="open = !open"
-    @click.away="open = false"
-    class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">
-      {{ name | capitalize }}
-  </button>
-  <span
+<span class="inline relative" x-data="{open: false}" :class="{'z-20': open}"><button
+  @click="open = !open"
+  @click.away="open = false"
+  class="font-bold leading-none p-0 focus:outline-none border-0 appearance-none border-b-2 border-cool-gray-400 border-opacity-50 hover:border-pink-500">
+    {{ name | capitalize }}
+  </button><span
     x-show="open"
     x-transition:enter="transition ease-in duration-150"
     x-transition:enter-start="opacity-0 transform scale-90"
@@ -28,15 +26,12 @@ eleventyNavigation:
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-50"
     class="absolute left-50 top-50 w-24 max-w-none -m-12 rounded-full shadow select-none pointer-events-none bg-cool-gray-200 block"
-  >
-    <img
+  ><img
       src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       data-src="/static/images/home/{{ name }}.png"
       alt="afbeelding van {{ name | capitalize }}"
       class="lazyload"
-    >
-  </span>
-</span>{% endmacro %}
+    ></span></span>{% endmacro %}
 
 <p class="font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1 lg:-mt-2">
 
