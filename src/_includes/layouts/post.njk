@@ -2,5 +2,9 @@
 layout: layouts/default
 ---
 <div class="markdown">
+  {% if featured_image %}
+    <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+  {% endif %}
+
   {{ content | safe }}
 </div>
