@@ -4,6 +4,10 @@ module.exports = {
   theme: {
     extend: {
 
+      boxShadow: {
+        softui: '20px 20px 60px rgba(0, 0, 0, .1), -20px -20px 60px rgba(255, 255, 255, .5)'
+      },
+
       colors: {
         champagne: {
           '50': '#fff7eb',
