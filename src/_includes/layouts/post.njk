@@ -1,12 +1,23 @@
 ---
 layout: layouts/default
 ---
+
+
+<div class="-mt-8 mb-8">
+  <time class="font-bold text-xs text-gray-600 text-opacity-50 mr-2" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+
+  {%- import "macros/cards.njk" as card -%}
+  {{ card.tags(
+    tags = tags
+  ) }}
+</div>
+
 <div class="markdown">
   {% if featured_image %}
     <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
   {% endif %}
 
-  <div class="prose lg:prose-2xl">
+  <div class="prose">
     {{ content | safe }}
   </div>
 </div>
