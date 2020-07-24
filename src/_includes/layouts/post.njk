@@ -21,3 +21,12 @@ layout: layouts/default
     {{ content | safe }}
   </div>
 </div>
+
+{% set previousPost = collections.post | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.post | getNextCollectionItem(page) %}
+
+{% if previousPost %}
+<div class="border-t-2 pt-10 border-gray-100">
+  <a href="{{ previousPost.url }}" alt="{{ previousPost.data.title }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 text-opacity-75 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Vorige bericht</a>
+</div>
+{% endif %}
