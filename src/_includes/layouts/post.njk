@@ -6,5 +6,7 @@ layout: layouts/default
     <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
   {% endif %}
 
-  {{ content | safe }}
+  <div class="prose lg:prose-2xl">
+    {{ content | safe }}
+  </div>
 </div>

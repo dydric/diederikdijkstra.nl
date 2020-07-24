@@ -67,10 +67,25 @@ module.exports = {
         '50': '50%',
         '100': '100%',
       },
+
+      typography: (theme) => ({
+        default: {
+          css: {
+            color: theme('colors.gray.800'),
+            a: {
+              color: theme('colors.lavender.600'),
+              '&:hover': {
+                color: theme('colors.lavender.800'),
+              },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {},
   plugins: [
+    require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
   ],
 };

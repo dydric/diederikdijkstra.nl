@@ -22,6 +22,7 @@
     "tailwindcss": "^1"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
     "lazysizes": "^5",
     "markdown-it-image-lazysizes": "^1",
     "spotify-web-api-node": "^4",
