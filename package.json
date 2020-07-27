@@ -9,7 +9,7 @@
     "@11ty/eleventy-plugin-rss": "^1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2",
     "@fullhuman/postcss-purgecss": "^2",
-    "@tailwindcss/ui": "^0",
+    "@tailwindcss/ui": "^1",
     "alpinejs": "^2",
     "dotenv": "^8",
     "html-minifier": "^4",
