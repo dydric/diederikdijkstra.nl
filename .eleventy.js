@@ -35,6 +35,13 @@ module.exports = function (eleventyConfig) {
     // return DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d LLLL yyyy");
   });
 
+  eleventyConfig.addFilter("readableDate2", dateObj => {
+    var day = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d");
+    var month = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("MM");
+    var year = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("yyyy");
+    return ("0" + day).slice(-2) + "-" + month + "-" + year;
+  });
+
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-MM-dd');
   });
