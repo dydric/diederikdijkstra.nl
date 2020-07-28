@@ -49,7 +49,35 @@ eleventyNavigation:
 
 </p>
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-4 text-cool-gray-700 text-opacity-75">
+<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+  ⚔️ Tools &amp; Skills:
+</h2>
+
+{% set skills = [
+  ["💻", "Responsive &amp; Mobile websites", "HTML / CSS / JS"],
+  ["💡", "TailwindCSS / Nunjucks / Alpine.js"],
+  ["❤️", "JAMstack", "11ty / Netlify"],
+  ["⚛️", "Design Systems", "Atomic Design / BEM "],
+  ["🛠", "Npm / Gulp / Webpack / PostCSS / Sass"],
+  ["⚡️", "Performance", 'Lighthouse / <a href="https://developers.google.com/speed/pagespeed/insights/?hl=nl&url=https%3A%2F%2Fdiederikdijkstra.nl%2F&tab=desktop" class="underline hover:no-underline" target="_blank" rel="noopener noreferrer">Page speed insights</a>'],
+  ["👀", "Accessibility"],
+  ["🎨", "Design", "Figma / Sketch"],
+  ["🤓", "GIT / VSCode / Command line"]
+] %}
+
+<ul class="grid grid-cols-1 gap-2 md:gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-12 lg:mb-20">
+{% for emoji, title, content in skills %}
+  <li class="col-span-1 flex items-stretch rounded-md overflow-hidden">
+    <div class="flex-shrink-0 flex items-center justify-center w-10 sm:w-12 text-center text-2xl leading-5 font-medium bg-sky-100 py-2 md:py-3 rounded-md"><span class="relative" style="left: -1px">{{ emoji }}</span></div>
+    <div class="flex-1 px-3 py-1 flex items-center flex-wrap">
+      {% if title %}<span class="text-gray-700 text-base leading-5 block font-bold w-full">{{ title | safe }}</span>{% endif %}
+      {% if content %}<span class="text-gray-500 text-sm leading-5 block font-medium w-full">{{ content | safe }}</span>{% endif %}
+    </div>
+  </li>
+{% endfor %}
+</ul>
+
+<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
   🎧 Favorieten:
 </h2>
 <div class="grid gap-2 grid-cols-3 md:grid-cols-6 max-w-sm md:max-w-full mb-12 lg:mb-20">
