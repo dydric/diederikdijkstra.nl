@@ -120,8 +120,8 @@ eleventyNavigation:
 
 {% set postTitle = "Laatste berichten:" %}
 
-{%- if collections.post.length > 5 -%}
-  {%- set postCount = 5 -%}
+{%- if collections.post.length > 3 -%}
+  {%- set postCount = 3 -%}
   {% set postTitle = "Laatste " + postCount + " berichten:" %}
 {%- endif -%}
 
@@ -133,7 +133,7 @@ eleventyNavigation:
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-4">
 {% for post in collections.post | reverse %}
-  {%- if collections.post.length > 5 -%}
+  {%- if collections.post.length > 3 -%}
     {% if loop.index < (postCount + 1) %}
       {{ card.post(
         postTitle = post.data.title,
@@ -153,8 +153,8 @@ eleventyNavigation:
 {%- endfor %}
 </div>
 
-{%- if collections.post.length > 5 -%}
-  <a href="/blog" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Archief</a>
+{%- if collections.post.length > 3 -%}
+  <a href="/blog" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Blogarchief</a>
 {% endif %}
 
 
