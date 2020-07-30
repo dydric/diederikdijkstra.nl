@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
+    "eleventy-plugin-embed-everything": "^1.8.0",
     "lazysizes": "^5",
     "markdown-it-image-lazysizes": "^1",
     "spotify-web-api-node": "^4",

@@ -3,6 +3,7 @@ const htmlmin = require("html-minifier");
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const embeds = require("eleventy-plugin-embed-everything");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
@@ -74,6 +75,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(embeds);
 
   // Markdown
   let markdownIt = require("markdown-it");
