@@ -23,4 +23,4 @@ Hoogtepunt: `38:52` UNKNOWN mixed with [Zulal - Akh Ninar](https://open.spotify.
 ## Red Axes - Live Broadcast from the Alphabet
 https://www.youtube.com/watch?v=Nt6HnYNCtKY
 
-Hoogtepunt: `23:45` 😘
+Hoogtepunt: `23:45` [😘](https://youtu.be/Nt6HnYNCtKY?t=1424)
