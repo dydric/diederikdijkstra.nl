@@ -6,7 +6,7 @@ tags:
 date: 2020-07-30
 ---
 
-De eerste week werken zit er weer op. Dit waren sets die erg aangenaam waren tijdens het thuiswerken en erg hielpen om mijn vakantiegevoel vast te houden. 🧘🏼‍♂️
+De eerste week werken zit er weer op. Dit waren sets die erg aangenaam waren tijdens het thuiswerken en goed hielpen om mijn vakantiegevoel vast te houden. 🧘🏼‍♂️
 
 ## Quantic - Streaming from Isolation
 https://youtu.be/G75O4wGiK5c?t=1070
