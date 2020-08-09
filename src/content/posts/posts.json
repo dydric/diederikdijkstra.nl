@@ -1,6 +1,6 @@
 {
   "layout": "layouts/post",
-  "permalink": "blog/{{ date | readableDate2 | slug }}-{{ title | slug }}/index.html",
+  "permalink": "{% if customUrl %}blog/{{ customUrl | slug }}/index.html{% else %}blog/{{ date | readableDate2 | slug }}-{{ title | slug }}/index.html{% endif %}",
   "tags": [
     "posts"
   ]

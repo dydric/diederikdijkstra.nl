@@ -14,7 +14,8 @@ title: Tags
           ('all' not in tag) and
           ('nav' not in tag) and
           ('post' not in tag) and
-          ('posts' not in tag)
+          ('posts' not in tag) and
+          ('promo' not in tag)
         %}
           {%- set tagList = (tagList.push(tag), tagList) -%}
         {% endif %}
