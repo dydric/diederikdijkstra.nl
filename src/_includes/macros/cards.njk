@@ -24,7 +24,8 @@
   postTitle = "",
   postUrl = "",
   postDate = "",
-  postTags = ""
+  postTags = "",
+  customTag = ""
 ) %}
   <div class="flex flex-col lg:block leading-none py-4 sm:pb-2 border-t-2 border-gray-300 border-opacity-25 w-full">
     <time class="inline-block font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase w-full md:w-24 mb-2" datetime="{{ postDate | htmlDateString }}">
@@ -35,7 +36,7 @@
       {%- endif -%}
     {%- endfor -%}
     {% if isPromo %}
-      <span class="font-bold text-sm uppercase inline-block lg:block rounded-full bg-pink-600 text-pink-50 px-2 py-1 mr-4 text-center lg:transform lg:-translate-y-1">TIP</span>
+      {% if customTag %}<span class="font-bold text-sm uppercase inline-block lg:block rounded-full bg-pink-500 text-pink-50 px-2 py-1 mr-4 text-center lg:transform lg:-translate-y-1">{{ customTag }}</span>{% endif %}
     {% else %}
       {{ postDate | readableDate }}
     {% endif %}
