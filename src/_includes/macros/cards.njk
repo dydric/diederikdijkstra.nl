@@ -20,7 +20,7 @@
   {%- endfor -%}
 {% endmacro %}
 
-{% macro post(
+{% macro list(
   postTitle = "",
   postUrl = "",
   postDate = "",
@@ -43,5 +43,53 @@
     </time>
     <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-xl lg:text-2xl text-cool-gray-800 hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2">{{ postTitle }}</a>
     <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
+  </div>
+{% endmacro %}
+
+
+{% macro post(
+  postTitle = "",
+  postUrl = "",
+  postDate = "",
+  postTags = "",
+  customTag = "",
+  excerpt = "",
+  postContent = "",
+  featured_image = "",
+  image_caption = ""
+) %}
+  <div class="block leading-none py-4 sm:pb-2 border-t-2 border-gray-300 border-opacity-25 w-full">
+    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-2xl lg:text-3xl text-cool-gray-800 hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2 lg:mb-3">{{ postTitle }}</a>
+
+    <div class="flex">
+    <time class="inline-block font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase w-full md:w-24 mb-2" datetime="{{ postDate | htmlDateString }}">
+    {% set isPromo = false %}
+    {%- for postTag in postTags -%}
+      {%- if 'promo' in postTag -%}
+        {% set isPromo = true %}
+      {%- endif -%}
+    {%- endfor -%}
+    {% if isPromo %}
+      {% if customTag %}<span class="font-bold text-sm uppercase inline-block lg:block rounded-full bg-pink-500 text-pink-50 px-2 py-1 mr-4 text-center lg:transform lg:-translate-y-1">{{ customTag }}</span>{% endif %}
+    {% else %}
+      {{ postDate | readableDate }}
+    {% endif %}
+    </time>
+
+    <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
+    </div>
+  </div>
+
+  <div class="markdown w-full">
+    {% if featured_image %}
+      <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+    {% endif %}
+    <div class="prose">
+      {% if excerpt %}
+        {{ excerpt | markdownify | safe }}<a href="{{ postUrl }}">Lees verder</a>
+      {% else %}
+        {{ postContent | safe }}
+      {% endif %}
+    </div>
   </div>
 {% endmacro %}

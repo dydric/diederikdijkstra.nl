@@ -167,7 +167,7 @@ eleventyNavigation:
 {% for post in collections.post | reverse %}
   {%- if collections.post.length > 3 -%}
     {% if loop.index < (postCount + 1) %}
-      {{ card.post(
+      {{ card.list(
         postTitle = post.data.title,
         postUrl = post.url,
         postDate = post.date,
@@ -176,7 +176,7 @@ eleventyNavigation:
       ) }}
     {% endif %}
   {% else %}
-    {{ card.post(
+    {{ card.list(
       postTitle = post.data.title,
       postUrl = post.url,
       postDate = post.date,
@@ -188,7 +188,7 @@ eleventyNavigation:
 </div>
 
 {%- if collections.post.length > 3 -%}
-  <a href="/blog" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Blogarchief</a>
+  <a href="/blog/page-1" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Blogarchief</a>
 {% endif %}
 
 

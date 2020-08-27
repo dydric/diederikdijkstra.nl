@@ -21,6 +21,14 @@ module.exports = function (eleventyConfig) {
     "./node_modules/lazysizes/lazysizes.min.js": "./js/lazysizes.js"
   });
 
+  // EXCERPT
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    // Optional, default is "---"
+    excerpt_separator: "<!-- excerpt -->",
+    excerpt_alias: 'excerpt'
+  });
+
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
   });
@@ -78,6 +86,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(embeds);
 
   // Markdown
+
+  const md = require('markdown-it')({
+    html: false,
+    breaks: true,
+    linkify: true
+  });
+
+  eleventyConfig.addNunjucksFilter(
+    "markdownify", markdownString => md.render(markdownString)
+  );
+
   let markdownIt = require("markdown-it");
   let lazy_loading = require('markdown-it-image-lazysizes');
   let markdownLib = markdownIt({html: true}).use(lazy_loading);

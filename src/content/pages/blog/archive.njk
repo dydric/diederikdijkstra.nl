@@ -1,32 +1,26 @@
 ---
 layout: layouts/default.njk
-title: Blog
-description: Af en toe wat schrijft Diederik hier wat 🖋.
-permalink: /blog/page-{{ pagination.pageNumber + 1 }}/
+title: Blogarchief
+permalink: /blog/archief/
 eleventyNavigation:
-  key: Blog
-  order: 2
-pagination:
-  data: collections.post
-  size: 5
-  reverse: true
+  parent: Blog
+  key: Archief
+  order: 1
 ---
 
 {% if description %}<p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">{{ description }}</p>{% endif %}
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
   {%- import "macros/cards.njk" as card -%}
-  {% for post in pagination.items %}
-    {{ card.post(
+  {% for post in collections.post | reverse %}
+    {{ card.list(
       postTitle = post.data.title,
       postUrl = post.url,
       postDate = post.date,
       postTags = post.data.tags,
       customTag = post.data.customTag,
       excerpt = post.data.excerpt,
-      postContent = post.templateContent,
-      featured_image = post.data.featured_image,
-      image_caption = post.data.image_caption
+      postContent = post.templateContent
     ) }}
   {%- endfor %}
 </div>

@@ -9,6 +9,8 @@ featured_image: /static/images/uploads/frankrijk2020.jpg
 ---
 De vakantie zit er voor ons weer op. We zijn net terug van twee weken 'kamperen' in Frankrijk en aansluitend nog een paar dagen in Beekse Bergen gezellig met mijn familie.
 
+<!-- excerpt -->
+
 ## Kamperen
 
 Naar de camping in Frankrijk kenden we (ik en Lotte) van onze jeugd. We haalden de mooiste herinneringen op en vonden het wel eens tijd om weer eens op soortgelijk 'avontuur' te gaan. Hoewel ik ook erg hou van luxe uitjes (mooie hotel met luxe kamer en vakantiehuisje met zwembad) begin ik ook de camping steeds meer te waarderen. We zaten dit jaar nog in stacaravans op twee campings, maar ik sluit niet uit dat wij dit in de komende jaren ~~down~~ upgraden naar een gemakkelijke tent. Het bevalt namelijk supergoed en de kinderen hebben ook enorm veel plezier in het campingleven.

@@ -14,6 +14,31 @@
     @apply max-w-2xl;
   }
 
+  a.promobutton {
+    @apply border border-gray-200;
+    @apply p-4 block shadow-2xl bg-white rounded-lg no-underline;
+    @apply text-black font-bold text-lg leading-tight text-center;
+    @apply my-16;
+
+    @screen md {
+      @apply text-xl;
+    }
+
+    span {
+      @apply text-lavender-800 underline;
+    }
+
+    &:hover,
+    &:focus {
+      @apply text-black bg-champagne-100;
+      @apply border-champagne-400;
+
+      span {
+        @apply text-lavender-800;
+      }
+    }
+  }
+
   img {
     @apply rounded-lg max-w-full shadow-2xl;
 

@@ -14,7 +14,7 @@ renderData:
 
 {%- import "macros/cards.njk" as card -%}
 {% for post in collections[ tag ] | reverse %}
-  {{ card.post(
+  {{ card.list(
     postTitle = post.data.title,
     postUrl = post.url,
     postDate = post.date,

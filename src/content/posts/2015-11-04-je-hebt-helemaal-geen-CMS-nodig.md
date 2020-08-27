@@ -8,6 +8,8 @@ tags:
 
 Wilde je vroeger een site online zetten die alleen uit HTML en CSS bestond, dan was je erg beperkt. Tegenwoordig is dit veel makkelijker door de komst van Static Site Generators. Veruit de meest gebruikte is [Jekyll](http://jekyllrb.com/) en de populariteit neemt alleen maar toe. Dat is ook niet zo gek, aangezien er veel voordelen zijn ten opzichte van een dynamische site met CMS.
 
+<!-- excerpt -->
+
 ​Static site's zijn **snel te ontwikkelen** en **precies naar wens te bouwen** en in te richten. Ze zijn **niet aan een database gekoppeld** en er zijn **geen beperkingen van een CMS** waar je rekening mee moet houden. In plaats van de site zo (om) te bouwen dat het door de CMS beheerd kan worden, kies je nu voor een oplossing op maat waardoor **beheer veel simpeler** is en de **focus ligt op elementen die echt belangrijk zijn**. Je hebt geen last van een onduidelijke CMS structuur met allerlei workarounds of functies die je nooit gebruikt. En omdat er puur HTML, CSS en JS wordt gegenereerd, zijn static sites **makkelijk te optimaliseren** en **laden ze snel** doordat er (onder andere) geen database koppelingen nodig zijn. **Hosting van static sites is ook veel goedkoper**. Jekyll sites kunnen gemakkelijk via Github Pages (gratis) of Amazon S3 gehost worden. Maar check ook zeker [Netlify.com](http://netlify.com), een hosting service voor static websites. En als de static site eenmaal online staat, heb je veel minder kans dat deze offline raakt. **Een static site is veel stabieler**. Bijvoorbeeld op piekmomenten met enorme aantallen bezoekers, maar ook tegen bugs/errors en hacks.
 
   [![Google Trends 2014](/static/images/uploads/google-trends-2014.jpg) Google Trends 2014](https://www.google.nl/trends/2014/)

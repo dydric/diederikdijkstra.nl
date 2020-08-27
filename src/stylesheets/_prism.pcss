@@ -1,126 +1,151 @@
-/**
- * Nord Theme Originally by Arctic Ice Studio
- * https://nordtheme.com
- *
- * Ported for PrismJS by Zane Hitchcoxc (@zwhitchcox) and Gabriel Ramos (@gabrieluizramos)
- */
+/*********************************************************
+* General
+*/
 
-code[class*="language-"],
-pre[class*="language-"] {
-	color: #f8f8f2;
-	background: none;
-	font-family: "Fira Code", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #5c6e74 !important; /* stylelint-disable-line declaration-no-important */
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+  /* font-size: 13px;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; */
 }
 
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	border-radius: 0.3em;
-
-width: 100%;
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  /* text-shadow: none; */
+  background: #c2ebfd;
 }
 
-:not(pre) > code[class*="language-"],
+/* @media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+} */
+
 pre[class*="language-"] {
-	background: #2E3440;
+  /* padding: 1em;
+  margin: .5em 0;
+  overflow: auto; */
+  background: #ffffff !important; /* stylelint-disable-line declaration-no-important */;
+
+  @apply border-2 border-sky-200 rounded-lg w-full;
+
+  @screen lg {
+    width: calc(100% + 6rem);
+  }
 }
 
-/* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
-	white-space: normal;
+  /* padding: .1em .3em;
+  border-radius: .3em; */
+  color: #ff0a4a;
+  background: #fff7eb;
 }
-
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #636f88;
+  color: #93a1a1;
 }
-
 .token.punctuation {
-	color: #81A1C1;
+  color: #999999;
 }
-
-.namespace {
-	opacity: .7;
-}
-
 .token.property,
 .token.tag,
+.token.boolean,
+.token.number,
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #81A1C1;
+  color: #9978f7;
 }
-
-.token.number {
-	color: #B48EAD;
-}
-
-.token.boolean {
-	color: #81A1C1;
-}
-
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #A3BE8C;
+  color: #669900;
 }
-
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
-.style .token.string,
-.token.variable {
-	color: #81A1C1;
+.style .token.string {
+  color: #ca7a02;
+  background: #ffffff;
 }
-
 .token.atrule,
 .token.attr-value,
-.token.function,
-.token.class-name {
-	color: #88C0D0;
-}
-
 .token.keyword {
-	color: #81A1C1;
+  color: #068bc6;
 }
-
+.token.function {
+  color: #ff0a4a;
+}
 .token.regex,
-.token.important {
-	color: #EBCB8B;
+.token.important,
+.token.variable {
+  color: #ee9900;
 }
-
 .token.important,
 .token.bold {
-	font-weight: bold;
+  font-weight: bold;
 }
-
 .token.italic {
-	font-style: italic;
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+/*********************************************************
+* Line highlighting
+*/
+/* pre[data-line] {
+  position: relative;
+}
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+} */
+.line-highlight {
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em; */
+  background: #fff7eb;
+  /* box-shadow: inset 5px 0 0 #fece86;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre; */
 }
 
-.token.entity {
-	cursor: help;
+.highlight-line-active {
+  background: #FED9A2;
 }

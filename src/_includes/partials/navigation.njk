@@ -48,11 +48,11 @@
       %}
         {% for entry in entry.children %}
           {% if loop.first %}
-            <ul class="">
+            <ul class="pb-2 pl-2">
           {% endif %}
             <li class="block">
               <a href="{{ entry.url | url }}"
-                class="block px-3 py-1 text-sm font-medium rounded-lg mt-1
+                class="block px-3 text-sm font-medium rounded-lg mt-1
                       {% if
                         (entry.url == page.url)
                       %}
