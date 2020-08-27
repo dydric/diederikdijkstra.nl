@@ -14,6 +14,7 @@ module.exports = {
     email: "diederikdijkstra@icloud.com"
   },
   url: "https://diederikdijkstra.nl", // Don't end with a slash /
+  archive_url: "/blog/",
   enforce_ssl: "diederikdijkstra.nl",
   description: "Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.",
   lang: "nl",
