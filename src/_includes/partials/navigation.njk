@@ -34,7 +34,7 @@
                   (entry.title == parentKey) or
                   (entry.title | lower in entryUrl)
             %}
-              text-flamingo-800 hover:text-flamingo-700
+              text-flamingo-800 hover:text-flamingo-700 nav-active
             {% else %}
               text-lavender-800 hover:text-lavender-700
             {% endif %}
@@ -43,12 +43,12 @@
         {{ entry.title }}
       </a>
 
-      {% if (entry.url == page.url) or
+      {# {% if (entry.url == page.url) or
             (entry.title == parentKey)
-      %}
+      %} #}
         {% for entry in entry.children %}
           {% if loop.first %}
-            <ul class="pb-2 pl-2">
+            <ul class="submenu pb-3 pl-1">
           {% endif %}
             <li class="block">
               <a href="{{ entry.url | url }}"
@@ -56,9 +56,9 @@
                       {% if
                         (entry.url == page.url)
                       %}
-                        text-flamingo-800 hover:text-flamingo-700
+                        text-flamingo-600 hover:text-flamingo-700
                       {% else %}
-                        text-lavender-800 hover:text-lavender-700
+                        text-lavender-600 hover:text-lavender-700
                       {% endif %}
                       "
               >
@@ -69,7 +69,7 @@
             </ul>
           {% endif %}
         {% endfor %}
-      {% endif %}
+      {# {% endif %} #}
     </li>
   {%- endfor %}
   </ul>
