@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    var months = ["jan", "feb", "mar", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
     var month = months[
       DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("M") - 1
     ];
