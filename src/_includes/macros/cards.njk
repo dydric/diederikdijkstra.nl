@@ -1,7 +1,8 @@
 {% macro tag(
-  tagName = ""
+  tagName = "",
+  classes= "font-bold text-xs uppercase inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150"
 ) %}
-  <a href="/blog/tags/{{ tagName }}/" class="font-bold text-xs uppercase inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150">#{{ tagName }}</a>
+  <a href="/blog/tags/{{ tagName }}/" class="{{ classes }}">#{{ tagName }}</a>
 {% endmacro %}
 
 {% macro tags(
@@ -59,10 +60,10 @@
   image_caption = ""
 ) %}
   <div class="block leading-none py-4 sm:pb-2 border-t-2 border-gray-300 border-opacity-25 w-full">
-    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-2xl lg:text-3xl text-cool-gray-800 hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2 lg:mb-3">{{ postTitle }}</a>
+    <h2 class="font-bold text-xl sm:text-3xl lg:text-4xl mb-2 lg:mb-3"><a href="{{ postUrl }}" class="inline-block text-cool-gray-800 hover:underline hover:text-opacity-75">{{ postTitle }}</a></h2>
 
-    <div class="flex">
-    <time class="inline-block font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase w-full md:w-24 mb-2" datetime="{{ postDate | htmlDateString }}">
+    <div class="flex justify-start items-end mb-2 lg:mb-3">
+      <time class="flex-initial font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase mr-4" datetime="{{ postDate | htmlDateString }}">
     {% set isPromo = false %}
     {%- for postTag in postTags -%}
       {%- if 'promo' in postTag -%}
@@ -70,13 +71,13 @@
       {%- endif -%}
     {%- endfor -%}
     {% if isPromo %}
-      {% if customTag %}<span class="font-bold text-sm uppercase inline-block lg:block rounded-full bg-pink-500 text-pink-50 px-2 py-1 mr-4 text-center lg:transform lg:-translate-y-1">{{ customTag }}</span>{% endif %}
+      {% if customTag %}<span class="font-bold text-sm uppercase rounded-full bg-pink-500 text-pink-50 px-3 mr-4">{{ customTag }}</span>{% endif %}
     {% else %}
       {{ postDate | readableDate }}
-    {% endif %}
-    </time>
+    {% endif %}</time>
 
-    <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
+
+    <div class="flex-initial">{{ tags( tags = postTags ) }}</div>
     </div>
   </div>
 
