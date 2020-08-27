@@ -12,7 +12,14 @@ pagination:
   reverse: true
 ---
 
-{% if description %}<p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">{{ description }}</p>{% endif %}
+{# renderData:
+  title: "Blog {% if pagination.pageNumber != 0 %}- pagina {{ pagination.pageNumber + 1 }}{% endif %}" #}
+
+{% if pagination.pageNumber == 0 %}
+  {% if description %}<p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">{{ description }}</p>{% endif %}
+{% else %}
+  <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }}</p>
+{% endif %}
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
   {%- import "macros/cards.njk" as card -%}
