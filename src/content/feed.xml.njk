@@ -25,8 +25,7 @@
     <id>{{ absolutePostUrl }}</id>
     <content type="html">
       {%- if post.data.featured_image -%}
-        {%- set featuredimage = '<img src="{{ post.data.featured_image }}" alt="">' -%}
-        {{ featuredimage | htmlToAbsoluteUrls(absolutePostUrl) }}
+        &lt;img src=&quot;{{ post.data.featured_image }}&quot;&gt;
       {%- endif -%}
       {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
     </content>
