@@ -76,7 +76,7 @@ module.exports = function (eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection('posts', collection => {
-    return collection.getFilteredByTag('posts').reverse()
+    return collection.getFilteredByTag('posts').reverse();
   });
 
   // Plugins
