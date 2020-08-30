@@ -17,6 +17,7 @@
     <email>{{ site.author.email }}</email>
   </author>
   {%- for post in collections.post | reverse %}
+  {%- if loop.index < (20 + 1) %}
   {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(site.url) }}{% endset %}
   <entry>
     <title>{{ post.data.title }}</title>
@@ -30,5 +31,6 @@
       {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
     </content>
   </entry>
+  {%- endif %}
   {%- endfor %}
 </feed>
