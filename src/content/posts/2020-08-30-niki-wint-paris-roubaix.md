@@ -7,7 +7,7 @@ tags:
 featured_image: /static/images/uploads/niki-wint.jpg
 image_caption: Niki wint
 ---
-Gisteren was de hel van het noorden. Het was fantastisch, alle toppers lieten zich van voren zien. Het was een ware veldslag met nog meer aanslagen dan vorige week in De Ronde. Veel renners met pech, natuurlijk veel lekke banden door de slechte kasseistroken, maar ook veel valpartijen. Vooral achterin het peloton was het vaak raak.\
+Gisteren was de hel van het noorden. Het was fantastisch, alle toppers lieten zich van voren zien. Het was een ware veldslag met nog meer aanslagen dan vorige week in De Ronde. Veel renners met pech, natuurlijk veel lekke banden door de slechte kasseistroken, maar ook veel valpartijen. Vooral achterin het peloton was het vaak raak.
 <!-- excerpt -->
 
 Nadat bijna alle toppers zich van voren hebben laten zien en veel daarvan geprobeerd hebben weg te rijden onstaat er uiteindelijk een mooie kopgroep. Iedereen is kapot, ze wachten allemaal af. Wordt het een sprint? Op 6 kilometer voor de finish rijdt Terpstra weg. Iedereen kijkt naar elkaar. Niemand wil het gat dicht rijden... Niki geeft alles! En het gaat -verdomme- gewoon lukken. Hij fietst zich het snot voor de ogen en rijdt in z'n eentje onder luid applaus de wielerbaan op. Kippenvel! Niki Terpstra wint een hele mooie Paris-Roubaix. Wat een prachtige klassieker.
