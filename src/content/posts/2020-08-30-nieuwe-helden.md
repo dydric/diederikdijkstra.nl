@@ -4,7 +4,7 @@ date: 2014-05-08T11:31:00.000Z
 tags:
   - post
   - wielrennen
-  - kijktips
+  - filmhuis
 ---
 De kinderen zijn bij oma logeren en wij gaan gezellig naar de film. We gaan naar Slieker (filmhuis in Fries Museum), want daar draait “Nieuwe Helden”. Voordat de film begon, vroegen mensen achter ons zich af waarom de film nog niet was begonnen. “Hij zou om 20:00 starten toch?”, vroeg de vrouw zich hardop af. Ze zaten in de verkeerde zaal en besloten maar te blijven zitten tussen alle wielrenliefhebbers en zich te laten verassen. De film was echter helemaal uitverkocht en er dat betekende dat er nu 2 stoelen te weinig waren. Na een paar minuten paniek bij het personeel werd het opgelost door een paar klapstoelen op te halen. Wat een lol!
 
