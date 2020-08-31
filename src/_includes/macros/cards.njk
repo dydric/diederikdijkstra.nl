@@ -57,7 +57,9 @@
   excerpt = "",
   postContent = "",
   featured_image = "",
-  image_caption = ""
+  image_caption = "",
+  hide_image = "",
+  image_position = ""
 ) %}
   <div class="block leading-none py-4 sm:pb-2 pt-6 border-t-2 border-gray-300 border-opacity-25 w-full ">
     <h2 class="font-extrabold leading-none text-3xl lg:text-4xl mb-2 lg:mb-4"><a href="{{ postUrl }}" class="inline-block text-cool-gray-800 hover:underline hover:text-opacity-75">{{ postTitle }}</a></h2>
@@ -81,9 +83,18 @@
     </div>
   </div>
 
-  <div class="markdown w-full">
+  {% set markdownClasses = "" %}
+  {% if image_position == "aside" %}
+    {% set markdownClasses = "markdown--aside" %}
+  {% endif %}
+
+  <div class="markdown w-full {{ markdownClasses }}">
+    {% if not hide_image %}
     {% if featured_image %}
-      <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+      <div class="featured_image">
+        <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+      </div>
+    {% endif %}
     {% endif %}
     <div class="prose">
       {% if excerpt %}

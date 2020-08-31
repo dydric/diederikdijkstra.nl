@@ -4,6 +4,7 @@ date: 2014-06-16T09:51:00.000Z
 tags:
   - post
   - familie
+image_position: aside
 featured_image: /static/images/uploads/elin-fedde-speelkleed.jpeg
 image_caption: Elin en Fedde op speelkleed
 ---

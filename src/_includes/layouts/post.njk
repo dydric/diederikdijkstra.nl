@@ -18,9 +18,16 @@ layout: layouts/default
   ) }}
 </div>
 
-<div class="markdown">
+{% set markdownClasses = "" %}
+{% if image_position == "aside" %}
+  {% set markdownClasses = "markdown--aside" %}
+{% endif %}
+
+<div class="markdown {{ markdownClasses }}">
   {% if featured_image %}
-    <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+    <div class="featured_image">
+      <img src="{{ featured_image }}" alt="{{ image_caption }}" class="lazyload">
+    </div>
   {% endif %}
 
   <div class="prose">

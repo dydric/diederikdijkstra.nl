@@ -4,6 +4,7 @@ date: 2016-06-11T15:25:00.000Z
 tags:
   - post
   - wielrennen
+hide_featured_image: true
 featured_image: /static/images/uploads/dumoulin-tour2016.jpg
 image_caption: Dumoulin wint koninginnenrit
 ---

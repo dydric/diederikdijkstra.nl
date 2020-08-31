@@ -12,13 +12,15 @@ pagination:
   reverse: true
 ---
 
+{% set totalpages = pagination.links | length %}
+
 {# renderData:
   title: "Blog {% if pagination.pageNumber != 0 %}- pagina {{ pagination.pageNumber + 1 }}{% endif %}" #}
 
 {% if pagination.pageNumber == 0 %}
   {% if description %}<p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">{{ description }}</p>{% endif %}
 {% else %}
-  <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }}</p>
+  <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}</p>
 {% endif %}
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
@@ -33,12 +35,14 @@ pagination:
       excerpt = post.data.excerpt,
       postContent = post.templateContent,
       featured_image = post.data.featured_image,
-      image_caption = post.data.image_caption
+      image_caption = post.data.image_caption,
+      hide_image = post.data.hide_featured_image,
+      image_position = post.data.image_position
     ) }}
   {%- endfor %}
 </div>
 
-  <div class="">
-  {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Vorige</a>{% endif %}
-  {% if pagination.href.next %}<a href="{{ pagination.href.next }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Volgende</a>{% endif %}
+  <div class="flex justify-between">
+  {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Pagina {{ pagination.pageNumber }}</a>{% endif %}
+  {% if pagination.href.next %}<a href="{{ pagination.href.next }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Pagina {{ pagination.pageNumber + 2 }}</a>{% endif %}
   </div>

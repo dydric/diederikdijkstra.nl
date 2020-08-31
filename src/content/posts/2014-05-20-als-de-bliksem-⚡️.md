@@ -5,6 +5,7 @@ tags:
   - post
   - wielrennen
   - ik
+image_position: aside
 featured_image: /static/images/uploads/bliksem-kerk.jpeg
 image_caption: Kerk
 ---

@@ -64,4 +64,18 @@
   blockquote p {
     @apply font-light text-xl text-cool-gray-800 text-opacity-75 italic;
   }
+
+  &--aside {
+    @screen lg {
+      @apply flex justify-between;
+
+      .featured_image {
+        @apply w-72 order-last ml-8;
+
+        img {
+          @apply w-full max-w-full;
+        }
+      }
+    }
+  }
 }

@@ -4,10 +4,11 @@ date: 2016-05-24T19:02:00.000Z
 tags:
   - post
   - wielrennen
+hide_featured_image: true
 featured_image: /static/images/uploads/kruijswijk-giro.jpg
 image_caption: Kruijswijk valt in de sneeuw
 ---
-Wat is het ook dit jaar weer genieten met de Giro. Een openingsweek in Nederland waar Tom Dumoulin direct de proloog wint en een paar dagen in de roze trui draagt. Bij de eerste bergetappe valt hij direct door de mand. Dit is deels te wijten aan pijn aan het zitvlak en Tom stapt dan ook redelijk snel af. Ook Kittel (2x) en Greippel (3x) stappen voor de bergen af. 
+Wat is het ook dit jaar weer genieten met de Giro. Een openingsweek in Nederland waar Tom Dumoulin direct de proloog wint en een paar dagen in de roze trui draagt. Bij de eerste bergetappe valt hij direct door de mand. Dit is deels te wijten aan pijn aan het zitvlak en Tom stapt dan ook redelijk snel af. Ook Kittel (2x) en Greippel (3x) stappen voor de bergen af.
 
 <!-- excerpt -->
 
