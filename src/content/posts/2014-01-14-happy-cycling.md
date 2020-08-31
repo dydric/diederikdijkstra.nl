@@ -6,7 +6,7 @@ tags:
   - wielrennen
   - ik
 featured_image: /static/images/uploads/happy-cycling.jpeg
-hide_featured_image: true
+hide_featured_image: false
 image_position: aside
 ---
 Ik heb de smaak weer te pakken. Ik ben nog maar 2 weken bezig, heb al 222km gemaakt en het voelt fantastisch. Afgelopen zondag stond ik al om 7:45 met m'n fietskleding aan te trappelen om een blok te fietsen, maar het was nog te donker.
