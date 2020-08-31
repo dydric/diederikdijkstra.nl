@@ -54,7 +54,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Image Position"
         name: "image_position"
         widget: "select"
-        options: ["", "aside"]
+        options: ["default", "aside"]
       - label: "Body"
         name: "body"
         widget: "markdown"
