@@ -51,10 +51,12 @@ collections: # A list of collections the CMS should be able to edit
         name: "hide_featured_image"
         widget: "boolean"
         default: false
+        required: false
       - label: "Image Position"
         name: "image_position"
         widget: "select"
         options: ["default", "aside"]
+        required: false
       - label: "Body"
         name: "body"
         widget: "markdown"
