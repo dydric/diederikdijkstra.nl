@@ -98,7 +98,7 @@
     {% endif %}
     <div class="prose">
       {% if excerpt %}
-        {{ excerpt | safe }}<a href="{{ postUrl }}">Lees verder</a>
+        {{ excerpt | markdownify | safe }}<a href="{{ postUrl }}">Lees verder</a>
       {% else %}
         {{ postContent | safe }}
       {% endif %}

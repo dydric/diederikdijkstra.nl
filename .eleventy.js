@@ -88,7 +88,7 @@ module.exports = function (eleventyConfig) {
   // Markdown
 
   const md = require('markdown-it')({
-    html: false,
+    html: true,
     breaks: true,
     linkify: true
   });
