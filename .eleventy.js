@@ -88,9 +88,7 @@ module.exports = function (eleventyConfig) {
   // Markdown
 
   const md = require('markdown-it')({
-    html: true,
-    breaks: true,
-    linkify: true
+    html: true
   });
 
   eleventyConfig.addNunjucksFilter(
