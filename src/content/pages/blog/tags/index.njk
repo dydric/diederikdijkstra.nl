@@ -21,7 +21,7 @@ eleventyNavigation:
           ('posts' not in tag) and
           ('promo' not in tag)
         %}
-          {%- set tagList = (tagList.push(tag), tagList) -%}
+          {%- set tagList = (tagList.push(tag), tagList | sort ) -%}
         {% endif %}
       {%- endif -%}
     {%- endfor -%}
@@ -32,9 +32,11 @@ eleventyNavigation:
 <div class="border-t-2 border-b-2 border-gray-300 border-opacity-25 py-8 mb-8 text-lg">
 {% for tag2 in tagList %}
   {% set tagUrl %}/tags/{{ tag2 }}/{% endset %}
+  <div>
   {{ card.tag(
     tagName = tag2,
     classes = "font-bold text-xl capitalize inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150"
   )}}
+  </div>
 {% endfor %}
 </div>
