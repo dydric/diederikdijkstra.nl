@@ -99,9 +99,10 @@
     <div class="prose">
       {% if excerpt %}
         {% set excerptContent = excerpt | markdownify %}
-        {{ excerptContent }}<a href="{{ postUrl }}">Lees verder</a>
+        <div>{{ excerptContent | safe }}</div>
+        <a href="{{ postUrl }}">Lees verder</a>
       {% else %}
-        {{ postContent | safe }}
+        <div>{{ postContent | safe }}</div>
       {% endif %}
     </div>
   </div>
