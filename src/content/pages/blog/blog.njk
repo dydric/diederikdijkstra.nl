@@ -42,7 +42,7 @@ pagination:
   {%- endfor %}
 </div>
 
-  <div class="flex justify-between">
+  <div class="flex items-center justify-between">
   {% if pagination.href.previous %}
     <a href="{{ pagination.href.previous }}" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Pagina {{ pagination.pageNumber }}</a>
   {% else %}

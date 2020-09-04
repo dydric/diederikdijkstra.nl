@@ -97,17 +97,16 @@
     {% endif %}
     {% endif %}
     {% if excerpt %}
-      <div class="prose">
+      <div>
         {% set excerptContent = excerpt | markdownify %}
-        <div>{{ excerptContent | safe }}</div>
+        <div class="prose">{{ excerptContent | safe }}</div>
+        <div class="my-6">
+          <a href="{{ postUrl }}" class="text-flamingo-600 underline font-semibold hover:no-underline hover:text-flamingo-800">Lees verder</a>
+        </div>
       </div>
-      <div class="mb-8">
-        <a href="{{ postUrl }}" class="text-flamingo-600 underline font-semibold hover:no-underline hover:text-flamingo-800">Lees verder</a>
-      </div>
+
     {% else %}
-      <div class="prose">
-        <div>{{ postContent | safe }}</div>
-      </div>
+      <div class="prose">{{ postContent | safe }}</div>
     {% endif %}
   </div>
 {% endmacro %}
