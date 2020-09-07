@@ -42,15 +42,21 @@
 
   img {
     @apply rounded-lg max-w-full shadow-2xl;
+  }
 
-    @screen lg {
-      max-width: calc(100vw - 18.5rem);
+  &:not(.markdown--aside) {
+
+    img {
+      @screen lg {
+        max-width: calc(100vw - 18.5rem);
+      }
+
+      @screen xl {
+
+        max-width: 985px;
+      }
     }
 
-    @screen xl {
-
-      max-width: 985px;
-    }
   }
 
   /* a {
