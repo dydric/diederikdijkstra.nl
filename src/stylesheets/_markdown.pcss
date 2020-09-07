@@ -73,10 +73,13 @@
 
   &--aside {
     @screen lg {
-      @apply flex justify-between;
+      @apply flex justify-between relative;
 
       .featured_image {
+        @apply sticky self-start;
         @apply w-72 order-last ml-8;
+
+        top: 6rem;
 
         img {
           @apply w-full max-w-full;
