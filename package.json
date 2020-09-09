@@ -27,6 +27,7 @@
     "lazysizes": "^5",
     "markdown-it-image-lazysizes": "^1",
     "spotify-web-api-node": "^4",
-    "tumblr": "^0"
+    "tumblr": "^0",
+    "twitter": "^1"
   }
 }
