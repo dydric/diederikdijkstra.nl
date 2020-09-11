@@ -3,7 +3,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
   const fs = require('fs');
   const twitter = require('twitter');
 
-  module.exports = () => {
+  module.exports = async () => {
 
     require('dotenv').config();
 

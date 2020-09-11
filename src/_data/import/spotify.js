@@ -2,7 +2,8 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
   const fs = require('fs');
   const spotifyWebApi = require('spotify-web-api-node');
-  module.exports = () => {
+
+  module.exports = async () => {
 
     require('dotenv').config();
 

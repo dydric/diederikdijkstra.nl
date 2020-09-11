@@ -3,7 +3,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
   const fs = require('fs');
   const tumblr = require('tumblr');
 
-  module.exports = () => {
+  module.exports = async () => {
 
     require('dotenv').config();
 
