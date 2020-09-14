@@ -55,7 +55,6 @@ module.exports = function (eleventyConfig) {
 
     const img = `<img
       class="w-full lazyload"
-      // loading="lazy"
       alt="${alt}"
       src="${lowestSrc.url}"
       sizes='(min-width: 1024px) 1024px, 100vw'
