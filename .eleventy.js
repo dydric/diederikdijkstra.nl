@@ -1,9 +1,12 @@
+/*jshint esversion: 9 */
+
 const { DateTime } = require("luxon");
 const htmlmin = require("html-minifier");
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const embeds = require("eleventy-plugin-embed-everything");
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
@@ -21,13 +24,49 @@ module.exports = function (eleventyConfig) {
     "./node_modules/lazysizes/lazysizes.min.js": "./js/lazysizes.js"
   });
 
-  // EXCERPT
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    // Optional, default is "---"
-    excerpt_separator: "<!-- excerpt -->",
-    excerpt_alias: 'excerpt'
+  // IMAGE OPTIMISATION
+
+  eleventyConfig.addNunjucksAsyncShortcode("Image", async (src, alt) => {
+    if (!alt) {
+      throw new Error(`Missing \`alt\` on myImage from: ${src}`);
+    }
+
+    let stats = await Image(src, {
+      widths: [25, 320, 640, 960, 1200, 1800, 2400],
+      formats: ["jpeg", "webp"],
+      urlPath: "/static/images/",
+      outputDir: "./_site/static/images/",
+    });
+
+    let lowestSrc = stats["jpeg"][0];
+
+    const srcset = Object.keys(stats).reduce(
+      (acc, format) => ({
+        ...acc,
+        [format]: stats[format].reduce(
+          (_acc, curr) => `${_acc} ${curr.srcset} ,`,
+          ""
+        ),
+      }),
+      {}
+    );
+
+    const source = `<source type="image/webp" srcset="${srcset["webp"]}" >`;
+
+    const img = `<img
+      class="w-full lazyload"
+      // loading="lazy"
+      alt="${alt}"
+      src="${lowestSrc.url}"
+      sizes='(min-width: 1024px) 1024px, 100vw'
+      srcset="${srcset["jpeg"]}"
+      width="${lowestSrc.width}"
+      height="${lowestSrc.height}">`;
+
+    return `<picture> ${source} ${img} </picture>`;
   });
+
+  // SHORTCODES
 
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
@@ -55,6 +94,8 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-MM-dd');
   });
 
+  // HTML / MARKDOWN
+
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (
       process.env.ELEVENTY_PRODUCTION &&
@@ -74,6 +115,14 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // EXCERPT
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    // Optional, default is "---"
+    excerpt_separator: "<!-- excerpt -->",
+    excerpt_alias: 'excerpt'
+  });
+
   // Collections
   eleventyConfig.addCollection('posts', collection => {
     return collection.getFilteredByTag('posts').reverse();
@@ -86,7 +135,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(embeds);
 
   // Markdown
-
   const md = require('markdown-it')({
     html: true
   });
@@ -113,4 +161,7 @@ module.exports = function (eleventyConfig) {
     // 1.1 Enable elventy to pass dirs specified above
     passthroughFileCopy: true
   };
+
+
+
 };

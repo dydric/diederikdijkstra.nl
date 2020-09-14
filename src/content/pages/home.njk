@@ -93,20 +93,22 @@ eleventyNavigation:
 
 <div class="sm:flex mb-12 lg:mb-20 overflow-hidden rounded-lg shadow-2xl">
   <div class="flex-initial sm:w-1/3">
-    <img
+    {# <img
       src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       data-src="/static/images/home/tres2_small.jpg"
       alt=""
       class="lazyload w-full"
-    >
+    > #}
+    {% Image "./_site/static/images/tres2.jpg", "Ik bij TRES #1" %}
   </div>
   <div class="flex-initial sm:w-2/3">
-      <img
+      {# <img
       src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
       data-src="/static/images/home/tres_small.jpg"
       alt=""
       class="lazyload w-full"
-    >
+    > #}
+    {% Image "./_site/static/images/tres.jpg", "Ik bij TRES #2" %}
   </div>
 </div>
 
