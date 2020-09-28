@@ -23,11 +23,29 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
       if (!error) {
 
         tweets = tweets.map((tweet) => {
-          return {
-            text:    tweet.text,
-            url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-            created: tweet.created_at.substring()
-          };
+          // console.log(tweet);
+
+          if (tweet.is_quote_status == false) {
+
+            return {
+              text:    tweet.text,
+              url:     'https://twitter.com/dydric/status/' + tweet.id_str,
+              created: tweet.created_at.substring(),
+              retweet: tweet.retweeted
+            };
+
+          } else {
+
+            return {
+              text:    tweet.text,
+              url:     'https://twitter.com/dydric/status/' + tweet.id_str,
+              created: tweet.created_at.substring(),
+              retweet: tweet.retweeted,
+              quote: tweet.retweeted_status.quoted_status.text
+            };
+
+          }
+
         });
 
         fs.writeFile(__dirname + '/../tweets.json', JSON.stringify(tweets), err => {
