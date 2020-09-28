@@ -155,7 +155,7 @@ eleventyNavigation:
 {% set postTitle = "Laatste berichten:" %}
 
 {%- if collections.post.length > 3 -%}
-  {%- set postCount = 3 -%}
+  {%- set postCount = 4 -%}
   {# {% set postTitle = "Laatste " + postCount + " berichten:" %} #}
   {% set postTitle = "Laatste berichten:" %}
 {%- endif -%}
@@ -166,7 +166,27 @@ eleventyNavigation:
   {{ postTitle }}
 </h2>
 
-<div class="border-b-2 border-gray-300 border-opacity-25 mb-4">
+<div class="grid gap-2 lg:grid-cols-2 md:max-w-xl lg:max-w-full mb-8">
+{% for post in collections.post | reverse %}
+  {% if loop.index < (postCount + 1) %}
+    <div class="bg-white border-2 border-gray-100 hover:border-lavender-300 shadow-none hover:shadow-lg rounded-lg p-4 flex flex-row items-center flex-wrap transition-all duration-300 relative">
+      <a href="{{ post.url }}" class="newscardtitle w-full py-2 font-bold leading-none text-xl text-gray-800 hover:underline">{{ post.data.title }}</a>
+      <div class="w-full flex-initial self-end relative z-20 pointer-events-none">
+        <div class="w-full font-bold text-xs text-gray-500 text-opacity-75 uppercase py-2">{{ post.date | readableDate }}</div>
+        <div class="">
+          {{ card.tags(
+              tags = post.data.tags,
+              classes = "font-bold text-xs uppercase inline-block mr-1 text-lavender-600 hover:text-lavender-50 transition-colors duration-150 bg-flamingo-50 hover:bg-lavender-800 rounded px-2 py-1 pointer-events-auto"
+            )
+          }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{%- endfor -%}
+</div>
+
+{# <div class="border-b-2 border-gray-300 border-opacity-25 mb-4">
 {% for post in collections.post | reverse %}
   {%- if collections.post.length > 3 -%}
     {% if loop.index < (postCount + 1) %}
@@ -188,7 +208,7 @@ eleventyNavigation:
     ) }}
   {% endif %}
 {%- endfor %}
-</div>
+</div> #}
 
 {%- if collections.post.length > 3 -%}
   <div class="flex items-center flex-wrap justify-between">

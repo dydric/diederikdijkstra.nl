@@ -1,12 +1,13 @@
 {% macro tag(
   tagName = "",
-  classes= "font-bold text-xs uppercase inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150"
+  tagclasses= "font-bold text-xs uppercase inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150"
 ) %}
-  <a href="/blog/tags/{{ tagName }}/" class="{{ classes }}">#{{ tagName }}</a>
+  <a href="/blog/tags/{{ tagName }}/" class="{{ tagclasses }}">#{{ tagName }}</a>
 {% endmacro %}
 
 {% macro tags(
-  tags = ""
+  tags = "",
+  classes = "font-bold text-xs uppercase inline-block mr-1 text-sky-900 hover:text-lavender-700 transition-colors duration-150"
 ) %}
   {%- for postTag in tags -%}
     {%- if
@@ -16,7 +17,10 @@
       ('posts' not in postTag) and
       ('promo' not in postTag)
     -%}
-      {{ tag( tagName = postTag ) }}
+      {{ tag(
+          tagName = postTag,
+          tagclasses = classes
+          ) }}
     {%- endif -%}
   {%- endfor -%}
 {% endmacro %}
