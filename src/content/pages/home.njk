@@ -239,7 +239,7 @@ eleventyNavigation:
   <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
 </svg></a>.</p>
 
-<div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-full">
+<div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-full mb-12 lg:mb-20">
 {% for tweet in twitter | sort(true, true, 'epoch') %}
   {% if loop.index < 7 %}
 <a href="{{ tweet.url }}" class="relative text-sm font-normal bg-sky-50 hover:bg-sky-100 p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300 border-2 border-sky-100 hover:border-sky-500 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
@@ -251,10 +251,24 @@ eleventyNavigation:
   {% else %}
     {{ tweet.text }}
   {% endif %}
-  <div class="w-full flex-initial self-end mt-2 font-bold text-xs text-sky-900 text-opacity-75 uppercase">
+  <div class="w-full flex-initial self-end mt-2 font-bold text-xs text-sky-900 uppercase">
   {{ tweet.epoch | epochDate }}
   </div>
 </a>
+  {% endif %}
+{% endfor %}
+</div>
+
+<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+  ✨ Inspiratie:
+</h2>
+<p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Tot slot nog wat gereblogde afbeelingen uit mijn <a class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" href="/scrapbook/page-1" >scrapbook</a> voor je dagelijkse portie inspiratie. Het begint inmiddels een aardige verzameling te worden. 🙄</p>
+<div class="grid gap-2 grid-cols-3 lg:grid-cols-6 max-w-lg lg:max-w-full">
+{% for item in tumblr %}
+  {% if loop.index < 7 %}
+    <div class="flex items-end">
+      <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"><img src="{{ item.thumb }}" alt="" class="w-full lazyload"></a>
+    </div>
   {% endif %}
 {% endfor %}
 </div>
