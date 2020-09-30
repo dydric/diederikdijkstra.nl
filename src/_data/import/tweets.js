@@ -16,7 +16,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
     let params = {
       screen_name: 'dydric',
-      count: 99
+      count: 24
     };
 
     client.get('statuses/user_timeline', params, function (error, tweets) {
@@ -25,22 +25,30 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
         tweets = tweets.map((tweet) => {
           // console.log(tweet);
 
+          var epoch = new Date(tweet.created_at.substring()).getTime() / 1000;
+
           if (tweet.is_quote_status == false) {
 
             return {
+              type: 'tweet',
               text:    tweet.text,
+              id: tweet.id,
               url:     'https://twitter.com/dydric/status/' + tweet.id_str,
               created: tweet.created_at.substring(),
+              epoch: epoch,
               retweet: tweet.retweeted
             };
 
           } else {
 
             return {
-              text:    tweet.text,
-              url:     'https://twitter.com/dydric/status/' + tweet.id_str,
+              type: 'tweet',
+              text: tweet.text,
+              id: tweet.id,
+              url: 'https://twitter.com/dydric/status/' + tweet.id_str,
               created: tweet.created_at.substring(),
               retweet: tweet.retweeted,
+              epoch: epoch,
               quote: tweet.retweeted_status.quoted_status.text
             };
 

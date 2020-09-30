@@ -16,17 +16,23 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
     let params = {
       screen_name: 'dydric',
-      count: 99
+      count: 24
     };
 
     client.get('favorites/list', params, function (error, tweets) {
       if (!error) {
 
         tweets = tweets.map((tweet) => {
+
+          var epoch = new Date(tweet.created_at.substring()).getTime() / 1000;
+
           return {
+            type: 'favorite',
             text:    tweet.text,
+            id: tweet.id,
             url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-            created: tweet.created_at.substring()
+            created: tweet.created_at.substring(),
+            epoch: epoch
           };
         });
 
