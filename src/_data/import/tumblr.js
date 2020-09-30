@@ -10,7 +10,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
     const paths = {
       tumblr: {
         dest: '/../tumblr.json',
-        pages: 100,
+        pages: 36,
         posts: 20
       }
     };
