@@ -93,6 +93,15 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-MM-dd');
   });
 
+  eleventyConfig.addFilter('epochDate', (dateObj) => {
+    // return DateTime.fromSeconds(dateObj).toFormat('yyyy-MM-dd');
+
+    var day = DateTime.fromSeconds(dateObj).toFormat("d");
+    var month = DateTime.fromSeconds(dateObj).toFormat("MM");
+    var year = DateTime.fromSeconds(dateObj).toFormat("yyyy");
+    return ("0" + day).slice(-2) + "-" + month + "-" + year;
+  });
+
   // HTML / MARKDOWN
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
