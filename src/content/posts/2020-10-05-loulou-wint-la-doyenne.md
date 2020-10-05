@@ -18,6 +18,8 @@ Kijk nog een keer mee naar deze ontknoping. Een finish waarin meer gebeurde dan 
 
 https://www.youtube.com/watch?v=G9juEMBTWZQ
 
+Ook mooi:
+
 https://www.youtube.com/watch?v=SYW5BXw2pKM
 
 <small>Hoofdfoto credit: ASO/Thomas Maheux</small>
