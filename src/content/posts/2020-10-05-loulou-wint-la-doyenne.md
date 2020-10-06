@@ -14,7 +14,7 @@ Het was een heerlijke sportzondag met als toetje een spectaculaire finale om u t
 
 Het werd de finale die Hirschi eigenlijk zou hebben gewonnen. Maar door een gekke manoeuvre schiet hij uit zijn pedaal en verliest daardoor evenwicht en snelheid om verder te sprinten. Het werd ook de finale die Alaphilippe denkt te gaan winnen. De handen gaan van het stuur. Alaphilippe gaat rechtop zitten en steekt zijn handen in de lucht. Maar, terwijl Loulou juicht, zet Roglic zijn fiets net als eerste over de streep en wordt _hij_ de winnaar van La Doyenne 2020.
 
-Kijk nog een keer mee naar deze ontknoping. Een finish waarin meer gebeurde dan een gemiddelde aflevering op Netflix.
+Kijk nog een keer mee naar deze ontknoping:
 
 https://www.youtube.com/watch?v=G9juEMBTWZQ
 
