@@ -21,14 +21,39 @@ pagination:
 <div class="flex items-center flex-wrap justify-between border-t-2 pt-10 border-gray-100">
 
   {% if pagination.href.next %}
-  <div class="flex-initial flex-shrink-0">
-    <a href="{{ pagination.href.next }}" class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150  mr-4">Vorige</a>
+  <div
+    class="flex-initial flex-shrink-0"
+    x-data="{ keydown: false }"
+    x-init="
+      $watch('keydown', value => {
+        if(keydown) {
+          window.location.href = '{{ pagination.href.next }}';
+        }
+      });
+    "
+  >
+    <a
+      href="{{ pagination.href.next }}"
+      @keydown.window.arrow-left="keydown = true"
+      class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150  mr-4">Vorige</a>
   </div>
   {% endif %}
 
     {% if pagination.href.previous%}
-  <div class="flex-initial flex-shrink-0">
-    <a href="{{ pagination.href.previous}}" class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Volgende</a>
+  <div
+    class="flex-initial flex-shrink-0"
+    x-data="{ keydown: false }"
+    x-init="
+      $watch('keydown', value => {
+        if(keydown) {
+          window.location.href = '{{ pagination.href.previous }}';
+        }
+      });
+    ">
+    <a
+      href="{{ pagination.href.previous}}"
+      @keydown.window.arrow-right="keydown = true"
+      class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Volgende</a>
   </div>
   {% endif %}
   <div class="flex-auto py-3 text-right ml-4">
