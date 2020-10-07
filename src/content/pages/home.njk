@@ -263,11 +263,18 @@ eleventyNavigation:
   ✨ Inspiratie:
 </h2>
 <p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Tot slot nog wat verzamelde afbeeldingen (reblogs) uit mijn <a class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" href="/scrapbook/page-1" >scrapbook</a> voor je dagelijkse portie inspiratie. Have fun! 😘</p>
-<div class="grid gap-2 grid-cols-3 lg:grid-cols-6 max-w-lg lg:max-w-full">
+{# <div class="grid gap-2 grid-cols-3 lg:grid-cols-6 max-w-lg lg:max-w-full"> #}
+<div class="flex">
 {% for item in tumblr %}
-  {% if loop.index < 7 %}
-    <div class="flex items-end">
-      <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"><img src="{{ item.thumb }}" alt="Scrapbook image {{ loop.index }}" class="w-full lazyload"></a>
+  {% if loop.index < 6 %}
+    <div
+      class="flex-auto flex items-end
+              {% if loop.index == 4 %}hidden sm:flex{% endif %}
+              {% if loop.index != 5 %}mr-2{% else %}hidden lg:flex{% endif %}
+            ">
+      <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+        <img src="{{ item.thumb }}" alt="Scrapbook image {{ loop.index }}" class="max-h-48 w-auto lazyload">
+      </a>
     </div>
   {% endif %}
 {% endfor %}
