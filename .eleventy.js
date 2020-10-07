@@ -38,7 +38,7 @@ module.exports = function (eleventyConfig) {
       outputDir: "./_site/static/images/",
     });
 
-    let lowestSrc = stats["jpeg"][0];
+    let lowestSrc = stats.jpeg[0];
 
     const srcset = Object.keys(stats).reduce(
       (acc, format) => ({
@@ -51,14 +51,14 @@ module.exports = function (eleventyConfig) {
       {}
     );
 
-    const source = `<source type="image/webp" srcset="${srcset["webp"]}" >`;
+    const source = `<source type="image/webp" srcset="${srcset.webp}" >`;
 
     const img = `<img
       class="w-full lazyload"
       alt="${alt}"
       src="${lowestSrc.url}"
       sizes='(min-width: 1024px) 1024px, 100vw'
-      srcset="${srcset["jpeg"]}"
+      srcset="${srcset.jpeg}"
       width="${lowestSrc.width}"
       height="${lowestSrc.height}">`;
 
