@@ -268,12 +268,12 @@ eleventyNavigation:
 {% for item in tumblr %}
   {% if loop.index < 6 %}
     <div
-      class="flex-auto flex items-end
+      class="flex-auto flex items-end mr-2
               {% if loop.index == 4 %}hidden sm:flex{% endif %}
-              {% if loop.index != 5 %}mr-2{% else %}hidden lg:flex{% endif %}
+              {% if loop.index == 5 %}hidden lg:flex{% endif %}
             ">
       <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-        <img src="{{ item.thumb }}" alt="Scrapbook image {{ loop.index }}" class="max-h-48 w-auto lazyload">
+        <img src="{{ item.thumb }}" alt="Scrapbook image {{ loop.index }}" class="max-h-56 w-auto lazyload">
       </a>
     </div>
   {% endif %}
