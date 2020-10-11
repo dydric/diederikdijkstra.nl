@@ -27,20 +27,6 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
           var epoch = new Date(tweet.created_at.substring()).getTime() / 1000;
 
-          if (tweet.is_quote_status == false) {
-
-            return {
-              type: 'tweet',
-              text:    tweet.text,
-              id: tweet.id,
-              url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-              created: tweet.created_at.substring(),
-              epoch: epoch,
-              retweet: tweet.retweeted
-            };
-
-          } else {
-
             return {
               type: 'tweet',
               text: tweet.text,
@@ -48,11 +34,8 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
               url: 'https://twitter.com/dydric/status/' + tweet.id_str,
               created: tweet.created_at.substring(),
               retweet: tweet.retweeted,
-              epoch: epoch,
-              quote: tweet.retweeted_status.quoted_status.text
+              epoch: epoch
             };
-
-          }
 
         });
 
