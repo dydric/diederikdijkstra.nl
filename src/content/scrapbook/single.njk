@@ -1,5 +1,5 @@
 ---
-layout: "layouts/default"
+layout: "layouts/photo"
 title: Scrapbook
 permalink: /scrapbook/{{ tumblr.id }}/index.html
 pagination:
@@ -8,21 +8,38 @@ pagination:
   alias: tumblr
 ---
 
-<p class="-mt-6 text-lg sm:text-2xl lg:text-3xl font-bold text-lavender-600 mb-6 lg:mb-8">"Collecting things is an art form too" ✌🏻</p>
-<p class="text-sm md:text-base mb-12 p-4 text-gray-600 bg-white rounded-lg shadow-2xl"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-gray-700 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-</svg></a>.</strong></p>
+<div class="fixed top left-0 flex justify-center p-3">
 
-<a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer">
-  <img src="{{ tumblr.photo }}" class="lazyload mt-1 max-w-full rounded-lg mb-12" alt="Tumblr image">
-</a>
+  <a href="/"><img
+    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+    data-src="/static/images/home/avatar_small.jpg" alt="{{ site.author.name }}"
+    class="
+      lazyload block rounded-lg w-12 sm:w-20 max-w-full shadow-lg
+  "></a>
+</div>
 
-<div class="flex items-center flex-wrap justify-between border-t-2 pt-10 border-gray-100">
+<div class="fixed bottom-0 left-0 right-0 flex justify-center p-6">
+  <div class="text-gray-600 bg-white rounded-lg shadow-2xl p-2 text-center">
+    <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-gray-700 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+    </svg></a>.</strong><span class="hidden lg:inline text-gray-500 pl-3">Tip: use arrow keys to navigate.</span></p>
+  </div>
+</div>
+
+<div class="fixed right-0 top-0 py-3 px-4 sm:px-6">
+  <a href="/scrapbook/page-1" class="text-sm text-gray-300 hover:text-gray-100 transition ease-in-out duration-150 truncate">&larr; Scrapbook </a>
+</div>
+
+<div class="w-screen flex items-center justify-center min-h-screen px-6 pt-12 pb-20">
+  {# <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer"> #}
+    <img src="{{ tumblr.photo }}" class="lazyload max-w-full max-h-full mx-auto rounded-lg" alt="Tumblr image">
+  {# </a> #}
+</div>
 
   {% if pagination.href.next %}
   <div
-    class="flex-initial flex-shrink-0"
+    class="fixed right-0 top-50 transform -translate-y-1/2"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -34,14 +51,14 @@ pagination:
   >
     <a
       href="{{ pagination.href.next }}"
-      @keydown.window.arrow-left="keydown = true"
-      class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150  mr-4">Vorige</a>
+      @keydown.window.arrow-right="keydown = true"
+      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4">&rarr; </a>
   </div>
   {% endif %}
 
-    {% if pagination.href.previous%}
+  {% if pagination.href.previous%}
   <div
-    class="flex-initial flex-shrink-0"
+    class="fixed left-0 top-50 transform -translate-y-1/2"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -52,11 +69,7 @@ pagination:
     ">
     <a
       href="{{ pagination.href.previous}}"
-      @keydown.window.arrow-right="keydown = true"
-      class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150">Volgende</a>
+      @keydown.window.arrow-left="keydown = true"
+      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4">&larr;</a>
   </div>
   {% endif %}
-  <div class="flex-auto py-3 text-right ml-4">
-    <a href="/scrapbook/page-1" class="text-sm text-gray-500 hover:text-lavender-800 transition ease-in-out duration-150 truncate">&larr; Overzicht </a>
-  </div>
-</div>

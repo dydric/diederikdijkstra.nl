@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script>
+  var host = '{{site.enforce_ssl}}';
+  if ((host == window.location.host) && (window.location.protocol != 'https:'))
+    window.location.protocol = 'https';
+</script>
+{# {%- set entryUrl = page.url.split("/")[1] -%}
+<html lang="{% if "blog" in entryUrl %}nl{% else %}en{% endif %}"> #}
+<html{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
+  {% include "partials/head.njk" %}
+  <body class="bg-gray-800">
+
+  {% block content %}
+    {{ content | safe }}
+  {% endblock %}
+
+  </body>
+  <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+  <script>twemoji.parse(document.body);</script>
+</html>
