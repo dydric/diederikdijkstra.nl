@@ -8,7 +8,7 @@ pagination:
   alias: tumblr
 ---
 
-<div class="fixed top left-0 flex justify-center p-3">
+<div class="fixed z-30 top left-0 flex justify-center p-3">
 
   <a href="/"><img
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -18,28 +18,44 @@ pagination:
   "></a>
 </div>
 
-<div class="fixed bottom-0 left-0 right-0 flex justify-center p-6">
-  <div class="text-gray-600 bg-white rounded-lg shadow-2xl p-2 text-center">
+<div class="fixed z-30 bottom-0 left-0 right-0 flex justify-center p-3 sm:p-6">
+  <div class="text-gray-600 bg-white rounded-lg shadow-2xl p-1 sm:p-2 text-center">
     <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-gray-700 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
       <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
       <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-    </svg></a>.</strong><span class="hidden lg:inline text-gray-500 pl-3">Tip: use arrow keys to navigate.</span></p>
+    </svg></a>.</strong><span class="hidden lg:inline text-gray-500 pl-3">Tips: 1) use arrow keys to navigate. 2) Click image to enlarge</span></p>
   </div>
 </div>
 
-<div class="fixed right-0 top-0 py-3 px-4 sm:px-6">
-  <a href="/scrapbook/page-1" class="text-sm text-gray-300 hover:text-gray-100 transition ease-in-out duration-150 truncate">&larr; Scrapbook </a>
+<div class="fixed z-30 right-0 top-0 py-3 px-4 sm:px-6">
+  <a href="/scrapbook/page-1" class="text-sm transition ease-in-out duration-150 truncate  rounded-full py-2 px-3 bg-sky-800 text-sky-50 hover:bg-lavender-700 hover:text-lavender-50">&larr; Scrapbook </a>
 </div>
 
-<div class="w-screen flex items-center justify-center min-h-screen px-6 pt-12 pb-20">
+<div
+  x-data="{ isOpen: false }"
+  class="w-screen flex items-center justify-center p-6 md:pt-12 md:pb-20"
+  :class="{ 'min-h-screen': isOpen, 'h-screen': !isOpen }"
+>
   {# <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer"> #}
-    <img src="{{ tumblr.photo }}" class="lazyload max-w-full max-h-full mx-auto rounded-lg" alt="Tumblr image">
+  <div class="relative"
+    :class="{ 'h-full flex items-center': !isOpen }">
+    <button
+      @click="isOpen = !isOpen"
+      class="absolute z-20 right-0 top-0 left-0 bottom-0 w-full h-full bg-transparent outline-none border-0 focus:border-0"
+      style="outline: none;"
+    >
+    </button>
+    <img
+      src="{{ tumblr.photo }}"
+      class="lazyload max-w-full max-h-full mx-auto rounded-lg relative z-10"
+      alt="Tumblr image">
+  </div>
   {# </a> #}
-</div>
+{# </div> #}
 
   {% if pagination.href.next %}
   <div
-    class="fixed right-0 top-50 transform -translate-y-1/2"
+    class="fixed z-30 right-0 top-50 transform -translate-y-1/2"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -52,13 +68,13 @@ pagination:
     <a
       href="{{ pagination.href.next }}"
       @keydown.window.arrow-right="keydown = true"
-      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4">&rarr; </a>
+      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4 shadow-xl hover:shadow">&rarr; </a>
   </div>
   {% endif %}
 
   {% if pagination.href.previous%}
   <div
-    class="fixed left-0 top-50 transform -translate-y-1/2"
+    class="fixed z-30 left-0 top-50 transform -translate-y-1/2"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -70,6 +86,6 @@ pagination:
     <a
       href="{{ pagination.href.previous}}"
       @keydown.window.arrow-left="keydown = true"
-      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4">&larr;</a>
+      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4 shadow-xl hover:shadow">&larr;</a>
   </div>
   {% endif %}
