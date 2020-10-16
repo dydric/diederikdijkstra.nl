@@ -8,7 +8,7 @@ pagination:
   alias: tumblr
 ---
 
-<div class="fixed z-30 top left-0 flex justify-center p-3">
+<div class="fixed z-30 top left-0 flex justify-center px-6 py-3">
 
   <a href="/"><img
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -18,7 +18,7 @@ pagination:
   "></a>
 </div>
 
-<div class="fixed z-30 bottom-0 left-0 right-0 flex justify-center p-3 sm:p-6">
+<div class="fixed z-30 bottom-0 left-0 right-0 justify-center p-3 sm:p-6 hidden sm:flex">
   <div class="text-gray-600 bg-white rounded-lg shadow-2xl p-1 sm:p-2 text-center">
     <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-gray-700 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
       <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -27,14 +27,14 @@ pagination:
   </div>
 </div>
 
-<div class="fixed z-30 right-0 top-0 py-3 px-4 sm:px-6">
+<div class="fixed z-30 right-0 top-0 py-3 px-6 sm:px-6">
   <a href="/scrapbook/page-1" class="text-sm transition ease-in-out duration-150 truncate  rounded-full py-2 px-3 bg-sky-800 text-sky-50 hover:bg-lavender-700 hover:text-lavender-50">&larr; Scrapbook </a>
 </div>
 
 <div
   x-data="{ isOpen: false }"
-  class="w-screen flex items-center justify-center p-6 md:pt-12 md:pb-20"
-  :class="{ 'min-h-screen': isOpen, 'h-screen': !isOpen }"
+  class="w-screen flex items-center justify-center p-6 pt-20 sm:pt-6 md:pt-12 md:pb-20"
+  :class="{ 'sm:min-h-screen': isOpen, 'sm:h-screen': !isOpen }"
 >
   {# <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer"> #}
   <div class="relative"
@@ -56,7 +56,7 @@ pagination:
 
   {% if pagination.href.next %}
   <div
-    class="fixed z-30 right-0 top-50 transform -translate-y-1/2"
+    class="fixed z-30 right-0 left-50 sm:left-auto bottom-0 sm:bottom-auto sm:top-50 sm:transform sm:-translate-y-1/2 p-3 pr-6 mb-3"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -69,13 +69,13 @@ pagination:
     <a
       href="{{ pagination.href.next }}"
       @keydown.window.arrow-right="keydown = true"
-      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4 shadow-xl hover:shadow">&rarr; </a>
+      class="inline-block whitespace-no-wrap p-4 md:p-3 border border-transparent text-xl sm:text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 shadow-xl hover:shadow w-full sm:w-auto text-center">&rarr; </a>
   </div>
   {% endif %}
 
   {% if pagination.href.previous%}
   <div
-    class="fixed z-30 left-0 top-50 transform -translate-y-1/2"
+    class="fixed z-30 left-0 right-50 sm:right-auto bottom-0 sm:bottom-auto sm:top-50 sm:transform sm:-translate-y-1/2 p-3 pl-6 mb-3"
     x-data="{ keydown: false }"
     x-init="
       $watch('keydown', value => {
@@ -87,6 +87,6 @@ pagination:
     <a
       href="{{ pagination.href.previous}}"
       @keydown.window.arrow-left="keydown = true"
-      class="inline-block whitespace-no-wrap p-2 md:p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 m-4 shadow-xl hover:shadow">&larr;</a>
+      class="inline-block whitespace-no-wrap p-4 md:p-3 border border-transparent text-xl sm:text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 shadow-xl hover:shadow w-full sm:w-auto text-center">&larr;</a>
   </div>
   {% endif %}
