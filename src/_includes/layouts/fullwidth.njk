@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<script>
+  var host = '{{site.enforce_ssl}}';
+  if ((host == window.location.host) && (window.location.protocol != 'https:'))
+    window.location.protocol = 'https';
+</script>
+{# {%- set entryUrl = page.url.split("/")[1] -%}
+<html lang="{% if "blog" in entryUrl %}nl{% else %}en{% endif %}"> #}
+<html{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
+  {% include "partials/head.njk" %}
+  <body class="bg-cool-gray-50">
+
+  <div
+    x-data="{ isOpen: false, atTop: true, isPreload: true }"
+    @scroll.window="isPreload = (window.pageYOffset > 1) ? false : false"
+  >
+    {% include "partials/header.njk" %}
+
+    <div class=" max-w-screen-xl px-4 md:px-6 mx-auto flex flex-wrap sm:flex-no-wrap pt-16 sm:pt-20">
+      <div class="flex-initial relative self-auto w-full sm:w-36 md:w-48 lg:w-1/5 flex-shrink-0 sm:hidden">
+        <div class="fixed z-50 sm:sticky sm:z-auto top-0 right-0 mr-3 sm:mr-0 sm:mt-4 sm:py-24"
+
+          :class="{
+            'mt-20' : !atTop,
+            'mt-16' : atTop
+          }"
+        >
+        {% include "partials/navigation.njk" %}
+        </div>
+      </div>
+      {% block content %}
+        <div class="flex-auto flex-grow-0 py-6 sm:py-24 w-full min-w-0 mt-3">
+           {# {% include "partials/alert.njk" %} #}
+
+          {% if renderData.title or title %}
+            <h1 class="font-extrabold leading-none text-4xl lg:text-5xl mb-8 text-cool-gray-800">
+              {{ renderData.title or title }}
+            </h1>
+          {% endif %}
+          <div class="max-w-full">
+            {{ content | safe }}
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+
+  {% include "partials/footer.njk" %}
+
+  </body>
+  <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+  <script>twemoji.parse(document.body);</script>
+</html>
