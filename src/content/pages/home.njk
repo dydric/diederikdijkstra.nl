@@ -243,14 +243,26 @@ eleventyNavigation:
 {% for tweet in twitter | sort(true, true, 'epoch') %}
   {% if loop.index < 7 %}
 <a href="{{ tweet.url }}" class="relative text-sm font-normal bg-sky-50 hover:bg-sky-100 p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300 border-2 border-sky-100 hover:border-sky-500 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
+
+  {% if tweet.media[0].media_url_https %}
+    <div class="absolute top-0 left-0 z-20 bg-cover bg-center bg-no-repeat w-12 h-12 m-4 rounded" style="background-image: url({{ tweet.media[0].media_url_https }})"></div>
+  {% endif %}
+
   {% if tweet.type == "favorite" %}
-    <div class="absolute right-0 top-0 p-1 rounded-full bg-white h-8 w-8 text-center text-xl shadow-lg transform -translate-x-2 translate-y-2">
+    <div class="absolute right-0 bottom-0 p-1 rounded-full bg-white h-8 w-8 text-center text-xl shadow-lg transform -translate-x-2 -translate-y-2">
       <span class="relative h-6 w-6 inline-block" style="left: -1px">❤️</span>
     </div>
-    <div class="pr-8">{{ tweet.text }}</div>
-  {% else %}
-    {{ tweet.text }}
   {% endif %}
+
+  <div {% if tweet.media[0].media_url_https %}class="pl-16"{% endif %}>
+    {% if tweet.type == "favorite" %}
+      {% if tweet.user.name %}
+        @{{ tweet.user.name }}:
+      {% endif %}
+    {% endif %}
+    {{ tweet.text }}
+  </div>
+
   <div class="w-full flex-initial self-end mt-2 font-bold text-xs uppercase py-2">
     <span class="text-gray-600">{{ tweet.epoch | epochDate }}</span>
   </div>
