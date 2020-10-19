@@ -24,6 +24,18 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
         tweets = tweets.map((tweet) => {
 
+          // console.log(tweet);
+
+          var media = "";
+
+          if (tweet.entities.media) {
+            // console.log(tweet.entities.media);
+
+            media = tweet.entities.media;
+          }
+
+
+
           var epoch = new Date(tweet.created_at.substring()).getTime() / 1000;
 
           return {
@@ -32,7 +44,9 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
             id: tweet.id,
             url:     'https://twitter.com/dydric/status/' + tweet.id_str,
             created: tweet.created_at.substring(),
-            epoch: epoch
+            epoch: epoch,
+            media: media,
+            user: tweet.user
           };
         });
 
@@ -46,5 +60,5 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
       }
     });
 
-  }
+  };
 }
