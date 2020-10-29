@@ -50,7 +50,7 @@ eleventyNavigation:
 
 </p>
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5">
   ⚔️ Tools &amp; Skills:
 </h2>
 
@@ -84,7 +84,7 @@ eleventyNavigation:
 {% endfor %}
 </ul>
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-2 mt-8 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-2 mt-8">
   💼 Werk:
 </h2>
 <p class="mb-5 text-sm md:text-base font-medium">Actiefoto's van Diederik aan het 'werk' bij <a href="https://tres.nl" class="inline-flex items-center justify-center font-bold underline hover:no-underline" target="_blank" rel="noopener noreferrer">TRES <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -113,7 +113,7 @@ eleventyNavigation:
   </div>
 </div>
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2">
   🎧 Favorieten:
 </h2>
 <p class="mb-5 text-sm md:text-base font-medium">Geen dag zonder muziek. Dit zijn de meest recente tracks die ik heb toegevoegd aan de playlist: <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="https://open.spotify.com/playlist/0phr7QOeXCConRswu3ZEtv?si=kR9kU9DlQ9efEU6Hera_ww" target="_blank" rel="noopener noreferrer">Musiclog Shortlist <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -151,7 +151,7 @@ eleventyNavigation:
 
 {%- import "macros/cards.njk" as card -%}
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5">
   🗞 {{ postTitle }}
 </h2>
 
@@ -220,7 +220,7 @@ eleventyNavigation:
   {%- set twitter = (twitter.push(tweet), twitter) -%}
 {%- endfor -%}
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2">
   🐥 Twitter:
 </h2>
 <p class="mb-5 text-sm md:text-base font-medium">Mijn laatste (re)tweets en likes. Ga je daar lekker op, dan is het handiger om me even te <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="https://twitter.com/intent/follow?screen_name=dydric" target="_blank" rel="noopener noreferrer">volgen <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -231,7 +231,10 @@ eleventyNavigation:
 <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-full mb-12 lg:mb-20">
 {% for tweet in twitter | sort(true, true, 'epoch') %}
   {% if loop.index < 7 %}
-<a href="{{ tweet.url }}" class="relative text-sm text-gray-600 font-normal bg-sky-50 hover:bg-sky-100 p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300 border-2 border-sky-100 hover:border-sky-500 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
+
+
+
+<a href="{{ tweet.url }}" class="bg-tweet hover:bg-tweet-hover text-tweet relative text-sm font-normal p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300" target="_blank" rel="noopener noreferrer">
 
   {% if tweet.media[0].media_url_https %}
     <div class="absolute top-0 left-0 z-20 bg-cover bg-center bg-no-repeat w-12 h-12 m-4 rounded" style="background-image: url({{ tweet.media[0].media_url_https }})"></div>
@@ -253,14 +256,14 @@ eleventyNavigation:
   </div>
 
   <div class="w-full flex-initial self-end mt-2 font-bold text-xs uppercase py-2">
-    <span class="text-gray-600">{{ tweet.epoch | epochDate }}</span>
+    <span class="text-tweet opacity-90">{{ tweet.epoch | epochDate }}</span>
   </div>
 </a>
   {% endif %}
 {% endfor %}
 </div>
 
-<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2">
   ✨ Inspiratie:
 </h2>
 <p class="mb-5 text-sm md:text-base font-medium">Tot slot nog wat verzamelde afbeeldingen (reblogs) uit mijn <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="/scrapbook/page-1" >scrapbook</a> voor je dagelijkse portie inspiratie. Have fun! 😘</p>

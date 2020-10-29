@@ -69,7 +69,9 @@ module.exports = {
         'primary': 'var(--color-bg-primary)',
         'secondary': 'var(--color-bg-secondary)',
         'button': 'var(--color-button-bg)',
-        'button-hover': 'var(--color-button-bg-hover)'
+        'button-hover': 'var(--color-button-bg-hover)',
+        'tweet': 'var(--color-bg-tweet)',
+        'tweet-hover': 'var(--color-bg-tweet-hover)',
       }),
 
       borderColor: theme => ({
@@ -92,7 +94,8 @@ module.exports = {
         'link-alt': 'var(--color-link-alt)',
         'link-alt-hover': 'var(--color-link-alt-hover)',
         'button': 'var(--color-button)',
-        'button-hover': 'var(--color-button-hover)'
+        'button-hover': 'var(--color-button-hover)',
+        'tweet': 'var(--color-tweet)',
       }),
 
       fontFamily: {

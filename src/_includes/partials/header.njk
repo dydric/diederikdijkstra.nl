@@ -61,7 +61,7 @@
       <div
           :aria-expanded="showPref"
           :hidden="!showPref"
-          class="absolute top-100 left-50 w-32 bg-secondary rounded-lg overflow-hidden mt-2 shadow-2xl transform -translate-x-1/2 border-2 border-primary shadow-xl"
+          class="absolute top-100 left-50 w-32 bg-secondary rounded-lg overflow-hidden mt-2 shadow-2xl transform -translate-x-1/2 border-2 border-primary"
           :class="{
               'mt-6' : !atTop,
               'mt-2' : atTop
@@ -72,7 +72,7 @@
     </div>
 
     <div class="flex-initial text-right mx-2 sm:mr-0">
-      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="mailbutton inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-md text-white bg-lavender-700 hover:bg-lavender-800 focus:outline-none focus:border-lavender-800 focus:shadow-outline-lavender active:bg-lavender-800 transition ease-in-out duration-150 shadow-lg border-2 border-lavender-800">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-md text-white bg-lavender-700 hover:bg-lavender-800 focus:outline-none focus:border-lavender-800 focus:shadow-outline-lavender active:bg-lavender-800 transition ease-in-out duration-150 shadow-lg border-2 border-lavender-800">
           <svg class="h-6 w-6 sm:-ml-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -86,11 +86,11 @@
       <button
         @click="showNav = !showNav"
         @click.away="showNav = false"
-        class="sm:hidden inline-flex items-center p-1 bg-white rounded-lg border-2 text-lavender-800 border-white hover:border-accent focus:border-accent focus:outline-none"
+        class="sm:hidden inline-flex items-center p-1 bg-primary rounded-lg border-2 text-menu-link-active border-transparent hover:border-accent focus:border-accent focus:outline-none"
 
         :class="{
-          'border-lavender-200 bg-lavender-100' : showNav,
-          '' : !atTop,
+          'border-accent' : showNav,
+          'border-primary' : !atTop,
           'shadow-lg ' : atTop
         }"
         x-bind:aria-label="showNav ? 'Menu sluiten' : 'Menu openen'"
@@ -100,16 +100,20 @@
         <svg
           :class="{ 'hidden': showNav, 'block': !showNav }"
           class="block h-8 w-8"
-          fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
         <!-- Icon when menu is showNav. -->
-        <svg :class="{ 'block': showNav, 'hidden': !showNav }" class="hidden h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          :class="{ 'block': showNav, 'hidden': !showNav }"
+          class="hidden h-8 w-8"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        >
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
 
       </button>
-
 
     </div>
   </div>
