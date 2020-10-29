@@ -1,0 +1,36 @@
+{% macro system(
+  items = [
+    [
+      "Systeem",
+      "system",
+      "preference != 'light' && preference != 'dark'"
+    ],
+    [
+      "Licht",
+      "light",
+      "preference == 'light'"
+    ],
+    [
+      "Donker",
+      "dark",
+      "preference == 'dark'"
+    ]
+  ]
+) %}
+
+  {%- for name, value, state in items -%}
+    <label class="block relative w-full font-medium cursor-pointer text-body{% if not loop.first %} border-t-2 border-primary{% endif %} text-menu-link hover:opacity-75">
+      <input type="radio" name="preference" x-model="preference" value="{{ value }}" class="hidden">
+      <span
+        :class="{
+          'absolute right-0 top-50 transform -translate-y-1/2 -translate-x-3 block h-2 w-2 bg-accent-primary rounded-full': {{ state }}
+        }"
+      ></span>
+      <span class="block p-2 pr-6" :class="{
+          'text-menu-link-active': {{ state }}
+        }">{{ name }}</span>
+    </label>
+  {%- endfor -%}
+
+
+{% endmacro %}

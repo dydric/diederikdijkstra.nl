@@ -1,5 +1,6 @@
 ---
 layout: layouts/default.njk
+theme: theme-default
 title: Blog
 description: Af en toe schrijft Diederik hier wat 🖋.
 permalink: /blog/page-{{ pagination.pageNumber + 1 }}/
@@ -18,9 +19,9 @@ pagination:
   title: "Blog {% if pagination.pageNumber != 0 %}- pagina {{ pagination.pageNumber + 1 }}{% endif %}" #}
 
 {% if pagination.pageNumber == 0 %}
-  {% if description %}<p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">{{ description }}</p>{% endif %}
+  {% if description %}<p class="-mt-4 mb-8 text-lg font-medium">{{ description }}</p>{% endif %}
 {% else %}
-  <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}</p>
+  <p class="-mt-4 mb-8 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}</p>
 {% endif %}
 
 <div class="border-b-2 border-gray-300 border-opacity-25 mb-8">

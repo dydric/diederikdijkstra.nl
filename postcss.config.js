@@ -11,8 +11,7 @@ module.exports = {
     require(`tailwindcss`)(`./tailwind.config.js`),
     require('postcss-nested'),
     require(`autoprefixer`),
-    ...(process.env.ELEVENTY_PRODUCTION
-      ? [
+    ...(process.env.ELEVENTY_PRODUCTION ? [
           require(`postcss-clean`),
           require(`@fullhuman/postcss-purgecss`)({
             content: ["_site/**/*.html"],

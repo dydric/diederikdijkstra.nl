@@ -22,9 +22,9 @@ pagination:
   "></a>
 </div>
 
-<div class="fixed z-30 bottom-0 left-0 right-0 justify-center p-3 sm:p-6 hidden sm:flex">
+<div class="fixed z-30 bottom-0 left-0 right-0 justify-center p-3 sm:p-6 hidden sm:flex pointer-events-none">
   <div class="bg-gray-900 text-flamingo-300 rounded-lg shadow-2xl p-1 sm:p-2 text-center">
-    <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-flamingo-50 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-flamingo-50" viewBox="0 0 20 20" fill="currentColor">
+    <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-flamingo-50 inline-flex items-center justify-center font-bold underline hover:no-underline pointer-events-auto">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-flamingo-50" viewBox="0 0 20 20" fill="currentColor">
       <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
       <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
     </svg></a>.</strong><span class="hidden lg:inline pl-3">Tips: 1) use arrow keys to navigate. 2) Click image to enlarge (spacebar).</span></p>
@@ -36,16 +36,16 @@ pagination:
 </div>
 
 <div
-  x-data="{ isOpen: false }"
+  x-data="{ showNav: false }"
   class="w-screen flex items-center justify-center p-6 pt-20 sm:pt-6 md:pt-12 md:pb-20"
-  :class="{ 'sm:min-h-screen': isOpen, 'sm:h-screen': !isOpen }"
+  :class="{ 'sm:min-h-screen': showNav, 'sm:h-screen': !showNav }"
 >
   {# <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer"> #}
   <div class="relative"
-    :class="{ 'h-full flex items-center': !isOpen }">
+    :class="{ 'h-full flex items-center': !showNav }">
     <button
-      @click="isOpen = !isOpen"
-      @keydown.window.space="isOpen = !isOpen"
+      @click="showNav = !showNav"
+      @keydown.window.space="showNav = !showNav"
       class="absolute z-20 right-0 top-0 left-0 bottom-0 w-full h-full bg-transparent outline-none border-0"
       style="outline: none;"
     >

@@ -72,6 +72,10 @@
   <link rel="stylesheet" href="/app.css?v={% version %}"/>
   <script src="/js/alpine.js?v={% version %}" defer></script>
   <script src="/js/lazysizes.js" async=""></script>
+  <script>
+    localStorage.getItem('theme') &&
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'))
+  </script>
 </head>
 
 

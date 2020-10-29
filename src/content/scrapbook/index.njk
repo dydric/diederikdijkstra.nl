@@ -1,5 +1,5 @@
 ---
-layout: layouts/fullwidth.njk
+layout: layouts/fullwidth
 title: Scrapbook
 permalink: /scrapbook/page-{{ pagination.pageNumber + 1 }}/
 pagination:
@@ -11,21 +11,30 @@ pagination:
   key: Scrapbook
   order: 3 #}
 
-<p class="-mt-6 text-lg sm:text-2xl lg:text-3xl font-bold text-lavender-600 mb-6 lg:mb-8">"Collecting things is an art form too" ✌🏻</p>
-<p class="text-sm md:text-base mb-12 p-4 text-gray-600 bg-white rounded-lg shadow-2xl"><strong>Note:</strong> These images are NOT mine, but reblogged from <a href="https://tumblr.com" target="_blank" rel="noopener noreferrer" class="text-gray-700 inline-flex items-center justify-center font-bold underline hover:no-underline">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-</svg></a>.</p>
+{% if not pagination.href.previous %}
+<p class="-mt-6 text-lg sm:text-xl font-bold text-flamingo-600 mb-6 lg:mb-8">"Collecting things is an art form too" ✌🏻</p>
+{% endif %}
+
+<div class="fixed z-30 bottom-0 left-0 right-0 justify-center p-3 sm:p-6 hidden sm:flex pointer-events-none">
+
+  <div class="bg-gray-800 text-flamingo-300 rounded-lg shadow-2xl p-1 sm:p-2 text-center">
+    <p class="text-xs md:text-sm"><strong>Note:</strong> These images are NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="text-flamingo-50 inline-flex items-center justify-center font-bold underline hover:no-underline pointer-events-auto">Tumblr <svg class="w-4 h-4 md:h-5 md:w-5 text-flamingo-50" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+    </svg></a>.</p>
+  </div>
+
+</div>
 
 {% set totalpages = pagination.links | length %}
 {# {% if pagination.pageNumber == 0 %}
   <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}
 {% endif %} #}
 
-<div class="grid gap-2 grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 max-w-full border-b-2 border-gray-300 border-opacity-25 pb-8 mb-8">
+<div class="grid gap-2 grid-cols-3 sm:grid-cols-4 max-w-full mb-8">
 {% for item in pagination.items %}
   <div class="flex items-end">
-    <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"><img src="{{ item.thumb }}" alt="" class="w-full lazyload"></a>
+    <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
   </div>
 {% endfor %}
 </div>

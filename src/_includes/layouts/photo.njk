@@ -8,7 +8,7 @@
 <html lang="{% if "blog" in entryUrl %}nl{% else %}en{% endif %}"> #}
 <html{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
   {% include "partials/head.njk" %}
-  <body class="bg-gray-800">
+  <body class="bg-gray-900">
 
   {% block content %}
     {{ content | safe }}

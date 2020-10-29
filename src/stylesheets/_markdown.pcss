@@ -67,8 +67,12 @@
     }
   } */
 
-  blockquote p {
-    @apply font-light text-xl text-cool-gray-800 text-opacity-75 italic;
+  .prose blockquote {
+    @apply border-l-4 border-accent;
+
+    p {
+      @apply font-light text-xl italic;
+    }
   }
 
   &--aside {

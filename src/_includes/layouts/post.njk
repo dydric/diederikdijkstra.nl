@@ -10,7 +10,7 @@ layout: layouts/default
 
 
 <div class="-mt-8 mb-8">
-  {% if not isPromo %}<time class="font-bold text-xs text-gray-600 text-opacity-50 mr-2" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>{% endif %}
+  {% if not isPromo %}<time class="font-bold text-xs text-meta mr-2" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>{% endif %}
 
   {%- import "macros/cards.njk" as card -%}
   {{ card.tags(
@@ -39,14 +39,14 @@ layout: layouts/default
 {% set nextPost = collections.post | getNextCollectionItem(page) %}
 
 
-<div class="flex items-center flex-wrap justify-between border-t-2 pt-10 border-gray-100">
+<div class="flex items-center flex-wrap justify-between border-t-2 pt-10 border-primary">
   {% if nextPost %}
   <div class="flex-initial flex-shrink-0">
-    <a href="{{ nextPost.url }}" class="inline-block whitespace-no-wrap p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 mr-4">Volgende bericht</a>
+    <a href="{{ nextPost.url }}" class="inline-block whitespace-no-wrap p-3 text-base leading-4 font-medium rounded-md text-button hover:text-button-hover bg-button hover:bg-button-hover focus:outline-none transition ease-in-out duration-150 mr-4">Volgende bericht</a>
   </div>
   {% endif %}
   <div class="flex-auto py-3">
-    <a href="{{ site.archive_url }}" class="text-sm text-gray-500 hover:text-lavender-800 transition ease-in-out duration-150 truncate">&larr; Naar blogarchief </a>
+    <a href="{{ site.archive_url }}" class="text-sm text-meta hover:text-link transition ease-in-out duration-150 truncate">&larr; Naar blogarchief </a>
   </div>
 </div>
 

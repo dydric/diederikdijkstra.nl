@@ -1,5 +1,6 @@
 ---
 layout: layouts/default.njk
+theme: theme-default
 permalink: /
 eleventyNavigation:
   key: Home
@@ -36,7 +37,7 @@ eleventyNavigation:
 </span>
 {% endmacro %}
 
-<p class="font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1">
+<p class="text-headline font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1">
 
   {{ site.author.name }}
   woont in Leeuwarden met
@@ -49,7 +50,7 @@ eleventyNavigation:
 
 </p>
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
   ⚔️ Tools &amp; Skills:
 </h2>
 
@@ -74,19 +75,19 @@ eleventyNavigation:
 <ul class="grid grid-cols-1 gap-2 md:gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-12">
 {% for emoji, title, content in skills %}
   <li class="col-span-1 flex items-stretch rounded-md overflow-hidden">
-    <div class="flex-shrink-0 flex items-center justify-center w-10 sm:w-12 text-center text-2xl leading-5 font-medium bg-sky-100 py-2 md:py-3 rounded-md"><span class="relative" style="left: -1px">{{ emoji }}</span></div>
+    <div class="bg-accent-secondary flex-shrink-0 flex items-center justify-center w-10 sm:w-12 text-center text-2xl leading-5 font-medium py-2 md:py-3 rounded-md"><span class="relative" style="left: -1px">{{ emoji }}</span></div>
     <div class="flex-1 px-3 py-1 flex flex-col items-center justify-center flex-wrap">
-      {% if title %}<span class="text-gray-700 text-base leading-5 block font-bold w-full">{{ title | safe }}</span>{% endif %}
-      {% if content %}<span class="text-gray-500 text-sm leading-5 block font-medium w-full">{{ content | safe }}</span>{% endif %}
+      {% if title %}<span class="text-headline text-base leading-5 block font-bold w-full">{{ title | safe }}</span>{% endif %}
+      {% if content %}<span class="text-subheadline text-sm leading-5 block font-medium w-full">{{ content | safe }}</span>{% endif %}
     </div>
   </li>
 {% endfor %}
 </ul>
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mb-2 mt-8 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-2 mt-8 text-cool-gray-700 text-opacity-75">
   💼 Werk:
 </h2>
-<p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Actiefoto's van Diederik aan het 'werk' bij <a href="https://tres.nl" class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" target="_blank" rel="noopener noreferrer">TRES <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+<p class="mb-5 text-sm md:text-base font-medium">Actiefoto's van Diederik aan het 'werk' bij <a href="https://tres.nl" class="inline-flex items-center justify-center font-bold underline hover:no-underline" target="_blank" rel="noopener noreferrer">TRES <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
               <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
             </svg></a>.</p>
@@ -112,11 +113,10 @@ eleventyNavigation:
   </div>
 </div>
 
-
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
   🎧 Favorieten:
 </h2>
-<p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Geen dag zonder muziek. Dit zijn de meest recente tracks die ik heb toegevoegd aan de playlist: <a class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" href="https://open.spotify.com/playlist/0phr7QOeXCConRswu3ZEtv?si=kR9kU9DlQ9efEU6Hera_ww" target="_blank" rel="noopener noreferrer">Musiclog Shortlist <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+<p class="mb-5 text-sm md:text-base font-medium">Geen dag zonder muziek. Dit zijn de meest recente tracks die ik heb toegevoegd aan de playlist: <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="https://open.spotify.com/playlist/0phr7QOeXCConRswu3ZEtv?si=kR9kU9DlQ9efEU6Hera_ww" target="_blank" rel="noopener noreferrer">Musiclog Shortlist <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
               <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
             </svg></a>.</p>
@@ -141,17 +141,6 @@ eleventyNavigation:
 {%- endfor -%}
 </div>
 
-{# <div class="flex">
-  <div class="flex-initial flex-shrink-0 text-center mr-4">
-    <h2 class="font-extrabold text-2xl text-indigo-500 mb-2">😍</h2>
-  </div>
-  <div>
-  <!-- Lately I spend most of my time working with: -->
-    <p class="font-bold text-2xl mb-1 text-indigo-900 text-opacity-75">Eleventy, Tailwind CSS, Nunjucks, Alpine.js, Netlify <span class="text-black text-opacity-50">*</span></p>
-    <p class="text-sm text-indigo-800 text-opacity-50 font-medium mb-8">*: toevallig ook allemaal gebruikt voor deze website 😉</p>
-  </div>
-</div> #}
-
 {% set postTitle = "Laatste berichten:" %}
 
 {%- if collections.post.length > 3 -%}
@@ -162,15 +151,15 @@ eleventyNavigation:
 
 {%- import "macros/cards.njk" as card -%}
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-5 text-cool-gray-700 text-opacity-75">
   🗞 {{ postTitle }}
 </h2>
 
 <div class="grid gap-2 lg:grid-cols-2 md:max-w-xl lg:max-w-full mb-6">
 {% for post in collections.post | reverse %}
   {% if loop.index < (postCount + 1) %}
-    <div class="bg-white border-2 border-gray-100 hover:border-lavender-300 shadow-none hover:shadow-lg rounded-lg p-4 flex flex-row items-center flex-wrap transition-all duration-300 relative">
-      <a href="{{ post.url }}" class="newscardtitle w-full py-2 font-bold leading-none text-xl text-gray-800 hover:underline">{{ post.data.title }}</a>
+    <div class="bg-secondary border-2 border-primary hover:border-accent shadow-none hover:shadow-lg rounded-lg p-4 flex flex-row items-center flex-wrap transition-all duration-300 relative">
+      <a href="{{ post.url }}" class="newscardtitle w-full py-2 font-bold leading-none text-xl text-headline hover:underline">{{ post.data.title }}</a>
       <div class="w-full flex-initial self-end relative z-20 pointer-events-none">
         <div class="w-full font-bold text-xs text-gray-500 uppercase py-2">{{ post.date | readableDate }}</div>
         <div class="">
@@ -212,9 +201,9 @@ eleventyNavigation:
 
 {%- if collections.post.length > 3 -%}
   <div class="flex items-center flex-wrap justify-between mb-12">
-    <a href="/blog/page-1" class="inline-flex items-center p-3 border border-transparent text-base leading-4 font-medium rounded-md text-champagne-900 hover:text-champagne-50 bg-champagne-100 hover:bg-champagne-600 focus:outline-none focus:border-champagne-800 focus:shadow-outline-champagne active:bg-champagne-800 transition ease-in-out duration-150 mr-4">Blog</a>
+    <a href="/blog/page-1" class="inline-flex items-center p-3 text-base leading-4 font-medium rounded-md text-button hover:text-button-hover bg-button hover:bg-button-hover focus:outline-none transition ease-in-out duration-150 mr-4">Blog</a>
     <div class="flex-auto py-3">
-      <a href="{{ site.archive_url }}" class="text-sm text-gray-500 hover:text-lavender-800 transition ease-in-out duration-150 truncate">Archief &rarr;</a>
+      <a href="{{ site.archive_url }}" class="text-sm text-meta hover:text-link transition ease-in-out duration-150 truncate">Archief &rarr;</a>
     </div>
   </div>
 
@@ -231,10 +220,10 @@ eleventyNavigation:
   {%- set twitter = (twitter.push(tweet), twitter) -%}
 {%- endfor -%}
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
   🐥 Twitter:
 </h2>
-<p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Mijn laatste (re)tweets en likes. Ga je daar lekker op, dan is het handiger om me even te <a class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" href="https://twitter.com/intent/follow?screen_name=dydric" target="_blank" rel="noopener noreferrer">volgen <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+<p class="mb-5 text-sm md:text-base font-medium">Mijn laatste (re)tweets en likes. Ga je daar lekker op, dan is het handiger om me even te <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="https://twitter.com/intent/follow?screen_name=dydric" target="_blank" rel="noopener noreferrer">volgen <svg class="w-4 h-4 md:h-5 md:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
   <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
   <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
 </svg></a>.</p>
@@ -242,7 +231,7 @@ eleventyNavigation:
 <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-full mb-12 lg:mb-20">
 {% for tweet in twitter | sort(true, true, 'epoch') %}
   {% if loop.index < 7 %}
-<a href="{{ tweet.url }}" class="relative text-sm font-normal bg-sky-50 hover:bg-sky-100 p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300 border-2 border-sky-100 hover:border-sky-500 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
+<a href="{{ tweet.url }}" class="relative text-sm text-gray-600 font-normal bg-sky-50 hover:bg-sky-100 p-4 pb-2 rounded-md flex flex-row items-stretch flex-wrap transition-all duration-300 border-2 border-sky-100 hover:border-sky-500 hover:shadow-lg" target="_blank" rel="noopener noreferrer">
 
   {% if tweet.media[0].media_url_https %}
     <div class="absolute top-0 left-0 z-20 bg-cover bg-center bg-no-repeat w-12 h-12 m-4 rounded" style="background-image: url({{ tweet.media[0].media_url_https }})"></div>
@@ -271,10 +260,10 @@ eleventyNavigation:
 {% endfor %}
 </div>
 
-<h2 class="font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mt-8 mb-2 text-cool-gray-700 text-opacity-75">
   ✨ Inspiratie:
 </h2>
-<p class="mb-5 text-gray-600 text-sm md:text-base font-medium">Tot slot nog wat verzamelde afbeeldingen (reblogs) uit mijn <a class="inline-flex items-center justify-center text-gray-700 font-bold underline hover:no-underline" href="/scrapbook/page-1" >scrapbook</a> voor je dagelijkse portie inspiratie. Have fun! 😘</p>
+<p class="mb-5 text-sm md:text-base font-medium">Tot slot nog wat verzamelde afbeeldingen (reblogs) uit mijn <a class="inline-flex items-center justify-center font-bold underline hover:no-underline" href="/scrapbook/page-1" >scrapbook</a> voor je dagelijkse portie inspiratie. Have fun! 😘</p>
 {# <div class="grid gap-2 grid-cols-3 lg:grid-cols-6 max-w-lg lg:max-w-full"> #}
 <div class="flex">
 {% for item in tumblr %}

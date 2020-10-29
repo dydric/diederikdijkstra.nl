@@ -32,8 +32,8 @@
   postTags = "",
   customTag = ""
 ) %}
-  <div class="flex flex-col lg:block leading-none py-4 sm:pb-2 border-t-2 border-gray-300 border-opacity-25 w-full">
-    <time class="inline-block font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase w-full md:w-36 mb-2" datetime="{{ postDate | htmlDateString }}">
+  <div class="flex flex-col lg:block leading-none py-4 sm:pb-2 border-t-2 border-primary w-full">
+    <time class="inline-block font-medium text-sm text-meta lowercase w-full md:w-36 mb-2" datetime="{{ postDate | htmlDateString }}">
     {% set isPromo = false %}
     {%- for postTag in postTags -%}
       {%- if 'promo' in postTag -%}
@@ -46,7 +46,7 @@
       {{ postDate | readableDate }}
     {% endif %}
     </time>
-    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-xl lg:text-2xl text-cool-gray-800 hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2">{{ postTitle }}</a>
+    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-xl lg:text-2xl text-subheadline hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2">{{ postTitle }}</a>
     <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
   </div>
 {% endmacro %}
@@ -65,11 +65,11 @@
   hide_image = "",
   image_position = ""
 ) %}
-  <div class="block leading-none py-4 sm:pb-2 pt-6 border-t-2 border-gray-300 border-opacity-25 w-full ">
-    <h2 class="font-extrabold leading-none text-3xl lg:text-4xl mb-2 lg:mb-4"><a href="{{ postUrl }}" class="inline-block text-cool-gray-800 hover:underline hover:text-opacity-75">{{ postTitle }}</a></h2>
+  <div class="block leading-none py-4 sm:pb-2 pt-6 border-t-2 border-primary w-full ">
+    <h2 class="font-extrabold leading-none text-3xl lg:text-4xl mb-2 lg:mb-4"><a href="{{ postUrl }}" class="inline-block text-headline hover:underline">{{ postTitle }}</a></h2>
 
     <div class="flex justify-start items-end mb-2 lg:mb-3">
-      <time class="flex-initial font-medium text-sm text-cool-gray-900 text-opacity-75 lowercase mr-4" datetime="{{ postDate | htmlDateString }}">
+      <time class="flex-initial font-medium text-sm text-meta lowercase mr-4" datetime="{{ postDate | htmlDateString }}">
     {% set isPromo = false %}
     {%- for postTag in postTags -%}
       {%- if 'promo' in postTag -%}
@@ -105,7 +105,7 @@
         {% set excerptContent = excerpt | markdownify %}
         <div class="prose">{{ excerptContent | safe }}</div>
         <div class="my-6">
-          <a href="{{ postUrl }}" class="text-flamingo-600 underline font-semibold hover:no-underline hover:text-flamingo-800">Lees verder</a>
+          <a href="{{ postUrl }}" class="text-link-alt underline font-semibold hover:no-underline hover:text-link-alt-hover">Lees verder</a>
         </div>
       </div>
 

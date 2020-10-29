@@ -1,0 +1,112 @@
+.theme-default {
+  &[data-theme = "light"] {
+    --color-bg-primary: theme("colors.cool-gray.50");
+    --color-bg-secondary: theme("colors.white");
+
+    --color-border: theme("colors.cool-gray.100");
+    --color-border-accent: theme("colors.lavender.300");
+
+    --color-accent-primary: theme("colors.sky.600");
+    --color-accent-secondary: theme("colors.sky.100");
+
+    --color-site-title: theme("colors.lavender.600");
+    --color-body-text: theme("colors.gray.600");
+    --color-meta-text: theme("colors.gray.400");
+    --color-headline: theme("colors.gray.800");
+    --color-subheadline: theme("colors.gray.500");
+    --color-quote: theme("colors.gray.600");
+    --color-code: theme("colors.gray.400");
+    --color-link: theme("colors.lavender.600");
+    --color-link-hover: theme("colors.lavender.800");
+    --color-link-alt: theme("colors.flamingo.600");
+    --color-link-alt-hover: theme("colors.flamingo.800");
+
+    --color-menu-link: theme("colors.gray.600");
+    --color-menu-link-active: theme("colors.flamingo.800");
+
+    --color-button-bg: theme('colors.champagne.100');
+    --color-button-bg-hover: theme('colors.champagne.600');
+    --color-button: theme('colors.champagne.900');
+    --color-button-hover: theme('colors.champagne.50');
+  }
+
+  &[data-theme = "dark"] {
+    --color-bg-primary: theme("colors.cool-gray.900");
+    --color-bg-secondary: theme("colors.cool-gray.800");
+    --color-border: theme("colors.cool-gray.700");
+    --color-border-accent: theme("colors.champagne.600");
+    --color-accent-primary: theme("colors.champagne.400");
+    --color-accent-secondary: theme("colors.lavender.900");
+    --color-site-title: theme("colors.flamingo.600");
+    --color-body-text: theme("colors.gray.200");
+    --color-meta-text: theme("colors.gray.400");
+    --color-headline: theme("colors.gray.100");
+    --color-subheadline: theme("colors.gray.300");
+    --color-quote: theme("colors.champagne.400");
+    --color-code: theme("colors.gray.400");
+    --color-link: theme("colors.champagne.400");
+    --color-link-hover: theme("colors.champagne.600");
+    --color-link-alt: theme("colors.lavender.600");
+    --color-link-alt-hover: theme("colors.lavender.500");
+    --color-menu-link: theme("colors.lavender.200");
+    --color-menu-link-active: theme("colors.champagne.400");
+    --color-button-bg: theme('colors.champagne.400');
+    --color-button-bg-hover: theme('colors.champagne.600');
+    --color-button: theme('colors.champagne.900');
+    --color-button-hover: theme('colors.champagne.50');
+  }
+
+  &[data-theme = "system"] {
+    @media (prefers-color-scheme: light) {
+      --color-bg-primary: theme("colors.cool-gray.50");
+      --color-bg-secondary: theme("colors.white");
+      --color-border: theme("colors.cool-gray.100");
+      --color-border-accent: theme("colors.lavender.300");
+      --color-accent-primary: theme("colors.sky.600");
+      --color-accent-secondary: theme("colors.sky.100");
+      --color-site-title: theme("colors.lavender.600");
+      --color-body-text: theme("colors.gray.600");
+      --color-meta-text: theme("colors.gray.400");
+      --color-headline: theme("colors.gray.800");
+      --color-subheadline: theme("colors.gray.500");
+      --color-quote: theme("colors.gray.600");
+      --color-code: theme("colors.gray.400");
+      --color-link: theme("colors.lavender.600");
+      --color-link-hover: theme("colors.lavender.800");
+      --color-link-alt: theme("colors.flamingo.600");
+      --color-link-alt-hover: theme("colors.flamingo.800");
+      --color-menu-link: theme("colors.gray.600");
+      --color-menu-link-active: theme("colors.flamingo.800");
+      --color-button-bg: theme('colors.champagne.100');
+      --color-button-bg-hover: theme('colors.champagne.600');
+      --color-button: theme('colors.champagne.900');
+      --color-button-hover: theme('colors.champagne.50');
+    }
+
+    @media (prefers-color-scheme: dark) {
+      --color-bg-primary: theme("colors.cool-gray.900");
+      --color-bg-secondary: theme("colors.cool-gray.800");
+      --color-border: theme("colors.cool-gray.700");
+      --color-border-accent: theme("colors.champagne.600");
+      --color-accent-primary: theme("colors.champagne.400");
+      --color-accent-secondary: theme("colors.flamingo.200");
+      --color-site-title: theme("colors.flamingo.600");
+      --color-body-text: theme("colors.gray.200");
+      --color-meta-text: theme("colors.gray.400");
+      --color-headline: theme("colors.gray.100");
+      --color-subheadline: theme("colors.gray.300");
+      --color-quote: theme("colors.champagne.400");
+      --color-code: theme("colors.gray.400");
+      --color-link: theme("colors.champagne.400");
+      --color-link-hover: theme("colors.champagne.600");
+      --color-link-alt: theme("colors.lavender.600");
+      --color-link-alt-hover: theme("colors.lavender.500");
+      --color-menu-link: theme("colors.lavender.200");
+      --color-menu-link-active: theme("colors.champagne.400");
+      --color-button-bg: theme('colors.champagne.400');
+      --color-button-bg-hover: theme('colors.champagne.600');
+      --color-button: theme('colors.champagne.900');
+      --color-button-hover: theme('colors.champagne.50');
+    }
+  }
+}

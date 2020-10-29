@@ -4,11 +4,12 @@ module.exports = {
   theme: {
     extend: {
 
-      boxShadow: {
-        softui: '20px 20px 60px rgba(0, 0, 0, .1), -20px -20px 60px rgba(255, 255, 255, .5)'
-      },
+      // boxShadow: {
+      //   softui: '20px 20px 60px rgba(0, 0, 0, .1), -20px -20px 60px rgba(255, 255, 255, .5)'
+      // },
 
       colors: {
+
         champagne: {
           '50': '#fff7eb',
           '100': '#feeacd',
@@ -59,7 +60,40 @@ module.exports = {
           '800': '#07a0e3',
           '900': '#068bc6',
         },
+
+        'accent-primary': 'var(--color-accent-primary)',
+        'accent-secondary': 'var(--color-accent-secondary)'
       },
+
+      backgroundColor: theme => ({
+        'primary': 'var(--color-bg-primary)',
+        'secondary': 'var(--color-bg-secondary)',
+        'button': 'var(--color-button-bg)',
+        'button-hover': 'var(--color-button-bg-hover)'
+      }),
+
+      borderColor: theme => ({
+        'primary': 'var(--color-border)',
+        'accent': 'var(--color-border-accent)',
+      }),
+
+      textColor: theme => ({
+        'body': 'var(--color-body-text)',
+        'meta': 'var(--color-meta-text)',
+        'headline': 'var(--color-headline)',
+        'subheadline': 'var(--color-subheadline)',
+        'quote': 'var(--color-quote)',
+        'code': 'var(--color-code)',
+        'site-title': 'var(--color-site-title)',
+        'menu-link': 'var(--color-menu-link)',
+        'menu-link-active': 'var(--color-menu-link-active)',
+        'link': 'var(--color-link)',
+        'link-hover': 'var(--color-link-hover)',
+        'link-alt': 'var(--color-link-alt)',
+        'link-alt-hover': 'var(--color-link-alt-hover)',
+        'button': 'var(--color-button)',
+        'button-hover': 'var(--color-button-hover)'
+      }),
 
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -70,14 +104,24 @@ module.exports = {
         '100': '100%',
       },
 
+      opacity: {
+        '90': '90%',
+      },
+
       typography: (theme) => ({
         default: {
           css: {
-            color: theme('colors.gray.800'),
+            color: 'var(--color-body-text)',
+            strong: 'var(--color-body-text)',
+            h2: { color: 'var(--color-subheadline)'},
+            h3: { color: 'var(--color-subheadline)'},
+            h4: { color: 'var(--color-subheadline)'},
+            blockquote: { color: 'var(--color-quote)'},
+            code: { color: 'var(--color-code)'},
             a: {
-              color: theme('colors.lavender.600'),
+              color: 'var(--color-link)',
               '&:hover': {
-                color: theme('colors.lavender.800'),
+                color: 'var(--color-link-hover)',
               },
             },
           },

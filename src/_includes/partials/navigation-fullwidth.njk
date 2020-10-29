@@ -5,17 +5,19 @@
 <nav
   :aria-expanded="showNav"
   :hidden="!showNav"
-  class="sm:mr-6 md:mr-8 sm:block"
+  class="sm:mr-6 md:mr-8 {%- if layout != "layouts/fullwidth" -%}sm:block{% endif %}"
 >
 
+  {%- if layout != "layouts/fullwidth" -%}
   <a href="/"><img
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
     data-src="/static/images/home/avatar_small.jpg" alt="{{ site.author.name }}"
     class="
       lazyload hidden sm:block rounded-lg mb-4 md:mb-8 w-20 md:w-40 max-w-full shadow-lg
   "></a>
+  {%- endif -%}
 
-  <ul class="bg-secondary nav w-40 sm:w-auto md:w-40 rounded-lg border-2 border-primary overflow-hidden mr-1 sm:mr-0 shadow-xl">
+  <ul class="nav w-40 sm:w-auto md:w-40 rounded-lg shadow-lg {%- if layout != "layouts/fullwidth" -%}sm:shadow-softui{%- endif -%} border border-cool-gray-200 bg-white sm:border-none overflow-hidden mr-1 sm:mr-0">
 
   {%- for entry in navPages %}
     {% set parentKey = "" %}
@@ -25,18 +27,18 @@
       {% endif %}
     {% endfor %}
 
-    <li class="nav-item block{% if not loop.first %} border-t-2 border-primary{% endif %}">
+    <li class="nav-item block{% if not loop.first %} border-t border-gray-100{% endif %}">
 
       <a href="{{ entry.url | url }}"
-        class=" block p-2 md:px-3 hover:opacity-75
+        class=" block p-2 md:px-3 font-bold
 
             {% if (entry.url == page.url) or
                   (entry.title == parentKey) or
                   (entry.title | lower in entryUrl)
             %}
-              text-menu-link-active  nav-active font-bold
+              text-flamingo-800 hover:text-flamingo-700 nav-active
             {% else %}
-              text-menu-link font-medium
+              text-lavender-800 hover:text-lavender-700
             {% endif %}
         "
       >
@@ -53,13 +55,13 @@
           {% endif %}
             <li class="block">
               <a href="{{ entry.url | url }}"
-                class="block px-3 text-sm font-medium rounded-lg mt-1 hover:opacity-90
+                class="block px-3 text-sm font-medium rounded-lg mt-1
                       {% if
                         (entry.url == page.url)
                       %}
-                        text-menu-link-active
+                        text-flamingo-600 hover:text-flamingo-700
                       {% else %}
-                        text-menu-link
+                        text-lavender-600 hover:text-lavender-700
                       {% endif %}
                       "
               >
