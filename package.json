@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "ELEVENTY_PRODUCTION=true eleventy --quiet && eleventy --serve & postcss src/stylesheets/app.pcss --o _temp/app.css --watch",
+    "start": "ELEVENTY_PRODUCTION=true eleventy --quiet && eleventy --serve --quiet & postcss src/stylesheets/app.pcss --o _temp/app.css --watch ",
     "dev": "ELEVENTY_PRODUCTION=true eleventy --quiet",
     "build": "ELEVENTY_PRODUCTION=true eleventy --quiet && ELEVENTY_PRODUCTION=true postcss src/stylesheets/app.pcss --o _site/app.css && ELEVENTY_PRODUCTION=false eleventy --quiet"
   },
