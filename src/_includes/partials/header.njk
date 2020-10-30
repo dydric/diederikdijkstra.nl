@@ -24,7 +24,7 @@
       </h1>
     </div>
 
-    <div class="flex-initial relative">
+    <div class="flex-initial relative ml-2">
       <button
         @click="showPref = !showPref"
         @click.away="showPref = false"
@@ -38,11 +38,6 @@
         class="text-accent-primary inline-flex items-center p-1 bg-transparent rounded-lg border-2 border-transparent hover:border-accent focus:border-accent focus:outline-none">
 
         <svg class="h-8 w-8"
-          {# :class="{
-            'hidden': preference == 'dark',
-            'hidden ': preference == 'light',
-            'block': preference != 'light' && preference != 'dark'
-          }" #}
          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
@@ -61,7 +56,7 @@
       <div
           :aria-expanded="showPref"
           :hidden="!showPref"
-          class="absolute top-100 left-50 w-32 bg-secondary rounded-lg overflow-hidden mt-2 shadow-2xl transform -translate-x-1/2 border-2 border-primary"
+          class="absolute top-100 left-50 w-40 bg-secondary rounded-lg overflow-hidden mt-2 shadow-2xl transform -translate-x-1/2 border-2 border-primary"
           :class="{
               'mt-6' : !atTop,
               'mt-2' : atTop
@@ -71,8 +66,8 @@
         </div>
     </div>
 
-    <div class="flex-initial text-right mx-2 sm:mr-0">
-      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-md text-white bg-lavender-700 hover:bg-lavender-800 focus:outline-none focus:border-lavender-800 focus:shadow-outline-lavender active:bg-lavender-800 transition ease-in-out duration-150 shadow-lg border-2 border-lavender-800">
+    <div class="flex-initial text-right ml-2 {# sm:mr-0 #}">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-md text-white bg-lavender-700 hover:bg-lavender-800 focus:outline-none focus:shadow-outline-lavender transition ease-in-out duration-150 shadow-lg border-2 border-lavender-800">
           <svg class="h-6 w-6 sm:-ml-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -81,16 +76,16 @@
       </a>
 
     </div>
-    <div class="flex-initial text-right">
+    <div class="flex-initial text-right relative ml-2 md:hidden">
 
       <button
         @click="showNav = !showNav"
         @click.away="showNav = false"
-        class="sm:hidden inline-flex items-center p-1 bg-primary rounded-lg border-2 text-menu-link-active border-transparent hover:border-accent focus:border-accent focus:outline-none"
+        class="{# sm:hidden #} inline-flex items-center p-1 bg-primary rounded-lg border-2 text-menu-link border-primary hover:border-accent focus:border-accent focus:outline-none"
 
         :class="{
-          'border-accent' : showNav,
-          'border-primary' : !atTop,
+          'border-accent text-menu-link-active' : showNav,
+          '' : !atTop,
           'shadow-lg ' : atTop
         }"
         x-bind:aria-label="showNav ? 'Menu sluiten' : 'Menu openen'"
@@ -114,6 +109,19 @@
         </svg>
 
       </button>
+      <nav
+        :aria-expanded="showNav"
+        :hidden="!showNav"
+        class="absolute top-100 right-0 w-40 bg-secondary rounded-lg overflow-hidden mt-2 shadow-2xl border-2 border-primary"
+          :class="{
+              'mt-6' : !atTop,
+              'mt-2' : atTop
+            }"
+      >
+        {% include "partials/menu.njk" %}
+      </nav>
+
+
 
     </div>
   </div>

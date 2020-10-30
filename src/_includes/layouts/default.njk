@@ -6,9 +6,13 @@
 </script>
 {# {%- set entryUrl = page.url.split("/")[1] -%}
 <html lang="{% if "blog" in entryUrl %}nl{% else %}en{% endif %}"> #}
-<html{% if site.lang %} lang="{{ site.lang }}"{% endif %} {% if theme %} class="{{ theme }}"{% endif %}data-theme="system">
-  {% include "partials/head.njk" %}
-  <body class="bg-primary text-body">
+<html
+  {% if site.lang %} lang="{{ site.lang }}"{% endif %}
+  {% if theme %} class="{{ theme }}"{% endif %}
+  data-theme="system"
+>
+{% include "partials/head.njk" %}
+<body class="bg-primary text-body">
   <div
     x-data="{ showNav: false, showPref: false, atTop: true, isPreload: true, preference: localStorage.getItem('theme')}"
     @scroll.window="isPreload = (window.pageYOffset > 1) ? false : false"
@@ -24,11 +28,11 @@
 
     <div class=" max-w-screen-xl px-4 md:px-6 mx-auto flex flex-wrap sm:flex-no-wrap pt-16 sm:pt-20">
       <div class="flex-initial relative self-auto w-full sm:w-36 md:w-48 lg:w-1/5 flex-shrink-0">
-        <div class="fixed z-50 sm:sticky sm:z-auto top-0 right-0 mr-3 sm:mr-0 sm:mt-4 sm:py-24"
+        <div class="hidden sm:block sm:sticky sm:z-auto mr-3 sm:mr-0 mt-8 sm:pt-24"
 
           :class="{
-            'mt-20' : !atTop,
-            'mt-16' : atTop
+            'sm:mt-3' : !atTop,
+            'sm:mt-4' : atTop
           }"
         >
         {% include "partials/navigation.njk" %}
@@ -51,7 +55,7 @@
 
   {% include "partials/footer.njk" %}
 
-  </body>
-  <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
-  <script>twemoji.parse(document.body);</script>
+</body>
+<script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+<script>twemoji.parse(document.body);</script>
 </html>
