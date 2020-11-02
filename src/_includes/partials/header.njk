@@ -10,6 +10,7 @@
    @scroll.window="atTop = (window.pageYOffset > 40) ? false : true"
 
   >
+
   <div class="max-w-screen-xl px-4 md:px-6 mx-auto flex items-center ease-in-out transform"
 
     :class="{
@@ -67,7 +68,12 @@
     </div>
 
     <div class="flex-initial text-right ml-2 {# sm:mr-0 #}">
-      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-md text-white bg-lavender-700 hover:bg-lavender-800 focus:outline-none focus:shadow-outline-lavender transition ease-in-out duration-150 shadow-lg border-2 border-lavender-800">
+      <a href="mailto:diederikdijkstra@icloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center p-2 sm:px-4 sm:py-2 text-base leading-4 font-medium rounded-lg
+
+      text-white bg-gradient-to-br from-lavender-800 to-flamingo-600
+      border-2 border-primary hover:border-accent
+
+      focus:outline-none focus:shadow-outline-lavender transition ease-in-out duration-150 shadow-lg ">
           <svg class="h-6 w-6 sm:-ml-1 sm:mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -76,7 +82,8 @@
       </a>
 
     </div>
-    <div class="flex-initial text-right relative ml-2 md:hidden">
+
+    <div class="flex-initial text-right relative ml-2 {% if not hideSidebar %}md:hidden{% endif %}">
 
       <button
         @click="showNav = !showNav"

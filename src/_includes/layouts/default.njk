@@ -27,6 +27,8 @@
     {% include "partials/header.njk" %}
 
     <div class=" max-w-screen-xl px-4 md:px-6 mx-auto flex flex-wrap sm:flex-no-wrap pt-16 sm:pt-20">
+
+      {% if not hideSidebar %}
       <div class="flex-initial relative self-auto w-full sm:w-36 md:w-48 lg:w-1/5 flex-shrink-0">
         <div class="hidden sm:block sm:sticky top-0 sm:z-auto mr-3 sm:mr-0 mt-8 sm:pt-24"
 
@@ -38,6 +40,7 @@
         {% include "partials/navigation.njk" %}
         </div>
       </div>
+      {% endif %}
       {% block content %}
         <div class="flex-auto flex-grow-0 py-6 sm:py-24 w-full min-w-0 mt-3">
           {% if renderData.title or title %}
@@ -52,8 +55,9 @@
       {% endblock %}
     </div>
   </div>
-
+  {% if not hideFooter %}
   {% include "partials/footer.njk" %}
+  {% endif %}
 
 </body>
 <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
