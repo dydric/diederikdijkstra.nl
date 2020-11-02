@@ -20,7 +20,7 @@
     "postcss-import": "^12",
     "postcss-nested": "4",
     "postcss-preset-env": "^6",
-    "tailwindcss": "^1"
+    "tailwindcss": "^1.9.6"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^0.3.0",
