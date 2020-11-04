@@ -134,6 +134,7 @@ module.exports = {
   },
   variants: {
     textDecoration: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+    borderColor: ['responsive', 'hover', 'focus', 'focus-within']
   },
   plugins: [
     require('@tailwindcss/typography'),

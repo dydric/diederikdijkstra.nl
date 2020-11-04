@@ -35,7 +35,7 @@
 
   {%- set entryDate = postDate | readableDate -%}
 
-  <div class="group relative mb-2 rounded-lg overflow-hidden border-2 border-primary hover:border-accent bg-secondary transition-all duration-300">
+  <div class="group relative mb-2 rounded-lg overflow-hidden border-2 border-primary hover:border-accent focus-within:border-accent bg-secondary transition-all duration-300">
     <a href="{{ postUrl }}" class="absolute z-0 block w-full h-full"></a>
     <div class="relative z-10 p-2 pointer-events-none">
       <div class="w-full text-meta font-bold text-xs text-gray-500 uppercase">
