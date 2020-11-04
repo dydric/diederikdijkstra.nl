@@ -132,7 +132,9 @@ module.exports = {
       }),
     },
   },
-  variants: {},
+  variants: {
+    textDecoration: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
