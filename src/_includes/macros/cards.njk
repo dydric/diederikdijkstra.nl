@@ -32,22 +32,24 @@
   postTags = "",
   customTag = ""
 ) %}
-  <div class="flex flex-col lg:block leading-none py-4 sm:pb-2 border-t-2 border-primary w-full">
-    <time class="inline-block font-medium text-sm text-meta lowercase w-full md:w-36 mb-2" datetime="{{ postDate | htmlDateString }}">
-    {% set isPromo = false %}
-    {%- for postTag in postTags -%}
-      {%- if 'promo' in postTag -%}
-        {% set isPromo = true %}
-      {%- endif -%}
-    {%- endfor -%}
-    {% if isPromo %}
-      {% if customTag %}<span class="font-bold text-sm uppercase inline-block rounded-full bg-pink-500 text-pink-50 px-2 py-1 mr-4 text-center lg:transform lg:-translate-y-1">{{ customTag }}</span>{% endif %}
-    {% else %}
-      {{ postDate | readableDate }}
-    {% endif %}
-    </time>
-    <a href="{{ postUrl }}" class="inline-block font-bold text-lg sm:text-xl lg:text-2xl text-subheadline hover:underline hover:text-opacity-75 mr-1 md:mr-3 mb-2">{{ postTitle }}</a>
-    <div class="lg:inline-block">{{ tags( tags = postTags ) }}</div>
+
+  {%- set entryDate = postDate | readableDate -%}
+
+  <div class="group relative mb-2 rounded-lg overflow-hidden border-2 border-primary hover:border-accent bg-secondary transition-all duration-300">
+    <a href="{{ postUrl }}" class="absolute z-0 block w-full h-full"></a>
+    <div class="relative z-10 p-2 pointer-events-none">
+      <div class="w-full text-meta font-bold text-xs text-gray-500 uppercase">
+        {{ entryDate.split(" ")[0] }} {{ entryDate.split(" ")[1] }}
+      </div>
+      <div>
+        <h3 class="md:inline font-bold text-lg sm:text-xl lg:text-2xl text-headline group-hover:underline mr-2">{{ postTitle }}</h3>
+        {{ tags(
+            tags = postTags,
+            classes = "font-bold text-xs uppercase inline-block text-meta hover:text-link mr-2 pointer-events-auto"
+          )
+        }}
+      </div>
+    </div>
   </div>
 {% endmacro %}
 

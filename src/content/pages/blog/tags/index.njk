@@ -3,11 +3,13 @@ layout: layouts/default.njk
 theme: theme-default
 permalink: /blog/tags/
 title: Tags
-eleventyNavigation:
+
+---
+{# eleventyNavigation:
   parent: Blog
   key: Tags
-  order: 2
----
+  order: 2 #}
+
 {%- import "macros/cards.njk" as card -%}
 
 {% set tagList = [] %}

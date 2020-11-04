@@ -4,14 +4,16 @@ theme: theme-default
 title: Blog
 description: Af en toe schrijft Diederik hier wat 🖋.
 permalink: /blog/page-{{ pagination.pageNumber + 1 }}/
-eleventyNavigation:
-  key: Blog
-  order: 2
+
 pagination:
   data: collections.post
   size: 5
   reverse: true
 ---
+
+{# eleventyNavigation:
+key: Blog
+order: 2 #}
 
 {% set totalpages = pagination.links | length %}
 

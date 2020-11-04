@@ -8,13 +8,60 @@ pagination:
   alias: tag
   addAllPagesToCollections: true
 renderData:
-  title: "#{{ tag | capitalize }}"
+  title: "Blog: {{ tag | lower }}"
 ---
 
-<div class="border-b-2 border-gray-300 border-opacity-25 mb-8">
+{% set tagList = [] %}
+{%- set categories -%}
+  {%- for post in collections.post -%}
+    {%- for tag in post.data.tags -%}
+      {%- if tag not in tagList -%}
+        {% if
+          ('all' not in tag) and
+          ('nav' not in tag) and
+          ('post' not in tag) and
+          ('posts' not in tag) and
+          ('promo' not in tag)
+        %}
+          {%- set tagList = (tagList.push(tag), tagList | sort ) -%}
+        {% endif %}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endset -%}
+{# {{ tagList | dump }} #}
+
+{% set currentTag = tag %}
+
+<ul class="flex flex-wrap mb-4">
+{% for tag in tagList %}
+    <li class="mr-2">
+  {% if currentTag == tag %}
+    <span class="font-bold text-xs uppercase block text-lavender-50  bg-lavender-800 rounded px-2 py-1 mb-2">#{{ tag }}</span>
+  {% else %}
+    <a href="/blog/tags/{{ tag }}" class="font-bold text-xs uppercase block text-lavender-700 hover:text-lavender-50 transition-colors duration-150 bg-flamingo-50 hover:bg-lavender-800 rounded px-2 py-1 mb-2">#{{ tag }}</a>
+  {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+<div class="mb-8">
 
 {%- import "macros/cards.njk" as card -%}
 {% for post in collections[ tag ] | reverse %}
+
+    {%- set year = post.date | readableDate -%}
+    {%- set year = year.split(" ")[2] -%}
+
+    {% if loop.first %}
+      <h2 class="text-headline font-bold text-base sm:text-lg lg:text-xl mb-2">{{ year }}</h2>
+      {% set prevYear = year %}
+    {% else %}
+      {% if year != prevYear %}
+        <h2 class="text-headline font-bold text-base sm:text-lg lg:text-xl mb-2 pt-2">{{ year }}</h2>
+        {% set prevYear = year %}
+      {% endif %}
+    {% endif %}
   {{ card.list(
     postTitle = post.data.title,
     postUrl = post.url,
