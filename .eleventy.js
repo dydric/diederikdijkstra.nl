@@ -7,6 +7,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const embeds = require("eleventy-plugin-embed-everything");
 const Image = require("@11ty/eleventy-img");
+const pluginRespimg = require( "eleventy-plugin-respimg" );
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
@@ -137,10 +138,19 @@ module.exports = function (eleventyConfig) {
   });
 
   // Plugins
+  eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
+	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280 ];
+  eleventyConfig.fallbackWidth = 640;
+
+  eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt) {
+    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}">`;
+  });
+
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(embeds);
+  eleventyConfig.addPlugin(pluginRespimg);
 
   // Markdown
   const md = require('markdown-it')({

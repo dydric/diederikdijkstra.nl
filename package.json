@@ -25,7 +25,9 @@
   "dependencies": {
     "@11ty/eleventy-img": "^0.3.0",
     "@tailwindcss/typography": "^0.2.0",
+    "eleventy-plugin-cloudinary": "0.0.1",
     "eleventy-plugin-embed-everything": "^1.8.0",
+    "eleventy-plugin-respimg": "^0.1.2",
     "lazysizes": "^5",
     "markdown-it-image-lazysizes": "^1",
     "spotify-web-api-node": "^4",

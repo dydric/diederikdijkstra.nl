@@ -100,7 +100,13 @@ eleventyNavigation:
       alt=""
       class="lazyload w-full"
     > #}
-    {% Image "./_site/static/images/tres2.jpg", "Ik bij TRES #1" %}
+    {# {% Image "./_site/static/images/tres2.jpg", "Ik bij TRES #1" %} #}
+
+    {% respimg
+      "https://diederikdijkstra.nl/static/images/tres2.jpg",
+      "test",
+      "(min-width: 48em) 48em, 100vw"
+    %}
   </div>
   <div class="flex-initial sm:w-2/3">
       {# <img
@@ -109,7 +115,13 @@ eleventyNavigation:
       alt=""
       class="lazyload w-full"
     > #}
-    {% Image "./_site/static/images/tres.jpg", "Ik bij TRES #2" %}
+    {# {% Image "./_site/static/images/tres.jpg", "Ik bij TRES #2" %} #}
+
+    {% respimg
+      "https://diederikdijkstra.nl/static/images/tres.jpg",
+      "test",
+      "(min-width: 48em) 48em, 100vw"
+    %}
   </div>
 </div>
 
@@ -128,12 +140,18 @@ eleventyNavigation:
   {% if loop.index < 7 %}
   <div>
     <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-    <img
+    {# <img
       class="w-full lazyload"
       src="{{ spotify.track.album.images[2].url }}"
       data-src="{{ spotify.track.album.images[1].url }}"
       alt="'{{ spotify.track.name }}' - {{ spotify.track.artists[0].name }}"
-    >
+    > #}
+
+      {% cloudinaryImage
+        spotify.track.album.images[1].url,
+        "f_auto",
+        spotify.track.name + " - " + spotify.track.artists[0].name
+      %}
     </a>
   </div>
   {% endif %}
