@@ -142,8 +142,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280 ];
   eleventyConfig.fallbackWidth = 640;
 
-  eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt) {
-    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}">`;
+  eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes) {
+    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}">`;
   });
 
   eleventyConfig.addPlugin(syntaxHighlight);

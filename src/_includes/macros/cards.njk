@@ -28,6 +28,8 @@
 {% macro list(
   postTitle = "",
   postUrl = "",
+  featured_image = "",
+  image_caption = "",
   postDate = "",
   postTags = "",
   customTag = ""
@@ -37,12 +39,24 @@
 
   <div class="group relative mb-2 rounded-lg overflow-hidden border-2 border-primary hover:border-accent focus-within:border-accent bg-secondary transition-all duration-300">
     <a href="{{ postUrl }}" class="absolute z-0 block w-full h-full"></a>
-    <div class="relative z-10 p-2 pointer-events-none">
+
+    {% if featured_image %}
+    <div class="absolute left-0 top-0 bottom-0 p-1 w-20">
+    {% cloudinaryImage
+      "https://diederikdijkstra.nl" + featured_image,
+      "c_thumb,h_160,w_160",
+      "thumbnail van" + postTitle,
+      "max-h-full rounded-md"
+    %}
+    </div>
+    {% endif %}
+
+    <div class="relative z-10 p-2 pointer-events-none{% if featured_image %} pl-24 lg:pl-20{% endif %}">
       <div class="w-full text-meta font-bold text-xs text-gray-500 uppercase">
         {{ entryDate.split(" ")[0] }} {{ entryDate.split(" ")[1] }}
       </div>
       <div>
-        <h3 class="md:inline font-bold text-lg sm:text-xl lg:text-2xl text-headline group-hover:underline mr-2">{{ postTitle }}</h3>
+        <h3 class="lg:inline font-bold text-lg sm:text-xl lg:text-2xl text-headline group-hover:underline mr-2">{{ postTitle }}</h3>
         {{ tags(
             tags = postTags,
             classes = "font-bold text-xs uppercase inline-block text-meta hover:text-link mr-2 pointer-events-auto"
