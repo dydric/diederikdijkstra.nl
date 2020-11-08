@@ -176,19 +176,18 @@ eleventyNavigation:
 <div class="grid gap-2 lg:grid-cols-2 md:max-w-xl lg:max-w-full mb-6">
 {% for post in collections.post | reverse %}
   {% if loop.index < (postCount + 1) %}
-    <div class="bg-secondary border-2 border-primary hover:border-accent shadow-none hover:shadow-lg rounded-lg p-4 flex flex-row items-center flex-wrap transition-all duration-300 relative">
-      <a href="{{ post.url }}" class="newscardtitle w-full py-2 font-bold leading-none text-xl text-headline hover:underline">{{ post.data.title }}</a>
-      <div class="w-full flex-initial self-end relative z-20 pointer-events-none">
-        <div class="w-full font-bold text-xs text-gray-500 uppercase py-2">{{ post.date | readableDate }}</div>
-        <div class="">
-          {{ card.tags(
-              tags = post.data.tags,
-              classes = "font-bold text-xs uppercase inline-block mr-1 text-lavender-700 hover:text-lavender-50 transition-colors duration-150 bg-flamingo-50 hover:bg-lavender-800 rounded px-2 py-1 pointer-events-auto"
-            )
-          }}
-        </div>
-      </div>
-    </div>
+
+  {{ card.list(
+      postTitle = post.data.title,
+      postUrl = post.url,
+      featured_image = post.data.featured_image,
+      image_caption = post.data.image_caption,
+      postDate = post.date,
+      postTags = post.data.tags,
+      customTag = post.data.customTag,
+      excerpt = post.data.excerpt,
+      postContent = post.templateContent
+    ) }}
   {% endif %}
 {%- endfor -%}
 </div>
