@@ -35,12 +35,12 @@ pagination:
 
   {%- if loop.first -%}
     {%- set prevDate = date -%}
-    <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}: </strong>
+    <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:&nbsp;</strong>
     {{ note | safe }}
   {%- else -%}
     {%- if date != prevDate -%}
       {%- set prevDate = date -%}
-      <span class="text-accent-secondary px-2">&bull;</span> <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}: </strong>
+      <span class="text-accent-secondary px-2">&bull;</span><strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:&nbsp;</strong>
       {{ note | safe }}
     {%- else -%}
       <span class="text-accent-secondary px-2">&bull;</span> {{ note | safe }}
