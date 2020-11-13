@@ -14,38 +14,38 @@ pagination:
 ---
 
 <div class="notes mb-8 leading-relaxed text-base md:text-lg xl:text-xl">
-{% for item in pagination.items %}
+{%- for item in pagination.items -%}
 
-  {% set date = item.epoch | epochDate %}
+  {%- set date = item.epoch | epochDate -%}
 
-  {% set note %}
-    {% if item.type == "link" %}
-      <a href="{{ item.link_url }}" target="_blank" rel="noopener noreferrer">{{ item.link_title }}</a>{# {% if item.link_excerpt %}{{ item.link_excerpt }}{% endif %} #}{%- if item.body -%}: {{ item.body | safe }}{%- endif -%}
-    {% else %}
+  {%- set note -%}
+    {%- if item.type == "link" -%}
+      <a href="{{ item.link_url }}" target="_blank" rel="noopener noreferrer">{{ item.link_title }}</a>{# {%- if item.link_excerpt -%}{{ item.link_excerpt }}{%- endif -%} #}{%- if item.body -%}: {{ item.body | safe }}{%- endif -%}
+    {%- else -%}
       {{ item.body | safe }}
-    {% endif %}
+    {%- endif -%}
 
-    {% if item.tags %}
-      {% for tag in item.tags %}
+    {%- if item.tags -%}
+      {%- for tag in item.tags -%}
         <span class="opacity-75">#{{ tag }}</span>
-      {% endfor %}
-    {% endif %}
+      {%- endfor -%}
+    {%- endif -%}
 
-  {% endset %}
+  {%- endset -%}
 
-  {% if loop.first %}
-    {% set prevDate = date %}
-    <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:</strong>
+  {%- if loop.first -%}
+    {%- set prevDate = date -%}
+    <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}: </strong>
     {{ note | safe }}
-  {% else %}
-    {% if date != prevDate %}
-      {% set prevDate = date %}
-      <span class="text-accent-secondary px-2">&bull;</span> <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:</strong>
+  {%- else -%}
+    {%- if date != prevDate -%}
+      {%- set prevDate = date -%}
+      <span class="text-accent-secondary px-2">&bull;</span> <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}: </strong>
       {{ note | safe }}
-    {% else %}
+    {%- else -%}
       <span class="text-accent-secondary px-2">&bull;</span> {{ note | safe }}
-    {% endif %}
-  {% endif %}
+    {%- endif -%}
+  {%- endif -%}
 
-{% endfor %}
+{%- endfor -%}
 </div>
