@@ -50,13 +50,13 @@ eleventyNavigation:
     {% if loop.first %}
       <h2 class="text-headline font-bold text-base sm:text-lg lg:text-xl mb-2">{{ year }}</h2>
       {% set prevYear = year %}
-      <div class="grid gap-2 lg:grid-cols-2 mb-2">
+      <div class="grid gap-2 sm:grid-cols-2 mb-2">
     {% else %}
       {% if year != prevYear %}
         </div>
         <h2 class="text-headline font-bold text-base sm:text-lg lg:text-xl mb-2 pt-2">{{ year }}</h2>
         {% set prevYear = year %}
-        <div class="grid gap-2 lg:grid-cols-2 mb-2">
+        <div class="grid gap-2 sm:grid-cols-2 mb-2">
       {% endif %}
     {% endif %}
 
