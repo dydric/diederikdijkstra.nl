@@ -11,7 +11,10 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
       spotify: {
         dest: '/../',
         playlists: [
-          ['0phr7QOeXCConRswu3ZEtv', 'spotify_now.json']
+          ['0phr7QOeXCConRswu3ZEtv', 'musiclog/2020_shortlist.json'],
+          ['7D9pAnq8UVKaHayto9TDaL', 'musiclog/2020_albums.json'],
+          ['6qvsOeXvvBmpCiMzLIAEdS', 'musiclog/2019_albums.json'],
+          ['0U2gEvXyHaY67UPObHltWl', 'musiclog/2019_shortlist.json']
         ]
       }
     };
@@ -23,7 +26,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
 
     spotify.clientCredentialsGrant()
     .then(function(data) {
-      spotify.setAccessToken(data.body['access_token']);
+      spotify.setAccessToken(data.body.access_token);
 
       paths.spotify.playlists.forEach(function(playlist) {
         spotify.getPlaylistTracks(playlist[0])
@@ -43,5 +46,5 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
           });
       });
     });
-  }
+  };
 }

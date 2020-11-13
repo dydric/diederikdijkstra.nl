@@ -1,0 +1,93 @@
+{% macro covers(
+  data = musiclog.2020_albums
+) %}
+<div class="grid gap-4 grid-cols-4 lg:grid-cols-5 mb-12 lg:mb-20">
+
+{% set number = 1 %}
+
+{%- for i in range(0, data.items.length) -%}
+  {%- set spotify = data.items[i] -%}
+
+    {% set album %}
+    <a href="{{ spotify.track.album.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="relative block w-full transform hover:-translate-y-1 transition-all duration-300">
+
+      <div class="absolute block bottom-0 left-0 m-1 rounded-fill bg-black bg-opacity-50 text-white font-bold leading-none text-base w-8 h-8 rounded-full text-center">
+        <span class="absolute left-50 top-50 transform -translate-x-1/2 -translate-y-1/2 leading-none">{{ number }}</span>
+      </div>
+      {% cloudinaryImage
+        spotify.track.album.images[1].url,
+        "f_auto",
+        spotify.track.name + " - " + spotify.track.artists[0].name,
+        "w-full rounded-xl shadow-xl"
+      %}
+
+    </a>
+
+  {% endset %}
+
+
+  {% if loop.first %}
+    {% set prevAlbum = spotify.track.album.name %}
+    {% set number = number + 1 %}
+    {{ album | safe }}
+  {% else %}
+
+    {% if spotify.track.album.name != prevAlbum %}
+      {% set prevAlbum = spotify.track.album.name %}
+      {% set number = number + 1 %}
+      {{ album | safe }}
+    {% endif %}
+  {% endif %}
+
+  {# {% endif %} #}
+
+{%- endfor -%}
+</div>
+{% endmacro %}
+
+
+{% macro list(
+  data = musiclog.2020_shortlist
+) %}
+
+<div class="grid gap-2 max-w-full">
+
+{%- for i in range(0, data.items.length) | reverse -%}
+  {%- set spotify = data.items[i] -%}
+  {# {% if loop.index < 7 %} #}
+
+  <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="flex items-center w-full bg-secondary rounded-xl p-3 sm:px-6 border-2 border-primary hover:border-accent hover:shadow-xl">
+
+    <div
+      class="rounded-lg overflow-hidden block shadow-md w-12 sm:w-20 flex-initial flex-shrink-0">
+      {% cloudinaryImage
+        spotify.track.album.images[1].url,
+        "f_auto",
+        spotify.track.name + " - " + spotify.track.artists[0].name
+      %}
+    </div>
+
+    <div class="flex-auto pl-3 sm:pl-6 w-0">
+      <div class="truncate text-meta font-bold leading-tight text-xs uppercase mb-1 opacity-90">{{ spotify.track.album.name }} </div>
+      <div class="truncate text-accent-primary font-bold leading-tight text-xl mb-1">
+        {{ spotify.track.name }}
+      </div>
+      <div class="truncate text-subheadline font-bold leading-tight text-lg">
+      {%- for artist in spotify.track.artists -%}
+        {%- if not loop.first -%}, {% endif -%}
+        {{ artist.name }}
+      {%- endfor -%}
+      </div>
+    </div>
+
+  {# {{ spotify | dump }} #}
+
+
+
+  </a>
+  {# {% endif %} #}
+
+{%- endfor -%}
+</div>
+
+{% endmacro %}

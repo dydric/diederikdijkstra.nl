@@ -1,0 +1,40 @@
+---
+layout: layouts/default.njk
+theme: theme-default
+title: Musiclog 2020
+permalink: /musiclog/2020.html
+eleventyNavigation:
+  key: Musiclog
+  order: 3
+---
+{%- import "src/_includes/macros/music.njk" as music with context -%}
+
+{# <p class="text-headline font-bold text-3xl lg:text-4x l mb-12 leading-tight md:leading-normal md:-mt-1">
+Voor mij geen dag zonder muziek. Ik luister veel. Ik denk niet in hokjes, maar geloof in goede liedjes.</p> #}
+
+<h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-4">
+  Mijn favoriete albums van 2020:
+</h2>
+{{ music.covers(
+  data = musiclog.2020_albums
+) }}
+
+<div class="flex relative flex-wrap lg:flex-no-wrap lg:-mt-24">
+  {# <div class="flex-auto w-full lg:w-1/2 xl:w-1/3 lg:sticky lg:top-0 lg:self-start lg:pt-24 mb-8"><h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-2 pt-0">2020:</h2>
+    <div class="prose mb-8 lg:mr-8">
+      <p>Helaas een ander muziekjaarNiet veel concerten en festivals dit jaar. Gelukkig wel genoeg mooie muziek.</p>
+      <h3>Spotify:</h3>
+      <p>
+      <a href="#">2020 shortlist</a><br>
+      <a href="#">2020 longlist</a>
+      </p>
+    </div>
+  </div> #}
+  <div class="flex-auto w-full lg:w-1/2 xl:w-2/3 lg:pt-24">
+    <h2 class="text-subheadline font-bold leading-none text-xl lg:text-2xl mb-4">Tracks:</h2>
+    {{ music.list(
+      data = musiclog.2020_shortlist
+    ) }}
+  </div>
+</div>
+
