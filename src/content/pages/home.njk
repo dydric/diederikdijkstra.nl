@@ -133,10 +133,10 @@ eleventyNavigation:
               <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
             </svg></a>.</p>
 <div class="grid gap-2 grid-cols-3 md:grid-cols-6 max-w-sm md:max-w-full mb-12 lg:mb-20">
-{# {%- for i in range(0, spotify_now.items.length) | reverse -%} #}
+{# {%- for i in range(0, musiclog.2020_shortlist.items.length) | reverse -%} #}
 
-{%- for i in range(0, spotify_now.items.length) | reverse -%}
-  {%- set spotify = spotify_now.items[i] -%}
+{%- for i in range(0, musiclog.2020_shortlist.items.length) | reverse -%}
+  {%- set spotify = musiclog.2020_shortlist.items[i] -%}
   {% if loop.index < 7 %}
   <div>
     <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
@@ -173,7 +173,7 @@ eleventyNavigation:
   🗞 {{ postTitle }}
 </h2>
 
-<div class="grid gap-2 lg:grid-cols-2 md:max-w-xl lg:max-w-full mb-6">
+<div class="grid gap-2 sm:grid-cols-2 mb-6">
 {% for post in collections.post | reverse %}
   {% if loop.index < (postCount + 1) %}
 
