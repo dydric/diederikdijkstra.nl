@@ -54,18 +54,33 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
                 }
 
                 if (post.type == 'link') {
-
                   var newObject = {
-                    id:    post.id,
-                    type:  post.type,
-                    date:  post.date,
-                    epoch: epoch,
-                    url:   post.short_url,
-                    tags:  post.tags,
-                    body:  post.description,
-                    link:  post.url,
-                    link_title: post.title,
+                    id:           post.id,
+                    type:         post.type,
+                    date:         post.date,
+                    epoch:        epoch,
+                    url:          post.short_url,
+                    tags:         post.tags,
+                    body:         post.description,
+                    link:         post.url,
+                    link_title:   post.title,
                     link_excerpt: post.excerpt
+                  };
+                }
+
+                if (post.type == 'audio') {
+                  var newObject = {
+                    id:           post.id,
+                    type:         post.type,
+                    date:         post.date,
+                    epoch:        epoch,
+                    url:          post.short_url,
+                    tags:         post.tags,
+                    body:         post.caption,
+                    audio_link:   post.source_url,
+                    audio_artist: post.artist,
+                    audio_track:  post.track_name,
+                    audio_cover:  post.album_art
                   };
                 }
 
