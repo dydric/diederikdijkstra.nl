@@ -13,21 +13,30 @@ pagination:
   size: 500
 ---
 
-<div class="notes mb-8 leading-relaxed text-base md:text-lg xl:text-xl">
+<div class="notes mb-8 leading-loose text-base md:text-lg xl:text-xl">
 {%- for item in pagination.items -%}
 
   {%- set date = item.epoch | epochDate -%}
 
   {%- set note -%}
     {%- if item.type == "link" -%}
-      <a href="{{ item.link_url }}" target="_blank" rel="noopener noreferrer">{{ item.link_title }}</a>{# {%- if item.link_excerpt -%}{{ item.link_excerpt }}{%- endif -%} #}{%- if item.body -%}: {{ item.body | safe }}{%- endif -%}
+      <a href="{{ item.link_url }}" target="_blank" rel="noopener noreferrer">{{ item.link_title }}<svg class="inline-block w-4 h-4 md:h-5 md:w-5 ml-1 opacity-50" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+      </svg></a>{# {%- if item.link_excerpt -%}{{ item.link_excerpt }}{%- endif -%} #}{%- if item.body -%}: {{ item.body | safe }}{%- endif -%}
+    {%- elif item.type == "audio" -%}
+      <img src="{{ item.audio_cover }}" class="inline-block w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 align-middle rounded-md">
+      <a href="{{ item.audio_link }}" target="_blank" rel="noopener noreferrer">{{ item.audio_artist }} - {{ item.audio_track}}<svg class="inline-block w-4 h-4 md:h-5 md:w-5 ml-1 opacity-50" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+      </svg></a>{% if item.body %}: {{ item.body | safe }}{% endif %}
     {%- else -%}
       {{ item.body | safe }}
     {%- endif -%}
 
     {%- if item.tags -%}
       {%- for tag in item.tags -%}
-        <span class="opacity-75">#{{ tag }}</span>
+        <span class="opacity-75 text-sm font-bold uppercase text-button px-1">&nbsp;#{{ tag }}</span>
       {%- endfor -%}
     {%- endif -%}
 
@@ -35,12 +44,12 @@ pagination:
 
   {%- if loop.first -%}
     {%- set prevDate = date -%}
-    <strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:&nbsp;</strong>
+    <strong class="text-accent-primary text-sm md:text-base xl:text-lg whitespace-no-wrap">{{ date }}:&nbsp;</strong>
     {{ note | safe }}
   {%- else -%}
     {%- if date != prevDate -%}
       {%- set prevDate = date -%}
-      <span class="text-accent-secondary px-2">&bull;</span><strong class="text-accent-primary text-sm md:text-base xl:text-lg">{{ date }}:&nbsp;</strong>
+      <span class="text-accent-secondary px-2">&bull;</span><strong class="text-accent-primary text-sm md:text-base xl:text-lg whitespace-no-wrap">{{ date }}:&nbsp;</strong>
       {{ note | safe }}
     {%- else -%}
       <span class="text-accent-secondary px-2">&bull;</span> {{ note | safe }}
