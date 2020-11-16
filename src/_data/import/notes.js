@@ -29,7 +29,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
     for (var i = 0; i < paths.tumblr.pages; i++) {
       promises.push(new Promise(
         (resolve) => {
-          console.log(blog);
+          // console.log(blog);
 
           blog.posts({limit: paths.tumblr.posts, offset: (i * paths.tumblr.posts) }, function(error, response) {
             if (error) {
