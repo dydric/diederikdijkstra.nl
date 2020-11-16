@@ -84,16 +84,16 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("readableNoteDate", dateObj => {
-    // var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
-    // var month = months[
-    //   DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("M") - 1
-    // ];
+    var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
+    var month = months[
+      DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("M") - 1
+    ];
+    // var month = DateTime.fromSQL(dateObj, {zone: "UTC"}).toFormat("MM");
     var day = DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("d");
-    var month = DateTime.fromSQL(dateObj, {zone: "UTC"}).toFormat("MM");
     var year = DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("yyyy");
 
-    return ("0" + day).slice(-2) + "-" + month + "-" + year;
-    // return DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d LLLL yyyy");
+    // return ("0" + day).slice(-2) + "-" + month + "-" + year;
+    return day + " " + month + " " + year;
   });
 
   eleventyConfig.addFilter("readableDate2", dateObj => {

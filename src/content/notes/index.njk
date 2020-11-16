@@ -13,7 +13,7 @@ pagination:
   size: 500
 ---
 
-<div class="notes mb-8 leading-loose text-base md:text-lg xl:text-xl">
+<div class="notes border-b-2 border-primary mb-8 leading-relaxed text-base md:text-lg">
 {%- for item in pagination.items -%}
 
   {%- set date = item.date | readableNoteDate -%}
@@ -32,35 +32,49 @@ pagination:
       </svg></a>{% if item.body %}: {{ item.body | safe }}{% endif %}
     {%- else -%}
       {% if item.image %}
+        <div>
         {% cloudinaryImage
           item.image ,
-          "f_auto,c_thumb,g_faces:auto,h_80",
+          "f_auto,c_thumb,g_faces:auto,w_768",
           "notes afbeelding van " + date,
-          "inline-block h-6 md:h-8 lg:h-10 align-middle rounded-md mx-1"
+          "inline-block w-96 my-1 max-w-full rounded-lg shadow-xl"
         %}
+        </div>
       {% endif %}
       {{ item.body | safe }}
     {%- endif -%}
 
     {%- if item.tags -%}
       {%- for tag in item.tags -%}
-        <span class="opacity-75 text-sm font-bold uppercase text-button px-1"> &nbsp;#{{ tag }}</span>
+        <span class="opacity-75 text-sm font-bold uppercase text-menu-link px-1"> &nbsp;#{{ tag }}</span>
       {%- endfor -%}
     {%- endif -%}
 
   {%- endset -%}
 
   {%- if loop.first -%}
-    {%- set prevDate = date -%}
-    <strong class="text-accent-primary text-sm md:text-base xl:text-lg whitespace-no-wrap">{{ date }}:&nbsp;</strong>
-    {{ note | safe }}
+      {%- set prevDate = date -%}
+    <div class="border-t-2 border-primary py-1 my-1">
+      <div>
+        <strong class="text-accent-primary text-sm whitespace-no-wrap uppercase">{{ date }}</strong>
+      </div>
+      {{ note | safe }}
+    </div>
   {%- else -%}
     {%- if date != prevDate -%}
       {%- set prevDate = date -%}
-      <span class="text-accent-secondary px-2">&bull;</span><strong class="text-accent-primary text-sm md:text-base xl:text-lg whitespace-no-wrap">{{ date }}:&nbsp;</strong>
-      {{ note | safe }}
+      <div class="border-t-2 border-primary py-1 my-1">
+        <div>
+          {# <span class="text-accent-secondary px-2">&bull;</span> #}
+          <strong class="text-accent-primary text-sm whitespace-no-wrap uppercase">{{ date }}</strong>
+        </div>
+        {{ note | safe }}
+      </div>
     {%- else -%}
-      <span class="text-accent-secondary px-2">&bull;</span> {{ note | safe }}
+      {# <span class="text-accent-secondary px-2">&bull;</span> #}
+      <div class="border-t-2 border-dashed border-primary py-1 my-1">
+        {{ note | safe }}
+      </div>
     {%- endif -%}
   {%- endif -%}
 
