@@ -29,7 +29,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
     for (var i = 0; i < paths.tumblr.pages; i++) {
       promises.push(new Promise(
         (resolve) => {
-          // console.log(blog);
+          console.log(blog);
 
           blog.posts({limit: paths.tumblr.posts, offset: (i * paths.tumblr.posts) }, function(error, response) {
             if (error) {
@@ -51,6 +51,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
                     tags:  post.tags,
                     body:  post.body
                   };
+                  JSONposts.push(newObject);
                 }
 
                 if (post.type == 'link') {
@@ -66,6 +67,7 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
                     link_title:   post.title,
                     link_excerpt: post.excerpt
                   };
+                  JSONposts.push(newObject);
                 }
 
                 if (post.type == 'audio') {
@@ -82,9 +84,22 @@ if ( process.env.ELEVENTY_PRODUCTION ) {
                     audio_track:  post.track_name,
                     audio_cover:  post.album_art
                   };
+                  JSONposts.push(newObject);
                 }
 
-                JSONposts.push(newObject);
+                if (post.type == 'photo') {
+                  var newObject = {
+                    id:    post.id,
+                    type:  post.type,
+                    date:  post.date,
+                    epoch: epoch,
+                    url:   post.short_url,
+                    tags:  post.tags,
+                    body:  post.caption,
+                    image: post.photos[0].alt_sizes[0].url
+                  };
+                  JSONposts.push(newObject);
+                }
 
                 resolve();
               });
