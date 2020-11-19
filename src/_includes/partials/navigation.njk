@@ -1,6 +1,32 @@
 <aside class="sm:mr-6 md:mr-8">
 
-  <a href="/"><img
+
+  {# {% respimg
+    "https://diederikdijkstra.nl/static/images/home/avatar_small.jpg",
+    "test",
+    "(min-width: 48em) 48em, 100vw"
+  %}
+
+  {% cloudinaryImage
+    "https://diederikdijkstra.nl/static/images/home/avatar_small.jpg",
+    "c_scale,w_80/f_jpg",
+    site.author.name
+  %}
+
+  {% cloudinaryImage
+    "https://i.scdn.co/image/ab67616d00001e025cb55ba216595317a2f9b954",
+    "f_auto",
+    "Spotify test"
+  %}
+
+  {% cloudinaryImage
+    "https://64.media.tumblr.com/07ae0a4728ec7b22aecb465e48a73d03/tumblr_opsynnQd901ux0yqjo1_400.jpg",
+    "f_auto",
+    "Tumblr test"
+  %} #}
+
+  <a href="/">
+  <img
     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
     data-src="/static/images/home/avatar_small.jpg" alt="{{ site.author.name }}"
     class="lazyload block rounded-lg mb-4 md:mb-8 w-20 md:w-40 max-w-full shadow-lg"></a>
