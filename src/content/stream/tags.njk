@@ -1,0 +1,23 @@
+---
+layout: layouts/default.njk
+theme: theme-default
+permalink: /stream/tags/
+pagination:
+  data: notes
+  size: 500
+  alias: tag
+renderData:
+  title: "Stream: TAGS"
+---
+
+
+
+{%- for item in notes -%}
+
+{% for tag in item.tags %}
+{{ tag }}
+  {% set newtag = tag %}
+{% endfor %}
+
+{% endfor %}
+

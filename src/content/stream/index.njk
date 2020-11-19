@@ -1,12 +1,12 @@
 ---
 layout: layouts/default
 theme: theme-default
-title: Notities
+title: Stream
 hideFooter: true
-permalink: /notes/
+permalink: /stream/
 eleventyNavigation:
   parent: Blog
-  key: Notities
+  key: Stream
   order: 1
 pagination:
   data: notes
@@ -42,11 +42,11 @@ pagination:
         </div>
       {% endif %}
       {{ item.body | safe }}
-    {%- endif -%}
+    {% endif -%}
 
     {%- if item.tags -%}
       {%- for tag in item.tags -%}
-        <span class="opacity-75 text-sm font-bold uppercase text-menu-link px-1"> &nbsp;#{{ tag }}</span>
+        <span class="opacity-75 text-sm font-bold uppercase text-menu-link mr-1">#{{ tag }} </span>
       {%- endfor -%}
     {%- endif -%}
 
