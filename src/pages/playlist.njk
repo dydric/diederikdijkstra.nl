@@ -1,0 +1,20 @@
+---
+layout: page.njk
+title: 'Playlist'
+description: Voor mij geen dag zonder muziek. Onderstaande playlist is een mixtape van muziek die ik momenteel veel beluister. Alles kan! Ik denk niet in hokjes. Deze playlist wordt regelmatig bijgewerkt. 🎧
+permalink: '/playlist/'
+eleventyNavigation:
+  key: Playlist
+  order: 3
+---
+
+{%- import "music.njk" as music with context -%}
+
+<div class="flex relative flex-wrap lg:flex-no-wrap lg:-mt-24">
+  <div class="flex-auto w-full lg:w-1/2 xl:w-2/3 lg:pt-24">
+    {{ music.list() }}
+  </div>
+</div>
+
+
+

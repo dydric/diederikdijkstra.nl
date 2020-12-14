@@ -1,0 +1,46 @@
+{% extends '../layouts/default.njk' %}
+
+{% block content %}
+
+
+<div class="text-center pb-8 mx-auto px-4 max-w-screen-xl">
+
+  <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mt-4 sm:mt-8">{{ title }}</h1>
+
+  {%- if tags -%}
+    <div class="my-2 md:mb-4 md:mt-6">
+    {% for item in tags -%}
+      {%- if item not in site.filterTags -%}
+        <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="font-medium text-lg md:text-xl xl:text-2xl text-blue-400 hover:underline mx-1 xl:mx-2">#{{ item }}</a>
+      {% endif -%}
+    {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <p class="text-lg xl:text-xl text-gray-500">
+    <time datetime="{{ page.date.toISOString() }}">{{ page.date | fullDate }}</time>
+  </p>
+</div>
+
+  {% if featured_image %}
+    <div class="px-4 mx-auto max-w-7xl mb-8 xl:mb-16">
+      {% cloudinaryImage
+          site.url + featured_image  ,
+          "f_auto,c_fill,g_faces:auto,h_640",
+          "afbeelding van " + title,
+          "block max-w-full mx-auto my-2 rounded-lg shadow-lg"
+        %}
+    </div>
+  {% endif %}
+
+
+
+<div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+
+  <div class="h-1 bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 dark:from-purple-900 dark:via-pink-900 dark:to-red-900 rounded"></div>
+  <div class="py-8 lg:py-12 prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none">
+  {{ content | safe }}
+  </div>
+</div>
+
+{% endblock %}

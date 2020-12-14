@@ -1,0 +1,35 @@
+---
+layout: page.njk
+title: 'Archief'
+permalink: '/{{ site.rootCollections}}/archive/'
+eleventyNavigation:
+  parent: Blog
+  key: Archief
+  order: 1
+---
+
+<div class="mb-8 font-medium text-lg md:text-xl dark:text-white">
+  <span class="mr-1 xl:mr-2 ">Tags:</span>
+  {% for item in collections.tagList-%}
+    {%- if item not in site.filterTags -%}
+      <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="mr-1 xl:mr-2 text-blue-400 hover:underline">#{{ item }}</a>
+    {% endif -%}
+  {%- endfor -%}
+</div>
+
+<div class="rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700">
+{% for post in collections.posts %}
+  <div class="px-4 py-2 {% if not loop.first %} border-t-2 border-gray-200 dark:border-gray-700{% endif %}">
+    <h3 class="text-xl md:text-2xl xl:text-3xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50">
+      <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
+    </h3>
+    <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 text-sm">{{ post.date | fullDate }}</time><br>
+    {# {% for tag in post.data.tags -%}{%- if tag not in site.filterTags %}
+      <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="font-medium text-sm text-blue-400  hover:underline">#{{ tag }}</a>
+    {% endif -%}{%- endfor -%} #}
+  </div>
+{% endfor %}
+</div>
+
+
+

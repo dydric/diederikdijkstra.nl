@@ -1,0 +1,35 @@
+{% macro default(
+  title = "",
+  description = "",
+  content = ""
+) %}
+
+<div class="py-8 lg:py-12">
+  {% if title -%}
+    <h2 class="text-2xl md:text-3xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50 mb-2">
+      {{ title }}
+    </h2>
+  {%- endif %}
+  {% if description -%}
+  <div class="prose dark:prose-dark max-w-none mb-8">
+    {{ description | safe }}
+  </div>
+  {%- endif %}
+  {% if content -%}
+    {{ content | safe }}
+  {%- endif %}
+</div>
+
+{% endmacro %}
+
+{% macro divider(
+  style = "1"
+) %}
+  {% if style == 1 %}
+    <div class="my-10 sm:my-12 lg:my-16 h-1 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 dark:from-purple-900 dark:via-pink-900 dark:to-red-900 rounded"></div>
+  {% elif style == 2 %}
+    <div class="my-10 sm:my-12 lg:my-16 h-1 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 dark:from-pink-900 dark:via-red-900 dark:to-purple-900 rounded"></div>
+  {% else %}
+    <div class="my-10 sm:my-12 lg:my-16 h-1 bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 dark:from-red-900 dark:via-purple-900 dark:to-pink-900 rounded"></div>
+  {% endif %}
+{% endmacro %}

@@ -1,123 +1,104 @@
-/*jshint esversion: 9 */
-
-const { DateTime } = require("luxon");
 const htmlmin = require("html-minifier");
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const site = require('./src/data/site.js');
+const fullDate = require('./src/filters/fullDate.js');
+const limit = require('./src/filters/limit.js');
 const pluginNavigation = require("@11ty/eleventy-navigation");
-const embeds = require("eleventy-plugin-embed-everything");
-const Image = require("@11ty/eleventy-img");
-const pluginRespimg = require( "eleventy-plugin-respimg" );
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
 
-  eleventyConfig.addWatchTarget("./_temp/app.css");
+  eleventyConfig.addWatchTarget("./_temp/style.css");
 
   eleventyConfig.addPassthroughCopy("./src/static");
-
   eleventyConfig.addPassthroughCopy({
-    "./_temp/app.css": "./app.css"
+    "./_temp/style.css": "./style.css",
+    "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js"
   });
 
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
-    "./node_modules/lazysizes/lazysizes.min.js": "./js/lazysizes.js"
-  });
-
-  // IMAGE OPTIMISATION
-
-  eleventyConfig.addNunjucksAsyncShortcode("Image", async (src, alt) => {
-    if (!alt) {
-      throw new Error(`Missing \`alt\` on myImage from: ${src}`);
-    }
-
-    let stats = await Image(src, {
-      widths: [25, 320, 640, 960, 1200, 1800, 2400],
-      formats: ["jpeg", "webp"],
-      urlPath: "/static/images/",
-      outputDir: "./_site/static/images/",
-    });
-
-    let lowestSrc = stats.jpeg[0];
-
-    const srcset = Object.keys(stats).reduce(
-      (acc, format) => ({
-        ...acc,
-        [format]: stats[format].reduce(
-          (_acc, curr) => `${_acc} ${curr.srcset} ,`,
-          ""
-        ),
-      }),
-      {}
-    );
-
-    const source = `<source type="image/webp" srcset="${srcset.webp}" >`;
-
-    const img = `<img
-      class="w-full lazyload"
-      alt="${alt}"
-      src="${lowestSrc.url}"
-      sizes='(min-width: 1024px) 1024px, 100vw'
-      srcset="${srcset.jpeg}"
-      width="${lowestSrc.width}"
-      height="${lowestSrc.height}">`;
-
-    return `<picture> ${source} ${img} </picture>`;
-  });
-
-  // SHORTCODES
-
-  eleventyConfig.addShortcode("version", function () {
+  // Shortcodes
+  eleventyConfig.addShortcode("cacheBuster", function () {
     return String(Date.now());
   });
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
-    var month = months[
-      DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("M") - 1
-    ];
-    var day = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d");
-    var year = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("yyyy");
-    return day + " " + month + " " + year;
-    // return DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d LLLL yyyy");
+  // Filters
+  eleventyConfig.addFilter('fullDate', fullDate);
+  eleventyConfig.addFilter('limit', limit);
+
+  // Collections
+  const now = new Date();
+
+  const livePosts = post => post.date <= now && !post.data.draft;
+  eleventyConfig.addCollection('posts', collection => {
+    return [
+      ...collection.getFilteredByTag('blog').filter(livePosts)
+    ].reverse();
   });
 
-  eleventyConfig.addFilter("readableNoteDate", dateObj => {
-    var months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
-    var month = months[
-      DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("M") - 1
-    ];
-    // var month = DateTime.fromSQL(dateObj, {zone: "UTC"}).toFormat("MM");
-    var day = DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("d");
-    var year = DateTime.fromSQL(dateObj, {zone: "GMT"}).toFormat("yyyy");
+  eleventyConfig.addCollection("tagList", function(collection) {
+    let tagSet = new Set();
+    collection.getAll().forEach(function(item) {
+      if( "tags" in item.data ) {
+        let tags = item.data.tags;
+        let filterTags = site.filterTags;
 
-    // return ("0" + day).slice(-2) + "-" + month + "-" + year;
-    return day + " " + month + " " + year;
+        tags = tags.filter(function(item) {
+          if (filterTags.indexOf(item) > -1) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+
+        for (const tag of tags) {
+          tagSet.add(tag);
+        }
+      }
+    });
+
+    // returning an array in addCollection works in Eleventy 0.5.3
+    return [...tagSet];
   });
 
-  eleventyConfig.addFilter("readableDate2", dateObj => {
-    var day = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("d");
-    var month = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("MM");
-    var year = DateTime.fromJSDate(dateObj, {zone: "UTC"}).toFormat("yyyy");
-    return ("0" + day).slice(-2) + "-" + month + "-" + year;
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    // Optional, default is "---"
+    // excerpt_separator: "<!-- excerpt -->",
+    excerpt_alias: 'excerpt'
   });
 
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-MM-dd');
+  eleventyConfig.addFilter("excerpt", (post) => {
+    const content = post.replace(/(<([^>]+)>)/gi, "");
+    return content.substr(0, content.lastIndexOf(" ", 200)) + "...";
   });
 
-  eleventyConfig.addFilter('epochDate', (dateObj) => {
-    // return DateTime.fromSeconds(dateObj).toFormat('yyyy-MM-dd');
+  // Markdown
+  const markdownOptions = {
+    html: true,
+    breaks: false,
+    linkify: true
+  };
 
-    var day = DateTime.fromSeconds(dateObj).toFormat("d");
-    var month = DateTime.fromSeconds(dateObj).toFormat("MM");
-    var year = DateTime.fromSeconds(dateObj).toFormat("yyyy");
-    return ("0" + day).slice(-2) + "-" + month + "-" + year;
+  eleventyConfig.setLibrary("md", markdownIt(markdownOptions));
+
+  eleventyConfig.addFilter("toHTML", str => {
+    return new markdownIt(markdownOptions).renderInline(str);
   });
 
-  // HTML / MARKDOWN
+  // Plugins
+  eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginRss);
 
+  eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
+  eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280 ];
+  eleventyConfig.fallbackWidth = 640;
+
+  eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes) {
+    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}">`;
+  });
+
+  // Transforms
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (
       process.env.ELEVENTY_PRODUCTION &&
@@ -137,62 +118,16 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  // EXCERPT
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    // Optional, default is "---"
-    excerpt_separator: "<!-- excerpt -->",
-    excerpt_alias: 'excerpt'
-  });
-
-  // Collections
-  eleventyConfig.addCollection('posts', collection => {
-    return collection.getFilteredByTag('posts').reverse();
-  });
-
-  // Plugins
-  eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
-	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280 ];
-  eleventyConfig.fallbackWidth = 640;
-
-  eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes) {
-    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}">`;
-  });
-
-  eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(embeds);
-  eleventyConfig.addPlugin(pluginRespimg);
-
-  // Markdown
-  const md = require('markdown-it')({
-    html: true
-  });
-
-  eleventyConfig.addNunjucksFilter(
-    "markdownify", markdownString => md.render(markdownString)
-  );
-
-  let markdownIt = require("markdown-it");
-  let lazy_loading = require('markdown-it-image-lazysizes');
-  let markdownLib = markdownIt({html: true}).use(lazy_loading);
-  eleventyConfig.setLibrary("md", markdownLib);
-
+  // structure
   return {
     dir: {
         input: "src/",
         output: "_site",
-        includes: "_includes",
-        data: `_data`
+        includes: "includes",
+        layouts: "layouts",
+        data: `data`
     },
     templateFormats: ["html", "md", "njk", "yml"],
     htmlTemplateEngine: "njk",
-
-    // 1.1 Enable elventy to pass dirs specified above
-    passthroughFileCopy: true
   };
-
-
-
 };

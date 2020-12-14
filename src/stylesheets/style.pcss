@@ -1,0 +1,42 @@
+@import '_fonts.pcss';
+@import '_darkmode.pcss';
+@import '_emoji.pcss';
+@import '_prose.pcss';
+@import '_navigation.pcss';
+@import '_buttons.pcss';
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+@layer utilities {
+  .text-gradient {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .photo-h-screen {
+    max-height: calc(100vh - 200px);
+  }
+
+  @variants responsive {
+    .min-w-10 {
+      min-width: 2.5rem;
+    }
+
+    .min-w-12 {
+      min-width: 3rem;
+    }
+
+    .min-h-10 {
+      min-height: 2.5rem;
+    }
+
+    .min-h-12 {
+      min-height: 3rem;
+    }
+  }
+}
