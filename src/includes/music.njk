@@ -61,7 +61,7 @@
     {# {% if loop.index < 7 %} #}
 
     <div>
-    <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex items-center w-full py-2">
+    <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2">
 
       <div
         class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
@@ -69,20 +69,21 @@
           spotify.track.album.images[1].url,
           "f_auto",
           spotify.track.name + " - " + spotify.track.artists[0].name,
-          "w-full block rounded"
+          "w-full block rounded my-1"
         %}
       </div>
 
       <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
-        <div class="truncate font-extrabold leading-tight text-lg md:text-xl xl:text-2xl tracking-tight w-full mb-0 text-gray-900 dark:text-gray-200">
-          {{ spotify.track.name }}
-        </div>
-        <div class="truncate font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-500  group-hover:text-green-500 dark:group-hover:text-pink-500 w-full">
-          {%- for artist in spotify.track.artists -%}
-            {%- if not loop.first -%}, {% endif -%}
-            {{ artist.name }}
-          {%- endfor -%}
-        </div>
+          <div class="font-extrabold leading-tight text-lg md:text-xl xl:text-2xl tracking-tight w-full mb-0 text-gray-900 dark:text-gray-200">
+            {{ spotify.track.name }}
+          </div>
+          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-500  group-hover:text-green-500 dark:group-hover:text-pink-500 w-full mt-1">
+            {%- for artist in spotify.track.artists -%}
+              {%- if not loop.first -%}, {% endif -%}
+              {{ artist.name }}
+            {%- endfor -%}
+          </div>
+
         {# {{ spotify.added_at }} #}
       </div>
 
