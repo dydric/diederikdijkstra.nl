@@ -56,32 +56,22 @@ pagination:
 
 {% if pagination.href.first != pagination.href.last %}
 
-  {% set buttonClasses = "
-    flex items-center justify-center p-2 lg:py-3 mx-1 rounded-lg
-    border-2 border-blue-600 hover:border-blue-700 focus:border-blue-700
-    dark:border-blue-700 dark:hover:border-purple-600 dark:focus:border-purple-600
-    bg-gradient-to-br
+    {# flex items-center justify-center p-2 lg:py-3 mx-1 rounded-lg #}
 
-    from-green-500 to-blue-600
-    hover:from-blue-400 hover:to-purple-600
 
-    dark:from-blue-400 dark:to-purple-600
-    dark:hover:from-pink-600 dark:hover:to-purple-600
-
-    text-white text-sm sm:text-base font-medium text-opacity-80
-  " %}
+  {% set buttonClasses = "button mx-1" %}
 
   {% if pagination.items %}
   <nav aria-labelledby="pagination" class="mt-8">
     <ol class="flex justify-between -mx-1 ">
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.first %}
-          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span></a>
+          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span><div></div></a>
         {% endif %}
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.previous %}
-          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span></a>
+          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span><div></div></a>
         {% endif %}
       </li>
       <li class="flex-auto justify-center items-center mx-1 flex w-4/12 sm:w-2/8">
@@ -95,12 +85,12 @@ pagination:
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.next %}
-          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span></a>
+          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span><div></div></a>
         {% endif %}
       </li>
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.last %}
-          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span></a>
+          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span><div></div></a>
         {% endif %}
       </li>
     </ol>

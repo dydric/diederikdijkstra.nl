@@ -49,21 +49,7 @@ pagination:
 
 {# flex items-center justify-center p-2 lg:py-3 mx-1 rounded-lg border-2  #}
 
-{% set buttonClasses = "
-    button
-
-    border-blue-600 hover:border-blue-700 focus:border-blue-700
-    dark:border-blue-700 dark:hover:border-purple-600 dark:focus:border-purple-600
-    bg-gradient-to-br
-
-    from-green-500 to-blue-600
-    hover:from-blue-400 hover:to-purple-600
-
-    dark:from-blue-400 dark:to-purple-600
-    dark:hover:from-pink-600 dark:hover:to-purple-600
-
-
-  " %}
+{% set buttonClasses = "button" %}
 
 {% if pagination.href.next %}
   <div
@@ -80,7 +66,7 @@ pagination:
     <a
       href="{{ pagination.href.next }}"
       @keydown.window.arrow-right="keydown = true"
-      class="{{ buttonClasses }}">&rarr; </a>
+      class="{{ buttonClasses }}"><span>&rarr;</span><div></div></a>
   </div>
   {% endif %}
 
@@ -98,6 +84,6 @@ pagination:
     <a
       href="{{ pagination.href.previous}}"
       @keydown.window.arrow-left="keydown = true"
-      class="{{ buttonClasses }}">&larr;</a>
+      class="{{ buttonClasses }}"><span>&larr;</span><div></div></a>
   </div>
   {% endif %}
