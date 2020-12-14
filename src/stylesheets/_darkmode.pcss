@@ -1,0 +1,20 @@
+.dark img {
+  filter: brightness(.75) contrast(1.1);
+}
+
+.icon-sun {
+  @apply block;
+
+  .dark & {
+    @apply hidden;
+  }
+}
+
+.icon-moon {
+  @apply hidden;
+
+  .dark & {
+    @apply block;
+  }
+}
+

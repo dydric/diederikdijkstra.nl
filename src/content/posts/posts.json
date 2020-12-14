@@ -1,8 +1,0 @@
-{
-  "layout": "layouts/post",
-  "theme": "theme-default",
-  "permalink": "{% if customUrl %}blog/{{ customUrl | slug }}/index.html{% else %}blog/{{ date | readableDate2 | slug }}-{{ title | slug }}/index.html{% endif %}",
-  "tags": [
-    "posts"
-  ]
-}

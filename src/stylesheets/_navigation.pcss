@@ -1,25 +1,14 @@
-.submenu {
-  @apply hidden;
+.nav-parent {
 
-  .nav-active + & {
-    @apply block;
-  }
-}
+  ul {
+    @apply border-none pb-2;
 
-.mailbutton {
-  background: theme('colors.lavender.700');
-  background: linear-gradient(115deg,
-                                theme('colors.lavender.700') 0%,
+    li {
+      @apply border-none;
 
-                                theme('colors.flamingo.500') 100%
-                              );
-
-  &:hover {
-    background: theme('colors.lavender.700');
-    background: linear-gradient(115deg,
-                                theme('colors.flamingo.800') 0%,
-
-                                theme('colors.lavender.600') 100%
-                              );
+      a {
+        @apply pt-0 pb-1 text-sm;
+      }
+    }
   }
 }

@@ -1,0 +1,109 @@
+---
+layout: page.njk
+title: 'Blog'
+permalink: '/{{ site.rootCollections}}/page-{{ pagination.pageNumber + 1 }}/'
+pagination:
+  data: collections.posts
+  size: 5
+  reverse: false
+---
+
+{# eleventyNavigation:
+  key: Blog
+  order: 2 #}
+
+{% for post in pagination.items %}
+<div class="rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 mb-4 md:mb-8 overflow-hidden">
+
+    {% if post.data.featured_image %}
+    <div class="featured_image">
+
+      {% cloudinaryImage
+          site.url + post.data.featured_image  ,
+          "f_auto,c_fill,g_faces:auto,w_768,h_320",
+          "afbeelding van " + post.data.title,
+          "block w-full rounded-t-lg"
+        %}
+    </div>
+  {% endif %}
+
+  <div class="p-4 xl:p-8">
+    <h2 class="text-2xl md:text-3xl xl:text-4xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50 mb-1 xl:mb-2">
+      <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
+    </h2>
+    <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 text-sm md:text-base block">{{ post.date | fullDate }}</time>
+
+      {% if post.data.excerpt %}
+        <div class="prose md:prose-lg dark:prose-dark max-w-none mt-2">
+          {{ post.data.excerpt | safe | toHTML | safe }}
+        </div>
+      {% elif post.templateContent.length >= 200 %}
+        <div class="prose md:prose-lg dark:prose-dark max-w-none mt-2">
+          {{ post.templateContent | safe | excerpt }}
+        </div>
+      {% endif %}
+
+    {% if post.data.tags %}
+    <div class="mt-2">
+      {% for tag in post.data.tags -%}{%- if tag not in site.filterTags %}
+        <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="font-medium text-sm md:text-base text-blue-400 hover:underline md:mr-1 xl:mr-2">#{{ tag }}</a>
+      {% endif -%}{%- endfor -%}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+
+{% if pagination.href.first != pagination.href.last %}
+
+  {% set buttonClasses = "
+    flex items-center justify-center p-2 lg:py-3 mx-1 rounded-lg
+    border-2 border-blue-600 hover:border-blue-700 focus:border-blue-700
+    dark:border-blue-700 dark:hover:border-purple-600 dark:focus:border-purple-600
+    bg-gradient-to-br
+
+    from-green-500 to-blue-600
+    hover:from-blue-400 hover:to-purple-600
+
+    dark:from-blue-400 dark:to-purple-600
+    dark:hover:from-pink-600 dark:hover:to-purple-600
+
+    text-white text-sm sm:text-base font-medium text-opacity-80
+  " %}
+
+  {% if pagination.items %}
+  <nav aria-labelledby="pagination" class="mt-8">
+    <ol class="flex justify-between -mx-1 ">
+      <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
+        {% if page.url != pagination.href.first %}
+          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-initial w-4/12 sm:w-2/8">
+        {% if pagination.href.previous %}
+          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-auto justify-center items-center mx-1 flex w-4/12 sm:w-2/8">
+        {%- for pageEntry in pagination.pages %}
+          {% if page.url == pagination.hrefs[ loop.index0 ] %}
+            <span class="text-sm sm:text-base whitespace-nowrap text-gray-600 dark:text-gray-200">
+              Pagina {{ loop.index }} van {{ pagination.pages.length }}
+            </span>
+          {% endif %}
+        {%- endfor %}
+      </li>
+      <li class="flex-initial w-4/12 sm:w-2/8">
+        {% if pagination.href.next %}
+          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
+        {% if page.url != pagination.href.last %}
+          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span></a>
+        {% endif %}
+      </li>
+    </ol>
+  </nav>
+  {% endif %}
+{% endif %}

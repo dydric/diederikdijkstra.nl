@@ -1,0 +1,96 @@
+---
+layout: default.njk
+title: ''
+permalink: /index.html
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+{% block content %}
+
+  {%- import "section.njk" as section -%}
+
+  <div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+
+    <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
+      Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
+    </h1>
+
+    {{ section.divider(style="1")}}
+
+    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
+      <h2>⚔️ Tools & Skills</h2>
+    </div>
+    {% include "../includes/skills.njk" %}
+
+    {{ section.divider(style="2")}}
+
+    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
+      <h2>💼 Werk</h2>
+      <p>Actiefoto's van mij aan het 'werk' bij <strong><a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a></strong>.</p>
+    </div>
+
+    <div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-7xl px-4 mb-6 ">
+      <div class="sm:flex mx-auto overflow-hidden rounded-lg w-full">
+        <div class="flex-initial sm:w-1/3">
+          {% cloudinaryImage
+            site.url + "/static/images/tres2.jpg",
+            "f_auto,c_fill,g_faces:auto,w_1280",
+            "Diederik hangt in een Chesterfield stoel",
+            ""
+          %}
+        </div>
+        <div class="flex-initial sm:w-2/3">
+          {% cloudinaryImage
+            site.url + "/static/images/tres.jpg",
+            "f_auto,c_fill,g_faces:auto,w_1280",
+            "Diederik bij TRES in overleg",
+            ""
+          %}
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-6 prose sm:prose-lg dark:prose-dark max-w-none">
+      <p class="mb-0">Met trots gewerkt aan oplossingen voor onderstaande opdrachtgevers:</p>
+      <h3>Windesheim, Buckaroo, Wagenborg, AZ 🏆, sc&nbsp;Heerenveen, FC&nbsp;Groningen, Feyenoord, BGDD, Relatieplanet 🏆, Fritom <span class="text-green-500 dark:text-green-300">en vele anderen</span>.</h3>
+    </div>
+
+    {{ section.divider(style="1")}}
+
+    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
+      <h2><span class="relative" style="top: 2px">📧</span> Contact</h2>
+      <p>Ben je op zoek naar een creatieve developer? Neem dan contact met me op. Ik ben momenteel beschikbaar voor kleine projecten.</p>
+    </div>
+
+    <div class="my-8 grid gap-4 md:grid-cols-2">
+      <a
+        href="mailto:diederikdijkstra@icloud.com"
+        class="flex items-center rounded-lg w-full
+        border-2 border-blue-400
+        bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-600
+        dark:from-purple-500 dark:to-blue-600 dark:hover:from-purple-800
+      text-white px-2 py-4 sm:p-4
+        font-medium text-base sm:text-lg
+        ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-current h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-4 flex-shrink-0"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>
+        <span class="flex-auto leading-tight">diederikdijkstra@icloud.com</span>
+      </a>
+      <a
+        href="https://twitter.com/messages/compose?recipient_id=775387"
+        class="flex items-center rounded-lg w-full
+        border-2 border-blue-400
+        bg-gradient-to-r from-blue-500 to-purple-300 hover:from-blue-400 hover:to-blue-600
+        dark:from-blue-600 dark:to-purple-400 dark:hover:from-blue-600 dark:hover:to-purple-800
+        text-white px-2 py-4 sm:p-4
+        font-medium text-base sm:text-lg
+        ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-current h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-4 flex-shrink-0"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+        <span class="flex-auto leading-tight">Stuur me een DM via Twitter</span>
+      </a>
+    </div>
+
+  </div>
+
+{% endblock %}

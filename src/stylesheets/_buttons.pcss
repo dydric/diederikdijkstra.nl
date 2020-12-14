@@ -1,0 +1,38 @@
+.button {
+  @apply inline-flex items-center justify-center;
+  @apply p-1 relative overflow-hidden;
+  @apply transition duration-300;
+  @apply rounded-lg border-2;
+  @apply min-w-10 min-h-10;
+  @apply text-white text-sm font-medium text-opacity-80;
+
+  @screen sm {
+    @apply text-base;
+  }
+
+  @screen lg {
+    @apply p-2;
+    @apply min-w-12 min-h-12;
+  }
+
+  div {
+    @apply absolute z-0 left-0 right-0 top-0 bottom-0;
+    @apply opacity-0;
+    @apply transition-opacity duration-300;
+  }
+
+  &:focus {
+    @apply outline-none shadow-xl;
+
+    div {
+      @apply opacity-100;
+    }
+  }
+
+  &:hover {
+
+    div {
+      @apply opacity-100;
+    }
+  }
+}
