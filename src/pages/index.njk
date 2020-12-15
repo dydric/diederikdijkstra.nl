@@ -13,28 +13,25 @@ eleventyNavigation:
 
   <div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
 
-  {% set family= [
-    ["diederik", "Diederik", "w_120"],
-    ["lotte", "Lotte", "w_100"],
-    ["elin", "Elin", "w_80"],
-    ["fedde", "Fedde", "w_80"]
-  ] %}
+    {% set family= [
+      ["diederik", "Diederik", "w_120"],
+      ["lotte", "Lotte", "w_100"],
+      ["elin", "Elin", "w_80"],
+      ["fedde", "Fedde", "w_80"]
+    ] %}
 
-  <div class="flex items-end mb-4 lg:mb-6 xl:mb-8 -mx-1">
-  {% for filename, title, size in family%}
-    <div class="flex-initial mx-1">
-    {% cloudinaryImage
-      site.url + "/static/images/home/" + filename + ".png",
-      "f_auto," + size,
-      title,
-      "rounded-full"
-    %}
+    <div class="flex items-end mb-4 lg:mb-6 xl:mb-8 -mx-1">
+    {% for filename, title, size in family%}
+      <div class="flex-initial mx-1">
+      {% cloudinaryImage
+        site.url + "/static/images/home/" + filename + ".png",
+        "f_auto," + size,
+        title,
+        "rounded-full"
+      %}
+      </div>
+    {% endfor %}
     </div>
-  {% endfor %}
-  </div>
-
-
-
 
     <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
       Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
