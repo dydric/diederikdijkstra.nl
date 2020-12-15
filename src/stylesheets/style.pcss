@@ -19,7 +19,11 @@
   }
 
   .photo-h-screen {
-    max-height: calc(100vh - 350px);
+    @screen md {
+      min-height: 320px;
+      height: calc(100vh - 350px);
+      max-height: 960px;
+    }
   }
 
   @variants responsive {

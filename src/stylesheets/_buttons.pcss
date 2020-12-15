@@ -1,14 +1,18 @@
 .button {
   @apply flex items-center justify-center;
   @apply p-1 relative overflow-hidden;
-  @apply transition duration-300;
+  /* @apply transition duration-300; */
   @apply rounded-lg border-2;
   @apply min-w-10 min-h-10;
   @apply text-sm font-medium text-opacity-80;
   @apply bg-gradient-to-br;
 
   @apply border-gray-300;
-  @apply from-gray-100 to-gray-200 text-gray-500;
+  @apply from-green-50 to-gray-200 text-gray-500;
+
+  svg {
+    @apply fill-current;
+  }
 
   &:hover,
   &:focus {
@@ -18,7 +22,6 @@
       @apply from-green-500 to-blue-600;
     }
   }
-
 
   .dark & {
     @apply border-gray-700 text-white;
@@ -43,7 +46,6 @@
     dark:from-blue-400 dark:to-purple-600
     dark:hover:from-pink-600 dark:hover:to-purple-600 */
 
-
   @screen sm {
     @apply text-base;
   }
@@ -53,7 +55,8 @@
     @apply min-w-12 min-h-12;
   }
 
-  span {
+  span,
+  svg {
     @apply relative z-10;
   }
 
@@ -77,5 +80,40 @@
     div {
       @apply opacity-100;
     }
+  }
+
+  &--xl {
+    @apply p-3;
+
+    @screen md {
+      @apply p-4;
+    }
+  }
+
+  &--contact {
+    @apply text-white;
+    @apply from-green-400 to-blue-500;
+    @apply border-blue-400;
+
+    div {
+      @apply from-green-500 to-green-600;
+    }
+
+    .dark & {
+      @apply border-blue-400;
+      @apply from-blue-500 to-purple-500;
+
+      div {
+        @apply from-blue-600 to-purple-600;
+      }
+    }
+
+        /* {# flex items-center rounded-lg w-full
+        border-2 border-blue-400
+        bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-600
+        dark:from-purple-500 dark:to-blue-600 dark:hover:from-purple-800
+      text-white px-2 py-4 sm:p-4
+        font-medium text-base sm:text-lg #} */
+
   }
 }
