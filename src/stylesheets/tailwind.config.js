@@ -9,10 +9,10 @@ const round = (num) =>
 const rem = (px) => `${round(px / 16)}rem`
 const em = (px, base) => `${round(px / base)}em`
 
-let enablePurge = false;
-if ( process.env.ELEVENTY_PRODUCTION ) {
-  let enablePurge = true;
-}
+// let enablePurge = false;
+// if ( process.env.ELEVENTY_PRODUCTION ) {
+//   let enablePurge = true;
+// }
 
 module.exports = {
   darkMode: 'class',
@@ -21,7 +21,7 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: {
-    enabled: enablePurge,
+    enabled: ((process.env.NODE_ENV === 'production') ? true : false),
     content: ["_site/**/*.html"],
     options: {
       whitelist: [],
