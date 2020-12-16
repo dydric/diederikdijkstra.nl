@@ -51,47 +51,50 @@
 ) %}
 
 
-<div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-7xl p-4
-">
+<div class="relative left-1/2 transform -translate-x-1/2 w-screen px-4">
+  <div class="mx-auto p-4 relative">
 
-  <div class="border-2 border-gray-200 dark:border-gray-600 grid bg-white dark:bg-black divide-y-2 divide-gray-200 dark:divide-gray-800 p-2 sm:p-4 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl relative z-20 rounded-lg">
+    <div class="absolute z-0 left-0 right-0 bottom-0 top-0 bg-gradient-to-br from-blue-100 to-purple-200 dark:from-purple-900 dark:to-blue-900 rounded-lg opacity-75"></div>
 
-  {%- for i in range(0, data.items.length) -%}
-    {%- set spotify = data.items[i] -%}
-    {# {% if loop.index < 7 %} #}
+    <div class="grid divide-y-2 divide-white dark:divide-gray-900 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl relative z-20">
 
-    <div>
-    <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2">
+    {%- for i in range(0, data.items.length) -%}
+      {%- set spotify = data.items[i] -%}
+      {# {% if loop.index < 7 %} #}
 
-      <div
-        class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
-        {% cloudinaryImage
-          spotify.track.album.images[1].url,
-          "f_auto",
-          spotify.track.name + " - " + spotify.track.artists[0].name,
-          "w-full block rounded my-1"
-        %}
+      <div>
+      <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2">
+
+        <div
+          class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
+          {% cloudinaryImage
+            spotify.track.album.images[1].url,
+            "f_auto",
+            spotify.track.name + " - " + spotify.track.artists[0].name,
+            "w-full block rounded my-1"
+          %}
+        </div>
+
+        <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
+            <div class="font-extrabold leading-tight text-lg md:text-xl xl:text-2xl tracking-tight w-full mb-0 text-gray-900 dark:text-gray-200">
+              {{ spotify.track.name }}
+            </div>
+            <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-green-500 dark:text-pink-500 w-full">
+              {%- for artist in spotify.track.artists -%}
+                {%- if not loop.first -%}, {% endif -%}
+                {{ artist.name }}
+              {%- endfor -%}
+            </div>
+
+          {# {{ spotify.added_at }} #}
+        </div>
+
+      </a>
       </div>
+      {# {% endif %} #}
 
-      <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
-          <div class="font-extrabold leading-tight text-lg md:text-xl xl:text-2xl tracking-tight w-full mb-0 text-gray-900 dark:text-gray-200">
-            {{ spotify.track.name }}
-          </div>
-          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-500  group-hover:text-green-500 dark:group-hover:text-pink-500 w-full mt-1">
-            {%- for artist in spotify.track.artists -%}
-              {%- if not loop.first -%}, {% endif -%}
-              {{ artist.name }}
-            {%- endfor -%}
-          </div>
-
-        {# {{ spotify.added_at }} #}
-      </div>
-
-    </a>
+    {%- endfor -%}
     </div>
-    {# {% endif %} #}
-
-  {%- endfor -%}
   </div>
 </div>
 

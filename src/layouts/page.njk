@@ -20,7 +20,9 @@
     {% endif %}
 
     {% if content %}
-      {{ section.divider(style="1")}}
+      {% if renderData.title or title or description %}
+        {{ section.divider(style="1")}}
+      {% endif %}
       {{ content | safe }}
     {% endif %}
 
