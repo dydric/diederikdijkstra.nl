@@ -4,6 +4,10 @@
 
   {{ section.divider(style="3")}}
 
+  <div class="prose prose-sm max-w-none dark:prose-dark opacity-90 mb-2">
+    No 🍪, no trackers.43 <span id="js-loadTime"></span>
+  </div>
+
   <div class="prose prose-sm max-w-none dark:prose-dark opacity-90">
     This site is build with 💜,
       <a href="https://www.11ty.dev/">Eleventy</a>,
@@ -26,4 +30,6 @@
 <script>
   const scrollbarWidth = window.innerWidth - document.body.clientWidth;
   document.body.style.setProperty("--scrollbarWidth", `${scrollbarWidth}px`);
+
+  window.onload=function(){requestAnimationFrame((function(){var e=performance.timing,n=e.navigationStart,t=(e.loadEventEnd-n)/1e3;t=Math.round(100*t)/100,console.log("This page loaded in "+t+" seconds."),document.getElementById("js-loadTime").innerHTML+=`Page Load: ${t}s`}))};
 </script>

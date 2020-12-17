@@ -4,11 +4,11 @@
   /* @apply transition duration-300; */
   @apply rounded-lg border-2;
   @apply min-w-10 min-h-10;
-  @apply text-sm font-medium text-opacity-80;
+  @apply text-white text-sm font-medium text-opacity-80;
   @apply bg-gradient-to-br;
 
-  @apply border-gray-300;
-  @apply from-green-50 to-gray-200 text-gray-500;
+  @apply border-gray-900;
+  @apply from-gray-700 to-gray-900;
 
   svg {
     @apply fill-current;
@@ -16,23 +16,22 @@
 
   &:hover,
   &:focus {
-    @apply text-white border-blue-600;
+    /* @apply border-blue-600; */
 
     div {
-      @apply from-green-500 to-blue-600;
+      @apply from-gray-500 to-gray-700;
     }
   }
 
   .dark & {
-    @apply border-gray-700 text-white;
+    @apply border-gray-700;
     @apply from-gray-800 to-gray-700;
 
     &:hover,
     &:focus {
-      @apply border-blue-500;
 
       div {
-        @apply from-blue-600 to-purple-600;
+        @apply from-gray-600 to-gray-700;
       }
     }
   }
@@ -91,20 +90,24 @@
   }
 
   &--contact {
-    @apply text-white;
-    @apply from-green-400 to-blue-500;
-    @apply border-blue-400;
+    @apply text-white text-base;
+    /* @apply from-gray-700 to-gray-900;
+    @apply border-gray-900 !important; */
 
-    div {
-      @apply from-green-500 to-green-600;
+    @screen sm {
+      @apply text-lg;
     }
 
+    /* div {
+      @apply from-gray-500 to-gray-700 !important;
+    } */
+
     .dark & {
-      @apply border-blue-400;
+      @apply border-blue-400 !important;
       @apply from-blue-500 to-purple-500;
 
       div {
-        @apply from-blue-600 to-purple-600;
+        @apply from-blue-600 to-purple-600 !important;
       }
     }
 

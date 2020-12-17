@@ -20,10 +20,12 @@
     {% endif %}
 
     {% if content %}
-      {% if renderData.title or title or description %}
+      {# {% if renderData.title or title or description %}
         {{ section.divider(style="1")}}
-      {% endif %}
-      {{ content | safe }}
+      {% endif %} #}
+      <div class="mt-12">
+        {{ content | safe }}
+      </div>
     {% endif %}
 
   </div>
