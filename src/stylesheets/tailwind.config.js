@@ -5,9 +5,9 @@ const round = (num) =>
   num
     .toFixed(7)
     .replace(/(\.[0-9]+?)0+$/, '$1')
-    .replace(/\.0$/, '')
-const rem = (px) => `${round(px / 16)}rem`
-const em = (px, base) => `${round(px / base)}em`
+    .replace(/\.0$/, '');
+const rem = (px) => `${round(px / 16)}rem`;
+const em = (px, base) => `${round(px / base)}em`;
 
 // let enablePurge = false;
 // if ( process.env.ELEVENTY_PRODUCTION ) {
@@ -244,7 +244,7 @@ module.exports = {
   variants: {
     borderWidth: ['first'],
     typography: ['responsive', 'dark'],
-    opacity: ['group-hover', 'group-focus'],
+    opacity: ['group-hover', 'group-focus', 'dark'],
     backgroundOpacity: ['dark']
   },
   plugins: [
