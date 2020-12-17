@@ -50,13 +50,7 @@
   data = playlist
 ) %}
 
-
-<div class="relative left-1/2 transform -translate-x-1/2 w-screen px-4">
-  <div class="mx-auto p-4 relative">
-
-    <div class="absolute z-0 left-0 right-0 bottom-0 top-0 bg-gradient-to-br from-blue-100 to-purple-200 dark:from-purple-900 dark:to-blue-900 rounded-lg opacity-75"></div>
-
-    <div class="grid divide-y-2 divide-white dark:divide-gray-900 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl relative z-20">
+  <div class="grid divide-y-2 divide-white dark:divide-gray-900">
 
     {%- for i in range(0, data.items.length) -%}
       {%- set spotify = data.items[i] -%}
@@ -94,8 +88,6 @@
       {# {% endif %} #}
 
     {%- endfor -%}
-    </div>
   </div>
-</div>
 
 {% endmacro %}

@@ -11,8 +11,6 @@ eleventyNavigation:
 
   {%- import "section.njk" as section -%}
 
-  <div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-
     {% set family= [
       ["diederik", "Diederik", "w_120", "w-32"],
       ["lotte", "Lotte", "w_100", "w-24"],
@@ -72,19 +70,21 @@ eleventyNavigation:
       </div>
     </div>
 
-    <div class="mb-6 prose sm:prose-lg dark:prose-dark max-w-none">
+    <div class="mb-8 md:mb-16 prose sm:prose-lg dark:prose-dark max-w-none">
       <p class="mb-0">Met trots gewerkt aan oplossingen voor onderstaande opdrachtgevers:</p>
       <h3>Windesheim, Buckaroo, Wagenborg, AZ 🏆, sc&nbsp;Heerenveen, FC&nbsp;Groningen, Feyenoord, BGDD, Relatieplanet 🏆, Fritom <span class="text-green-600 dark:text-green-300">en vele anderen</span>.</h3>
     </div>
 
-    {{ section.divider(style="1")}}
+    {# {{ section.divider(style="1")}} #}
 
+
+    {% set contact %}
     <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
       <h2><span class="relative" style="top: 2px">📧</span> Contact</h2>
       <p>Ben je op zoek naar een creatieve developer? Neem dan contact met me op. Ik ben momenteel beschikbaar voor kleine projecten.</p>
     </div>
 
-    <div class="my-8 grid gap-4 md:grid-cols-2">
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
       <a
         href="mailto:diederikdijkstra@icloud.com"
         class="button button--xl button--contact">
@@ -105,7 +105,10 @@ eleventyNavigation:
         <span class="flex-auto leading-tight">Stuur me een DM via Twitter</span><div></div>
       </a>
     </div>
+    {% endset %}
 
-  </div>
+    {{ section.fullbleed(
+      content = contact
+    )}}
 
 {% endblock %}

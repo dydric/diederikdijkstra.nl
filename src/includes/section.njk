@@ -33,3 +33,20 @@
     <div class="my-10 sm:my-12 lg:my-16 h-1 bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 dark:from-red-900 dark:via-purple-900 dark:to-pink-900 rounded"></div>
   {% endif %}
 {% endmacro %}
+
+
+{% macro fullbleed(
+  bgClasses = "bg-gradient-to-br from-blue-100 to-purple-200 dark:from-purple-900 dark:to-blue-900 rounded-lg opacity-75 dark:opacity-50",
+  contentClasses = "mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl",
+  content = ""
+  )
+%}
+<div class="relative left-1/2 transform -translate-x-1/2 w-screen px-4">
+  <div class="mx-auto p-4 py-8 lg:py-12 relative">
+    <div class="absolute z-0 left-0 right-0 bottom-0 top-0 {{ bgClasses }}"></div>
+    <div class="relative z-10 {{ contentClasses }}">
+      {{ content | safe }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
