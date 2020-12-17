@@ -15,7 +15,7 @@ public_folder: "/static/images/uploads"
 collections: # A list of collections the CMS should be able to edit
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Posts" # Used in the UI, ie.: "New Post"
-    folder: "src/content/posts" # The path to the folder where the documents are stored
+    folder: "src/posts" # The path to the folder where the documents are stored
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{date}}-{{slug}}"
