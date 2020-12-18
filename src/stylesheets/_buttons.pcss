@@ -1,14 +1,11 @@
 .button {
   @apply flex items-center justify-center;
   @apply p-1 relative overflow-hidden;
-  /* @apply transition duration-300; */
+  @apply transition duration-300;
   @apply rounded-lg border-2;
   @apply min-w-10 min-h-10;
-  @apply text-white text-sm font-medium text-opacity-80;
-  @apply bg-gradient-to-br;
-
-  @apply border-gray-900;
-  @apply from-gray-700 to-gray-900;
+  @apply text-white text-sm font-medium text-opacity-90;
+  @apply bg-gray-900 bg-opacity-80 border-gray-900 border-opacity-80;
 
   svg {
     @apply fill-current;
@@ -16,23 +13,15 @@
 
   &:hover,
   &:focus {
-    /* @apply border-blue-600; */
-
-    div {
-      @apply from-gray-500 to-gray-700;
-    }
+    @apply text-opacity-100 bg-opacity-100 border-opacity-100;
   }
 
   .dark & {
-    @apply border-gray-700;
-    @apply from-gray-800 to-gray-700;
+    @apply bg-gray-900 bg-opacity-75 border-white border-opacity-25 text-white text-opacity-90;
 
     &:hover,
     &:focus {
-
-      div {
-        @apply from-gray-600 to-gray-700;
-      }
+      @apply text-opacity-100 bg-opacity-100 border-opacity-75;
     }
   }
 
@@ -59,26 +48,26 @@
     @apply relative z-10;
   }
 
-  div {
+  /* div {
     @apply absolute z-0 left-0 right-0 top-0 bottom-0;
-    @apply opacity-0;
+    @apply opacity-0 -m-6;
     @apply transition-opacity duration-300;
     @apply bg-gradient-to-br;
-  }
+  } */
 
   &:focus {
     @apply outline-none shadow-xl;
 
-    div {
+    /* div {
       @apply opacity-100;
-    }
+    } */
   }
 
   &:hover {
 
-    div {
+    /* div {
       @apply opacity-100;
-    }
+    } */
   }
 
   &--xl {
@@ -87,36 +76,5 @@
     @screen md {
       @apply p-4;
     }
-  }
-
-  &--contact {
-    @apply text-white text-base;
-    /* @apply from-gray-700 to-gray-900;
-    @apply border-gray-900 !important; */
-
-    @screen sm {
-      @apply text-lg;
-    }
-
-    /* div {
-      @apply from-gray-500 to-gray-700 !important;
-    } */
-
-    .dark & {
-      @apply border-blue-400 !important;
-      @apply from-blue-500 to-purple-500;
-
-      div {
-        @apply from-blue-600 to-purple-600 !important;
-      }
-    }
-
-        /* {# flex items-center rounded-lg w-full
-        border-2 border-blue-400
-        bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-green-600
-        dark:from-purple-500 dark:to-blue-600 dark:hover:from-purple-800
-      text-white px-2 py-4 sm:p-4
-        font-medium text-base sm:text-lg #} */
-
   }
 }

@@ -29,7 +29,7 @@ eleventyNavigation:
 
   <div class="sticky bottom-8 text-center pointer-events-none">
 
-    <div class="bg-white bg-opacity-75 dark:bg-black dark:bg-opacity-75 rounded-lg shadow-xl p-4 mx-auto inline-block text-center" style="backdrop-filter: blur(5px);">
+    <div class="bg-white bg-opacity-75 dark:bg-black dark:bg-opacity-75 rounded-lg shadow-xl p-4 mx-auto inline-block text-center bg-blur">
       <div class="prose prose-sm max-w-none dark:prose-dark opacity-75">
         <p class="text-xs md:text-sm"><strong>Note:</strong> These images are NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="pointer-events-auto">Tumblr</a>.</p>
       </div>
@@ -48,12 +48,12 @@ eleventyNavigation:
     <ol class="flex justify-between -mx-1 ">
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.first %}
-          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span><div></div></a>
+          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span></a>
         {% endif %}
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.previous %}
-          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span><div></div></a>
+          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span></a>
         {% endif %}
       </li>
       <li class="flex-auto justify-center items-center mx-1 flex w-4/12 sm:w-2/8">
@@ -67,12 +67,12 @@ eleventyNavigation:
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.next %}
-          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span><div></div></a>
+          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span></a>
         {% endif %}
       </li>
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.last %}
-          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span><div></div></a>
+          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span></a>
         {% endif %}
       </li>
     </ol>
