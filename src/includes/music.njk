@@ -18,7 +18,7 @@
         spotify.track.album.images[1].url,
         "f_auto",
         spotify.track.name + " - " + spotify.track.artists[0].name,
-        "w-full rounded-lg shadow-xl"
+        "w-full rounded-lg"
       %}
 
     </a>
@@ -55,8 +55,6 @@
     {%- for i in range(0, data.items.length) -%}
       {%- set spotify = data.items[i] -%}
       {# {% if loop.index < 7 %} #}
-
-      <div>
       <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2">
 
         <div
@@ -84,7 +82,6 @@
         </div>
 
       </a>
-      </div>
       {# {% endif %} #}
 
     {%- endfor -%}

@@ -19,7 +19,7 @@ eleventyNavigation:
       ["fedde", "Fedde", "w_80", "w-20"]
     ] %}
 
-    <div class="flex items-end mb-4 lg:mb-6 xl:mb-8 -mx-1">
+    <div class="flex items-end mb-4 lg:mb-6 xl:mb-8 -mx-1 pr-8">
     {% for filename, title, size, classes in family%}
       <div class="flex-initial mx-1">
       {% cloudinaryImage
@@ -45,7 +45,7 @@ eleventyNavigation:
     {% endset %}
 
     {{ section.fullbleed(
-      bgClasses = "bg-gradient-to-br from-green-100 to-blue-100 dark:from-purple-800 dark:to-pink-800 opacity-50",
+      bgClasses = "bg-gradient-to-br from-green-100 to-blue-200 dark:from-purple-800 dark:to-pink-800 opacity-50",
       content = skills
     )}}
 
@@ -83,7 +83,7 @@ eleventyNavigation:
     {% endset %}
 
     {{ section.fullbleed(
-      bgClasses = "bg-gradient-to-br from-gray-200 to-yellow-100 dark:from-blue-800 dark:to-green-800 opacity-50",
+      bgClasses = "bg-gradient-to-br from-gray-200 to-yellow-200 dark:from-blue-800 dark:to-green-800 opacity-50",
       content = work
     )}}
 
