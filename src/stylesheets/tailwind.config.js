@@ -40,7 +40,7 @@ module.exports = {
         DEFAULT: {
           css: [{
             color: theme('colors.gray.600'),
-            fontWeight: '500',
+            fontWeight: '400',
 
             '[class~="lead"]': {
               color: theme('colors.gray.600'),
