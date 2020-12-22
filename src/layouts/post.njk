@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{%- import "section.njk" as section -%}
 
 <div class="text-center pb-8 mx-auto px-4 max-w-screen-xl">
 
@@ -23,7 +24,7 @@
 </div>
 
   {% if featured_image %}
-    <div class="px-4 mx-auto max-w-7xl mb-8 xl:mb-16">
+    <div class="px-4 mx-auto max-w-7xl">
       {% cloudinaryImage
           site.url + featured_image  ,
           "f_auto,c_fill,g_faces:auto,h_640",
@@ -33,14 +34,17 @@
     </div>
   {% endif %}
 
-
-
-<div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-
-  <div class="h-1 bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 dark:from-purple-900 dark:via-pink-900 dark:to-red-900 rounded"></div>
+  {% set content %}
   <div class="py-8 lg:py-12 prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none">
-  {{ content | safe }}
+    {{ content | safe }}
   </div>
-</div>
+  {% endset %}
+
+  <div class="my-8 lg:mb-12">
+  {{ section.fullbleed(
+    bgClasses = "bg-gradient-to-br from-green-100 to-yellow-100 dark:from-purple-800 dark:to-blue-800 opacity-50",
+    content = content
+  )}}
+  </div>
 
 {% endblock %}

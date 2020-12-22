@@ -34,7 +34,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Tags"
         name: "tags"
         widget: "list"
-        default: ["post"]
+        default: ["blog"]
         required: true
       - label: "Featured Image"
         name: "featured_image"
