@@ -13,6 +13,7 @@ module.exports = {
   themeColor: '#000000',
   twitter: "@dydric",
   socialImage: "/static/images/social.jpg",
+  locale: "nl_NL",
 
   // COLLECTIONS
   rootCollections: 'blog',

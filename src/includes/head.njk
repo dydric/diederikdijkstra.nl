@@ -31,7 +31,7 @@
   {%- endif -%}
   <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
   <meta property="og:site_name" content="{{ site.name }}">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="{% if site.locale %}{{ site.locale }}{% else %}en_US{% endif %}">
   <meta property="article:author" content="{{ site.author.name }}">
 
   <meta name="twitter:card" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
