@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "ELEVENTY_PRODUCTION=true eleventy --quiet && eleventy --serve --quiet & postcss src/stylesheets/style.pcss --o _temp/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy --quiet && eleventy && NODE_ENV=production postcss src/stylesheets/style.pcss --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "build": "ELEVENTY_PRODUCTION=true eleventy --quiet && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/stylesheets/style.pcss --o _site/style.css && cleancss _site/style.css -o _site/style.css"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
