@@ -91,8 +91,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
   eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
-  eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280 ];
-  eleventyConfig.fallbackWidth = 640;
 
   eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes) {
     return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}">`;
