@@ -16,7 +16,10 @@ eleventyNavigation:
   <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}
 {% endif %} #}
 
-<div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-screen-2xl px-4">
+{%- import "section.njk" as section -%}
+
+{% set scrapbook %}
+<div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-screen-2xl px-8">
 
   <div class="grid gap-2 grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 max-w-full mb-8">
   {% for item in pagination.items %}
@@ -25,7 +28,6 @@ eleventyNavigation:
     </div>
   {% endfor %}
   </div>
-
 
   <div class="sticky bottom-8 text-center pointer-events-none">
 
@@ -38,6 +40,13 @@ eleventyNavigation:
   </div>
 
 </div>
+
+{% endset %}
+
+{{ section.fullbleed(
+  bgClasses = "bg-gradient-to-br from-yellow-100 to-blue-200 dark:from-green-800 dark:to-blue-800 opacity-50",
+  content = scrapbook
+)}}
 
 {% if pagination.href.first != pagination.href.last %}
 
