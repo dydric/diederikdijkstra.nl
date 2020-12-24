@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/static");
   eleventyConfig.addPassthroughCopy({
     "./_temp/style.css": "./style.css",
+    "./_redirects": "./_redirects",
     "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js"
   });
 
