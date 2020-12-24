@@ -19,23 +19,28 @@ renderData:
   title: 'Tagged: {{ tag | capitalize }}'
 ---
 
-<div class="mb-8 font-medium text-lg md:text-xl dark:text-white">
-  <span class="mr-1 xl:mr-2 ">Tags:</span>
+{%- import "section.njk" as section -%}
+
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-medium text-lg md:text-xl">
   {% for item in collections.tagList-%}
     {%- if item not in site.filterTags -%}
-      <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="mr-1 xl:mr-2 {% if tag == item %} text-green-500 dark:text-purple-500 underline{% else %}text-blue-400 hover:underline{% endif %}">#{{ item }}</a>
+      <a
+        href="{% if tag == item %}/blog/archive/{% else %}/{{ site.rootCollections}}/tags/{{ item }}/{% endif %}" class="rounded-md py-1 sm:py-2 px-2 text-white hover:underline {% if tag == item %}flex justify-between items-center bg-green-400 dark:bg-purple-600{% else %} bg-blue-400  dark:bg-blue-800  {% endif %}"><span>#{{ item }}</span> {% if tag == item %}<span class="no-underline text-white"><svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+</svg></span>{% endif %}</a>
     {% endif -%}
   {%- endfor -%}
 </div>
 
-<div class="rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700">
+{% set tags %}
+<div class="grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
 {% for post in collections[ tag ] | reverse %}
   {% if post.date.getTime() <= site.dateNow %}
-  <div class="px-4 py-2 {% if not loop.last %} border-b-2 border-gray-200 dark:border-gray-700{% endif %}">
+  <div class="py-2">
     <h3 class="text-xl md:text-2xl xl:text-3xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50">
       <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
     </h3>
-    <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 text-sm">{{ post.date | fullDate }}</time><br>
+    <time datetime="{{ post.date.toISOString() }}" class="text-green-500 dark:text-pink-500 font-semibold">{{ post.date | fullDate }}</time><br>
     {# {% for tag in post.data.tags -%}{%- if tag not in site.filterTags %}
       <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="font-medium text-sm text-blue-400  hover:underline">#{{ tag }}</a>
     {% endif -%}{%- endfor -%} #}
@@ -43,3 +48,10 @@ renderData:
   {% endif %}
 {% endfor %}
 </div>
+{% endset %}
+
+{{ section.fullbleed(
+  bgClasses = "bg-gradient-to-br from-green-50 to-blue-100 dark:from-purple-800 dark:to-pink-800 opacity-50",
+  content = tags
+)}}
+

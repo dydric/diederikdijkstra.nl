@@ -129,11 +129,11 @@ module.exports = {
         },
         dark: {
           css: [{
-            color: theme('colors.gray.400'),
+            color: theme('colors.gray.300'),
             fontWeight: '500',
 
             '[class~="lead"]': {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.300'),
             },
 
             a: {
@@ -144,7 +144,7 @@ module.exports = {
             },
 
             strong: {
-              color: theme('colors.gray.300'),
+              color: theme('colors.gray.200'),
             },
 
             hr: {
@@ -165,7 +165,7 @@ module.exports = {
             },
 
             'figure figcaption': {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.300'),
             },
 
             h1: {
@@ -195,11 +195,11 @@ module.exports = {
             },
 
             'pre code': {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.300'),
             },
 
             pre: {
-              color: theme('colors.gray.400'),
+              color: theme('colors.gray.300'),
               backgroundColor: theme('colors.gray.800'),
               borderColor: theme('colors.gray.700'),
             },
@@ -242,10 +242,11 @@ module.exports = {
     },
   },
   variants: {
+    backgroundOpacity: ['dark'],
     borderWidth: ['first'],
-    typography: ['responsive', 'dark'],
+    divideOpacity: ['dark'],
     opacity: ['group-hover', 'group-focus', 'dark'],
-    backgroundOpacity: ['dark']
+    typography: ['responsive', 'dark'],
   },
   plugins: [
     require('@tailwindcss/typography')(),
