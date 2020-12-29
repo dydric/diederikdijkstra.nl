@@ -2,36 +2,41 @@
 layout: page.njk
 title: 'Blog'
 permalink: '/{{ site.rootCollections}}/page-{{ pagination.pageNumber + 1 }}/'
+eleventyNavigation:
+  key: Blog
+  order: 2
 pagination:
   data: collections.posts
   size: 5
   reverse: false
 ---
 
-{# eleventyNavigation:
-  key: Blog
-  order: 2 #}
+{%- import "section.njk" as section -%}
+
+{% set cyc = cycler("order-first", "order-last") %}
 
 {% for post in pagination.items %}
-<div class="rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 mb-4 md:mb-8 overflow-hidden">
+
+{% set content %}
+<div class="lg:flex lg:flex-nowrap lg:justify-center lg:items-center lg:relative lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-screen lg:max-w-6xl lg:px-8">
 
     {% if post.data.featured_image %}
-    <div class="featured_image">
+    <a href="{{ post.url }}" class="featured_image lg:flex-auto lg:w-1/2 lg:px-4 {{ cyc.next() }}">
 
       {% cloudinaryImage
           site.url + post.data.featured_image  ,
-          "f_auto,c_fill,g_faces:auto,w_768,h_320",
+          "f_auto,c_fill,g_faces:auto,w_680",
           "afbeelding van " + post.data.title,
-          "block w-full rounded-t-lg"
+          "block w-full rounded-lg"
         %}
-    </div>
+    </a>
   {% endif %}
 
-  <div class="p-4 xl:p-8">
+  <div class="py-4 lg:p-4 lg:flex-auto lg:w-1/2 max-w-3xl">
     <h2 class="text-2xl md:text-3xl xl:text-4xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50 mb-1 xl:mb-2">
       <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
     </h2>
-    <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 text-sm md:text-base block">{{ post.date | fullDate }}</time>
+    <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 dark:text-gray-400 text-sm md:text-base block">{{ post.date | fullDate }}</time>
 
       {% if post.data.excerpt %}
         <div class="prose md:prose-lg dark:prose-dark max-w-none mt-2">
@@ -52,6 +57,13 @@ pagination:
     {% endif %}
   </div>
 </div>
+{% endset %}
+
+{{ section.fullbleed(
+  bgClasses = "bg-gradient-to-br from-green-100 to-yellow-100 dark:from-purple-800 dark:to-blue-800 opacity-50",
+  content = content
+)}}
+
 {% endfor %}
 
 {% if pagination.href.first != pagination.href.last %}

@@ -3,18 +3,19 @@ layout: page.njk
 title: 'Blog'
 permalink: '/{{ site.rootCollections}}/archive/'
 eleventyNavigation:
-  key: Blog
-  order: 2
+  parent: Blog
+  key: Archief
+  order: 1
 ---
 
 {%- import "section.njk" as section -%}
 
 
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-medium text-lg md:text-xl">
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
 
   {% for item in collections.tagList-%}
     {%- if item not in site.filterTags -%}
-      <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="rounded-md py-1 sm:py-2 px-2 bg-blue-400 dark:bg-blue-800 text-white hover:underline">#{{ item }}</a>
+      <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="rounded-md p-2 bg-blue-400 dark:bg-blue-800 text-white hover:underline">#{{ item }}</a>
     {% endif -%}
   {%- endfor -%}
 </div>
