@@ -247,6 +247,7 @@ module.exports = {
     divideOpacity: ['dark'],
     opacity: ['group-hover', 'group-focus', 'dark'],
     typography: ['responsive', 'dark'],
+    ringWidth: ['focus-visible'],
   },
   plugins: [
     require('@tailwindcss/typography')(),
