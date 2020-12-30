@@ -1,6 +1,3 @@
-{# {% set navPages = collections.all | eleventyNavigation %}
-{% set entryUrl = page.url.split("/")[1] %} #}
-
 <nav
   class="fixed top-0 left-0 right-0 z-50 transition duration-300 transform pt-10 lg:pt-20 pb-2 sm:pb-4 border-b border-transparent px-4"
   x-data="{ showNav: false, showPref: false, atTop: true, preference: localStorage.getItem('theme')}"
@@ -74,8 +71,8 @@
             {%- for name, value, state in options -%}
               <button
                 x-on:click="preference = '{{ value }}'"
-                x-bind:tabindex=" showNav ? '-1' : '0' "
-                class="block text-left relative w-full font-medium cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 border-t-2 first:border-0 border-gray-300 dark:border-gray-600">
+                x-bind:tabindex=" showPref ? '3' : '-1' "
+                class="block text-left relative w-full font-medium cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 border-t-2 first:border-0 border-gray-300 dark:border-gray-600 focus:ring-2 ring-offset-4 ring-offset-pink-200 dark:ring-offset-pink-800 ring-pink-500 focus:outline-none rounded">
                   <span
                     class="block py-2 px-4"
                     :class="{
@@ -110,20 +107,76 @@
             'translate-y-0 opacity-100' : showNav,
             'translate-y-8 pointer-events-none' : !showNav
           }">
-          {{ collections.all | eleventyNavigation | eleventyNavigationToHtml(
+
+
+          {% set navPages = collections.all | eleventyNavigation %}
+          {% set entryUrl = page.url.split("/")[1] %}
+
+          <ul class="navlist rounded-lg shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
+
+            {%- for entry in navPages %}
+              {% set parentKey = "" %}
+              {% for entry in entry.children %}
+                {% if entry.url == page.url %}
+                  {% set parentKey = entry.parentKey %}
+                {% endif %}
+              {% endfor %}
+
+              <li class="block relative w-full font-medium cursor-pointer border-t-2 border-gray-300 first:border-0 dark:border-gray-600">
+                <a
+                  x-bind:tabindex=" showNav ? '2' : '-1' "
+                  href="{{ entry.url | url }}"
+                  class="
+                    block py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 focus:ring-2 ring-offset-4 ring-offset-pink-200 dark:ring-offset-pink-800 ring-pink-500 focus:outline-none rounded
+                    {% if (entry.url == page.url) or (entry.title == parentKey) or (entry.title | lower in entryUrl) %}
+                      text-pink-600 dark:text-pink-600 font-bold
+                    {% endif %}
+                  ">
+                  {# {{ entryUrl }} - #} {{ entry.title }}
+                </a>
+
+                {# {% if (entry.url == page.url) or (entry.title == parentKey) %} #}
+                  {% for entry in entry.children %}
+                    {% if loop.first %}
+                      <ul class="submenu">
+                    {% endif %}
+                      <li class="block">
+                        <a
+                          x-bind:tabindex=" showNav ? '2' : '-1' "
+                          href="{{ entry.url | url }}"
+                          class="
+                            block py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 focus:ring-2 ring-offset-4 ring-offset-pink-200 dark:ring-offset-pink-800 ring-pink-500 focus:outline-none rounded
+                            {% if (entry.url == page.url) %}
+                              text-pink-600 dark:text-pink-600 font-bold
+                            {% endif %}
+                        ">
+                          {{ entry.title }}
+                        </a>
+                      </li>
+                  {% if loop.last %}
+                    </ul>
+                  {% endif %}
+                {% endfor %}
+              {# {% endif %} #}
+            </li>
+          {%- endfor %}
+        </ul>
+
+
+
+          {# {{ collections.all | eleventyNavigation | eleventyNavigationToHtml(
             {
               listClass: "rounded-lg shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600",
               listItemClass: "block relative w-full font-medium cursor-pointer border-t-2 border-gray-300 first:border-0 dark:border-gray-600",
               listItemHasChildrenClass: "nav-parent",
-              anchorClass: "block py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300",
+              anchorClass: "block py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 focus:ring-2 ring-offset-4 ring-offset-pink-200 dark:ring-offset-pink-800 ring-pink-500 focus:outline-none rounded",
               activeListItemClass: "",
               activeAnchorClass: "text-pink-600 dark:text-pink-600 font-bold",
               activeKey: eleventyNavigation.key
             }
-          ) | safe }}
+          ) | safe }} #}
         </div>
       </li>
     </ul>
   </div>
-
 </nav>
