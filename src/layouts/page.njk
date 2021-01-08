@@ -15,7 +15,7 @@
 
     {% if description %}
       <div class="mt-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
-        {{ description | safe | toHTML }}
+        {{ description | toHTML | safe  }}
       </div>
     {% endif %}
 
