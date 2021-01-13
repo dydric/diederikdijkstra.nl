@@ -37,7 +37,7 @@ renderData:
 {% for post in collections[ tag ] | reverse %}
   {% if post.date.getTime() <= site.dateNow %}
   <div class="py-2">
-    <h3 class="text-xl md:text-2xl xl:text-3xl leading-none font-bold tracking-tight text-gray-900 dark:text-gray-50">
+    <h3 class="text-xl md:text-2xl xl:text-3xl leading-tight font-bold tracking-tight text-gray-900 dark:text-gray-50">
       <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
     </h3>
     <time datetime="{{ post.date.toISOString() }}" class="text-green-500 dark:text-pink-500 font-semibold">{{ post.date | fullDate }}</time><br>

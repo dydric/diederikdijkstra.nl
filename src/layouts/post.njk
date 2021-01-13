@@ -4,7 +4,7 @@
 
 {%- import "section.njk" as section -%}
 
-<div class="text-center pb-8 mx-auto px-4 max-w-screen-xl">
+<div class="text-center pb-4 lg:pb-8 mx-auto px-4 max-w-screen-xl">
 
   <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mt-4 sm:mt-8">{{ title }}</h1>
 
@@ -24,7 +24,7 @@
 </div>
 
   {% if featured_image %}
-    <div class="px-4 mx-auto max-w-7xl">
+    <div class="mx-auto max-w-7xl mb-8 lg:mb-12">
       {% cloudinaryImage
           site.url + featured_image  ,
           "f_auto,c_fill,g_faces:auto,h_640",
@@ -35,16 +35,16 @@
   {% endif %}
 
   {% set content %}
-  <div class="py-8 lg:py-12 prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none">
+  <div class="prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none">
     {{ content | safe }}
   </div>
   {% endset %}
 
-  <div class="my-8 lg:mb-12">
-  {{ section.fullbleed(
-    bgClasses = "bg-gradient-to-br from-green-100 to-yellow-100 dark:from-purple-800 dark:to-blue-800 opacity-50",
-    content = content
-  )}}
+  <div class="mb-8 lg:mb-12 xl:mb-16">
+    {{ section.fullbleed(
+      bgClasses = "bg-gradient-to-br from-green-100 to-yellow-100 dark:from-purple-800 dark:to-blue-800 opacity-50",
+      content = content
+    )}}
   </div>
 
 {% endblock %}

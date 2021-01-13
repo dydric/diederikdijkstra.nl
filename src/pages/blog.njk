@@ -20,15 +20,14 @@ pagination:
 {% set content %}
 <div class="lg:flex lg:flex-nowrap lg:justify-center lg:items-center lg:relative lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-screen lg:max-w-6xl lg:px-8">
 
-    {% if post.data.featured_image %}
+  {% if post.data.featured_image %}
     <a href="{{ post.url }}" class="featured_image lg:flex-auto lg:w-1/2 lg:px-4 {{ cyc.next() }}">
-
       {% cloudinaryImage
           site.url + post.data.featured_image  ,
           "f_auto,c_fill,g_faces:auto,w_680",
           "afbeelding van " + post.data.title,
           "block w-full rounded-lg"
-        %}
+      %}
     </a>
   {% endif %}
 
