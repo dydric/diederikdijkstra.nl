@@ -2,21 +2,39 @@
   data = playlist
 ) %}
 
-  <div class="grid divide-y-2 divide-white dark:divide-gray-900">
+  <div class="grid divide-y-2 divide-white dark:divide-gray-900" >
 
     {%- for i in range(0, data.items.length) -%}
       {%- set spotify = data.items[i] -%}
-      {# {% if loop.index < 7 %} #}
-      <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2">
+      {#
 
-        <div
-          class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
+        {% if loop.index < 7 %}
+
+        {{ spotify.track.external_urls.spotify }}
+
+      #}
+
+      {# <a href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2"> #}
+
+      <div class="group flex w-full py-2" x-data='{ play: false }' x-init="
+              $watch('play', value => {
+                if(play) {
+                  $refs.track{{loop.index}}.play();
+                } else {
+                  $refs.track{{loop.index}}.pause();
+                }
+              });
+            ">
+
+        <div class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
+          <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
           {% cloudinaryImage
             spotify.track.album.images[1].url,
             "f_auto",
             spotify.track.name + " - " + spotify.track.artists[0].name,
             "w-full block rounded my-1"
           %}
+          </a>
         </div>
 
         <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
@@ -33,7 +51,22 @@
           {# {{ spotify.added_at }} #}
         </div>
 
-      </a>
+        {% if  spotify.track.preview_url %}
+          <div class="block flex-initial flex-shrink-0 self-center w-8 sm:w-10 m-0">
+            <button class="rounded-full focus:outline-none text-blue-500 dark:text-blue-300 hover:text-opacity-70"
+              @click="play = !play"
+              @click.away="play = false"
+            >
+              <svg :class="{ 'hidden': play, 'block': !play }" class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg :class="{ 'hidden': !play, 'block': play }" class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </button>
+            <audio class="hidden" x-ref="track{{loop.index}}">
+              <source src="{{ spotify.track.preview_url }}" type="audio/mpeg" />
+            </audio>
+          </div>
+        {% endif %}
+
+      </div>
       {# {% endif %} #}
 
     {%- endfor -%}
