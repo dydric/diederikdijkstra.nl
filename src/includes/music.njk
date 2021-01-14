@@ -18,10 +18,16 @@
 
       <div class="group flex w-full py-2" x-data='{ play: false }' x-init="
               $watch('play', value => {
+
+                currentTrack = $refs.track{{loop.index}};
+
                 if(play) {
-                  $refs.track{{loop.index}}.play();
+                  currentTrack.play();
+                  {# currentTrackTO = setTimeout('currentTrack.pause(); play = false;', 30000); #}
                 } else {
-                  $refs.track{{loop.index}}.pause();
+                  currentTrack.pause();
+                  currentTrack.currentTime=0;
+                  {# clearTimeout(currentTrackTO); #}
                 }
               });
             ">
