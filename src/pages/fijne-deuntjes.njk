@@ -8,6 +8,13 @@ eleventyNavigation:
   order: 3
 ---
 
+{% cloudinaryImage
+  site.url + "/static/images/fijne-deuntjes.png",
+  "f_auto,c_fill,g_faces:auto,w_1280",
+  "Fijne Deuntjes screenshot",
+  "mb-8 lg:mb-12 xl:mb-16 rounded shadow-lg"
+%}
+
 {%- import "section.njk" as section -%}
 {%- import "music.njk" as music with context -%}
 
