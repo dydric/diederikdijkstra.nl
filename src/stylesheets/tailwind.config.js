@@ -34,6 +34,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        serif: ['Merriweather var', ...defaultTheme.fontFamily.serif],
       },
 
       typography: (theme) => ({

@@ -4,7 +4,7 @@
 
 {%- import "section.njk" as section -%}
 
-<div class="text-center pb-4 lg:pb-8 mx-auto px-4 max-w-screen-xl">
+<div class="text-center pb-4 lg:pb-8 mx-auto px-4 max-w-screen-xl font-serif">
 
   <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mt-4 sm:mt-8">{{ title }}</h1>
 
@@ -35,7 +35,7 @@
   {% endif %}
 
   {% set content %}
-  <div class="prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none">
+  <div class="prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none font-serif">
     {{ content | safe }}
   </div>
   {% endset %}
