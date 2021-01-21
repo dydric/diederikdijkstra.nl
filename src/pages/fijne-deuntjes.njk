@@ -12,13 +12,14 @@ eleventyNavigation:
   site.url + "/static/images/fijne-deuntjes.png",
   "f_auto,c_fill,g_faces:auto,w_1280",
   "Fijne Deuntjes screenshot",
-  "mb-8 lg:mb-12 xl:mb-16 rounded shadow-lg"
+  "-mb-8 rounded-lg shadow-lg z-20 relative"
 %}
 
 {%- import "section.njk" as section -%}
 {%- import "music.njk" as music with context -%}
 
 {{ section.fullbleed(
+  contentClasses = "mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl pt-4 sm:pt-8",
   content = music.list()
 )}}
 
