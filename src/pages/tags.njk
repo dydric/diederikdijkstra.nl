@@ -21,7 +21,7 @@ renderData:
 
 {%- import "section.njk" as section -%}
 
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
+<div class="font-serif grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
   {% for item in collections.tagList-%}
     {%- if item not in site.filterTags -%}
       <a
@@ -33,7 +33,7 @@ renderData:
 </div>
 
 {% set tags %}
-<div class="grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
+<div class="font-serif grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
 {% for post in collections[ tag ] | reverse %}
   {% if post.date.getTime() <= site.dateNow %}
   <div class="py-2">

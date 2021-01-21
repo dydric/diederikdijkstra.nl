@@ -18,7 +18,7 @@ pagination:
 {% for post in pagination.items %}
 
 {% set content %}
-<div class="lg:flex lg:flex-nowrap lg:justify-center lg:items-center lg:relative lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-screen lg:max-w-6xl lg:px-8">
+<div class="font-serif lg:flex lg:flex-nowrap lg:justify-center lg:items-center lg:relative lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-screen lg:max-w-6xl lg:px-8">
 
   {% if post.data.featured_image %}
     <a href="{{ post.url }}" class="featured_image lg:flex-auto lg:w-1/2 lg:px-4 {{ cyc.next() }}">

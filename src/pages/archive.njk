@@ -11,7 +11,7 @@ eleventyNavigation:
 {%- import "section.njk" as section -%}
 
 
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
+<div class="font-serif grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
 
   {% for item in collections.tagList-%}
     {%- if item not in site.filterTags -%}
@@ -21,7 +21,7 @@ eleventyNavigation:
 </div>
 
 {% set archive %}
-<div class="grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
+<div class="font-serif grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
 {% for post in collections.posts %}
   <div class="py-2">
     <h3 class="text-xl md:text-2xl xl:text-3xl leading-tight font-bold tracking-tight text-gray-900 dark:text-gray-50">
