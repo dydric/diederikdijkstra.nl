@@ -5,7 +5,7 @@
   {%- import "section.njk" as section -%}
 
 
-  <div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+  <div class="{%if classes %}{{ classes }} {% endif %}my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
 
     {% if renderData.title or title %}
       <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
