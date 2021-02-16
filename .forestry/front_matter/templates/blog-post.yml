@@ -7,6 +7,11 @@ fields:
   config:
     required: true
   label: Title
+- name: featured_image
+  type: file
+  config:
+    maxSize: 64
+  label: Featured image
 - name: date
   type: datetime
   label: Date
