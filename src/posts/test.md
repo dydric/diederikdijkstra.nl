@@ -9,7 +9,7 @@ content: Lorem ipsum dolor sit amet consectetur adipiscing elit, lobortis accums
   sem urna conubia imperdiet. Consequat fringilla vulputate facilisi cum erat cras
   orci felis hendrerit, ac est lorem tortor lacus id ligula iaculis ipsum, viverra
   interdum fermentum imperdiet tristique facilisis turpis nibh.
-date: yyyy-00-Mo
+date: 2021-02-15
 tags:
 - blog
 - test
