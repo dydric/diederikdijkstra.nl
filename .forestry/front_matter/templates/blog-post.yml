@@ -7,5 +7,16 @@ fields:
   config:
     required: true
   label: Title
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: true
+    date_format: mm/dd/yyyy
+    time_format: 
+    display_utc: false
+    export_format: yyyy-mm-dd
+  default: now
 pages:
 - src/posts/test.md
