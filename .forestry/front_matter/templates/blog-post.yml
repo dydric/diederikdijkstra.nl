@@ -18,5 +18,9 @@ fields:
     display_utc: false
     export_format: yyyy-mm-dd
   default: now
+- name: tags
+  type: tag_list
+  default: []
+  label: tags
 pages:
 - src/posts/test.md
