@@ -57,3 +57,10 @@ fields:
   showOnly:
     field: type
     value: link
+- name: images
+  type: image_gallery
+  config: {}
+  label: Images
+  showOnly:
+    field: type
+    value: photo
