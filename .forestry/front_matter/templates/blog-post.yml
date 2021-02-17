@@ -33,6 +33,9 @@ fields:
   config:
     maxSize: 64
   label: Featured image
+  showOnly:
+    field: type
+    value: article
 - name: date
   type: datetime
   label: Date
