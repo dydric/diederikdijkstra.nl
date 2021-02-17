@@ -8,6 +8,26 @@ fields:
   config:
     required: true
   label: Title
+- name: type
+  type: select
+  default: article
+  config:
+    required: false
+    options:
+    - text
+    - photo
+    - quote
+    - music
+    - chat
+    - video
+    - link
+    - article
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
 - name: featured_image
   type: file
   config:
@@ -29,3 +49,11 @@ fields:
   default:
   - blog
   label: Tags
+- name: link
+  type: text
+  config:
+    required: false
+  label: Link
+  showOnly:
+    field: type
+    value: link
