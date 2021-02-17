@@ -67,3 +67,5 @@ fields:
   showOnly:
     field: type
     value: photo
+pages:
+- src/posts/test.md
