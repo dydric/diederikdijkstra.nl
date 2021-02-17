@@ -53,7 +53,12 @@
   <meta name="msapplication-TileColor" content="#222222">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="stylesheet" href="/style.css?v={% cacheBuster %}"/>
+  {% if ELEVENTY_PRODUCTION == preview %}
+    <link rel="stylesheet" href="{{ site.url }}/style.css?v={% cacheBuster %}"/>
+  {% else %}
+    <link rel="stylesheet" href="/style.css?v={% cacheBuster %}"/>
+  {% endif %}
+
 
   <script src="/js/alpine.js?v={% cacheBuster %}"></script>
   <script>
