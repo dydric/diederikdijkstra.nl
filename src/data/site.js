@@ -8,6 +8,7 @@ module.exports = {
   authorEmail: 'diederikdijkstra@icloud.com',
   lang: "nl",
   dateNow: Date.now(),
+  env: process.env.ELEVENTY_PRODUCTION,
 
   // SOCIAL
   themeColor: '#000000',
