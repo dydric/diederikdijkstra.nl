@@ -1,13 +1,13 @@
 ---
 layout: page.njk
-title: Scrapbook
-description: Collecting things is an art form too ✌🏻
-permalink: /scrapbook/page-{{ pagination.pageNumber + 1 }}/
+title: Mooie plaatjes
+description: Het internet staat vol met mooie plaatjes. Prentjes ter inspiratie. Elke dag (automatisch) bijgewerkt ✌🏻.
+permalink: /mooie-plaatjes/page-{{ pagination.pageNumber + 1 }}/
 pagination:
   data: tumblr
   size: 60
 eleventyNavigation:
-  key: Scrapbook
+  key: Mooie plaatjes
   order: 4
 ---
 
@@ -24,7 +24,7 @@ eleventyNavigation:
   <div class="grid gap-2 grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 max-w-full mb-8">
   {% for item in pagination.items %}
     <div class="flex items-end">
-      <a href="/scrapbook/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
+      <a href="/image/{{ item.id }}/index.html" class="rounded-lg overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
     </div>
   {% endfor %}
   </div>
