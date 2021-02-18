@@ -11,7 +11,9 @@
 
   <div class="flex items-center justify-between mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
 
-    <a href="/" tabindex="1" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight transition-colors duration-300 outline-none text-blue-600 text-gradient bg-gradient-to-br from-blue-400 to-purple-900 dark:from-blue-600 dark:to-purple-500 border-b-4 border-transparent focus:border-gray-300 dark:focus:border-gray-400"
+    <a href="/"
+    tabindex="1"
+    class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight transition-colors duration-300 outline-none text-blue-600 text-gradient bg-gradient-to-br from-blue-400 to-purple-900 dark:from-blue-600 dark:to-purple-500 border-b-4 border-transparent focus:border-gray-300 dark:focus:border-gray-400"
     {# :class="{
       'text-blue-600 hover:text-green-600' : atTop,
       'text-green-500 dark:text-green-600 hover:text-blue-600' : !atTop
@@ -27,7 +29,7 @@
           x-bind:aria-label="showPref ? 'Menu sluiten' : 'Menu openen'"
           x-bind:aria-expanded="showPref"
           class="button
-          text-yellow-500 dark:text-yellow-500 border-gray-300
+          text-yellow-500 dark:text-yellow-500 border-gray-300 hover:border-gray-500 dark:hover:border-gray-400
           focus-visible:ring-2 ring-offset-1 ring-pink-500
           bg-white
         ">
