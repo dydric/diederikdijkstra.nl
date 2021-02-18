@@ -2,14 +2,15 @@
 layout: page.njk
 title: 'Blog'
 permalink: '/{{ site.rootCollections}}/page-{{ pagination.pageNumber + 1 }}/'
-eleventyNavigation:
-  key: Blog
-  order: 2
 pagination:
   data: collections.posts
   size: 5
   reverse: false
 ---
+
+{# eleventyNavigation:
+  key: Blog
+  order: 2 #}
 
 {%- import "section.njk" as section -%}
 
