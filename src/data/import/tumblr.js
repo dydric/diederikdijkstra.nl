@@ -1,4 +1,4 @@
-if ( process.env.ELEVENTY_PRODUCTION == true) {
+if ( process.env.ELEVENTY_PRODUCTION) {
 
   const fs = require('fs');
   const tumblr = require('tumblr');
