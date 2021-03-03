@@ -47,16 +47,6 @@ collections: # A list of collections the CMS should be able to edit
         name: "image_caption"
         widget: "string"
         required: false
-      - label: "Hide Image"
-        name: "hide_thumbnail"
-        widget: "boolean"
-        default: false
-        required: false
-      - label: "Image Position"
-        name: "image_position"
-        widget: "select"
-        options: ["default", "aside"]
-        required: false
       - label: "Body"
         name: "body"
         widget: "markdown"
