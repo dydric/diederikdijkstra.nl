@@ -14,9 +14,9 @@
         var entry = this.props.entry;
         var image = entry.getIn(['data', 'image']);
         var bg = this.props.getAsset(image);
-        return h('div', {"className": "text prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none font-serif"},
+        return h('div', {"className": "text prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none font-serif mx-auto max-w-7xl px-4"},
           h('h1', {}, entry.getIn(['data', 'title'])),
-          h('img', {src: bg.toString()}),
+          // h('img', {src: bg.toString()}),
           h('div', {"className": "text"}, this.props.widgetFor('body'))
         );
       }
