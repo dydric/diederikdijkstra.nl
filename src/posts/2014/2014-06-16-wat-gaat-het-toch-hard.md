@@ -5,7 +5,7 @@ tags:
   - blog
   - familie
 image_position: aside
-featured_image: /static/images/uploads/elin-fedde-speelkleed.jpeg
+thumbnail: /static/images/uploads/elin-fedde-speelkleed.jpeg
 image_caption: Elin en Fedde op speelkleed
 ---
 Fedde die loopt maar en die loopt maar. Als hij eten ziet, gaan z'n oogjes glimmen. Wel alles zelf doen. Dat gaat best goed, maar af en toe zit het eten bij de muren omhoog! Als het dan heel heel lekker is, knijpt hij z'n oogjes dicht en gooit hij z'n hoofd naar achteren. Momenteel is het WK voetbal bezig. Wat blijkt: Fedde is super handig met de bal. Vasthouden in 1 hand, gooien of dribbelen aan de voet, het is allemaal de gewoonste zaak van de wereld! Een andere kwaliteit van 'm is trommelen... Het maakt niet uit waarmee, maar Fedde laat van zich horen! En klappen in z'n handjes (of z'n zus meppen) kan hij ook ;)

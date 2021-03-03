@@ -4,8 +4,8 @@ date: 2020-09-20
 tags:
   - blog
   - wielrennen
-featured_image: /static/images/uploads/jumbo-visma-trein-pogacar.jpg
-hide_featured_image: true
+thumbnail: /static/images/uploads/jumbo-visma-trein-pogacar.jpg
+hide_thumbnail: true
 ---
 
 Vandaag rijdt het peloton over des Champs-Élysées. Dat het hele wielercircus Parijs heeft gehaald is eigenlijk al een wonder. Sommige dagen stond het langs het parcours zwart van de mensen. Ondertussen stegen in Frankrijk de corona-besmettingen in een recordtempo. De besmettingen in de teambubbels bleven gelukkig uit. Geen enkele renner testte positief. Enkel tourbaas Prudhomme moest na de eerste rustdag een week in quarantaine.

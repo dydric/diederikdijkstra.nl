@@ -30,12 +30,12 @@ pagination:
     </h2>
     <time datetime="{{ post.date.toISOString() }}" class="text-gray-500 dark:text-gray-400 text-sm md:text-base block">{{ post.date | fullDate }}</time>
 
-    {% if post.data.featured_image %}
+    {% if post.data.thumbnail %}
       <div class="flex flex-wrap">
         <div class="flex-auto flex-shrink-0 my-4 mr-4 w-full">
-          <a href="{{ post.url }}" class="featured_image">
+          <a href="{{ post.url }}" class="thumbnail">
             {% cloudinaryImage
-                site.url + post.data.featured_image  ,
+                site.url + post.data.thumbnail  ,
                 "f_auto,c_fill,g_faces:auto,h_320",
                 "afbeelding van " + post.data.title,
                 "block w-full max-w-xs rounded-lg"
@@ -63,7 +63,7 @@ pagination:
         </div>
       {% endif %}
 
-    {% if post.data.featured_image %}
+    {% if post.data.thumbnail %}
       </div>
     </div>
     {% endif %}

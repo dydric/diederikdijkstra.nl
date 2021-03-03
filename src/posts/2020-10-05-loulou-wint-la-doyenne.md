@@ -4,8 +4,8 @@ date: 2020-10-05
 tags:
   - blog
   - wielrennen
-featured_image: /static/images/uploads/loulou-ladoyenne2020.jpg
-hide_featured_image: true
+thumbnail: /static/images/uploads/loulou-ladoyenne2020.jpg
+hide_thumbnail: true
 ---
 
 Het was een heerlijke sportzondag met als toetje een spectaculaire finale om u tegen te zeggen in de klassieker Luik Bastenaken Luik. Matthieu van der Poel kon helaas niet mee en zat vlak achter de koplopers in de achtervolging. De smaakmakers van de Tour: Pogacar, Roglic, Hirschi en Alaphilippe mogen het met elkaar gaan uitvechten in de laatste kilometers. En Hoe!!!!
@@ -16,10 +16,10 @@ Het werd de finale die Hirschi eigenlijk zou hebben gewonnen. Maar door een gekk
 
 Kijk nog een keer mee naar deze ontknoping:
 
-https://www.youtube.com/watch?v=G9juEMBTWZQ
+<https://www.youtube.com/watch?v=G9juEMBTWZQ>
 
 Ook mooi:
 
-https://www.youtube.com/watch?v=SYW5BXw2pKM
+<https://www.youtube.com/watch?v=SYW5BXw2pKM>
 
 <small>Hoofdfoto credit: ASO/Thomas Maheux</small>

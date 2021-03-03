@@ -4,7 +4,7 @@ date: 2020-10-26
 tags:
   - blog
   - wielrennen
-featured_image: /static/images/uploads/giro-tao.jpg
+thumbnail: /static/images/uploads/giro-tao.jpg
 ---
 
 De Giro in oktober. Kan de mooiste ronde ook in deze drukke wielermaand weer voor een sensatie zorgen? Gaat de Giro Milaan wel halen nu de corona besmettingen weer oplopen? Het antwoord is één hele grote JA.

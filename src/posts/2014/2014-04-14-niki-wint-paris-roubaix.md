@@ -4,8 +4,8 @@ date: 2014-04-14T14:24:00.000Z
 tags:
   - blog
   - wielrennen
-hide_featured_image: true
-featured_image: /static/images/uploads/niki-wint.jpg
+hide_thumbnail: true
+thumbnail: /static/images/uploads/niki-wint.jpg
 image_caption: Niki wint
 ---
 Gisteren was de hel van het noorden. Het was fantastisch, alle toppers lieten zich van voren zien. Het was een ware veldslag met nog meer aanslagen dan vorige week in De Ronde. Veel renners met pech, natuurlijk veel lekke banden door de slechte kasseistroken, maar ook veel valpartijen. Vooral achterin het peloton was het vaak raak.

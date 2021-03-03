@@ -4,8 +4,8 @@ date: 2016-06-11T15:25:00.000Z
 tags:
   - blog
   - wielrennen
-hide_featured_image: true
-featured_image: /static/images/uploads/dumoulin-tour2016.jpg
+hide_thumbnail: true
+thumbnail: /static/images/uploads/dumoulin-tour2016.jpg
 image_caption: Dumoulin wint koninginnenrit
 ---
 Nog een beetje brak van de fantastische bruiloft van Anke en Benjamin lig ik zondag half in te dutten op de bank. De Tour staat aan. De koninginnenrit! En wat voor één…

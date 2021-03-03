@@ -6,7 +6,7 @@ tags:
   - wielrennen
   - ik
 image_position: aside
-featured_image: /static/images/uploads/bliksem-kerk.jpeg
+thumbnail: /static/images/uploads/bliksem-kerk.jpeg
 image_caption: Kerk
 ---
 ‘Ga maar’, zei Lotte. Ik kleed me snel om. Ze had wel door dat ik ongeduldig was. Ik wilde graag nog even fietsen, maar het weer werd slechter. Ik keek op buienradar en zag een rode sliert aan de westkant van Leeuwarden. Daar moet ik dus niet langs. Als ik net Leeuwarden uit rijd, zie ik in de verte een bliksemschicht in een mast slaan. Er hangen dreigende wolken boven. Ik heb last van de vliegjes die tegen m’n hoofd vliegen en doe voor de zekerheid m’n zonnebril op. Ik kom veel tegenliggers op de racefiets tegen. Ze zijn op weg naar huis. Ik hoor één zeggen tegen zijn fietsmaat ‘die zonnebril kan wel af, zag je dat’? Ik lach, maar het kan me niks verrotten. Ik heb vorig jaar zo’n last gehad van een vlieg die ik er maar niet uit kreeg.

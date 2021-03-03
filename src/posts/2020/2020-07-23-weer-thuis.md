@@ -5,7 +5,7 @@ tags:
   - blog
   - familie
   - vakantie
-featured_image: /static/images/uploads/frankrijk2020.jpg
+thumbnail: /static/images/uploads/frankrijk2020.jpg
 ---
 De vakantie zit er voor ons weer op. We zijn net terug van twee weken 'kamperen' in Frankrijk en aansluitend nog een paar dagen in Beekse Bergen gezellig met mijn familie.
 

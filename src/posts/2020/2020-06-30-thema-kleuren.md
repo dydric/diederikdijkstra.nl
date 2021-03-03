@@ -5,7 +5,7 @@ tags:
   - blog
   - redesign
   - dev
-featured_image: /static/images/uploads/styleguide.jpg
+thumbnail: /static/images/uploads/styleguide.jpg
 ---
 
 Voor jezelf iets maken is leuk, maar ook lastig. Persoonlijk vind ik het ingewikkelder dan voor betaalde opdrachten. Daarom heb ik de laatste keren steeds naar een (simpel) thema gezocht. Van daar uit ontwikkeld vanzelf wel wat. Die kennis heb ik onderhand wel opgedaan en geeft ook een bepaalde gemoedsrust.

@@ -26,8 +26,8 @@
   <meta property="og:url" content="{{ site.url}}{{ page.url }}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}">
-  {% if site.socialImage or featured_image -%}
-  <meta property="og:image" content="{% if featured_image %}{{ featured_image }}{% else %}{{ site.socialImage }}{% endif %}" />
+  {% if site.socialImage or thumbnail -%}
+  <meta property="og:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ site.socialImage }}{% endif %}" />
   {%- endif -%}
   <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
   <meta property="og:site_name" content="{{ site.name }}">
@@ -40,8 +40,8 @@
   <meta name="twitter:url" content="{{ site.url}}{{ page.url }}">
   <meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}">
   <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-  {% if site.socialImage or featured_image -%}
-  <meta name="twitter:image" content="{% if featured_image %}{{ featured_image }}{% else %}{{ site.socialImage }}{% endif %}">
+  {% if site.socialImage or thumbnail -%}
+  <meta name="twitter:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ site.socialImage }}{% endif %}">
   {%- endif %}
   <meta name="twitter:dnt" content="on"> <!-- disallow Twitter from using your site's info for personalization purposes -->
 

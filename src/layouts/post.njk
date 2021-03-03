@@ -23,10 +23,10 @@
   </p>
 </div>
 
-  {% if featured_image %}
+  {% if thumbnail %}
     <div class="mx-auto max-w-7xl">
       {% cloudinaryImage
-          site.url + featured_image  ,
+          site.url + thumbnail  ,
           "f_auto,c_fill,g_faces:auto,h_640",
           "afbeelding van " + title,
           "block max-w-full mx-auto my-2 rounded-lg"
