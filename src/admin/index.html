@@ -17,7 +17,7 @@
         return h('div', {},
           h('h1', {}, entry.getIn(['data', 'title'])),
           h('img', {src: bg.toString()}),
-          h('div', {"className": "text"}, this.props.widgetFor('body'))
+          h('div', {"className": "text prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none font-serif"}, this.props.widgetFor('body'))
         );
       }
     });
