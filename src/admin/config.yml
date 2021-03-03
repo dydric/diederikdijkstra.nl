@@ -37,7 +37,7 @@ collections: # A list of collections the CMS should be able to edit
         default: ["blog"]
         required: true
       - label: "Featured Image"
-        name: "featured_image"
+        name: "thumbnail"
         widget: "image"
         media_library:
           config:
@@ -48,7 +48,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: "string"
         required: false
       - label: "Hide Image"
-        name: "hide_featured_image"
+        name: "hide_thumbnail"
         widget: "boolean"
         default: false
         required: false
