@@ -4,7 +4,7 @@ module.exports = {
   name: "Diederik",
   description: "Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.",
   url: "https://diederikdijkstra.nl", // Don't end with a slash /
-  authorName: 'Diederik Dijkstra',
+  authorName: 'Diederik',
   authorEmail: 'diederikdijkstra@icloud.com',
   lang: "nl",
   dateNow: Date.now(),
