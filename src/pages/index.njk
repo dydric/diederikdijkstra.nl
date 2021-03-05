@@ -9,139 +9,44 @@ eleventyNavigation:
 
 {% block content %}
 
-  {%- import "section.njk" as section -%}
+  <section>
+    <h1>Diederik woont in Leeuwarden met Lotte, Elin en Fedde.
+      Werkt als <a href="/developer/" class="link">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
+  </section>
 
-  <div class="mb-16 lg:mb-24 xl:mb-32">
-    {# {% set family= [
-      ["diederik", "Diederik", "w_120", "w-32"],
-      ["lotte", "Lotte", "w_100", "w-24"],
-      ["elin", "Elin", "w_80", "w-20"],
-      ["fedde", "Fedde", "w_80", "w-20"]
-    ] %}
+  <section>
+    <h2>Laatste berichten:</h2>
+    <ul>
+      {%- set latestposts = collections.posts | limit(3) -%}
+      {%- for post in latestposts %}
+      <li>
+        {% set url = "/blog/page-1" -%}
+        {%- if loop.index > 1 -%}
+          {%- set url = url + "#" + post.data.title | slug -%}
+        {%- endif -%}
+        <a href="{{ url }}">{{ post.data.title }}</a>
+        <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
 
-    <div class="flex items-end mb-4 lg:mb-6 xl:mb-8 -mx-1 pr-8">
-    {% for filename, title, size, classes in family%}
-      <div class="flex-initial mx-1">
-      {% cloudinaryImage
-        site.url + "/static/images/home/" + filename + ".png",
-        "f_auto,dpr_2.0," + size,
-        title,
-        "rounded-full " + classes
-      %}
-      </div>
-    {% endfor %}
-    </div> #}
-    <div class="mb-6 lg:mb-8 xl:mb-12">
-      <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
-        Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als developer bij TRES. Gespecialiseerd in UX/UI en Design Systems.
-      </h1>
-    </div>
+  <section>
+    <h2>Voor de leuk:</h2>
+    <ul>
+      <li>
+        <a href="/fijne-deuntjes/">
+        Fijne deuntjes</a><br>
+        <span>Playlist met elke week verse versjes. Direct naar de playlist via: <a href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer">https://sptfy.com/deuntjes</a>. 🎧</span>
+      </li>
+      <li>
+        <a href="/mooie-plaatjes/page-1/">Mooie plaatjes</a><br>
+        <span>Het internet staat vol met mooie afbeeldingen. Ik verzamel Leuke prentjes ter inspiratie. Elke dag (automatisch) bijgewerkt. Gewoon voor de leuk</span>
+      </li>
+    </ul>
+  </section>
 
-    {# <button onClick='document.getElementById("contact").scrollIntoView({behavior: "smooth"});' class="focus:outline-none dark:text-white flex items-center border-b-2 border-black border-opacity-25 hover:border-opacity-50 dark:border-white">
-
-      <svg class="w-6 h-6 stroke-current mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-      <span class="leading-none font-extrabold text-lg sm:text-xl">Contact</span>
-    </button> #}
-
-  </div>
-
-    {% set skills %}
-    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
-      <h2>⚔️ Tools & Skills</h2>
-    </div>
-    {% include "../includes/skills.njk" %}
-    {% endset %}
-
-    {{ section.fullbleed(
-      bgClasses = "bg-gradient-to-br from-green-100 to-blue-200 dark:from-purple-800 dark:to-pink-800 opacity-50",
-      content = skills
-    )}}
-
-    {% set work %}
-    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
-      <h2>💼 Werk</h2>
-      <p>Actiefoto's van mij aan het 'werk' bij <strong><a href="https://tres.nl" target="_blank" rel="noopener noreferrer">TRES</a></strong>.</p>
-    </div>
-
-    <div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-7xl px-4 mb-6 ">
-      <div class="sm:flex overflow-hidden rounded-lg max-w-full mx-4">
-        <div class="flex-initial sm:w-1/3">
-          {% cloudinaryImage
-            site.url + "/static/images/tres2.jpg",
-            "f_auto,c_fill,g_faces:auto,w_1280",
-            "Diederik hangt in een Chesterfield stoel",
-            ""
-          %}
-        </div>
-        <div class="flex-initial sm:w-2/3">
-          {% cloudinaryImage
-            site.url + "/static/images/tres.jpg",
-            "f_auto,c_fill,g_faces:auto,w_1280",
-            "Diederik bij TRES in overleg",
-            ""
-          %}
-        </div>
-      </div>
-    </div>
-
-    <div class="prose sm:prose-lg dark:prose-dark max-w-none">
-      <p class="mb-0">Met trots gewerkt aan oplossingen voor onderstaande opdrachtgevers:</p>
-      <h3>Windesheim, Buckaroo, Wagenborg, AZ 🏆, sc&nbsp;Heerenveen, FC&nbsp;Groningen, Feyenoord, BGDD, Relatieplanet 🏆, Fritom <span class="text-green-600 dark:text-green-300">en vele anderen</span>.</h3>
-    </div>
-    {% endset %}
-
-    {{ section.fullbleed(
-      bgClasses = "bg-gradient-to-br from-gray-200 to-yellow-200 dark:from-blue-800 dark:to-green-800 opacity-50",
-      content = work
-    )}}
-
-    {% set contact %}
-    <div class="mb-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
-      <h2><span class="relative" style="top: 2px">📧</span> Contact</h2>
-      {# <p>
-      Nieuwe website nodig? Misschien kan ik dan wel iets voor je betekenen.
-      Neem contact met me op via:</p> #}
-    </div>
-
-    <script>
-      { coded = "tjEtEojdtjMdmDoO@PE0.AYq"
-        key = "GKWFvsSYjDZR4OUJXBVE6r3dwQy7hmpCMbf8c1gI52H9zoitTu0aPqNlnexLAk"
-        shift=coded.length
-        link=""
-        for (i=0; i<coded.length; i++) {
-          if (key.indexOf(coded.charAt(i))==-1) {
-            ltr = coded.charAt(i)
-            link += (ltr)
-          }
-          else {
-            ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-            link += (key.charAt(ltr))
-          }
-        }
-      }
-
-      setTimeout(function(){
-        var elem = document.querySelector('.mailButton');
-        elem.innerHTML = '<a href="mailto:'+link+'" class="button button--xl font-medium text-base sm:text-lg py-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-current h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-4 flex-shrink-0"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg><span class="flex-auto leading-tight">Email naar: ' +link+ '</a>';
-      }, 1000);
-    </script>
-
-
-    <div class="mt-8 grid gap-2 md:gap-4 md:grid-cols-2">
-      <div class="mailButton"></div>
-      <a
-        href="https://twitter.com/messages/compose?recipient_id=775387"
-        class="button button--xl font-medium text-base sm:text-lg py-4
-        ">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-current h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-4 flex-shrink-0"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
-        <span class="flex-auto leading-tight">Stuur me een DM via Twitter</span>
-      </a>
-    </div>
-    {% endset %}
-
-    {{ section.fullbleed(
-      id = "contact",
-      content = contact
-    )}}
+  {%- import "section.njk" as section with context -%}
+  {{ section.contact() }}
 
 {% endblock %}

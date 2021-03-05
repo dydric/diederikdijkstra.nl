@@ -2,31 +2,20 @@
 
 {% block content %}
 
-  {%- import "section.njk" as section -%}
+{% if renderData.title or title %}
+  <h1>{% if renderData.title %}{{ renderData.title }}{% else %}{{ title }}{% endif %}</h1>
+{% endif %}
 
+{% if description %}
+  <section>
+    <p>{{ description | toHTML | safe  }}</p>
+  </section>
+{% endif %}
 
-  <div class="{%if classes %}{{ classes }} {% endif %}my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-
-    {% if renderData.title or title %}
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
-        {% if renderData.title %}{{ renderData.title }}{% else %}{{ title }}{% endif %}
-      </h1>
-    {% endif %}
-
-    {% if description %}
-      <div class="mt-6 prose sm:prose-lg lg:prose-xl dark:prose-dark max-w-none">
-        {{ description | toHTML | safe  }}
-      </div>
-    {% endif %}
-
-    {% if content %}
-      {# {% if renderData.title or title or description %}
-        {{ section.divider(style="1")}}
-      {% endif %} #}
-      <div class="mt-12">
-        {{ content | safe }}
-      </div>
-    {% endif %}
-
+{% if content %}
+  <div class="mt-12">
+    {{ content | safe }}
   </div>
+{% endif %}
+
 {% endblock %}

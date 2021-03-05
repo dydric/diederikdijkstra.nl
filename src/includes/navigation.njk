@@ -1,11 +1,11 @@
 <nav
-  class="fixed top-0 left-0 right-0 z-50 transition duration-300 transform pt-10 lg:pt-20 pb-2 sm:pb-4 border-b border-transparent px-4"
+  class="fixed top-0 left-0 right-0 z-50 transition duration-300 transform pt-10 lg:pt-20 pb-2 sm:pb-4 border-b-2 border-transparent px-4"
   x-data="{ showNav: false, showPref: false, atTop: true, preference: localStorage.getItem('theme')}"
   x-init="$watch('preference', (val) => { systemPreference(val) });"
   @scroll.window="atTop = (window.pageYOffset > 30) ? false : true"
   :class="{
     'bg-transparent sm:translate-y-0' : atTop,
-    'bg-white dark:bg-black bg-opacity-80 dark:bg-opacity-80 bg-blur border-gray-200 dark:border-gray-800 -translate-y-8 sm:-translate-y-6  lg:-translate-y-16' : !atTop
+    'bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 bg-blur dark:border-gray-800 -translate-y-8 sm:-translate-y-6  lg:-translate-y-16 shadow-xl' : !atTop
   }"
 >
 
@@ -13,11 +13,8 @@
 
     <a href="/"
     tabindex="1"
-    class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight transition-colors duration-300 outline-none text-blue-600 text-gradient bg-gradient-to-br from-blue-400 to-purple-900 dark:from-blue-600 dark:to-purple-500 border-b-4 border-transparent focus:border-gray-300 dark:focus:border-gray-400"
-    {# :class="{
-      'text-blue-600 hover:text-green-600' : atTop,
-      'text-green-500 dark:text-green-600 hover:text-blue-600' : !atTop
-    }" #}
+    class="text-2xl lg:text-3xl font-extrabold leading-tight tracking-tight transition-colors duration-300 outline-none
+    text-blue-600 hover:underline"
     >{{ site.authorName }}</a>
 
     <ul class="flex">
@@ -69,7 +66,7 @@
             [ "Altijd donker", "dark", "preference == 'dark'"]
           ] %}
 
-          <div class="rounded-lg shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
+          <div class="rounded shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
             {%- for name, value, state in options -%}
               <button
                 x-on:click="preference = '{{ value }}'"
@@ -114,7 +111,7 @@
           {% set navPages = collections.all | eleventyNavigation %}
           {% set entryUrl = page.url.split("/")[1] %}
 
-          <ul class="navlist rounded-lg shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
+          <ul class="navlist rounded shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600">
 
             {%- for entry in navPages %}
               {% set parentKey = "" %}
@@ -168,7 +165,7 @@
 
           {# {{ collections.all | eleventyNavigation | eleventyNavigationToHtml(
             {
-              listClass: "rounded-lg shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600",
+              listClass: "rounded shadow-xl bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600",
               listItemClass: "block relative w-full font-medium cursor-pointer border-t-2 border-gray-300 first:border-0 dark:border-gray-600",
               listItemHasChildrenClass: "nav-parent",
               anchorClass: "block py-2 px-4 text-gray-500 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 focus-visible:ring-2 ring-offset-4 ring-offset-pink-200 dark:ring-offset-pink-800 ring-pink-500 focus:outline-none rounded",
