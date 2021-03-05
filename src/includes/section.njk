@@ -1,3 +1,36 @@
+{% macro contact() %}
+<section>
+  <h2>Contact:</h2>
+  <script>
+    { coded = "tjEtEojdtjMdmDoO@PE0.AYq"
+      key = "GKWFvsSYjDZR4OUJXBVE6r3dwQy7hmpCMbf8c1gI52H9zoitTu0aPqNlnexLAk"
+      shift=coded.length
+      link=""
+      for (i=0; i<coded.length; i++) {
+        if (key.indexOf(coded.charAt(i))==-1) {
+          ltr = coded.charAt(i)
+          link += (ltr)
+        }
+        else {
+          ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+          link += (key.charAt(ltr))
+        }
+      }
+    }
+
+    setTimeout(function(){
+      var elem = document.querySelector('.contact');
+      elem.innerHTML = '<a href="mailto:'+link+'">' +link+ '</a><br><span><strong>of stuur een <a href="https://twitter.com/messages/compose?recipient_id=775387">DM via Twitter</a></strong></span>';
+    }, 1000);
+  </script>
+  <ul>
+    <li class="contact"></li>
+  </ul>
+</section>
+{% endmacro %}
+
+
+
 {% macro default(
   title = "",
   description = "",

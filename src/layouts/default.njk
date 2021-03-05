@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html {% if site.lang %} lang="{{ site.lang }}"{% endif %}>
   {% include "../includes/head.njk" %}
-  <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <body>
 
     {% include "../includes/navigation.njk" %}
 
-    <main class="mx-auto max-w-7xl px-4 mt-32 lg:mt-48 xl:mt-56">
-    {% block content %}
+    <main class="mx-auto max-w-7xl px-4 mt-32 lg:mt-48 xl:mt-56 mb-16 lg:mb-24 xl:mb-32">
       <div class="my-8 sm:my-12 lg:my-16 mx-auto max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-        {{ content | safe }}
+        {% block content %}
+          {{ content | safe }}
+        {% endblock %}
       </div>
-    {% endblock %}
     </main>
 
     <footer class="mx-auto max-w-7xl px-4">

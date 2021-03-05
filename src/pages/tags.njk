@@ -19,39 +19,24 @@ renderData:
   title: 'Tagged: {{ tag | capitalize }}'
 ---
 
-{%- import "section.njk" as section -%}
-
-<div class="font-serif grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-8 lg:mb-12 font-semibold text-sm sm:text-base md:text-lg">
-  {% for item in collections.tagList-%}
+  {# {% for item in collections.tagList-%}
     {%- if item not in site.filterTags -%}
       <a
         href="{% if tag == item %}/blog/archive/{% else %}/{{ site.rootCollections}}/tags/{{ item }}/{% endif %}" class="rounded-md p-2 text-white hover:underline {% if tag == item %}flex justify-between items-center bg-green-400 dark:bg-purple-600{% else %} bg-blue-400  dark:bg-blue-800  {% endif %}"><span>#{{ item }}</span> {% if tag == item %}<span class="no-underline text-white"><svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
 </svg></span>{% endif %}</a>
     {% endif -%}
-  {%- endfor -%}
-</div>
+  {%- endfor -%} #}
 
-{% set tags %}
-<div class="font-serif grid divide-y-2 divide-blue-300 dark:divide-purple-600 divide-opacity-50 dark:divide-opacity-50">
-{% for post in collections[ tag ] | reverse %}
-  {% if post.date.getTime() <= site.dateNow %}
-  <div class="py-2">
-    <h3 class="text-xl md:text-2xl xl:text-3xl leading-tight font-bold tracking-tight text-gray-900 dark:text-gray-50">
-      <a href="{{ post.url }}" class="hover:underline">{{ post.data.title }}</a>
-    </h3>
-    <time datetime="{{ post.date.toISOString() }}" class="text-green-500 dark:text-pink-500 font-semibold">{{ post.date | fullDate }}</time><br>
-    {# {% for tag in post.data.tags -%}{%- if tag not in site.filterTags %}
-      <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="font-medium text-sm text-blue-400  hover:underline">#{{ tag }}</a>
-    {% endif -%}{%- endfor -%} #}
-  </div>
-  {% endif %}
-{% endfor %}
-</div>
-{% endset %}
-
-{{ section.fullbleed(
-  bgClasses = "bg-gradient-to-br from-green-50 to-blue-100 dark:from-purple-800 dark:to-pink-800 opacity-50",
-  content = tags
-)}}
-
+<section>
+  <ul>
+  {% for post in collections[ tag ] | reverse %}
+    {% if post.date.getTime() <= site.dateNow %}
+    <li>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</section>

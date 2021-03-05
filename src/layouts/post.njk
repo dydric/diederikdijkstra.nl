@@ -2,51 +2,27 @@
 
 {% block content %}
 
-{%- import "section.njk" as section -%}
-
-<div class="md:text-center pb-4 lg:pb-8 mx-auto px-4 max-w-screen-xl font-serif">
-
-  <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mt-4 sm:mt-8">{{ title }}</h1>
-
-  {%- if tags -%}
-    <div class="my-2 md:mb-4 md:mt-6">
-    {% for item in tags -%}
-      {%- if item not in site.filterTags -%}
-        <a href="/{{ site.rootCollections}}/tags/{{ item }}/" class="font-medium text-lg md:text-xl xl:text-2xl text-blue-400 hover:underline mx-1 xl:mx-2">#{{ item }}</a>
-      {% endif -%}
-    {%- endfor -%}
-    </div>
-  {%- endif -%}
-
-  <p class="text-lg xl:text-xl text-gray-500">
+  <article class="post">
     <time datetime="{{ page.date.toISOString() }}">{{ page.date | fullDate }}</time>
-  </p>
-</div>
-
-  {% if thumbnail %}
-    <div class="mx-auto max-w-7xl">
-      {% cloudinaryImage
-          site.url + thumbnail  ,
-          "f_auto,c_fill,g_faces:auto,h_640",
-          "afbeelding van " + title,
-          "block max-w-full mx-auto my-2 rounded-lg"
-        %}
+    <h1>{{ title }}</h1>
+    <div>
+      {% if tags %}
+        {% for tag in tags -%}
+          {%- if tag not in site.filterTags %}
+            <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
+          {% endif -%}
+        {%- endfor -%}
+      {% endif %}
     </div>
-  {% endif %}
-
-  {% set content %}
-  <div class="prose md:prose-lg xl:prose-xl dark:prose-dark max-w-none font-serif">
+    {% if thumbnail %}
+      {% cloudinaryImage
+        site.url + thumbnail  ,
+        "f_auto,c_fill,g_faces:auto,w_896",
+        "afbeelding van " + title,
+        "block max-w-full mx-auto rounded"
+      %}
+    {% endif %}
     {{ content | safe }}
-  </div>
-  {% endset %}
-
-  {# bg-gradient-to-br from-green-100 to-yellow-100 dark:from-purple-800 dark:to-blue-800 opacity-50 #}
-
-  <div class="mb-8 lg:mb-12 xl:mb-16">
-    {{ section.fullbleed(
-      bgClasses = "",
-      content = content
-    )}}
-  </div>
+  </article>
 
 {% endblock %}

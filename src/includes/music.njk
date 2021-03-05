@@ -2,20 +2,10 @@
   data = playlist
 ) %}
 
-  <div class="grid divide-y-2 divide-white dark:divide-gray-900" >
+  <div class="grid divide-y-2 divide-gray-600 rounded bg-gray-800 dark:bg-black p-4" >
 
     {%- for i in range(0, data.items.length) -%}
       {%- set spotify = data.items[i] -%}
-      {#
-
-        {% if loop.index < 7 %}
-
-        {{ spotify.track.external_urls.spotify }}
-
-      #}
-
-      {# <a href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer" class="group flex w-full py-2"> #}
-
       <div class="group flex w-full py-2" x-data='{ play: false }' x-init="
               $watch('play', value => {
 
@@ -44,22 +34,20 @@
         </div>
 
         <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
-            <div class="font-extrabold leading-tight text-lg md:text-xl xl:text-2xl tracking-tight w-full mb-0 text-gray-900 dark:text-gray-200">
-              {{ spotify.track.name }}
-            </div>
-            <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-green-500 dark:text-pink-500 w-full">
-              {%- for artist in spotify.track.artists -%}
-                {%- if not loop.first -%}, {% endif -%}
-                {{ artist.name }}
-              {%- endfor -%}
-            </div>
-
-          {# {{ spotify.added_at }} #}
+          <div class="font-extrabold leading-tight text-lg lg:text-2xl tracking-tight w-full mb-0 text-white">
+            {{ spotify.track.name }}
+          </div>
+          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-blue-600 w-full">
+            {%- for artist in spotify.track.artists -%}
+              {%- if not loop.first -%}, {% endif -%}
+              {{ artist.name }}
+            {%- endfor -%}
+          </div>
         </div>
 
         {% if  spotify.track.preview_url %}
           <div class="block flex-initial flex-shrink-0 self-center w-8 sm:w-10 m-0">
-            <button class="rounded-full focus:outline-none text-blue-500 dark:text-blue-300 hover:text-opacity-70"
+            <button class="rounded-full focus:outline-none text-blue-600 hover:text-opacity-70"
               @click="play = !play"
               @click.away="play = false"
             >
@@ -73,7 +61,6 @@
         {% endif %}
 
       </div>
-      {# {% endif %} #}
 
     {%- endfor -%}
   </div>
