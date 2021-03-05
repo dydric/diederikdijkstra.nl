@@ -37,7 +37,7 @@
           <div class="font-extrabold leading-tight text-lg lg:text-2xl tracking-tight w-full mb-0 text-white">
             {{ spotify.track.name }}
           </div>
-          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-blue-600 w-full">
+          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-500 w-full">
             {%- for artist in spotify.track.artists -%}
               {%- if not loop.first -%}, {% endif -%}
               {{ artist.name }}
