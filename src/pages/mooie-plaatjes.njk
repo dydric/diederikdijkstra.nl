@@ -1,7 +1,7 @@
 ---
 layout: page.njk
 title: Mooie plaatjes
-description: Het internet staat vol met mooie afbeeldingen. Leuke prentjes ter inspiratie en veel beter dan door die instagramfeed scrollen de hele tijd. Wordt elke dag (automatisch) bijgewerkt. Gewoon voor de leuk
+description: Het internet staat vol met mooie afbeeldingen. Leuk als inspiratie en veel beter dan door die instagramfeed te scrollen de hele tijd. Wordt elke dag (automatisch) bijgewerkt. Gewoon voor de leuk.
 permalink: /mooie-plaatjes/page-{{ pagination.pageNumber + 1 }}/
 pagination:
   data: tumblr
@@ -18,7 +18,7 @@ eleventyNavigation:
 
 {%- import "section.njk" as section -%}
 
-<div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-screen-2xl px-8">
+<div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-screen-2xl px-4">
 
   <div class="grid gap-2 grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 max-w-full mb-8">
   {% for item in pagination.items %}
