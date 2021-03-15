@@ -37,7 +37,7 @@
           <div class="font-extrabold leading-tight text-lg lg:text-2xl tracking-tight w-full mb-0 text-white">
             {{ spotify.track.name }}
           </div>
-          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-500 w-full">
+          <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-400 w-full">
             {%- for artist in spotify.track.artists -%}
               {%- if not loop.first -%}, {% endif -%}
               {{ artist.name }}
@@ -47,7 +47,7 @@
 
         {% if  spotify.track.preview_url %}
           <div class="block flex-initial flex-shrink-0 self-center w-8 sm:w-10 m-0">
-            <button class="rounded-full focus:outline-none text-blue-600 hover:text-opacity-70"
+            <button class="rounded-full focus:outline-none text-white bg-blue-600 hover:bg-transparent"
               @click="play = !play"
               @click.away="play = false"
             >
