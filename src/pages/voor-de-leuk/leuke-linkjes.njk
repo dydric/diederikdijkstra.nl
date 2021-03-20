@@ -6,13 +6,13 @@ permalink: '/leuke-linkjes/'
 eleventyNavigation:
   parent: Voor de leuk
   key: Leuke linkjes
-  order: 4
+  order: 3
 ---
 
 <section>
   <ul>
   {% for item in feed.items %}
-    <li>
+    <li class="mb-4 lg:mb-8">
       <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a><br>
       {% if item.content %}<span>{{ item.content }}</span>{% endif %}
     </li>
