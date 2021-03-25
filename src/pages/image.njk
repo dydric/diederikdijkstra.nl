@@ -7,7 +7,18 @@ pagination:
   alias: tumblr
 ---
 
-<div x-data="{ enLarge: false }">
+<div x-data="{ enLarge: false }" x-init ="
+  $watch('enLarge', value => {
+    if(enLarge) {
+      window.location.hash = 'fullscreen'
+    } else {
+      window.location.hash = 'normal'
+    }
+  });
+  if (window.location.hash == '#fullscreen') {
+    enLarge = true;
+  }
+">
 
   <div @click="enLarge = !enLarge"
     class="fixed left-0 top-0 bottom-0 right-0 opacity-10 bg-cover bg-center filter-blur pointer-events-none"
@@ -44,41 +55,53 @@ pagination:
 
 </div>
 
-{% set buttonClasses = "button" %}
+{% set buttonClasses = "button cursor-pointer" %}
 
 {% if pagination.href.next %}
   <div
-    class="fixed z-30 right-0 top-1/2 transform -translate-y-1/2 p-3 pr-6 mb-3"
-    x-data="{ keydown: false }"
+    class="fixed z-50 right-0 top-1/2 transform -translate-y-1/2 p-3 pr-6 mb-3"
+    x-data="{ gotoNext: false }"
     x-init="
-      $watch('keydown', value => {
-        if(keydown) {
-          window.location.href = '{{ pagination.href.next }}';
+      $watch('gotoNext', value => {
+        if(gotoNext) {
+          hash = '';
+          if (window.location.hash == '#fullscreen') {
+            hash = '#fullscreen';
+          }
+          window.location.href = '{{ pagination.href.next }}' + hash;
         }
       });
     "
   >
-    <a
-      href="{{ pagination.href.next }}"
-      @keydown.window.arrow-right="keydown = true"
-      class="{{ buttonClasses }}"><span>&rarr;</span></a>
+    <button
+      @click="gotoNext = true"
+      @keydown.window.arrow-right="gotoNext = true"
+      class="{{ buttonClasses }}">
+      <span>&rarr;</span>
+    </button>
   </div>
   {% endif %}
 
   {% if pagination.href.previous%}
   <div
-    class="fixed z-30 left-0 top-1/2 transform -translate-y-1/2 p-3 pl-6 mb-3"
-    x-data="{ keydown: false }"
+    class="fixed z-50 left-0 top-1/2 transform -translate-y-1/2 p-3 pl-6 mb-3"
+    x-data="{ gotoPrev: false }"
     x-init="
-      $watch('keydown', value => {
-        if(keydown) {
-          window.location.href = '{{ pagination.href.previous }}';
+      $watch('gotoPrev', value => {
+        if(gotoPrev) {
+          hash = '';
+          if (window.location.hash == '#fullscreen') {
+            hash = '#fullscreen';
+          }
+          window.location.href = '{{ pagination.href.previous }}' + hash;
         }
       });
     ">
-    <a
-      href="{{ pagination.href.previous}}"
-      @keydown.window.arrow-left="keydown = true"
-      class="{{ buttonClasses }}"><span>&larr;</span></a>
+    <button
+      @click="gotoPrev = true"
+      @keydown.window.arrow-left="gotoPrev = true"
+      class="{{ buttonClasses }}">
+      <span>&larr;</span>
+    </button>
   </div>
   {% endif %}
