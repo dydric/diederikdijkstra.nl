@@ -28,7 +28,10 @@
   <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}">
   {% if site.socialImage or thumbnail -%}
   <meta property="og:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ site.socialImage }}{% endif %}" />
-  {%- endif -%}
+  {%- endif %}
+  {% if tumblr.id -%}
+  <meta property="og:image" content="{{ tumblr.thumb }}" />
+  {%- endif %}
   <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}" />
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:locale" content="{% if site.locale %}{{ site.locale }}{% else %}en_US{% endif %}">
@@ -42,6 +45,9 @@
   <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
   {% if site.socialImage or thumbnail -%}
   <meta name="twitter:image" content="{% if thumbnail %}{{ thumbnail }}{% else %}{{ site.socialImage }}{% endif %}">
+  {%- endif %}
+  {% if tumblr.id -%}
+  <meta name="twitter:image" content="{{ tumblr.thumb }}" />
   {%- endif %}
   <meta name="twitter:dnt" content="on"> <!-- disallow Twitter from using your site's info for personalization purposes -->
 
