@@ -60,9 +60,6 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
-      - label: "Link"
-        name: "link"
-        widget: "string"
       - label: "Links"
         name: "link"
         minimize_collapsed: true
@@ -74,7 +71,7 @@ collections: # A list of collections the CMS should be able to edit
             options: ["normal", "spotify", "youtube"]
             default: ["normal"]
           - label: Url
-            name: url
+            name: list_url
             widget: string
       - label: "Gallery"
         name: "gallery"
