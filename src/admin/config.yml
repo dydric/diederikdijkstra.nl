@@ -69,7 +69,6 @@ collections: # A list of collections the CMS should be able to edit
             name: list_type
             widget: "select"
             options: ["normal", "spotify", "youtube"]
-            default: ["normal"]
           - label: Url
             name: list_url
             widget: string
