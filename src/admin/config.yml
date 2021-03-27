@@ -8,6 +8,8 @@ backend:
     uploadMedia: 🖼 Upload “{{path}}”
     deleteMedia: 🔥 Delete “{{path}}”
 
+local_backend: true
+
 media_folder: "/src/static/images/uploads" # Folder where user uploaded files should go
 public_folder: "/static/images/uploads"
 # publish_mode: editorial_workflow # Editorial workflow works with GitHub repositories only.
@@ -58,15 +60,31 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
-      - label: "Testimonials"
-        name: "testimonials"
+      - label: "Link"
+        name: "link"
+        widget: "string"
+      - label: "Links"
+        name: "link"
         minimize_collapsed: true
         widget: "list"
         fields:
-          - label: Quote
-            name: quote
+          - label: Type
+            name: type
+            widget: "select"
+            options: ["normal", "spotify", "youtube"]
+            default: ["normal"]
+          - label: Url
+            name: url
             widget: string
-            default: "Everything is awesome!"
-          - label: Author
-            name: author
-            widget: string
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        summary: '{{fields.image}}'
+        field:
+          - label: Image
+            name: image
+            widget: image
+      - label: "Location"
+        name: "location"
+        widget: "map"
+
