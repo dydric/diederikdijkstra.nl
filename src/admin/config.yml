@@ -31,11 +31,19 @@ collections: # A list of collections the CMS should be able to edit
         timeFormat: false
         format: "YYYY-MM-DD"
         pickerUtc: false
+      - label: "Hide (on home)"
+        name: "hide"
+        widget: "boolean"
+        default: false
       - label: "Tags"
         name: "tags"
         widget: "list"
         default: ["blog"]
         required: true
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options: ["normal", "audio", "chat", "link", "location", "photo", "quote", "video"]
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
@@ -50,3 +58,15 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Body"
         name: "body"
         widget: "markdown"
+      - label: "Testimonials"
+      - name: "testimonials"
+        minimize_collapsed: true
+        widget: "list"
+        fields:
+        - label: Quote
+          name: quote
+          widget: string
+          default: "Everything is awesome!"
+        - label: Author
+          name: author
+          widget: string
