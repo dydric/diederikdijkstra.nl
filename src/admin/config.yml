@@ -59,7 +59,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "body"
         widget: "markdown"
       - label: "Testimonials"
-      - name: "testimonials"
+        name: "testimonials"
         minimize_collapsed: true
         widget: "list"
         fields:
