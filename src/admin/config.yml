@@ -69,7 +69,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: "list"
         fields:
           - label: Type
-            name: type
+            name: list_type
             widget: "select"
             options: ["normal", "spotify", "youtube"]
             default: ["normal"]
@@ -77,13 +77,13 @@ collections: # A list of collections the CMS should be able to edit
             name: url
             widget: string
       - label: "Gallery"
-        name: "galleryImages"
+        name: "gallery"
         widget: "list"
         summary: '{{fields.image}}'
         field:
-          - label: Image
-            name: image
-            widget: image
+          label: Image
+          name: gallery_image
+          widget: image
       - label: "Location"
         name: "location"
         widget: "map"
