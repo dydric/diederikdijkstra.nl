@@ -1,5 +1,5 @@
 ---
-title: "On repeat: The War on Drugs - Live Drugs "
+title: "On repeat: The War on Drugs - Live Drugs"
 date: 2021-01-02
 hide: true
 tags:
