@@ -32,15 +32,15 @@ renderData:
   <ul>
   {% for post in collections[ tag ] | reverse %}
     {% if post.date.getTime() <= site.dateNow %}
-      {%- set itemsperpage = site.itemsPerPage -%}
+      {# {%- set itemsperpage = site.itemsPerPage -%}
       {%- set page = (loop.index / itemsperpage) | int + 1 -%}
       {%- set url = "/blog/page-" + page -%}
 
       {%- if (loop.index - 1) % itemsperpage != 0 -%}
         {%- set url = url + "#" + post.data.title | slug -%}
-      {%- endif -%}
+      {%- endif -%} #}
     <li{% if post.data.hide %} class="small-post"{% endif %}>
-      <a href="{{ url }}">{{ post.data.title }}</a>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
       <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
     </li>
     {% endif %}
