@@ -16,6 +16,8 @@ eleventyNavigation:
 
   <section>
     <h2>Laatste berichten:</h2>
+
+
     <ul>
       {%- set latestposts = collections.posts | limit(25) -%}
       {%- for post in latestposts %}
@@ -28,7 +30,8 @@ eleventyNavigation:
       <li>
 
         {%- set itemsperpage = site.itemsPerPage -%}
-        {%- set page = (loop.index / itemsperpage) | int + 1 -%}
+        {# {%- set page = (loop.index / itemsperpage) | int + 1 -%} #}
+        {% set page = 1 %}
         {%- set url = "/blog/page-" + page -%}
 
         {%- if (loop.index - 1) % itemsperpage != 0 -%}
