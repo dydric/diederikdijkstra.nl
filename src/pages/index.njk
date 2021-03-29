@@ -17,16 +17,34 @@ eleventyNavigation:
   <section>
     <h2>Laatste berichten:</h2>
     <ul>
-      {%- set latestposts = collections.posts | limit(3) -%}
+      {%- set latestposts = collections.posts | limit(25) -%}
       {%- for post in latestposts %}
+
+      {%- if not index -%}
+        {%- set index = 1 -%}
+      {%- endif -%}
+
+      {%- if index <= 3 and not post.data.hide -%}
       <li>
-        {% set url = "/blog/page-1" -%}
-        {%- if loop.index > 1 -%}
+
+        {%- set itemsperpage = site.itemsPerPage -%}
+        {%- set page = (loop.index / itemsperpage) | int + 1 -%}
+        {%- set url = "/blog/page-" + page -%}
+
+        {%- if (loop.index - 1) % itemsperpage != 0 -%}
           {%- set url = url + "#" + post.data.title | slug -%}
         {%- endif -%}
+
+        {# {%- if loop.index > 1 -%}
+          {%- set url = url + "#" + post.data.title | slug -%}
+        {%- endif -%} #}
+
         <a href="{{ url }}">{{ post.data.title }}</a>
         <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
       </li>
+      {%- set index = index + 1 -%}
+      {%- endif -%}
+
       {%- endfor %}
     </ul>
   </section>

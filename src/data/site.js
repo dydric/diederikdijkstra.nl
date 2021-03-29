@@ -19,6 +19,7 @@ module.exports = {
   // COLLECTIONS
   rootCollections: 'blog',
   maxPostsInFeed: 20,
+  itemsPerPage: 5,
 
   // copy list below in pages/tags.njk under pagination.filters
   filterTags: ['all', 'nav', 'blog', 'post', 'posts', 'tagList', 'postFeed'],
