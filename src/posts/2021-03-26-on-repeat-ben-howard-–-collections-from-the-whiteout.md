@@ -1,5 +1,5 @@
 ---
-title: "On Repeat: Ben Howard – Collections from the Whiteout"
+title: "On repeat: Ben Howard – Collections from the Whiteout"
 date: 2021-03-26
 hide: true
 tags:
