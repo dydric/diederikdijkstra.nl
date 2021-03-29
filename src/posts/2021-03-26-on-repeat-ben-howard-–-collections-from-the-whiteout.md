@@ -12,5 +12,7 @@ thumbnail: /static/images/uploads/cover-ben-howard-collections-from-the-whiteout
 link:
   - link_type: spotify
     link_url: https://open.spotify.com/album/09P40BHcaue9iF4QasXMTK?si=8nK_WaKTTECksJio0GoZMQ
+  - link_type: spotify_embed
+    link_url: https://open.spotify.com/embed/album/09P40BHcaue9iF4QasXMTK
 ---
 Favorieten: What a day, Far Out, Rookery, You Have Your Way
