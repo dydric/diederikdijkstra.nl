@@ -1,0 +1,16 @@
+.iframe {
+  @apply w-full h-full !important;
+
+  &-holder {
+    @apply relative w-full rounded overflow-hidden;
+    @apply mb-6;
+
+    @screen lg {
+      @apply mb-8;
+    }
+
+    &.spotify {
+      height: 80px;
+    }
+  }
+}

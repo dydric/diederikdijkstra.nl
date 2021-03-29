@@ -11,31 +11,19 @@ pagination:
   reverse: false
 ---
 
+{%- import "article.njk" as article with context -%}
+
 {% for post in pagination.items %}
-  <article class="post" id="{{ post.data.title | slug }}">
-    <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
-    <h1>
-      <a href="{{ post.url }}">{{ post.data.title }}</a>
-    </h1>
-    <div>
-      {% if post.data.tags %}
-        {% for tag in post.data.tags -%}
-          {%- if tag not in site.filterTags %}
-            <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
-          {% endif -%}
-        {%- endfor -%}
-      {% endif %}
-    </div>
-    {% if post.data.thumbnail %}
-      {% cloudinaryImage
-        site.url + post.data.thumbnail  ,
-        "f_auto,c_fill,g_faces:auto,w_896",
-        "afbeelding van " + title,
-        "block max-w-full mx-auto rounded"
-      %}
-    {% endif %}
-    {{ post.templateContent | safe }}
-  </article>
+{{ article.article(
+    postType = post.data.type,
+    postTitle = post.data.title,
+    postDate = post.date,
+    postUrl = post.url,
+    postTags = post.data.tags,
+    postImage = post.data.thumbnail,
+    bodyContent = post.templateContent,
+    postLinks = post.data.link
+  ) }}
 {% endfor %}
 
 {% if pagination.href.first != pagination.href.last %}

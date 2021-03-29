@@ -2,27 +2,16 @@
 
 {% block content %}
 
-  <article class="post">
-    <time datetime="{{ page.date.toISOString() }}">{{ page.date | fullDate }}</time>
-    <h1>{{ title }}</h1>
-    <div>
-      {% if tags %}
-        {% for tag in tags -%}
-          {%- if tag not in site.filterTags %}
-            <a href="/{{ site.rootCollections}}/tags/{{ tag }}/" class="tag">#{{ tag }}</a>
-          {% endif -%}
-        {%- endfor -%}
-      {% endif %}
-    </div>
-    {% if thumbnail %}
-      {% cloudinaryImage
-        site.url + thumbnail  ,
-        "f_auto,c_fill,g_faces:auto,w_896",
-        "afbeelding van " + title,
-        "block max-w-full mx-auto rounded"
-      %}
-    {% endif %}
-    {{ content | safe }}
-  </article>
+  {%- import "article.njk" as article with context -%}
+  {{ article.article(
+    postType = type,
+    postTitle = title,
+    postDate = page.date,
+    postUrl = "",
+    postTags = tags,
+    postImage = thumbnail,
+    bodyContent = content,
+    postLinks = link
+  ) }}
 
 {% endblock %}
