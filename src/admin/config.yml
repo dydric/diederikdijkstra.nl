@@ -42,6 +42,10 @@ collections: # A list of collections the CMS should be able to edit
         widget: "list"
         default: ["blog"]
         required: true
+      - label: "Internal Tags"
+        name: "internal_tags"
+        widget: "list"
+        required: false
       - label: "Type"
         name: "type"
         widget: "select"
@@ -66,11 +70,11 @@ collections: # A list of collections the CMS should be able to edit
         widget: "list"
         fields:
           - label: Type
-            name: list_type
+            name: link_type
             widget: "select"
             options: ["normal", "spotify", "youtube"]
           - label: Url
-            name: list_url
+            name: link_url
             widget: string
       - label: "Gallery"
         name: "gallery"
@@ -83,4 +87,5 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Location"
         name: "location"
         widget: "map"
+        required: false
 
