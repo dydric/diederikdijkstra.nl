@@ -22,11 +22,11 @@
     {% if postImage %}
       {% cloudinaryImage
         site.url + postImage ,
-        "f_auto,c_fill,g_faces:auto,w_896",
+        "f_auto,c_fill,g_faces:auto,w_544",
         "afbeelding van " + title,
         "block max-w-full mx-auto rounded",
-        "896",
-        "896"
+        "544",
+        "544"
       %}
     {% endif %}
   </div>
@@ -80,11 +80,11 @@
       {% if postImage %}
         {% cloudinaryImage
           site.url + postImage  ,
-          "f_auto,c_fill,g_faces:auto,w_544",
+          "f_auto,c_fill,g_faces:auto,w_896",
           "afbeelding van " + title,
           "block max-w-full mx-auto rounded",
-          "544",
-          "544"
+          "896",
+          "896"
         %}
         {{ spotifyEmbed(
           postLinks = postLinks
