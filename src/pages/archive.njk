@@ -19,15 +19,22 @@ eleventyNavigation:
 
 <section>
   <ul>
+  {%- set page = 0 -%}
   {% for post in collections.posts %}
+
     {% if post.date.getTime() <= site.dateNow %}
+
       {%- set itemsperpage = site.itemsPerPage -%}
-      {%- set page = (loop.index / itemsperpage) | int + 1 -%}
+
+      {%- if (loop.index - 1) % itemsperpage == 0 -%}
+        {%- set page = page + 1 -%}
+      {%- endif -%}
       {%- set url = "/blog/page-" + page -%}
 
       {%- if (loop.index - 1) % itemsperpage != 0 -%}
         {%- set url = url + "#" + post.data.title | slug -%}
       {%- endif -%}
+
     <li{% if post.data.hide %} class="small-post"{% endif %}>
       <a href="{{ url }}">{{ post.data.title }}</a>
       <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
