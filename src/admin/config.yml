@@ -41,6 +41,10 @@ collections: # A list of collections the CMS should be able to edit
         name: "hide"
         widget: "boolean"
         default: false
+      - label: "Hide title"
+        name: "hide_title"
+        widget: "boolean"
+        default: false
       - label: "Tags"
         name: "tags"
         widget: "list"
