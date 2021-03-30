@@ -81,7 +81,7 @@ collections: # A list of collections the CMS should be able to edit
           - label: Type
             name: link_type
             widget: "select"
-            options: ["normal", "spotify", "spotify_embed", "youtube"]
+            options: ["normal", "spotify", "spotify_embed", "youtube", "youtube_portrait"]
           - label: Url
             name: link_url
             widget: string
