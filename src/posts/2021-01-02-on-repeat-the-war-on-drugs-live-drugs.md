@@ -1,5 +1,6 @@
 ---
 title: "On repeat: The War on Drugs - Live Drugs"
+templateEngineOverride: njk, md
 date: 2021-01-02
 hide: true
 tags:
