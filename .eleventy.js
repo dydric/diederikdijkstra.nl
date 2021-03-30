@@ -94,7 +94,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
 
   eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes, width, height) {
-    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}" width="${width}" height="${height}">`;
+    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${alt}" class="${classes}" loading="lazy" width="${width}" height="${height}">`;
   });
 
   // Transforms
