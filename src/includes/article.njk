@@ -12,6 +12,30 @@
   {% endif %}
 {% endmacro %}
 
+{% macro youtubeEmbed(
+  postLinks = postLinks
+) %}
+  {% if postLinks %}
+    {% for link in postLinks %}
+      {% if link.link_type == "youtube_portrait" %}
+        <div class="max-w-lg mx-auto">
+          <div class="iframe-holder youtube--portrait">
+            <iframe width="560" height="315" src="{{ link.link_url }}?loop=1&amp;autoplay=0&amp;mute=1&amp;rel=0&amp;controls=1&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      {% endif %}
+      {% if link.link_type == "youtube" %}
+        <div class="iframe-holder youtube">
+          <iframe width="560" height="315" src="{{ link.link_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
+
+
+
 {% macro audio(
   postImage = postImage,
   bodyContent = bodyContent,
@@ -91,6 +115,9 @@
         ) }}
       {% endif %}
       {{ bodyContent | safe }}
+      {{ youtubeEmbed(
+        postLinks = postLinks
+      ) }}
     {% endif %}
   </article>
 

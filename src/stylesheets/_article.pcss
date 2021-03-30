@@ -1,5 +1,9 @@
-.iframe {
+iframe {
   @apply w-full h-full !important;
+  @apply absolute !important
+}
+
+.iframe {
 
   &-holder {
     @apply relative w-full rounded overflow-hidden;
@@ -11,6 +15,18 @@
 
     &.spotify {
       height: 80px;
+    }
+
+    &.youtube--portrait {
+      @apply h-0 mx-auto;
+
+      padding-bottom: 163%;
+    }
+
+    &.youtube {
+      @apply h-0 mx-auto;
+
+      padding-bottom: 56%;
     }
   }
 }
