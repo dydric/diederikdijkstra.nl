@@ -5,7 +5,7 @@
     {% for link in postLinks %}
       {% if link.link_type == "spotify_embed" %}
         <div class="iframe-holder spotify">
-          <iframe class="iframe" src="{{ link.link_url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <iframe class="iframe" src="{{ link.link_url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" title="spotify"></iframe>
         </div>
       {% endif %}
     {% endfor %}
@@ -17,14 +17,16 @@
   bodyContent = bodyContent,
   postLinks = postLinks
 ) %}
-<div class="sm:flex">
+<div class="sm:flex dark bg-blue-800 p-4 md:p-8 md:-mx-8 rounded shadow-xl">
   <div class="sm:flex-auto flex-shrink-0 sm:w-1/3 sm:pr-4 mb-6 sm:mb-0">
     {% if postImage %}
       {% cloudinaryImage
         site.url + postImage ,
         "f_auto,c_fill,g_faces:auto,w_896",
         "afbeelding van " + title,
-        "block max-w-full mx-auto rounded"
+        "block max-w-full mx-auto rounded",
+        "896",
+        "896"
       %}
     {% endif %}
   </div>
@@ -78,9 +80,11 @@
       {% if postImage %}
         {% cloudinaryImage
           site.url + postImage  ,
-          "f_auto,c_fill,g_faces:auto,w_896",
+          "f_auto,c_fill,g_faces:auto,w_544",
           "afbeelding van " + title,
-          "block max-w-full mx-auto rounded"
+          "block max-w-full mx-auto rounded",
+          "544",
+          "544"
         %}
         {{ spotifyEmbed(
           postLinks = postLinks
