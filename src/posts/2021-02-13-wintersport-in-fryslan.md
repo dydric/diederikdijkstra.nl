@@ -1,8 +1,6 @@
 ---
 title: Wintersport in Fryslân
 date: 2021-02-13
-hide: true
-hide_title: true
 tags:
   - blog
 type: photo
