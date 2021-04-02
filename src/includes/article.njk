@@ -102,14 +102,27 @@
       ) }}
     {% else %}
       {% if postImage %}
-        {% cloudinaryImage
-          site.url + postImage  ,
-          "f_auto,c_fill,g_faces:auto,w_896",
-          "afbeelding van " + title,
-          "block max-w-full mx-auto rounded",
-          "896",
-          "896"
-        %}
+        {% if postType == "photo" %}
+          <div class="post__photo">
+            {% cloudinaryImage
+              site.url + postImage  ,
+              "f_auto,c_fill,g_faces:auto,w_1280",
+              "afbeelding van " + title,
+              "block max-w-full mx-auto rounded",
+              "1280",
+              "1280"
+            %}
+          </div>
+        {% else %}
+          {% cloudinaryImage
+            site.url + postImage  ,
+            "f_auto,c_fill,g_faces:auto,w_896",
+            "afbeelding van " + title,
+            "block max-w-full mx-auto rounded",
+            "896",
+            "896"
+          %}
+        {% endif %}
         {{ spotifyEmbed(
           postLinks = postLinks
         ) }}
