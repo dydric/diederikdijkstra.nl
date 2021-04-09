@@ -35,7 +35,7 @@ if ( process.env.ELEVENTY_PRODUCTION) {
               if(err) {
                 console.log(err);
               } else {
-                console.log('Updated spotify playlist: ' + playlist[1]);
+                console.log('Updated spotify: ' + playlist[1]);
               }
             });
 
