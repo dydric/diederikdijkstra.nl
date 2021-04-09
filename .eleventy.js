@@ -94,7 +94,28 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.cloudinaryCloudName = 'diederikdijkstra';
 
   eleventyConfig.addShortcode('cloudinaryImage', function (path, transforms, alt, classes, width, height) {
-    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="encodeURIComponent(${alt})" class="${classes}" loading="lazy" width="${width}" height="${height}">`;
+
+    function encodeHTML(str) {
+      const code = {
+          ' ' : '&nbsp;',
+          '¢' : '&cent;',
+          '£' : '&pound;',
+          '¥' : '&yen;',
+          '€' : '&euro;',
+          '©' : '&copy;',
+          '®' : '&reg;',
+          '<' : '&lt;',
+          '>' : '&gt;',
+          '"' : '&quot;',
+          '&' : '&amp;',
+          '\'' : '&apos;'
+      };
+      return str.replace(/[\u00A0-\u9999<>\&''""]/gm, (i)=>code[i]);
+    }
+
+    var saveAltText = encodeHTML(alt);
+
+    return `<img src="https://res.cloudinary.com/${eleventyConfig.cloudinaryCloudName}/image/fetch/${transforms}/${path}" alt="${saveAltText}" class="${classes}" loading="lazy" width="${width}" height="${height}">`;
   });
 
   // Transforms
