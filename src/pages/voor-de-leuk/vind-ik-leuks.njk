@@ -1,0 +1,164 @@
+---
+layout: page.njk
+title: 'Vind ik leuks'
+description: Mijn laatste Twitter likes op een rijtje.
+permalink: '/vind-ik-leuks/page-{{ pagination.pageNumber + 1 }}/'
+pagination:
+  data: twitterfavs
+  size: 20
+eleventyNavigation:
+  parent: Voor de leuk
+  key: Vind ik leuks
+  order: 3
+---
+
+{#  #}
+
+{% set totalpages = pagination.links | length %}
+
+<section>
+  <ul class="grid gap-4 md:grid-cols-2 ">
+
+  {% for item in pagination.items %}
+
+    <li class="mb-0 h-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 dark:text-white rounded relative pb-16">
+
+      {% set url = "https://twitter.com/dydric/status/" + item.id_str %}
+      {% set urlText = "Tweet" %}
+
+      {% if item.entities.urls[0].expanded_url %}
+        {% set url = item.entities.urls[0].expanded_url %}
+        {% set urlText = "Link" %}
+      {% endif %}
+
+      {% if item.extended_entities.media %}
+
+        {% set totalMedia =  item.extended_entities.media | length %}
+
+
+        <div{% if totalMedia > 1 %} class="flex flex-wrap"{% endif %}>
+
+        {% for media in item.extended_entities.media %}
+
+            {% if media.type == "video" or media.type == "animated_gif" %}
+              <div x-data="{ play: false }" x-init="$watch('play', (value) => {
+                    if (value) {
+                      $refs.video.play()
+                    } else {
+                      $refs.video.pause()
+                    }
+                  })">
+                <div
+                  class="relative overflow-hidden block w-full h-0"
+                  :class="{
+                    'fixed left-0 top-0 bottom-0 right-0 bg-black bg-opacity-90 z-50 h-auto p-0 bg-blur' : play,
+                    'relative z-0 pb-56 w-full' : !play
+                  }"
+                  >
+                  <video class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 cursor-pointer"
+                  :class="{
+                    'h-auto w-auto max-h-screen max-w-screen' : play,
+                    'w-full h-auto' : !play
+                  }"
+
+                  width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" x-ref="video" @click="play = !play">
+                    {% for video in media.video_info.variants %}
+                    <source src="{{ video.url }} " type="{{ video.content_type }}" >
+                    {% endfor %}
+                  </video>
+                  <button @click="play = !play" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="absolute inset-0 w-full h-full flex items-center justify-center focus:outline-none">
+                    <svg class="h-16 w-16 text-blue-500" x-show="!play"  fill="currentColor" viewBox="0 0 84 84">
+                        <circle opacity="0.9" cx="42" cy="42" r="42" fill="white"></circle>
+                        <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              {# {{ media.video_info | dump }} #}
+            {% else %}
+                {% if totalMedia > 1 %}
+                  <div class="flex-auto w-1/2">
+                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover">
+                  </div>
+                {% else %}
+                  <div class="flex-auto">
+                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover">
+                  </div>
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %}
+        </div>
+      {% endif %}
+
+        {#
+          {% set lastWordFromTweet = item.text.lastIndexOf(" ") %}
+          {% set tweetWithoutLink =  item.text.substring(0, item.text.lastIndexOf(" "))
+          {% set linkfromTweet = item.text.split(" ").pop() %}
+        #}
+
+      <div class="p-4 w-full">
+        <span class="text-sm xl:text-base font-bold block mb-2">{{ item.created_at | fullDate }}</span>
+        <p class="text-base xl:text-lg"><a href="{{ item.user.url }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: {{ item.full_text }}</p>
+      </div>
+
+      <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">
+        <div class="flex justify-between">
+          <div class="flex items-center text-pink-600">
+            <svg class="w-6 h-6 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="leading-none relative mt-px">{{ item.favorite_count }}</span>
+          </div>
+          <a href="{{ url }}" class="underline hover:no-underline text-blue-500 mt-px" target="_blank" rel="noopener noreferrer">{{ urlText }}</a>
+        </div>
+      </div>
+    </li>
+
+    {# {% for media in item.extended_entities.media %}
+      {{ media | dump }}
+    {% endfor %} #}
+
+  {% endfor %}
+  </ul>
+</section>
+
+{% if pagination.href.first != pagination.href.last %}
+
+  {% set buttonClasses = "button mx-1" %}
+
+  {% if pagination.items %}
+  <nav aria-labelledby="pagination">
+    <ol class="flex justify-between -mx-1 ">
+      <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
+        {% if page.url != pagination.href.first %}
+          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-initial w-4/12 sm:w-2/8">
+        {% if pagination.href.previous %}
+          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-auto justify-center items-center mx-1 flex w-4/12 sm:w-2/8">
+        {%- for pageEntry in pagination.pages %}
+          {% if page.url == pagination.hrefs[ loop.index0 ] %}
+            <span class="text-sm sm:text-base whitespace-nowrap text-gray-600 dark:text-gray-200">
+              Pagina {{ loop.index }} van {{ pagination.pages.length }}
+            </span>
+          {% endif %}
+        {%- endfor %}
+      </li>
+      <li class="flex-initial w-4/12 sm:w-2/8">
+        {% if pagination.href.next %}
+          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span></a>
+        {% endif %}
+      </li>
+      <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
+        {% if page.url != pagination.href.last %}
+          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span></a>
+        {% endif %}
+      </li>
+    </ol>
+  </nav>
+  {% endif %}
+{% endif %}
