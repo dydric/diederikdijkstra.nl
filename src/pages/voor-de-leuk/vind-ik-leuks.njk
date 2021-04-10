@@ -1,7 +1,7 @@
 ---
 layout: page.njk
 title: 'Vind ik leuks'
-description: Mijn laatste Twitter likes op een rijtje. Momenteel nog wel heel erg in ontwikkeling.
+description: Mijn laatste Twitter likes op een rijtje. Dit overzicht is nog wel heel erg in ontwikkeling. Superfun om de twitterapi leeg te trekken :)
 permalink: '/vind-ik-leuks/page-{{ pagination.pageNumber + 1 }}/'
 pagination:
   data: twitterfavs
@@ -81,11 +81,11 @@ eleventyNavigation:
             {% else %}
                 {% if totalMedia > 1 %}
                   <div class="flex-auto w-1/2">
-                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
                   </div>
                 {% else %}
                   <div class="flex-auto">
-                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover">
+                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
                   </div>
                 {% endif %}
 
@@ -103,7 +103,7 @@ eleventyNavigation:
 
       <div class="p-4 w-full">
         <span class="text-sm xl:text-base font-bold block mb-2">{{ item.created_at | fullDate }}</span>
-        <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: {{ item.full_text }}</p>
+        <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: <span class="tweetText">{{ item.full_text | tweetText | safe }}</span></p>
       </div>
 
       <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">

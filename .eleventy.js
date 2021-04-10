@@ -1,6 +1,7 @@
 const htmlmin = require("html-minifier");
 const site = require('./src/data/site.js');
 const fullDate = require('./src/filters/fullDate.js');
+const tweetText = require('./src/filters/tweetText.js');
 const limit = require('./src/filters/limit.js');
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -26,6 +27,7 @@ module.exports = function (eleventyConfig) {
   // Filters
   eleventyConfig.addFilter('fullDate', fullDate);
   eleventyConfig.addFilter('limit', limit);
+  eleventyConfig.addFilter('tweetText', tweetText);
 
   // Collections
   const now = new Date();
