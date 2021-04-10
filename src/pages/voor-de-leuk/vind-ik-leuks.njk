@@ -1,7 +1,7 @@
 ---
 layout: page.njk
 title: 'Vind ik leuks'
-description: Mijn laatste Twitter likes op een rijtje.
+description: Mijn laatste Twitter likes op een rijtje. Momenteel nog wel heel erg in ontwikkeling.
 permalink: '/vind-ik-leuks/page-{{ pagination.pageNumber + 1 }}/'
 pagination:
   data: twitterfavs
@@ -11,8 +11,6 @@ eleventyNavigation:
   key: Vind ik leuks
   order: 3
 ---
-
-{#  #}
 
 {% set totalpages = pagination.links | length %}
 
@@ -55,13 +53,18 @@ eleventyNavigation:
                     'relative z-0 pb-56 w-full' : !play
                   }"
                   >
-                  <video class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 cursor-pointer"
-                  :class="{
-                    'h-auto w-auto max-h-screen max-w-screen' : play,
-                    'w-full h-auto' : !play
-                  }"
-
-                  width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" x-ref="video" @click="play = !play">
+                  <video
+                    class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 cursor-pointer"
+                    :class="{
+                      'h-auto w-auto max-h-screen max-w-screen' : play,
+                      'w-full h-auto' : !play
+                    }"
+                    width="{{ media.sizes.small.w }}"
+                    height="{{ media.sizes.small.h }}"
+                    x-ref="video" @click="play = !play"
+                    poster="{{ media.media_url_https }}"
+                    preload="none"
+                  >
                     {% for video in media.video_info.variants %}
                     <source src="{{ video.url }} " type="{{ video.content_type }}" >
                     {% endfor %}
@@ -100,7 +103,7 @@ eleventyNavigation:
 
       <div class="p-4 w-full">
         <span class="text-sm xl:text-base font-bold block mb-2">{{ item.created_at | fullDate }}</span>
-        <p class="text-base xl:text-lg"><a href="{{ item.user.url }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: {{ item.full_text }}</p>
+        <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: {{ item.full_text }}</p>
       </div>
 
       <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">
