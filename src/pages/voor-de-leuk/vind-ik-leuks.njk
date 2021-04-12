@@ -14,6 +14,10 @@ eleventyNavigation:
 
 {% set totalpages = pagination.links | length %}
 
+
+{%- import "twitter.njk" as twitter with context -%}
+
+
 <section>
   <ul class="grid gap-4 md:grid-cols-2 ">
 
@@ -29,71 +33,42 @@ eleventyNavigation:
         {% set urlText = "Link" %}
       {% endif %}
 
-      {% if item.extended_entities.media %}
+      {% if item.quoted_status %}
 
-        {% set totalMedia =  item.extended_entities.media | length %}
+      {% set quotedUrl = "https://twitter.com/dydric/status/" +  item.quoted_status.id_str %}
+      {% set quotedUrlText = "Tweet" %}
 
+      {% if item.entities.urls[0].expanded_url %}
+        {% set quotedUrl =  item.quoted_status.entities.urls[0].expanded_url %}
+        {% set quotedUrlText = "Link" %}
+      {% endif %}
 
-        <div{% if totalMedia > 1 %} class="flex flex-wrap"{% endif %}>
+        <div class="bg-gray-100 dark:bg-gray-700  border-2 border-gray-300 dark:border-gray-600 mx-4 mt-4 rounded relative pb-8">
+        {{ twitter.media(
+          mediaItems = item.quoted_status.extended_entities.media
+        ) }}
 
-        {% for media in item.extended_entities.media %}
+          <div class="p-2">
+            {# <span class="text-sm xl:text-base font-bold block mb-2">{{ item.quoted_status.created_at | fullDate }}</span> #}
+            <p class="text-sm xl:text-base"><a href="https://twitter.com/{{ item.quoted_status.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.quoted_status.user.name }}</a>: <span class="tweetText">{{ item.quoted_status.full_text | tweetText | safe }}</span></p>
+          </div>
 
-            {% if media.type == "video" or media.type == "animated_gif" %}
-              <div x-data="{ play: false }" x-init="$watch('play', (value) => {
-                    if (value) {
-                      $refs.video.play()
-                    } else {
-                      $refs.video.pause()
-                    }
-                  })">
-                <div
-                  class="relative overflow-hidden block w-full h-0"
-                  :class="{
-                    'fixed left-0 top-0 bottom-0 right-0 bg-black bg-opacity-90 z-50 h-auto p-0 bg-blur' : play,
-                    'relative z-0 pb-56 w-full' : !play
-                  }"
-                  >
-                  <video
-                    class="absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 cursor-pointer"
-                    :class="{
-                      'h-auto w-auto max-h-screen max-w-screen' : play,
-                      'w-full h-auto' : !play
-                    }"
-                    width="{{ media.sizes.small.w }}"
-                    height="{{ media.sizes.small.h }}"
-                    x-ref="video" @click="play = !play"
-                    poster="{{ media.media_url_https }}"
-                    preload="none"
-                  >
-                    {% for video in media.video_info.variants %}
-                    <source src="{{ video.url }} " type="{{ video.content_type }}" >
-                    {% endfor %}
-                  </video>
-                  <button @click="play = !play" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="absolute inset-0 w-full h-full flex items-center justify-center focus:outline-none">
-                    <svg class="h-16 w-16 text-blue-500" x-show="!play"  fill="currentColor" viewBox="0 0 84 84">
-                        <circle opacity="0.9" cx="42" cy="42" r="42" fill="white"></circle>
-                        <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z"></path>
-                    </svg>
-                  </button>
-                </div>
+          <div class="absolute left-0 right-0 bottom-0 p-2 text-right text-xs xl:text-sm font-bold">
+            <div class="flex justify-between">
+              <div class="flex items-center text-pink-600">
+                <svg class="w-4 h-4 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <span class="leading-none relative mt-px">{{ item.quoted_status.favorite_count }}</span>
               </div>
-              {# {{ media.video_info | dump }} #}
-            {% else %}
-                {% if totalMedia > 1 %}
-                  <div class="flex-auto w-1/2">
-                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
-                  </div>
-                {% else %}
-                  <div class="flex-auto">
-                    <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
-                  </div>
-                {% endif %}
+              <a href="{{ quotedUrl }}" class="underline hover:no-underline text-blue-500 mt-px" target="_blank" rel="noopener noreferrer">{{ quotedUrlText }}</a>
+            </div>
+          </div>
 
-            {% endif %}
-
-        {% endfor %}
         </div>
       {% endif %}
+
+      {{ twitter.media(
+        mediaItems = item.extended_entities.media
+      ) }}
 
         {#
           {% set lastWordFromTweet = item.text.lastIndexOf(" ") %}
@@ -103,7 +78,9 @@ eleventyNavigation:
 
       <div class="p-4 w-full">
         <span class="text-sm xl:text-base font-bold block mb-2">{{ item.created_at | fullDate }}</span>
-        <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: <span class="tweetText">{{ item.full_text | tweetText | safe }}</span></p>
+        {% if item.full_text | tweetText | safe != "" %}
+          <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: <span class="tweetText">{{ item.full_text | tweetText | safe }}</span></p>
+        {% endif %}
       </div>
 
       <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">
