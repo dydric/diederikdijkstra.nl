@@ -19,5 +19,22 @@
 
   </body>
 <script src="//twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
-<script>twemoji.parse(document.body, {folder: 'svg', ext: '.svg'});</script>
+<script>
+  twemoji.parse(
+    document.body, {
+      folder: 'svg',
+      ext: '.svg'
+    }
+  );
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var emoji = document.querySelectorAll('.emoji');
+    if(emoji) {
+      for (i = 0; i < emoji.length; i++) {
+        emoji[i].setAttribute("width", "72");
+        emoji[i].setAttribute("height", "72");
+      }
+    }
+  });
+</script>
 </html>
