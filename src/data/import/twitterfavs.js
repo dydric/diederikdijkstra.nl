@@ -3,7 +3,7 @@ if ( process.env.ELEVENTY_PRODUCTION) {
   const fs = require('fs');
   const twitter = require('twitter');
 
-  module.exports = () => {
+  module.exports = async () => {
 
     require('dotenv').config();
 
@@ -20,23 +20,10 @@ if ( process.env.ELEVENTY_PRODUCTION) {
       tweet_mode: 'extended'
     };
 
-    client.get('favorites/list', params, function (error, tweets) {
+    client.get('favorites/list', params, function (error, favorites) {
       if (!error) {
 
-        // tweets = tweets.map((tweet) => {
-
-        //   console.log(tweet);
-
-        //   return {
-        //     text:    tweet.text,
-        //     url:     'https://twitter.com/dydric/status/' + tweet.id_str,
-        //     created: tweet.created_at.substring()
-        //   };
-        // });
-
-        // console.log(tweets);
-
-        fs.writeFile(__dirname + '/../twitterfavs.json', JSON.stringify(tweets), err => {
+        fs.writeFile(__dirname + '/../twitterfavs.json', JSON.stringify(favorites), err => {
           if(err) {
             console.log(err);
           } else {
