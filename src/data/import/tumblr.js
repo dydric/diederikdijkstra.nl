@@ -40,8 +40,10 @@ if ( process.env.ELEVENTY_PRODUCTION) {
                 if (post.type == 'photo') {
 
                   var sizesLength = post.photos[0].alt_sizes.length;
+                  var thumb = '';
+
                   if (sizesLength > 4) {
-                    var thumb = post.photos[0].alt_sizes[sizesLength - 4].url;
+                    thumb = post.photos[0].alt_sizes[sizesLength - 4].url;
                   } else {
                     thumb = post.photos[0].alt_sizes[sizesLength - 3].url;
                   }
@@ -88,5 +90,5 @@ if ( process.env.ELEVENTY_PRODUCTION) {
       });
 
     });
-  }
+  };
 }
