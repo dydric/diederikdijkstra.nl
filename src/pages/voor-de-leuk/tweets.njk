@@ -1,0 +1,86 @@
+---
+layout: page.njk
+title: 'Leuke tweet:'
+permalink: /vind-ik-leuks/{{ twitterfavs.id }}/index.html
+pagination:
+  data: twitterfavs
+  size: 1
+  alias: twitterfavs
+renderData:
+  title: "🐤 Vind ik leuke <a href='https://twitter.com/dydric/status/{{ twitterfavs.id_str }}' target='_blank' rel='noopener noreferrer'>tweet</a>:"
+---
+
+
+{%- import "twitter.njk" as twitter with context -%}
+
+<section>
+
+<div class="mb-0 h-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 dark:text-white rounded relative pb-16">
+
+{% set url = "https://twitter.com/dydric/status/" + twitterfavs.id_str %}
+      {% set urlText = "Tweet" %}
+
+      {# {% if twitterfavs.entities.urls[0].expanded_url %}
+        {% set url = twitterfavs.entities.urls[0].expanded_url %}
+        {% set urlText = "Link" %}
+      {% endif %} #}
+
+      {% if twitterfavs.quoted_status %}
+
+        <div class="bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 mx-4 mt-4 rounded relative">
+        {{ twitter.media(
+          mediaItems = twitterfavs.quoted_status.extended_entities.media,
+          size = "large"
+        ) }}
+
+          <div class="p-2">
+            {# <span class="text-sm xl:text-base font-bold block mb-2">{{ twitterfavs.quoted_status.created_at | fullDate }}</span> #}
+            <p class="text-sm xl:text-base">
+              {# <a href="https://twitter.com/{{ twitterfavs.quoted_status.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ twitterfavs.quoted_status.user.name }}</a>:  #}
+              <span class="tweetText">{{ twitterfavs.quoted_status.full_text | tweetText | safe }}</span>
+            </p>
+          </div>
+
+          {# <div class="absolute left-0 right-0 bottom-0 p-2 text-right text-xs xl:text-sm font-bold">
+            <div class="flex justify-between">
+              <div class="flex items-center text-pink-600">
+                <svg class="w-4 h-4 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <span class="leading-none relative mt-px">{{ twitterfavs.quoted_status.favorite_count }}</span>
+              </div>
+            </div>
+          </div> #}
+
+        </div>
+      {% endif %}
+
+      {{ twitter.media(
+        mediaItems = twitterfavs.extended_entities.media,
+        size = "large"
+      ) }}
+
+        {#
+          {% set lastWordFromTweet = twitterfavs.text.lastIndexOf(" ") %}
+          {% set tweetWithoutLink =  twitterfavs.text.substring(0, twitterfavs.text.lastIndexOf(" "))
+          {% set linkfromTweet = twitterfavs.text.split(" ").pop() %}
+        #}
+
+      <div class="p-4 w-full">
+        <span class="text-sm xl:text-base font-bold block mb-2">{{ twitterfavs.created_at | fullDate }}</span>
+        {% if twitterfavs.full_text | tweetText | safe != "" %}
+          <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ twitterfavs.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ twitterfavs.user.name }}</a>: <span class="tweetText">{{ twitterfavs.full_text | tweetText | safe }}</span></p>
+        {% endif %}
+      </div>
+
+      <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">
+        <div class="flex justify-between">
+          <div class="flex items-center text-pink-600">
+            <svg class="w-6 h-6 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="leading-none relative mt-px">{{ twitterfavs.favorite_count }}</span>
+          </div>
+          <a href="{{ url }}" class="underline hover:no-underline text-blue-500 mt-px" target="_blank" rel="noopener noreferrer">{{ urlText }}</a>
+        </div>
+      </div>
+
+  </div>
+
+</section>

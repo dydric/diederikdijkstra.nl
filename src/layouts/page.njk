@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if renderData.title or title %}
-  <h1>{% if renderData.title %}{{ renderData.title }}{% else %}{{ title }}{% endif %}</h1>
+  <h1>{% if renderData.title %}{{ renderData.title | safe }}{% else %}{{ title }}{% endif %}</h1>
 {% endif %}
 
 {% if description %}

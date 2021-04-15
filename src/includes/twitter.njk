@@ -1,13 +1,23 @@
 {% macro media(
-  mediaItems = item.extended_entities.media
+  mediaItems = item.extended_entities.media,
+  size = "small"
 ) %}
 {% if mediaItems %}
 
   {% set totalMedia =  mediaItems | length %}
 
+
   <div{% if totalMedia > 1 %} class="flex flex-wrap"{% endif %}>
 
   {% for media in mediaItems %}
+
+    {% set mediaSizeWidth = media.sizes.small.w %}
+    {% set mediaSizeHeight = media.sizes.small.h %}
+
+    {% if size == 'large' %}
+      {% set mediaSizeWidth = media.sizes.large.w %}
+      {% set mediaSizeHeight = media.sizes.large.h %}
+    {% endif %}
 
       {% if media.type == "video" or media.type == "animated_gif" %}
         <div x-data="{ play: false }" x-init="$watch('play', (value) => {
@@ -30,8 +40,8 @@
                 'h-auto w-auto max-h-screen max-w-screen' : play,
                 'w-full h-auto' : !play
               }"
-              width="{{ media.sizes.small.w }}"
-              height="{{ media.sizes.small.h }}"
+              width="{{ mediaSizeWidth }}"
+              height="{{ mediaSizeHeight }}"
               x-ref="video" @click="play = !play"
               poster="{{ media.media_url_https }}"
               preload="none"
@@ -52,11 +62,23 @@
       {% else %}
           {% if totalMedia > 1 %}
             <div class="flex-auto w-1/2">
-              <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
+              <img
+                src="{{ media.media_url_https }}"
+                width="{{ mediaSizeWidth }}"
+                height="{{ mediaSizeHeight }}"
+                alt=""
+                class="w-full h-full object-cover rounded-none"
+              >
             </div>
           {% else %}
             <div class="flex-auto">
-              <img src="{{ media.media_url_https }}" width="{{ media.sizes.small.w }}" height="{{ media.sizes.small.h }}" alt="" class="w-full h-full object-cover rounded-none">
+              <img
+                src="{{ media.media_url_https }}"
+                width="{{ mediaSizeWidth }}"
+                height="{{ mediaSizeHeight }}"
+                alt=""
+                class="w-full h-full object-cover rounded-none"
+              >
             </div>
           {% endif %}
 
