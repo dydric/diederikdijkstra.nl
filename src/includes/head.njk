@@ -3,8 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
   <title>
-    {%- if renderData.title -%}{{ renderData.title }} &mdash;{% else -%}
-      {%- if title -%}{{ title }} &mdash; {% endif -%}
+    {%- if renderData.title -%}{{ renderData.title | striptags(true) | escape | nl2br }} &mdash; {% else -%}
+      {% if title -%}{{ title }} &mdash; {% endif -%}
     {%- endif -%}{{ site.name -}}
   </title>
 
