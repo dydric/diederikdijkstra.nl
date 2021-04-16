@@ -2,7 +2,7 @@
 layout: page.njk
 title: '🐤 Leuke tweetjes'
 description: Mijn laatste Twitter likes op een rijtje. Dit overzicht is nog wel heel erg in ontwikkeling. Superfun om de twitterapi leeg te trekken :)
-permalink: '/vind-ik-leuks/page-{{ pagination.pageNumber + 1 }}/'
+permalink: '/leuke-tweetjes/page-{{ pagination.pageNumber + 1 }}/'
 pagination:
   data: twitterfavs
   size: 20
@@ -76,7 +76,7 @@ eleventyNavigation:
 
       <div class="absolute left-0 right-0 bottom-0 p-4 text-right text-sm xl:text-base font-bold">
         <div class="flex justify-between">
-          <a href="/vind-ik-leuks/{{ item.id }}/index.html" class="flex items-center text-pink-600">
+          <a href="/leuk-tweetje/{{ item.id }}/index.html" class="flex items-center text-pink-600">
             <svg class="w-6 h-6 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             <span class="leading-none relative mt-px">{{ item.favorite_count }}</span>
           </a>
