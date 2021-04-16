@@ -1,4 +1,9 @@
-/blog/                /blog/page-1/
-/blog                 /blog/page-1/
-/playlist/            /fijne-deuntjes/
-/scrapbook/page-1/    /mooie-plaatjes/page-1/
+/blog/                    /blog/page-1/
+/blog                     /blog/page-1/
+/playlist/                /fijne-deuntjes/
+/mooie-plaatjes           /mooie-plaatjes/page-1/
+/mooie-plaatjes/          /mooie-plaatjes/page-1/
+/scrapbook/page-1/        /mooie-plaatjes/page-1/
+/vind-ik-leuks/page-1/    /leuke-tweetjes/page-1/
+/leuke-tweetjes           /leuke-tweetjes/page-1/
+/leuke-tweetjes/          /leuke-tweetjes/page-1/
