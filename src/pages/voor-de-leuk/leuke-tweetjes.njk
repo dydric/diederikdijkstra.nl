@@ -20,7 +20,7 @@ eleventyNavigation:
 
   {% for item in pagination.items %}
 
-    <li class="mb-0 h-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 dark:text-white rounded relative pb-16">
+    <li class="mb-0 h-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 dark:text-white rounded relative pb-16 overflow-hidden">
 
       {% set url = "https://twitter.com/dydric/status/" + item.id_str %}
       {% set urlText = "Tweet" %}
@@ -33,6 +33,7 @@ eleventyNavigation:
       {% if item.quoted_status %}
 
         <div class="bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 mx-4 mt-4 rounded relative">
+
         {{ twitter.media(
           mediaItems = item.quoted_status.extended_entities.media
         ) }}
@@ -57,8 +58,15 @@ eleventyNavigation:
         </div>
       {% endif %}
 
+      {% if item.quoted_status.extended_entities.media %}
+        {% set spacing = true %}
+      {% else %}
+        {% set spacing = false %}
+      {% endif %}
+
       {{ twitter.media(
-        mediaItems = item.extended_entities.media
+        mediaItems = item.extended_entities.media,
+        topSpacing = spacing
       ) }}
 
         {#

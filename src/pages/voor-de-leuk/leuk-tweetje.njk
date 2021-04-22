@@ -53,9 +53,16 @@ renderData:
         </div>
       {% endif %}
 
+      {% if item.quoted_status.extended_entities.media %}
+        {% set spacing = true %}
+      {% else %}
+        {% set spacing = false %}
+      {% endif %}
+
       {{ twitter.media(
-        mediaItems = twitterfavs.extended_entities.media,
-        size = "large"
+        mediaItems = item.extended_entities.media,
+        size = "large",
+        topSpacing = spacing
       ) }}
 
         {#

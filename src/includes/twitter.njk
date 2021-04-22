@@ -1,13 +1,13 @@
 {% macro media(
   mediaItems = item.extended_entities.media,
-  size = "small"
+  size = "small",
+  topSpacing = false
 ) %}
 {% if mediaItems %}
 
   {% set totalMedia =  mediaItems | length %}
 
-
-  <div{% if totalMedia > 1 %} class="flex flex-wrap"{% endif %}>
+  <div class="{% if totalMedia > 1 %}flex flex-wrap{% endif %}{% if topSpacing %} mt-4{% endif %}">
 
   {% for media in mediaItems %}
 
