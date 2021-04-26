@@ -10,7 +10,6 @@ renderData:
   title: "🐤 Leuk <a href='https://twitter.com/dydric/status/{{ twitterfavs.id_str }}' target='_blank' rel='noopener noreferrer'>tweetje</a>:"
 ---
 
-
 {%- import "twitter.njk" as twitter with context -%}
 
 <section>
@@ -53,14 +52,14 @@ renderData:
         </div>
       {% endif %}
 
-      {% if item.quoted_status.extended_entities.media %}
+      {% if twitterfavs.quoted_status.extended_entities.media %}
         {% set spacing = true %}
       {% else %}
         {% set spacing = false %}
       {% endif %}
 
       {{ twitter.media(
-        mediaItems = item.extended_entities.media,
+        mediaItems = twitterfavs.extended_entities.media,
         size = "large",
         topSpacing = spacing
       ) }}
