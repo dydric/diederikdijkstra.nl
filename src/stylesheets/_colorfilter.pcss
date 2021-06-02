@@ -2,6 +2,7 @@
   @apply relative;
 
   img {
+    @apply rounded-sm;
     filter: brightness(0.9) contrast(1.4) grayscale(1);
 
     .dark & {
@@ -10,8 +11,7 @@
   }
 
   &:after{
-    @apply transition-opacity duration-100;
-    @apply absolute block top-0 left-0 h-full w-full;
+    @apply absolute block top-0 left-0 h-full w-full rounded-sm;
     @apply bg-blue-600;
 
     content: '';
@@ -24,7 +24,6 @@
     }
 
     &:after {
-      @apply transition-opacity duration-100;
       @apply opacity-0;
     }
   }

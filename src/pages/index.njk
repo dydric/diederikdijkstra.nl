@@ -10,8 +10,11 @@ eleventyNavigation:
 {% block content %}
 
   <section>
-    <h1 class="mb-8">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als <a href="/developer/" class="link">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
-      <div class="color-filter max-w-lg mt-4 block rounded-sm">
+    <div class="sm:flex justify-start items-start">
+      <div class="sm:flex-auto sm:w-1/2 relative z-10 sm:mt-16">
+        <h1 class="mb-8 sm:-mr-24">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als <a href="/developer/" class="link">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
+      </div>
+      <div class="color-filter max-w-lg block rounded-sm overflow-hidden sm:flex-auto sm:w-1/2 relative z-0">
       {% cloudinaryImage
         site.url + "/static/images/home/diederik.jpg",
         "f_auto,c_fill,g_faces:auto,w_960",
@@ -21,6 +24,7 @@ eleventyNavigation:
         ""
       %}
       </div>
+    </div>
   </section>
 
   <section>
