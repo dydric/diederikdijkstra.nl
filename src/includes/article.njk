@@ -72,7 +72,8 @@
   postTags = tags,
   postImage = thumbnail,
   bodyContent = content,
-  postLinks = link
+  postLinks = link,
+  postGallery = gallery
 ) %}
 
 <article
@@ -130,10 +131,27 @@
           postLinks = postLinks
         ) }}
       {% endif %}
+
       {{ bodyContent | safe }}
       {{ youtubeEmbed(
         postLinks = postLinks
       ) }}
+      {% if postGallery %}
+        <div class="gallery flex items-end -mx-1">
+        {% for photo in postGallery-%}
+          <div class="flex-auto mx-1">
+          {% cloudinaryImage
+            site.url + photo,
+            "f_auto,c_fill,g_faces:auto,w_960",
+            "afbeelding van " + title,
+            "block max-w-full mx-auto rounded",
+            "960",
+            "960"
+          %}
+          </div>
+        {%- endfor -%}
+        </div>
+      {% endif %}
     {% endif %}
   </article>
 
