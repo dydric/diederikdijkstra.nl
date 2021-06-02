@@ -1,0 +1,35 @@
+.color-filter {
+  @apply relative;
+
+  img {
+    filter: brightness(0.9) contrast(1.4) grayscale(1);
+
+    .dark & {
+      filter: brightness(0.8) contrast(1.4) grayscale(1) opacity(.8);
+    }
+  }
+
+  &:after{
+    @apply transition-opacity duration-100;
+    @apply absolute block top-0 left-0 h-full w-full;
+    @apply bg-blue-600;
+
+    content: '';
+    mix-blend-mode: screen;
+  }
+
+  &:hover {
+    img {
+      filter: none;
+    }
+
+    &:after {
+      @apply transition-opacity duration-100;
+      @apply opacity-0;
+    }
+  }
+}
+
+
+
+
