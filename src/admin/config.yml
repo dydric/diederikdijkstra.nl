@@ -41,10 +41,12 @@ collections: # A list of collections the CMS should be able to edit
         name: "hide"
         widget: "boolean"
         default: false
+        required: false
       - label: "Hide title"
         name: "hide_title"
         widget: "boolean"
         default: false
+        required: false
       - label: "Tags"
         name: "tags"
         widget: "list"
@@ -58,6 +60,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "type"
         widget: "select"
         options: ["normal", "audio", "chat", "link", "location", "photo", "quote", "video"]
+        required: false
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
@@ -77,6 +80,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "link"
         minimize_collapsed: true
         widget: "list"
+        required: false
         fields:
           - label: Type
             name: link_type
@@ -89,6 +93,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "gallery"
         widget: "list"
         summary: '{{fields.image}}'
+        required: false
         field:
           label: Image
           name: gallery_image
