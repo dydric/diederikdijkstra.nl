@@ -12,11 +12,19 @@ eleventyNavigation:
   <section>
     <h1>Diederik woont in Leeuwarden met Lotte, Elin en Fedde.
       Werkt als <a href="/developer/" class="link">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
+
+      {% cloudinaryImage
+            site.url + "/static/images/home/diederik.jpg",
+            "f_auto,c_fill,g_faces:auto,w_1280",
+            "Foto van Diederik",
+            "",
+            "1280",
+            "960"
+          %}
   </section>
 
   <section>
     <h2>Laatste berichten:</h2>
-
 
     <ul>
       {%- set latestposts = collections.posts | limit(25) -%}
