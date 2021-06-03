@@ -41,12 +41,12 @@ eleventyNavigation:
 
       {%- if index <= 3 and not post.data.hide -%}
       <li>
-
         {%- set itemsperpage = site.itemsPerPage -%}
-
-        {%- if (loop.index - 1) % itemsperpage == 0 -%}
+        {%- if (index - 1) % itemsperpage == 0 -%}
           {%- set page = page + 1 -%}
         {%- endif -%}
+
+        {# {{loop.index }} / {{ itemsperpage }} / {{ index }} / {{ page }} #}
         {%- set url = "/blog/page-" + page -%}
 
         {%- if (loop.index - 1) % itemsperpage != 0 -%}
