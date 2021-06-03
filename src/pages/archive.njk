@@ -35,7 +35,7 @@ eleventyNavigation:
         {%- set url = url + "#" + post.data.title | slug -%}
       {%- endif -%}
 
-    <li{% if post.data.hide %} class="small-post"{% endif %}>
+    <li{% if post.data.hide %} class="hidden-post"{% endif %}>
       <a href="{{ url }}">{{ post.data.title }}</a>
       <time datetime="{{ post.date.toISOString() }}">{{ post.date | fullDate }}</time>
     </li>

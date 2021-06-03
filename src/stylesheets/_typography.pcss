@@ -94,11 +94,19 @@ section {
       }
     }
 
-    li.small-post {
-      @apply text-sm;
+    li.hidden-post {
+      @apply opacity-50;
+
+      &:hover {
+        @apply opacity-100;
+      }
 
       > a {
-        @apply text-xl;
+        @apply text-black;
+
+        .dark & {
+          @apply text-white;
+        }
       }
     }
   }
