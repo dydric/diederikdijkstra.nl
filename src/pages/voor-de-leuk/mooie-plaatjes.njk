@@ -13,6 +13,7 @@ eleventyNavigation:
 ---
 
 {% set totalpages = pagination.links | length %}
+
 {# {% if pagination.pageNumber == 0 %}
   <p class="-mt-4 mb-8 text-gray-700 text-lg font-medium">Pagina {{ pagination.pageNumber + 1 }} van {{ totalpages }}
 {% endif %} #}
@@ -23,20 +24,19 @@ eleventyNavigation:
 
   <div class="grid gap-2 grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 max-w-full mb-8">
   {% for item in pagination.items %}
+    {% set imageIndex = pagination.pageNumber * 60 + loop.index %}
     <div class="flex items-end">
-      <a href="/image/{{ item.id }}/index.html" class="rounded overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
+      <a href="/image/{{ item.id }}/index.html?index={{ imageIndex }}" class="rounded overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
     </div>
   {% endfor %}
   </div>
 
   <div class="sticky bottom-8 text-center pointer-events-none">
-
     <div class="bg-blue-600 bg-opacity-75 text-white font-bold rounded p-4 mx-auto inline-block text-center bg-blur">
       <div class="opacity-75">
         <p class="text-xs md:text-sm"><strong>Note:</strong> These images are NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="pointer-events-auto">Tumblr</a>.</p>
       </div>
     </div>
-
   </div>
 
 </div>

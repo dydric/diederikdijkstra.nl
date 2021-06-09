@@ -28,6 +28,32 @@ pagination:
         { 'filter-blur opacity-10 bg-cover': !enLarge }
       "
     >
+
+    <div class="fixed bottom-8 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none"
+      x-data="{ gotoIndex : false }"
+      x-init="
+        $watch('gotoIndex', value => {
+          if(gotoIndex) {
+            index = '';
+
+            if (window.location.search) {
+              urlParams = new URLSearchParams(window.location.search);
+              index = Math.ceil(urlParams.get('index') / 60);
+              window.location.href = '/mooie-plaatjes/page-' + index + '/';
+            } else {
+              window.location.href = '/mooie-plaatjes/page-1/';
+            }
+          }
+        });
+      "
+    >
+      <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4"
+        @click="gotoIndex = true"
+        @keydown.window.backspace="gotoIndex = true"
+      >
+        <strong>Terug naar overzicht</strong>
+      </button>
+    </div>
   </div>
 
   <div class="flex flex-wrap items-center justify-center relative z-10 w-screen left-1/2 transform -translate-x-1/2 px-4">
@@ -44,12 +70,34 @@ pagination:
         alt="Tumblr image">
     </div>
 
-    <div class="sticky bottom-8 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none">
-      <div class="bg-blue-600 bg-opacity-75 text-white font-bold rounded p-4 mx-auto inline-block text-center bg-blur">
-        <div class="opacity-75">
-          <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="pointer-events-auto">Tumblr</a>.</strong><br>Tips: 1) use arrow keys to navigate. 2) Click image to enlarge (spacebar).</p>
-        </div>
-      </div>
+    <div class="sticky bottom-8 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none"
+      x-data="{ gotoIndex : false }"
+      x-init="
+        $watch('gotoIndex', value => {
+          if(gotoIndex) {
+            index = '';
+
+            if (window.location.search) {
+              urlParams = new URLSearchParams(window.location.search);
+              index = Math.ceil(urlParams.get('index') / 60);
+              window.location.href = '/mooie-plaatjes/page-' + index + '/';
+            } else {
+              window.location.href = '/mooie-plaatjes/page-1/';
+            }
+          }
+        });
+      "
+    >
+      <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4"
+        @click="gotoIndex = true"
+        @keydown.backspace="gotoIndex = true"
+      >
+        <strong>Terug naar overzicht</strong>
+      </button>
+    </div>
+
+    <div class="opacity-50 text-center pt-4">
+      <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="pointer-events-auto">Tumblr</a>.</strong><br>Tips: 1) use arrow keys to navigate. 2) Click image to enlarge (spacebar).</p>
     </div>
   </div>
 
@@ -65,10 +113,19 @@ pagination:
       $watch('gotoNext', value => {
         if(gotoNext) {
           hash = '';
+          nextIndex = '';
+
           if (window.location.hash == '#fullscreen') {
             hash = '#fullscreen';
           }
-          window.location.href = '{{ pagination.href.next }}' + hash;
+
+          if (window.location.search) {
+            urlParams = new URLSearchParams(window.location.search);
+            nextIndex = parseFloat(urlParams.get('index')) + 1;
+            window.location.href = '{{ pagination.href.next }}?index=' + nextIndex + hash;
+          } else {
+            window.location.href = '{{ pagination.href.next }}' + hash;
+          }
         }
       });
     "
@@ -93,7 +150,14 @@ pagination:
           if (window.location.hash == '#fullscreen') {
             hash = '#fullscreen';
           }
-          window.location.href = '{{ pagination.href.previous }}' + hash;
+
+          if (window.location.search) {
+            urlParams = new URLSearchParams(window.location.search);
+            prevIndex = parseFloat(urlParams.get('index')) - 1;
+            window.location.href = '{{ pagination.href.previous }}?index=' + prevIndex + hash;
+          } else {
+            window.location.href = '{{ pagination.href.previous }}' + hash;
+          }
         }
       });
     ">
