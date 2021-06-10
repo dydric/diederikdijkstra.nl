@@ -25,7 +25,7 @@ eleventyNavigation:
   <div class="grid gap-2 grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 max-w-full mb-8">
   {% for item in pagination.items %}
     {% set imageIndex = pagination.pageNumber * 60 + loop.index %}
-    <div class="flex items-end">
+    <div class="flex items-end" id="image{{imageIndex}}">
       <a href="/image/{{ item.id }}/index.html?index={{ imageIndex }}" class="rounded overflow-hidden block shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full"><img src="{{ item.thumb }}" alt="" class="w-full block lazyload"></a>
     </div>
   {% endfor %}

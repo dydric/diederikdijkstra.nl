@@ -28,36 +28,19 @@ pagination:
         { 'filter-blur opacity-10 bg-cover': !enLarge }
       "
     >
-
-    <div class="fixed bottom-8 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none"
-      x-data="{ gotoIndex : false }"
-      x-init="
-        $watch('gotoIndex', value => {
-          if(gotoIndex) {
-            index = '';
-
-            if (window.location.search) {
-              urlParams = new URLSearchParams(window.location.search);
-              index = Math.ceil(urlParams.get('index') / 60);
-              window.location.href = '/mooie-plaatjes/page-' + index + '/';
-            } else {
-              window.location.href = '/mooie-plaatjes/page-1/';
-            }
-          }
-        });
-      "
-    >
-      <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4"
-        @click="gotoIndex = true"
-        @keydown.window.backspace="gotoIndex = true"
-      >
-        <strong>Terug naar overzicht</strong>
-      </button>
-    </div>
   </div>
 
-  <div class="flex flex-wrap items-center justify-center relative z-10 w-screen left-1/2 transform -translate-x-1/2 px-4">
-    <div class="relative h-full flex items-center">
+  <div
+    class="flex flex-wrap items-center justify-center px-4"
+    :class="
+      { 'z-50 fixed bottom-0 left-0 right-0 top-auto': enLarge },
+      { 'z-10 relative w-screen left-1/2 transform -translate-x-1/2': !enLarge }
+  ">
+    <div class="relative h-full flex items-center"
+    :class="
+      { 'hidden': enLarge },
+      { 'flex': !enLarge }
+    ">
       <button
         @click="enLarge = !enLarge"
         @keydown.window.space="enLarge = !enLarge"
@@ -70,7 +53,7 @@ pagination:
         alt="Tumblr image">
     </div>
 
-    <div class="sticky bottom-8 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none"
+    <div class="sticky bottom-4 text-center z-30 self-end w-full pt-4 sm:pt-8 pointer-events-none"
       x-data="{ gotoIndex : false }"
       x-init="
         $watch('gotoIndex', value => {
@@ -79,8 +62,9 @@ pagination:
 
             if (window.location.search) {
               urlParams = new URLSearchParams(window.location.search);
-              index = Math.ceil(urlParams.get('index') / 60);
-              window.location.href = '/mooie-plaatjes/page-' + index + '/';
+              index = urlParams.get('index');
+              page = Math.ceil(index / 60);
+              window.location.href = '/mooie-plaatjes/page-' + page + '/#image' + index;
             } else {
               window.location.href = '/mooie-plaatjes/page-1/';
             }
@@ -88,7 +72,7 @@ pagination:
         });
       "
     >
-      <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4"
+      <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4 mb-4"
         @click="gotoIndex = true"
         @keydown.backspace="gotoIndex = true"
       >
@@ -96,7 +80,11 @@ pagination:
       </button>
     </div>
 
-    <div class="opacity-50 text-center pt-4">
+    <div class="opacity-50 text-center"
+    :class="
+      { 'hidden': enLarge },
+      { 'block': !enLarge }
+    ">
       <p class="text-xs md:text-sm"><strong>Note:</strong> This image is NOT mine, but reblogged from <a href="{{ tumblr.url }}" target="_blank" rel="noopener noreferrer" class="pointer-events-auto">Tumblr</a>.</strong><br>Tips: 1) use arrow keys to navigate. 2) Click image to enlarge (spacebar).</p>
     </div>
   </div>
