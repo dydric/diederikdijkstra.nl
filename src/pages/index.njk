@@ -15,29 +15,31 @@ eleventyNavigation:
         <h1 class="mb-8 sm:-mr-24 sm:pointer-events-none">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als <a href="/developer/" class="link pointer-events-auto">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
 
         <script>
-        { coded = "tjEtEojdtjMdmDoO@PE0.AYq"
-          key = "GKWFvsSYjDZR4OUJXBVE6r3dwQy7hmpCMbf8c1gI52H9zoitTu0aPqNlnexLAk"
-          shift=coded.length
-          link=""
-          for (i=0; i<coded.length; i++) {
-            if (key.indexOf(coded.charAt(i))==-1) {
-              ltr = coded.charAt(i)
-              link += (ltr)
-            }
-            else {
-              ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-              link += (key.charAt(ltr))
+          { coded = "tjEtEojdtjMdmDoO@PE0.AYq"
+            key = "GKWFvsSYjDZR4OUJXBVE6r3dwQy7hmpCMbf8c1gI52H9zoitTu0aPqNlnexLAk"
+            shift=coded.length
+            link=""
+            for (i=0; i<coded.length; i++) {
+              if (key.indexOf(coded.charAt(i))==-1) {
+                ltr = coded.charAt(i)
+                link += (ltr)
+              }
+              else {
+                ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                link += (key.charAt(ltr))
+              }
             }
           }
-        }
 
-        setTimeout(function(){
-          var elem = document.querySelector('.contact');
-          elem.innerHTML = '<a class="button py-2 text-xl sm:text-2xl md:text-lg xl:text-2xl font-bold mb-2 pointer-events-auto" href="mailto:'+link+'">' +link+ '</a><span><strong>of stuur een <a href="https://twitter.com/messages/compose?recipient_id=775387" class="link pointer-events-auto">DM via Twitter</a></strong></span>';
-        }, 1000);
-      </script>
+          setTimeout(function(){
+            var elem = document.querySelector('.contact');
+            elem.innerHTML = '<a class="button py-2 text-xl sm:text-2xl md:text-lg xl:text-2xl font-bold mb-2 pointer-events-auto" href="mailto:'+link+'">' +link+ '</a><span><strong>of stuur een <a href="https://twitter.com/messages/compose?recipient_id=775387" class="link pointer-events-auto">DM via Twitter</a></strong></span>';
+          }, 1000);
+        </script>
 
-        <div class="contact sm:-mr-24 md:mr-8 lg:mr-24 max-w-lg mb-8"></div>
+        <div class="contact sm:-mr-24 md:mr-8 lg:mr-24 max-w-lg mb-8">
+          <a class="button py-2 text-xl sm:text-2xl md:text-lg xl:text-2xl font-bold mb-2 pointer-events-auto" href="#">mail naar:</a><span><strong>of stuur een <a href="https://twitter.com/messages/compose?recipient_id=775387" class="link pointer-events-auto">DM via Twitter</a></strong></span>
+        </div>
       </div>
       <div class="color-filter max-w-lg block rounded-sm overflow-hidden sm:flex-auto sm:w-1/2 relative z-0">
       {% cloudinaryImage
