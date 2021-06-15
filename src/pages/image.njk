@@ -74,7 +74,7 @@ pagination:
     >
       <button class="button font-bold mx-auto bg-blur pointer-events-auto px-4 mb-4"
         @click="gotoIndex = true"
-        @keydown.backspace="gotoIndex = true"
+        @keydown.window.backspace="gotoIndex = true"
       >
         <strong>Terug naar overzicht</strong>
       </button>
