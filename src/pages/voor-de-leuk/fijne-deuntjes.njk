@@ -9,23 +9,28 @@ eleventyNavigation:
   order: 1
 ---
 
-{% cloudinaryImage
-  site.url + "/static/images/uploads/fijne-deuntjes1.gif",
-  "f_auto,c_fill,g_faces:auto,w_960",
-  "Making a playlist is a delicate art",
-  "",
-  "960",
-  ""
-%}
-
-{% cloudinaryImage
-  site.url + "/static/images/uploads/fijne-deuntjes2.gif",
-  "f_auto,c_fill,g_faces:auto,w_960",
-  "It's like writing a love letter, but better in a way.",
-  "",
-  "960",
-  ""
-%}
+<div class="sm:flex sm:-mr-4 lg:relative lg:left-1/2 lg:w-screen lg:max-w-5xl xl:max-w-6xl lg:transform lg:-translate-x-1/2 lg:pl-4">
+  <div class="flex-auto sm:w-1/2">
+    {% cloudinaryImage
+      site.url + "/static/images/uploads/fijne-deuntjes1.gif",
+      "f_auto,c_fill,g_faces:auto,w_640",
+      "Making a playlist is a delicate art",
+      "w-full rounded sm:mr-4",
+      "640",
+      ""
+    %}
+  </div>
+  <div class=" flex-auto sm:w-1/2">
+    {% cloudinaryImage
+      site.url + "/static/images/uploads/fijne-deuntjes2.gif",
+      "f_auto,c_fill,g_faces:auto,w_640",
+      "It's like writing a love letter, but better in a way.",
+      "w-full rounded mt-2 sm:mt-6 sm:-ml-4",
+      "640",
+      ""
+    %}
+  </div>
+</div>
 
 <section>
   <h2>Laatste editie:</h2>
