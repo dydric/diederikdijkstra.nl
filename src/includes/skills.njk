@@ -35,7 +35,7 @@
 
 <ul class="grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
   {% for emoji, title, content in skills %}
-  <li class="text-white bg-gray-800 dark:bg-blue-600 leading-tight p-4 mb-0 rounded">
+  <li class="text-white bg-blue-600 leading-tight p-4 mb-0 rounded">
       {% if title %}<span class="mb-2"><strong>{{ title | safe }}</strong></span><br>{% endif %}
       {% if content %}<span class="text-base">{{ content | safe }}</span>{% endif %}
   </li>
