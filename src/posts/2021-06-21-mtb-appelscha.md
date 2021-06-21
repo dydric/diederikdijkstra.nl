@@ -1,13 +1,14 @@
 ---
 title: MTB in Appelscha 🌳
 templateEngineOverride: njk, md
-date: 2021-06-18
+date: 2021-06-21
 hide: false
 hide_title: false
 type: location
 tags:
   - blog
   - wielrennen
+  - familie
 link:
 - link_type: komoot
   link_url: https://www.komoot.nl/tour/396871703/embed?share_token=aySMsOUfuYb0Quekk1VtniC71ApkOkYS6mbaNI9anFQ1a9OM2q&gallery=1
