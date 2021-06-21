@@ -46,16 +46,16 @@ eleventyNavigation:
   {% set buttonClasses = "button mx-1" %}
 
   {% if pagination.items %}
-  <nav aria-labelledby="pagination">
+  <nav role="navigation" aria-label="pagination">
     <ol class="flex justify-between -mx-1 ">
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.first %}
-          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}"><span>#1</span></a>
+          <a href="{{ pagination.href.first }}" class="{{ buttonClasses }}" aria-label="Ga naar eerste pagina"><span>#1</span></a>
         {% endif %}
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.previous %}
-          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}"><span>Vorige</span></a>
+          <a href="{{ pagination.href.previous }}" class="{{ buttonClasses }}" aria-label="Ga naar vorige pagina"><span>Vorige</span></a>
         {% endif %}
       </li>
       <li class="flex-auto justify-center items-center mx-1 flex w-4/12 sm:w-2/8">
@@ -69,12 +69,12 @@ eleventyNavigation:
       </li>
       <li class="flex-initial w-4/12 sm:w-2/8">
         {% if pagination.href.next %}
-          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}"><span>Volgende</span></a>
+          <a href="{{ pagination.href.next }}" class="{{ buttonClasses }}" aria-label="Ga naar volgende pagina"><span>Volgende</span></a>
         {% endif %}
       </li>
       <li class="flex-initial flex-shrink-0 w-1/8 hidden sm:block">
         {% if page.url != pagination.href.last %}
-          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}"><span>#{{ pagination.pages.length }}</span></a>
+          <a href="{{ pagination.href.last }}" class="{{ buttonClasses }}" aria-label="Ga naar laatste pagina"><span>#{{ pagination.pages.length }}</span></a>
         {% endif %}
       </li>
     </ol>

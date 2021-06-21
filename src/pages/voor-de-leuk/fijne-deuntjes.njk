@@ -1,7 +1,7 @@
 ---
 layout: page.njk
 title: 'Fijne deuntjes'
-description: Spotify playlist die ik elke week vul met 25 verse versjes. Luister en abonneer direct via <a class="link" href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer">https://sptfy.com/deuntjes</a>. 🎧
+description: Fijne deuntjes is een Spotify playlist die ik elke week vul met 25 verse versjes. Luister en abonneer direct via <a class="link" href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer">https://sptfy.com/deuntjes</a>. 🎧
 permalink: '/fijne-deuntjes/'
 eleventyNavigation:
   parent: Voor de leuk
@@ -9,15 +9,15 @@ eleventyNavigation:
   order: 1
 ---
 
-<div class="sm:flex sm:-mr-4 lg:relative lg:left-1/2 lg:w-screen lg:max-w-5xl xl:max-w-6xl lg:transform lg:-translate-x-1/2 lg:pl-4">
+<div class="sm:flex sm:-mr-4 lg:relative lg:left-1/2 lg:w-screen lg:max-w-5xl xl:max-w-6xl lg:transform lg:-translate-x-1/2 lg:pl-4 mb-8">
   <div class="flex-auto sm:w-1/2">
     {% cloudinaryImage
       site.url + "/static/images/uploads/fijne-deuntjes1.gif",
       "f_auto,c_fill,g_faces:auto,w_640",
       "Making a playlist is a delicate art",
       "w-full rounded sm:mr-4",
-      "640",
-      ""
+      "568",
+      "398"
     %}
   </div>
   <div class=" flex-auto sm:w-1/2">
@@ -26,8 +26,8 @@ eleventyNavigation:
       "f_auto,c_fill,g_faces:auto,w_640",
       "It's like writing a love letter, but better in a way.",
       "w-full rounded mt-2 sm:mt-6 sm:-ml-4",
-      "640",
-      ""
+      "568",
+      "398"
     %}
   </div>
 </div>
@@ -37,5 +37,7 @@ eleventyNavigation:
   {%- import "music.njk" as music with context -%}
   {{ music.list() }}
 </section>
+
+<a class="button text-xl sm:text-2xl md:text-lg xl:text-2xl font-bold py-2" href="https://sptfy.com/deuntjes" target="_blank" rel="noopener noreferrer">Abonneer op "Fijne deuntjes"</a>
 
 
