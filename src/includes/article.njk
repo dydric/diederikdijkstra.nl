@@ -98,7 +98,15 @@
       </div>
     {%- endif -%}
 
-    {% if postType == "audio" %}
+    {% if postType == "video" %}
+
+    {{ youtubeEmbed(
+      postLinks = postLinks
+    ) }}
+
+    {{ bodyContent | safe }}
+
+    {% elif postType == "audio" %}
       {{ audio(
         postImage = postImage,
         bodyContent = bodyContent,
