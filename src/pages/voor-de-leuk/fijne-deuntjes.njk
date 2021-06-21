@@ -9,6 +9,24 @@ eleventyNavigation:
   order: 1
 ---
 
+{% cloudinaryImage
+  site.url + "/static/images/upload/fijne-deuntjes1.gif",
+  "f_auto,c_fill,g_faces:auto,w_960",
+  "Making a playlist is a delicate art",
+  "",
+  "960",
+  ""
+%}
+
+{% cloudinaryImage
+  site.url + "/static/images/upload/fijne-deuntjes2.gif",
+  "f_auto,c_fill,g_faces:auto,w_960",
+  "It's like writing a love letter, but better in a way.",
+  "",
+  "960",
+  ""
+%}
+
 <section>
   <h2>Laatste editie:</h2>
   {%- import "music.njk" as music with context -%}
