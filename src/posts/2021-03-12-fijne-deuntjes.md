@@ -1,5 +1,5 @@
 ---
-title: Fijne deuntjes
+title: Fijne deuntjes 🎶
 templateEngineOverride: njk, md
 date: 2021-03-12
 tags:

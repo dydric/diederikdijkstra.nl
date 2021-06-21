@@ -1,5 +1,5 @@
 ---
-title: Social zomerstop
+title: Social zomerstop ⛔️
 templateEngineOverride: njk, md
 date: 2021-06-18
 hide: false

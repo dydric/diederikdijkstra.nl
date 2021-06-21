@@ -1,5 +1,5 @@
 ---
-title: Wintersport in Fryslân
+title: Wintersport in Fryslân 🛷
 date: 2021-02-13
 tags:
   - blog

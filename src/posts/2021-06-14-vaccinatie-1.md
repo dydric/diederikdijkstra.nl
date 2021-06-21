@@ -1,5 +1,5 @@
 ---
-title: "Vaccinatie #1"
+title: "Vaccinatie #1 💉"
 templateEngineOverride: njk, md
 date: 2021-06-14
 hide: false

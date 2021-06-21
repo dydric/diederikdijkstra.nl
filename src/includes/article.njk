@@ -1,3 +1,17 @@
+{% macro komootEmbed(
+  postLinks = postLinks
+) %}
+  {% if postLinks %}
+    {% for link in postLinks %}
+      {% if link.link_type == "komoot" %}
+        <div class="iframe-holder komoot">
+          <iframe class="iframe" src="{{ link.link_url }}" frameborder="0" scrolling="no"></iframe>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
 {% macro spotifyEmbed(
   postLinks = postLinks
 ) %}
@@ -98,7 +112,32 @@
       </div>
     {%- endif -%}
 
-    {% if postType == "video" %}
+    {% if postType == "location" %}
+
+      {{ komootEmbed(
+        postLinks = postLinks
+      ) }}
+
+      {{ bodyContent | safe }}
+
+      {% if postGallery %}
+        <div class="gallery flex items-end -mx-1">
+        {% for photo in postGallery-%}
+          <div class="flex-auto mx-1">
+          {% cloudinaryImage
+            site.url + photo,
+            "f_auto,c_fill,g_faces:auto,w_960",
+            "",
+            "block max-w-full mx-auto rounded",
+            "960",
+            "960"
+          %}
+          </div>
+        {%- endfor -%}
+        </div>
+      {% endif %}
+
+    {% elif postType == "video" %}
 
     {{ youtubeEmbed(
       postLinks = postLinks
@@ -144,6 +183,9 @@
       {{ youtubeEmbed(
         postLinks = postLinks
       ) }}
+      {{ komootEmbed(
+        postLinks = postLinks
+      ) }}
       {% if postGallery %}
         <div class="gallery flex items-end -mx-1">
         {% for photo in postGallery-%}
@@ -151,7 +193,7 @@
           {% cloudinaryImage
             site.url + photo,
             "f_auto,c_fill,g_faces:auto,w_960",
-            "afbeelding van " + title,
+            "",
             "block max-w-full mx-auto rounded",
             "960",
             "960"
