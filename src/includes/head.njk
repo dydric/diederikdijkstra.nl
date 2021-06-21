@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="/style.css?v={% cacheBuster %}"/>
   {% endif %}
 
-  <script src="/js/alpine.js?v={% cacheBuster %}"></script>
+  <script defer src="/js/alpine.js?v={% cacheBuster %}"></script>
   <script>
     if (localStorage.theme === 'dark' || (localStorage.getItem("theme") === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');

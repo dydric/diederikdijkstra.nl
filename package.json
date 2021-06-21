@@ -8,7 +8,7 @@
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-navigation": "^0.1.0",
     "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "alpinejs": "^2.7.3",
+    "alpinejs": "^3",
     "clean-css-cli": "^4.3.0",
     "dotenv": "^8",
     "html-minifier": "^4.0.0",
