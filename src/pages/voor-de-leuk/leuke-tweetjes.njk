@@ -1,11 +1,11 @@
 ---
 layout: page.njk
 title: '🐤 Leuke tweetjes'
-description: Mijn laatste Twitter likes op een rijtje. Dit overzicht is nog wel heel erg in ontwikkeling. Superfun om de twitterapi leeg te trekken :)
+description: Tenminste dat vind ik 🙋‍♂️.<br> Dit is een overzicht met mijn Twitter likes op een rijtje.
 permalink: '/leuke-tweetjes/page-{{ pagination.pageNumber + 1 }}/'
 pagination:
   data: twitterfavs
-  size: 20
+  size: 15
 eleventyNavigation:
   parent: Voor de leuk
   key: Leuke tweetjes
@@ -16,11 +16,12 @@ eleventyNavigation:
 {%- import "twitter.njk" as twitter with context -%}
 
 <section>
-  <ul class="grid gap-4 md:grid-cols-2 ">
+  <div class="md:relative md:left-1/2 md:transform md:-translate-x-1/2 md:w-screen md:max-w-screen-xl md:px-4">
+  <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 
   {% for item in pagination.items %}
 
-    <li class="mb-0 h-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 dark:text-white rounded relative pb-16 overflow-hidden">
+    <li class="mb-0 h-full bg-white dark:bg-gray-800 dark:text-white rounded relative pb-16 overflow-hidden shadow-xl">
 
       {% set url = "https://twitter.com/dydric/status/" + item.id_str %}
       {% set urlText = "Tweet" %}
@@ -99,6 +100,7 @@ eleventyNavigation:
 
   {% endfor %}
   </ul>
+  </div>
 </section>
 
 {% if pagination.href.first != pagination.href.last %}
