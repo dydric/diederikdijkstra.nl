@@ -1,4 +1,4 @@
-if ( process.env.ELEVENTY_PRODUCTION == 'spotify') {
+if ( process.env.ELEVENTY_PRODUCTION === 'DEV') {
 
   const fs = require('fs');
   const auth = require('spotify-personal-auth');
