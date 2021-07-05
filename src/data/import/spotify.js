@@ -27,12 +27,15 @@ if ( process.env.ELEVENTY_PRODUCTION === 'DEV') {
       api.setAccessToken(token);
       api.setRefreshToken(refresh);
 
-      api.getMyTopTracks()
+      api.getMyTopTracks({
+        time_range: 'short_term',
+        limit : 20
+      })
         .then(function(data) {
           let topTracks = data.body.items;
           // console.log(topTracks);
 
-          fs.writeFile(__dirname + '/../spotifytoptracks.json', JSON.stringify(topTracks), function(err) {
+          fs.writeFile(__dirname + '/../spotify/toptracks.json', JSON.stringify(topTracks), function(err) {
             if(err) {
               console.log(err);
             } else {
@@ -45,12 +48,15 @@ if ( process.env.ELEVENTY_PRODUCTION === 'DEV') {
         });
 
 
-        api.getMyTopArtists()
+        api.getMyTopArtists({
+          time_range: 'medium_term',
+          limit: 18
+        })
           .then(function(data) {
             let topArtists = data.body.items;
             //console.log(topArtists);
 
-            fs.writeFile(__dirname + '/../spotifytopartists.json', JSON.stringify(topArtists), function(err) {
+            fs.writeFile(__dirname + '/../spotify/topartists.json', JSON.stringify(topArtists), function(err) {
               if(err) {
                 console.log(err);
               } else {
@@ -58,6 +64,22 @@ if ( process.env.ELEVENTY_PRODUCTION === 'DEV') {
               }
             });
           }, function(err) {
+            console.log('Something went wrong!', err);
+          });
+
+        api.getUserPlaylists('diederikdijkstra.nl')
+          .then(function(data) {
+            let playlists = data.body;
+            // console.log('Retrieved playlists', data.body);
+
+            fs.writeFile(__dirname + '/../spotify/playlists.json', JSON.stringify(playlists), function(err) {
+              if(err) {
+                console.log(err);
+              } else {
+                console.log('Spotify playlists saved');
+              }
+            });
+          },function(err) {
             console.log('Something went wrong!', err);
           });
 
