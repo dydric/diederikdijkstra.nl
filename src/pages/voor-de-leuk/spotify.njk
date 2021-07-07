@@ -1,0 +1,90 @@
+---
+layout: page.njk
+title: 'Spotify'
+description:
+permalink: '/spotify/'
+---
+
+  <section>
+    <h2>Topnummers van deze maand</h2>
+    <p class="mb-4 lg:-mt-2">Daar zitten natuurlijk ook wat favorieten van de kinderen tussen 😉</p>
+
+    {%- import "music.njk" as music with context -%}
+      <div class="grid divide-y-2 divide-gray-600 rounded bg-gray-800 dark:bg-black p-4" >
+
+    {% for track in spotify.toptracks %}
+      {{ music.track(
+          index = loop.index,
+          albumCoverUrl = track.album.images[1].url,
+          trackName = track.name,
+          trackArtists = track.artists,
+          spotifyLink = track.external_urls.spotify,
+          audioUrl = track.preview_url
+      ) }}
+    {% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <h2>Topartiesten</h2>
+    <p class="mb-4 lg:-mt-2">Overzicht van de laatste 6 maanden</p>
+
+    <div class="relative left-1/2 transform -translate-x-1/2 w-screen max-w-screen-2xl px-4">
+    <ul class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-9 gap-2 grid-flow-row-dense">
+    {% for artist in spotify.topartists %}
+
+      {% set highlighted = ['The Black Keys', 'The War On Drugs', 'Ben Howard'] %}
+      {% set classes = '' %}
+      {% if artist.name in highlighted %}
+        {% set classes = 'col-span-2 row-span-2' %}
+      {% endif %}
+
+      <li class="mb-0 relative {{ classes }}">
+        <a href="https://open.spotify.com/search/artist%3A{{ artist.name | urlencode }}/tracks" target="_blank" rel="noopener noreferrer" class="group rounded overflow-hidden shadow-md hover:shadow-xl block h-full hover:opacity-100 transition-shadow duration-100">
+          <div class="text-white bg-black text-xs md:text-sm leading-none font-extrabold p-1 m-1 hidden lg:block max-w-full absolute left-0 bottom-0 rounded opacity-0 group-hover:opacity-100">{{ artist.name }}</div>
+          <img src="{{ artist.images[1].url }}" width="{{ artist.images[1].width }}" height="{{ artist.images[1].height }}" class=" object-cover h-full w-full" loading="lazy">
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+    </div>
+  </section>
+
+  {% set newGenres = [] %}
+    {% for artist in spotify.topartists %}
+      {% for genre in artist.genres %}
+        {% if genre not in newGenres %}
+          {% set genres = (newGenres.push(genre), newGenres) %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+  <section>
+    <h2>Genres</h2>
+    <ul class="flex flex-wrap justify-start -mx-1">
+      {% for genre in newGenres %}
+        <li class="m-1 flex-auto text-center max-w-xs">
+        <a href="https://open.spotify.com/search/genre%3A{{ genre | urlencode }}/tracks" class="bg-blue-500 text-white p-2 rounded-sm leading-none block no-underline text-lg" target="_blank" rel="noopener noreferrer">{{ genre }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>Playlists</h2>
+    <ul class="flex flex-wrap -mx-1">
+    {% for playlist in spotify.playlists.items %}
+    {% if not 'Fijne deuntjes No' in playlist.name %}
+
+      <li class="w-full md:w-1/4 mb-0 relative px-1 pb-2">
+        <a href="{{ playlist.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+          <span class="text-white text-xs leading-none font-extrabold p-2 block w-full absolute left-0 bottom-0 right-0 mb-1">{{ playlist.name }}</span>
+          <img src="{{ playlist.images[0].url }}" width="{{ playlist.images[0].width }}" height="{{ playlist.images[0].height }}" class=" object-cover h-full w-full" loading="lazy">
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </section>
+
+

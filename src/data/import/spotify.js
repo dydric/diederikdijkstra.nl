@@ -48,40 +48,40 @@ if ( process.env.ELEVENTY_PRODUCTION === 'DEV') {
         });
 
 
-        api.getMyTopArtists({
-          time_range: 'medium_term',
-          limit: 18
-        })
-          .then(function(data) {
-            let topArtists = data.body.items;
-            //console.log(topArtists);
+      api.getMyTopArtists({
+        time_range: 'medium_term',
+        limit: 18
+      })
+        .then(function(data) {
+          let topArtists = data.body.items;
+          //console.log(topArtists);
 
-            fs.writeFile(__dirname + '/../spotify/topartists.json', JSON.stringify(topArtists), function(err) {
-              if(err) {
-                console.log(err);
-              } else {
-                console.log('Spotify top artists saved');
-              }
-            });
-          }, function(err) {
-            console.log('Something went wrong!', err);
+          fs.writeFile(__dirname + '/../spotify/topartists.json', JSON.stringify(topArtists), function(err) {
+            if(err) {
+              console.log(err);
+            } else {
+              console.log('Spotify top artists saved');
+            }
           });
+        }, function(err) {
+          console.log('Something went wrong!', err);
+        });
 
-        api.getUserPlaylists('diederikdijkstra.nl')
-          .then(function(data) {
-            let playlists = data.body;
-            // console.log('Retrieved playlists', data.body);
+      api.getUserPlaylists('diederikdijkstra.nl')
+        .then(function(data) {
+          let playlists = data.body;
+          // console.log('Retrieved playlists', data.body);
 
-            fs.writeFile(__dirname + '/../spotify/playlists.json', JSON.stringify(playlists), function(err) {
-              if(err) {
-                console.log(err);
-              } else {
-                console.log('Spotify playlists saved');
-              }
-            });
-          },function(err) {
-            console.log('Something went wrong!', err);
+          fs.writeFile(__dirname + '/../spotify/playlists.json', JSON.stringify(playlists), function(err) {
+            if(err) {
+              console.log(err);
+            } else {
+              console.log('Spotify playlists saved');
+            }
           });
+        },function(err) {
+          console.log('Something went wrong!', err);
+        });
 
     },
     function(err) {

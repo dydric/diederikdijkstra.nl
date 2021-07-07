@@ -1,33 +1,31 @@
-{% macro list(
-  data = playlist
+{% macro track(
+  index = loop.index,
+  albumCoverUrl = spotify.track.album.images[1].url,
+  trackName = spotify.track.name,
+  trackArtists = spotify.track.artists,
+  spotifyLink = spotify.track.external_urls.spotify,
+  audioUrl = spotify.track.preview_url
 ) %}
 
-  <div class="grid divide-y-2 divide-gray-600 rounded bg-gray-800 dark:bg-black p-4" >
 
-    {%- for i in range(0, data.items.length) -%}
-      {%- set spotify = data.items[i] -%}
       <div class="group flex w-full py-2" x-data='{ play: false }' x-init="
-              $watch('play', value => {
-
-                currentTrack = $refs.track{{loop.index}};
-
-                if(play) {
-                  currentTrack.play();
-                  {# currentTrackTO = setTimeout('currentTrack.pause(); play = false;', 30000); #}
-                } else {
-                  currentTrack.pause();
-                  currentTrack.currentTime=0;
-                  {# clearTimeout(currentTrackTO); #}
-                }
-              });
-            ">
+        $watch('play', value => {
+          currentTrack = $refs.track{{ index }};
+          if(play) {
+            currentTrack.play();
+          } else {
+            currentTrack.pause();
+            currentTrack.currentTime=0;
+          }
+        });
+      ">
 
         <div class="block flex-initial flex-shrink-0 w-8 sm:w-12 m-0">
-          <a href="{{ spotify.track.external_urls.spotify }}" target="_blank" rel="noopener noreferrer">
+          <a href="{{ spotifyLink }}" target="_blank" rel="noopener noreferrer">
           {% cloudinaryImage
-            spotify.track.album.images[1].url,
+            albumCoverUrl,
             "f_auto",
-            spotify.track.name + " - " + spotify.track.artists[0].name,
+            trackName + " - " + trackArtists[0].name,
             "w-full block rounded my-1",
             "32",
             "32"
@@ -37,17 +35,17 @@
 
         <div class="flex items-center flex-wrap flex-auto px-2 sm:px-3 w-0">
           <div class="font-extrabold leading-tight text-lg lg:text-2xl tracking-tight w-full mb-0 text-white">
-            {{ spotify.track.name }}
+            {{ trackName }}
           </div>
           <div class="font-medium leading-tight text-xs md:text-sm tracking-wider uppercase text-gray-400 w-full">
-            {%- for artist in spotify.track.artists -%}
+            {%- for artist in trackArtists -%}
               {%- if not loop.first -%}, {% endif -%}
               {{ artist.name }}
             {%- endfor -%}
           </div>
         </div>
 
-        {% if  spotify.track.preview_url %}
+        {% if  audioUrl %}
           <div class="block flex-initial flex-shrink-0 self-center w-8 sm:w-10 m-0">
             <button class="rounded-full focus:outline-none text-white bg-blue-600 hover:bg-transparent"
               @click="play = !play"
@@ -56,13 +54,34 @@
               <svg :class="{ 'hidden': play, 'block': !play }" class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               <svg :class="{ 'hidden': !play, 'block': play }" class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </button>
-            <audio class="hidden" x-ref="track{{loop.index}}">
-              <source src="{{ spotify.track.preview_url }}" type="audio/mpeg" />
+            <audio class="hidden" x-ref="track{{index}}">
+              <source src="{{ audioUrl }}" type="audio/mpeg" />
             </audio>
           </div>
         {% endif %}
 
       </div>
+
+{% endmacro %}
+
+
+{% macro list(
+  data = playlist
+) %}
+
+  <div class="grid divide-y-2 divide-gray-600 rounded bg-gray-800 dark:bg-black p-4" >
+
+    {%- for i in range(0, data.items.length) -%}
+      {%- set spotify = data.items[i] -%}
+
+      {{ track(
+        index = loop.index,
+        albumCoverUrl = spotify.track.album.images[1].url,
+        trackName = spotify.track.name,
+        trackArtists = spotify.track.artists,
+        spotifyLink = spotify.track.external_urls.spotify,
+        audioUrl = spotify.track.preview_url
+      ) }}
 
     {%- endfor -%}
   </div>
