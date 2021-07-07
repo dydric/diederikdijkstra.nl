@@ -39,8 +39,11 @@ permalink: '/spotify/'
         {% set classes = 'col-span-2 row-span-2' %}
       {% endif %}
 
+      {% set artistUrl = artist.uri | replace("spotify:", "https://open.spotify.com/") | replace("artist:", "artist/") %}
+
+
       <li class="mb-0 relative {{ classes }}">
-        <a href="https://open.spotify.com/search/artist%3A{{ artist.name | urlencode }}/tracks" target="_blank" rel="noopener noreferrer" class="group rounded overflow-hidden shadow-md hover:shadow-xl block h-full hover:opacity-100 transition-shadow duration-100">
+        <a href="{{ artistUrl }}" target="_blank" rel="noopener noreferrer" class="group rounded overflow-hidden shadow-md hover:shadow-xl block h-full hover:opacity-100 transition-shadow duration-100">
           <div class="text-white bg-black text-xs md:text-sm leading-none font-extrabold p-1 m-1 hidden lg:block max-w-full absolute left-0 bottom-0 rounded opacity-0 group-hover:opacity-100">{{ artist.name }}</div>
           <img src="{{ artist.images[1].url }}" width="{{ artist.images[1].width }}" height="{{ artist.images[1].height }}" class=" object-cover h-full w-full" loading="lazy">
         </a>
