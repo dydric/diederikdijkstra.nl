@@ -76,21 +76,22 @@ permalink: '/spotify/'
 
 
   <section>
-    <h2>Playlists</h2>
+    <h2>En Publique</h2>
+    <p class="mb-4 lg:-mt-2">Openbare playlists.</p>
     <ul class="flex flex-wrap -mx-1">
     {% for playlist in spotify.playlists.items %}
     {% if not 'Fijne deuntjes No' in playlist.name %}
 
       <li class="w-full sm:w-1/2 md:w-full mb-0 relative px-1 pb-2">
-        <a href="{{ playlist.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="bg-black p-4 rounded overflow-hidden hover:opacity-100 hover:bg-blue-600 no-underline flex flex-col md:flex-row h-full md:h-auto ">
-          <div class="flex-initial w-full md:w-32 mb-4 md:mb-0 md:mr-4 flex-shrink-0">
-            <img src="{{ playlist.images[0].url }}" width="{{ playlist.images[0].width }}" height="{{ playlist.images[0].height }}" class="w-full" loading="lazy">
+        <div class="bg-black p-4 rounded overflow-hidden flex flex-col md:flex-row h-full md:h-auto ">
+          <div class="flex-initial w-full md:w-32 xl:w-40 mb-4 md:mb-0 md:mr-4 flex-shrink-0">
+            <a href="{{ playlist.external_urls.spotify }}" target="_blank" rel="noopener noreferrer"><img src="{{ playlist.images[0].url }}" width="{{ playlist.images[0].width }}" height="{{ playlist.images[0].height }}" class="w-full" loading="lazy"></a>
           </div>
           <div class="text-white flex-auto">
-            <span class="text-white text-lg sm:text-xl lg:text-2xl leading-tight font-extrabold block no-underline">{{ playlist.name }}</span>
-            <span class="hidden md:block text-base font-normal leading-normal mt-2">{{ playlist.description | safe }}</span>
+            <a href="{{ playlist.external_urls.spotify }}" target="_blank" rel="noopener noreferrer" class="text-white text-xl sm:text-2xl lg:text-3xl xl:text-4xl leading-tight font-extrabold block no-underline hover:underline">{{ playlist.name }}</a>
+            <span class="hidden md:block text-lg font-medium leading-normal mt-2">{{ playlist.description | safe }}</span>
           </div>
-        </a>
+        </div>
       </li>
       {% endif %}
     {% endfor %}
