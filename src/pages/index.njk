@@ -12,7 +12,7 @@ eleventyNavigation:
   <section>
     <div class="sm:flex justify-start items-start">
       <div class="sm:flex-auto sm:w-1/2 relative z-10 sm:mt-16">
-        <h1 class="mb-8 sm:-mr-24 sm:pointer-events-none">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als <a href="/developer/" class="link pointer-events-auto">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder muziek.</h1>
+        <h1 class="mb-8 sm:-mr-24 sm:pointer-events-none">Diederik woont in Leeuwarden met Lotte, Elin en Fedde. Werkt als <a href="/developer/" class="link pointer-events-auto">developer</a> bij TRES. Wielerliefhebber. Kan geen dag zonder <a href="/spotify/" class="link pointer-events-auto">muziek</a>.</h1>
 
         <script>
           { coded = "tjEtEojdtjMdmDoO@PE0.AYq"
@@ -104,4 +104,76 @@ eleventyNavigation:
     </ul>
   </section>
 
+
+
+{%- import "twitter.njk" as twittercard with context -%}
+
+<section>
+  <h2>Laatste tweets:</h2>
+  {# <div class="md:relative md:w-screen md:px-4 md:left-1/2 md:ml-50vw"> #}
+  <ul class="grid gap-4 md:grid-cols-2 w-full">
+  {% for item in twitter %}
+    {% if loop.index <= "4" %}
+      <li class="mb-0 h-full bg-white dark:bg-gray-800 dark:text-white rounded relative pb-16 overflow-hidden shadow-xl">
+
+        {% set url = "https://twitter.com/dydric/status/" + item.id_str %}
+        {% set urlText = "Tweet" %}
+
+        {# {% if item.quoted_status %}
+          <div class="bg-gray-100 dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 mx-4 mt-4 rounded relative">
+            {{ twittercard.media(
+              mediaItems = item.quoted_status.extended_entities.media
+            ) }}
+            <div class="p-2">
+              <p class="text-sm xl:text-base">
+                <span class="tweetText">{{ item.quoted_status.full_text | tweetText | safe }}</span>
+              </p>
+            </div>
+          </div>
+        {% endif %} #}
+
+        {# {% if item.quoted_status.extended_entities.media %}
+          {% set spacing = true %}
+        {% else %}
+          {% set spacing = false %}
+        {% endif %} #}
+
+        {# {{ twittercard.media(
+          mediaItems = item.extended_entities.media,
+          topSpacing = spacing
+        ) }} #}
+
+          {#
+            {% set lastWordFromTweet = item.text.lastIndexOf(" ") %}
+            {% set tweetWithoutLink =  item.text.substring(0, item.text.lastIndexOf(" "))
+            {% set linkfromTweet = item.text.split(" ").pop() %}
+          #}
+
+        <div class="p-4 pb-0 w-full">
+          <span class="text-sm xl:text-base font-bold block mb-2">{{ item.created_at | fullDate }}</span>
+          {% if item.full_text | tweetText | safe != "" %}
+            <p class="text-base xl:text-lg"><a href="https://twitter.com/{{ item.user.screen_name }}" class="capitalize underline hover:no-underline font-medium" target="_blank" rel="noopener noreferrer">{{ item.user.name }}</a>: <span class="tweetText">{{ item.full_text | tweetText | safe }}</span></p>
+          {% endif %}
+        </div>
+
+        <div class="absolute left-0 right-0 bottom-0 p-4 pt-0 text-right text-sm xl:text-base font-bold">
+          <div class="flex justify-between">
+            {# <a href="{{ url }}" class="flex items-center text-pink-600">
+              <svg class="w-6 h-6 block mr-1" fill="currentColor" stroke="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+              <span class="leading-none relative mt-px">{{ item.favorite_count }}</span>
+            </a> #}
+            <a href="{{ url }}" class="underline hover:no-underline text-blue-500 mt-px" target="_blank" rel="noopener noreferrer">{{ urlText }}</a>
+          </div>
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+  {# </div> #}
+
+  <div class="text-right pt-3 text-base">
+    <p><a href="/leuke-tweetjes/page-1/" class="link">Leuke tweetjes</a>
+    <a href="https://twitter.com/intent/user?screen_name=dydric" target="_blank" rel="noopener noreferrer" class="button inline-flex px-4 ml-2">Volg me op twitter</a></p>
+  </div>
+</section>
 {% endblock %}
